@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: 'Roboto-Regular';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url('$lib/assets/fonts/Roboto-Regular.ttf');
+	}
+
+	@font-face {
+		font-family: 'Roboto-Mono';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url('$lib/assets/fonts/RobotoMono-VariableFont_wght.ttf');
+	}
+
+	@font-face {
+		font-family: 'ClashDisplay-Regular';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url('$lib/assets/fonts/ClashDisplay-Regular.otf');
+	}
+
+	@font-face {
+		font-family: 'NeuePower-Variable';
+		font-style: normal;
+		font-weight: 400 600 700 900;
+		font-display: swap;
+		src: url('$lib/assets/fonts/NeuePowerVariable-Ultra.ttf');
+	}
+
+	.dark-gradient {
+		background-image: linear-gradient(95deg, rgba(0, 0, 0, 0.48) 6.17%, rgba(0, 0, 0, 0.6) 92.59%);
+		background-size: 100%;
+	}
+
+	.gray-gradient {
+		background-image: linear-gradient(
+			108deg,
+			rgba(255, 255, 255, 0.48) 9.86%,
+			rgba(255, 255, 255, 0.23) 89.79%
+		);
+		background-size: 100%;
+	}
+
+	.black-gradient {
+		background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
+		background-size: 100%;
+	}
+
+	.menu-line {
+		stroke-width: 0.25rem;
+		stroke: #ffffff;
+		opacity: 0.7;
+		filter: drop-shadow(0rem 0.125rem 0.25rem rgba(0, 0, 0, 0.2));
+		width: 8.25rem;
+		height: 0.25rem;
+		background-color: #ffffff;
+	}
+
+	.gray-gradient-nav {
+		background-image: linear-gradient(108deg, #949393 9.86%, #424242 89.79%);
+	}
+
+	.dark-gradient-nav {
+		background-image: linear-gradient(95deg, #151515 6.17%, #0b0b0b 92.59%);
+		background-size: 100%;
+	}
+}
+
+:root {
+	--full-desktop-width: 100dvw;
+	--full-desktop-height: 100dvh;
+
+	--home-content-width: 20.3125rem;
+
+	--home-content-drop-closed-height: 9.1875rem;
+	--home-content-drop-open-height: 38.75rem;
+
+	--home-content-top-height: 28.375rem;
+	--home-content-map-height: 10.125rem;
+	--home-content-socials-height: 2.625rem;
+
+	--img-square-height: 150%;
+	--img-square-width: 45%;
+	--img-rect-height: 46dvh;
+	--img-rect-width: 74dvw;
+	--img-tall-heigth: 109dvh;
+	--img-tall-width: 45%;
+
+	--card-width: 90%;
+	--card-height: 90%;
+	--card-width-full-bg: 45%;
+	--card-big-width: 73.125rem;
+
+	--file-img-width: 41.875rem;
+	--file-img-height: 6.25rem;
+	--file-audio-width: 26.3784rem;
+	--file-audio-height: 7.45rem;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+body {
+	color: #ffffff;
+	background-color: #1e1e1e;
+
+	/* Scrollbar width */
+	::-webkit-scrollbar {
+		width: 0.1rem !important;
+		height: 0.5rem;
+	}
+
+	/* Scrollbar Track */
+	::-webkit-scrollbar-track {
+		background: #a6a6a6 !important;
+	}
+
+	/* Scrollbar Handle */
+	::-webkit-scrollbar-thumb {
+		background: #313431 !important;
+		border-radius: 1.3125rem !important;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #555 !important;
+	}
+}
