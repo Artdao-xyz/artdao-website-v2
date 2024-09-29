@@ -14,7 +14,7 @@
 </script>
 
 <div
-	class="w-[85.1875rem] rounded-[6.25rem] h-[1rem] flex flex-row items-center z-50 sticky top-[1.95%] mx-auto"
+	class="w-[75rem] macBook:w-[85.1875rem] rounded-[6.25rem] h-[1rem] flex flex-row items-center z-50 sticky top-[1.95%] mx-auto"
 >
 	{#each navItems as navItem, i}
 		<a
