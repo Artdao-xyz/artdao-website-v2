@@ -4,11 +4,13 @@
 	import ImgNavigator from '$lib/elements/ImgNavigator/ImgNavigator.svelte';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import { onDestroy } from 'svelte';
-	import { ESizeVariant } from '../../../constants/enums';
+	import { EColorVariant, ESizeVariant } from '../../../constants/enums';
 	import { selectedAboutItem } from './store';
 	export let images: string[];
 	export let aboutDropdownItems: IAboutDropdown[];
 	export let route: string;
+	export let isContain = false;
+	$: dropdownItem = aboutDropdownItems[aboutItemIndex];
 
 	let aboutItemIndex: number;
 
@@ -19,9 +21,9 @@
 	onDestroy(unsubscribe);
 </script>
 
-<SectionContainer>
+<SectionContainer colorVariant={EColorVariant.BLACK}>
 	<div id={route} class="w-full h-full">
-		<AboutDropdown bind:aboutDropdown={aboutDropdownItems[aboutItemIndex]} />
-		<ImgNavigator {images} variant={ESizeVariant.BIG} />
+		<AboutDropdown bind:aboutDropdown={dropdownItem} />
+		<ImgNavigator {images} variant={ESizeVariant.BIG} {isContain} />
 	</div>
 </SectionContainer>

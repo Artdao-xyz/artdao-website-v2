@@ -6,6 +6,10 @@
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
+	import ImgNavigator from '$lib/elements/ImgNavigator/ImgNavigator.svelte';
+	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
+	import { ESizeVariant } from '../../../constants/enums';
+	import { sulkianImages } from '../../../data/Projects/DigitalMatter/ImgNavigator';
 	import { digitalMatterNavItems } from '../../../data/Projects/DigitalMatter/NavItems';
 	import {
 		marcusAbout,
@@ -52,6 +56,10 @@
 		aboutImages={sulkianAboutImages}
 		route={digitalMatterNavItems[2].route}
 	/>
+
+	<SectionContainer>
+		<ImgNavigator images={sulkianImages} variant={ESizeVariant.BIG} isContain />
+	</SectionContainer>
 
 	<ProjectVideo videoProject={aeroVideo} />
 

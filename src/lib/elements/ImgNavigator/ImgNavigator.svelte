@@ -1,21 +1,26 @@
 <script lang="ts">
-	import { selectedAboutItem } from '$lib/components/ProjectAboutDropdown/store';
+	// import { selectedAboutItem } from '$lib/components/ProjectAboutDropdown/store';
 	import { ESizeVariant } from '../../../constants/enums';
 
 	export let images: string[];
 	export let variant: ESizeVariant;
+	export let isContain = false;
 	let index: number = 0;
 
 	const handleOnClick = (i: number) => {
 		index = i;
-		selectedAboutItem.set(i);
+		// selectedAboutItem.set(i);
 	};
 
 	const navigatorWidth = variant === ESizeVariant.SMALL ? 'w-1/2' : 'w-full';
 </script>
 
 <div class="{navigatorWidth} h-full relative">
-	<img src={images[index]} alt="Big view" class="w-full h-full object-cover" />
+	<img
+		src={images[index]}
+		alt="Big view"
+		class="w-full h-full {!isContain ? 'object-cover' : 'object-contain'}"
+	/>
 
 	<div class="flex flex-row gap-[1.375rem] absolute left-10 bottom-10">
 		{#each images as image, i}
