@@ -17,7 +17,7 @@
 </script>
 
 <div
-	style={`background-image: url("${bgImage}"); background-size: cover;`}
+	style={`background-image: url("${bgImage}"); background-size: cover; background-position: center;`}
 	class="w-full h-[100dvh] p-[2.5rem]"
 >
 	<button on:click={() => (isOpen = !isOpen)} class="backdrop-filter backdrop-blur-[2.5rem]">
