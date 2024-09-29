@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="w-card-width h-card-height bg-color-white rounded-40 p-10 flex flex-col gap-5 mx-auto max-w-[40rem] max-h-[50rem] mt-[1rem]"
+	class="w-card-width h-card-height laptopL:w-[34.375rem] laptopL:h-[37.5rem] bigScreen:w-card-width bigScreen:h-card-height bg-color-white rounded-40 p-10 flex flex-col gap-5 mx-auto max-w-[40rem] max-h-[50rem] mt-[1rem]"
 >
 	<div
 		class="h-9 px-5 border border-color-black justify-start items-center rounded-40 flex flex-row w-full"
@@ -22,7 +22,9 @@
 	>
 		{title}
 	</h2>
-	<div class="w-full h-full">
-		<p class="font-clash font-medium leading-[1.5625rem] text-base text-color-black">{text}</p>
+	<div class="w-full h-full overflow-y-auto pr-1">
+		<p class="font-clash font-medium leading-[1.5625rem] text-base text-color-black">
+			{text}
+		</p>
 	</div>
 </div>

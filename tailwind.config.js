@@ -2,6 +2,16 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
+		screens: {
+			laptopM: '1366px',
+			// => @media(min-width: 1366px) {...}
+			macBook: '1440px',
+			// => @media(min-width: 1440px) {...}
+			laptopL: '1500px',
+			// => @media(min-width: 1500px) {...}
+			bigScreen: '1700px'
+			// => @media(min-width: 1700px) {...}
+		},
 		colors: {
 			'color-gray': 'rgba(255, 255, 255, 0.40)',
 			'color-gray-secondary': 'rgba(255, 255, 255, 0.60)',

@@ -10,7 +10,7 @@
 
 	const videoCardWidth =
 		size === ESizesVariant.LARGE
-			? 'w-[81.25%]'
+			? 'w-[81.25%] laptopM:max-w-[70%] macBook:max-w-[81.25%] laptopL:max-w-[60%] bigScreen:max-w-[70%]'
 			: size === ESizesVariant.MEDIUM
 				? 'w-[59%]'
 				: 'w-[34.72%]';
