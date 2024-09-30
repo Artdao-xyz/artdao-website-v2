@@ -1,15 +1,16 @@
 <script lang="ts">
-	// import { selectedAboutItem } from '$lib/components/ProjectAboutDropdown/store';
 	import { ESizeVariant } from '../../../constants/enums';
+	import AboutDropdown from '../AboutDropdown/AboutDropdown.svelte';
+	import type { IAboutDropdown } from '../AboutDropdown/interfaces';
 
 	export let images: string[];
 	export let variant: ESizeVariant;
 	export let isContain = false;
+	export let aboutDropdownItems: IAboutDropdown[] | undefined = undefined;
 	let index: number = 0;
 
 	const handleOnClick = (i: number) => {
 		index = i;
-		// selectedAboutItem.set(i);
 	};
 
 	const navigatorWidth = variant === ESizeVariant.SMALL ? 'w-1/2' : 'w-full';
@@ -33,4 +34,8 @@
 			</button>
 		{/each}
 	</div>
+
+	{#if aboutDropdownItems}
+		<AboutDropdown bind:aboutDropdown={aboutDropdownItems[index]} />
+	{/if}
 </div>

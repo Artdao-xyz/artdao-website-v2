@@ -11,7 +11,7 @@
 	let isOpen: boolean = false;
 </script>
 
-<div class="absolute z-40 ml-[2%] mt-[5%]">
+<div class="absolute z-40 ml-[2%] mt-[5%] top-0">
 	<button on:click={() => (isOpen = !isOpen)}>
 		{#if !isOpen}
 			<div
