@@ -1,6 +1,7 @@
 <script>
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+	import ProjectAudioFiles from '$lib/components/ProjectAudioFiles/ProjectAudioFiles.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
@@ -13,6 +14,7 @@
 		raveMemoriesImages
 	} from '../../../data/Projects/Rave/ProjectAboutDropdown';
 	import { raveArtworkImages } from '../../../data/Projects/Rave/ProjectArtworkGallery';
+	import { raveAudioFiles } from '../../../data/Projects/Rave/ProjectAudioFiles';
 	import { raveProject } from '../../../data/Projects/Rave/ProjectIntro';
 	import { afterPartyVideo, blessingForSaleVideo } from '../../../data/Projects/Rave/ProjectVideo';
 </script>
@@ -30,6 +32,8 @@
 	/>
 
 	<ProjectVideo videoProject={blessingForSaleVideo} />
+
+	<ProjectAudioFiles audioItems={raveAudioFiles} />
 
 	<ProjectAboutDropdown
 		images={raveMemoriesImages}

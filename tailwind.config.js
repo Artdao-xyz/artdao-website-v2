@@ -62,6 +62,9 @@ export default {
 				'card-height-full-bg': 'var(--card-height-full-bg)',
 				'file-img-height': 'var(--file-img-height)',
 				'file-audio-height': 'var(--file-audio-height)'
+			},
+			boxShadow: {
+				audioShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)'
 			}
 		}
 	},
