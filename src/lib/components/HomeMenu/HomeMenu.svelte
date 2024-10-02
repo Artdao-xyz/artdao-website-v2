@@ -13,7 +13,7 @@
 	import { homeParagraphs } from '../../../data/HomeTop';
 </script>
 
-<div class="menu flex flex-col gap-2 h-100dvh">
+<div class="menu flex flex-col gap-2 h-100dvh max-h-[59rem]">
 	<HomeTop logo={artDaoLogo} {homeParagraphs} />
 	<HomeDrop dropNumber={'000'} dropName={'psipsikoko'} dropLogo={hammer} />
 	<HomeMap title={'bridging the global & hyperlocal'} logo={mapLogo} />

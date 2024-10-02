@@ -15,7 +15,7 @@
 			class="fixed top-[2.5%] right-[1%] w-[5.9063rem] cursor-pointer z-10"
 		/>
 	</a>
-	<div class="bg-color-white p-2 w-full h-full flex gap-2">
+	<div class="bg-color-black p-2 w-full h-full flex gap-2">
 		<div class="min-w-[23.125rem] max-w-[370px] w-home-content-width">
 			<div class="fixed h-full width-full max-w-[inherit]">
 				<HomeMenu />
