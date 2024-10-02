@@ -78,13 +78,13 @@
 	--full-desktop-width: 100dvw;
 	--full-desktop-height: 100dvh;
 
-	--home-content-width: 20.3125rem;
+	--home-content-width: 27%;
 
-	--home-content-drop-closed-height: 9.1875rem;
+	--home-content-drop-closed-height: 17dvh;
 	--home-content-drop-open-height: 38.75rem;
 
-	--home-content-top-height: 28.375rem;
-	--home-content-map-height: 10.125rem;
+	--home-content-top-height: 50.44dvh;
+	--home-content-map-height: 17dvh;
 	--home-content-socials-height: 2.625rem;
 
 	--img-square-height: 150%;

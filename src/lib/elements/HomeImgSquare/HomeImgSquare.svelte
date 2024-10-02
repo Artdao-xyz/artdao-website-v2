@@ -6,6 +6,6 @@
 	<img
 		src={image}
 		alt="Square Layout"
-		class="object-cover rounded-30 min-w-[30.625rem] min-h-[28.75rem] h-[50dvh]"
+		class="object-cover rounded-30 aspect-square w-full max-h-full"
 	/>
 </div>

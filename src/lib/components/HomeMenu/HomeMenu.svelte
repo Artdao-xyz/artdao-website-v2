@@ -7,16 +7,18 @@
 	import xIcon from '$lib/assets/images/x-icon.png';
 	import HomeDrop from '$lib/elements/HomeDrop/HomeDrop.svelte';
 	import HomeMap from '$lib/elements/HomeMap/HomeMap.svelte';
+	import HomeNewsletter from '$lib/elements/HomeNewsletter/HomeNewsletter.svelte';
 	import HomeSocial from '$lib/elements/HomeSocial/HomeSocial.svelte';
 	import HomeTop from '$lib/elements/HomeTop/HomeTop.svelte';
 	import { homeParagraphs } from '../../../data/HomeTop';
 </script>
 
-<div class="menu flex flex-col gap-2.5 w-full">
+<div class="menu flex flex-col gap-2 h-100dvh">
 	<HomeTop logo={artDaoLogo} {homeParagraphs} />
 	<HomeDrop dropNumber={'000'} dropName={'psipsikoko'} dropLogo={hammer} />
 	<HomeMap title={'bridging the global & hyperlocal'} logo={mapLogo} />
-	<div class="flex gap-[2.375rem]">
+	<HomeNewsletter route="" />
+	<div class="flex gap-[2.375rem] h-full w-full">
 		<HomeSocial icon={discordIcon} />
 		<HomeSocial icon={instagramIcon} />
 		<HomeSocial icon={xIcon} />

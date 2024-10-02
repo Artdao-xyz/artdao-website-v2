@@ -15,16 +15,16 @@
 			class="fixed top-[2.5%] right-[1%] w-[5.9063rem] cursor-pointer z-10"
 		/>
 	</a>
-	<div class="bg-color-white pt-10 px-10 w-full h-full flex gap-2.5">
-		<div class="fixed top-50 left-100">
-			<HomeMenu />
+	<div class="bg-color-white p-2 w-full h-full flex gap-2">
+		<div class="min-w-[23.125rem] max-w-[370px] w-home-content-width">
+			<div class="fixed h-full width-full max-w-[inherit]">
+				<HomeMenu />
+			</div>
 		</div>
 
-		<div class="w-[26.2%] min-w-[20.3125rem]" />
-
-		<div class="flex flex-col">
-			<div class="w-full h-full borderGreen flex mb-5 gap-5">
-				<div class="flex flex-col gap-5 w-1/2 borderBlue h-full">
+		<div class="flex flex-col gap-2">
+			<div class="w-full h-full borderGreen flex gap-2">
+				<div class="flex flex-col gap-2 w-1/2 borderBlue">
 					<a href={homeImages[0].route}>
 						<HomeImgSquare image={homeImages[0].imageUrl} />
 					</a>
@@ -37,11 +37,11 @@
 				</a>
 			</div>
 
-			<div class="w-full h-full borderGreen flex mb-5 gap-5">
+			<div class="w-full h-full borderGreen flex gap-2">
 				<a href={homeImages[2].route} class="w-1/2">
 					<HomeImgRectV image={homeImages[2].imageUrl} />
 				</a>
-				<div class="flex flex-col gap-5 w-1/2 borderBlue h-full">
+				<div class="flex flex-col gap-2 w-1/2 borderBlue h-full">
 					<a href={homeImages[0].route}>
 						<HomeImgSquare image={homeImages[0].imageUrl} />
 					</a>
