@@ -14,7 +14,7 @@
 </script>
 
 <div
-	class="w-100dvw rounded-[6.25rem] h-[1rem] flex flex-row items-center z-50 sticky top-[1.95%] mx-10 gap-2.5"
+	class="w-100dvw rounded-[6.25rem] h-[1rem] flex flex-row items-center z-50 sticky top-[2.88%] mx-10 gap-2.5"
 >
 	{#each navItems as navItem, i}
 		<a

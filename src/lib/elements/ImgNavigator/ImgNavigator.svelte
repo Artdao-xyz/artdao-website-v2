@@ -25,7 +25,7 @@
 
 	<div class="flex flex-row gap-[1.375rem] absolute left-10 bottom-10">
 		{#each images as image, i}
-			<button class="w-[6.375rem] h-[6.375rem] hover:scale-105" on:click={() => handleOnClick(i)}>
+			<button class="w-[5.375rem] h-[5.375rem] hover:scale-105" on:click={() => handleOnClick(i)}>
 				<img
 					src={image}
 					alt="Small view"

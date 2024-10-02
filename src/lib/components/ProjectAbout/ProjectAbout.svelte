@@ -1,5 +1,5 @@
 <script lang="ts">
-	import AboutCard from '$lib/elements/AboutCard/AboutCard.svelte';
+	import About from '$lib/elements/About/About.svelte';
 	import type { IAboutItem } from '$lib/elements/AboutCard/interfaces';
 	import ImgNavigator from '$lib/elements/ImgNavigator/ImgNavigator.svelte';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
@@ -14,7 +14,8 @@
 <SectionContainer colorVariant={EColorVariant.BLACK}>
 	<div class="flex justify-center w-full h-full" id={route}>
 		<div class="w-1/2 h-full flex items-center">
-			<AboutCard {aboutItem} />
+			<!-- <AboutCard {aboutItem} /> -->
+			<About {aboutItem} />
 		</div>
 		{#if aboutImage}
 			<img src={aboutImage} alt="About Section" class="w-1/2 h-100dvh object-cover" />
