@@ -22,7 +22,8 @@ export default {
 			'color-black': '#000000',
 			'color-interview-card': 'rgba(255, 255, 255, 0.40)',
 			'color-progress-bar-bg': 'rgba(0, 0, 0, 0.20)',
-			'color-play-button': 'rgba(0, 0, 0, 0.40)'
+			'color-play-button': 'rgba(0, 0, 0, 0.40)',
+			'color-disabled': '#a0a0a0'
 		},
 		fontFamily: {
 			roboto: ['Roboto-Regular'],
