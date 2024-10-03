@@ -9,7 +9,7 @@
 	export let aboutDropdown: IAboutDropdown;
 
 	const [send, receive] = crossfade({
-		duration: 600,
+		duration: 450,
 		easing: quintOut
 	});
 
