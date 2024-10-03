@@ -31,7 +31,9 @@
 	} from '../../../data/Projects/EcologiesOfCode/ProjectVIdeo';
 </script>
 
-<div class="mx-auto mt-[-1rem] w-full overflow-x-hidden">
+<div
+	class="mx-auto mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen"
+>
 	<ProjectIntro project={ecologiesOfCodeProject} />
 
 	<ProjectAbout

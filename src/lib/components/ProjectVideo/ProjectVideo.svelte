@@ -8,8 +8,8 @@
 	export let size: ESizesVariant = ESizesVariant.LARGE;
 </script>
 
-<SectionContainer colorVariant={EColorVariant.LIGHT}>
-	<div class="flex items-center justify-center w-full h-full">
+<SectionContainer colorVariant={EColorVariant.LIGHT} hasPadding>
+	<div class="flex items-center justify-center w-full h-full pt-[2.4375rem]">
 		<VideoCard {videoProject} {size} />
 	</div>
 </SectionContainer>

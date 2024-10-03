@@ -19,7 +19,9 @@
 	import { afterPartyVideo, blessingForSaleVideo } from '../../../data/Projects/Rave/ProjectVideo';
 </script>
 
-<div class="mx-auto mt-[-1rem] w-full overflow-x-hidden">
+<div
+	class="mx-auto mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen"
+>
 	<ProjectIntro project={raveProject} />
 
 	<ProjectArtworkGrid galleryImages={raveArtworkImages} />

@@ -10,14 +10,14 @@
 
 	const videoCardWidth =
 		size === ESizesVariant.LARGE
-			? 'w-[81.25%] laptopM:max-w-[70%] macBook:max-w-[81.25%] laptopL:max-w-[60%] bigScreen:max-w-[70%]'
+			? 'w-full'
 			: size === ESizesVariant.MEDIUM
 				? 'w-[59%]'
 				: 'w-[34.72%]';
 </script>
 
 <div
-	class="{videoCardWidth} h-[78.22%] black-gradient p-[1.875rem] rounded-20 gap-[1.25rem] flex flex-col mt-[5%]"
+	class="{videoCardWidth} black-gradient p-[1.875rem] rounded-20 gap-[1.25rem] flex flex-col h-full"
 >
 	<div
 		class="h-[15%] w-full bg-color-dark rounded-20 p-[1.25rem] flex items-center justify-between"

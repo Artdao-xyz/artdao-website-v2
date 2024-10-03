@@ -7,7 +7,7 @@
 </script>
 
 <section
-	class="section w-full h-full-desktop-height {bgImage
+	class="snap-start shrink-0 w-full h-full-desktop-height {bgImage
 		? 'bg-cover bg-center h-full'
 		: colorVariant === EColorVariant.LIGHT
 			? 'bg-color-white'

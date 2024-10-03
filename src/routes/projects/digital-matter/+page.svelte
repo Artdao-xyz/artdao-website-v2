@@ -34,7 +34,9 @@
 	import { aeroVideo } from '../../../data/Projects/DigitalMatter/ProjectVideo';
 </script>
 
-<div class="mx-auto mt-[-1rem] w-full overflow-x-hidden">
+<div
+	class="mx-auto mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen"
+>
 	<ProjectIntro project={digitalMatterProjectIntro} />
 
 	<ProjectAbout
