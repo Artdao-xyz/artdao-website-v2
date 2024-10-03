@@ -32,10 +32,25 @@
 		parsaPolaroidsImages
 	} from '../../../data/Projects/DigitalMatter/ProjectPolaroids';
 	import { aeroVideo } from '../../../data/Projects/DigitalMatter/ProjectVideo';
+
+	// const rave = document.getElementById('rave');
+
+	// if (rave) {
+	// 	rave.addEventListener('wheel', function (event) {
+	// 		if (event.deltaY === 100 || event.deltaY === -100) {
+	// 			event.preventDefault();
+	// 			rave.scrollBy({
+	// 				top: event.deltaY,
+	// 				behavior: 'smooth'
+	// 			});
+	// 		}
+	// 	});
+	// }
 </script>
 
 <div
-	class="mx-auto mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen"
+	id="rave"
+	class="mx-auto mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen scroll-smooth"
 >
 	<ProjectIntro project={digitalMatterProjectIntro} />
 
