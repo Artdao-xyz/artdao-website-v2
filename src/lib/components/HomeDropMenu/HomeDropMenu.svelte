@@ -3,8 +3,8 @@
 	import menuLine from '$lib/assets/images/menu-line.png';
 
 	import HomeDropMenuDetails from '$lib/elements/HomeDropMenuDetails/HomeDropMenuDetails.svelte';
-	import { linear } from 'svelte/easing';
-	import { fade, slide } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+	import { crossfade } from 'svelte/transition';
 
 	export let dropNumber: string;
 	export let dropName: string;
@@ -14,18 +14,24 @@
 	export let names: string[];
 	export let bgImage: string;
 	let isOpen: boolean = false;
+
+	const [send, receive] = crossfade({
+		duration: 400,
+		easing: quintOut
+	});
 </script>
 
 <div
 	style={`background-image: url("${bgImage}"); background-size: cover; background-position: center;`}
 	class="w-full h-[100dvh] p-[2.5rem]"
 >
-	<button on:click={() => (isOpen = !isOpen)} class="backdrop-filter backdrop-blur-[2.5rem]">
+	<button on:click={() => (isOpen = !isOpen)} class="">
 		{#if !isOpen}
 			<div
-				in:fade={{}}
-				out:slide={{ duration: 10 }}
-				class="flex flex-col w-home-content-width h-home-content-drop-closed-height gray-gradient rounded-20 py-[0.9375rem] px-[1.375rem]"
+				id="small"
+				in:send={{ key: 'small' }}
+				out:receive={{ key: 'big' }}
+				class="flex flex-col w-[23.125rem] h-home-content-drop-closed-height gray-gradient rounded-20 py-[0.9375rem] px-[1.375rem] backdrop-filter backdrop-blur-[2.5rem] absolute top-[2.5rem]"
 			>
 				<HomeDropMenuDetails {dropNumber} {dropName} {dropLogo} {dropDate} />
 
@@ -33,9 +39,10 @@
 			</div>
 		{:else}
 			<div
-				in:slide={{ duration: 900, easing: linear }}
-				out:slide={{ duration: 300 }}
-				class="flex flex-col gap-2.5 w-home-content-width h-home-content-drop-open-height gray-gradient rounded-20 py-[0.9375rem] px-[1.375rem]"
+				id="big"
+				in:send={{ key: 'big' }}
+				out:receive={{ key: 'small' }}
+				class="flex flex-col gap-2.5 w-[23.125rem] h-home-content-drop-open-height gray-gradient rounded-20 py-[0.9375rem] px-[1.375rem] backdrop-filter backdrop-blur-[2.5rem] absolute top-[2.5rem]"
 			>
 				<HomeDropMenuDetails {dropNumber} {dropName} {dropLogo} {dropDate} />
 
