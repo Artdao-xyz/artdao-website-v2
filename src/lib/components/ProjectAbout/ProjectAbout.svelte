@@ -11,17 +11,16 @@
 	export let route: string;
 </script>
 
-<SectionContainer colorVariant={EColorVariant.BLACK}>
+<SectionContainer colorVariant={EColorVariant.BLACK} hasPadding={false}>
 	<div class="flex justify-center w-full h-full" id={route}>
-		<div class="w-1/2 h-full flex items-center">
-			<!-- <AboutCard {aboutItem} /> -->
-			<About {aboutItem} />
-		</div>
 		{#if aboutImage}
 			<img src={aboutImage} alt="About Section" class="w-1/2 h-100dvh object-cover" />
 		{/if}
 		{#if aboutImages}
 			<ImgNavigator images={aboutImages} variant={ESizeVariant.SMALL} />
 		{/if}
+		<div class="w-1/2 h-full flex items-center justify-center">
+			<About {aboutItem} />
+		</div>
 	</div>
 </SectionContainer>

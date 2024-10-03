@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="pl-10 pr-[3.875rem] pt-[10%] flex flex-col gap-5 h-full mt-[1rem] text-color-white w-full max-w-[50rem] pb-10"
+	class="flex flex-col items-center justify-center gap-5 text-color-white w-full max-w-[31.9375rem] mx-[2rem]"
 >
 	<div
 		class="h-9 px-5 border border-color-white justify-start items-center rounded-40 flex flex-row w-full"
@@ -20,7 +20,7 @@
 	>
 		{title}
 	</h2>
-	<div class="w-full h-full overflow-y-auto pr-10">
+	<div class="w-full h-full overflow-y-auto pr-[0.4375rem]">
 		<p class="font-clash font-medium leading-[1.5625rem] text-base">
 			{text}
 		</p>

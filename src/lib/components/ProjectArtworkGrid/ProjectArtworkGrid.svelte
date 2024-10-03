@@ -12,9 +12,7 @@
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT}>
-	<div
-		class="gallery h-full pb-[2.3125rem] pt-[7.9375rem] overflow-x-scroll flex flex-col gap-[4rem] overflow-y-hidden mr-5"
-	>
+	<div class="gallery h-full overflow-x-scroll flex flex-col gap-[4rem] overflow-y-hidden mr-5">
 		{#if !isSingleRow}
 			<div class="h-[45%] flex items-center gap-[4rem] px-5">
 				{#each imagesTop as imageTop}

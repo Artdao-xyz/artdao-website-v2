@@ -28,7 +28,6 @@
 		images={raveDelirioImages}
 		aboutDropdownItems={raveAboutDropdopwnItems}
 		route={raveNavItems[1].route}
-		isContain
 	/>
 
 	<ProjectVideo videoProject={blessingForSaleVideo} />

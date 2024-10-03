@@ -6,11 +6,10 @@
 	export let images: string[];
 	export let aboutDropdownItems: IAboutDropdown[];
 	export let route: string;
-	export let isContain = false;
 </script>
 
 <SectionContainer colorVariant={EColorVariant.BLACK}>
 	<div id={route} class="w-full h-full">
-		<ImgNavigator {images} variant={ESizeVariant.BIG} {isContain} {aboutDropdownItems} />
+		<ImgNavigator {images} variant={ESizeVariant.BIG} {aboutDropdownItems} />
 	</div>
 </SectionContainer>

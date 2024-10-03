@@ -24,7 +24,7 @@
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT}>
-	<div class="flex justify-between items-center mx-auto h-full gap-[5rem] p-5">
+	<div class="flex justify-between items-center mx-auto h-full gap-[5rem]">
 		<AudioFilePreview {audioItems} {handlePreviousTrack} {handleNextTrack} {index} />
 		<div class="flex flex-col gap-[5rem] justify-center">
 			{#each audioItems as audioItem, i}

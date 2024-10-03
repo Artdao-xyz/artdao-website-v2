@@ -85,6 +85,8 @@
 	--full-desktop-width: 100dvw;
 	--full-desktop-height: 100dvh;
 
+	--global-padding: 1.625rem;
+
 	--home-content-width: 27%;
 
 	--home-content-drop-closed-height: 17dvh;

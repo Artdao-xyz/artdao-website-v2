@@ -5,7 +5,6 @@
 
 	export let images: string[];
 	export let variant: ESizeVariant;
-	export let isContain = false;
 	export let aboutDropdownItems: IAboutDropdown[] | undefined = undefined;
 	let index: number = 0;
 
@@ -13,15 +12,18 @@
 		index = i;
 	};
 
-	const navigatorWidth = variant === ESizeVariant.SMALL ? 'w-1/2' : 'w-full';
+	const isSmall = variant === ESizeVariant.SMALL;
+	const navigatorWidth = isSmall ? 'w-1/2' : 'w-full w-auto pt-[2.4375rem]';
 </script>
 
 <div class="{navigatorWidth} h-full relative">
-	<img
-		src={images[index]}
-		alt="Big view"
-		class="w-full h-full {!isContain ? 'object-cover' : 'object-contain'}"
-	/>
+	<div class="w-full h-full {!isSmall ? 'flex justify-center' : ''}">
+		<img
+			src={images[index]}
+			alt="Big view"
+			class="h-full {variant === ESizeVariant.SMALL ? 'w-full object-cover' : 'rounded-20'}"
+		/>
+	</div>
 
 	<div class="flex flex-row gap-[1.375rem] absolute left-10 bottom-10">
 		{#each images as image, i}

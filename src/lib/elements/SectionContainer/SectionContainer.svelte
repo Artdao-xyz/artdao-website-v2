@@ -3,6 +3,7 @@
 
 	export let colorVariant: EColorVariant | undefined = undefined;
 	export let bgImage: string | undefined = undefined;
+	export let hasPadding = true;
 </script>
 
 <section
@@ -12,7 +13,7 @@
 			? 'bg-color-white'
 			: colorVariant === EColorVariant.BLACK
 				? 'bg-color-black'
-				: 'bg-color-gray-background'}"
+				: 'bg-color-gray-background'} {hasPadding ? 'p-global-padding' : ''}"
 	style="background-image: url({bgImage});"
 >
 	<slot />

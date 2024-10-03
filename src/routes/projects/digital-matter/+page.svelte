@@ -58,7 +58,7 @@
 	/>
 
 	<SectionContainer>
-		<ImgNavigator images={sulkianImages} variant={ESizeVariant.BIG} isContain />
+		<ImgNavigator images={sulkianImages} variant={ESizeVariant.BIG} />
 	</SectionContainer>
 
 	<ProjectVideo videoProject={aeroVideo} />
