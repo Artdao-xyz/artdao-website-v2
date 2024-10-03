@@ -2,63 +2,70 @@
 	import linkIcon from '$lib/assets/images/about-dropdown-link-icon.png';
 	import dottedLine from '$lib/assets/images/dotted-line.png';
 	import menuLine from '$lib/assets/images/menu-line.png';
-	import { linear } from 'svelte/easing';
-	import { fade, slide } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+	import { crossfade } from 'svelte/transition';
 	import type { IAboutDropdown } from './interfaces';
 
 	export let aboutDropdown: IAboutDropdown;
 
+	const [send, receive] = crossfade({
+		duration: 600,
+		easing: quintOut
+	});
+
 	let isOpen: boolean = false;
 </script>
 
-<div class="absolute z-40 top-0 mt-[2.5%]">
-	<button on:click={() => (isOpen = !isOpen)}>
-		{#if !isOpen}
+<!-- <div class="absolute z-40 top-0 mt-[2.5%]"> -->
+<button on:click={() => (isOpen = !isOpen)} class="absolute z-40 top-0 mt-[2.5%]">
+	{#if !isOpen}
+		<div
+			id="small"
+			in:send={{ key: 'small' }}
+			out:receive={{ key: 'big' }}
+			class="flex flex-col w-[20rem] h-[7.75rem] rounded-20 p-5 pb-10 gap-2.5 gray-gradient absolute z-40 top-0 mt-[2.5%]"
+		>
+			<h1 class="font-clash text-[2.5rem] leading-[3.125rem] uppercase self-start">
+				{aboutDropdown.name}
+			</h1>
+
+			<img src={menuLine} alt="Menu Line" class="w-[8.25rem] place-self-center" />
+		</div>
+	{:else}
+		<div
+			id="big"
+			in:send={{ key: 'big' }}
+			out:receive={{ key: 'small' }}
+			class="flex flex-col gap-[0.5rem] w-[20rem] h-[16.6875rem] rounded-20 gray-gradient p-5 pb-10 absolute z-40 top-0 mt-[2.5%]"
+		>
+			<h1 class="font-clash text-[2.5rem] leading-[3.125rem] uppercase self-start">
+				{aboutDropdown.name}
+			</h1>
+
+			<img src={dottedLine} alt="Dotted Line" />
+
 			<div
-				in:fade={{}}
-				out:slide={{ duration: 10 }}
-				class="flex flex-col w-[23.125rem] h-[7.125rem] rounded-20 py-5 px-10 gap-5 gray-gradient"
+				class="flex items-center justify-between font-robotoMono font-light text-sm leading-[0.8125rem] tracking-[0.075rem] py-[9px] px-[14px]"
 			>
-				<h1 class="font-clash text-[2.5rem] leading-[3.125rem] uppercase self-start">
-					{aboutDropdown.name}
-				</h1>
-
-				<img src={menuLine} alt="Menu Line" class="w-[8.25rem] place-self-center" />
+				<p class="font-clash text-[0.75rem]">Artist</p>
+				<p class="capitalize text-[0.75rem]">{aboutDropdown.artist}</p>
 			</div>
-		{:else}
+
+			<img src={dottedLine} alt="Dotted Line" />
+
 			<div
-				in:slide={{ duration: 900, easing: linear }}
-				out:slide={{ duration: 300 }}
-				class="flex flex-col gap-[0.5rem] w-[23.125rem] h-[12.6875rem] rounded-20 py-5 pb-2.5 px-10 gray-gradient"
+				class="flex items-center justify-between font-robotoMono font-light text-sm leading-[0.8125rem] tracking-[0.075rem] py-[9px] px-[14px]"
 			>
-				<div class="h-full w-full flex justify-center items-end">
-					<img src={menuLine} alt="Menu Line" class="w-[8.25rem] justify-center" />
-				</div>
-
-				<img src={dottedLine} alt="Dotted Line" />
-
-				<div
-					class="flex items-center justify-between font-robotoMono font-light text-sm leading-[1.9375rem] tracking-[0.075rem]"
-				>
-					<p class="font-clash text-[0.75rem]">Artist</p>
-					<p class="capitalize text-[0.75rem]">{aboutDropdown.artist}</p>
-				</div>
-
-				<img src={dottedLine} alt="Dotted Line" />
-
-				<div
-					class="flex items-center justify-between font-robotoMono font-light text-sm leading-[1.9375rem] tracking-[0.075rem]"
-				>
-					<p class="font-clash text-[0.75rem]">Link</p>
-					<a href={aboutDropdown.link}><img src={linkIcon} alt="Link" class="w-[1.25rem]" /></a>
-				</div>
-
-				<img src={dottedLine} alt="Dotted Line" />
-
-				<h1 class="font-clash text-[2.5rem] leading-[45px] uppercase self-start">
-					{aboutDropdown.name}
-				</h1>
+				<p class="font-clash text-[0.75rem]">Link</p>
+				<a href={aboutDropdown.link}><img src={linkIcon} alt="Link" class="w-[1.25rem]" /></a>
 			</div>
-		{/if}
-	</button>
-</div>
+
+			<img src={dottedLine} alt="Dotted Line" />
+
+			<div class="h-full w-full flex justify-center items-end">
+				<img src={menuLine} alt="Menu Line" class="w-[8.25rem] justify-center" />
+			</div>
+		</div>
+	{/if}
+</button>
+<!-- </div> -->
