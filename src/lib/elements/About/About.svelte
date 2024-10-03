@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="flex flex-col items-center justify-center gap-5 text-color-white w-full max-w-[31.9375rem] mx-[2rem]"
+	class="flex flex-col items-center justify-center gap-5 text-color-white w-full max-w-[31.9375rem] mx-[2rem] max-h-[82%]"
 >
 	<div
 		class="h-9 px-5 border border-color-white justify-start items-center rounded-40 flex flex-row w-full"
