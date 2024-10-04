@@ -7,7 +7,7 @@
 </script>
 
 <div
-	class="h-full w-auto p-5 bg-color-white rounded-30 border border-color-black flex flex-col gap-5 flex-shrink-0"
+	class="h-full w-auto p-5 bg-color-white rounded-30 border border-color-black flex flex-col gap-5 bigScreen:gap-2.5 flex-shrink-0"
 >
 	<img
 		src={image}

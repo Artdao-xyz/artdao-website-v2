@@ -32,7 +32,7 @@
 				on:click={() => handleOnClick(0)}
 				class="{index === 0
 					? 'z-40'
-					: 'z-0'} w-[48%] h-[50%] laptopM:h-[55%] laptopL:h-[55%] bigScreen:h-[300px] bigScreen:w-[300px] bg-color-white p-5 flex flex-col gap-2.5 rounded-20 rotate-[-15deg] absolute top-0 left-[4%] cursor-pointer hover:scale-[101%] border border-color-black"
+					: 'z-0'} h-[50%] laptopM:h-[55%] laptopL:h-[55%] bigScreen:h-[300px] aspect-square bg-color-white p-5 flex flex-col gap-2.5 rounded-20 rotate-[-15deg] absolute top-0 left-[4%] cursor-pointer hover:scale-[101%] border border-color-black"
 			>
 				<img
 					src={images[0].image}
@@ -54,7 +54,7 @@
 				on:click={() => handleOnClick(1)}
 				class="{index === 1
 					? 'z-40'
-					: 'z-0'} w-[48%] h-[50%] laptopM:h-[55%] laptopL:h-[55%] bigScreen:h-[300px] bigScreen:w-[300px] bg-color-white p-5 flex flex-col gap-2.5 rounded-20 rotate-[15deg] absolute top-0 right-6 cursor-pointer hover:scale-[101%] border border-color-black"
+					: 'z-0'} aspect-square h-[50%] laptopM:h-[55%] laptopL:h-[55%] bigScreen:h-[300px] bg-color-white p-5 flex flex-col gap-2.5 rounded-20 rotate-[15deg] absolute top-0 right-6 cursor-pointer hover:scale-[101%] border border-color-black"
 			>
 				<img
 					src={images[1].image}
@@ -76,7 +76,7 @@
 				on:click={() => handleOnClick(2)}
 				class="{index === 2
 					? 'z-40'
-					: 'z-0'} w-[71%] xl:max-w-[18rem] laptopM:max-w-[17rem] macBook:max-w-[28rem] h-[50%] laptopM:h-[55%] laptopL:h-[55%] bigScreen:h-[18.75rem] bg-color-white p-5 flex flex-col gap-2.5 rounded-20 rotate-[15deg] absolute top-[33%] right-[1%] cursor-pointer hover:scale-[101%] border border-color-black"
+					: 'z-0'} w-[80%] xl:max-w-[18rem] laptopM:max-w-[17rem] macBook:max-w-[28rem] h-[50%] laptopM:h-[55%] laptopL:h-[55%] bigScreen:h-[18.75rem] bg-color-white p-5 flex flex-col gap-2.5 rounded-20 rotate-[15deg] absolute top-[33%] right-[1%] cursor-pointer hover:scale-[101%] border border-color-black"
 			>
 				<img
 					src={images[2].image}

@@ -16,9 +16,7 @@
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT}>
-	<div
-		class="w-full h-full flex flex-col items-center justify-start gap-[10%] pt-[10%] laptopL:pt-[5%] bigScreen:pt-[10%]"
-	>
+	<div class="w-full h-full flex flex-col items-center justify-start gap-[10%] pt-[5%]">
 		<h1
 			class="px-[5%] text-color-black text-[5rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center lg:h-[10rem] 2xl:h-[5rem]"
 		>

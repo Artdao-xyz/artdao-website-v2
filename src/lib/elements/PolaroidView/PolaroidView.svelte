@@ -9,7 +9,7 @@
 		viewSize === ESizesVariant.LARGE
 			? 'w-[85%] max-w-[85%] laptopM:max-w-[75%] macBook:max-w-[85%] laptopL:max-w-[70%] bigScreen:max-w-[85%]'
 			: viewSize === ESizesVariant.MEDIUM
-				? 'w-[54.5%]'
+				? 'w-[54.5%] aspect-square'
 				: 'w-[27.25%]';
 </script>
 
