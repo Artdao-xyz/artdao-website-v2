@@ -22,7 +22,7 @@
 	</h2>
 	<div class="w-full h-full overflow-y-auto pr-[0.4375rem]">
 		<p class="font-clash font-medium leading-[1.5625rem] text-base">
-			{text}
+			<svelte:component this={text}></svelte:component>
 		</p>
 	</div>
 </div>
