@@ -40,13 +40,15 @@ export const marcusDropdownItems: IAboutDropdown[] = [
 
 export const parsaDropdownItems: IAboutDropdown[] = [
 	{
-		name: 'Crucifixtion - WIP',
+		name: 'Wip',
 		artist: 'parsa',
-		link: '#'
+		about:
+			'Forming a new kinship as Clown Boy became a tool to digest the darkness of the world and allow the artist to delve deeper into his own fears. '
 	},
 	{
 		name: 'Crucifixtion',
 		artist: 'parsa',
-		link: '#'
+		about:
+			'“Clown Boy is one of the most evil things that I can create. Each painting is a new adventure, almost like a comic book.”'
 	}
 ];

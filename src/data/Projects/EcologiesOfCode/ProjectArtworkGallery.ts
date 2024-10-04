@@ -9,12 +9,12 @@ import hyperGalleryEight from '$lib/assets/images/projects/ecologiesOfCode/hyper
 import type { IGalleryImage } from '$lib/elements/ArtworkContainer/interfaces';
 
 export const ecologiesArtworkImages: IGalleryImage[] = [
-	{ image: hyperGalleryOne, name: 'halloween', artist: 'john carpenter' },
-	{ image: hyperGalleryTwo, name: 'the fog', artist: 'john carpenter' },
-	{ image: hyperGalleryThree, name: 'the thing', artist: 'john carpenter' },
-	{ image: hyperGalleryFour, name: 'christine', artist: 'john carpenter' },
-	{ image: hyperGalleryFive, name: 'prince of darkness', artist: 'john carpenter' },
-	{ image: hyperGallerySix, name: 'they live', artist: 'john carpenter' },
-	{ image: hyperGallerySeven, name: 'eraserhead', artist: 'david lynch' },
-	{ image: hyperGalleryEight, name: 'blue velvet', artist: 'david lynch' }
+	{ image: hyperGalleryOne, name: 'halloween', description: 'john carpenter' },
+	{ image: hyperGalleryTwo, name: 'the fog', description: 'john carpenter' },
+	{ image: hyperGalleryThree, name: 'the thing', description: 'john carpenter' },
+	{ image: hyperGalleryFour, name: 'christine', description: 'john carpenter' },
+	{ image: hyperGalleryFive, name: 'prince of darkness', description: 'john carpenter' },
+	{ image: hyperGallerySix, name: 'they live', description: 'john carpenter' },
+	{ image: hyperGallerySeven, name: 'eraserhead', description: 'david lynch' },
+	{ image: hyperGalleryEight, name: 'blue velvet', description: 'david lynch' }
 ];

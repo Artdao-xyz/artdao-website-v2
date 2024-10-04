@@ -9,7 +9,7 @@
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import ImgNavigator from '$lib/elements/ImgNavigator/ImgNavigator.svelte';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
-	import { ESizeVariant } from '../../../constants/enums';
+	import { ESizesVariant, ESizeVariant } from '../../../constants/enums';
 	import { sulkianImages } from '../../../data/Projects/DigitalMatter/ImgNavigator';
 	import { digitalMatterNavItems } from '../../../data/Projects/DigitalMatter/NavItems';
 	import {
@@ -66,7 +66,7 @@
 		<ImgNavigator images={sulkianImages} variant={ESizeVariant.BIG} />
 	</SectionContainer>
 
-	<ProjectVideo videoProject={aeroVideo} />
+	<ProjectVideo videoProject={aeroVideo} size={ESizesVariant.MEDIUM} />
 
 	<ProjectAbout
 		aboutItem={parsaAbout}
@@ -78,10 +78,10 @@
 		images={parsaAboutDropdown}
 		aboutDropdownItems={parsaDropdownItems}
 		route={digitalMatterNavItems[1].route}
-		aboutDropdownVariant={EAboutDropdownVariant.LINK}
+		aboutDropdownVariant={EAboutDropdownVariant.ABOUT}
 	/>
 
-	<ProjectArtworkGrid galleryImages={parsaArtworkImages} isSingleRow />
+	<ProjectArtworkGrid galleryImages={parsaArtworkImages} showDetails />
 
 	<ProjectPolaroids images={parsaPolaroidsImages} />
 

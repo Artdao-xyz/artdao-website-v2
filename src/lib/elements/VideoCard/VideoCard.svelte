@@ -12,7 +12,7 @@
 		size === ESizesVariant.LARGE
 			? 'w-full'
 			: size === ESizesVariant.MEDIUM
-				? 'w-[59%]'
+				? 'w-[50%]'
 				: 'w-[34.72%]';
 </script>
 
