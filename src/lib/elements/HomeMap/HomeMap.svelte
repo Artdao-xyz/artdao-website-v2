@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="flex flex-row items-center justify-between gap-2.5 w-full h-home-content-map-height bg-color-dark rounded-20 py-[0.9375rem] px-[1.375rem]"
+	class="flex flex-row items-center justify-between gap-2.5 w-full h-home-content-map-height bg-color-dark rounded-20 py-[0.9375rem] px-10"
 >
 	<div class="flex flex-col justify-start gap-2.5">
 		<div

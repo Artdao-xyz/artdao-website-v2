@@ -23,19 +23,19 @@
 
 <div
 	style={`background-image: url("${bgImage}"); background-size: cover; background-position: center;`}
-	class="w-full h-[100dvh] p-[2.5rem]"
+	class="w-full h-[100dvh] p-[2.5rem] relative"
 >
-	<button on:click={() => (isOpen = !isOpen)} class="">
+	<button on:click={() => (isOpen = !isOpen)}>
 		{#if !isOpen}
 			<div
 				id="small"
 				in:send={{ key: 'small' }}
 				out:receive={{ key: 'big' }}
-				class="flex flex-col w-[23.125rem] h-home-content-drop-closed-height gray-gradient rounded-20 py-[0.9375rem] px-[1.375rem] backdrop-filter backdrop-blur-[2.5rem] absolute top-[2.5rem]"
+				class="flex flex-col w-[23.125rem] h-[11.375rem] gray-gradient rounded-20 py-[0.9375rem] px-[1.375rem] backdrop-filter backdrop-blur-[2.5rem] absolute top-[2.5rem]"
 			>
 				<HomeDropMenuDetails {dropNumber} {dropName} {dropLogo} {dropDate} />
 
-				<img src={menuLine} alt="Menu Line" class="w-[8.25rem] place-self-center mt-2.5" />
+				<img src={menuLine} alt="Menu Line" class="w-[8.25rem] place-self-center mt-7" />
 			</div>
 		{:else}
 			<div
@@ -48,15 +48,15 @@
 
 				<img src={dottedLine} alt="Dotted Line" />
 
-				<div class="w-[17.5625rem] h-[2.5625rem] flex flex-col place-content-center">
+				<div class="w-full h-[2.5625rem] flex flex-col place-content-center">
 					<p class="font-clash text-[0.9375rem] font-semibold leading-[2.1875rem]">COMING SOON</p>
 				</div>
 
 				<img src={dottedLine} alt="Dotted Line" />
 
-				<div class="w-[17.5625rem] h-[12.75rem] py-[1.4375rem] px-[1.3125rem] text-left">
+				<div class="w-full] h-[12.75rem] py-[1.4375rem] px-[1.3125rem] text-left">
 					{#each texts as text}
-						<p class="font-clash leading-[1.25rem] text-[0.75rem] font-medium">{text}</p>
+						<p class="font-clash leading-[1.25rem] text-sm font-medium">{text}</p>
 					{/each}
 				</div>
 
@@ -67,7 +67,7 @@
 				>
 					{#each names as name, i}
 						<p
-							class="font-clash text-[0.75rem] h-[1.125rem] font-medium leading-[1.75rem] tracking-[-0.0143rem] flex flex-row"
+							class="font-clash text-sm h-[1.125rem] font-medium leading-[1.75rem] tracking-[-0.0143rem] flex flex-row"
 						>
 							{name}
 						</p>
@@ -77,7 +77,7 @@
 					{/each}
 				</div>
 
-				<img src={menuLine} alt="Menu Line" class="w-[8.25rem] place-self-center mt-3.5" />
+				<img src={menuLine} alt="Menu Line" class="w-[8.25rem] place-self-center mt-7" />
 			</div>
 		{/if}
 	</button>
