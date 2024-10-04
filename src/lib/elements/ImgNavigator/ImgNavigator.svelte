@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { ESizeVariant } from '../../../constants/enums';
 	import AboutDropdown from '../AboutDropdown/AboutDropdown.svelte';
-	import type { IAboutDropdown } from '../AboutDropdown/interfaces';
+	import type { EAboutDropdownVariant, IAboutDropdown } from '../AboutDropdown/interfaces';
 
 	export let images: string[];
 	export let variant: ESizeVariant;
 	export let aboutDropdownItems: IAboutDropdown[] | undefined = undefined;
+	export let aboutDropdownVariant: EAboutDropdownVariant | undefined = undefined;
 	let index: number = 0;
 
 	const handleOnClick = (i: number) => {
@@ -38,6 +39,6 @@
 	</div>
 
 	{#if aboutDropdownItems}
-		<AboutDropdown bind:aboutDropdown={aboutDropdownItems[index]} />
+		<AboutDropdown bind:aboutDropdown={aboutDropdownItems[index]} variant={aboutDropdownVariant} />
 	{/if}
 </div>

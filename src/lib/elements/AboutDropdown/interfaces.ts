@@ -6,3 +6,10 @@ export interface IAboutDropdown {
 	location?: string;
 	about?: string;
 }
+
+export enum EAboutDropdownVariant {
+	FULL = 'full',
+	LINK = 'link',
+	ARTIST = 'artist',
+	ABOUT = 'about'
+}

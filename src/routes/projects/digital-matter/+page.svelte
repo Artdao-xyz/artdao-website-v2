@@ -5,6 +5,7 @@
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
+	import { EAboutDropdownVariant } from '$lib/elements/AboutDropdown/interfaces';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import ImgNavigator from '$lib/elements/ImgNavigator/ImgNavigator.svelte';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
@@ -32,20 +33,6 @@
 		parsaPolaroidsImages
 	} from '../../../data/Projects/DigitalMatter/ProjectPolaroids';
 	import { aeroVideo } from '../../../data/Projects/DigitalMatter/ProjectVideo';
-
-	// const rave = document.getElementById('rave');
-
-	// if (rave) {
-	// 	rave.addEventListener('wheel', function (event) {
-	// 		if (event.deltaY === 100 || event.deltaY === -100) {
-	// 			event.preventDefault();
-	// 			rave.scrollBy({
-	// 				top: event.deltaY,
-	// 				behavior: 'smooth'
-	// 			});
-	// 		}
-	// 	});
-	// }
 </script>
 
 <div
@@ -64,6 +51,7 @@
 		images={marcusAboutDropdown}
 		aboutDropdownItems={marcusDropdownItems}
 		route={digitalMatterNavItems[1].route}
+		aboutDropdownVariant={EAboutDropdownVariant.LINK}
 	/>
 
 	<ProjectPolaroids images={marcusPolaroidsImages} />
@@ -90,6 +78,7 @@
 		images={parsaAboutDropdown}
 		aboutDropdownItems={parsaDropdownItems}
 		route={digitalMatterNavItems[1].route}
+		aboutDropdownVariant={EAboutDropdownVariant.LINK}
 	/>
 
 	<ProjectArtworkGrid galleryImages={parsaArtworkImages} isSingleRow />

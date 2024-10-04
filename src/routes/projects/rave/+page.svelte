@@ -4,6 +4,7 @@
 	import ProjectAudioFiles from '$lib/components/ProjectAudioFiles/ProjectAudioFiles.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
+	import { EAboutDropdownVariant } from '$lib/elements/AboutDropdown/interfaces';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { ESizesVariant } from '../../../constants/enums';
 	import { raveNavItems } from '../../../data/Projects/Rave/NavItems';
@@ -30,6 +31,7 @@
 		images={raveDelirioImages}
 		aboutDropdownItems={raveAboutDropdopwnItems}
 		route={raveNavItems[1].route}
+		aboutDropdownVariant={EAboutDropdownVariant.LINK}
 	/>
 
 	<ProjectVideo videoProject={blessingForSaleVideo} />
@@ -40,6 +42,7 @@
 		images={raveMemoriesImages}
 		aboutDropdownItems={raveAboutDropdopwnItemsTwo}
 		route={raveNavItems[2].route}
+		aboutDropdownVariant={EAboutDropdownVariant.LINK}
 	/>
 
 	<ProjectVideo videoProject={afterPartyVideo} size={ESizesVariant.SMALL} />
