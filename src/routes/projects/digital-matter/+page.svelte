@@ -51,7 +51,7 @@
 		images={marcusAboutDropdown}
 		aboutDropdownItems={marcusDropdownItems}
 		route={digitalMatterNavItems[1].route}
-		aboutDropdownVariant={EAboutDropdownVariant.LINK}
+		aboutDropdownVariant={EAboutDropdownVariant.ARTIST}
 	/>
 
 	<ProjectPolaroids images={marcusPolaroidsImages} />

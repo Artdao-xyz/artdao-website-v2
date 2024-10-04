@@ -71,7 +71,7 @@
 			id="big"
 			in:send={{ key: 'big' }}
 			out:receive={{ key: 'small' }}
-			class="flex flex-col gap-[0.5rem] w-[20rem] h-[16.6875rem] rounded-20 gray-gradient p-5 pb-10 absolute z-40 top-0 mt-[2.5%]"
+			class="flex flex-col gap-[0.5rem] w-[20rem] h-[13.75rem] rounded-20 gray-gradient p-5 pb-10 absolute z-40 top-0 mt-[2.5%]"
 		>
 			<h1 class="font-clash text-[2.5rem] leading-[3.125rem] uppercase self-start">
 				{aboutDropdown.name}
