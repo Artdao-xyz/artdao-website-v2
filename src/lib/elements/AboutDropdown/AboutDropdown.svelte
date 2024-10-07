@@ -30,7 +30,7 @@
 
 			<img src={menuLine} alt="Menu Line" class="w-[8.25rem] place-self-center" />
 		</div>
-	{:else if aboutDropdown.link}
+	{:else if aboutDropdown.link && !aboutDropdown.about}
 		<div
 			id="big"
 			in:send={{ key: 'big' }}
@@ -114,7 +114,7 @@
 			<img src={dottedLine} alt="Dotted Line" />
 
 			<div
-				class="flex flex-col gap-5 justify-start items-start font-robotoMono font-light leading-[1.125rem] tracking-[0.075rem] py-[9px] px-[14px]"
+				class="flex flex-col gap-5 justify-start items-start font-robotoMono font-light leading-[1.125rem] tracking-[0.075rem] py-[9px] px-[14px] h-[25rem] overflow-y-auto"
 			>
 				<p class="font-robotoMono text-[0.75rem]">About</p>
 				<p class="text-[0.75rem] text-left font-robotoMono">{aboutDropdown.about}</p>
