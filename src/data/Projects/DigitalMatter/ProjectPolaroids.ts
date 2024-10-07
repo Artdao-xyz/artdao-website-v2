@@ -1,6 +1,6 @@
 import parsaPolaroidsTwo from '$lib/assets/images/projects/digitalMatter/1.png';
-import parsaPolaroidsOne from '$lib/assets/images/projects/digitalMatter/2.png';
-import parsaPolaroidsThree from '$lib/assets/images/projects/digitalMatter/4.png';
+import parsaPolaroidsThree from '$lib/assets/images/projects/digitalMatter/2.png';
+import parsaPolaroidsOne from '$lib/assets/images/projects/digitalMatter/3.png';
 import parsaPolaroidsFour from '$lib/assets/images/projects/digitalMatter/5.png';
 import marcusPolaroidsThree from '$lib/assets/images/projects/digitalMatter/SaveClip.App_341766475_6716237288405642_5129891025817825423_n.png';
 import marcusPolaroidsTwo from '$lib/assets/images/projects/digitalMatter/SaveClip.App_341950897_770383014495634_8158274282921773720_n.png';
@@ -28,8 +28,11 @@ export const marcusPolaroidsImages: IPolaroidImage[] = [
 ];
 
 export const parsaPolaroidsImages: IPolaroidImage[] = [
-	{ image: parsaPolaroidsOne, name: '2 (1)', date: '12/03/22' },
-	{ image: parsaPolaroidsTwo, name: '1 (1)', date: '20/05/24' },
-	{ image: parsaPolaroidsThree, name: '4 (1)', date: '05/11/20' },
-	{ image: parsaPolaroidsFour, name: '5 (1)', date: '28/09/21' }
+	{ image: parsaPolaroidsOne, quote: 'Digital mediums are like flying...' },
+	{ image: parsaPolaroidsTwo, quote: 'And physical mediums are like walking' },
+	{ image: parsaPolaroidsThree, quote: "It's that kind of freedom" },
+	{
+		image: parsaPolaroidsFour,
+		quote: 'Space took a really important shift in his artistic practice'
+	}
 ];

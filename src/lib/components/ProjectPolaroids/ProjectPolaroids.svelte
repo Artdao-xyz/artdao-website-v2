@@ -18,11 +18,13 @@
 	<div
 		class="w-full h-full flex flex-col items-center justify-end gap-[5%] bigScreen:gap-[10%] pt-[5%]"
 	>
-		<h1
-			class="px-[1%] text-color-black text-[4.5rem] bigScreen:text-[6rem] font-bold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
-		>
-			&gt; {images[selectedItem].quote} &lt;
-		</h1>
+		<div class="h-full w-full flex items-center">
+			<h1
+				class="px-[1%] text-color-black text-[5rem] bigScreen:text-[6rem] font-bold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
+			>
+				&gt; {images[selectedItem].quote} &lt;
+			</h1>
+		</div>
 		<Polaroids {images} />
 	</div>
 </SectionContainer>

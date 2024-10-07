@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { selectedPolaroidsItem } from '$lib/components/ProjectPolaroids/store';
-	import { ESizesVariant } from '../../../constants/enums';
 	import { EPolaroidPosition } from '../PolaroidSquare/interface';
 	import PolaroidSquare from '../PolaroidSquare/PolaroidSquare.svelte';
 	import PolaroidView from '../PolaroidView/PolaroidView.svelte';
@@ -10,15 +9,6 @@
 
 	let index: number = 0;
 
-	const sizes = [
-		ESizesVariant.MEDIUM,
-		ESizesVariant.MEDIUM,
-		ESizesVariant.MEDIUM,
-		ESizesVariant.MEDIUM
-	];
-
-	$: viewSize = sizes[index];
-
 	const handleOnClick = (i: number) => {
 		index = i;
 		selectedPolaroidsItem.set(i);
@@ -26,7 +16,9 @@
 </script>
 
 <div class="flex-row flex w-full h-[65%] justify-between">
-	<PolaroidView image={images[index]} {viewSize} />
+	<div class="flex flex-row w-[62%]">
+		<PolaroidView image={images[index]} />
+	</div>
 
 	<div
 		class="w-[28%] laptopM:w-[25%] macBook:w-[27%] laptopL:w-[20%] bigScreen:w-[28%] h-full bigScreen:h-[85%] mx-auto"
