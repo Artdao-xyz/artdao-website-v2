@@ -92,7 +92,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: Artdao_Photos93
 	},
 	{
@@ -100,7 +100,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: Artdao_Photos6
 	},
 	{
@@ -108,7 +108,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: Artdao_Photos4
 	},
 	{
@@ -116,7 +116,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: _DSC3824_4
 	},
 	{
@@ -124,7 +124,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: _DSC3824_3
 	},
 	{
@@ -132,7 +132,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: _DSC3824_1
 	},
 	{
@@ -140,7 +140,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: _DSC2417
 	},
 	{
@@ -148,7 +148,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: _DSC2393
 	},
 	{
@@ -156,7 +156,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: _DSC2076
 	},
 	{
@@ -164,7 +164,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: _DSC1779
 	},
 	{
@@ -172,7 +172,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: Artdao_Photos3
 	}
 ];

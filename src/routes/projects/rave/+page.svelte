@@ -8,8 +8,7 @@
 	import { raveNavItems } from '../../../data/Projects/Rave/NavItems';
 	import {
 		raveAboutDropdopwnItems,
-		raveAboutDropdopwnItemsTwo,
-		raveMemoriesImages
+		raveAboutDropdopwnItemsTwo
 	} from '../../../data/Projects/Rave/ProjectAboutDropdown';
 	import { raveAudioFiles } from '../../../data/Projects/Rave/ProjectAudioFiles';
 	import { raveProject } from '../../../data/Projects/Rave/ProjectIntro';
@@ -38,7 +37,7 @@
 	<ProjectAudioFiles audioItems={raveAudioFiles} />
 
 	<ProjectAboutDropdown
-		images={raveMemoriesImages}
+		images={raveAboutDropdopwnItemsTwo.map((item) => item.image)}
 		aboutDropdownItems={raveAboutDropdopwnItemsTwo}
 		route={raveNavItems[2].route}
 	/>
