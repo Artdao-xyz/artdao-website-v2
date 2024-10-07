@@ -5,7 +5,6 @@
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
-	import { EAboutDropdownVariant } from '$lib/elements/AboutDropdown/interfaces';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import ImgNavigator from '$lib/elements/ImgNavigator/ImgNavigator.svelte';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
@@ -51,7 +50,6 @@
 		images={marcusAboutDropdown}
 		aboutDropdownItems={marcusDropdownItems}
 		route={digitalMatterNavItems[1].route}
-		aboutDropdownVariant={EAboutDropdownVariant.ARTIST}
 	/>
 
 	<ProjectPolaroids images={marcusPolaroidsImages} />
@@ -66,7 +64,7 @@
 		<ImgNavigator images={sulkianImages} variant={ESizeVariant.BIG} />
 	</SectionContainer>
 
-	<ProjectVideo videoProject={aeroVideo} size={ESizesVariant.MEDIUM} />
+	<ProjectVideo videoProjects={[aeroVideo]} size={ESizesVariant.MEDIUM} />
 
 	<ProjectAbout
 		aboutItem={parsaAbout}
@@ -78,7 +76,6 @@
 		images={parsaAboutDropdown}
 		aboutDropdownItems={parsaDropdownItems}
 		route={digitalMatterNavItems[1].route}
-		aboutDropdownVariant={EAboutDropdownVariant.ABOUT}
 	/>
 
 	<ProjectArtworkGrid galleryImages={parsaArtworkImages} showDetails />

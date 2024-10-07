@@ -6,8 +6,7 @@
 
 	export let videoProject: IVideoProject;
 	export let size: ESizesVariant = ESizesVariant.LARGE;
-
-	$: console.log('videoProject', videoProject.name);
+	export let hideButton: boolean;
 
 	const videoCardWidth =
 		size === ESizesVariant.LARGE
@@ -34,12 +33,14 @@
 			</div>
 		</div>
 
-		<button
-			on:click
-			class="w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border border-color-white flex items-center justify-center hover:scale-105"
-		>
-			<img src={buttonIcon} alt="Button" /></button
-		>
+		{#if !hideButton}
+			<button
+				on:click
+				class="w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border border-color-white flex items-center justify-center hover:scale-105"
+			>
+				<img src={buttonIcon} alt="Button" />
+			</button>
+		{/if}
 	</div>
 	<div class="h-[83%] w-full">
 		<VideoPlayer videoUrl={videoProject.videoUrl} />
