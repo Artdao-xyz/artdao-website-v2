@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { selectedPolaroidsItem } from '$lib/components/ProjectPolaroids/store';
 	import { ESizesVariant } from '../../../constants/enums';
+	import { EPolaroidPosition } from '../PolaroidSquare/interface';
+	import PolaroidSquare from '../PolaroidSquare/PolaroidSquare.svelte';
 	import PolaroidView from '../PolaroidView/PolaroidView.svelte';
 	import type { IPolaroidImage } from './interface';
 
@@ -11,8 +13,8 @@
 	const sizes = [
 		ESizesVariant.MEDIUM,
 		ESizesVariant.MEDIUM,
-		ESizesVariant.LARGE,
-		ESizesVariant.SMALL
+		ESizesVariant.MEDIUM,
+		ESizesVariant.MEDIUM
 	];
 
 	$: viewSize = sizes[index];
@@ -23,34 +25,45 @@
 	};
 </script>
 
-<div class="flex flex-row items-center w-full border h-[54.39%] laptopL:h-[65%]">
+<div class="flex-row flex w-full h-[65%] justify-between">
 	<PolaroidView image={images[index]} {viewSize} />
 
-	<div class="w-[30%] flex justify-end h-full">
+	<div
+		class="w-[28%] laptopM:w-[25%] macBook:w-[27%] laptopL:w-[20%] bigScreen:w-[28%] h-full bigScreen:h-[85%] mx-auto"
+	>
 		<div class="w-full h-full relative">
-			<button
+			<PolaroidSquare
+				polaroid={images[0]}
+				polaroidPosition={EPolaroidPosition.TOP_LEFT}
 				on:click={() => handleOnClick(0)}
-				class="{index === 0
-					? 'z-40'
-					: 'z-0'} h-[50%] laptopM:h-[55%] laptopL:h-[55%] bigScreen:h-[300px] aspect-square bg-color-white p-5 flex flex-col gap-2.5 rounded-20 rotate-[-15deg] absolute top-0 left-[4%] cursor-pointer hover:scale-[101%] border border-color-black"
-			>
-				<img
-					src={images[0].image}
-					alt="Polaroid Gallery Item"
-					class="object-cover h-[65%] macBook:h-[70%] bigScreen:h-[80%] w-full"
-				/>
+				isSelected={index === 0}
+			/>
 
-				<div
-					class="flex flex-col gap-1 font-robotoMono text-[0.75rem] font-semibold leading-[1.375rem] tracking-[0.075rem] text-color-black"
-				>
-					<p class="text-ellipsis overflow-hidden whitespace-nowrap w-[160px] text-left">
-						{images[0].name}
-					</p>
-					<p class="text-left">{images[0].date}</p>
-				</div>
-			</button>
+			<PolaroidSquare
+				polaroid={images[1]}
+				polaroidPosition={EPolaroidPosition.TOP_RIGHT}
+				on:click={() => handleOnClick(1)}
+				isSelected={index === 1}
+			/>
 
-			<button
+			<PolaroidSquare
+				polaroid={images[2]}
+				polaroidPosition={EPolaroidPosition.BOTTOM_LEFT}
+				on:click={() => handleOnClick(2)}
+				isSelected={index === 2}
+			/>
+
+			<PolaroidSquare
+				polaroid={images[3]}
+				polaroidPosition={EPolaroidPosition.BOTTOM_RIGHT}
+				on:click={() => handleOnClick(3)}
+				isSelected={index === 3}
+			/>
+		</div>
+	</div>
+</div>
+
+<!-- <button
 				on:click={() => handleOnClick(1)}
 				class="{index === 1
 					? 'z-40'
@@ -114,7 +127,4 @@
 					</p>
 					<p class="text-left">{images[3].date}</p>
 				</div>
-			</button>
-		</div>
-	</div>
-</div>
+			</button> -->

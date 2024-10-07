@@ -26,6 +26,7 @@ import HomeTop from './elements/HomeTop/HomeTop.svelte';
 import ImgNavigator from './elements/ImgNavigator/ImgNavigator.svelte';
 import InterviewCard from './elements/InterviewCard/InterviewCard.svelte';
 import Polaroids from './elements/Polaroids/Polaroids.svelte';
+import PolaroidSquare from './elements/PolaroidSquare/PolaroidSquare.svelte';
 import PolaroidView from './elements/PolaroidView/PolaroidView.svelte';
 import SectionContainer from './elements/SectionContainer/SectionContainer.svelte';
 import TextCard from './elements/TextCard/TextCard.svelte';
@@ -49,6 +50,7 @@ export {
 	HomeTop,
 	ImgNavigator,
 	InterviewCard,
+	PolaroidSquare,
 	PolaroidView,
 	Polaroids,
 	ProjectAbout,
