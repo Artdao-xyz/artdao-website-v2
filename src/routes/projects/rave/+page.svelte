@@ -13,7 +13,13 @@
 	} from '../../../data/Projects/Rave/ProjectAboutDropdown';
 	import { raveAudioFiles } from '../../../data/Projects/Rave/ProjectAudioFiles';
 	import { raveProject } from '../../../data/Projects/Rave/ProjectIntro';
-	import { afterPartyVideo, blessingForSaleVideo } from '../../../data/Projects/Rave/ProjectVideo';
+	import {
+		afterPartyVideo,
+		blessingForSaleVideo,
+		frequencyVideo,
+		fwvnVideo,
+		petroVideo
+	} from '../../../data/Projects/Rave/ProjectVideo';
 </script>
 
 <div
@@ -27,7 +33,7 @@
 		route={raveNavItems[1].route}
 	/>
 
-	<ProjectVideo videoProject={blessingForSaleVideo} />
+	<ProjectVideo videoProjects={[blessingForSaleVideo, fwvnVideo, frequencyVideo]} />
 
 	<ProjectAudioFiles audioItems={raveAudioFiles} />
 
@@ -37,7 +43,7 @@
 		route={raveNavItems[2].route}
 	/>
 
-	<ProjectVideo videoProject={afterPartyVideo} size={ESizesVariant.SMALL} />
+	<ProjectVideo videoProjects={[afterPartyVideo, petroVideo]} size={ESizesVariant.SMALL} />
 
 	<HomeIcon />
 </div>

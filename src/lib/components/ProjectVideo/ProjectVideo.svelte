@@ -4,12 +4,22 @@
 	import VideoCard from '$lib/elements/VideoCard/VideoCard.svelte';
 	import { EColorVariant, ESizesVariant } from '../../../constants/enums';
 
-	export let videoProject: IVideoProject;
+	export let videoProjects: IVideoProject[];
 	export let size: ESizesVariant = ESizesVariant.LARGE;
+	$: index = 0;
+
+	$: videoProject = videoProjects[index];
+	$: console.log('first videoProject', videoProject);
+
+	const handleNextVideo = () => {
+		if (videoProjects.length > index + 1) {
+			index += 1;
+		}
+	};
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT} hasPadding>
 	<div class="flex items-center justify-center w-full h-full pt-[2.4375rem]">
-		<VideoCard {videoProject} {size} />
+		<VideoCard {videoProject} {size} on:click={handleNextVideo} />
 	</div>
 </SectionContainer>
