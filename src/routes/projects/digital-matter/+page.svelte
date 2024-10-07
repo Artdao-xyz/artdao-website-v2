@@ -6,9 +6,7 @@
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
-	import ImgNavigator from '$lib/elements/ImgNavigator/ImgNavigator.svelte';
-	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
-	import { ESizesVariant, ESizeVariant } from '../../../constants/enums';
+	import { EColorVariant, ESizesVariant } from '../../../constants/enums';
 	import { sulkianImages } from '../../../data/Projects/DigitalMatter/ImgNavigator';
 	import { digitalMatterNavItems } from '../../../data/Projects/DigitalMatter/NavItems';
 	import {
@@ -20,9 +18,7 @@
 		sulkianAboutImages
 	} from '../../../data/Projects/DigitalMatter/ProjectAbout';
 	import {
-		marcusAboutDropdown,
 		marcusDropdownItems,
-		parsaAboutDropdown,
 		parsaDropdownItems
 	} from '../../../data/Projects/DigitalMatter/ProjectAboutDropdown';
 	import { parsaArtworkImages } from '../../../data/Projects/DigitalMatter/ProjectArtworkGallery';
@@ -47,7 +43,7 @@
 	/>
 
 	<ProjectAboutDropdown
-		images={marcusAboutDropdown}
+		images={marcusDropdownItems.map((item) => item.image)}
 		aboutDropdownItems={marcusDropdownItems}
 		route={digitalMatterNavItems[1].route}
 	/>
@@ -60,9 +56,13 @@
 		route={digitalMatterNavItems[2].route}
 	/>
 
-	<SectionContainer>
-		<ImgNavigator images={sulkianImages} variant={ESizeVariant.BIG} />
-	</SectionContainer>
+	<ProjectAboutDropdown
+		images={sulkianImages}
+		route={''}
+		colorVariant={EColorVariant.BLACK}
+		aboutDropdownItems={undefined}
+		isImageWhiteBg
+	/>
 
 	<ProjectVideo videoProjects={[aeroVideo]} size={ESizesVariant.MEDIUM} />
 
@@ -73,7 +73,7 @@
 	/>
 
 	<ProjectAboutDropdown
-		images={parsaAboutDropdown}
+		images={parsaDropdownItems.map((item) => item.image)}
 		aboutDropdownItems={parsaDropdownItems}
 		route={digitalMatterNavItems[1].route}
 	/>

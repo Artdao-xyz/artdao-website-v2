@@ -6,6 +6,8 @@
 	export let images: string[];
 	export let variant: ESizeVariant;
 	export let aboutDropdownItems: IAboutDropdown[] | undefined = undefined;
+	export let isImageWhiteBg = false;
+
 	let index: number = 0;
 
 	const handleOnClick = (i: number) => {
@@ -21,7 +23,9 @@
 		<img
 			src={images[index]}
 			alt="Big view"
-			class="h-full {variant === ESizeVariant.SMALL ? 'w-full object-cover' : 'rounded-20'}"
+			class="h-full {variant === ESizeVariant.SMALL
+				? 'w-full object-cover'
+				: 'rounded-20 '} {isImageWhiteBg ? 'bg-color-white' : ''}"
 		/>
 	</div>
 

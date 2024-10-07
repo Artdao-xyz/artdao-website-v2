@@ -6,35 +6,26 @@ import marcusAboutDropdownThree from '$lib/assets/images/projects/digitalMatter/
 import marcusAboutDropdownOne from '$lib/assets/images/projects/digitalMatter/perro.png';
 import type { IAboutDropdown } from '$lib/elements/AboutDropdown/interfaces';
 
-export const marcusAboutDropdown = [
-	marcusAboutDropdownOne,
-	marcusAboutDropdownTwo,
-	marcusAboutDropdownThree,
-	marcusAboutDropdownFour
-];
-
-export const parsaAboutDropdown = [parsaAboutDropdownOne, parsaAboutDropdownTwo];
-
 export const marcusDropdownItems: IAboutDropdown[] = [
 	{
 		name: 'perro',
 		artist: 'marcus',
-		link: '#'
+		image: marcusAboutDropdownOne
 	},
 	{
 		name: 'caballo',
 		artist: 'marcus',
-		link: '#'
+		image: marcusAboutDropdownTwo
 	},
 	{
 		name: 'cuervos',
 		artist: 'marcus',
-		link: '#'
+		image: marcusAboutDropdownThree
 	},
 	{
 		name: 'cocodrilo',
 		artist: 'marcus',
-		link: '#'
+		image: marcusAboutDropdownFour
 	}
 ];
 
@@ -43,12 +34,14 @@ export const parsaDropdownItems: IAboutDropdown[] = [
 		name: 'Wip',
 		artist: 'parsa',
 		about:
-			'Forming a new kinship as Clown Boy became a tool to digest the darkness of the world and allow the artist to delve deeper into his own fears. '
+			'Forming a new kinship as Clown Boy became a tool to digest the darkness of the world and allow the artist to delve deeper into his own fears. ',
+		image: parsaAboutDropdownOne
 	},
 	{
 		name: 'Crucifixtion',
 		artist: 'parsa',
 		about:
-			'“Clown Boy is one of the most evil things that I can create. Each painting is a new adventure, almost like a comic book.”'
+			'“Clown Boy is one of the most evil things that I can create. Each painting is a new adventure, almost like a comic book.”',
+		image: parsaAboutDropdownTwo
 	}
 ];

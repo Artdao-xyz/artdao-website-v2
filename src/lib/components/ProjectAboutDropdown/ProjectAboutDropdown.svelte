@@ -4,12 +4,14 @@
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import { EColorVariant, ESizeVariant } from '../../../constants/enums';
 	export let images: string[];
-	export let aboutDropdownItems: IAboutDropdown[];
+	export let aboutDropdownItems: IAboutDropdown[] | undefined;
 	export let route: string;
+	export let colorVariant: EColorVariant = EColorVariant.BLACK;
+	export let isImageWhiteBg = false;
 </script>
 
-<SectionContainer colorVariant={EColorVariant.BLACK}>
+<SectionContainer {colorVariant}>
 	<div id={route} class="w-full h-full">
-		<ImgNavigator {images} variant={ESizeVariant.BIG} {aboutDropdownItems} />
+		<ImgNavigator {images} variant={ESizeVariant.BIG} {aboutDropdownItems} {isImageWhiteBg} />
 	</div>
 </SectionContainer>
