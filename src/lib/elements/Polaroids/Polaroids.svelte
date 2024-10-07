@@ -1,11 +1,16 @@
 <script lang="ts">
 	import { selectedPolaroidsItem } from '$lib/components/ProjectPolaroids/store';
+	import PolaroidRectangle from '../PolaroidRectangle/PolaroidRectangle.svelte';
 	import { EPolaroidPosition } from '../PolaroidSquare/interface';
 	import PolaroidSquare from '../PolaroidSquare/PolaroidSquare.svelte';
+	import PolaroidVertical from '../PolaroidVertical/PolaroidVertical.svelte';
 	import PolaroidView from '../PolaroidView/PolaroidView.svelte';
-	import type { IPolaroidImage } from './interface';
+	import { EPolaroidType, type IPolaroidImage } from './interface';
 
 	export let images: IPolaroidImage[];
+	export let polaroidsTypes: EPolaroidType[];
+
+	$: console.log('polaroidsTypes', polaroidsTypes);
 
 	let index: number = 0;
 
@@ -24,33 +29,97 @@
 		class="w-[28%] laptopM:w-[25%] macBook:w-[27%] laptopL:w-[20%] bigScreen:w-[28%] h-full bigScreen:h-[85%] mx-auto"
 	>
 		<div class="w-full h-full relative">
-			<PolaroidSquare
-				polaroid={images[0]}
-				polaroidPosition={EPolaroidPosition.TOP_LEFT}
-				on:click={() => handleOnClick(0)}
-				isSelected={index === 0}
-			/>
+			{#if polaroidsTypes[0] === EPolaroidType.SQUARE}
+				<PolaroidSquare
+					polaroid={images[0]}
+					polaroidPosition={EPolaroidPosition.TOP_LEFT}
+					on:click={() => handleOnClick(0)}
+					isSelected={index === 0}
+				/>
+			{:else if polaroidsTypes[0] === EPolaroidType.RECTANGLE}
+				<PolaroidRectangle
+					polaroid={images[0]}
+					polaroidPosition={EPolaroidPosition.TOP_LEFT}
+					on:click={() => handleOnClick(0)}
+					isSelected={index === 0}
+				/>
+			{:else}
+				<PolaroidVertical
+					polaroid={images[0]}
+					polaroidPosition={EPolaroidPosition.TOP_LEFT}
+					on:click={() => handleOnClick(0)}
+					isSelected={index === 0}
+				/>
+			{/if}
 
-			<PolaroidSquare
-				polaroid={images[1]}
-				polaroidPosition={EPolaroidPosition.TOP_RIGHT}
-				on:click={() => handleOnClick(1)}
-				isSelected={index === 1}
-			/>
+			{#if polaroidsTypes[1] === EPolaroidType.SQUARE}
+				<PolaroidSquare
+					polaroid={images[1]}
+					polaroidPosition={EPolaroidPosition.TOP_RIGHT}
+					on:click={() => handleOnClick(1)}
+					isSelected={index === 1}
+				/>
+			{:else if polaroidsTypes[1] === EPolaroidType.RECTANGLE}
+				<PolaroidRectangle
+					polaroid={images[1]}
+					polaroidPosition={EPolaroidPosition.TOP_RIGHT}
+					on:click={() => handleOnClick(1)}
+					isSelected={index === 1}
+				/>
+			{:else}
+				<PolaroidVertical
+					polaroid={images[1]}
+					polaroidPosition={EPolaroidPosition.TOP_RIGHT}
+					on:click={() => handleOnClick(1)}
+					isSelected={index === 1}
+				/>
+			{/if}
 
-			<PolaroidSquare
-				polaroid={images[2]}
-				polaroidPosition={EPolaroidPosition.BOTTOM_LEFT}
-				on:click={() => handleOnClick(2)}
-				isSelected={index === 2}
-			/>
+			{#if polaroidsTypes[2] === EPolaroidType.SQUARE}
+				<PolaroidSquare
+					polaroid={images[2]}
+					polaroidPosition={EPolaroidPosition.BOTTOM_LEFT}
+					on:click={() => handleOnClick(2)}
+					isSelected={index === 2}
+				/>
+			{:else if polaroidsTypes[2] === EPolaroidType.RECTANGLE}
+				<PolaroidRectangle
+					polaroid={images[2]}
+					polaroidPosition={EPolaroidPosition.BOTTOM_LEFT}
+					on:click={() => handleOnClick(2)}
+					isSelected={index === 2}
+				/>
+			{:else}
+				<PolaroidVertical
+					polaroid={images[2]}
+					polaroidPosition={EPolaroidPosition.BOTTOM_LEFT}
+					on:click={() => handleOnClick(2)}
+					isSelected={index === 2}
+				/>
+			{/if}
 
-			<PolaroidSquare
-				polaroid={images[3]}
-				polaroidPosition={EPolaroidPosition.BOTTOM_RIGHT}
-				on:click={() => handleOnClick(3)}
-				isSelected={index === 3}
-			/>
+			{#if polaroidsTypes[3] === EPolaroidType.SQUARE}
+				<PolaroidSquare
+					polaroid={images[3]}
+					polaroidPosition={EPolaroidPosition.BOTTOM_RIGHT}
+					on:click={() => handleOnClick(3)}
+					isSelected={index === 3}
+				/>
+			{:else if polaroidsTypes[3] === EPolaroidType.RECTANGLE}
+				<PolaroidRectangle
+					polaroid={images[3]}
+					polaroidPosition={EPolaroidPosition.BOTTOM_RIGHT}
+					on:click={() => handleOnClick(3)}
+					isSelected={index === 3}
+				/>
+			{:else}
+				<PolaroidVertical
+					polaroid={images[3]}
+					polaroidPosition={EPolaroidPosition.BOTTOM_RIGHT}
+					on:click={() => handleOnClick(3)}
+					isSelected={index === 3}
+				/>
+			{/if}
 		</div>
 	</div>
 </div>

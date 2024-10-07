@@ -4,3 +4,9 @@ export interface IPolaroidImage {
 	date?: string;
 	quote?: string;
 }
+
+export enum EPolaroidType {
+	SQUARE = 'square',
+	RECTANGLE = 'rectangle',
+	VERTICAL = 'vertical'
+}

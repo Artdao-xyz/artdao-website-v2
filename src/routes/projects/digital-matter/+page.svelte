@@ -6,6 +6,7 @@
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
+	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
 	import { EColorVariant, ESizesVariant } from '../../../constants/enums';
 	import { sulkianImages } from '../../../data/Projects/DigitalMatter/ImgNavigator';
 	import { digitalMatterNavItems } from '../../../data/Projects/DigitalMatter/NavItems';
@@ -80,7 +81,15 @@
 
 	<ProjectArtworkGrid galleryImages={parsaArtworkImages} showDetails />
 
-	<ProjectPolaroids images={parsaPolaroidsImages} />
+	<ProjectPolaroids
+		images={parsaPolaroidsImages}
+		polaroidsTypes={[
+			EPolaroidType.RECTANGLE,
+			EPolaroidType.RECTANGLE,
+			EPolaroidType.RECTANGLE,
+			EPolaroidType.VERTICAL
+		]}
+	/>
 
 	<HomeIcon />
 </div>

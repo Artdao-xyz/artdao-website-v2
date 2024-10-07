@@ -13,7 +13,7 @@
 				? 'top-[20%] right-6 rotate-[15deg]'
 				: polaroidPosition === EPolaroidPosition.BOTTOM_LEFT
 					? 'top-[53%] right-[1%] rotate-[15deg]'
-					: 'top-[50%] left-[-22%] rotate-[-15deg]';
+					: 'top-[35%] left-[-22%] rotate-[-15deg]';
 
 	const isOnlyImage = !polaroid.name && !polaroid.date;
 </script>
@@ -22,8 +22,8 @@
 	on:click
 	class="{isSelected
 		? 'z-40'
-		: 'z-0'} h-[43%] w-[85%] bigScreen:h-[300px] bg-color-white p-5 flex flex-col gap-2.5 rounded-20
-		absolute cursor-pointer hover:scale-[101%] border border-color-black {positionClass} "
+		: 'z-0'} h-[60%] bigScreen:h-[75%] w-[60%] bigScreen:w-[50%] bg-color-white p-5 flex flex-col gap-2.5 rounded-20
+		absolute cursor-pointer hover:scale-[101%] border border-color-black {positionClass}"
 >
 	<img
 		src={polaroid.image}

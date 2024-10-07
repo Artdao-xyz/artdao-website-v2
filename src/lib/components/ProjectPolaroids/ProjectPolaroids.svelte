@@ -1,11 +1,17 @@
 <script lang="ts">
-	import type { IPolaroidImage } from '$lib/elements/Polaroids/interface';
+	import { EPolaroidType, type IPolaroidImage } from '$lib/elements/Polaroids/interface';
 	import Polaroids from '$lib/elements/Polaroids/Polaroids.svelte';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import { EColorVariant } from '../../../constants/enums';
 	import { selectedPolaroidsItem } from './store';
 
 	export let images: IPolaroidImage[];
+	export let polaroidsTypes: EPolaroidType[] = [
+		EPolaroidType.SQUARE,
+		EPolaroidType.SQUARE,
+		EPolaroidType.SQUARE,
+		EPolaroidType.SQUARE
+	];
 
 	let selectedItem: number;
 
@@ -25,6 +31,6 @@
 				&gt; {images[selectedItem].quote} &lt;
 			</h1>
 		</div>
-		<Polaroids {images} />
+		<Polaroids {images} {polaroidsTypes} />
 	</div>
 </SectionContainer>
