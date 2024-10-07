@@ -5,6 +5,7 @@ export interface IAboutDropdown {
 	date?: string;
 	location?: string;
 	about?: string;
+	image: string;
 }
 
 export enum EAboutDropdownVariant {

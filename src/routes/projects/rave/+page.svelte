@@ -1,20 +1,16 @@
 <script>
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
-	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
 	import ProjectAudioFiles from '$lib/components/ProjectAudioFiles/ProjectAudioFiles.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
-	import { EAboutDropdownVariant } from '$lib/elements/AboutDropdown/interfaces';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { ESizesVariant } from '../../../constants/enums';
 	import { raveNavItems } from '../../../data/Projects/Rave/NavItems';
 	import {
 		raveAboutDropdopwnItems,
 		raveAboutDropdopwnItemsTwo,
-		raveDelirioImages,
 		raveMemoriesImages
 	} from '../../../data/Projects/Rave/ProjectAboutDropdown';
-	import { raveArtworkImages } from '../../../data/Projects/Rave/ProjectArtworkGallery';
 	import { raveAudioFiles } from '../../../data/Projects/Rave/ProjectAudioFiles';
 	import { raveProject } from '../../../data/Projects/Rave/ProjectIntro';
 	import { afterPartyVideo, blessingForSaleVideo } from '../../../data/Projects/Rave/ProjectVideo';
@@ -25,13 +21,10 @@
 >
 	<ProjectIntro project={raveProject} />
 
-	<ProjectArtworkGrid galleryImages={raveArtworkImages} />
-
 	<ProjectAboutDropdown
-		images={raveDelirioImages}
+		images={raveAboutDropdopwnItems.map((image) => image.image)}
 		aboutDropdownItems={raveAboutDropdopwnItems}
 		route={raveNavItems[1].route}
-		aboutDropdownVariant={EAboutDropdownVariant.LINK}
 	/>
 
 	<ProjectVideo videoProject={blessingForSaleVideo} />
@@ -42,7 +35,6 @@
 		images={raveMemoriesImages}
 		aboutDropdownItems={raveAboutDropdopwnItemsTwo}
 		route={raveNavItems[2].route}
-		aboutDropdownVariant={EAboutDropdownVariant.LINK}
 	/>
 
 	<ProjectVideo videoProject={afterPartyVideo} size={ESizesVariant.SMALL} />
