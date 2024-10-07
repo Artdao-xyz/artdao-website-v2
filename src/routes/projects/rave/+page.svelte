@@ -34,7 +34,10 @@
 
 	<ProjectVideo videoProjects={[blessingForSaleVideo, fwvnVideo, frequencyVideo]} />
 
-	<ProjectAudioFiles audioItems={raveAudioFiles} />
+	<ProjectAudioFiles
+		audioItems={raveAudioFiles}
+		title="cybernetic collaboration between Clauthewitch and NICØ"
+	/>
 
 	<ProjectAboutDropdown
 		images={raveAboutDropdopwnItemsTwo.map((item) => item.image)}

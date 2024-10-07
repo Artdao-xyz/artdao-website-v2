@@ -7,6 +7,7 @@
 	import { playingIndex } from './store';
 
 	export let audioItems: IAudioItem[];
+	export let title: string;
 	let index = 0;
 
 	const handleOnClick = (i: number) => {
@@ -24,12 +25,21 @@
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT}>
-	<div class="flex justify-between items-center mx-auto h-full gap-[5rem]">
-		<AudioFilePreview {audioItems} {handlePreviousTrack} {handleNextTrack} {index} />
-		<div class="flex flex-col gap-[5rem] justify-center">
-			{#each audioItems as audioItem, i}
-				<AudioFile {audioItem} on:click={() => handleOnClick(i)} {index} {audioItems} />
-			{/each}
+	<div class="h-full pt-[3%] flex flex-col flex-1 gap-10">
+		<div>
+			<h1
+				class="px-[1%] text-color-black text-[4rem] bigScreen:text-[5rem] font-bold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
+			>
+				&gt; {title} &lt;
+			</h1>
+		</div>
+		<div class="flex justify-between items-center mx-auto gap-[5rem] h-full">
+			<AudioFilePreview {audioItems} {handlePreviousTrack} {handleNextTrack} {index} />
+			<div class="flex flex-col gap-[5rem] justify-center">
+				{#each audioItems as audioItem, i}
+					<AudioFile {audioItem} on:click={() => handleOnClick(i)} {index} {audioItems} />
+				{/each}
+			</div>
 		</div>
 	</div>
 </SectionContainer>
