@@ -24,17 +24,8 @@
 	import { orbQuestions } from '../../../data/Projects/Orb/ProjectInterview';
 	import { orbProject } from '../../../data/Projects/Orb/ProjectIntro';
 	import { orbVideo, orbVideoTwo } from '../../../data/Projects/Orb/ProjectVideo';
+	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
 	import { orbNavStoreItems } from './store';
-
-	// @ts-ignore
-	const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
-		const { top, left, bottom, right } = el.getBoundingClientRect();
-		const { innerHeight, innerWidth } = window;
-		return partiallyVisible
-			? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&
-					((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
-			: top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
-	};
 
 	const handleScroll = () => {
 		const intro = document.getElementById('intro');

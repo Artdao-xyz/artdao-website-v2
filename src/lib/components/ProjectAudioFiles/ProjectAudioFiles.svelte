@@ -8,6 +8,7 @@
 
 	export let audioItems: IAudioItem[];
 	export let title: string;
+	export let route = '';
 	let index = 0;
 
 	const handleOnClick = (i: number) => {
@@ -25,7 +26,7 @@
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT}>
-	<div class="h-full pt-[3%] flex flex-col flex-1 gap-10">
+	<div class="h-full pt-[3%] flex flex-col flex-1 gap-10" id={route}>
 		<div>
 			<h1
 				class="px-[1%] text-color-black text-[4rem] bigScreen:text-[5rem] font-bold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"

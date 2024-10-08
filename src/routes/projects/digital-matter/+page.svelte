@@ -29,9 +29,122 @@
 		parsaPolaroidsImages
 	} from '../../../data/Projects/DigitalMatter/ProjectPolaroids';
 	import { aeroVideo } from '../../../data/Projects/DigitalMatter/ProjectVideo';
+	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
+	import { digitalMatterNavStoreItems } from './store';
+
+	const handleScroll = () => {
+		const intro = document.getElementById('intro');
+		const marcus = document.getElementById('marcus');
+		const marcusEnd = document.getElementById('narcus-end');
+		const sulkian = document.getElementById('sulkian');
+		const sulkianEnd = document.getElementById('sulkian-end');
+		const parsa = document.getElementById('parsa');
+		const parsaEnd = document.getElementById('parsa-end');
+
+		if (elementIsVisibleInViewport(intro, true)) {
+			digitalMatterNavStoreItems.update((items) => [
+				{
+					text: 'About',
+					route: 'intro',
+					selected: true
+				},
+				{
+					text: 'Marcus',
+					route: 'marcus',
+					selected: false
+				},
+				{
+					text: 'Sulkian',
+					route: 'sulkian',
+					selected: false
+				},
+				{
+					text: 'Parsa',
+					route: 'parsa',
+					selected: false
+				}
+			]);
+		}
+
+		if (elementIsVisibleInViewport(marcus) || elementIsVisibleInViewport(marcusEnd)) {
+			digitalMatterNavStoreItems.update((items) => [
+				{
+					text: 'About',
+					route: 'intro',
+					selected: false
+				},
+				{
+					text: 'Marcus',
+					route: 'marcus',
+					selected: true
+				},
+				{
+					text: 'Sulkian',
+					route: 'sulkian',
+					selected: false
+				},
+				{
+					text: 'Parsa',
+					route: 'parsa',
+					selected: false
+				}
+			]);
+		}
+
+		if (elementIsVisibleInViewport(sulkian) || elementIsVisibleInViewport(sulkianEnd)) {
+			digitalMatterNavStoreItems.update((items) => [
+				{
+					text: 'About',
+					route: 'intro',
+					selected: false
+				},
+				{
+					text: 'Marcus',
+					route: 'marcus',
+					selected: false
+				},
+				{
+					text: 'Sulkian',
+					route: 'sulkian',
+					selected: true
+				},
+				{
+					text: 'Parsa',
+					route: 'parsa',
+					selected: false
+				}
+			]);
+		}
+
+		if (elementIsVisibleInViewport(parsa) || elementIsVisibleInViewport(parsaEnd)) {
+			digitalMatterNavStoreItems.update((items) => [
+				{
+					text: 'About',
+					route: 'intro',
+					selected: false
+				},
+				{
+					text: 'Marcus',
+					route: 'marcus',
+					selected: false
+				},
+				{
+					text: 'Sulkian',
+					route: 'sulkian',
+					selected: false
+				},
+				{
+					text: 'Parsa',
+					route: 'parsa',
+					selected: true
+				}
+			]);
+		}
+	};
 </script>
 
 <div
+	on:scroll={handleScroll}
 	id="rave"
 	class="mx-auto mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen scroll-smooth"
 >

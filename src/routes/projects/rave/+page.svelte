@@ -19,9 +19,80 @@
 		fwvnVideo,
 		petroVideo
 	} from '../../../data/Projects/Rave/ProjectVideo';
+	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
+	import { raveNavStoreItems } from './store';
+
+	const handleScroll = () => {
+		const intro = document.getElementById('intro');
+		const artists = document.getElementById('artists');
+		const artistsEnd = document.getElementById('artists-end');
+		const event = document.getElementById('event');
+		const eventEnd = document.getElementById('event-end');
+
+		if (elementIsVisibleInViewport(intro)) {
+			raveNavStoreItems.update((items) => [
+				{
+					text: 'About',
+					route: 'intro',
+					selected: true
+				},
+				{
+					text: 'Artists & Artworks',
+					route: 'artists',
+					selected: false
+				},
+				{
+					text: 'Event & After Party',
+					route: 'event',
+					selected: false
+				}
+			]);
+		}
+
+		if (elementIsVisibleInViewport(artists) || elementIsVisibleInViewport(artistsEnd)) {
+			raveNavStoreItems.update((items) => [
+				{
+					text: 'About',
+					route: 'intro',
+					selected: false
+				},
+				{
+					text: 'Artists & Artworks',
+					route: 'artists',
+					selected: true
+				},
+				{
+					text: 'Event & After Party',
+					route: 'event',
+					selected: false
+				}
+			]);
+		}
+
+		if (elementIsVisibleInViewport(event) || elementIsVisibleInViewport(eventEnd)) {
+			raveNavStoreItems.update((items) => [
+				{
+					text: 'About',
+					route: 'intro',
+					selected: false
+				},
+				{
+					text: 'Artists & Artworks',
+					route: 'artists',
+					selected: false
+				},
+				{
+					text: 'Event & After Party',
+					route: 'event',
+					selected: true
+				}
+			]);
+		}
+	};
 </script>
 
 <div
+	on:scroll={handleScroll}
 	class="mx-auto mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen"
 >
 	<ProjectIntro project={raveProject} />
@@ -37,6 +108,7 @@
 	<ProjectAudioFiles
 		audioItems={raveAudioFiles}
 		title="cybernetic collaboration between Clauthewitch and NICØ"
+		route="artists-end"
 	/>
 
 	<ProjectAboutDropdown

@@ -29,9 +29,121 @@
 		ecologiesVideoProjectOne,
 		ecologiesVideoProjectTwo
 	} from '../../../data/Projects/EcologiesOfCode/ProjectVIdeo';
+	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
+	import { ecologiesNavStoreItems } from './store';
+
+	const handleScroll = () => {
+		const intro = document.getElementById('intro');
+		const joaquina = document.getElementById('joaquina');
+		const joaquinaEnd = document.getElementById('joaquina-end');
+		const oki = document.getElementById('oki');
+		const okiEnd = document.getElementById('oki-end');
+		const hypereikon = document.getElementById('hypereikon');
+
+		if (elementIsVisibleInViewport(intro)) {
+			ecologiesNavStoreItems.update((items) => [
+				{
+					text: 'About',
+					route: 'intro',
+					selected: true
+				},
+				{
+					text: 'Joaquina',
+					route: 'joaquina',
+					selected: false
+				},
+				{
+					text: 'Oki',
+					route: 'oki',
+					selected: false
+				},
+				{
+					text: 'Hypereikon',
+					route: 'hypereikon',
+					selected: false
+				}
+			]);
+		}
+
+		if (elementIsVisibleInViewport(joaquina) || elementIsVisibleInViewport(joaquinaEnd)) {
+			ecologiesNavStoreItems.update((items) => [
+				{
+					text: 'About',
+					route: 'intro',
+					selected: false
+				},
+				{
+					text: 'Joaquina',
+					route: 'joaquina',
+					selected: true
+				},
+				{
+					text: 'Oki',
+					route: 'oki',
+					selected: false
+				},
+				{
+					text: 'Hypereikon',
+					route: 'hypereikon',
+					selected: false
+				}
+			]);
+		}
+
+		if (elementIsVisibleInViewport(oki) || elementIsVisibleInViewport(okiEnd)) {
+			ecologiesNavStoreItems.update((items) => [
+				{
+					text: 'About',
+					route: 'intro',
+					selected: false
+				},
+				{
+					text: 'Joaquina',
+					route: 'joaquina',
+					selected: false
+				},
+				{
+					text: 'Oki',
+					route: 'oki',
+					selected: true
+				},
+				{
+					text: 'Hypereikon',
+					route: 'hypereikon',
+					selected: false
+				}
+			]);
+		}
+
+		if (elementIsVisibleInViewport(hypereikon)) {
+			ecologiesNavStoreItems.update((items) => [
+				{
+					text: 'About',
+					route: 'intro',
+					selected: false
+				},
+				{
+					text: 'Joaquina',
+					route: 'joaquina',
+					selected: false
+				},
+				{
+					text: 'Oki',
+					route: 'oki',
+					selected: false
+				},
+				{
+					text: 'Hypereikon',
+					route: 'hypereikon',
+					selected: true
+				}
+			]);
+		}
+	};
 </script>
 
 <div
+	on:scroll={handleScroll}
 	class="mx-auto mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen"
 >
 	<ProjectIntro project={ecologiesOfCodeProject} />

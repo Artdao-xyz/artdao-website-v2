@@ -1,9 +1,15 @@
 <script lang="ts">
 	import NavBar from '$lib/elements/NavBar/NavBar.svelte';
-	import { raveNavItems } from '../../../data/Projects/Rave/NavItems';
 	import '../../../style.css';
+	import { raveNavStoreItems } from './store';
+
+	let navItems: any;
+
+	raveNavStoreItems.subscribe((item) => {
+		navItems = item;
+	});
 </script>
 
-<NavBar navItems={raveNavItems} />
+<NavBar {navItems} />
 
 <slot />
