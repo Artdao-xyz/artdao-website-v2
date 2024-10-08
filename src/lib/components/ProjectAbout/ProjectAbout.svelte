@@ -9,18 +9,26 @@
 	export let aboutImage: string | undefined = undefined;
 	export let aboutImages: string[] | undefined = undefined;
 	export let route: string;
+	export let isImageLeft = true;
 </script>
 
 <SectionContainer colorVariant={EColorVariant.BLACK} hasPadding={false}>
 	<div class="flex justify-center w-full h-full" id={route}>
+		{#if !isImageLeft}
+			<div class="w-1/2 h-full flex items-center justify-center">
+				<About {aboutItem} />
+			</div>
+		{/if}
 		{#if aboutImage}
 			<img src={aboutImage} alt="About Section" class="w-1/2 h-100dvh object-cover" />
 		{/if}
 		{#if aboutImages}
 			<ImgNavigator images={aboutImages} variant={ESizeVariant.SMALL} />
 		{/if}
-		<div class="w-1/2 h-full flex items-center justify-center">
-			<About {aboutItem} />
-		</div>
+		{#if isImageLeft}
+			<div class="w-1/2 h-full flex items-center justify-center">
+				<About {aboutItem} />
+			</div>
+		{/if}
 	</div>
 </SectionContainer>

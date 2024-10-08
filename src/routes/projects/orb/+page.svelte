@@ -39,7 +39,7 @@
 		route={orbNavItems[1].route}
 	/>
 
-	<ProjectAbout aboutImages={seedAboutImages} aboutItem={seedAbout} route="#" />
+	<ProjectAbout aboutImages={seedAboutImages} aboutItem={seedAbout} route="#" isImageLeft={false} />
 
 	<ProjectAbout aboutImages={hivemindAboutImages} aboutItem={hivemindAbout} route="#" />
 
