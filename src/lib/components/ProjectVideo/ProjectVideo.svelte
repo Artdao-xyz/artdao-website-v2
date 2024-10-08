@@ -6,6 +6,7 @@
 
 	export let videoProjects: IVideoProject[];
 	export let size: ESizesVariant = ESizesVariant.LARGE;
+	export let route = '';
 	$: index = 0;
 	$: videoProject = videoProjects[index];
 
@@ -23,7 +24,7 @@
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT} hasPadding>
-	<div class="flex items-center justify-center w-full h-full pt-[2.4375rem]">
+	<div class="flex items-center justify-center w-full h-full pt-[2.4375rem]" id={route}>
 		<VideoCard {videoProject} {size} on:click={handleNextVideo} {hideButton} />
 	</div>
 </SectionContainer>

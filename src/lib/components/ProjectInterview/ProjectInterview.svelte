@@ -4,10 +4,11 @@
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	export let bgImage: string;
 	export let questions: IQuestion[];
+	export let route = '';
 </script>
 
 <SectionContainer {bgImage}>
-	<div class="flex flex-row justify-center items-center h-full w-full">
+	<div class="flex flex-row justify-center items-center h-full w-full" id={route}>
 		<InterviewCard {questions} />
 	</div>
 </SectionContainer>

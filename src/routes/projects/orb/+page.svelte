@@ -39,7 +39,9 @@
 	const handleScroll = () => {
 		const intro = document.getElementById('intro');
 		const curators = document.getElementById('curators');
+		const curatorsEnd = document.getElementById('curators-end');
 		const artworks = document.getElementById('artworks');
+		const artworksEnd = document.getElementById('artworks-end');
 		const vernisagge = document.getElementById('vernisagge');
 
 		if (elementIsVisibleInViewport(intro)) {
@@ -67,7 +69,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(curators)) {
+		if (elementIsVisibleInViewport(curators) || elementIsVisibleInViewport(curatorsEnd)) {
 			orbNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -92,7 +94,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(artworks)) {
+		if (elementIsVisibleInViewport(artworks) || elementIsVisibleInViewport(artworksEnd)) {
 			orbNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -150,17 +152,13 @@
 >
 	<ProjectIntro project={orbProject} />
 
-	<ProjectInterview questions={orbQuestions} {bgImage} />
+	<ProjectInterview questions={orbQuestions} {bgImage} route={orbNavItems[1].route} />
 
-	<ProjectAbout
-		aboutImages={magmaAboutImages}
-		aboutItem={magmaAbout}
-		route={orbNavItems[1].route}
-	/>
+	<ProjectAbout aboutImages={magmaAboutImages} aboutItem={magmaAbout} route="" />
 
-	<ProjectAbout aboutImages={seedAboutImages} aboutItem={seedAbout} route="#" isImageLeft={false} />
+	<ProjectAbout aboutImages={seedAboutImages} aboutItem={seedAbout} route="" isImageLeft={false} />
 
-	<ProjectAbout aboutImages={hivemindAboutImages} aboutItem={hivemindAbout} route="#" />
+	<ProjectAbout aboutImages={hivemindAboutImages} aboutItem={hivemindAbout} route="curators-end" />
 
 	<ProjectAboutDropdown
 		aboutDropdownItems={daoDropdownItems}
@@ -172,7 +170,7 @@
 
 	<ProjectAbout aboutImages={carocoAboutImages} aboutItem={carocoAbout} route="#" />
 
-	<ProjectVideo videoProjects={[orbVideoTwo]} />
+	<ProjectVideo videoProjects={[orbVideoTwo]} route="artworks-end" />
 
 	<ProjectAboutDropdown
 		aboutDropdownItems={vernisaggeDropdownItems}
