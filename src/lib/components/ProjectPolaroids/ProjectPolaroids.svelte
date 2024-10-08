@@ -5,6 +5,7 @@
 	import { EColorVariant } from '../../../constants/enums';
 	import { selectedPolaroidsItem } from './store';
 
+	export let route = '';
 	export let images: IPolaroidImage[];
 	export let polaroidsTypes: EPolaroidType[] = [
 		EPolaroidType.SQUARE,
@@ -22,6 +23,7 @@
 
 <SectionContainer colorVariant={EColorVariant.LIGHT}>
 	<div
+		id={route}
 		class="w-full h-full flex flex-col items-center justify-end gap-[5%] bigScreen:gap-[10%] pt-[5%]"
 	>
 		<div class="h-full w-full flex items-center">

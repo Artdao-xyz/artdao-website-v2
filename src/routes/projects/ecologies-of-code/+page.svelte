@@ -116,7 +116,7 @@
 		}
 
 		if (elementIsVisibleInViewport(hypereikon)) {
-			ecologiesNavStoreItems.update((items) => [
+			ecologiesNavStoreItems.update((obj) => [
 				{
 					text: 'About',
 					route: 'intro',
@@ -158,7 +158,7 @@
 
 	<ProjectVideo videoProjects={[ecologiesVideoProjectOne]} />
 
-	<ProjectPolaroids images={ecologiesPolaroidImages} />
+	<ProjectPolaroids images={ecologiesPolaroidImages} route="joaquina-end" />
 
 	<ProjectAbout
 		aboutItem={okytomoAbout}
@@ -170,7 +170,7 @@
 
 	<ProjectVideo videoProjects={[ecologiesVideoProjectTwo]} />
 
-	<ProjectPolaroids images={ecologiesPolaroidImagesTwo} />
+	<ProjectPolaroids images={ecologiesPolaroidImagesTwo} route="oki-end" />
 
 	<ProjectAbout
 		aboutItem={hypereikonAbout}
