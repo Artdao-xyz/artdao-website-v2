@@ -6,6 +6,7 @@
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
+	import { orbNavItems } from '../../../data/Projects/Orb/NavItems';
 	import {
 		carocoAbout,
 		carocoAboutImages,
@@ -32,28 +33,32 @@
 
 	<ProjectInterview questions={orbQuestions} {bgImage} />
 
-	<ProjectAbout aboutImages={magmaAboutImages} aboutItem={magmaAbout} route="artists" />
+	<ProjectAbout
+		aboutImages={magmaAboutImages}
+		aboutItem={magmaAbout}
+		route={orbNavItems[1].route}
+	/>
 
-	<ProjectAbout aboutImages={seedAboutImages} aboutItem={seedAbout} route="" />
+	<ProjectAbout aboutImages={seedAboutImages} aboutItem={seedAbout} route="#" />
 
-	<ProjectAbout aboutImages={hivemindAboutImages} aboutItem={hivemindAbout} route="" />
+	<ProjectAbout aboutImages={hivemindAboutImages} aboutItem={hivemindAbout} route="#" />
 
 	<ProjectAboutDropdown
 		aboutDropdownItems={daoDropdownItems}
 		images={daoDropdownItems.map((item) => item.image)}
-		route=""
+		route={orbNavItems[2].route}
 	/>
 
 	<ProjectVideo videoProjects={[orbVideo]} />
 
-	<ProjectAbout aboutImages={carocoAboutImages} aboutItem={carocoAbout} route="" />
+	<ProjectAbout aboutImages={carocoAboutImages} aboutItem={carocoAbout} route="#" />
 
 	<ProjectVideo videoProjects={[orbVideoTwo]} />
 
 	<ProjectAboutDropdown
 		aboutDropdownItems={vernisaggeDropdownItems}
 		images={vernisaggeDropdownItems.map((item) => item.image)}
-		route=""
+		route={orbNavItems[3].route}
 	/>
 
 	<HomeIcon />

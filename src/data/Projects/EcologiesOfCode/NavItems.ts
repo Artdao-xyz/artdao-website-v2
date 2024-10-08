@@ -3,7 +3,7 @@ import type { INavBarItem } from '$lib/elements/NavBar/interfaces';
 export const ecologiesNavItems: INavBarItem[] = [
 	{
 		text: 'About',
-		route: '',
+		route: 'intro',
 		selected: false
 	},
 	{

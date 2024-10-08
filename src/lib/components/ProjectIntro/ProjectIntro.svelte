@@ -6,7 +6,7 @@
 </script>
 
 <SectionContainer>
-	<div class="w-full h-full flex flex-row pt-[5%] gap-28">
+	<div class="w-full h-full flex flex-row pt-[5%] gap-28" id="intro">
 		<div class="flex flex-col h-full w-[42%] max-w-[35rem] text-color-black gap-5">
 			<h1
 				class="font-neue text-[7.5rem] font-semibold leading-[8.125rem] tracking-[0.0975rem] uppercase"

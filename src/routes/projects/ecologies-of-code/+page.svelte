@@ -44,7 +44,7 @@
 
 	<ProjectInterview bgImage={ecoInterviewBg} questions={ecologiesOfCodeQuestions} />
 
-	<ProjectVideo videoProject={ecologiesVideoProjectOne} />
+	<ProjectVideo videoProjects={[ecologiesVideoProjectOne]} />
 
 	<ProjectPolaroids images={ecologiesPolaroidImages} />
 
@@ -56,7 +56,7 @@
 
 	<ProjectInterview bgImage={okytomoInterview} questions={ecologiesOfCodeQuestions} />
 
-	<ProjectVideo videoProject={ecologiesVideoProjectTwo} />
+	<ProjectVideo videoProjects={[ecologiesVideoProjectTwo]} />
 
 	<ProjectPolaroids images={ecologiesPolaroidImagesTwo} />
 

@@ -3,7 +3,7 @@ import type { INavBarItem } from '$lib/elements/NavBar/interfaces';
 export const orbNavItems: INavBarItem[] = [
 	{
 		text: 'About',
-		route: '',
+		route: 'intro',
 		selected: false
 	},
 	{
@@ -17,8 +17,8 @@ export const orbNavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
-		text: 'Vernissage',
-		route: 'vernissage',
+		text: 'Vernisagge',
+		route: 'vernisagge',
 		selected: false
 	}
 ];
