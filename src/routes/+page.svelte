@@ -42,8 +42,8 @@
 					<HomeImgRectV image={homeImages[2].imageUrl} />
 				</a>
 				<div class="flex flex-col gap-2 w-1/2 borderBlue h-full">
-					<a href={homeImages[0].route}>
-						<HomeImgSquare image={homeImages[0].imageUrl} />
+					<a href={homeImages[3].route}>
+						<HomeImgSquare image={homeImages[3].imageUrl} />
 					</a>
 					<a href={homeImages[1].route}>
 						<HomeImgSquare image={homeImages[1].imageUrl} />

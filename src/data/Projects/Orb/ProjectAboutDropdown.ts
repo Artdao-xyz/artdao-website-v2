@@ -1,3 +1,11 @@
+import vernissage01 from '$lib/assets/images/projects/orb/000039990018.png';
+import vernissage03 from '$lib/assets/images/projects/orb/000039990022.png';
+import vernissage02 from '$lib/assets/images/projects/orb/000039990025.png';
+import vernissage06 from '$lib/assets/images/projects/orb/240326_caroco_011-2.png';
+import vernissage05 from '$lib/assets/images/projects/orb/240326_caroco_013-2.png';
+import vernissage10 from '$lib/assets/images/projects/orb/240326_caroco_015-2_1.png';
+import vernissage08 from '$lib/assets/images/projects/orb/240326_caroco_020.png';
+import vernissage07 from '$lib/assets/images/projects/orb/240326_caroco_032.png';
 import cydr from '$lib/assets/images/projects/orb/image_(10).png';
 import dodged from '$lib/assets/images/projects/orb/image_(11).png';
 import lens from '$lib/assets/images/projects/orb/image_(13)_1.png';
@@ -7,8 +15,10 @@ import sometimes from '$lib/assets/images/projects/orb/image_(16).png';
 import oneWay from '$lib/assets/images/projects/orb/image_(7).png';
 import redondo from '$lib/assets/images/projects/orb/image_(8).png';
 import silver from '$lib/assets/images/projects/orb/image_(9).png';
+import vernissage04 from '$lib/assets/images/projects/orb/IMG_4984.png';
 import read from '$lib/assets/images/projects/orb/orb_yelena-Yelena_Boni_1.png';
 import butterflies from '$lib/assets/images/projects/orb/the-butterflies-ate-my-skin-Lívia_Liu_4.png';
+import vernissage09 from '$lib/assets/images/projects/orb/untitled_shoot-025.png';
 import type { IAboutDropdown } from '$lib/elements/AboutDropdown/interfaces';
 
 export const daoDropdownItems: IAboutDropdown[] = [
@@ -85,5 +95,88 @@ export const daoDropdownItems: IAboutDropdown[] = [
 		about: 'Airbrush on paper',
 		link: 'https://zora.co/collect/zora:0x6cfd003dade0b1c3f3620705082f341611f08655/13',
 		image: lens
+	}
+];
+
+export const vernisaggeDropdownItems: IAboutDropdown[] = [
+	{
+		name: 'Vernisagge',
+		date: '23.03.2024',
+		location: 'Caroço, São Paulo',
+		about:
+			'"From works of art to nightlife, it is undeniable that the O.R.B. is deeply integrated with the electronic music scene as it emerges across different contexts of Brazilian counterculture. Reverberating in the lifestyle of the artists and expanding into their life research as we partake in a collective idea that all these circles can thrive together in the same space, art, music, finding allegiance in a symbiotic expression of identity."',
+		image: vernissage01
+	},
+	{
+		name: 'Vernisagge',
+		date: '23.03.2024',
+		location: 'Caroço, São Paulo',
+		about:
+			'"From works of art to nightlife, it is undeniable that the O.R.B. is deeply integrated with the electronic music scene as it emerges across different contexts of Brazilian counterculture. Reverberating in the lifestyle of the artists and expanding into their life research as we partake in a collective idea that all these circles can thrive together in the same space, art, music, finding allegiance in a symbiotic expression of identity."',
+		image: vernissage02
+	},
+	{
+		name: 'Vernisagge',
+		date: '23.03.2024',
+		location: 'Caroço, São Paulo',
+		about:
+			'"From works of art to nightlife, it is undeniable that the O.R.B. is deeply integrated with the electronic music scene as it emerges across different contexts of Brazilian counterculture. Reverberating in the lifestyle of the artists and expanding into their life research as we partake in a collective idea that all these circles can thrive together in the same space, art, music, finding allegiance in a symbiotic expression of identity."',
+		image: vernissage03
+	},
+	{
+		name: 'Vernisagge',
+		date: '23.03.2024',
+		location: 'Caroço, São Paulo',
+		about:
+			'"From works of art to nightlife, it is undeniable that the O.R.B. is deeply integrated with the electronic music scene as it emerges across different contexts of Brazilian counterculture. Reverberating in the lifestyle of the artists and expanding into their life research as we partake in a collective idea that all these circles can thrive together in the same space, art, music, finding allegiance in a symbiotic expression of identity."',
+		image: vernissage04
+	},
+	{
+		name: 'Vernisagge',
+		date: '23.03.2024',
+		location: 'Caroço, São Paulo',
+		about:
+			'"From works of art to nightlife, it is undeniable that the O.R.B. is deeply integrated with the electronic music scene as it emerges across different contexts of Brazilian counterculture. Reverberating in the lifestyle of the artists and expanding into their life research as we partake in a collective idea that all these circles can thrive together in the same space, art, music, finding allegiance in a symbiotic expression of identity."',
+		image: vernissage05
+	},
+	{
+		name: 'Vernisagge',
+		date: '23.03.2024',
+		location: 'Caroço, São Paulo',
+		about:
+			'"From works of art to nightlife, it is undeniable that the O.R.B. is deeply integrated with the electronic music scene as it emerges across different contexts of Brazilian counterculture. Reverberating in the lifestyle of the artists and expanding into their life research as we partake in a collective idea that all these circles can thrive together in the same space, art, music, finding allegiance in a symbiotic expression of identity."',
+		image: vernissage06
+	},
+	{
+		name: 'Vernisagge',
+		date: '23.03.2024',
+		location: 'Caroço, São Paulo',
+		about:
+			'"From works of art to nightlife, it is undeniable that the O.R.B. is deeply integrated with the electronic music scene as it emerges across different contexts of Brazilian counterculture. Reverberating in the lifestyle of the artists and expanding into their life research as we partake in a collective idea that all these circles can thrive together in the same space, art, music, finding allegiance in a symbiotic expression of identity."',
+		image: vernissage07
+	},
+	{
+		name: 'Vernisagge',
+		date: '23.03.2024',
+		location: 'Caroço, São Paulo',
+		about:
+			'"From works of art to nightlife, it is undeniable that the O.R.B. is deeply integrated with the electronic music scene as it emerges across different contexts of Brazilian counterculture. Reverberating in the lifestyle of the artists and expanding into their life research as we partake in a collective idea that all these circles can thrive together in the same space, art, music, finding allegiance in a symbiotic expression of identity."',
+		image: vernissage08
+	},
+	{
+		name: 'Vernisagge',
+		date: '23.03.2024',
+		location: 'Caroço, São Paulo',
+		about:
+			'"From works of art to nightlife, it is undeniable that the O.R.B. is deeply integrated with the electronic music scene as it emerges across different contexts of Brazilian counterculture. Reverberating in the lifestyle of the artists and expanding into their life research as we partake in a collective idea that all these circles can thrive together in the same space, art, music, finding allegiance in a symbiotic expression of identity."',
+		image: vernissage09
+	},
+	{
+		name: 'Vernisagge',
+		date: '23.03.2024',
+		location: 'Caroço, São Paulo',
+		about:
+			'"From works of art to nightlife, it is undeniable that the O.R.B. is deeply integrated with the electronic music scene as it emerges across different contexts of Brazilian counterculture. Reverberating in the lifestyle of the artists and expanding into their life research as we partake in a collective idea that all these circles can thrive together in the same space, art, music, finding allegiance in a symbiotic expression of identity."',
+		image: vernissage10
 	}
 ];

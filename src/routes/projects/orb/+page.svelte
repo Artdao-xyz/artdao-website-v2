@@ -4,8 +4,11 @@
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectInterview from '$lib/components/ProjectInterview/ProjectInterview.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
+	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import {
+		carocoAbout,
+		carocoAboutImages,
 		hivemindAbout,
 		hivemindAboutImages,
 		magmaAbout,
@@ -13,9 +16,13 @@
 		seedAbout,
 		seedAboutImages
 	} from '../../../data/Projects/Orb/ProjectAbout';
-	import { daoDropdownItems } from '../../../data/Projects/Orb/ProjectAboutDropdown';
+	import {
+		daoDropdownItems,
+		vernisaggeDropdownItems
+	} from '../../../data/Projects/Orb/ProjectAboutDropdown';
 	import { orbQuestions } from '../../../data/Projects/Orb/ProjectInterview';
 	import { orbProject } from '../../../data/Projects/Orb/ProjectIntro';
+	import { orbVideo, orbVideoTwo } from '../../../data/Projects/Orb/ProjectVideo';
 </script>
 
 <div
@@ -34,6 +41,18 @@
 	<ProjectAboutDropdown
 		aboutDropdownItems={daoDropdownItems}
 		images={daoDropdownItems.map((item) => item.image)}
+		route=""
+	/>
+
+	<ProjectVideo videoProjects={[orbVideo]} />
+
+	<ProjectAbout aboutImages={carocoAboutImages} aboutItem={carocoAbout} route="" />
+
+	<ProjectVideo videoProjects={[orbVideoTwo]} />
+
+	<ProjectAboutDropdown
+		aboutDropdownItems={vernisaggeDropdownItems}
+		images={vernisaggeDropdownItems.map((item) => item.image)}
 		route=""
 	/>
 
