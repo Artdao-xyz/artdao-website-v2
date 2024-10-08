@@ -24,9 +24,128 @@
 	import { orbQuestions } from '../../../data/Projects/Orb/ProjectInterview';
 	import { orbProject } from '../../../data/Projects/Orb/ProjectIntro';
 	import { orbVideo, orbVideoTwo } from '../../../data/Projects/Orb/ProjectVideo';
+	import { orbNavStoreItems } from './store';
+
+	// @ts-ignore
+	const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
+		const { top, left, bottom, right } = el.getBoundingClientRect();
+		const { innerHeight, innerWidth } = window;
+		return partiallyVisible
+			? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&
+					((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
+			: top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
+	};
+
+	const handleScroll = () => {
+		const intro = document.getElementById('intro');
+		const curators = document.getElementById('curators');
+		const artworks = document.getElementById('artworks');
+		const vernisagge = document.getElementById('vernisagge');
+
+		if (elementIsVisibleInViewport(intro)) {
+			orbNavStoreItems.update((items) => [
+				{
+					text: 'About',
+					route: 'intro',
+					selected: true
+				},
+				{
+					text: 'Curators & DAOs',
+					route: 'curators',
+					selected: false
+				},
+				{
+					text: 'Artworks',
+					route: 'artworks',
+					selected: false
+				},
+				{
+					text: 'Vernisagge',
+					route: 'vernisagge',
+					selected: false
+				}
+			]);
+		}
+
+		if (elementIsVisibleInViewport(curators)) {
+			orbNavStoreItems.update((items) => [
+				{
+					text: 'About',
+					route: 'intro',
+					selected: false
+				},
+				{
+					text: 'Curators & DAOs',
+					route: 'curators',
+					selected: true
+				},
+				{
+					text: 'Artworks',
+					route: 'artworks',
+					selected: false
+				},
+				{
+					text: 'Vernisagge',
+					route: 'vernisagge',
+					selected: false
+				}
+			]);
+		}
+
+		if (elementIsVisibleInViewport(artworks)) {
+			orbNavStoreItems.update((items) => [
+				{
+					text: 'About',
+					route: 'intro',
+					selected: false
+				},
+				{
+					text: 'Curators & DAOs',
+					route: 'curators',
+					selected: false
+				},
+				{
+					text: 'Artworks',
+					route: 'artworks',
+					selected: true
+				},
+				{
+					text: 'Vernisagge',
+					route: 'vernisagge',
+					selected: false
+				}
+			]);
+		}
+
+		if (elementIsVisibleInViewport(vernisagge)) {
+			orbNavStoreItems.update((items) => [
+				{
+					text: 'About',
+					route: 'intro',
+					selected: false
+				},
+				{
+					text: 'Curators & DAOs',
+					route: 'curators',
+					selected: false
+				},
+				{
+					text: 'Artworks',
+					route: 'artworks',
+					selected: false
+				},
+				{
+					text: 'Vernisagge',
+					route: 'vernisagge',
+					selected: true
+				}
+			]);
+		}
+	};
 </script>
 
 <div
+	on:scroll={handleScroll}
 	class="mx-auto mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen"
 >
 	<ProjectIntro project={orbProject} />

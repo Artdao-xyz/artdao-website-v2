@@ -1,9 +1,15 @@
 <script lang="ts">
 	import NavBar from '$lib/elements/NavBar/NavBar.svelte';
-	import { orbNavItems } from '../../../data/Projects/Orb/NavItems';
 	import '../../../style.css';
+	import { orbNavStoreItems } from './store';
+
+	let navItems: any;
+
+	orbNavStoreItems.subscribe((item) => {
+		navItems = item;
+	});
 </script>
 
-<NavBar navItems={orbNavItems} />
+<NavBar {navItems} />
 
 <slot />
