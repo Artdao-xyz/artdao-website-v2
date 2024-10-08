@@ -8,12 +8,12 @@
 
 	const positionClass =
 		polaroidPosition === EPolaroidPosition.TOP_LEFT
-			? 'top-[20%] left-[-30%] rotate-[-15deg]'
+			? 'top-[20%] left-[0%] rotate-[-15deg]'
 			: polaroidPosition === EPolaroidPosition.TOP_RIGHT
 				? 'top-[20%] right-6 rotate-[15deg]'
 				: polaroidPosition === EPolaroidPosition.BOTTOM_LEFT
-					? 'top-[53%] right-[1%] rotate-[15deg]'
-					: 'top-[50%] left-[-22%] rotate-[-15deg]';
+					? 'top-[40%] right-[1%] rotate-[15deg]'
+					: 'top-[50%] left-[0%] rotate-[-15deg]';
 
 	const isOnlyImage = !polaroid.name && !polaroid.date;
 </script>
@@ -22,7 +22,7 @@
 	on:click
 	class="{isSelected
 		? 'z-40'
-		: 'z-0'} h-[43%] w-[85%] bigScreen:h-[300px] bg-color-white p-5 flex flex-col gap-2.5 rounded-20
+		: 'z-0'} h-[35%] laptopM:h-[40%] w-[65%] laptopL:w-[60%] bigScreen:h-[35%] bigScreen:w-[60%] bg-color-white p-5 flex flex-col gap-2.5 rounded-20
 		absolute cursor-pointer hover:scale-[101%] border border-color-black {positionClass} "
 >
 	<img

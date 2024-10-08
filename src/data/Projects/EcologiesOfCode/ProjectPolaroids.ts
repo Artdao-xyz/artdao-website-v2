@@ -9,15 +9,15 @@ import imageFour from '$lib/assets/images/projects/ecologiesOfCode/okytomo/polar
 import type { IPolaroidImage } from '$lib/elements/Polaroids/interface';
 
 export const ecologiesPolaroidImages: IPolaroidImage[] = [
-	{ image: ecologiesPolaroidOne, name: 'WIP - 1', date: '12/03/22' },
-	{ image: joaquinaPolaroidTwo, name: 'WIP - 2', date: '20/05/24' },
-	{ image: ecologiesPolaroidThree, name: 'WIP - 3', date: '05/11/20' },
-	{ image: ecologiesPolaroidFour, name: 'WIP - 4', date: '28/09/21' }
+	{ image: ecologiesPolaroidOne, quote: 'Water is always my guiding principle' },
+	{ image: joaquinaPolaroidTwo, quote: 'Water is always my guiding principle' },
+	{ image: ecologiesPolaroidThree, quote: 'Water is always my guiding principle' },
+	{ image: ecologiesPolaroidFour, quote: 'Water is always my guiding principle' }
 ];
 
 export const ecologiesPolaroidImagesTwo: IPolaroidImage[] = [
-	{ image: imageOne, name: 'Fs96jdnWAB0Yk8H 2', date: '12/03/22' },
-	{ image: imageTwo, name: 'Screenshot 2024-09-20 130751 1', date: '20/05/24' },
-	{ image: imageThree, name: 'progreso 1', date: '05/11/20' },
-	{ image: imageFour, name: 'ssstwitter.com_1721316787674 1', date: '28/09/21' }
+	{ image: imageOne, quote: 'I seek to relax the person with a looping landscape' },
+	{ image: imageTwo, quote: 'I seek to relax the person with a looping landscape' },
+	{ image: imageThree, quote: 'I seek to relax the person with a looping landscape' },
+	{ image: imageFour, quote: 'I seek to relax the person with a looping landscape' }
 ];
