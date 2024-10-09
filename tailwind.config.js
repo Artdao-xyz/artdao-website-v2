@@ -9,8 +9,10 @@ export default {
 			// => @media(min-width: 1440px) {...}
 			laptopL: '1500px',
 			// => @media(min-width: 1500px) {...}
-			bigScreen: '1700px'
+			bigScreen: '1700px',
 			// => @media(min-width: 1700px) {...}
+			xlScreen: '2000px'
+			// => @media(min-width: 2000px) {...}
 		},
 		colors: {
 			'color-gray': 'rgba(255, 255, 255, 0.40)',
