@@ -10,7 +10,7 @@
 		polaroidPosition === EPolaroidPosition.TOP_LEFT
 			? 'top-[20%] left-[15%] rotate-[-15deg]'
 			: polaroidPosition === EPolaroidPosition.TOP_RIGHT
-				? 'top-[20%] right-6 rotate-[15deg]'
+				? 'top-[20%] right-[15%] rotate-[15deg]'
 				: polaroidPosition === EPolaroidPosition.BOTTOM_LEFT
 					? 'top-[53%] right-[1%] rotate-[15deg]'
 					: 'top-[35%] left-[3%] rotate-[-15deg]';
