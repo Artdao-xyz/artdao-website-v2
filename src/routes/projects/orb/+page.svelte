@@ -142,7 +142,7 @@
 	on:scroll={handleScroll}
 	class="mx-auto mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen"
 >
-	<ProjectIntro project={orbProject} />
+	<ProjectIntro project={orbProject} textColor="white" />
 
 	<ProjectInterview questions={orbQuestions} {bgImage} route={orbNavItems[1].route} />
 
