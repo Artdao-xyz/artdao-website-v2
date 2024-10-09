@@ -10,13 +10,14 @@
 	export let aboutImages: string[] | undefined = undefined;
 	export let route: string;
 	export let isImageLeft = true;
+	export let colorVariant: EColorVariant = EColorVariant.BLACK;
 </script>
 
-<SectionContainer colorVariant={EColorVariant.BLACK} hasPadding={false}>
+<SectionContainer {colorVariant} hasPadding={false}>
 	<div class="flex justify-center w-full h-full" id={route}>
 		{#if !isImageLeft}
 			<div class="w-1/2 h-full flex items-center justify-center">
-				<About {aboutItem} />
+				<About {aboutItem} {colorVariant} />
 			</div>
 		{/if}
 		{#if aboutImage}
@@ -27,7 +28,7 @@
 		{/if}
 		{#if isImageLeft}
 			<div class="w-1/2 h-full flex items-center justify-center">
-				<About {aboutItem} />
+				<About {aboutItem} {colorVariant} />
 			</div>
 		{/if}
 	</div>

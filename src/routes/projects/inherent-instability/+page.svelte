@@ -9,7 +9,7 @@
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
-	import { ESizesVariant } from '../../../constants/enums';
+	import { EColorVariant, ESizesVariant } from '../../../constants/enums';
 	import { inherentInstabilityNavItems } from '../../../data/Projects/InherentInstability/NavItems';
 	import {
 		elbiAbout,
@@ -157,6 +157,7 @@
 		aboutItem={inaVareAbout}
 		aboutImages={inaVareAboutImages}
 		route={inherentInstabilityNavItems[1].route}
+		colorVariant={EColorVariant.LIGHT}
 	/>
 
 	<ProjectInterview bgImage={inaInterviewBgImage} questions={inaVareQuestions} />
