@@ -7,6 +7,7 @@
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
+	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
 	import { EColorVariant, ESizesVariant } from '../../../constants/enums';
@@ -206,4 +207,5 @@
 	/>
 
 	<HomeIcon />
+	<Footer />
 </div>

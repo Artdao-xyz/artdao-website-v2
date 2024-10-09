@@ -5,6 +5,7 @@
 	import ProjectInterview from '$lib/components/ProjectInterview/ProjectInterview.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
+	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { orbNavItems } from '../../../data/Projects/Orb/NavItems';
 	import {
@@ -170,4 +171,5 @@
 	/>
 
 	<HomeIcon />
+	<Footer />
 </div>
