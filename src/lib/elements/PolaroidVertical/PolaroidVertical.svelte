@@ -8,7 +8,7 @@
 
 	const positionClass =
 		polaroidPosition === EPolaroidPosition.TOP_LEFT
-			? 'top-[20%] left-[-30%] rotate-[-15deg]'
+			? 'top-[20%] left-[15%] rotate-[-15deg]'
 			: polaroidPosition === EPolaroidPosition.TOP_RIGHT
 				? 'top-[20%] right-6 rotate-[15deg]'
 				: polaroidPosition === EPolaroidPosition.BOTTOM_LEFT
