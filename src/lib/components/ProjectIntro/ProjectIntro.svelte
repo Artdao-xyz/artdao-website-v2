@@ -26,7 +26,7 @@
 				{name}
 			</h1>
 			<div
-				class="flex flex-col gap-10 font-clash text-sm macBook:text-base laptopL:text-sm bigScreen:text-2xl font-semibold leading-[1.5625rem]"
+				class="flex flex-col gap-10 font-clash text-sm macBook:text-base laptopL:text-sm bigScreen:text-base font-semibold leading-[1.5625rem]"
 			>
 				{#each description as text}
 					<p>{text}</p>
