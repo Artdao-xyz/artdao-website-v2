@@ -45,8 +45,8 @@
 					<a href={homeImages[3].route}>
 						<HomeImgSquare image={homeImages[3].imageUrl} />
 					</a>
-					<a href={homeImages[1].route}>
-						<HomeImgSquare image={homeImages[1].imageUrl} />
+					<a href={homeImages[4].route}>
+						<HomeImgSquare image={homeImages[4].imageUrl} />
 					</a>
 				</div>
 			</div>

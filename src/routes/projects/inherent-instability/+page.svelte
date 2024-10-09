@@ -151,7 +151,7 @@
 	on:scroll={handleScroll}
 	class="mx-auto mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen"
 >
-	<ProjectIntro project={inherentInstabilityProjectIntro} />
+	<ProjectIntro project={inherentInstabilityProjectIntro} textColor="white" />
 
 	<ProjectAbout
 		aboutItem={inaVareAbout}

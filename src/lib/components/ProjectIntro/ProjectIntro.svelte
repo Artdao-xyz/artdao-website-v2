@@ -2,6 +2,7 @@
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import type { IProject } from './interfaces';
 	export let project: IProject;
+	export let textColor: 'black' | 'white' = 'black';
 	const { name, description, image, bgImage } = project;
 </script>
 
@@ -12,7 +13,10 @@
 		style={bgImage ? `background-image: url(${bgImage});` : ''}
 	>
 		<div
-			class="flex flex-col h-full w-[42%] max-w-[40rem] bigScreen:max-w-[45rem] text-color-white pl-global-padding gap-5 bigScreen:gap-10"
+			class="flex flex-col h-full w-[42%] max-w-[40rem] bigScreen:max-w-[45rem] {textColor ===
+			'black'
+				? 'text-color-black'
+				: 'text-color-white'} pl-global-padding gap-5 bigScreen:gap-10"
 		>
 			<h1
 				class="font-neue text-[6rem] macBook:text-[7.5rem] laptopL:text-[6rem] bigScreen:text-[8rem] font-semibold leading-[8.125rem] tracking-[0.0975rem] uppercase"
