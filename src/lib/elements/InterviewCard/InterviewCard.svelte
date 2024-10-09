@@ -37,7 +37,7 @@
 	</div>
 
 	<h2
-		class="w-full font-semibold leading-[65px] font-clash text-[3.4375rem] overflow-y-auto max-h-[60%]"
+		class="w-full font-semibold leading-[3.4375rem] font-clash text-[3rem] overflow-y-auto flex-shrink-0"
 	>
 		{questions[index].question[0].toUpperCase() + questions[index].question.slice(1)}
 	</h2>

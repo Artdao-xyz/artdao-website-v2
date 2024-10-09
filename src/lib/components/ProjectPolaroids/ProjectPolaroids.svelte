@@ -25,7 +25,7 @@
 	<div id={route} class="w-full h-full flex flex-col items-center justify-end">
 		<div class="h-full w-full flex items-center">
 			<h1
-				class="text-color-black text-[3.5rem] macBook:text-[4rem] bigScreen:text-[6rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
+				class="text-color-black text-[3rem] macBook:text-[3.5rem] bigScreen:text-[5.5rem] font-semibold leading-[5rem] bigScreen:leading-[8rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
 			>
 				&gt; {images[selectedItem].quote} &lt;
 			</h1>

@@ -23,8 +23,7 @@ export const inaVareQuestions: IQuestion[] = [
 		selected: false
 	},
 	{
-		question:
-			'How is your rhythm of work with this kind of old equipment like TV sets and image and video synthesizers?',
+		question: 'How is your rhythm of work with this kind of old equipment?',
 		response: [
 			{
 				text: "My lifestyle is pretty busy, so I can’t spend all day in my studio. I've learned to do most of my planning in my head while running errands or going places. When I finally get the chance to work with my gear, I already know what I’m aiming for. There’s still a lot of experimentation involved since the outputs aren’t 100% predictable. However, I’ve been working with my machines and processes for years, so I have a good sense of how to approach them to get the results I want."
@@ -42,8 +41,7 @@ export const inaVareQuestions: IQuestion[] = [
 		selected: false
 	},
 	{
-		question:
-			'What do you like about the encounter between digital and analog software? What is your preferred process/work chain?',
+		question: 'What do you like about the encounter between digital and analog software?',
 		response: [
 			{
 				text: 'Digital tools have allowed me to showcase my analog work. There are some divine pairs between digital and analog mediums, like processing analog video outputs as GIF loops. Dithering algorithms can add texture to my work, and digital formats allow me to present my work online. In the past, analog video artists had to create complicated setups to exhibit their pieces, and selling them was even more challenging. Now, I can bridge my analog work to digital and bring it to the blockchain, which is super exciting and rewarding because artists create their work to be seen.'
@@ -73,8 +71,7 @@ export const inaVareQuestions: IQuestion[] = [
 
 export const elbiQuestions: IQuestion[] = [
 	{
-		question:
-			'What is it that attracts you to work with analog machines? How is your studio set up?',
+		question: 'What is it that attracts you to work with analog machines?',
 		response: [
 			{
 				text: "I've always been a fan of vhs/glitch aesthetics, mostly because I've grown up watching skate videos filmed on the Sony VX1000. Even that I was born in 97, retro tech like CRT tvs, 16 bit game consoles and VCRs were very popular in Brazilian houses for a long time, so it was kinda natural to me to get attached to this stuff."
@@ -86,8 +83,7 @@ export const elbiQuestions: IQuestion[] = [
 		selected: false
 	},
 	{
-		question:
-			'How is your rhythm of work with this kind of old equipment like TV sets and image and video synthesizers?',
+		question: 'How is your rhythm of work with this kind of old equipment?',
 		response: [
 			{
 				text: 'I either keep it fully experimental, like just playing some random VHS and jamming on it recording everything and then finding some nice gif loops and still frames. Or I get some initial idea, build it on After Effects and then process it though the analog video hardware.'
@@ -105,8 +101,7 @@ export const elbiQuestions: IQuestion[] = [
 		selected: false
 	},
 	{
-		question:
-			'What do you like about the encounter between digital and analog software? What is your preferred process/work chain?',
+		question: 'What do you like about the encounter between digital and analog software?',
 		response: [
 			{
 				text: "I like how wide is the possibilities are when you unite both. I've been mainly minting on Tezos since the early Hic Et Nunc days (2021). I still post a lot of work on objkt, but since last year, I believe Zora has become my main chain."
@@ -181,7 +176,7 @@ export const nicoQuestions: IQuestion[] = [
 		selected: false
 	},
 	{
-		question: 'What is your preferred process/work chain?',
+		question: 'What is your preferred process / work chain?',
 		response: [
 			{
 				text: 'I usually don’t have anything in mind when starting a track, I’m not very classical when it comes to composition. I like to take time and surprise myself with sounds and then build the track around that, almost as if I’m searching for inspiration.'
