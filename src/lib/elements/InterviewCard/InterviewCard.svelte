@@ -16,7 +16,7 @@
 </script>
 
 <div
-	class="cardBlur w-card-width-full-bg h-card-height rounded-40 p-10 flex flex-col gap-5 bg-color-interview-card text-color-black mx-auto max-w-[40rem] max-h-[50rem] mt-[4%]"
+	class="cardBlur w-card-width-full-bg laptopM:w-[34rem] macBook:w-card-width-full-bg laptopL:w-[34rem] bigScreen:w-card-width-full-bg h-card-height rounded-40 p-10 flex flex-col gap-5 bg-color-interview-card text-color-black mx-auto max-w-[40rem] max-h-[50rem] mt-[4%]"
 >
 	<div
 		class="h-[3.4375rem] px-10 py-[0.375rem] border border-black items-center rounded-40 flex flex-row w-full justify-between"
@@ -36,16 +36,19 @@
 		</div>
 	</div>
 
-	<h2 class="w-[35rem] font-semibold leading-[65px] font-clash text-[3.4375rem]">
+	<h2
+		class="w-full font-semibold leading-[65px] font-clash text-[3.4375rem] overflow-y-auto max-h-[60%]"
+	>
 		{questions[index].question[0].toUpperCase() + questions[index].question.slice(1)}
 	</h2>
 
-	<div class="w-full h-full flex flex-col gap-5 font-clash leading-[1.5625rem]">
+	<div class="w-full flex flex-col gap-5 font-clash leading-[1.5625rem] overflow-y-auto mb-[2rem]">
 		{#each responses as response}
 			{#if response.name}
 				<p class="text-[1.25rem] capitalize">{response.name}</p>
+
+				<img src={dottedLineLong} alt="Dotted Line" />
 			{/if}
-			<img src={dottedLineLong} alt="Dotted Line" />
 
 			<p class="font-clash font-semibold leading-[1.5625rem] text-base">
 				{response.text}
