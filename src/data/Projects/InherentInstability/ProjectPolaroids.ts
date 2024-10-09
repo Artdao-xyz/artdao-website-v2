@@ -10,38 +10,38 @@ import type { IPolaroidImage } from '$lib/elements/Polaroids/interface';
 
 export const inaVarePolaroidsImages: IPolaroidImage[] = [
 	{
-		image: inaPolaroids01,
-		quote: 'I create 90% of the footage myself'
-	},
-	{
-		image: inaPolaroids02,
-		quote: 'And if my work involves a female, it’s usually me performing.'
+		image: inaPolaroids04,
+		quote: 'I explore themes like love, nature, glitches (not just visual ones).'
 	},
 	{
 		image: inaPolaroids03,
 		quote: 'My work is always deeply personal'
 	},
 	{
-		image: inaPolaroids04,
-		quote: 'I explore themes like love, nature, glitches (not just visual ones).'
+		image: inaPolaroids01,
+		quote: 'I create 90% of the footage myself'
+	},
+	{
+		image: inaPolaroids02,
+		quote: 'And if my work involves a female, it’s usually me performing.'
 	}
 ];
 
 export const nicoPolaroidsImages: IPolaroidImage[] = [
 	{
-		image: nicoPolaroids01,
-		quote: 'I create 90% of the footage myself'
+		image: nicoPolaroids04,
+		quote: 'I explore themes like love, nature, glitches (not just visual ones).'
 	},
 	{
 		image: nicoPolaroids02,
 		quote: 'And if my work involves a female, it’s usually me performing.'
 	},
 	{
-		image: nicoPolaroids03,
-		quote: 'My work is always deeply personal'
+		image: nicoPolaroids01,
+		quote: 'I create 90% of the footage myself'
 	},
 	{
-		image: nicoPolaroids04,
-		quote: 'I explore themes like love, nature, glitches (not just visual ones).'
+		image: nicoPolaroids03,
+		quote: 'My work is always deeply personal'
 	}
 ];

@@ -13,3 +13,10 @@ export const elbiVideo: IVideoProject = {
 	year: '2024',
 	videoUrl: ''
 };
+
+export const nicoVideo: IVideoProject = {
+	name: 'Name',
+	artist: 'Elbi',
+	year: '2024',
+	videoUrl: ''
+};

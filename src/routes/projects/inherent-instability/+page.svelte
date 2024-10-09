@@ -1,4 +1,5 @@
 <script>
+	import nicoInterviewBgImage from '$lib/assets/images/projects/inherentInstability/241857826_6552809161428142_9057190300881452001_n_1.png';
 	import inaInterviewBgImage from '$lib/assets/images/projects/inherentInstability/Background_Img.png';
 	import elbiInterviewBgImage from '$lib/assets/images/projects/inherentInstability/studio1_1.png';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
@@ -7,20 +8,32 @@
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
+	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
+	import { ESizesVariant } from '../../../constants/enums';
 	import { inherentInstabilityNavItems } from '../../../data/Projects/InherentInstability/NavItems';
 	import {
 		elbiAbout,
 		elbiAboutImages,
 		inaVareAbout,
-		inaVareAboutImages
+		inaVareAboutImages,
+		nicoAbout,
+		nicoAboutImages
 	} from '../../../data/Projects/InherentInstability/ProjectAbout';
 	import {
 		elbiQuestions,
-		inaVareQuestions
+		inaVareQuestions,
+		nicoQuestions
 	} from '../../../data/Projects/InherentInstability/ProjectInterview';
 	import { inherentInstabilityProjectIntro } from '../../../data/Projects/InherentInstability/ProjectIntro';
-	import { inaVarePolaroidsImages } from '../../../data/Projects/InherentInstability/ProjectPolaroids';
-	import { elbiVideo, inaVideo } from '../../../data/Projects/InherentInstability/ProjectVideo';
+	import {
+		inaVarePolaroidsImages,
+		nicoPolaroidsImages
+	} from '../../../data/Projects/InherentInstability/ProjectPolaroids';
+	import {
+		elbiVideo,
+		inaVideo,
+		nicoVideo
+	} from '../../../data/Projects/InherentInstability/ProjectVideo';
 	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
 	import { inherentInstabilityNavStoreItems } from './store';
 
@@ -150,7 +163,15 @@
 
 	<ProjectVideo videoProjects={[inaVideo]} />
 
-	<ProjectPolaroids images={inaVarePolaroidsImages} />
+	<ProjectPolaroids
+		images={inaVarePolaroidsImages}
+		polaroidsTypes={[
+			EPolaroidType.RECTANGLE,
+			EPolaroidType.VERTICAL,
+			EPolaroidType.RECTANGLE,
+			EPolaroidType.VERTICAL
+		]}
+	/>
 
 	<ProjectAbout
 		aboutItem={elbiAbout}
@@ -160,7 +181,27 @@
 
 	<ProjectInterview bgImage={elbiInterviewBgImage} questions={elbiQuestions} />
 
-	<ProjectVideo videoProjects={[elbiVideo]} />
+	<ProjectVideo videoProjects={[elbiVideo]} size={ESizesVariant.MEDIUM} />
+
+	<ProjectAbout
+		aboutItem={nicoAbout}
+		aboutImages={nicoAboutImages}
+		route={inherentInstabilityNavItems[3].route}
+	/>
+
+	<ProjectInterview bgImage={nicoInterviewBgImage} questions={nicoQuestions} />
+
+	<ProjectVideo videoProjects={[nicoVideo]} size={ESizesVariant.SMALL} />
+
+	<ProjectPolaroids
+		images={nicoPolaroidsImages}
+		polaroidsTypes={[
+			EPolaroidType.VERTICAL,
+			EPolaroidType.VERTICAL,
+			EPolaroidType.SQUARE,
+			EPolaroidType.RECTANGLE
+		]}
+	/>
 
 	<HomeIcon />
 </div>
