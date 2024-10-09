@@ -8,7 +8,9 @@
 
 <SectionContainer hasPadding={false}>
 	<div
-		class="w-full h-full flex flex-row pt-[5%] gap-28 {bgImage ? 'bg-cover bg-center h-full' : ''}"
+		class="w-full h-full flex flex-row pt-[5%] gap-28 {bgImage
+			? 'bg-contain bg-no-repeat bg-center h-full bg-color-black'
+			: ''}"
 		id="intro"
 		style={bgImage ? `background-image: url(${bgImage});` : ''}
 	>
