@@ -8,7 +8,7 @@ export const inherentInstabilityNavItems: INavBarItem[] = [
 	},
 	{
 		text: 'Ina Vare',
-		route: 'inaVare',
+		route: 'ina',
 		selected: false
 	},
 	{
