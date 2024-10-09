@@ -10,6 +10,7 @@
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
+	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
 	import { ecologiesNavItems } from '../../../data/Projects/EcologiesOfCode/NavItems';
 	import {
 		hypereikonAbout,
@@ -20,7 +21,11 @@
 		okytomoAboutImages
 	} from '../../../data/Projects/EcologiesOfCode/ProjectAbout';
 	import { ecologiesArtworkImages } from '../../../data/Projects/EcologiesOfCode/ProjectArtworkGallery';
-	import { ecologiesOfCodeQuestions } from '../../../data/Projects/EcologiesOfCode/ProjectInterview';
+	import {
+		hypereikonQuestions,
+		joaquinaQuestions,
+		okyQuestions
+	} from '../../../data/Projects/EcologiesOfCode/ProjectInterview';
 	import { ecologiesOfCodeProject } from '../../../data/Projects/EcologiesOfCode/ProjectIntro';
 	import {
 		ecologiesPolaroidImages,
@@ -155,11 +160,20 @@
 		route={ecologiesNavItems[1].route}
 	/>
 
-	<ProjectInterview bgImage={ecoInterviewBg} questions={ecologiesOfCodeQuestions} />
+	<ProjectInterview bgImage={ecoInterviewBg} questions={joaquinaQuestions} />
 
 	<ProjectVideo videoProjects={[ecologiesVideoProjectOne]} />
 
-	<ProjectPolaroids images={ecologiesPolaroidImages} route="joaquina-end" />
+	<ProjectPolaroids
+		images={ecologiesPolaroidImages}
+		route="joaquina-end"
+		polaroidsTypes={[
+			EPolaroidType.RECTANGLE,
+			EPolaroidType.VERTICAL,
+			EPolaroidType.RECTANGLE,
+			EPolaroidType.RECTANGLE
+		]}
+	/>
 
 	<ProjectAbout
 		aboutItem={okytomoAbout}
@@ -167,11 +181,21 @@
 		route={ecologiesNavItems[2].route}
 	/>
 
-	<ProjectInterview bgImage={okytomoInterview} questions={ecologiesOfCodeQuestions} />
+	<ProjectInterview bgImage={okytomoInterview} questions={okyQuestions} />
 
 	<ProjectVideo videoProjects={[ecologiesVideoProjectTwo]} />
 
-	<ProjectPolaroids images={ecologiesPolaroidImagesTwo} route="oki-end" />
+	<ProjectPolaroids
+		images={ecologiesPolaroidImagesTwo}
+		route="oki-end"
+		polaroidsTypes={[
+			EPolaroidType.RECTANGLE,
+			EPolaroidType.VERTICAL,
+			EPolaroidType.RECTANGLE,
+			EPolaroidType.RECTANGLE
+		]}
+		viewImageFit="cover"
+	/>
 
 	<ProjectAbout
 		aboutItem={hypereikonAbout}
@@ -179,7 +203,7 @@
 		route={ecologiesNavItems[3].route}
 	/>
 
-	<ProjectInterview bgImage={hyperInterview} questions={ecologiesOfCodeQuestions} />
+	<ProjectInterview bgImage={hyperInterview} questions={hypereikonQuestions} />
 
 	<ProjectArtworkGrid galleryImages={ecologiesArtworkImages} />
 

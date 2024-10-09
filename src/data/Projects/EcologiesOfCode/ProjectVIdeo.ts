@@ -4,7 +4,8 @@ export const ecologiesVideoProjectOne: IVideoProject = {
 	name: 'Simulación de lo Esencial',
 	artist: 'Joaquina Salgado',
 	year: '2024',
-	videoUrl: 'https://storage.cloud.google.com/artdao-files/videos/simulacionDeLoEsencial.mp4#t=0.1'
+	videoUrl:
+		'https://storage.googleapis.com/videoszine/Ecologies%20of%20Code/Simulaciondeloesencia.mp4#t=0.1'
 };
 
 export const ecologiesVideoProjectTwo: IVideoProject = {

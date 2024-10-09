@@ -9,6 +9,7 @@
 
 	export let images: IPolaroidImage[];
 	export let polaroidsTypes: EPolaroidType[];
+	export let viewImageFit: 'contain' | 'cover';
 
 	$: console.log('polaroidsTypes', polaroidsTypes);
 
@@ -22,7 +23,7 @@
 
 <div class="flex-row flex w-full h-[65%]">
 	<div class="flex flex-row w-[64%]">
-		<PolaroidView image={images[index]} />
+		<PolaroidView image={images[index]} {viewImageFit} />
 	</div>
 
 	<div class="w-[36%] h-full mx-auto">

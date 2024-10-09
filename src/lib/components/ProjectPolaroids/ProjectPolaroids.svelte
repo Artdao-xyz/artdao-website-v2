@@ -5,6 +5,7 @@
 	import { EColorVariant } from '../../../constants/enums';
 	import { selectedPolaroidsItem } from './store';
 
+	export let viewImageFit: 'contain' | 'cover' = 'contain';
 	export let route = '';
 	export let images: IPolaroidImage[];
 	export let polaroidsTypes: EPolaroidType[] = [
@@ -30,6 +31,6 @@
 				&gt; {images[selectedItem].quote} &lt;
 			</h1>
 		</div>
-		<Polaroids {images} {polaroidsTypes} />
+		<Polaroids {images} {polaroidsTypes} {viewImageFit} />
 	</div>
 </SectionContainer>
