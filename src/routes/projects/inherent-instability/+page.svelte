@@ -172,6 +172,7 @@
 			EPolaroidType.RECTANGLE,
 			EPolaroidType.VERTICAL
 		]}
+		route="ina-end"
 	/>
 
 	<ProjectAbout
@@ -182,7 +183,7 @@
 
 	<ProjectInterview bgImage={elbiInterviewBgImage} questions={elbiQuestions} />
 
-	<ProjectVideo videoProjects={[elbiVideo]} size={ESizesVariant.MEDIUM} />
+	<ProjectVideo videoProjects={[elbiVideo]} size={ESizesVariant.MEDIUM} route="elbi-end" />
 
 	<ProjectAbout
 		aboutItem={nicoAbout}
