@@ -2,18 +2,26 @@
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import type { IProject } from './interfaces';
 	export let project: IProject;
-	const { name, description, image } = project;
+	const { name, description, image, bgImage } = project;
 </script>
 
-<SectionContainer>
-	<div class="w-full h-full flex flex-row pt-[5%] gap-28" id="intro">
-		<div class="flex flex-col h-full w-[42%] max-w-[35rem] text-color-black gap-5">
+<SectionContainer hasPadding={false}>
+	<div
+		class="w-full h-full flex flex-row pt-[5%] gap-28 {bgImage ? 'bg-cover bg-center h-full' : ''}"
+		id="intro"
+		style={bgImage ? `background-image: url(${bgImage});` : ''}
+	>
+		<div
+			class="flex flex-col h-full w-[42%] max-w-[40rem] bigScreen:max-w-[45rem] text-color-white pl-global-padding gap-5 bigScreen:gap-10"
+		>
 			<h1
-				class="font-neue text-[7.5rem] font-semibold leading-[8.125rem] tracking-[0.0975rem] uppercase"
+				class="font-neue text-[6rem] macBook:text-[7.5rem] laptopL:text-[6rem] bigScreen:text-[8rem] font-semibold leading-[8.125rem] tracking-[0.0975rem] uppercase"
 			>
 				{name}
 			</h1>
-			<div class="flex flex-col gap-10 font-clash text-base font-semibold leading-[1.5625rem]">
+			<div
+				class="flex flex-col gap-10 font-clash text-sm macBook:text-base laptopL:text-sm bigScreen:text-2xl font-semibold leading-[1.5625rem]"
+			>
 				{#each description as text}
 					<p>{text}</p>
 				{/each}
