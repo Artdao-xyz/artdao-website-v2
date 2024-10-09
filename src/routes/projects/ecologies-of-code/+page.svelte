@@ -33,7 +33,7 @@
 	} from '../../../data/Projects/EcologiesOfCode/ProjectPolaroids';
 	import {
 		ecologiesVideoProjectOne,
-		ecologiesVideoProjectTwo
+		okyVideos
 	} from '../../../data/Projects/EcologiesOfCode/ProjectVIdeo';
 	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
 	import { ecologiesNavStoreItems } from './store';
@@ -183,7 +183,7 @@
 
 	<ProjectInterview bgImage={okytomoInterview} questions={okyQuestions} />
 
-	<ProjectVideo videoProjects={[ecologiesVideoProjectTwo]} />
+	<ProjectVideo videoProjects={okyVideos} />
 
 	<ProjectPolaroids
 		images={ecologiesPolaroidImagesTwo}

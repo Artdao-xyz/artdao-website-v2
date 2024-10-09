@@ -8,10 +8,17 @@ export const ecologiesVideoProjectOne: IVideoProject = {
 		'https://storage.googleapis.com/videoszine/Ecologies%20of%20Code/Simulaciondeloesencia.mp4#t=0.1'
 };
 
-export const ecologiesVideoProjectTwo: IVideoProject = {
-	name: 'WIP',
-	artist: 'Okytomo',
-	year: '2024',
-	videoUrl:
-		'https://storage.cloud.google.com/artdao-files/videos/ssstwitter.com_1721316845271.mp4#t=0.1'
-};
+export const okyVideos: IVideoProject[] = [
+	{
+		name: 'WIP',
+		artist: 'Okytomo',
+		year: '2024',
+		videoUrl: 'https://storage.googleapis.com/videoszine/Ecologies%20of%20Code/WIP_Okytomo.mp4'
+	},
+	{
+		name: 'Guía',
+		artist: 'Okytomo',
+		year: '2023',
+		videoUrl: 'https://storage.googleapis.com/videoszine/Ecologies%20of%20Code/Guia_Okytomo.mp4'
+	}
+];
