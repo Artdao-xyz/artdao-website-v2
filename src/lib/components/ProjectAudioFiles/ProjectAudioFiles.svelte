@@ -29,7 +29,7 @@
 	<div class="h-full pt-[3%] flex flex-col flex-1 gap-10" id={route}>
 		<div>
 			<h1
-				class="px-[1%] text-color-black text-[4rem] bigScreen:text-[5rem] font-bold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
+				class="px-[1%] text-color-black text-[4rem] xlScreen:text-[5rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
 			>
 				&gt; {title} &lt;
 			</h1>
