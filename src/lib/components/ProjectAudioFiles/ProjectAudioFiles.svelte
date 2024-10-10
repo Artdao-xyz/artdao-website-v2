@@ -26,17 +26,18 @@
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT}>
-	<div class="h-full pt-[3%] flex flex-col flex-1 gap-10" id={route}>
-		<div>
-			<h1
-				class="px-[1%] text-color-black text-[4rem] xlScreen:text-[5rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
-			>
-				&gt; {title} &lt;
-			</h1>
-		</div>
-		<div class="flex justify-between items-center mx-auto gap-[5rem] h-full">
+	<div
+		class="h-full pt-[3%] xlScreen:pt-[8%] flex flex-col justify-start gap-10 xlScreen:gap-24"
+		id={route}
+	>
+		<h1
+			class="px-[1%] text-color-black text-[3.5rem] xlScreen:text-[5rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
+		>
+			&gt; {title} &lt;
+		</h1>
+		<div class="flex justify-between items-start mx-auto gap-[5rem] h-[70%]">
 			<AudioFilePreview {audioItems} {handlePreviousTrack} {handleNextTrack} {index} />
-			<div class="flex flex-col gap-[5rem] justify-center">
+			<div class="flex flex-col gap-[5rem] justify-center my-auto">
 				{#each audioItems as audioItem, i}
 					<AudioFile {audioItem} on:click={() => handleOnClick(i)} {index} {audioItems} />
 				{/each}

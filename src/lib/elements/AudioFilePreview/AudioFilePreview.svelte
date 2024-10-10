@@ -37,19 +37,20 @@
 </script>
 
 <div
-	class="w-full h-full flex flex-col gap-[10px] p-5 rounded-20 border border-color-black gray-gradient shadow-audioShadow"
+	class="w-full h-full flex flex-col gap-[0.625rem] p-5 rounded-20 border border-color-black gray-gradient shadow-audioShadow"
 >
 	<video
+		style="height: calc(100% - 2.375rem)"
 		src={audioItems[index].songFile}
-		class="w-full h-full laptopM:h-[87%] macBook:h-full laptopL:h-[90%] bigScreen:h-full object-cover"
 		controls
 		bind:this={videoPlayer}
 		preload="metadata"
+		class="w-auto"
 	>
 		<track kind="captions" />
 	</video>
 
-	<div class="flex justify-between max-h-[2.375rem] w-full items-center relative">
+	<div class="flex justify-between h-[2.375rem] w-full items-center relative">
 		<p class="font-clash text-[1.25rem] leading-[4.375rem] text-color-black font-semibold">
 			{audioItems[index].songName}
 		</p>
@@ -81,6 +82,10 @@
 		</div>
 	</div>
 </div>
+
+<!-- style="height: calc(100% - 2.375rem)" -->
+
+<!-- laptopM:h-[87%] macBook:h-full laptopL:h-[90%] bigScreen:h-full -->
 
 <style>
 	video::-webkit-media-controls-play-button {
