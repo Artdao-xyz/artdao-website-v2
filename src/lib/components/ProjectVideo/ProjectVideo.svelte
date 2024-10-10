@@ -10,21 +10,32 @@
 	$: index = 0;
 	$: videoProject = videoProjects[index];
 
-	let hideButton = false;
+	$: isNextButtonDisabled = videoProjects.length - 1 === index;
 
-	const handleNextVideo = () => {
+	$: isPrevButtonDisabled = index === 0;
+
+	const handleNextButton = () => {
 		if (videoProjects.length > index + 1) {
 			index += 1;
+		}
+	};
 
-			if (videoProjects.length - 1 === index) {
-				hideButton = true;
-			}
+	const handlePrevButton = () => {
+		if (index !== 0) {
+			index -= 1;
 		}
 	};
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT} hasPadding>
 	<div class="flex items-center justify-center w-full h-full pt-[2.4375rem]" id={route}>
-		<VideoCard {videoProject} {size} on:click={handleNextVideo} {hideButton} />
+		<VideoCard
+			{videoProject}
+			{size}
+			{handleNextButton}
+			{handlePrevButton}
+			{isNextButtonDisabled}
+			{isPrevButtonDisabled}
+		/>
 	</div>
 </SectionContainer>

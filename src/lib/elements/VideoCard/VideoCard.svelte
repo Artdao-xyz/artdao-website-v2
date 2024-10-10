@@ -6,7 +6,10 @@
 
 	export let videoProject: IVideoProject;
 	export let size: ESizesVariant = ESizesVariant.LARGE;
-	export let hideButton: boolean;
+	export let isNextButtonDisabled: boolean;
+	export let isPrevButtonDisabled: boolean;
+	export let handlePrevButton: () => void;
+	export let handleNextButton: () => void;
 
 	const videoCardWidth =
 		size === ESizesVariant.LARGE
@@ -33,14 +36,25 @@
 			</div>
 		</div>
 
-		{#if !hideButton}
+		<div class="flex flex-row gap-[0.9375rem]">
 			<button
-				on:click
-				class="w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border border-color-white flex items-center justify-center hover:scale-105"
+				on:click={handlePrevButton}
+				class="{isPrevButtonDisabled
+					? 'cursor-not-allowed'
+					: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border border-color-white flex items-center justify-center"
+			>
+				<img src={buttonIcon} alt="Button" class="rotate-180" />
+			</button>
+
+			<button
+				on:click={handleNextButton}
+				class="{isNextButtonDisabled
+					? 'cursor-not-allowed'
+					: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border border-color-white flex items-center justify-center"
 			>
 				<img src={buttonIcon} alt="Button" />
 			</button>
-		{/if}
+		</div>
 	</div>
 	<div class="h-[83%] w-full">
 		<VideoPlayer videoUrl={videoProject.videoUrl} />
