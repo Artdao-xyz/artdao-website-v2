@@ -13,6 +13,8 @@
 	const toggleVisibility = () => {
 		visible = !visible;
 	};
+
+	let isTransitionEnd = false;
 </script>
 
 <button on:click={toggleVisibility} class="absolute z-40 top-0 mt-[2.5%]">
@@ -47,7 +49,12 @@
 		</div>
 
 		{#if visible}
-			<div class="flex flex-col gap-2.5" transition:slide={{ axis: 'y', duration: 600 }}>
+			<div
+				class="flex flex-col gap-2.5"
+				transition:slide={{ axis: 'y', duration: 600 }}
+				on:introend={() => (isTransitionEnd = true)}
+				on:outrostart={() => (isTransitionEnd = false)}
+			>
 				<img src={dottedLine} alt="Dotted Line" />
 
 				{#if aboutDropdown.date}
@@ -86,23 +93,28 @@
 					<img src={dottedLine} alt="Dotted Line" />
 				{/if}
 
-				<div class="flex items-center justify-between font-light text-sm h-[1.125rem]">
-					<p class="font-robotoMono text-[12px] leading-[1.125rem] tracking-[0.0625rem]">Link</p>
-					<a href={aboutDropdown.link} target="_blank" rel="noopener noreferrer"
-						><img src={linkIcon} alt="Link" class="w-[1.25rem]" /></a
+				{#if aboutDropdown.link}
+					<div class="flex items-center justify-between font-light text-sm h-[1.125rem]">
+						<p class="font-robotoMono text-[12px] leading-[1.125rem] tracking-[0.0625rem]">Link</p>
+						<a href={aboutDropdown.link} target="_blank" rel="noopener noreferrer"
+							><img src={linkIcon} alt="Link" class="w-[1.25rem]" /></a
+						>
+					</div>
+
+					<img src={dottedLine} alt="Dotted Line" />
+				{/if}
+
+				{#if aboutDropdown.about}
+					<div
+						class="flex flex-col gap-[0.5rem] justify-start items-start font-robotoMono font-light text-[12px] leading-[1.125rem] tracking-[0.0625rem] max-h-[25.5rem] {visible &&
+						isTransitionEnd
+							? 'overflow-y-auto'
+							: ''}"
 					>
-				</div>
-
-				<img src={dottedLine} alt="Dotted Line" />
-
-				<div
-					class="flex flex-col gap-[0.5rem] justify-start items-start font-robotoMono font-light text-[12px] leading-[1.125rem] tracking-[0.0625rem] max-h-[25.5rem] {!visible
-						? 'overflow-y-auto'
-						: ''}"
-				>
-					<p class="font-robotoMono">About</p>
-					<p class="text-left font-robotoMono">{aboutDropdown.about}</p>
-				</div>
+						<p class="font-robotoMono">About</p>
+						<p class="text-left font-robotoMono">{aboutDropdown.about}</p>
+					</div>
+				{/if}
 			</div>
 		{/if}
 	</div>
