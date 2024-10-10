@@ -83,6 +83,7 @@ export const raveAboutDropdopwnItems: IAboutDropdown[] = [
 export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	{
 		name: 'Vernissage',
+		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
@@ -91,6 +92,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernissage',
+		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
@@ -99,6 +101,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernissage',
+		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
@@ -107,6 +110,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernissage',
+		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
@@ -115,6 +119,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernissage',
+		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
@@ -123,6 +128,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernissage',
+		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
@@ -131,6 +137,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernissage',
+		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
@@ -139,6 +146,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernissage',
+		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
@@ -147,6 +155,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernissage',
+		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
@@ -155,6 +164,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernissage',
+		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
@@ -163,6 +173,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernissage',
+		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
