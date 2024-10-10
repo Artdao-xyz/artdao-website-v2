@@ -15,9 +15,15 @@
 	};
 
 	let isTransitionEnd = false;
+
+	const hasInfo =
+		aboutDropdown.about || aboutDropdown.date || aboutDropdown.link || aboutDropdown.location;
 </script>
 
-<button on:click={toggleVisibility} class="absolute z-40 top-0 mt-[2.5%]">
+<button
+	on:click={toggleVisibility}
+	class="absolute z-40 top-0 mt-[2.5%] {!hasInfo ? 'cursor-default' : ''}"
+>
 	<div
 		class="flex flex-col gap-2.5 w-[20rem] rounded-20 gray-gradient p-5 absolute z-40 top-0 mt-[2.5%]"
 	>
@@ -28,14 +34,14 @@
 				{aboutDropdown.name}
 			</h1>
 
-			{#if aboutDropdown.artist}
-				<div class="flex flex-row justify-between w-full">
-					<h1
-						class="font-robotoMono text-[12px] leading-[1rem] tracking-[0.0625rem] capitalize self-start"
-					>
-						{aboutDropdown.artist}
-					</h1>
+			<div class="flex flex-row justify-between w-full">
+				<h1
+					class="font-robotoMono text-[12px] leading-[1rem] tracking-[0.0625rem] capitalize self-start"
+				>
+					{aboutDropdown.artist}
+				</h1>
 
+				{#if hasInfo}
 					<div class="flex flex-row gap-1 items-center">
 						<p class="font-robotoMono text-[10px] leading-[1rem] tracking-[0.05rem]">INFO</p>
 						<img
@@ -44,11 +50,11 @@
 							class="w-[0.5rem] h-[0.5rem]"
 						/>
 					</div>
-				</div>
-			{/if}
+				{/if}
+			</div>
 		</div>
 
-		{#if visible}
+		{#if visible && hasInfo}
 			<div
 				class="flex flex-col gap-2.5"
 				transition:slide={{ axis: 'y', duration: 600 }}
