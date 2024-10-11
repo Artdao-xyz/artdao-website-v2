@@ -207,5 +207,5 @@
 	/>
 
 	<HomeIcon />
-	<Footer />
 </div>
+<Footer />
