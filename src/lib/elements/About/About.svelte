@@ -19,12 +19,12 @@
 			? 'border-color-white'
 			: 'border-color-black'} justify-start items-center rounded-40 flex flex-row w-full"
 	>
-		<p class="font-robotoMono text-[0.75rem] leading-[1.375rem] tracking-[0.075rem] capitalize">
+		<p class="font-robotoMono text-[0.625rem] leading-[1.375rem] tracking-[0.075rem] capitalize">
 			{subtitle}
 		</p>
 	</div>
 	<h2
-		class="w-full h-[4.9375rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue text-[5rem]"
+		class="w-full h-[4.9375rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue text-[3.75rem]"
 	>
 		{title}
 	</h2>
