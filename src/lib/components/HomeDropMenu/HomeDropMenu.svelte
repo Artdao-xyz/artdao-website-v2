@@ -1,10 +1,10 @@
 <script lang="ts">
-	import dottedLine from '$lib/assets/images/dotted-line.png';
-	import menuLine from '$lib/assets/images/menu-line.png';
+	import dottedLine from '$lib/assets/images/dotted-line-drop.png';
+	import infoCircle from '$lib/assets/images/Ellipse 30.png';
+	import infoCircleWhite from '$lib/assets/images/Ellipse-white.png';
 
 	import HomeDropMenuDetails from '$lib/elements/HomeDropMenuDetails/HomeDropMenuDetails.svelte';
-	import { quintOut } from 'svelte/easing';
-	import { crossfade } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 
 	export let dropNumber: string;
 	export let dropName: string;
@@ -13,72 +13,74 @@
 	export let texts: string[];
 	export let names: string[];
 	export let bgImage: string;
-	let isOpen: boolean = false;
 
-	const [send, receive] = crossfade({
-		duration: 400,
-		easing: quintOut
-	});
+	let visible: boolean = false;
+
+	const toggleVisibility = () => {
+		visible = !visible;
+	};
+
+	let isTransitionEnd = false;
 </script>
 
 <div
 	style={`background-image: url("${bgImage}"); background-size: cover; background-position: center;`}
 	class="w-full h-[100dvh] p-[2.5rem] relative"
 >
-	<button on:click={() => (isOpen = !isOpen)}>
-		{#if !isOpen}
-			<div
-				id="small"
-				in:send={{ key: 'small' }}
-				out:receive={{ key: 'big' }}
-				class="flex flex-col w-[23.125rem] h-[11.375rem] gray-gradient rounded-20 py-[0.9375rem] px-[1.375rem] backdrop-filter backdrop-blur-[2.5rem] absolute top-[2.5rem]"
-			>
+	<button on:click={toggleVisibility}>
+		<div
+			class="font-robotoMono tracking-[0.0625rem] text-[0.625rem] flex flex-col items-start gap-2.5 w-[20rem] gray-gradient rounded-20 px-[1.25rem] pt-[0.9375rem] pb-[1.25rem] backdrop-filter backdrop-blur-[2.5rem] absolute top-[2.5rem]"
+		>
+			<div class="flex flex-row justify-between w-full items-end">
 				<HomeDropMenuDetails {dropNumber} {dropName} {dropLogo} {dropDate} />
 
-				<img src={menuLine} alt="Menu Line" class="w-[8.25rem] place-self-center mt-7" />
+				<div class="flex flex-row gap-1 items-center">
+					<p class="font-robotoMono text-[10px] leading-[1rem] tracking-[0.05rem]">INFO</p>
+					<img
+						src={!visible ? infoCircle : infoCircleWhite}
+						alt="info"
+						class="w-[0.5rem] h-[0.5rem]"
+					/>
+				</div>
 			</div>
-		{:else}
-			<div
-				id="big"
-				in:send={{ key: 'big' }}
-				out:receive={{ key: 'small' }}
-				class="flex flex-col gap-2.5 w-[23.125rem] h-home-content-drop-open-height gray-gradient rounded-20 py-[0.9375rem] px-[1.375rem] backdrop-filter backdrop-blur-[2.5rem] absolute top-[2.5rem]"
-			>
-				<HomeDropMenuDetails {dropNumber} {dropName} {dropLogo} {dropDate} />
 
-				<img src={dottedLine} alt="Dotted Line" />
-
-				<div class="w-full h-[2.5625rem] flex flex-col place-content-center">
-					<p class="font-clash text-[0.9375rem] font-semibold leading-[2.1875rem]">COMING SOON</p>
-				</div>
-
-				<img src={dottedLine} alt="Dotted Line" />
-
-				<div class="w-full] h-[12.75rem] py-[1.4375rem] px-[1.3125rem] text-left">
-					{#each texts as text}
-						<p class="font-clash leading-[1.25rem] text-sm font-medium">{text}</p>
-					{/each}
-				</div>
-
-				<img src={dottedLine} alt="Dotted Line" />
-
+			{#if visible}
 				<div
-					class="h-[6.3125rem] w-[17.5625rem] flex flex-col justify-start gap-[0.5625rem] py-[1.4375rem] px-[1.3125rem]"
+					class="flex flex-col gap-2.5 items-start"
+					transition:slide={{ axis: 'y', duration: 600 }}
+					on:introend={() => (isTransitionEnd = true)}
+					on:outrostart={() => (isTransitionEnd = false)}
 				>
-					{#each names as name, i}
-						<p
-							class="font-clash text-sm h-[1.125rem] font-medium leading-[1.75rem] tracking-[-0.0143rem] flex flex-row"
-						>
-							{name}
-						</p>
-						{#if i !== names.length - 1}
-							<img src={dottedLine} alt="Dotted Line" />
-						{/if}
-					{/each}
-				</div>
+					<img src={dottedLine} alt="Dotted Line" />
 
-				<img src={menuLine} alt="Menu Line" class="w-[8.25rem] place-self-center mt-7" />
-			</div>
-		{/if}
+					<p class="leading-[1.125rem]">COMING SOON</p>
+
+					<img src={dottedLine} alt="Dotted Line" />
+
+					<p class="leading-[1.125rem]">Artists</p>
+
+					<div class="flex flex-col justify-start gap-[0.5625rem] px-[1.3125rem] pb-[0.25rem]">
+						{#each names as name, i}
+							<p class="h-[1.125rem] font-medium leading-[1.75rem] flex flex-row">
+								{name}
+							</p>
+							{#if i !== names.length - 1}
+								<img src={dottedLine} alt="Dotted Line" />
+							{/if}
+						{/each}
+					</div>
+
+					<img src={dottedLine} alt="Dotted Line" />
+
+					<p class="leading-[1.125rem]">About</p>
+
+					<div class="w-full text-left">
+						{#each texts as text}
+							<p class="leading-[1.25rem] font-medium">{text}</p>
+						{/each}
+					</div>
+				</div>
+			{/if}
+		</div>
 	</button>
 </div>
