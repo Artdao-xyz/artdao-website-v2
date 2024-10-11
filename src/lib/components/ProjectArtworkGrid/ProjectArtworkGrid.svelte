@@ -1,4 +1,6 @@
 <script lang="ts">
+	import leftArrow from '$lib/assets/images/left-arrow.png';
+	import rightArrow from '$lib/assets/images/right-arrow.png';
 	import ArtworkContainer from '$lib/elements/ArtworkContainer/ArtworkContainer.svelte';
 	import type { IGalleryImage } from '$lib/elements/ArtworkContainer/interfaces';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
@@ -9,11 +11,38 @@
 	let imagesTopLength = Math.round(galleryImages.length / 2);
 	let imagesTop = galleryImages.slice(0, imagesTopLength);
 	let imagesBottom = galleryImages.slice(imagesTopLength, galleryImages.length);
+
+	let prevButton;
+	let nextButton;
+	let container: HTMLDivElement;
+
+	const sideScroll = (
+		element: HTMLElement | null,
+		direction: string,
+		speed: number | undefined,
+		distance: number,
+		step: number
+	) => {
+		let scrollAmount = 0;
+		console.log('element', element);
+		var slideTimer = setInterval(() => {
+			if (direction == 'left') {
+				element!.scrollLeft -= step;
+			} else {
+				element!.scrollLeft += step;
+			}
+			scrollAmount += step;
+			if (scrollAmount >= distance) {
+				window.clearInterval(slideTimer);
+			}
+		}, speed);
+	};
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT}>
 	<div
-		class="h-full overflow-x-scroll flex flex-col gap-5 bigScreen:gap-[4.5%] overflow-y-hidden justify-center pt-[3rem]"
+		bind:this={container}
+		class="scroll-panel h-[90%] overflow-x-scroll flex flex-col gap-5 bigScreen:gap-[4.5%] overflow-y-hidden justify-center pt-[3rem]"
 	>
 		<div
 			class="flex items-center gap-5 max-h-[19rem] macBook:max-h-[23rem] laptopL:max-h-[18rem] bigScreen:max-h-[41.5%]"
@@ -30,4 +59,33 @@
 			{/each}
 		</div>
 	</div>
+	<div class="flex flex-row gap-10">
+		<button
+			class="text-color-black"
+			bind:this={prevButton}
+			on:click={() => sideScroll(container, 'left', 200, 200, 500)}
+			><img src={leftArrow} alt="left" class="h-[2rem]" /></button
+		>
+		<button
+			class="text-color-black"
+			bind:this={nextButton}
+			on:click={() => sideScroll(container, 'right', 200, 200, 500)}
+			><img src={rightArrow} alt="right" class="h-[2rem]" /></button
+		>
+	</div>
 </SectionContainer>
+
+<style>
+	.scroll-panel {
+		width: 100%;
+		overflow: auto;
+		outline: none;
+		overflow-y: hidden;
+		-ms-overflow-style: scroll;
+		scrollbar-width: none;
+	}
+
+	.scroll-panel::-webkit-scrollbar {
+		display: none;
+	}
+</style>
