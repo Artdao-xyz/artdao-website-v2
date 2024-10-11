@@ -1,4 +1,4 @@
-import bgImage from '$lib/assets/images/projects/inherentInstability/InherentInstability_IMG_1.png';
+import bgImage from '$lib/assets/images/projects/inherentInstability/InherentInstability_IMG.png';
 
 export const inherentInstabilityProjectIntro = {
 	name: 'inherent instability',

@@ -2,7 +2,7 @@
 	export let image: string;
 </script>
 
-<div class="h-full w-full">
+<div class="w-full">
 	<img
 		src={image}
 		alt="Square Layout"

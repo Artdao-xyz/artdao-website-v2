@@ -1,5 +1,6 @@
 <script>
 	import artDaoLogo from '$lib/assets/images/artdao-logo.png';
+	import blackToggle from '$lib/assets/images/black-toggle.png';
 	import discordIcon from '$lib/assets/images/discord-icon.png';
 	import hammer from '$lib/assets/images/drops/psipsikoko-hammer.png';
 	import instagramIcon from '$lib/assets/images/instagram-icon.png';
@@ -14,6 +15,9 @@
 </script>
 
 <div class="menu flex flex-col gap-2 h-100dvh max-h-[59rem]">
+	<a href="/drops">
+		<img src={blackToggle} alt="Go to Drops" class="w-[5.9063rem] cursor-pointer mb-[-0.5rem]" />
+	</a>
 	<HomeTop logo={artDaoLogo} {homeParagraphs} />
 	<HomeDrop dropNumber={'000'} dropName={'psipsikoko'} dropLogo={hammer} />
 	<HomeMap title={'bridging the global & hyperlocal'} logo={mapLogo} />
