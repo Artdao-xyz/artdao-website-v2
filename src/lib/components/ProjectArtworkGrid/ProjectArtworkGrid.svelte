@@ -37,12 +37,26 @@
 			}
 		}, speed);
 	};
+
+	const pointerScroll = () => {
+		const dragStart = (ev: any) => container.setPointerCapture(ev.pointerId);
+		const dragEnd = (ev: any) => container.releasePointerCapture(ev.pointerId);
+		const drag = (ev: any) =>
+			container.hasPointerCapture(ev.pointerId) && (container.scrollLeft -= ev.movementX * 100);
+
+		container.addEventListener('pointerdown', dragStart);
+		container.addEventListener('pointerup', dragEnd);
+		container.addEventListener('pointermove', drag);
+	};
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT}>
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div
 		bind:this={container}
-		class="scroll-panel h-[90%] overflow-x-scroll flex flex-col gap-5 bigScreen:gap-[4.5%] overflow-y-hidden justify-center pt-[3rem]"
+		on:click={pointerScroll}
+		class="scroll-panel cursor-grabbing h-[90%] overflow-x-scroll flex flex-col gap-5 bigScreen:gap-[4.5%] overflow-y-hidden justify-center pt-[3rem]"
 	>
 		<div
 			class="flex items-center gap-5 max-h-[19rem] macBook:max-h-[23rem] laptopL:max-h-[18rem] bigScreen:max-h-[41.5%]"
@@ -63,13 +77,13 @@
 		<button
 			class="text-color-black"
 			bind:this={prevButton}
-			on:click={() => sideScroll(container, 'left', 200, 200, 500)}
+			on:click={() => sideScroll(container, 'left', 200, 10, 700)}
 			><img src={leftArrow} alt="left" class="h-[2rem]" /></button
 		>
 		<button
 			class="text-color-black"
 			bind:this={nextButton}
-			on:click={() => sideScroll(container, 'right', 200, 200, 500)}
+			on:click={() => sideScroll(container, 'right', 200, 10, 700)}
 			><img src={rightArrow} alt="right" class="h-[2rem]" /></button
 		>
 	</div>
@@ -83,6 +97,8 @@
 		overflow-y: hidden;
 		-ms-overflow-style: scroll;
 		scrollbar-width: none;
+		touch-action: none;
+		user-select: none;
 	}
 
 	.scroll-panel::-webkit-scrollbar {
