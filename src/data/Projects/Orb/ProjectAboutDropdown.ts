@@ -101,6 +101,7 @@ export const daoDropdownItems: IAboutDropdown[] = [
 export const vernisaggeDropdownItems: IAboutDropdown[] = [
 	{
 		name: 'Vernisagge',
+		artist: 'Various artists',
 		date: '23.03.2024',
 		location: 'Caroço, São Paulo',
 		about:
@@ -109,6 +110,7 @@ export const vernisaggeDropdownItems: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernisagge',
+		artist: 'Various artists',
 		date: '23.03.2024',
 		location: 'Caroço, São Paulo',
 		about:
@@ -117,6 +119,7 @@ export const vernisaggeDropdownItems: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernisagge',
+		artist: 'Various artists',
 		date: '23.03.2024',
 		location: 'Caroço, São Paulo',
 		about:
@@ -125,6 +128,7 @@ export const vernisaggeDropdownItems: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernisagge',
+		artist: 'Various artists',
 		date: '23.03.2024',
 		location: 'Caroço, São Paulo',
 		about:
@@ -133,6 +137,7 @@ export const vernisaggeDropdownItems: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernisagge',
+		artist: 'Various artists',
 		date: '23.03.2024',
 		location: 'Caroço, São Paulo',
 		about:
@@ -141,6 +146,7 @@ export const vernisaggeDropdownItems: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernisagge',
+		artist: 'Various artists',
 		date: '23.03.2024',
 		location: 'Caroço, São Paulo',
 		about:
@@ -149,6 +155,7 @@ export const vernisaggeDropdownItems: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernisagge',
+		artist: 'Various artists',
 		date: '23.03.2024',
 		location: 'Caroço, São Paulo',
 		about:
@@ -157,6 +164,7 @@ export const vernisaggeDropdownItems: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernisagge',
+		artist: 'Various artists',
 		date: '23.03.2024',
 		location: 'Caroço, São Paulo',
 		about:
@@ -165,6 +173,7 @@ export const vernisaggeDropdownItems: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernisagge',
+		artist: 'Various artists',
 		date: '23.03.2024',
 		location: 'Caroço, São Paulo',
 		about:
@@ -173,6 +182,7 @@ export const vernisaggeDropdownItems: IAboutDropdown[] = [
 	},
 	{
 		name: 'Vernisagge',
+		artist: 'Various artists',
 		date: '23.03.2024',
 		location: 'Caroço, São Paulo',
 		about:

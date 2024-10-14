@@ -1,15 +1,24 @@
 import digitalMatter from '$lib/assets/images/DIgitalMatter_Home_Square 1-min.png';
 import ecologies from '$lib/assets/images/IMG Home Sizes-min.png';
 import inherent from '$lib/assets/images/projects/inherentInstability/InherentInstability_Home_Square_1.png';
+import intertwined from '$lib/assets/images/projects/intertwined/Interwined_Home_Vertical 1-min.png';
 import orb from '$lib/assets/images/projects/orb/Orb_Home_Square 1-min.png';
 import rave from '$lib/assets/images/RAVE_Home_Horizontal 1-min.png';
 
-import { DIGITAL_MATTER, ECOLOGIES_OF_CODE, INHERENT, ORB, RAVE } from '../constants/routes';
+import {
+	DIGITAL_MATTER,
+	ECOLOGIES_OF_CODE,
+	INHERENT,
+	INTERTWINED,
+	ORB,
+	RAVE
+} from '../constants/routes';
 
 export const homeImages = [
 	{ imageUrl: digitalMatter, route: DIGITAL_MATTER },
 	{ imageUrl: inherent, route: INHERENT },
 	{ imageUrl: rave, route: RAVE },
 	{ imageUrl: ecologies, route: ECOLOGIES_OF_CODE },
+	{ imageUrl: intertwined, route: INTERTWINED },
 	{ imageUrl: orb, route: ORB }
 ];
