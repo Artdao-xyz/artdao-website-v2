@@ -9,6 +9,6 @@
 	<img
 		src={whiteToggle}
 		alt="Go to Drops"
-		class="fixed top-[2.5%] right-[1%] w-[6.3rem] cursor-pointer z-20"
+		class="fixed top-[1%] left-[0.5%] w-[6.3rem] cursor-pointer z-20"
 	/>
 </a>

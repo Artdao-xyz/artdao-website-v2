@@ -25,11 +25,11 @@
 
 <div
 	style={`background-image: url("${bgImage}"); background-size: cover; background-position: center;`}
-	class="w-full h-[100dvh] p-[2.5rem] relative"
+	class="w-full h-[100dvh] p-2 relative"
 >
 	<button on:click={toggleVisibility}>
 		<div
-			class="font-robotoMono tracking-[0.0625rem] text-[0.625rem] flex flex-col items-start gap-2.5 w-[20rem] gray-gradient rounded-20 px-[1.25rem] pt-[0.9375rem] pb-[1.25rem] backdrop-filter backdrop-blur-[2.5rem] absolute top-[2.5rem]"
+			class="font-robotoMono tracking-[0.0625rem] text-[0.625rem] flex flex-col items-start gap-2.5 w-[20rem] gray-gradient rounded-20 px-[1.25rem] pt-[0.9375rem] pb-[1.25rem] backdrop-filter backdrop-blur-[2.5rem] absolute top-[4rem]"
 		>
 			<div class="flex flex-row justify-between w-full items-end">
 				<HomeDropMenuDetails {dropNumber} {dropName} {dropLogo} {dropDate} />
