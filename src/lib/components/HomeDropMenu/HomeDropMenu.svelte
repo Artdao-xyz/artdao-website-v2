@@ -2,6 +2,7 @@
 	import dottedLine from '$lib/assets/images/dotted-line-drop.png';
 	import infoCircle from '$lib/assets/images/Ellipse 30.png';
 	import infoCircleWhite from '$lib/assets/images/Ellipse-white.png';
+	import whiteToggle from '$lib/assets/images/white-toggle.png';
 
 	import HomeDropMenuDetails from '$lib/elements/HomeDropMenuDetails/HomeDropMenuDetails.svelte';
 	import { slide } from 'svelte/transition';
@@ -29,6 +30,10 @@
 	class="w-full h-[100dvh] p-2 relative"
 >
 	<HomeMobileMenu toggle="white" section="drop" />
+
+	<a href="/" class="hidden sm:block">
+		<img src={whiteToggle} alt="Go to Drops" class="w-[5.9063rem] cursor-pointer mb-[-0.5rem]" />
+	</a>
 
 	<button on:click={toggleVisibility}>
 		<div

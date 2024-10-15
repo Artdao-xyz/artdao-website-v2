@@ -1,5 +1,4 @@
 <script lang="ts">
-	import logo from '$lib/assets/images/artdao-logo.png';
 	import blackToggle from '$lib/assets/images/black-toggle.png';
 	import homeIcon from '$lib/assets/images/home-icon.png';
 	import whiteToggle from '$lib/assets/images/white-toggle.png';
@@ -13,14 +12,6 @@
 		<a href={'/'}>
 			<img src={homeIcon} alt="Home Icon" class="w-[2.5625rem]" />
 		</a>
-
-		<div
-			class="w-[131px] h-[37px] rounded-20 {section === 'drop'
-				? 'gray-gradient'
-				: 'dark-gradient'} px-[1.1875rem] py-[0.375rem]"
-		>
-			<img src={logo} alt="Artdao Logo" class="w-full" />
-		</div>
 
 		<a href={section === 'home' ? '/drops' : '/'}>
 			<img
