@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
@@ -147,7 +148,7 @@
 <div
 	on:scroll={handleScroll}
 	id="rave"
-	class="mx-auto mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen scroll-smooth"
+	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory ooverflow-y-auto sm:h-screen scroll-smooth"
 >
 	<ProjectIntro project={digitalMatterProjectIntro} />
 
@@ -163,7 +164,11 @@
 		route={digitalMatterNavItems[1].route}
 	/>
 
-	<ProjectPolaroids images={marcusPolaroidsImages} />
+	<div class="hidden sm:block">
+		<ProjectPolaroids images={marcusPolaroidsImages} />
+	</div>
+
+	<PolaroidsMobile polaroidImages={marcusPolaroidsImages} />
 
 	<ProjectAbout
 		aboutItem={sulkianAbout}
@@ -195,15 +200,19 @@
 
 	<ProjectArtworkGrid galleryImages={parsaArtworkImages} showDetails />
 
-	<ProjectPolaroids
-		images={parsaPolaroidsImages}
-		polaroidsTypes={[
-			EPolaroidType.RECTANGLE,
-			EPolaroidType.RECTANGLE,
-			EPolaroidType.RECTANGLE,
-			EPolaroidType.VERTICAL
-		]}
-	/>
+	<div class="hidden sm:block">
+		<ProjectPolaroids
+			images={parsaPolaroidsImages}
+			polaroidsTypes={[
+				EPolaroidType.RECTANGLE,
+				EPolaroidType.RECTANGLE,
+				EPolaroidType.RECTANGLE,
+				EPolaroidType.VERTICAL
+			]}
+		/>
+	</div>
+
+	<PolaroidsMobile polaroidImages={parsaPolaroidsImages} />
 
 	<HomeIcon />
 	<Footer />

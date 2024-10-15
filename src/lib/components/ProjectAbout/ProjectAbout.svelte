@@ -13,23 +13,43 @@
 	export let colorVariant: EColorVariant = EColorVariant.BLACK;
 </script>
 
-<SectionContainer {colorVariant} hasPadding={false}>
-	<div class="flex justify-center w-full h-full" id={route}>
-		{#if !isImageLeft}
-			<div class="w-1/2 h-full flex items-center justify-center">
-				<About {aboutItem} {colorVariant} />
-			</div>
-		{/if}
+<div class="hidden sm:block">
+	<SectionContainer {colorVariant} hasPadding={false}>
+		<div
+			class="flex justify-start sm:justify-center w-full sm:h-full flex-col sm:flex-row"
+			id={route}
+		>
+			{#if !isImageLeft}
+				<div class="w-full sm:w-1/2 h-screen sm:h-full flex items-center justify-center">
+					<About {aboutItem} {colorVariant} />
+				</div>
+			{/if}
+			{#if aboutImage}
+				<img src={aboutImage} alt="About Section" class="w-full sm:w-1/2 h-100dvh object-cover" />
+			{/if}
+			{#if aboutImages}
+				<ImgNavigator images={aboutImages} variant={ESizeVariant.SMALL} />
+			{/if}
+			{#if isImageLeft}
+				<div class="w-full sm:w-1/2 h-screen sm:h-full flex items-center justify-center">
+					<About {aboutItem} {colorVariant} />
+				</div>
+			{/if}
+		</div>
+	</SectionContainer>
+</div>
+<div class="block sm:hidden">
+	<SectionContainer {colorVariant} hasPadding={false}>
+		<div class="w-full h-screen flex items-center justify-center">
+			<About {aboutItem} {colorVariant} />
+		</div>
+	</SectionContainer>
+	<SectionContainer {colorVariant} hasPadding={false}>
 		{#if aboutImage}
-			<img src={aboutImage} alt="About Section" class="w-1/2 h-100dvh object-cover" />
+			<img src={aboutImage} alt="About Section" class="w-full sm:w-1/2 h-100dvh object-cover" />
 		{/if}
 		{#if aboutImages}
 			<ImgNavigator images={aboutImages} variant={ESizeVariant.SMALL} />
 		{/if}
-		{#if isImageLeft}
-			<div class="w-1/2 h-full flex items-center justify-center">
-				<About {aboutItem} {colorVariant} />
-			</div>
-		{/if}
-	</div>
-</SectionContainer>
+	</SectionContainer>
+</div>

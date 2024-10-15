@@ -23,10 +23,13 @@
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT}>
-	<div id={route} class="w-full h-full flex flex-col items-center gap-10">
-		<div class="w-full flex items-end h-[25%]">
+	<div
+		id={route}
+		class="hidden sm:w-full h-screen sm:h-full sm:flex flex-col items-center gap-5 sm:gap-10 overflow-x-auto sm:overflow-x-hidden"
+	>
+		<div class="w-full flex items-end sm:h-[25%]">
 			<h1
-				class="text-color-black text-[3rem] macBook:text-[3.5rem] xlScreen:text-[4rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
+				class="text-color-black text-[2rem] sm:text-[3rem] macBook:text-[3.5rem] xlScreen:text-[4rem] font-semibold sm:leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
 			>
 				&gt; {images[selectedItem].quote} &lt;
 			</h1>

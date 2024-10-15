@@ -12,15 +12,21 @@
 	import HomeSocial from '$lib/elements/HomeSocial/HomeSocial.svelte';
 	import HomeTop from '$lib/elements/HomeTop/HomeTop.svelte';
 	import { homeParagraphs } from '../../../data/HomeTop';
+	import HomeMobileMenu from '../HomeMobileMenu/HomeMobileMenu.svelte';
 </script>
 
 <div class="menu flex flex-col gap-2 h-100dvh max-h-[59rem]">
-	<a href="/drops">
+	<a href="/drops" class="hidden sm:block">
 		<img src={blackToggle} alt="Go to Drops" class="w-[5.9063rem] cursor-pointer mb-[-0.5rem]" />
 	</a>
+
+	<HomeMobileMenu />
+
 	<HomeTop logo={artDaoLogo} {homeParagraphs} />
-	<HomeDrop dropNumber={'000'} dropName={'psipsikoko'} dropLogo={hammer} />
-	<HomeMap title={'bridging the global & hyperlocal'} logo={mapLogo} />
+	<div class="flex flex-row sm:flex-col gap-2">
+		<HomeDrop dropNumber={'000'} dropName={'psipsikoko'} dropLogo={hammer} />
+		<HomeMap title={'bridging the global & hyperlocal'} logo={mapLogo} />
+	</div>
 	<HomeNewsletter route="" />
 	<div class="flex gap-[2.375rem] h-full w-full">
 		<HomeSocial icon={discordIcon} />

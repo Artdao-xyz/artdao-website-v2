@@ -4,5 +4,9 @@
 </script>
 
 <a href={HOME}>
-	<img src={homeIcon} alt="Home Icon" class="fixed bottom-[5%] right-[3%] w-[4.6875rem]" />
+	<img
+		src={homeIcon}
+		alt="Home Icon"
+		class="fixed bottom-[5%] right-[3%] w-[4.6875rem] hidden sm:block"
+	/>
 </a>

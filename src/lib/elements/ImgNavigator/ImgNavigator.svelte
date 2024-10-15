@@ -15,23 +15,32 @@
 	};
 
 	const isSmall = variant === ESizeVariant.SMALL;
-	const navigatorWidth = isSmall ? 'w-1/2' : 'w-full w-auto pt-[2.4375rem]';
+	const navigatorWidth = isSmall ? 'w-full sm:w-1/2' : 'w-full h-full pt-0 sm:pt-[2.4375rem]';
 </script>
 
 <div class="{navigatorWidth} h-full relative">
-	<div class="w-full h-full {!isSmall ? 'flex justify-center' : ''}">
+	<div class="w-full h-full {!isSmall ? 'flex justify-center items-center' : ''}">
 		<img
 			src={images[index]}
 			alt="Big view"
-			class="h-full {variant === ESizeVariant.SMALL
-				? 'w-full object-cover'
-				: 'rounded-20 '} {isImageWhiteBg ? 'bg-color-white' : ''}"
+			class="h-fit laptopS:h-full {variant === ESizeVariant.SMALL
+				? 'w-full object-cover h-full'
+				: 'rounded-20 sm:h-full'} {isImageWhiteBg ? 'bg-color-white' : ''} object-contain"
 		/>
 	</div>
 
-	<div class="flex flex-row gap-[1.375rem] absolute left-10 bottom-10">
+	<div
+		class="flex {!isSmall
+			? 'flex-col-reverse gap-[0.625rem] sm:flex-row sm:gap-[1.375rem] left-0 sm:left-10 sm:bottom-10'
+			: 'flex-row gap-[1.375rem] left-5 sm:left-10 bottom-10'} absolute bottom-20"
+	>
 		{#each images as image, i}
-			<button class="w-[5.375rem] h-[5.375rem] hover:scale-105" on:click={() => handleOnClick(i)}>
+			<button
+				class="{!isSmall
+					? 'w-[2.5rem] h-[2.5rem] sm:w-[5.375rem] sm:h-[5.375rem]'
+					: 'w-[5.375rem] h-[5.375rem]'} hover:scale-105"
+				on:click={() => handleOnClick(i)}
+			>
 				<img
 					src={image}
 					alt="Small view"

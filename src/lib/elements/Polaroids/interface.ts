@@ -3,6 +3,7 @@ export interface IPolaroidImage {
 	name?: string;
 	date?: string;
 	quote?: string;
+	description?: string;
 }
 
 export enum EPolaroidType {

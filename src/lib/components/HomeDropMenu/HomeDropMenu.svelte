@@ -5,6 +5,7 @@
 
 	import HomeDropMenuDetails from '$lib/elements/HomeDropMenuDetails/HomeDropMenuDetails.svelte';
 	import { slide } from 'svelte/transition';
+	import HomeMobileMenu from '../HomeMobileMenu/HomeMobileMenu.svelte';
 
 	export let dropNumber: string;
 	export let dropName: string;
@@ -27,9 +28,11 @@
 	style={`background-image: url("${bgImage}"); background-size: cover; background-position: center;`}
 	class="w-full h-[100dvh] p-2 relative"
 >
+	<HomeMobileMenu toggle="white" section="drop" />
+
 	<button on:click={toggleVisibility}>
 		<div
-			class="font-robotoMono tracking-[0.0625rem] text-[0.625rem] flex flex-col items-start gap-2.5 w-[20rem] gray-gradient rounded-20 px-[1.25rem] pt-[0.9375rem] pb-[1.25rem] backdrop-filter backdrop-blur-[2.5rem] absolute top-[4rem]"
+			class="dropMenu font-robotoMono tracking-[0.0625rem] text-[0.8rem] sm:text-[0.625rem] flex flex-col items-start gap-2.5 sm:w-[20rem] gray-gradient rounded-20 px-[1.25rem] pt-[0.9375rem] pb-[1.25rem] backdrop-filter backdrop-blur-[2.5rem] absolute top-[4rem]"
 		>
 			<div class="flex flex-row justify-between w-full items-end">
 				<HomeDropMenuDetails {dropNumber} {dropName} {dropLogo} {dropDate} />
@@ -51,11 +54,11 @@
 					on:introend={() => (isTransitionEnd = true)}
 					on:outrostart={() => (isTransitionEnd = false)}
 				>
-					<img src={dottedLine} alt="Dotted Line" />
+					<img src={dottedLine} alt="Dotted Line" class="w-full" />
 
 					<p class="leading-[1.125rem]">COMING SOON</p>
 
-					<img src={dottedLine} alt="Dotted Line" />
+					<img src={dottedLine} alt="Dotted Line" class="w-full" />
 
 					<p class="leading-[1.125rem]">Artists</p>
 
@@ -70,7 +73,7 @@
 						{/each}
 					</div>
 
-					<img src={dottedLine} alt="Dotted Line" />
+					<img src={dottedLine} alt="Dotted Line" class="w-full" />
 
 					<p class="leading-[1.125rem]">About</p>
 
@@ -84,3 +87,17 @@
 		</div>
 	</button>
 </div>
+
+<style>
+	@media (max-width: 639px) {
+		.dropMenu {
+			width: calc(100% - 16px);
+		}
+	}
+
+	@media (min-width: 640px) {
+		.dropMenu {
+			width: 20rem;
+		}
+	}
+</style>

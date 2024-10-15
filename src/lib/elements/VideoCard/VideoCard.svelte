@@ -15,8 +15,8 @@
 		size === ESizesVariant.LARGE
 			? 'w-full bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:max-w-full bigScreen:!h-[90%]'
 			: size === ESizesVariant.MEDIUM
-				? 'w-[50%]'
-				: 'w-[34.72%]';
+				? 'sm:w-[50%]'
+				: 'sm:w-[34.72%]';
 </script>
 
 <div
@@ -36,7 +36,7 @@
 			</div>
 		</div>
 
-		<div class="flex flex-row gap-[0.9375rem]">
+		<div class="sm:flex flex-row gap-[0.9375rem] hidden">
 			<button
 				on:click={handlePrevButton}
 				class="{isPrevButtonDisabled

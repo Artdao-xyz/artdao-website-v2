@@ -4,7 +4,7 @@
 </script>
 
 <div
-	class="flex flex-col gap-[1.875rem] w-full py-[1.875rem] px-10 bg-color-dark rounded-20 h-home-content-top-height"
+	class="flex flex-col gap-[1.875rem] w-full py-[1.875rem] px-5 sm:px-10 bg-color-dark rounded-20 h-full sm:h-home-content-top-height"
 >
 	<img src={logo} alt="ArtDao Logo" class="w-[13.5625rem] h-[3.0931rem]" />
 	<div

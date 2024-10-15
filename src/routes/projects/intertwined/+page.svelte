@@ -138,7 +138,7 @@
 
 <div
 	on:scroll={handleScroll}
-	class="mx-auto mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen"
+	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen"
 >
 	<ProjectIntro project={intertwinedProjectIntro} textColor="black" />
 

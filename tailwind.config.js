@@ -3,6 +3,20 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		screens: {
+			sm: '640px',
+			// => @media (min-width: 640px) { ... }
+
+			md: '768px',
+			// => @media (min-width: 768px) { ... }
+
+			lg: '1024px',
+			// => @media (min-width: 1024px) { ... }
+
+			xl: '1280px',
+			// => @media (min-width: 1280px) { ... }
+
+			'2xl': '1536px',
+			// => @media (min-width: 1536px) { ... }
 			laptopM: '1366px',
 			// => @media(min-width: 1366px) {...}
 			macBook: '1440px',
@@ -28,7 +42,8 @@ export default {
 			'color-disabled': '#a0a0a0',
 			'color-red': 'red',
 			'color-green': 'green',
-			'color-blue': 'blue'
+			'color-blue': 'blue',
+			'color-gray-mobile': 'rgba(217,217,217,1)'
 		},
 		fontFamily: {
 			roboto: ['Roboto-Regular'],

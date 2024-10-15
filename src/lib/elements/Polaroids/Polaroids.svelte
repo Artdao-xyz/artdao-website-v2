@@ -21,7 +21,7 @@
 	};
 </script>
 
-<div class="flex-row flex w-full h-[65%]">
+<div class="hidden flex-row sm:flex w-full h-[65%]">
 	<div class="flex flex-row w-[64%]">
 		<PolaroidView image={images[index]} {viewImageFit} />
 	</div>
