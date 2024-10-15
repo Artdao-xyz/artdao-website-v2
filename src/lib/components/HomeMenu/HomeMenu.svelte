@@ -44,32 +44,37 @@
 	</div>
 
 	<button class="flex flex-col sm:hidden" on:click={toggleVisibility}>
-		<div class="flex flex-col gap-2 w-full p-5">
-			<div class="bg-color-dark rounded-20 p-5">
-				<img src={artDaoLogo} alt="ArtDao Logo" class="w-[13.5625rem] h-[3.0931rem]" />
-			</div>
+		<div class="flex flex-col gap-2 w-full py-5">
+			<div class="flex flex-col gap-2">
+				<div class="bg-color-dark rounded-20 p-5">
+					<img src={artDaoLogo} alt="ArtDao Logo" class="w-[7.5389rem] h-[1.8125rem] mx-auto" />
 
-			{#if visible}
-				<div transition:slide={{ axis: 'y', duration: 900 }} class="flex flex-col gap-2">
-					<div
-						class="flex flex-col text-left bg-color-dark rounded-20 justify-start gap-4 text-sm font-medium font-clash leading-5 text-color-white py-[1.875rem] px-5"
-					>
-						{#each homeParagraphs as homeParagraph}
-							<p>{homeParagraph}</p>
-						{/each}
-					</div>
-					<div class="flex flex-row gap-2 text-left">
-						<HomeDrop dropNumber={'000'} dropName={'psipsikoko'} dropLogo={hammer} />
-						<HomeMap title={'bridging the global & hyperlocal'} logo={mapLogo} />
-					</div>
-					<HomeNewsletter route="" />
-					<div class="flex gap-[2.375rem] h-full w-full">
-						<HomeSocial icon={discordIcon} />
-						<HomeSocial icon={instagramIcon} />
-						<HomeSocial icon={xIcon} />
-					</div>
+					{#if visible}
+						<div
+							transition:slide={{ axis: 'y', duration: 900 }}
+							class="flex flex-col text-left bg-color-dark rounded-20 justify-start gap-4 text-sm font-medium font-clash leading-5 text-color-white py-[1.875rem] px-5"
+						>
+							{#each homeParagraphs as homeParagraph}
+								<p>{homeParagraph}</p>
+							{/each}
+						</div>
+					{/if}
 				</div>
-			{/if}
+				<div>
+					{#if visible}
+						<div transition:slide={{ axis: 'y', duration: 900 }} class="flex flex-col gap-2">
+							<HomeDrop dropNumber={'000'} dropName={'psipsikoko'} dropLogo={hammer} />
+							<HomeMap title={'bridging the global & hyperlocal'} logo={mapLogo} />
+							<HomeNewsletter route="" />
+							<div class="flex gap-[2.375rem] h-full w-full">
+								<HomeSocial icon={discordIcon} />
+								<HomeSocial icon={instagramIcon} />
+								<HomeSocial icon={xIcon} />
+							</div>
+						</div>
+					{/if}
+				</div>
+			</div>
 		</div>
 	</button>
 </div>

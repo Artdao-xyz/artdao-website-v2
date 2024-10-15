@@ -15,7 +15,7 @@
 		</div>
 
 		<p
-			class="tracking-[0.0187rem] uppercase text-[0.875rem] sm:text-[0.625rem] font-clash font-semibold flex flex-row gap-[0.5rem]"
+			class="tracking-[0.0187rem] uppercase text-[0.625rem] sm:text-[0.625rem] font-robotoMono font-semibold flex flex-row gap-[0.5rem]"
 		>
 			<span>{dropDate[0]}</span>
 			<span>{dropDate[1]}</span>

@@ -43,7 +43,7 @@ export default {
 			'color-red': 'red',
 			'color-green': 'green',
 			'color-blue': 'blue',
-			'color-gray-mobile': 'rgba(217,217,217,1)'
+			'color-gray-mobile': '#D9D9D9'
 		},
 		fontFamily: {
 			roboto: ['Roboto-Regular'],
