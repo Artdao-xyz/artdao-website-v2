@@ -3,6 +3,7 @@
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+	import ProjectArtworkGridMobile from '$lib/components/ProjectArtworkGridMobile/ProjectArtworkGridMobile.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
@@ -198,7 +199,11 @@
 		route={digitalMatterNavItems[1].route}
 	/>
 
-	<ProjectArtworkGrid galleryImages={parsaArtworkImages} showDetails />
+	<div class="hidden sm:block">
+		<ProjectArtworkGrid galleryImages={parsaArtworkImages} showDetails />
+	</div>
+
+	<ProjectArtworkGridMobile galleryImages={parsaArtworkImages} showDetails />
 
 	<div class="hidden sm:block">
 		<ProjectPolaroids

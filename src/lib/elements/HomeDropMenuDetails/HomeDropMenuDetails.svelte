@@ -8,7 +8,7 @@
 <div class="flex flex-row items-center gap-2.5">
 	<div class="flex flex-col justify-start gap-2.5">
 		<div
-			class="flex flex-col font-clash leading-[1.375rem] uppercase tracking-[0.0375rem] text-[1rem] sm:text-[0.875rem] font-semibold"
+			class="flex flex-col font-clash leading-[1.375rem] uppercase tracking-[0.0375rem] text-left text-[1rem] sm:text-[0.875rem] font-semibold"
 		>
 			<h2>DROP #{dropNumber}</h2>
 			<h2>{dropName}</h2>
