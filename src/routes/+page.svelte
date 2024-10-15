@@ -16,7 +16,7 @@
 			</div>
 		</div>
 
-		<div class="flex flex-col gap-2 mt-0 sm:mt-[3.486rem]">
+		<div class="flex flex-col gap-2 mt-[-1.2rem] sm:mt-[3.486rem]">
 			<div class="w-full flex gap-2 flex-col">
 				<div class="flex flex-row gap-2 w-full">
 					<a href={homeImages[0].route} class="w-1/2">

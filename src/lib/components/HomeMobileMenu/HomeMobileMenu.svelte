@@ -8,7 +8,7 @@
 </script>
 
 <div class="{section === 'project' ? 'fixed' : 'block'} w-full z-50">
-	<div class="sm:hidden flex justify-between items-center mb-[0.5rem]">
+	<div class="sm:hidden flex justify-between items-center sm:mb-[0.5rem] mb-[-1rem]">
 		<a href={'/'}>
 			<img src={homeIcon} alt="Home Icon" class="w-[2.5625rem]" />
 		</a>
