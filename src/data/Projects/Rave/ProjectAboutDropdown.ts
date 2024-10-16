@@ -90,7 +90,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	{
 		name: 'Vernissage',
 		date: '31.05.2024',
-		location: 'HIGHER GROUND',
+		location: 'HIGHER GROUND, Lisbon',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: vernisagge01
@@ -98,7 +98,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	{
 		name: 'Vernissage',
 		date: '31.05.2024',
-		location: 'HIGHER GROUND',
+		location: 'HIGHER GROUND, Lisbon',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: vernisagge02
@@ -106,7 +106,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	{
 		name: 'Vernissage',
 		date: '31.05.2024',
-		location: 'HIGHER GROUND',
+		location: 'HIGHER GROUND, Lisbon',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: vernisagge03
@@ -114,7 +114,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	{
 		name: 'Vernissage',
 		date: '31.05.2024',
-		location: 'HIGHER GROUND',
+		location: 'HIGHER GROUND, Lisbon',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: vernisagge04
@@ -122,7 +122,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	{
 		name: 'Vernissage',
 		date: '31.05.2024',
-		location: 'HIGHER GROUND',
+		location: 'HIGHER GROUND, Lisbon',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: vernisagge05
@@ -130,7 +130,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	{
 		name: 'Vernissage',
 		date: '31.05.2024',
-		location: 'HIGHER GROUND',
+		location: 'HIGHER GROUND, Lisbon',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: vernisagge06
@@ -138,7 +138,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	{
 		name: 'Vernissage',
 		date: '31.05.2024',
-		location: 'HIGHER GROUND',
+		location: 'HIGHER GROUND, Lisbon',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: vernisagge07
@@ -146,7 +146,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	{
 		name: 'Vernissage',
 		date: '31.05.2024',
-		location: 'HIGHER GROUND',
+		location: 'HIGHER GROUND, Lisbon',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: vernisagge08
@@ -154,7 +154,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	{
 		name: 'Vernissage',
 		date: '31.05.2024',
-		location: 'HIGHER GROUND',
+		location: 'HIGHER GROUND, Lisbon',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: vernisagge09
@@ -162,7 +162,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	{
 		name: 'Vernissage',
 		date: '31.05.2024',
-		location: 'HIGHER GROUND',
+		location: 'HIGHER GROUND, Lisbon',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: vernisagge10
@@ -170,7 +170,7 @@ export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	{
 		name: 'Vernissage',
 		date: '31.05.2024',
-		location: 'HIGHER GROUND',
+		location: 'HIGHER GROUND, Lisbon',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
 		image: vernisagge11
