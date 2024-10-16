@@ -7,7 +7,7 @@
 
 <div class="snap-start h-screen sm:hidden flex flex-col justify-between bg-color-white" id={route}>
 	<div
-		class="scroll-panel flex flex-row flex-grow overflow-x-auto items-center px-5 pt-[5rem] gap-5 max-h-[700px] h-full"
+		class="scroll-panel flex flex-row flex-grow overflow-x-auto items-center px-5 pt-[2rem] gap-5 max-h-[700px] h-full"
 	>
 		{#each polaroidImages as polaroidImage}
 			<div
