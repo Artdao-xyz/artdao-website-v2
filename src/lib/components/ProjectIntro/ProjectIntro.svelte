@@ -9,7 +9,7 @@
 
 <SectionContainer hasPadding={false}>
 	<div
-		class="w-full h-full flex flex-row pt-[2rem] sm:pt-[5%] gap-28 {bgImage
+		class="w-full h-full flex flex-row pt-[3rem] sm:pt-[5%] gap-28 {bgImage
 			? `${isContain ? 'sm:bg-contain' : 'sm:bg-cover'} bg-fit bg-no-repeat bg-bottom h-screen sm:h-full bg-color-black`
 			: ''} {textColor === 'black' ? 'bg-color-white' : 'bg-color-black'} pr-global-padding"
 		id="intro"
