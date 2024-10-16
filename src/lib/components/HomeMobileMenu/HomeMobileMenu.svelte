@@ -13,12 +13,14 @@
 			<img src={homeIcon} alt="Home Icon" class="w-[2.5625rem]" />
 		</a>
 
-		<a href={section === 'home' ? '/drops' : '/'}>
-			<img
-				src={toggle === 'black' ? blackToggle : whiteToggle}
-				alt="Go to Drops"
-				class="w-[4.5rem] cursor-pointer mb-[-0.5rem]"
-			/>
-		</a>
+		{#if section === 'home' || section === 'drop'}
+			<a href={section === 'home' ? '/drops' : '/'}>
+				<img
+					src={toggle === 'black' ? blackToggle : whiteToggle}
+					alt="Go to Drops"
+					class="w-[4.5rem] cursor-pointer mb-[-0.5rem]"
+				/>
+			</a>
+		{/if}
 	</div>
 </div>
