@@ -12,7 +12,7 @@ export const ecologiesNavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
-		text: 'Oki',
+		text: 'Okytomo',
 		route: 'oki',
 		selected: false
 	},

@@ -61,7 +61,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(curators) || elementIsVisibleInViewport(curatorsEnd)) {
+		if (elementIsVisibleInViewport(curators) || elementIsVisibleInViewport(curatorsEnd, true)) {
 			orbNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -150,7 +150,9 @@
 
 	<ProjectAbout aboutImages={seedAboutImages} aboutItem={seedAbout} route="" isImageLeft={false} />
 
-	<ProjectAbout aboutImages={hivemindAboutImages} aboutItem={hivemindAbout} route="curators-end" />
+	<div id="curators-end">
+		<ProjectAbout aboutImages={hivemindAboutImages} aboutItem={hivemindAbout} route="" />
+	</div>
 
 	<ProjectAboutDropdown
 		aboutDropdownItems={daoDropdownItems}
@@ -160,7 +162,7 @@
 
 	<ProjectVideo videoProjects={[orbVideo]} />
 
-	<ProjectAbout aboutImages={carocoAboutImages} aboutItem={carocoAbout} route="#" />
+	<ProjectAbout aboutImages={carocoAboutImages} aboutItem={carocoAbout} route="" />
 
 	<ProjectVideo videoProjects={[orbVideoTwo]} route="artworks-end" />
 

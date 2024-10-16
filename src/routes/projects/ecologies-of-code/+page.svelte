@@ -2,8 +2,10 @@
 	import ecoInterviewBg from '$lib/assets/images/projects/ecologiesOfCode/ecologies-interview-bg.png';
 	import hyperInterview from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/interview/artwork-press.png';
 	import okytomoInterview from '$lib/assets/images/projects/ecologiesOfCode/okytomo/interview/okytomoInterview.png';
+	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+	import ProjectArtworkGridMobile from '$lib/components/ProjectArtworkGridMobile/ProjectArtworkGridMobile.svelte';
 	import ProjectInterview from '$lib/components/ProjectInterview/ProjectInterview.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
@@ -38,6 +40,8 @@
 	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
 	import { ecologiesNavStoreItems } from './store';
 
+	let size: number;
+
 	const handleScroll = () => {
 		const intro = document.getElementById('intro');
 		const joaquina = document.getElementById('joaquina');
@@ -59,7 +63,7 @@
 					selected: false
 				},
 				{
-					text: 'Oki',
+					text: 'Okytomo',
 					route: 'oki',
 					selected: false
 				},
@@ -71,7 +75,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(joaquina) || elementIsVisibleInViewport(joaquinaEnd)) {
+		if (elementIsVisibleInViewport(joaquina, true) || elementIsVisibleInViewport(joaquinaEnd)) {
 			ecologiesNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -84,7 +88,7 @@
 					selected: true
 				},
 				{
-					text: 'Oki',
+					text: 'Okytomo',
 					route: 'oki',
 					selected: false
 				},
@@ -96,7 +100,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(oki) || elementIsVisibleInViewport(okiEnd)) {
+		if (elementIsVisibleInViewport(oki, true) || elementIsVisibleInViewport(okiEnd)) {
 			ecologiesNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -109,7 +113,7 @@
 					selected: false
 				},
 				{
-					text: 'Oki',
+					text: 'Okytomo',
 					route: 'oki',
 					selected: true
 				},
@@ -121,7 +125,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(hypereikon)) {
+		if (elementIsVisibleInViewport(hypereikon, true)) {
 			ecologiesNavStoreItems.update((obj) => [
 				{
 					text: 'About',
@@ -134,7 +138,7 @@
 					selected: false
 				},
 				{
-					text: 'Oki',
+					text: 'Okytomo',
 					route: 'oki',
 					selected: false
 				},
@@ -148,64 +152,73 @@
 	};
 </script>
 
+<svelte:window bind:innerWidth={size} />
 <div
 	on:scroll={handleScroll}
 	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen"
 >
 	<ProjectIntro project={ecologiesOfCodeProject} textColor="white" />
 
-	<ProjectAbout
-		aboutItem={joaquinaAbout}
-		aboutImages={joaquinaAboutImages}
-		route={ecologiesNavItems[1].route}
-	/>
+	<div id={ecologiesNavItems[1].route}>
+		<ProjectAbout aboutItem={joaquinaAbout} aboutImages={joaquinaAboutImages} route="" />
+	</div>
 
 	<ProjectInterview bgImage={ecoInterviewBg} questions={joaquinaQuestions} />
 
 	<ProjectVideo videoProjects={[ecologiesVideoProjectOne]} />
 
-	<ProjectPolaroids
-		images={ecologiesPolaroidImages}
-		route="joaquina-end"
-		polaroidsTypes={[
-			EPolaroidType.RECTANGLE,
-			EPolaroidType.VERTICAL,
-			EPolaroidType.RECTANGLE,
-			EPolaroidType.RECTANGLE
-		]}
-	/>
+	{#if size > 768}
+		<ProjectPolaroids
+			images={ecologiesPolaroidImages}
+			route="joaquina-end"
+			polaroidsTypes={[
+				EPolaroidType.RECTANGLE,
+				EPolaroidType.VERTICAL,
+				EPolaroidType.RECTANGLE,
+				EPolaroidType.RECTANGLE
+			]}
+		/>
+	{:else}
+		<PolaroidsMobile polaroidImages={ecologiesPolaroidImages} route="joaquina-end" />
+	{/if}
 
-	<ProjectAbout
-		aboutItem={okytomoAbout}
-		aboutImages={okytomoAboutImages}
-		route={ecologiesNavItems[2].route}
-	/>
+	<div id={ecologiesNavItems[2].route}>
+		<ProjectAbout aboutItem={okytomoAbout} aboutImages={okytomoAboutImages} route="" />
+	</div>
 
 	<ProjectInterview bgImage={okytomoInterview} questions={okyQuestions} />
 
 	<ProjectVideo videoProjects={okyVideos} />
 
-	<ProjectPolaroids
-		images={ecologiesPolaroidImagesTwo}
-		route="oki-end"
-		polaroidsTypes={[
-			EPolaroidType.RECTANGLE,
-			EPolaroidType.VERTICAL,
-			EPolaroidType.RECTANGLE,
-			EPolaroidType.RECTANGLE
-		]}
-		viewImageFit="cover"
-	/>
+	{#if size > 768}
+		<ProjectPolaroids
+			images={ecologiesPolaroidImagesTwo}
+			route="oki-end"
+			polaroidsTypes={[
+				EPolaroidType.RECTANGLE,
+				EPolaroidType.VERTICAL,
+				EPolaroidType.RECTANGLE,
+				EPolaroidType.RECTANGLE
+			]}
+			viewImageFit="cover"
+		/>
+	{:else}
+		<PolaroidsMobile polaroidImages={ecologiesPolaroidImagesTwo} route="oki-end" />
+	{/if}
 
-	<ProjectAbout
-		aboutItem={hypereikonAbout}
-		aboutImages={hypereikonAboutImages}
-		route={ecologiesNavItems[3].route}
-	/>
+	<div id={ecologiesNavItems[3].route}>
+		<ProjectAbout aboutItem={hypereikonAbout} aboutImages={hypereikonAboutImages} route="" />
+	</div>
 
 	<ProjectInterview bgImage={hyperInterview} questions={hypereikonQuestions} />
 
-	<ProjectArtworkGrid galleryImages={ecologiesArtworkImages} />
+	<div class="hidden sm:block">
+		<ProjectArtworkGrid galleryImages={ecologiesArtworkImages} showDetails />
+	</div>
+
+	<div class="block sm:hidden snap-start">
+		<ProjectArtworkGridMobile galleryImages={ecologiesArtworkImages} showDetails />
+	</div>
 
 	<HomeIcon />
 	<Footer />

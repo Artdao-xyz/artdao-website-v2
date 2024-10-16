@@ -38,7 +38,7 @@
 		</div>
 	</SectionContainer>
 </div>
-<div class="block sm:hidden">
+<div class="block sm:hidden" id={route}>
 	<SectionContainer {colorVariant} hasPadding={false}>
 		<div class="w-full h-screen flex items-center justify-center">
 			<About {aboutItem} {colorVariant} />

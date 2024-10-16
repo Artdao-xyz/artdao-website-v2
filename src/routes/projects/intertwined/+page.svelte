@@ -59,7 +59,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(artdao) || elementIsVisibleInViewport(artdaoEnd)) {
+		if (elementIsVisibleInViewport(artdao, true) || elementIsVisibleInViewport(artdaoEnd)) {
 			intertwinedNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -84,7 +84,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(crypto) || elementIsVisibleInViewport(cryptoEnd)) {
+		if (elementIsVisibleInViewport(crypto, true) || elementIsVisibleInViewport(cryptoEnd)) {
 			intertwinedNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -144,12 +144,14 @@
 
 	<ProjectVideo videoProjects={introVideo} />
 
-	<ProjectAbout
-		aboutItem={curationAbout}
-		aboutImages={curationAboutImages}
-		route="artdao"
-		colorVariant={EColorVariant.BLACK}
-	/>
+	<div id="artdao">
+		<ProjectAbout
+			aboutItem={curationAbout}
+			aboutImages={curationAboutImages}
+			route=""
+			colorVariant={EColorVariant.BLACK}
+		/>
+	</div>
 
 	<ProjectAboutDropdown
 		images={artdaoDropdownItems.map((item) => item.image)}
@@ -159,12 +161,14 @@
 
 	<ProjectVideo videoProjects={artdaoVideo} route="artdao-end" />
 
-	<ProjectAbout
-		aboutItem={cryptoargAbout}
-		aboutImages={cryptoargAboutImages}
-		route="crypto"
-		colorVariant={EColorVariant.BLACK}
-	/>
+	<div id="crypto">
+		<ProjectAbout
+			aboutItem={cryptoargAbout}
+			aboutImages={cryptoargAboutImages}
+			route=""
+			colorVariant={EColorVariant.BLACK}
+		/>
+	</div>
 
 	<ProjectAboutDropdown
 		images={cryptoargDropdownItems.map((item) => item.image)}
@@ -172,7 +176,7 @@
 		route=""
 	/>
 
-	<ProjectVideo videoProjects={cryptoVideo} />
+	<ProjectVideo videoProjects={cryptoVideo} route="crypto-end" />
 
 	<ProjectAboutDropdown
 		images={intertwinedVernisaggeDropdownItems.map((item) => item.image)}

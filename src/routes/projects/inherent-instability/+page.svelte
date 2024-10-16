@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
 	import nicoInterviewBgImage from '$lib/assets/images/projects/inherentInstability/241857826_6552809161428142_9057190300881452001_n_1.png';
 	import inaInterviewBgImage from '$lib/assets/images/projects/inherentInstability/Background_Img.png';
 	import elbiInterviewBgImage from '$lib/assets/images/projects/inherentInstability/studio1_1.png';
+	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectInterview from '$lib/components/ProjectInterview/ProjectInterview.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
@@ -38,6 +39,8 @@
 	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
 	import { inherentInstabilityNavStoreItems } from './store';
 
+	let size: number;
+
 	const handleScroll = () => {
 		const intro = document.getElementById('intro');
 		const inaVare = document.getElementById('ina');
@@ -71,7 +74,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(inaVare) || elementIsVisibleInViewport(inaVareEnd)) {
+		if (elementIsVisibleInViewport(inaVare, true) || elementIsVisibleInViewport(inaVareEnd)) {
 			inherentInstabilityNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -96,7 +99,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(elbi) || elementIsVisibleInViewport(elbiEnd)) {
+		if (elementIsVisibleInViewport(elbi, true) || elementIsVisibleInViewport(elbiEnd)) {
 			inherentInstabilityNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -121,7 +124,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(nico)) {
+		if (elementIsVisibleInViewport(nico, true)) {
 			inherentInstabilityNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -148,63 +151,70 @@
 	};
 </script>
 
+<svelte:window bind:innerWidth={size} />
 <div
 	on:scroll={handleScroll}
 	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen"
 >
 	<ProjectIntro project={inherentInstabilityProjectIntro} textColor="white" isContain />
 
-	<ProjectAbout
-		aboutItem={inaVareAbout}
-		aboutImages={inaVareAboutImages}
-		route={inherentInstabilityNavItems[1].route}
-		colorVariant={EColorVariant.LIGHT}
-	/>
+	<div id={inherentInstabilityNavItems[1].route}>
+		<ProjectAbout
+			aboutItem={inaVareAbout}
+			aboutImages={inaVareAboutImages}
+			route=""
+			colorVariant={EColorVariant.LIGHT}
+		/>
+	</div>
 
 	<ProjectInterview bgImage={inaInterviewBgImage} questions={inaVareQuestions} />
 
 	<ProjectVideo videoProjects={inaVideo} />
 
-	<ProjectPolaroids
-		images={inaVarePolaroidsImages}
-		polaroidsTypes={[
-			EPolaroidType.RECTANGLE,
-			EPolaroidType.VERTICAL,
-			EPolaroidType.RECTANGLE,
-			EPolaroidType.VERTICAL
-		]}
-		route="ina-end"
-	/>
+	{#if size > 768}
+		<ProjectPolaroids
+			images={inaVarePolaroidsImages}
+			polaroidsTypes={[
+				EPolaroidType.RECTANGLE,
+				EPolaroidType.VERTICAL,
+				EPolaroidType.RECTANGLE,
+				EPolaroidType.VERTICAL
+			]}
+			route="ina-end"
+		/>
+	{:else}
+		<PolaroidsMobile polaroidImages={inaVarePolaroidsImages} route="ina-end" />
+	{/if}
 
-	<ProjectAbout
-		aboutItem={elbiAbout}
-		aboutImages={elbiAboutImages}
-		route={inherentInstabilityNavItems[2].route}
-	/>
+	<div id={inherentInstabilityNavItems[2].route}>
+		<ProjectAbout aboutItem={elbiAbout} aboutImages={elbiAboutImages} route="" />
+	</div>
 
 	<ProjectInterview bgImage={elbiInterviewBgImage} questions={elbiQuestions} />
 
 	<ProjectVideo videoProjects={elbiVideo} route="elbi-end" />
 
-	<ProjectAbout
-		aboutItem={nicoAbout}
-		aboutImages={nicoAboutImages}
-		route={inherentInstabilityNavItems[3].route}
-	/>
+	<div id={inherentInstabilityNavItems[3].route}>
+		<ProjectAbout aboutItem={nicoAbout} aboutImages={nicoAboutImages} route="" />
+	</div>
 
 	<ProjectInterview bgImage={nicoInterviewBgImage} questions={nicoQuestions} />
 
 	<ProjectVideo videoProjects={nicoVideo} />
 
-	<ProjectPolaroids
-		images={nicoPolaroidsImages}
-		polaroidsTypes={[
-			EPolaroidType.VERTICAL,
-			EPolaroidType.VERTICAL,
-			EPolaroidType.SQUARE,
-			EPolaroidType.RECTANGLE
-		]}
-	/>
+	<div class="hidden sm:block">
+		<ProjectPolaroids
+			images={nicoPolaroidsImages}
+			polaroidsTypes={[
+				EPolaroidType.VERTICAL,
+				EPolaroidType.VERTICAL,
+				EPolaroidType.SQUARE,
+				EPolaroidType.RECTANGLE
+			]}
+		/>
+	</div>
+
+	<PolaroidsMobile polaroidImages={nicoPolaroidsImages} route="" />
 
 	<HomeIcon />
 	<Footer />

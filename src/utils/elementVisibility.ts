@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const elementIsVisibleInViewport = (el: any, partiallyVisible = false) => {
 	if (el) {
+		console.log('ELEMENT', el);
 		const { top, left, bottom, right } = el.getBoundingClientRect();
 		const { innerHeight, innerWidth } = window;
 		return partiallyVisible

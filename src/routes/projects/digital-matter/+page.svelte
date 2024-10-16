@@ -35,16 +35,19 @@
 	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
 	import { digitalMatterNavStoreItems } from './store';
 
+	let size: number;
+
 	const handleScroll = () => {
 		const intro = document.getElementById('intro');
 		const marcus = document.getElementById('marcus');
-		const marcusEnd = document.getElementById('narcus-end');
+		const marcusEnd = document.getElementById('marcus-end');
+		const marcusEndMobile = document.getElementById('marcus-end-mobile');
 		const sulkian = document.getElementById('sulkian');
 		const sulkianEnd = document.getElementById('sulkian-end');
 		const parsa = document.getElementById('parsa');
 		const parsaEnd = document.getElementById('parsa-end');
 
-		if (elementIsVisibleInViewport(intro, true)) {
+		if (elementIsVisibleInViewport(intro)) {
 			digitalMatterNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -69,7 +72,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(marcus) || elementIsVisibleInViewport(marcusEnd)) {
+		if (elementIsVisibleInViewport(marcus, true) || elementIsVisibleInViewport(marcusEnd)) {
 			digitalMatterNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -94,7 +97,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(sulkian) || elementIsVisibleInViewport(sulkianEnd)) {
+		if (elementIsVisibleInViewport(sulkian, true) || elementIsVisibleInViewport(sulkianEnd)) {
 			digitalMatterNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -119,7 +122,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(parsa) || elementIsVisibleInViewport(parsaEnd)) {
+		if (elementIsVisibleInViewport(parsa, true) || elementIsVisibleInViewport(parsaEnd)) {
 			digitalMatterNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -146,36 +149,32 @@
 	};
 </script>
 
+<svelte:window bind:innerWidth={size} />
 <div
 	on:scroll={handleScroll}
-	id="rave"
-	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory ooverflow-y-auto sm:h-screen scroll-smooth"
+	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen"
 >
 	<ProjectIntro project={digitalMatterProjectIntro} />
 
-	<ProjectAbout
-		aboutItem={marcusAbout}
-		aboutImages={marcusAboutImages}
-		route={digitalMatterNavItems[1].route}
-	/>
+	<div id="marcus">
+		<ProjectAbout aboutItem={marcusAbout} aboutImages={marcusAboutImages} route="" />
+	</div>
 
 	<ProjectAboutDropdown
 		images={marcusDropdownItems.map((item) => item.image)}
 		aboutDropdownItems={marcusDropdownItems}
-		route={digitalMatterNavItems[1].route}
+		route=""
 	/>
 
-	<div class="hidden sm:block snap-start">
-		<ProjectPolaroids images={marcusPolaroidsImages} />
+	{#if size > 768}
+		<ProjectPolaroids images={marcusPolaroidsImages} route="marcus-end" />
+	{:else}
+		<PolaroidsMobile polaroidImages={marcusPolaroidsImages} route="marcus-end" />
+	{/if}
+
+	<div id="sulkian">
+		<ProjectAbout aboutItem={sulkianAbout} aboutImages={sulkianAboutImages} route="" />
 	</div>
-
-	<PolaroidsMobile polaroidImages={marcusPolaroidsImages} />
-
-	<ProjectAbout
-		aboutItem={sulkianAbout}
-		aboutImages={sulkianAboutImages}
-		route={digitalMatterNavItems[2].route}
-	/>
 
 	<ProjectAboutDropdown
 		images={sulkianImages}
@@ -185,13 +184,11 @@
 		isImageWhiteBg
 	/>
 
-	<ProjectVideo videoProjects={aeroVideo} />
+	<ProjectVideo videoProjects={aeroVideo} route="sulkian-end" />
 
-	<ProjectAbout
-		aboutItem={parsaAbout}
-		aboutImages={parsaAboutImages}
-		route={digitalMatterNavItems[3].route}
-	/>
+	<div id="parsa">
+		<ProjectAbout aboutItem={parsaAbout} aboutImages={parsaAboutImages} route="" />
+	</div>
 
 	<ProjectAboutDropdown
 		images={parsaDropdownItems.map((item) => item.image)}
@@ -219,7 +216,7 @@
 		/>
 	</div>
 
-	<PolaroidsMobile polaroidImages={parsaPolaroidsImages} />
+	<PolaroidsMobile polaroidImages={parsaPolaroidsImages} route="" />
 
 	<HomeIcon />
 	<Footer />
