@@ -3,4 +3,5 @@ export interface IVideoProject {
 	artist: string;
 	year: string;
 	videoUrl: string;
+	size?: 'rectangle' | 'square' | 'vertical';
 }

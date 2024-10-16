@@ -10,7 +10,7 @@
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
-	import { EColorVariant, ESizesVariant } from '../../../constants/enums';
+	import { EColorVariant } from '../../../constants/enums';
 	import { inherentInstabilityNavItems } from '../../../data/Projects/InherentInstability/NavItems';
 	import {
 		elbiAbout,
@@ -163,7 +163,7 @@
 
 	<ProjectInterview bgImage={inaInterviewBgImage} questions={inaVareQuestions} />
 
-	<ProjectVideo videoProjects={[inaVideo]} />
+	<ProjectVideo videoProjects={inaVideo} />
 
 	<ProjectPolaroids
 		images={inaVarePolaroidsImages}
@@ -184,7 +184,7 @@
 
 	<ProjectInterview bgImage={elbiInterviewBgImage} questions={elbiQuestions} />
 
-	<ProjectVideo videoProjects={[elbiVideo]} size={ESizesVariant.MEDIUM} route="elbi-end" />
+	<ProjectVideo videoProjects={elbiVideo} route="elbi-end" />
 
 	<ProjectAbout
 		aboutItem={nicoAbout}
@@ -194,7 +194,7 @@
 
 	<ProjectInterview bgImage={nicoInterviewBgImage} questions={nicoQuestions} />
 
-	<ProjectVideo videoProjects={[nicoVideo]} size={ESizesVariant.SMALL} />
+	<ProjectVideo videoProjects={nicoVideo} />
 
 	<ProjectPolaroids
 		images={nicoPolaroidsImages}

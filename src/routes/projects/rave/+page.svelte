@@ -5,7 +5,6 @@
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
-	import { ESizesVariant } from '../../../constants/enums';
 	import { raveNavItems } from '../../../data/Projects/Rave/NavItems';
 	import {
 		raveAboutDropdopwnItems,
@@ -118,7 +117,7 @@
 		route={raveNavItems[2].route}
 	/>
 
-	<ProjectVideo videoProjects={[afterPartyVideo, petroVideo]} size={ESizesVariant.SMALL} />
+	<ProjectVideo videoProjects={[afterPartyVideo, petroVideo]} />
 
 	<HomeIcon />
 	<Footer />

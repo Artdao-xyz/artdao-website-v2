@@ -11,8 +11,6 @@
 	export let polaroidsTypes: EPolaroidType[];
 	export let viewImageFit: 'contain' | 'cover';
 
-	$: console.log('polaroidsTypes', polaroidsTypes);
-
 	let index: number = 0;
 
 	const handleOnClick = (i: number) => {

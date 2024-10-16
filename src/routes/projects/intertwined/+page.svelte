@@ -157,7 +157,7 @@
 		route=""
 	/>
 
-	<ProjectVideo videoProjects={[artdaoVideo]} route="artdao-end" />
+	<ProjectVideo videoProjects={artdaoVideo} route="artdao-end" />
 
 	<ProjectAbout
 		aboutItem={cryptoargAbout}
@@ -172,7 +172,7 @@
 		route=""
 	/>
 
-	<ProjectVideo videoProjects={[cryptoVideo]} />
+	<ProjectVideo videoProjects={cryptoVideo} />
 
 	<ProjectAboutDropdown
 		images={intertwinedVernisaggeDropdownItems.map((item) => item.image)}

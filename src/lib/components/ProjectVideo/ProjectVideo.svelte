@@ -2,10 +2,9 @@
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import type { IVideoProject } from '$lib/elements/VideoCard/interfaces';
 	import VideoCard from '$lib/elements/VideoCard/VideoCard.svelte';
-	import { EColorVariant, ESizesVariant } from '../../../constants/enums';
+	import { EColorVariant } from '../../../constants/enums';
 
 	export let videoProjects: IVideoProject[];
-	export let size: ESizesVariant = ESizesVariant.LARGE;
 	export let route = '';
 	$: index = 0;
 	$: videoProject = videoProjects[index];
@@ -31,7 +30,6 @@
 	<div class="flex items-center justify-center w-full h-full pt-[2.4375rem]" id={route}>
 		<VideoCard
 			{videoProject}
-			{size}
 			{handleNextButton}
 			{handlePrevButton}
 			{isNextButtonDisabled}

@@ -1,4 +1,5 @@
-import curationAboutImage01 from '$lib/assets/images/projects/intertwined/IMG Navigator-min.png';
+import curationAboutImage01 from '$lib/assets/images/projects/intertwined/20-DSCF3920 1-min.png';
+import curationAboutImage02 from '$lib/assets/images/projects/intertwined/8-DSCF3746 (1) 1-min.png';
 import cryptoAboutImages02 from '$lib/assets/images/projects/intertwined/SaveClip.App_351689376_1709648749477685_2707741807535783346_n-min.png';
 import cryptoAboutImages01 from '$lib/assets/images/projects/intertwined/SaveClip.App_355086030_754919093059877_6941995091280218523_n-min.png';
 import CryptoArgAbout from './CryptoArgAbout.svelte';
@@ -10,7 +11,7 @@ export const curationAbout = {
 	text: CurationAbout
 };
 
-export const curationAboutImages = [curationAboutImage01];
+export const curationAboutImages = [curationAboutImage01, curationAboutImage02];
 
 export const cryptoargAbout = {
 	title: 'cryptoarg',

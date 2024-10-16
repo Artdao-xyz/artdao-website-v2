@@ -1,20 +1,18 @@
 <script lang="ts">
 	import buttonIcon from '$lib/assets/images/button-icon.png';
-	import { ESizesVariant } from '../../../constants/enums';
 	import VideoPlayer from '../VideoPlayer/VideoPlayer.svelte';
 	import type { IVideoProject } from './interfaces';
 
 	export let videoProject: IVideoProject;
-	export let size: ESizesVariant = ESizesVariant.LARGE;
 	export let isNextButtonDisabled: boolean;
 	export let isPrevButtonDisabled: boolean;
 	export let handlePrevButton: () => void;
 	export let handleNextButton: () => void;
 
-	const videoCardWidth =
-		size === ESizesVariant.LARGE
+	$: videoCardWidth =
+		videoProject.size === 'rectangle'
 			? 'w-full bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:max-w-full bigScreen:!h-[90%]'
-			: size === ESizesVariant.MEDIUM
+			: videoProject.size === 'square'
 				? 'sm:w-[50%]'
 				: 'sm:w-[34.72%]';
 </script>

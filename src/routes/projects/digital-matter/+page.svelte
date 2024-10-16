@@ -10,7 +10,7 @@
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
-	import { EColorVariant, ESizesVariant } from '../../../constants/enums';
+	import { EColorVariant } from '../../../constants/enums';
 	import { sulkianImages } from '../../../data/Projects/DigitalMatter/ImgNavigator';
 	import { digitalMatterNavItems } from '../../../data/Projects/DigitalMatter/NavItems';
 	import {
@@ -185,7 +185,7 @@
 		isImageWhiteBg
 	/>
 
-	<ProjectVideo videoProjects={[aeroVideo]} size={ESizesVariant.MEDIUM} />
+	<ProjectVideo videoProjects={aeroVideo} />
 
 	<ProjectAbout
 		aboutItem={parsaAbout}
@@ -203,7 +203,9 @@
 		<ProjectArtworkGrid galleryImages={parsaArtworkImages} showDetails />
 	</div>
 
-	<ProjectArtworkGridMobile galleryImages={parsaArtworkImages} showDetails />
+	<div class="block sm:hidden">
+		<ProjectArtworkGridMobile galleryImages={parsaArtworkImages} showDetails />
+	</div>
 
 	<div class="hidden sm:block">
 		<ProjectPolaroids

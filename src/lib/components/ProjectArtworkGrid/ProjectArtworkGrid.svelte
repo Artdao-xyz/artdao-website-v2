@@ -24,7 +24,6 @@
 		step: number
 	) => {
 		let scrollAmount = 0;
-		console.log('element', element);
 		var slideTimer = setInterval(() => {
 			if (direction == 'left') {
 				element!.scrollLeft -= step;
