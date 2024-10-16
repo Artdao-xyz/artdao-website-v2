@@ -19,17 +19,21 @@
 			? 'border-color-white'
 			: 'border-color-black'} justify-start items-center rounded-40 flex flex-row w-full"
 	>
-		<p class="font-robotoMono text-[0.625rem] leading-[1.375rem] tracking-[0.075rem] capitalize">
+		<p
+			class="font-robotoMono text-[0.75rem] sm:text-[0.625rem] leading-[1.375rem] tracking-[0.075rem] capitalize"
+		>
 			{subtitle}
 		</p>
 	</div>
 	<h2
-		class="w-full h-[4.9375rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue text-[3.75rem]"
+		class="w-full h-[4.9375rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue text-[2.5rem] sm:text-[3.75rem]"
 	>
 		{title}
 	</h2>
 	<div class="w-full h-full overflow-y-auto pr-[0.4375rem]">
-		<p class="font-clash font-medium leading-[1.5625rem] text-base">
+		<p
+			class="font-clash font-medium leading-[1.5rem] sm:leading-[1.5625rem] text-[1.125rem] sm:text-base"
+		>
 			<svelte:component this={text}></svelte:component>
 		</p>
 	</div>
