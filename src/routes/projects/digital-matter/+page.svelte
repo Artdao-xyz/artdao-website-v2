@@ -165,7 +165,7 @@
 		route={digitalMatterNavItems[1].route}
 	/>
 
-	<div class="hidden sm:block">
+	<div class="hidden sm:block snap-start">
 		<ProjectPolaroids images={marcusPolaroidsImages} />
 	</div>
 
@@ -203,7 +203,7 @@
 		<ProjectArtworkGrid galleryImages={parsaArtworkImages} showDetails />
 	</div>
 
-	<div class="block sm:hidden">
+	<div class="block sm:hidden snap-start">
 		<ProjectArtworkGridMobile galleryImages={parsaArtworkImages} showDetails />
 	</div>
 

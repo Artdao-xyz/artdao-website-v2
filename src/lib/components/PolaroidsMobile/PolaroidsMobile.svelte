@@ -4,34 +4,50 @@
 	export let polaroidImages: IPolaroidImage[];
 </script>
 
-<div
-	class="h-screen scroll-panel bg-color-white flex flex-row sm:hidden flex-grow overflow-x-auto items-center p-5 gap-5"
->
-	{#each polaroidImages as polaroidImage}
-		<div class="flex flex-col w-full flex-shrink-0 gap-10 overflow-x-auto snap-center">
-			<div class="w-full flex items-end sm:h-[25%]">
-				<h1
-					class="text-color-black text-[2rem] sm:text-[3rem] macBook:text-[3.5rem] xlScreen:text-[4rem] font-semibold sm:leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
-				>
-					&gt; {polaroidImage.quote} &lt;
-				</h1>
-			</div>
-
+<div class="snap-start h-screen sm:hidden flex flex-col justify-between bg-color-white">
+	<div
+		class="scroll-panel flex flex-row flex-grow overflow-x-auto items-center px-5 pt-[5rem] gap-5 max-h-[700px] h-full"
+	>
+		{#each polaroidImages as polaroidImage}
 			<div
-				class="w-full h-fit p-5 bg-color-white rounded-30 border border-color-black flex flex-col flex-shrink-0 flex-grow-0 justify-between"
+				class="flex flex-col w-full flex-shrink-0 gap-[1.875rem] snap-center"
+				id={`#${polaroidImage.name}`}
 			>
-				<img src={polaroidImage.image} alt="Gallery" class="h-auto w-full" />
-				{#if polaroidImage.name && polaroidImage.description}
-					<div
-						class="flex flex-col text-color-black font-robotoMono text-[0.625rem] bigScreen:text-[1rem] font-semibold leading-4 bigScreen:leading-6"
+				<div class="w-full flex items-end">
+					<h1
+						class="text-color-black text-[1.875rem] leading-[1.875rem] font-semibold tracking-[0.0244rem] uppercase font-neue w-full text-center"
 					>
-						<p>{polaroidImage.name}</p>
-						<p>{polaroidImage.description}</p>
-					</div>
-				{/if}
+						&gt; {polaroidImage.quote} &lt;
+					</h1>
+				</div>
+
+				<div
+					class="w-full h-fit p-5 bg-color-white rounded-30 border border-color-black flex flex-col flex-shrink-0 flex-grow-0 justify-between"
+				>
+					<img src={polaroidImage.image} alt="Gallery" class="h-auto w-full" />
+					{#if polaroidImage.name && polaroidImage.description}
+						<div
+							class="flex flex-col text-color-black font-robotoMono text-[0.625rem] font-semibold leading-4"
+						>
+							<p>{polaroidImage.name}</p>
+							<p>{polaroidImage.description}</p>
+						</div>
+					{/if}
+				</div>
 			</div>
-		</div>
-	{/each}
+		{/each}
+	</div>
+	<div class="flex flex-row gap-[0.625rem] pb-[1.25rem] justify-center">
+		{#each polaroidImages as polaroidImage}
+			<a class="" href={polaroidImage.name}>
+				<img
+					src={polaroidImage.image}
+					alt="Gallery"
+					class="object-cover hover:scale-105 rounded-[0.625rem] w-[2.4375rem] h-[3.625rem]"
+				/>
+			</a>
+		{/each}
+	</div>
 </div>
 
 <style>
