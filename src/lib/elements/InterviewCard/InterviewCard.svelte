@@ -16,7 +16,7 @@
 </script>
 
 <div
-	class="cardBlur w-card-width-full-bg laptopM:w-[34rem] macBook:w-card-width-full-bg laptopL:w-[34rem] bigScreen:w-card-width-full-bg h-card-height rounded-40 p-10 flex flex-col gap-5 bg-color-interview-card text-color-black mx-auto max-w-[40rem] max-h-[50rem] mt-[4%]"
+	class="hidden cardBlur w-card-width-full-bg laptopM:w-[34rem] macBook:w-card-width-full-bg laptopL:w-[34rem] bigScreen:w-card-width-full-bg h-card-height rounded-40 p-10 sm:flex flex-col gap-5 bg-color-interview-card text-color-black mx-auto max-w-[40rem] max-h-[50rem] mt-[4%]"
 >
 	<div
 		class="h-[3.4375rem] px-10 py-[0.375rem] border border-black items-center rounded-40 flex flex-row w-full justify-between"
