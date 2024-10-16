@@ -58,7 +58,7 @@
 		</a>
 	{/if}
 	{#if visible}
-		<div transition:slide={{ axis: 'y', duration: 600 }} class="flex flex-col gap-[0.375rem]">
+		<div transition:slide={{ axis: 'y', duration: 300 }} class="flex flex-col gap-[0.375rem]">
 			{#each navItems as navItem, i}
 				<a
 					data-sveltekit-noscroll
