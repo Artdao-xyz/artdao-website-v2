@@ -11,7 +11,7 @@
 		{#each polaroidImages as polaroidImage}
 			<div
 				class="flex flex-col w-full flex-shrink-0 gap-[1.875rem] snap-center"
-				id={`#${polaroidImage.name}`}
+				id={polaroidImage.image}
 			>
 				<div class="w-full flex items-end">
 					<h1
@@ -39,13 +39,20 @@
 	</div>
 	<div class="flex flex-row gap-[0.625rem] pb-[1.25rem] justify-center">
 		{#each polaroidImages as polaroidImage}
-			<a class="" href={polaroidImage.name}>
+			<button
+				on:click={() =>
+					document.getElementById(`${polaroidImage.image}`)?.scrollIntoView({
+						behavior: 'smooth',
+						block: 'nearest',
+						inline: 'start'
+					})}
+			>
 				<img
 					src={polaroidImage.image}
 					alt="Gallery"
 					class="object-cover hover:scale-105 rounded-[0.625rem] w-[2.4375rem] h-[3.625rem]"
 				/>
-			</a>
+			</button>
 		{/each}
 	</div>
 </div>
