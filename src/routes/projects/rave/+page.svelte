@@ -7,6 +7,7 @@
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { raveNavItems } from '../../../data/Projects/Rave/NavItems';
 	import {
+		performanceDropdownItems,
 		raveAboutDropdopwnItems,
 		raveAboutDropdopwnItemsTwo
 	} from '../../../data/Projects/Rave/ProjectAboutDropdown';
@@ -112,12 +113,18 @@
 	/>
 
 	<ProjectAboutDropdown
-		images={raveAboutDropdopwnItemsTwo.map((item) => item.image)}
-		aboutDropdownItems={raveAboutDropdopwnItemsTwo}
+		images={performanceDropdownItems.map((item) => item.image)}
+		aboutDropdownItems={performanceDropdownItems}
 		route={raveNavItems[2].route}
 	/>
 
 	<ProjectVideo videoProjects={[afterPartyVideo, petroVideo]} />
+
+	<ProjectAboutDropdown
+		images={raveAboutDropdopwnItemsTwo.map((item) => item.image)}
+		aboutDropdownItems={raveAboutDropdopwnItemsTwo}
+		route=""
+	/>
 
 	<HomeIcon />
 	<Footer />

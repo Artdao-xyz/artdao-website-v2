@@ -1,15 +1,15 @@
 import dodgedABullet from '$lib/assets/images/projects/rave/gallery/dodged_a_bullet.png';
-import Artdao_Photos3 from '$lib/assets/images/projects/rave/imgNavigator/Artdao_Photos3.png';
-import Artdao_Photos4 from '$lib/assets/images/projects/rave/imgNavigator/Artdao_Photos4.png';
-import Artdao_Photos6 from '$lib/assets/images/projects/rave/imgNavigator/Artdao_Photos6.png';
-import Artdao_Photos93 from '$lib/assets/images/projects/rave/imgNavigator/Artdao_Photos93.png';
-import _DSC1779 from '$lib/assets/images/projects/rave/imgNavigator/_DSC1779.png';
-import _DSC2076 from '$lib/assets/images/projects/rave/imgNavigator/_DSC2076.png';
-import _DSC2393 from '$lib/assets/images/projects/rave/imgNavigator/_DSC2393.png';
-import _DSC2417 from '$lib/assets/images/projects/rave/imgNavigator/_DSC2417.png';
-import _DSC3824_1 from '$lib/assets/images/projects/rave/imgNavigator/_DSC3824_1.png';
-import _DSC3824_3 from '$lib/assets/images/projects/rave/imgNavigator/_DSC3824_3.png';
-import _DSC3824_4 from '$lib/assets/images/projects/rave/imgNavigator/_DSC3824_4.png';
+import vernisagge06 from '$lib/assets/images/projects/rave/imgNavigator/Artdao_Photos3.png';
+import vernisagge10 from '$lib/assets/images/projects/rave/imgNavigator/Artdao_Photos42 1-min.png';
+import vernisagge07 from '$lib/assets/images/projects/rave/imgNavigator/Artdao_Photos59 1-min.png';
+import vernisagge05 from '$lib/assets/images/projects/rave/imgNavigator/Artdao_Photos6.png';
+import vernisagge03 from '$lib/assets/images/projects/rave/imgNavigator/Artdao_Photos69 2-min.png';
+import vernisagge01 from '$lib/assets/images/projects/rave/imgNavigator/Artdao_Photos93.png';
+import vernisagge02 from '$lib/assets/images/projects/rave/imgNavigator/_DSC1779.png';
+import vernisagge11 from '$lib/assets/images/projects/rave/imgNavigator/_DSC2076.png';
+import vernisagge04 from '$lib/assets/images/projects/rave/imgNavigator/_DSC3079 1-min.png';
+import vernisagge09 from '$lib/assets/images/projects/rave/imgNavigator/_DSC3824_1.png';
+import vernisagge08 from '$lib/assets/images/projects/rave/imgNavigator/_DSC3824_3.png';
 import bombshell from '$lib/assets/images/projects/rave/imgNavigator/bombshell.png';
 import cymoon from '$lib/assets/images/projects/rave/imgNavigator/cymoon.png';
 import daira from '$lib/assets/images/projects/rave/imgNavigator/daira.png';
@@ -17,6 +17,12 @@ import duartsy from '$lib/assets/images/projects/rave/imgNavigator/duartsy.png';
 import enco from '$lib/assets/images/projects/rave/imgNavigator/enco.png';
 import yulia from '$lib/assets/images/projects/rave/imgNavigator/yulia.png';
 import zak from '$lib/assets/images/projects/rave/imgNavigator/zak.png';
+import performance04 from '$lib/assets/images/projects/rave/performance/_DSC1697-min.png';
+import performance03 from '$lib/assets/images/projects/rave/performance/_DSC2071-min.png';
+import performance06 from '$lib/assets/images/projects/rave/performance/_DSC2393 1-min.png';
+import performance05 from '$lib/assets/images/projects/rave/performance/_DSC2530-min.png';
+import performance01 from '$lib/assets/images/projects/rave/performance/_DSC3456 1-min.png';
+import performance02 from '$lib/assets/images/projects/rave/performance/_DSC3502-min.png';
 import type { IAboutDropdown } from '$lib/elements/AboutDropdown/interfaces';
 
 export const raveAboutDropdopwnItems: IAboutDropdown[] = [
@@ -83,101 +89,129 @@ export const raveAboutDropdopwnItems: IAboutDropdown[] = [
 export const raveAboutDropdopwnItemsTwo: IAboutDropdown[] = [
 	{
 		name: 'Vernissage',
-		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
-		image: Artdao_Photos93
+		image: vernisagge01
 	},
 	{
 		name: 'Vernissage',
-		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
-		image: Artdao_Photos6
+		image: vernisagge02
 	},
 	{
 		name: 'Vernissage',
-		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
-		image: Artdao_Photos4
+		image: vernisagge03
 	},
 	{
 		name: 'Vernissage',
-		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
-		image: _DSC3824_4
+		image: vernisagge04
 	},
 	{
 		name: 'Vernissage',
-		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
-		image: _DSC3824_3
+		image: vernisagge05
 	},
 	{
 		name: 'Vernissage',
-		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
-		image: _DSC3824_1
+		image: vernisagge06
 	},
 	{
 		name: 'Vernissage',
-		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
-		image: _DSC2417
+		image: vernisagge07
 	},
 	{
 		name: 'Vernissage',
-		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
-		image: _DSC2393
+		image: vernisagge08
 	},
 	{
 		name: 'Vernissage',
-		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
-		image: _DSC2076
+		image: vernisagge09
 	},
 	{
 		name: 'Vernissage',
-		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
-		image: _DSC1779
+		image: vernisagge10
 	},
 	{
 		name: 'Vernissage',
-		artist: 'Various artists',
 		date: '31.05.2024',
 		location: 'HIGHER GROUND',
 		about:
 			'RAVE was an art exhibition and after party held in Lisbon. It concentrated the power of the night and artistic expression, bringing together artists, performances and DJs who, in synergy, managed to perfectly recreate the essence of rave.',
-		image: Artdao_Photos3
+		image: vernisagge11
+	}
+];
+
+export const performanceDropdownItems: IAboutDropdown[] = [
+	{
+		name: 'Performance',
+		about:
+			'420Bombshell an emerging talent based in Lisbon, is rapidly making a name for themselves in the world of makeup artistry. At just 21 years old, they combine a keen eye for detail with a bold, innovative approach, creating looks that are both captivating and thought-provoking. They’re unique style, characterized by dystopian and avant-garde elements, challenges traditional beauty standards and pushes the boundaries of artistic expression resulting in a holistic approach to beauty and self-expression.',
+		image: performance01
+	},
+	{
+		name: 'ECSTASYA',
+		about:
+			'Producer and resident DJ in Lisbon, ECSTASYA is internationally recognized for her energetic sets and innovative productions that incorporate diverse elements, ranging from hardcore to guaracha and even pop music. This mix of genres continues to make her stand out in the scene, with her music being played in various clubs and at events worldwide. Since 2018, she has nurtured a passion for music production and event curation, including festivals and night parties, having been part of many projects such as Mina, Circa A.D, and Maythey.',
+		image: performance02
+	},
+	{
+		name: 'Proxy Fae',
+		about:
+			"Emerging from a cybernetic collaboration between Clauthewitch and NICØ. This duo weaves a narrative that involves alternative genres such as electro-pop, breakbeat, glitch, hyperpop, and witch-house. Clauthewitch sculpts a rich pop collection of mystical melodies, and Nicø, accompanied by an ever-evolving modular synthesizer, explores new textures and sonic rhythms. In its debut year, 'Proxy Fae' is already making an impact as a rising force, gearing up to release its first singles in 2024.",
+		image: performance03
+	},
+	{
+		name: 'Ndr0n',
+		about:
+			'An audio-visual project that exists as an extension and digital expression of Afonso Proença. The aesthetic emerges from the mechanical routines and synthetic emotion present in modern society. Their interests lie in the manifestation of art through technology and the exploration of the boundaries and synergy between human and machine.',
+		image: performance04
+	},
+	{
+		name: 'Nídia',
+		about:
+			'An internationally acclaimed Afro-Portuguese electronic producer and DJ. As part of the Príncipe Discos record label and artistic collective, she has been having a decisive role, both as an individual artist and as within the community in bringing inspiringly progressive aesthetics and ethics to the contemporary alternative dance infrastructure across the globe, and the kuduro culture in particular.',
+		image: performance05
+	},
+	{
+		name: '.zmk',
+		about:
+			'Late nights of indulgence merge with heavenly mornings spent in blissful repose — .zmk blends the pumping rhythms and soaring melodies of tracks from around the world to create a unique sound here in Lisbon. After growing up in LA and then spending a decade raving in Brooklyn, .zmk moved to Lisbon to escape the clutches of empire and embark and novel sonic explorations.',
+		image: performance06
 	}
 ];

@@ -38,7 +38,7 @@
 				<h1
 					class="font-robotoMono text-[12px] leading-[1rem] tracking-[0.0625rem] capitalize self-start"
 				>
-					{aboutDropdown.artist}
+					{aboutDropdown.artist ?? ''}
 				</h1>
 
 				{#if hasInfo}
