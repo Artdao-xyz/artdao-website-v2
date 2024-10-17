@@ -1,4 +1,5 @@
 <script lang="ts">
+	import buttonIcon from '$lib/assets/images/button-icon.png';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import type { IVideoProject } from '$lib/elements/VideoCard/interfaces';
 	import VideoCard from '$lib/elements/VideoCard/VideoCard.svelte';
@@ -27,13 +28,38 @@
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT} hasPadding>
-	<div class="flex items-center justify-center w-full h-full pt-[2.4375rem]" id={route}>
-		<VideoCard
-			{videoProject}
-			{handleNextButton}
-			{handlePrevButton}
-			{isNextButtonDisabled}
-			{isPrevButtonDisabled}
-		/>
+	<div
+		class="flex flex-col sm:flex-row items-center justify-center w-full h-full pt-[2.4375rem]"
+		id={route}
+	>
+		<div class=" h-full flex items-center">
+			<VideoCard
+				{videoProject}
+				{handleNextButton}
+				{handlePrevButton}
+				{isNextButtonDisabled}
+				{isPrevButtonDisabled}
+			/>
+		</div>
+
+		<div class="flex flex-row gap-[0.9375rem] sm:hidden pb-[3rem]">
+			<button
+				on:click={handlePrevButton}
+				class="{isPrevButtonDisabled
+					? 'cursor-not-allowed'
+					: 'hover:scale-105'} bg-color-dark w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border border-color-white flex items-center justify-center"
+			>
+				<img src={buttonIcon} alt="Button" class="rotate-180" />
+			</button>
+
+			<button
+				on:click={handleNextButton}
+				class="{isNextButtonDisabled
+					? 'cursor-not-allowed'
+					: 'hover:scale-105'} bg-color-dark w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border border-color-white flex items-center justify-center"
+			>
+				<img src={buttonIcon} alt="Button" />
+			</button>
+		</div>
 	</div>
 </SectionContainer>

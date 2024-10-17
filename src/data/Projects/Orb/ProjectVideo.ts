@@ -4,12 +4,14 @@ export const orbVideo: IVideoProject = {
 	name: 'REMIX',
 	artist: 'Artist',
 	year: '2024',
-	videoUrl: ''
+	videoUrl: '',
+	size: 'vertical'
 };
 
 export const orbVideoTwo: IVideoProject = {
 	name: 'After Movie',
 	artist: 'Artist',
 	year: '2024',
-	videoUrl: ''
+	videoUrl: '',
+	size: 'vertical'
 };

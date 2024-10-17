@@ -37,7 +37,7 @@
 	<div
 		class="{isPaused
 			? 'opacity-1'
-			: 'opacity-0'} flex flex-row absolute w-[11.8125rem] h-[11.8125rem] bottom-[40%] items-center justify-center"
+			: 'opacity-0'} flex flex-row absolute w-[11.8125rem] h-[11.8125rem] bottom-[25%] sm:bottom-[40%] items-center justify-center"
 	>
 		<button
 			on:click={playVideo}
