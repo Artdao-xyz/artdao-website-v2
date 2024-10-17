@@ -9,7 +9,10 @@
 </script>
 
 <SectionContainer {bgImage}>
-	<div class="flex flex-row justify-center items-center h-full w-full" id={route}>
+	<div
+		class="flex flex-row justify-center laptopS:items-center h-full w-full overflow-y-scroll"
+		id={route}
+	>
 		<InterviewCard {questions} />
 
 		<InterviewMobile {questions} />
