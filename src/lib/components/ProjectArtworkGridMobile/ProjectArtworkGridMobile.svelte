@@ -9,11 +9,11 @@
 
 <SectionContainer colorVariant={EColorVariant.LIGHT}>
 	<div
-		class="scroll-panel overflow-x-auto sm:hidden flex flex-row gap-5 overflow-y-hidden justify-center items-center h-full pt-[2rem]"
+		class="scroll-panel overflow-x-auto sm:hidden flex flex-row flex-grow gap-5 overflow-y-hidden items-center h-full pt-[2rem]"
 	>
 		{#each galleryImages as galleryImage}
 			<div
-				class="overflow-x-auto h-fit w-full p-5 bg-color-white rounded-30 border border-color-black flex flex-col flex-shrink-0 flex-grow-0 gap-2.5 basis-[100%]"
+				class="overflow-x-auto snap-center h-fit w-full p-5 bg-color-white rounded-30 border border-color-black flex flex-col flex-shrink-0 flex-grow-0 gap-2.5 basis-[100%]"
 			>
 				<img src={galleryImage.image} alt="Gallery" class="h-auto w-full" />
 				{#if showDetails}
