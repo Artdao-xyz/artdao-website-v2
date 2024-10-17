@@ -28,11 +28,11 @@ export const marcusPolaroidsImages: IPolaroidImage[] = [
 ];
 
 export const parsaPolaroidsImages: IPolaroidImage[] = [
-	{ image: parsaPolaroidsOne, quote: 'Digital mediums are like flying...' },
-	{ image: parsaPolaroidsTwo, quote: 'And physical mediums are like walking' },
-	{ image: parsaPolaroidsThree, quote: "It's that kind of freedom" },
 	{
 		image: parsaPolaroidsFour,
 		quote: 'Space took a really important shift in his artistic practice'
-	}
+	},
+	{ image: parsaPolaroidsOne, quote: 'Digital mediums are like flying...' },
+	{ image: parsaPolaroidsTwo, quote: 'And physical mediums are like walking' },
+	{ image: parsaPolaroidsThree, quote: "It's that kind of freedom" }
 ];

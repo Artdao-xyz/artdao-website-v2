@@ -7,11 +7,11 @@
 
 <div class="snap-start h-screen sm:hidden flex flex-col justify-between bg-color-white" id={route}>
 	<div
-		class="scroll-panel flex flex-row flex-grow overflow-x-auto items-center px-5 pt-[3.75rem] gap-5 max-h-[37.5rem] h-full"
+		class="scroll-panel flex flex-row flex-grow overflow-x-auto items-center px-5 pt-[5rem] gap-5 max-h-[41.875rem] h-full"
 	>
 		{#each polaroidImages as polaroidImage}
 			<div
-				class="flex flex-col w-full flex-shrink-0 gap-[1.875rem] snap-center"
+				class="flex flex-col min-w-full w-full gap-[1.875rem] snap-center"
 				id={polaroidImage.image}
 			>
 				<div class="w-full flex items-end">
@@ -23,7 +23,7 @@
 				</div>
 
 				<div
-					class="w-fit h-auto p-5 bg-color-white rounded-30 border border-color-black flex flex-col flex-shrink-0 flex-grow-0 justify-between"
+					class="max-w-fit h-auto p-5 bg-color-white rounded-30 border border-color-black flex flex-col flex-grow-0 justify-between"
 				>
 					<img src={polaroidImage.image} alt="Gallery" class="h-auto w-full" />
 					{#if polaroidImage.name && polaroidImage.description}
@@ -38,7 +38,7 @@
 			</div>
 		{/each}
 	</div>
-	<div class="flex flex-row gap-[0.625rem] pb-[1.25rem] justify-center">
+	<div class="flex flex-row gap-[0.625rem] pb-[3.5rem] justify-center">
 		{#each polaroidImages as polaroidImage}
 			<button
 				on:click={() =>
