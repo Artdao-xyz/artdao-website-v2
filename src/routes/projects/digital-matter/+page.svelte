@@ -41,7 +41,6 @@
 		const intro = document.getElementById('intro');
 		const marcus = document.getElementById('marcus');
 		const marcusEnd = document.getElementById('marcus-end');
-		const marcusEndMobile = document.getElementById('marcus-end-mobile');
 		const sulkian = document.getElementById('sulkian');
 		const sulkianEnd = document.getElementById('sulkian-end');
 		const parsa = document.getElementById('parsa');
@@ -166,7 +165,7 @@
 		route=""
 	/>
 
-	{#if size > 768}
+	{#if size > 1100}
 		<ProjectPolaroids images={marcusPolaroidsImages} route="marcus-end" />
 	{:else}
 		<PolaroidsMobile polaroidImages={marcusPolaroidsImages} route="marcus-end" />
@@ -204,7 +203,7 @@
 		<ProjectArtworkGridMobile galleryImages={parsaArtworkImages} showDetails />
 	</div>
 
-	<div class="hidden sm:block">
+	{#if size > 1100}
 		<ProjectPolaroids
 			images={parsaPolaroidsImages}
 			polaroidsTypes={[
@@ -214,9 +213,9 @@
 				EPolaroidType.VERTICAL
 			]}
 		/>
-	</div>
-
-	<PolaroidsMobile polaroidImages={parsaPolaroidsImages} route="" />
+	{:else}
+		<PolaroidsMobile polaroidImages={parsaPolaroidsImages} route="" />
+	{/if}
 
 	<HomeIcon />
 	<Footer />
