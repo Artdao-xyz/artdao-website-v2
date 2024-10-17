@@ -171,7 +171,7 @@
 
 	<ProjectVideo videoProjects={inaVideo} />
 
-	{#if size > 768}
+	{#if size > 1100}
 		<ProjectPolaroids
 			images={inaVarePolaroidsImages}
 			polaroidsTypes={[
@@ -202,7 +202,7 @@
 
 	<ProjectVideo videoProjects={nicoVideo} />
 
-	<div class="hidden sm:block">
+	{#if size > 1100}
 		<ProjectPolaroids
 			images={nicoPolaroidsImages}
 			polaroidsTypes={[
@@ -212,9 +212,9 @@
 				EPolaroidType.RECTANGLE
 			]}
 		/>
-	</div>
-
-	<PolaroidsMobile polaroidImages={nicoPolaroidsImages} route="" />
+	{:else}
+		<PolaroidsMobile polaroidImages={nicoPolaroidsImages} route="" />
+	{/if}
 
 	<HomeIcon />
 	<Footer />

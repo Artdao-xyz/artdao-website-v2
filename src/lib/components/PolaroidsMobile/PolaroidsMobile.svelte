@@ -5,9 +5,12 @@
 	export let route: string;
 </script>
 
-<div class="snap-start h-screen sm:hidden flex flex-col justify-between bg-color-white" id={route}>
+<div
+	class="snap-start h-screen laptopS:hidden flex flex-col justify-between bg-color-white"
+	id={route}
+>
 	<div
-		class="scroll-panel flex flex-row flex-grow overflow-x-auto items-center px-5 pt-[5rem] gap-5 max-h-[41.875rem] h-full"
+		class="scroll-panel flex flex-row flex-grow overflow-x-auto items-center px-5 pt-[5rem] gap-5 max-h-[41.875rem] sm:max-h-full h-full"
 	>
 		{#each polaroidImages as polaroidImage}
 			<div
@@ -16,14 +19,14 @@
 			>
 				<div class="w-full flex items-end">
 					<h1
-						class="text-color-black text-[1.5rem] leading-[1.5rem] font-semibold tracking-[0.0244rem] uppercase font-neue w-full text-center"
+						class="text-color-black text-[1.5rem] leading-[1.5rem] font-semibold tracking-[0.0244rem] uppercase font-neue w-full sm:max-w-[40rem] text-center mx-auto"
 					>
 						&gt; {polaroidImage.quote} &lt;
 					</h1>
 				</div>
 
 				<div
-					class="max-w-fit h-auto p-5 bg-color-white rounded-30 border border-color-black flex flex-col flex-grow-0 justify-between"
+					class="max-w-fit sm:max-w-[30rem] h-auto p-5 bg-color-white rounded-30 border border-color-black flex flex-col flex-grow-0 justify-between mx-auto"
 				>
 					<img src={polaroidImage.image} alt="Gallery" class="h-auto w-full" />
 					{#if polaroidImage.name && polaroidImage.description}
