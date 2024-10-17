@@ -10,7 +10,7 @@
 
 <SectionContainer {bgImage}>
 	<div
-		class="flex flex-row justify-center laptopS:items-center h-full w-full overflow-y-scroll"
+		class="flex flex-row justify-center laptopS:items-center h-full w-full overflow-y-scroll laptopS:overflow-y-hidden pt-[2.5rem] laptopS:pt-0"
 		id={route}
 	>
 		<InterviewCard {questions} />
