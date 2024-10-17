@@ -11,14 +11,14 @@
 
 	$: videoCardWidth =
 		videoProject.size === 'rectangle'
-			? 'w-full bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:max-w-full bigScreen:!h-[90%] h-[20rem] sm:h-[35rem] sm:max-w-[full]'
+			? 'w-full bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:w-[80rem] macBook:max-w-full bigScreen:!h-[90%] h-[20rem] sm:h-[35rem] sm:w-[45rem]'
 			: videoProject.size === 'square'
 				? 'w-full sm:w-[700px] sm:h-[900px] laptopS:w-[50%] h-[453px]'
 				: 'laptopS:w-[34.72%] sm:h-full h-[35rem]';
 </script>
 
 <div
-	class="{videoCardWidth} black-gradient p-[0.9375rem] sm:p-[1.875rem] rounded-20 gap-[1.25rem] flex flex-col h-full"
+	class="{videoCardWidth} black-gradient p-[0.9375rem] sm:p-[1.875rem] rounded-20 gap-[1.25rem] flex flex-col h-full mx-auto"
 >
 	<div
 		class="h-[15%] w-full sm:bg-color-dark rounded-20 p-[1.25rem] flex items-center justify-between"
