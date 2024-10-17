@@ -16,7 +16,7 @@
 			>
 				<div class="w-full flex items-end">
 					<h1
-						class="text-color-black text-[1.75rem] leading-[1.75rem] font-semibold tracking-[0.0244rem] uppercase font-neue w-full text-center"
+						class="text-color-black text-[1.5rem] leading-[1.5rem] font-semibold tracking-[0.0244rem] uppercase font-neue w-full text-center"
 					>
 						&gt; {polaroidImage.quote} &lt;
 					</h1>
@@ -38,7 +38,7 @@
 			</div>
 		{/each}
 	</div>
-	<div class="flex flex-row gap-[0.625rem] pb-[3.5rem] justify-center">
+	<div class="flex flex-row gap-[0.625rem] pb-[4.125rem] justify-center">
 		{#each polaroidImages as polaroidImage}
 			<button
 				on:click={() =>
