@@ -4,6 +4,7 @@
 	import previousIcon from '$lib/assets/images/previous-icon.png';
 	import { onMount } from 'svelte';
 	import type { IAudioItem } from '../AudioFile/interfaces';
+	let size: number;
 
 	let videoPlayer: HTMLVideoElement;
 	let isPaused = true;
@@ -36,16 +37,17 @@
 	$: isLastTrack = index === audioItems.length - 1;
 </script>
 
+<svelte:window bind:innerWidth={size} />
 <div
-	class="w-full h-full flex flex-col gap-[0.625rem] p-5 rounded-20 border border-color-black gray-gradient shadow-audioShadow"
+	class="sm:w-full w-[21.875rem] mx-auto laptopS:mx-0 h-[37.5rem] laptopS:h-full flex flex-col gap-[0.625rem] justify-between p-5 rounded-20 border border-color-black gray-gradient shadow-audioShadow"
 >
 	<video
-		style="height: calc(100% - 2.375rem)"
+		style={size > 1100 ? 'height: calc(100% - 2.375rem)' : ''}
 		src={audioItems[index].songFile}
 		controls
 		bind:this={videoPlayer}
 		preload="metadata"
-		class="w-auto"
+		class={size > 1100 ? 'w-auto' : 'h-full'}
 	>
 		<track kind="captions" />
 	</video>
