@@ -49,7 +49,7 @@
 
 <SectionContainer colorVariant={EColorVariant.LIGHT} hasPadding>
 	<div
-		class="flex flex-col sm:flex-row items-center justify-center w-full h-full pt-[2.4375rem]"
+		class="flex flex-col sm:flex-row items-center justify-center w-full h-full sm:pt-[10rem]"
 		id={route}
 	>
 		<div class=" h-full flex items-center">
@@ -59,31 +59,34 @@
 				{handlePrevButton}
 				{isNextButtonDisabled}
 				{isPrevButtonDisabled}
+				showButtons={videoProjects.length > 1}
 			/>
 		</div>
 
-		<div class="flex flex-row gap-[0.9375rem] sm:hidden pb-[3rem] justify-start w-full">
-			<button
-				on:click={handlePrevButton}
-				on:mouseenter={setLeftArrow}
-				on:mouseleave={setLeftArrowDark}
-				class="{isPrevButtonDisabled
-					? 'cursor-not-allowed'
-					: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center"
-			>
-				<img src={arrowLeft} alt="Button" class="rotate-180" />
-			</button>
+		{#if videoProjects.length > 1}
+			<div class="flex flex-row gap-[0.9375rem] sm:hidden pb-[3rem] justify-start w-full">
+				<button
+					on:click={handlePrevButton}
+					on:mouseenter={setLeftArrow}
+					on:mouseleave={setLeftArrowDark}
+					class="{isPrevButtonDisabled
+						? 'cursor-not-allowed'
+						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center"
+				>
+					<img src={arrowLeft} alt="Button" class="rotate-180" />
+				</button>
 
-			<button
-				on:click={handleNextButton}
-				on:mouseenter={setRightArrow}
-				on:mouseleave={setRightArrowDark}
-				class="{isNextButtonDisabled
-					? 'cursor-not-allowed'
-					: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center"
-			>
-				<img src={arrowRight} alt="Button" />
-			</button>
-		</div>
+				<button
+					on:click={handleNextButton}
+					on:mouseenter={setRightArrow}
+					on:mouseleave={setRightArrowDark}
+					class="{isNextButtonDisabled
+						? 'cursor-not-allowed'
+						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center"
+				>
+					<img src={arrowRight} alt="Button" />
+				</button>
+			</div>
+		{/if}
 	</div>
 </SectionContainer>

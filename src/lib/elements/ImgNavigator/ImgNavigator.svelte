@@ -31,13 +31,13 @@
 
 	<div
 		class="flex {!isSmall
-			? 'flex-col-reverse gap-[0.625rem] sm:flex-row sm:gap-[1.375rem] left-0 sm:left-10 sm:bottom-10'
+			? 'flex-col-reverse gap-[0.625rem] laptopM:flex-row sm:gap-[1.375rem] left-0 laptopM:left-10 laptopM:bottom-10'
 			: 'flex-row gap-[1.375rem] left-5 sm:left-10 bottom-10'} absolute bottom-20"
 	>
 		{#each images as image, i}
 			<button
 				class="{!isSmall
-					? 'w-[2.5rem] h-[2.5rem] sm:w-[5.375rem] sm:h-[5.375rem]'
+					? 'w-[2.5rem] h-[2.5rem] laptopM:w-[5.375rem] laptopM:h-[5.375rem]'
 					: 'w-[5.375rem] h-[5.375rem]'} hover:scale-105"
 				on:click={() => handleOnClick(i)}
 			>

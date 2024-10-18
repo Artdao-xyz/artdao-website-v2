@@ -24,7 +24,7 @@
 	} from '../../../data/Projects/Orb/ProjectAboutDropdown';
 	import { orbQuestions } from '../../../data/Projects/Orb/ProjectInterview';
 	import { orbProject } from '../../../data/Projects/Orb/ProjectIntro';
-	import { orbVideo, orbVideoTwo } from '../../../data/Projects/Orb/ProjectVideo';
+	import { artworksVideo, orbVideo } from '../../../data/Projects/Orb/ProjectVideo';
 	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
 	import { orbNavStoreItems } from './store';
 
@@ -146,6 +146,16 @@
 
 	<ProjectInterview questions={orbQuestions} {bgImage} route={orbNavItems[1].route} />
 
+	<ProjectAbout aboutImages={carocoAboutImages} aboutItem={carocoAbout} route="" />
+
+	<ProjectAboutDropdown
+		aboutDropdownItems={vernisaggeDropdownItems}
+		images={vernisaggeDropdownItems.map((item) => item.image)}
+		route={orbNavItems[3].route}
+	/>
+
+	<ProjectVideo videoProjects={[orbVideo]} />
+
 	<ProjectAbout aboutImages={magmaAboutImages} aboutItem={magmaAbout} route="" />
 
 	<ProjectAbout aboutImages={seedAboutImages} aboutItem={seedAbout} route="" isImageLeft={false} />
@@ -160,17 +170,7 @@
 		route={orbNavItems[2].route}
 	/>
 
-	<ProjectVideo videoProjects={[orbVideo]} />
-
-	<ProjectAbout aboutImages={carocoAboutImages} aboutItem={carocoAbout} route="" />
-
-	<ProjectVideo videoProjects={[orbVideoTwo]} route="artworks-end" />
-
-	<ProjectAboutDropdown
-		aboutDropdownItems={vernisaggeDropdownItems}
-		images={vernisaggeDropdownItems.map((item) => item.image)}
-		route={orbNavItems[3].route}
-	/>
+	<ProjectVideo videoProjects={artworksVideo} route="artworks-end" />
 
 	<HomeIcon />
 	<Footer />
