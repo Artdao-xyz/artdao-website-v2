@@ -27,19 +27,19 @@
 
 <SectionContainer colorVariant={EColorVariant.LIGHT}>
 	<div
-		class="h-full pt-[2.5rem] laptopS:pt-[3%] xlScreen:pt-[8%] flex flex-col sm:justify-center laptopS:justify-start laptopS:gap-10 xlScreen:gap-24"
+		class="h-full pt-[2.5rem] laptopM:pt-[3%] xlScreen:pt-[8%] flex flex-col sm:justify-center laptopM:justify-start laptopM:gap-10 xlScreen:gap-24"
 		id={route}
 	>
 		<h1
-			class="hidden laptopS:block px-[1%] text-color-black text-[3.5rem] xlScreen:text-[5rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
+			class="hidden laptopM:block px-[1%] text-color-black text-[3.5rem] xlScreen:text-[5rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
 		>
 			&gt; {title} &lt;
 		</h1>
 		<div
-			class="flex flex-col laptopS:flex-row justify-between items-start mx-auto gap-[2rem] laptopS:gap-[5rem] laptopS:h-[70%]"
+			class="flex flex-col laptopM:flex-row justify-between items-start mx-auto gap-[2rem] laptopM:gap-[5rem] laptopM:h-[70%]"
 		>
 			<AudioFilePreview {audioItems} {handlePreviousTrack} {handleNextTrack} {index} />
-			<div class="flex flex-row sm:flex-col gap-[1rem] laptopS:gap-[5rem] justify-center my-auto">
+			<div class="flex flex-row sm:flex-col gap-[1rem] laptopM:gap-[5rem] justify-center my-auto">
 				{#each audioItems as audioItem, i}
 					<AudioFile {audioItem} on:click={() => handleOnClick(i)} {index} {audioItems} />
 				{/each}

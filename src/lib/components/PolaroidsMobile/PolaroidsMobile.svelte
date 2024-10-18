@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="snap-start h-screen laptopS:hidden flex flex-col justify-between bg-color-white"
+	class="snap-start h-screen laptopM:hidden flex flex-col justify-between bg-color-white"
 	id={route}
 >
 	<div

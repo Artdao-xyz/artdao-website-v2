@@ -7,9 +7,7 @@
 </script>
 
 <div class="flex flex-col items-center justify-center relative w-full h-full">
-	<div
-		class="bg-color-gray-mobile sm:bg-color-black p-2 w-full h-full flex flex-col sm:flex-row gap-2"
-	>
+	<div class="bg-color-black p-2 w-full h-full flex flex-col sm:flex-row gap-2">
 		<div class="w-full sm:min-w-[23.125rem] sm:max-w-[370px] sm:w-home-content-width">
 			<div class="static sm:fixed h-full width-full max-w-[inherit]">
 				<HomeMenu />
@@ -47,5 +45,5 @@
 		</div>
 	</div>
 
-	<HomeIcon />
+	<HomeIcon isHome />
 </div>

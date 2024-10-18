@@ -23,7 +23,7 @@
 		<img
 			src={images[index]}
 			alt="Big view"
-			class="h-fit laptopS:h-full {variant === ESizeVariant.SMALL
+			class="h-fit laptopM:h-full {variant === ESizeVariant.SMALL
 				? 'w-full object-cover h-full'
 				: 'rounded-20 sm:h-full'} {isImageWhiteBg ? 'bg-color-white' : ''} object-contain"
 		/>

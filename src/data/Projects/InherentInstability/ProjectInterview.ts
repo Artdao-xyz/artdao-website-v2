@@ -1,4 +1,5 @@
 import type { IQuestion } from '$lib/elements/InterviewCard/interfaces';
+import type { IQuestionFilter } from '$lib/elements/InterviewCardFilters/interfaces';
 
 export const inaVareQuestions: IQuestion[] = [
 	{
@@ -194,3 +195,5 @@ export const nicoQuestions: IQuestion[] = [
 		selected: false
 	}
 ];
+
+export const inherentInstabilityQuestions: IQuestionFilter[] = [];

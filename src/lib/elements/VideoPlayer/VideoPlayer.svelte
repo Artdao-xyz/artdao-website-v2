@@ -41,7 +41,7 @@
 	>
 		<button
 			on:click={playVideo}
-			class="w-[11.8125rem] h-[11.8125rem] rounded-[6.25rem] bg-color-play-button flex flex-row items-center justify-center hover:scale-105"
+			class="hidden w-[11.8125rem] h-[11.8125rem] rounded-[6.25rem] bg-color-play-button sm:flex flex-row items-center justify-center hover:scale-105"
 		>
 			<p class="font-neue text-[1.25rem] font-bold leading-[1.5rem]">
 				{isPaused ? 'PLAY' : 'PAUSE'}

@@ -18,7 +18,7 @@
 		<img
 			src={audioItem.artistImage}
 			alt="artist"
-			class="object-cover rounded-[6.25rem] w-[3.4375rem] sm:w-full h-full laptopS:h-[6rem]"
+			class="object-cover rounded-[6.25rem] w-[3.4375rem] sm:w-full h-full laptopM:h-[6rem]"
 		/>
 	</div>
 	<div class="hidden sm:flex flex-col gap-[0.25rem] text-color-black">

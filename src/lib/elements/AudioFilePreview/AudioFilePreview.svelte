@@ -39,7 +39,7 @@
 
 <svelte:window bind:innerWidth={size} />
 <div
-	class="sm:w-full w-[21.875rem] mx-auto laptopS:mx-0 h-[37.5rem] laptopS:h-full flex flex-col gap-[0.625rem] justify-between p-5 rounded-20 border border-color-black gray-gradient shadow-audioShadow"
+	class="sm:w-full w-[21.875rem] mx-auto laptopM:mx-0 h-[37.5rem] laptopM:h-full flex flex-col gap-[0.625rem] justify-between p-5 rounded-20 border border-color-black gray-gradient shadow-audioShadow"
 >
 	<video
 		style={size > 1100 ? 'height: calc(100% - 2.375rem)' : ''}

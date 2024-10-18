@@ -1,4 +1,5 @@
 <script lang="ts">
+	import buttonIconDark from '$lib/assets/images/button-icon-dark.png';
 	import buttonIcon from '$lib/assets/images/button-icon.png';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import type { IVideoProject } from '$lib/elements/VideoCard/interfaces';
@@ -25,6 +26,25 @@
 			index -= 1;
 		}
 	};
+
+	let arrowLeft = buttonIconDark;
+	let arrowRight = buttonIconDark;
+
+	const setLeftArrow = () => {
+		arrowLeft = buttonIcon;
+	};
+
+	const setLeftArrowDark = () => {
+		arrowLeft = buttonIconDark;
+	};
+
+	const setRightArrow = () => {
+		arrowRight = buttonIcon;
+	};
+
+	const setRightArrowDark = () => {
+		arrowRight = buttonIconDark;
+	};
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT} hasPadding>
@@ -42,23 +62,27 @@
 			/>
 		</div>
 
-		<div class="flex flex-row gap-[0.9375rem] sm:hidden pb-[3rem]">
+		<div class="flex flex-row gap-[0.9375rem] sm:hidden pb-[3rem] justify-start w-full">
 			<button
 				on:click={handlePrevButton}
+				on:mouseenter={setLeftArrow}
+				on:mouseleave={setLeftArrowDark}
 				class="{isPrevButtonDisabled
 					? 'cursor-not-allowed'
-					: 'hover:scale-105'} bg-color-dark w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border border-color-white flex items-center justify-center"
+					: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center"
 			>
-				<img src={buttonIcon} alt="Button" class="rotate-180" />
+				<img src={arrowLeft} alt="Button" class="rotate-180" />
 			</button>
 
 			<button
 				on:click={handleNextButton}
+				on:mouseenter={setRightArrow}
+				on:mouseleave={setRightArrowDark}
 				class="{isNextButtonDisabled
 					? 'cursor-not-allowed'
-					: 'hover:scale-105'} bg-color-dark w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border border-color-white flex items-center justify-center"
+					: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center"
 			>
-				<img src={buttonIcon} alt="Button" />
+				<img src={arrowRight} alt="Button" />
 			</button>
 		</div>
 	</div>

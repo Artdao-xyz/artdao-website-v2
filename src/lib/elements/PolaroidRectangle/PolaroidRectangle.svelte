@@ -12,7 +12,7 @@
 			: polaroidPosition === EPolaroidPosition.TOP_RIGHT
 				? 'top-[20%] right-6 rotate-[15deg]'
 				: polaroidPosition === EPolaroidPosition.BOTTOM_LEFT
-					? 'top-[40%] right-[1%] rotate-[15deg]'
+					? 'top-[40%] right-[5%] rotate-[15deg]'
 					: 'top-[50%] left-[15%] rotate-[-15deg]';
 
 	const isOnlyImage = !polaroid.name && !polaroid.date;

@@ -11,22 +11,22 @@
 
 	$: videoCardWidth =
 		videoProject.size === 'rectangle'
-			? 'w-full bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:w-[80rem] macBook:max-w-full bigScreen:!h-[90%] h-[20rem] sm:h-[35rem] sm:w-[45rem]'
+			? 'w-full bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:w-[80rem] macBook:max-w-full bigScreen:!h-[90%] h-[370px] sm:h-[40rem] sm:w-[45rem]'
 			: videoProject.size === 'square'
-				? 'w-full sm:w-[700px] sm:h-[900px] laptopS:w-[50%] h-[453px]'
-				: 'laptopS:w-[34.72%] sm:h-full h-[35rem]';
+				? 'w-full sm:w-[700px] h-[400px] sm:h-[800px] '
+				: 'h-[600px] sm:h-full w-full';
 </script>
 
 <div
 	class="{videoCardWidth} black-gradient p-[0.9375rem] sm:p-[1.875rem] rounded-20 gap-[1.25rem] flex flex-col h-full mx-auto"
 >
 	<div
-		class="h-[15%] w-full sm:bg-color-dark rounded-20 p-[1.25rem] flex items-center justify-between"
+		class="h-[20%] sm:[15%] w-full sm:bg-color-dark rounded-20 p-[1.25rem] flex items-center justify-between"
 	>
 		<div class="flex flex-col gap-[0.3125rem] justify-center">
 			<p class="font-clash text-[1.25rem] leading-[1.5625rem]">{videoProject.name}</p>
 			<div
-				class="font-robotoMono flex flex-row gap-5 text-[1rem] laptopS:text-[0.75rem] text-color-gray-secondary leading-[1.375rem] tracking-[0.075rem]"
+				class="font-robotoMono flex flex-row gap-5 text-[1rem] laptopM:text-[0.75rem] text-color-gray-secondary leading-[1rem] tracking-[0.075rem]"
 			>
 				<p>{videoProject.artist}</p>
 				<p>.</p>
