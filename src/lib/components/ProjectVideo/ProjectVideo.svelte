@@ -49,7 +49,7 @@
 
 <SectionContainer colorVariant={EColorVariant.LIGHT} hasPadding>
 	<div
-		class="flex flex-col sm:flex-row items-center justify-center w-full h-full sm:pt-[10rem]"
+		class="flex flex-col sm:flex-row items-center w-full h-full pt-[2rem] sm:pt-[10rem]"
 		id={route}
 	>
 		<div class=" h-full flex items-center">
@@ -64,7 +64,7 @@
 		</div>
 
 		{#if videoProjects.length > 1}
-			<div class="flex flex-row gap-[0.9375rem] sm:hidden pb-[3rem] justify-start w-full">
+			<div class="flex flex-row gap-[0.9375rem] sm:hidden justify-start w-full">
 				<button
 					on:click={handlePrevButton}
 					on:mouseenter={setLeftArrow}
