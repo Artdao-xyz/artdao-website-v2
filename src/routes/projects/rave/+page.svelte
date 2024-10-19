@@ -31,7 +31,6 @@
 		const eventEnd = document.getElementById('event-end');
 
 		if (elementIsVisibleInViewport(intro)) {
-			console.log('INTRO');
 			raveNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -52,7 +51,6 @@
 		}
 
 		if (elementIsVisibleInViewport(artists) || elementIsVisibleInViewport(artistsEnd)) {
-			console.log('ARTISTS');
 			raveNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -73,7 +71,6 @@
 		}
 
 		if (elementIsVisibleInViewport(event) || elementIsVisibleInViewport(eventEnd)) {
-			console.log('EVENT');
 			raveNavStoreItems.update((items) => [
 				{
 					text: 'About',

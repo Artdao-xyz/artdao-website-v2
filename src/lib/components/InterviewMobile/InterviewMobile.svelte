@@ -17,8 +17,6 @@
 	export let questions: IQuestion[];
 
 	let responseToShow: IResponse;
-
-	$: console.log('questions', questions);
 </script>
 
 <div class="flex flex-col gap-[1.3125rem] laptopM:hidden">

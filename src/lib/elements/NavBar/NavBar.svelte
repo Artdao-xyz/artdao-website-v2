@@ -19,7 +19,6 @@
 
 	const toggleVisibility = () => {
 		visible = !visible;
-		console.log('visible', visible);
 	};
 </script>
 
