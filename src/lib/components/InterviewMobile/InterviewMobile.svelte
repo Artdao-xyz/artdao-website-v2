@@ -19,7 +19,7 @@
 	let responseToShow: IResponse;
 </script>
 
-<div class="flex flex-col gap-[1.3125rem] laptopM:hidden w-full">
+<div class="flex flex-col gap-[1.3125rem] laptopM:hidden w-full min-h-screen">
 	{#each questions as question, i}
 		<div class="flex flex-col card rounded-20 w-full">
 			<div class="w-full flex flex-row justify-between py-[1rem] px-[1.4375rem] items-center">
