@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
+import flowbitePlugin from 'flowbite/plugin';
+
 export default {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+	content: [
+		'./src/**/*.{html,js,svelte,ts}',
+		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'
+	],
 	theme: {
 		screens: {
 			sm: '640px',
@@ -29,6 +34,19 @@ export default {
 			// => @media(min-width: 2000px) {...}
 		},
 		colors: {
+			// flowbite-svelte
+			primary: {
+				50: '#FFF5F2',
+				100: '#FFF1EE',
+				200: '#FFE4DE',
+				300: '#FFD5CC',
+				400: '#FFBCAD',
+				500: '#FE795D',
+				600: '#EF562F',
+				700: '#EB4F27',
+				800: '#CC4522',
+				900: '#A5371B'
+			},
 			'color-gray': 'rgba(255, 255, 255, 0.40)',
 			'color-gray-secondary': 'rgba(255, 255, 255, 0.60)',
 			'color-gray-background': '#A6A6A6',
@@ -92,5 +110,5 @@ export default {
 			}
 		}
 	},
-	plugins: []
+	plugins: [flowbitePlugin]
 };

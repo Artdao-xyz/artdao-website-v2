@@ -5,10 +5,9 @@
 	import { Gallery, Modal } from 'flowbite-svelte';
 	import { EColorVariant } from '../../../constants/enums';
 	import {
-		parsaArtworkImages1,
-		parsaArtworkImages2,
-		parsaArtworkImages3
-	} from '../../../data/Projects/DigitalMatter/ProjectArtworkGallery';
+		ecologiesGallery1,
+		ecologiesGallery2
+	} from '../../../data/Projects/EcologiesOfCode/ProjectArtworkGallery';
 
 	let showModal = false;
 
@@ -24,36 +23,13 @@
 		class="flex flex-row items-center justify-center h-full"
 		on:click={() => (showModal = true)}
 	>
-		<Gallery class="grid-cols-3 gap-2">
-			<Gallery
-				items={parsaArtworkImages1.map((/** @type {{ image: any; }} */ item) => ({
-					alt: '',
-					src: item.image
-				}))}
-				let:item
-			>
+		<Gallery class="grid-cols-2 gap-2">
+			<Gallery items={ecologiesGallery1} let:item>
 				<button on:click={() => handleOnClick(item.src)}>
 					<img src={item.src} alt={item.alt} />
 				</button>
 			</Gallery>
-			<Gallery
-				items={parsaArtworkImages2.map((/** @type {{ image: any; }} */ item) => ({
-					alt: '',
-					src: item.image
-				}))}
-				let:item
-			>
-				<button on:click={() => handleOnClick(item.src)}>
-					<img src={item.src} alt={item.alt} />
-				</button>
-			</Gallery>
-			<Gallery
-				items={parsaArtworkImages3.map((/** @type {{ image: any; }} */ item) => ({
-					alt: '',
-					src: item.image
-				}))}
-				let:item
-			>
+			<Gallery items={ecologiesGallery2} let:item>
 				<button on:click={() => handleOnClick(item.src)}>
 					<img src={item.src} alt={item.alt} />
 				</button>

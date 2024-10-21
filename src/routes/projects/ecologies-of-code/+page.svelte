@@ -5,7 +5,7 @@
 	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
-	import ProjectArtworkGridMobile from '$lib/components/ProjectArtworkGridMobile/ProjectArtworkGridMobile.svelte';
+	import ProjectArtworkGridMobileTwo from '$lib/components/ProjectArtworkGridMobileTwo/ProjectArtworkGridMobileTwo.svelte';
 	import ProjectInterview from '$lib/components/ProjectInterview/ProjectInterview.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
@@ -217,7 +217,7 @@
 	</div>
 
 	<div class="block sm:hidden snap-start">
-		<ProjectArtworkGridMobile galleryImages={ecologiesArtworkImages} showDetails />
+		<ProjectArtworkGridMobileTwo />
 	</div>
 
 	<HomeIcon />

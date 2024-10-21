@@ -18,3 +18,17 @@ export const ecologiesArtworkImages: IGalleryImage[] = [
 	{ image: hyperGallerySeven, name: 'eraserhead', description: 'david lynch' },
 	{ image: hyperGalleryEight, name: 'blue velvet', description: 'david lynch' }
 ];
+
+export const ecologiesGallery1 = [
+	{ src: hyperGalleryFive, alt: '' },
+	{ src: hyperGalleryTwo, alt: '' },
+	{ src: hyperGallerySeven, alt: '' },
+	{ src: hyperGalleryFour, alt: '' }
+];
+
+export const ecologiesGallery2 = [
+	{ src: hyperGalleryOne, alt: '' },
+	{ src: hyperGallerySix, alt: '' },
+	{ src: hyperGalleryThree, alt: '' },
+	{ src: hyperGalleryEight, alt: '' }
+];

@@ -200,7 +200,7 @@
 	</div>
 
 	<div class="block sm:hidden snap-start">
-		<ProjectArtworkGridMobile galleryImages={parsaArtworkImages} />
+		<ProjectArtworkGridMobile />
 	</div>
 
 	{#if size > 1100}

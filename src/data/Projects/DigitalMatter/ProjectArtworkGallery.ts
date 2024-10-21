@@ -52,3 +52,57 @@ export const parsaArtworkImages: IGalleryImage[] = [
 		description: 'CGI, 5400 x 6750 pixel, 2024'
 	}
 ];
+
+export const parsaArtworkImages1: IGalleryImage[] = [
+	{
+		image: parsaGallery04,
+		name: 'Mischievous Adventures of Prof. Clownboy',
+		description: 'CGI, 8425 x 5400 pixel, 2023'
+	},
+	{
+		image: parsaGallery02,
+		name: 'Murder on A Wedding Cake',
+		description: 'CGI, 7200 x 6480 pixel, 2024'
+	},
+	{
+		image: parsaGallery07,
+		name: 'The Meadow Holds Many Secrets',
+		description: 'CGI, 5400 x 6750 pixel, 2024'
+	}
+];
+
+export const parsaArtworkImages2: IGalleryImage[] = [
+	{
+		image: parsaGallery01,
+		name: 'Mischievous Adventures of Prof. Clownboy',
+		description: 'CGI, 8425 x 5400 pixel, 2023'
+	},
+	{
+		image: parsaGallery05,
+		name: 'Murder on A Wedding Cake',
+		description: 'CGI, 7200 x 6480 pixel, 2024'
+	},
+	{
+		image: parsaGallery06,
+		name: 'The Meadow Holds Many Secrets',
+		description: 'CGI, 5400 x 6750 pixel, 2024'
+	}
+];
+
+export const parsaArtworkImages3: IGalleryImage[] = [
+	{
+		image: parsaGallery03,
+		name: 'Starving In The Belly of A Whale',
+		description: 'CGI, 6480 x 6480 pixel, 2024'
+	},
+	{
+		image: parsaGallery08,
+		name: 'The Coins in My Pocket Jingle Jangle',
+		description: 'CGI, 5400 x 6750 pixel, 2024'
+	},
+	{
+		image: parsaGallery09,
+		name: 'The Good Son',
+		description: 'CGI, 5400 x 6750 pixel, 2024'
+	}
+];

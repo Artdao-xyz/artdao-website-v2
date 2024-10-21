@@ -33,6 +33,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"flowbite-svelte": "^0.47.1",
 		"svelte-simple-modal": "^1.6.2"
 	}
 }
