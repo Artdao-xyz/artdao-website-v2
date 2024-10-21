@@ -29,9 +29,9 @@
 	>
 		<div class="w-full flex items-end sm:h-[25%]">
 			<h1
-				class="text-color-black text-[2rem] sm:text-[3rem] macBook:text-[3.5rem] xlScreen:text-[4rem] font-semibold sm:leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
+				class="text-color-black text-[32px] sm:text-[3rem] macBook:text-[50px] xlScreen:text-[4rem] font-semibold sm:leading-[3.4375rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
 			>
-				&gt; {images[selectedItem].quote} &lt;
+				“{images[selectedItem].quote}”
 			</h1>
 		</div>
 		<Polaroids {images} {polaroidsTypes} {viewImageFit} />

@@ -21,7 +21,7 @@
 					<h1
 						class="text-color-black text-[1.5rem] leading-[1.5rem] font-semibold tracking-[0.0244rem] uppercase font-neue w-full sm:max-w-[40rem] text-center mx-auto"
 					>
-						&gt; {polaroidImage.quote} &lt;
+						“{polaroidImage.quote}”
 					</h1>
 				</div>
 
@@ -41,7 +41,7 @@
 			</div>
 		{/each}
 	</div>
-	<div class="flex flex-row gap-[0.625rem] pb-[4.125rem] justify-center">
+	<div class="flex flex-row gap-[0.625rem] pb-[4.375rem] justify-center">
 		{#each polaroidImages as polaroidImage}
 			<button
 				on:click={() =>
