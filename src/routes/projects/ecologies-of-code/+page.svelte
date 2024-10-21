@@ -219,7 +219,7 @@
 	<ProjectInterview bgImage={hyperInterview} questions={hypereikonQuestions} />
 
 	<div class="hidden sm:block">
-		<ProjectArtworkGrid galleryImages={ecologiesArtworkImages} showDetails />
+		<ProjectArtworkGrid galleryImages={ecologiesArtworkImages} />
 	</div>
 
 	<div class="block sm:hidden snap-start">

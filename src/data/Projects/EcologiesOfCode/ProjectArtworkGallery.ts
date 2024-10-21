@@ -9,14 +9,14 @@ import hyperGalleryEight from '$lib/assets/images/projects/ecologiesOfCode/hyper
 import type { IGalleryImage, IGalleryImageMobile } from '$lib/elements/ArtworkContainer/interfaces';
 
 export const ecologiesArtworkImages: IGalleryImage[] = [
-	{ image: hyperGalleryOne, name: 'halloween', description: 'john carpenter' },
-	{ image: hyperGalleryTwo, name: 'the fog', description: 'john carpenter' },
-	{ image: hyperGalleryThree, name: 'the thing', description: 'john carpenter' },
-	{ image: hyperGalleryFour, name: 'christine', description: 'john carpenter' },
-	{ image: hyperGalleryFive, name: 'prince of darkness', description: 'john carpenter' },
-	{ image: hyperGallerySix, name: 'they live', description: 'john carpenter' },
-	{ image: hyperGallerySeven, name: 'eraserhead', description: 'david lynch' },
-	{ image: hyperGalleryEight, name: 'blue velvet', description: 'david lynch' }
+	{ image: hyperGalleryOne, name: '', description: '' },
+	{ image: hyperGalleryTwo, name: '', description: '' },
+	{ image: hyperGalleryThree, name: '', description: '' },
+	{ image: hyperGalleryFour, name: '', description: '' },
+	{ image: hyperGalleryFive, name: '', description: '' },
+	{ image: hyperGallerySix, name: '', description: '' },
+	{ image: hyperGallerySeven, name: '', description: '' },
+	{ image: hyperGalleryEight, name: '', description: '' }
 ];
 
 export const ecologiesGallery1: IGalleryImageMobile[] = [

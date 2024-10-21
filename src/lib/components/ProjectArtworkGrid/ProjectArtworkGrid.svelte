@@ -1,6 +1,5 @@
 <script lang="ts">
-	import leftArrow from '$lib/assets/images/left-arrow.png';
-	import rightArrow from '$lib/assets/images/right-arrow.png';
+	import buttonIcon from '$lib/assets/images/button-icon-dark.png';
 	import ArtworkContainer from '$lib/elements/ArtworkContainer/ArtworkContainer.svelte';
 	import type { IGalleryImage } from '$lib/elements/ArtworkContainer/interfaces';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
@@ -77,13 +76,13 @@
 			class="text-color-black"
 			bind:this={prevButton}
 			on:click={() => sideScroll(container, 'left', 200, 10, 700)}
-			><img src={leftArrow} alt="left" class="h-[2rem]" /></button
+			><img src={buttonIcon} alt="left" class="h-[1rem] rotate-180" /></button
 		>
 		<button
 			class="text-color-black"
 			bind:this={nextButton}
 			on:click={() => sideScroll(container, 'right', 200, 10, 700)}
-			><img src={rightArrow} alt="right" class="h-[2rem]" /></button
+			><img src={buttonIcon} alt="right" class="h-[1rem]" /></button
 		>
 	</div>
 </SectionContainer>
