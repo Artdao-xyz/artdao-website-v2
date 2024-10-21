@@ -48,11 +48,8 @@
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT} hasPadding>
-	<div
-		class="flex flex-col sm:flex-row items-center w-full h-full pt-[2rem] sm:pt-[10rem]"
-		id={route}
-	>
-		<div class=" h-full flex items-center">
+	<div class="flex flex-col sm:flex-row items-center w-full h-full pt-[2rem]" id={route}>
+		<div class="h-full flex items-center justify-center sm:w-full">
 			<VideoCard
 				{videoProject}
 				{handleNextButton}
