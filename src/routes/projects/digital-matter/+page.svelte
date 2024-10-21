@@ -25,7 +25,11 @@
 		marcusDropdownItems,
 		parsaDropdownItems
 	} from '../../../data/Projects/DigitalMatter/ProjectAboutDropdown';
-	import { parsaArtworkImages } from '../../../data/Projects/DigitalMatter/ProjectArtworkGallery';
+	import {
+		parsaArtworkImages,
+		parsaArtworkImages1,
+		parsaArtworkImages2
+	} from '../../../data/Projects/DigitalMatter/ProjectArtworkGallery';
 	import { digitalMatterProjectIntro } from '../../../data/Projects/DigitalMatter/ProjectIntro';
 	import {
 		marcusPolaroidsImages,
@@ -200,7 +204,11 @@
 	</div>
 
 	<div class="block sm:hidden snap-start">
-		<ProjectArtworkGridMobile />
+		<ProjectArtworkGridMobile
+			isOverflow={false}
+			imagesLeft={parsaArtworkImages1}
+			imagesRight={parsaArtworkImages2}
+		/>
 	</div>
 
 	{#if size > 1100}

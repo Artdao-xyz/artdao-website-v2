@@ -1,16 +1,15 @@
-<script>
+<script lang="ts">
 	// @ts-nocheck
 
+	import type { IGalleryImageMobile } from '$lib/elements/ArtworkContainer/interfaces';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import { Gallery, Modal } from 'flowbite-svelte';
 	import { EColorVariant } from '../../../constants/enums';
-	import {
-		parsaArtworkImages1,
-		parsaArtworkImages2,
-		parsaArtworkImages3
-	} from '../../../data/Projects/DigitalMatter/ProjectArtworkGallery';
 
 	let showModal = false;
+	export let isOverflow = true;
+	export let imagesLeft: IGalleryImageMobile[];
+	export let imagesRight: IGalleryImageMobile[];
 
 	$: imageToShow = '';
 
@@ -19,43 +18,17 @@
 	};
 </script>
 
-<SectionContainer colorVariant={EColorVariant.LIGHT}>
-	<button
-		class="flex flex-row items-center justify-center h-full"
-		on:click={() => (showModal = true)}
-	>
-		<Gallery class="grid-cols-3 gap-2">
-			<Gallery
-				items={parsaArtworkImages1.map((/** @type {{ image: any; }} */ item) => ({
-					alt: '',
-					src: item.image
-				}))}
-				let:item
-			>
-				<button on:click={() => handleOnClick(item.src)}>
-					<img src={item.src} alt={item.alt} />
+<SectionContainer colorVariant={EColorVariant.LIGHT} {isOverflow}>
+	<button class="flex flex-row justify-center h-full pt-[2rem]" on:click={() => (showModal = true)}>
+		<Gallery class="grid-cols-2 gap-2">
+			<Gallery items={imagesLeft} let:item class="h-fit">
+				<button on:click={() => handleOnClick(item.src)} class="h-fit">
+					<img src={item.src} alt={item.alt} class="rounded-20" />
 				</button>
 			</Gallery>
-			<Gallery
-				items={parsaArtworkImages2.map((/** @type {{ image: any; }} */ item) => ({
-					alt: '',
-					src: item.image
-				}))}
-				let:item
-			>
-				<button on:click={() => handleOnClick(item.src)}>
-					<img src={item.src} alt={item.alt} />
-				</button>
-			</Gallery>
-			<Gallery
-				items={parsaArtworkImages3.map((/** @type {{ image: any; }} */ item) => ({
-					alt: '',
-					src: item.image
-				}))}
-				let:item
-			>
-				<button on:click={() => handleOnClick(item.src)}>
-					<img src={item.src} alt={item.alt} />
+			<Gallery items={imagesRight} let:item class="h-fit">
+				<button on:click={() => handleOnClick(item.src)} class="h-fit">
+					<img src={item.src} alt={item.alt} class="rounded-20" />
 				</button>
 			</Gallery>
 		</Gallery>

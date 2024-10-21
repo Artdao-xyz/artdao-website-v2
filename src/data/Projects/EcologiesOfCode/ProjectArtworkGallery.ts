@@ -6,7 +6,7 @@ import hyperGalleryFive from '$lib/assets/images/projects/ecologiesOfCode/hypere
 import hyperGallerySix from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/img-06.png';
 import hyperGallerySeven from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/img-07.png';
 import hyperGalleryEight from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/img-08.png';
-import type { IGalleryImage } from '$lib/elements/ArtworkContainer/interfaces';
+import type { IGalleryImage, IGalleryImageMobile } from '$lib/elements/ArtworkContainer/interfaces';
 
 export const ecologiesArtworkImages: IGalleryImage[] = [
 	{ image: hyperGalleryOne, name: 'halloween', description: 'john carpenter' },
@@ -19,7 +19,7 @@ export const ecologiesArtworkImages: IGalleryImage[] = [
 	{ image: hyperGalleryEight, name: 'blue velvet', description: 'david lynch' }
 ];
 
-export const ecologiesGallery1 = [
+export const ecologiesGallery1: IGalleryImageMobile[] = [
 	{ src: hyperGalleryFive, alt: '' },
 	{ src: hyperGalleryTwo, alt: '' },
 	{ src: hyperGallerySeven, alt: '' },

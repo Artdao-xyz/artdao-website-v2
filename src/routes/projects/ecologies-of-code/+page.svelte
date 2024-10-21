@@ -5,7 +5,7 @@
 	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
-	import ProjectArtworkGridMobileTwo from '$lib/components/ProjectArtworkGridMobileTwo/ProjectArtworkGridMobileTwo.svelte';
+	import ProjectArtworkGridMobile from '$lib/components/ProjectArtworkGridMobile/ProjectArtworkGridMobile.svelte';
 	import ProjectInterview from '$lib/components/ProjectInterview/ProjectInterview.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
@@ -22,7 +22,11 @@
 		okytomoAbout,
 		okytomoAboutImages
 	} from '../../../data/Projects/EcologiesOfCode/ProjectAbout';
-	import { ecologiesArtworkImages } from '../../../data/Projects/EcologiesOfCode/ProjectArtworkGallery';
+	import {
+		ecologiesArtworkImages,
+		ecologiesGallery1,
+		ecologiesGallery2
+	} from '../../../data/Projects/EcologiesOfCode/ProjectArtworkGallery';
 	import {
 		hypereikonQuestions,
 		joaquinaQuestions,
@@ -217,7 +221,11 @@
 	</div>
 
 	<div class="block sm:hidden snap-start">
-		<ProjectArtworkGridMobileTwo />
+		<ProjectArtworkGridMobile
+			isOverflow={false}
+			imagesLeft={ecologiesGallery1}
+			imagesRight={ecologiesGallery2}
+		/>
 	</div>
 
 	<HomeIcon />
