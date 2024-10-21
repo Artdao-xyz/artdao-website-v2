@@ -6,7 +6,7 @@ export interface IGalleryImage {
 
 export interface IGalleryImageMobile {
 	src: string;
-	name?: string;
-	description?: string;
+	name: string;
+	description: string;
 	alt: string;
 }

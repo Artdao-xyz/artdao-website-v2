@@ -11,10 +11,15 @@
 	export let imagesLeft: IGalleryImageMobile[];
 	export let imagesRight: IGalleryImageMobile[];
 
-	$: imageToShow = '';
+	$: imageToShow = {
+		alt: '',
+		src: '',
+		name: '',
+		description: ''
+	};
 
-	const handleOnClick = (src) => {
-		imageToShow = src;
+	const handleOnClick = (item: IGalleryImageMobile) => {
+		imageToShow = item;
 	};
 </script>
 
@@ -22,18 +27,36 @@
 	<button class="flex flex-row justify-center h-full pt-[2rem]" on:click={() => (showModal = true)}>
 		<Gallery class="grid-cols-2 gap-2">
 			<Gallery items={imagesLeft} let:item class="h-fit">
-				<button on:click={() => handleOnClick(item.src)} class="h-fit">
+				<button on:click={() => handleOnClick(item)} class="h-fit">
 					<img src={item.src} alt={item.alt} class="rounded-20" />
 				</button>
 			</Gallery>
 			<Gallery items={imagesRight} let:item class="h-fit">
-				<button on:click={() => handleOnClick(item.src)} class="h-fit">
+				<button on:click={() => handleOnClick(item)} class="h-fit">
 					<img src={item.src} alt={item.alt} class="rounded-20" />
 				</button>
 			</Gallery>
 		</Gallery>
-		<Modal bind:open={showModal} autoclose outsideclose class="h-full">
-			<img src={imageToShow} alt={''} class="w-full h-full" />
+		<Modal bind:open={showModal} outsideclose autoclose class="h-full">
+			<div
+				class="bg-color-white h-full w-auto p-5 rounded-30 border border-color-black flex flex-col flex-shrink-0 flex-grow-0"
+			>
+				<img
+					src={imageToShow.src}
+					alt="Gallery"
+					class={imageToShow.name || imageToShow.description ? 'h-[83%]' : 'h-full'}
+				/>
+				{#if imageToShow.name || imageToShow.description}
+					<div class="flex flex-col text-color-black font-robotoMono text-[1rem] items-start">
+						{#if imageToShow.name}
+							<p class="text-left">{imageToShow.name}</p>
+						{/if}
+						{#if imageToShow.description}
+							<p class="text-left">{imageToShow.description}</p>
+						{/if}
+					</div>
+				{/if}
+			</div>
 		</Modal>
 	</button>
 </SectionContainer>

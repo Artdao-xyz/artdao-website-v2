@@ -20,15 +20,15 @@ export const ecologiesArtworkImages: IGalleryImage[] = [
 ];
 
 export const ecologiesGallery1: IGalleryImageMobile[] = [
-	{ src: hyperGalleryFive, alt: '' },
-	{ src: hyperGalleryTwo, alt: '' },
-	{ src: hyperGallerySeven, alt: '' },
-	{ src: hyperGalleryFour, alt: '' }
+	{ src: hyperGalleryFive, alt: '', name: '', description: '' },
+	{ src: hyperGalleryTwo, alt: '', name: '', description: '' },
+	{ src: hyperGallerySeven, alt: '', name: '', description: '' },
+	{ src: hyperGalleryFour, alt: '', name: '', description: '' }
 ];
 
-export const ecologiesGallery2 = [
-	{ src: hyperGalleryOne, alt: '' },
-	{ src: hyperGallerySix, alt: '' },
-	{ src: hyperGalleryThree, alt: '' },
-	{ src: hyperGalleryEight, alt: '' }
+export const ecologiesGallery2: IGalleryImageMobile[] = [
+	{ src: hyperGalleryOne, alt: '', name: '', description: '' },
+	{ src: hyperGallerySix, alt: '', name: '', description: '' },
+	{ src: hyperGalleryThree, alt: '', name: '', description: '' },
+	{ src: hyperGalleryEight, alt: '', name: '', description: '' }
 ];

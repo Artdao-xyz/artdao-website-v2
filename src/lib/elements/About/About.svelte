@@ -8,11 +8,12 @@
 </script>
 
 <div
-	class="flex flex-col items-center justify-center gap-5 {colorVariant === EColorVariant.BLACK
+	class="flex flex-col justify-start items-start sm:items-center sm:justify-center gap-5 {colorVariant ===
+	EColorVariant.BLACK
 		? 'text-color-white'
 		: 'text-color-black'} {colorVariant === EColorVariant.BLACK
 		? 'bg-color-black'
-		: 'bg-color-white'} w-full max-w-[31.9375rem] mx-[2rem] max-h-[82%]"
+		: 'bg-color-white'} w-full max-w-[31.9375rem] mx-[2rem] sm:max-h-[82%] pt-[4rem] sm:pt-0 pb-[2rem] sm:pb-0"
 >
 	<div
 		class="h-9 px-5 border {colorVariant === EColorVariant.BLACK
@@ -26,11 +27,11 @@
 		</p>
 	</div>
 	<h2
-		class="w-full h-[4.9375rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue text-[2.5rem] sm:text-[3.75rem]"
+		class="w-full h-[4.9375rem] font-semibold leading-[55px] tracking-[0.065rem] uppercase font-neue text-[50px] sm:text-[3.75rem]"
 	>
 		{title}
 	</h2>
-	<div class="w-full h-full overflow-y-auto pr-[0.4375rem]">
+	<div class="w-full h-full overflow-y-visible sm:overflow-y-auto pr-[0.4375rem]">
 		<p
 			class="font-clash font-medium leading-[1.5rem] sm:leading-[1.5625rem] text-[1.125rem] sm:text-base"
 		>
