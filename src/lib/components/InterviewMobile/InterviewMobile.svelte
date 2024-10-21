@@ -1,6 +1,6 @@
 <script lang="ts">
-	import iconClosed from '$lib/assets/images/question-icon-closed.png';
-	import iconOpened from '$lib/assets/images/question-icon-open.png';
+	import iconOpened from '$lib/assets/images/minus-icon.png';
+	import iconClosed from '$lib/assets/images/plus-icon.png';
 	import type { IQuestion, IResponse } from '$lib/elements/InterviewCard/interfaces';
 	import { slide } from 'svelte/transition';
 
@@ -19,20 +19,18 @@
 	let responseToShow: IResponse;
 </script>
 
-<div class="flex flex-col gap-[1.3125rem] laptopM:hidden">
+<div class="flex flex-col gap-[1.3125rem] laptopM:hidden w-full">
 	{#each questions as question, i}
-		<div class="flex flex-col card rounded-20">
-			<div
-				class="min-h-[5.1875rem] w-full flex flex-row justify-between py-[1rem] px-[1.4375rem] items-center"
-			>
+		<div class="flex flex-col card rounded-20 w-full">
+			<div class="w-full flex flex-row justify-between py-[1rem] px-[1.4375rem] items-center">
 				<p
-					class="w-full h-fit text-color-black text-[1.125rem] font-semibold font-clash capitalize"
+					class="w-full max-w-[15rem] h-fit text-color-black text-[1.125rem] font-semibold font-clash capitalize"
 				>
 					{question.question}
 				</p>
 
-				<button class="w-[1rem] h-full" on:click={() => toggleVisibility(i)}>
-					<img src={visible && index === i ? iconOpened : iconClosed} alt="Show Answer" />
+				<button class="w-[1.5625rem] h-full" on:click={() => toggleVisibility(i)}>
+					<img src={visible && index === i ? iconOpened : iconClosed} alt="Show Answer " />
 				</button>
 			</div>
 
