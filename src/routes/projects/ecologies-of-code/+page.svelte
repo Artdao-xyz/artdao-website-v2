@@ -154,6 +154,8 @@
 			]);
 		}
 	};
+
+	$: console.log('size', size);
 </script>
 
 <svelte:window bind:innerWidth={size} />
@@ -171,7 +173,7 @@
 
 	<ProjectVideo videoProjects={[ecologiesVideoProjectOne]} />
 
-	{#if size > 768}
+	{#if size > 1100}
 		<ProjectPolaroids
 			images={ecologiesPolaroidImages}
 			route="joaquina-end"
@@ -194,7 +196,7 @@
 
 	<ProjectVideo videoProjects={okyVideos} />
 
-	{#if size > 768}
+	{#if size > 1100}
 		<ProjectPolaroids
 			images={ecologiesPolaroidImagesTwo}
 			route="oki-end"
