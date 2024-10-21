@@ -24,7 +24,7 @@
 		<div class="flex flex-col card rounded-20 w-full">
 			<div class="w-full flex flex-row justify-between py-[1rem] px-[1.4375rem] items-center">
 				<p
-					class="w-full max-w-[15rem] h-fit text-color-black text-[1.125rem] font-semibold font-clash capitalize"
+					class="w-full max-w-[15rem] sm:max-w-[35rem] h-fit text-color-black text-[1.125rem] font-semibold font-clash capitalize"
 				>
 					{question.question}
 				</p>
