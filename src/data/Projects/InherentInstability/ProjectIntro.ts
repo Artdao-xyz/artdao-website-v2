@@ -1,9 +1,13 @@
 import bgImage from '$lib/assets/images/projects/inherentInstability/InherentInstability_IMG.png';
+import bgImageMobile from '$lib/assets/images/projects/mobile-intro/InherentInstability_Cover 1-min.png';
 
 export const inherentInstabilityProjectIntro = {
 	name: 'inherent instability',
 	description: [
-		"There’s something in my personality that keeps me excited about physical mediums. I’ve always enjoyed digital work, but working only with a computer feels too “clean” for me. When I spend long periods in front of a computer, I start to feel anxious and eventually look for ways to get my hands dirty, whether it's gardening, painting, sculpting, or dealing with physical hardware."
+		'In the realm of outdated technology, many see obsolete devices as junk in other hand, certain artists transform these relics into veritable treasures.',
+		'We interviewed three artists: INA VARE, NICØ and ELBI who have discovered their unique artistic voice through obsolete objects. Their mediums of choice include VHS recordings, CRT TVs, and analog music and video machines.',
+		"Our conversation delves deep into the world of these artists, exploring the common threads that bind them and the diverse paths they follow in their creative processes. We uncover how they breathe new life into 'dead technology', manipulating these artifacts into contemporary works of art. "
 	],
-	bgImage: bgImage
+	bgImage,
+	bgImageMobile
 };
