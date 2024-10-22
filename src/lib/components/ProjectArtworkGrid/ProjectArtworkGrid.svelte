@@ -54,24 +54,20 @@
 	<div
 		bind:this={container}
 		on:click={pointerScroll}
-		class="scroll-panel cursor-grabbing h-[90%] overflow-x-scroll flex flex-col gap-5 bigScreen:gap-[4.5%] overflow-y-hidden justify-center pt-[3rem]"
+		class="scroll-panel cursor-grabbing h-full !overflow-x-scroll flex flex-col gap-5 overflow-y-hidden justify-center flex-grow"
 	>
-		<div
-			class="flex items-center gap-5 max-h-[19rem] macBook:max-h-[23rem] laptopL:max-h-[18rem] bigScreen:max-h-[41.5%]"
-		>
+		<div class="h-full flex items-center gap-5 max-h-[45%] flex-grow">
 			{#each imagesTop as imageTop}
 				<ArtworkContainer galleryImage={imageTop} {showDetails} />
 			{/each}
 		</div>
-		<div
-			class="flex items-center gap-5 max-h-[19rem] macBook:max-h-[23rem] laptopL:max-h-[18rem] bigScreen:max-h-[41.5%]"
-		>
+		<div class="h-full flex items-center gap-5 max-h-[45%] flex-grow">
 			{#each imagesBottom as imageBottom}
 				<ArtworkContainer galleryImage={imageBottom} {showDetails} />
 			{/each}
 		</div>
 	</div>
-	<div class="flex flex-row gap-10">
+	<div class="flex flex-row gap-10 mt-[-1.5rem]">
 		<button
 			class="text-color-black"
 			bind:this={prevButton}
@@ -86,6 +82,8 @@
 		>
 	</div>
 </SectionContainer>
+
+<!-- max-h-[22rem] macBook:max-h-[25rem] laptopL:max-h-[20rem] bigScreen:max-h-[41.5%] -->
 
 <style>
 	.scroll-panel {
