@@ -5,6 +5,7 @@
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import type { IFilteredQuestions } from '../../../data/Projects/EcologiesOfCode/ProjectInterview';
 	import InterviewMobile from '../InterviewMobile/InterviewMobile.svelte';
+	import InterviewMobileFiltered from '../InterviewMobileFiltered/InterviewMobileFiltered.svelte';
 	export let bgImage: string;
 	export let questions: IQuestion[] | undefined = undefined;
 	export let route = '';
@@ -27,6 +28,8 @@
 
 		{#if filteredQuestions && !questions}
 			<InterviewCardFilters questions={filteredQuestions} />
+
+			<InterviewMobileFiltered questions={filteredQuestions} />
 		{/if}
 	</div>
 </SectionContainer>
