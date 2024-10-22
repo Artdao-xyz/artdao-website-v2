@@ -24,7 +24,10 @@
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT} {isOverflow}>
-	<button class="flex flex-row justify-center h-full pt-[2rem]" on:click={() => (showModal = true)}>
+	<button
+		class="flex flex-row justify-center h-full pt-[2rem] gallery"
+		on:click={() => (showModal = true)}
+	>
 		<Gallery class="grid-cols-2 gap-2">
 			<Gallery items={imagesLeft} let:item class="h-fit">
 				<button on:click={() => handleOnClick(item)} class="h-fit">
@@ -37,9 +40,9 @@
 				</button>
 			</Gallery>
 		</Gallery>
-		<Modal bind:open={showModal} outsideclose autoclose class="h-full">
+		<Modal bind:open={showModal} outsideclose autoclose class="h-full !bg-transparent">
 			<div
-				class="bg-color-white h-full w-auto p-5 rounded-30 border border-color-black flex flex-col flex-shrink-0 flex-grow-0"
+				class="h-full bg-color-white w-auto p-5 rounded-30 border border-color-black flex flex-col flex-shrink-0 flex-grow-0"
 			>
 				<img
 					src={imageToShow.src}
