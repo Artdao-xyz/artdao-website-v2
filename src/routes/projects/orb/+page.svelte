@@ -144,7 +144,7 @@
 >
 	<ProjectIntro project={orbProject} textColor="white" />
 
-	<ProjectInterview questions={orbQuestions} {bgImage} route={orbNavItems[1].route} />
+	<ProjectInterview filteredQuestions={orbQuestions} {bgImage} route={orbNavItems[1].route} />
 
 	<ProjectAbout aboutImages={carocoAboutImages} aboutItem={carocoAbout} route="" />
 
