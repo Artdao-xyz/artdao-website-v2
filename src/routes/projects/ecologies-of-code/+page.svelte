@@ -1,7 +1,5 @@
 <script lang="ts">
 	import ecoInterviewBg from '$lib/assets/images/projects/ecologiesOfCode/ecologies-interview-bg.png';
-	import hyperInterview from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/interview/artwork-press.png';
-	import okytomoInterview from '$lib/assets/images/projects/ecologiesOfCode/okytomo/interview/okytomoInterview.png';
 	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
@@ -27,11 +25,7 @@
 		ecologiesGallery1,
 		ecologiesGallery2
 	} from '../../../data/Projects/EcologiesOfCode/ProjectArtworkGallery';
-	import {
-		hypereikonQuestions,
-		joaquinaQuestions,
-		okyQuestions
-	} from '../../../data/Projects/EcologiesOfCode/ProjectInterview';
+	import { ecologiesQuestions } from '../../../data/Projects/EcologiesOfCode/ProjectInterview';
 	import { ecologiesOfCodeProject } from '../../../data/Projects/EcologiesOfCode/ProjectIntro';
 	import {
 		ecologiesPolaroidImages,
@@ -169,7 +163,7 @@
 		<ProjectAbout aboutItem={joaquinaAbout} aboutImages={joaquinaAboutImages} route="" />
 	</div>
 
-	<ProjectInterview bgImage={ecoInterviewBg} questions={joaquinaQuestions} />
+	<ProjectInterview bgImage={ecoInterviewBg} filteredQuestions={ecologiesQuestions} />
 
 	<ProjectVideo videoProjects={[ecologiesVideoProjectOne]} />
 
@@ -192,8 +186,6 @@
 		<ProjectAbout aboutItem={okytomoAbout} aboutImages={okytomoAboutImages} route="" />
 	</div>
 
-	<ProjectInterview bgImage={okytomoInterview} questions={okyQuestions} />
-
 	<ProjectVideo videoProjects={okyVideos} />
 
 	{#if size > 1100}
@@ -215,8 +207,6 @@
 	<div id={ecologiesNavItems[3].route}>
 		<ProjectAbout aboutItem={hypereikonAbout} aboutImages={hypereikonAboutImages} route="" />
 	</div>
-
-	<ProjectInterview bgImage={hyperInterview} questions={hypereikonQuestions} />
 
 	<div class="hidden sm:block">
 		<ProjectArtworkGrid galleryImages={ecologiesArtworkImages} />

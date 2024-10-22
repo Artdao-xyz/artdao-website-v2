@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { IQuestionFilter } from './interfaces';
+	import type { IFilteredQuestions } from '../../../data/Projects/EcologiesOfCode/ProjectInterview';
 
-	export let questions: IQuestionFilter[];
+	export let questions: IFilteredQuestions[];
 	let indexQuestion: number = 0;
 	let indexArtist: number = 0;
 	$: responses = questions[indexQuestion].responses;
@@ -14,6 +14,7 @@
 		indexQuestion = i;
 		questions.forEach((question) => (question.selected = false));
 		questions[i].selected = true;
+		questions[i].responses[indexArtist].selected = true;
 	};
 
 	const handleOnClickArtist = (i: number) => {
@@ -54,7 +55,9 @@
 	<div class="flex flex-row gap-2.5">
 		{#each responses as response, i}
 			<button
-				class="w-[57px] h-[29px] text-color-white py-2.5 px-5 gradient-dark"
+				class="h-[1.8125rem] py-2.5 px-5 gradient-dark rounded-20 {indexArtist === i
+					? 'gray-gradient text-color-black'
+					: 'dark-gradient text-color-white'} text-[0.75rem] font-medium leading-[1.5625rem] font-clash flex items-center"
 				on:click={() => handleOnClickArtist(i)}
 			>
 				{response.artist}
@@ -67,7 +70,11 @@
 			class="w-full flex flex-col gap-5 font-clash leading-[1.5625rem] overflow-y-auto mb-[2rem]"
 		>
 			<p class="font-clash font-semibold leading-[1.5625rem] text-base">
-				{selectedResponse.text}
+				{selectedResponse.response[0]}
+			</p>
+
+			<p class="font-clash font-semibold leading-[1.5625rem] text-base">
+				{selectedResponse.response[1]}
 			</p>
 		</div>
 	{/if}

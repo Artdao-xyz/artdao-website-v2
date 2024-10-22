@@ -240,3 +240,168 @@ export const hypereikonQuestions: IQuestion[] = [
 		selected: false
 	}
 ];
+
+export interface IFilteredResponse {
+	artist: string;
+	response: string[];
+	selected: boolean;
+}
+
+export interface IFilteredQuestions {
+	question: string;
+	responses: IFilteredResponse[];
+	selected: boolean;
+}
+
+export const ecologiesQuestions: IFilteredQuestions[] = [
+	{
+		question: 'What inspires you when you create environments?',
+		responses: [
+			{
+				artist: 'Joaquina',
+				response: [
+					"I’m always drawn to the materiality of water when creating environments. Water, especially its digital representation, is challenging to simulate convincingly. Many of my spaces incorporate this element, and I often ask myself, 'How can I evoke the essence of water without resorting to ultra-realistic depictions?'",
+					'Since I use Unreal Engine, which is optimized for real-time experiences rather than photorealism like Maya, I embrace a more interpretive approach. My goal is to evoke a contemplative atmosphere, creating stages for reflection rather than highly realistic environments.'
+				],
+				selected: false
+			},
+			{
+				artist: 'Okytomo',
+				response: [
+					"I find inspiration in different places. Sometimes it's simply because I have collected a lot of material, like 3D scans, especially after traveling or seeing something new. Other times, creating serves as a form of catharsis—a way to abstract myself from everything, particularly when I'm feeling down and need a distraction. In those moments, working on these environments becomes a way to disconnect and immerse myself fully in the creative process. ",
+					"My goal is often to create something that feels familiar, like it's from Earth, but with a mysterious quality, especially during dawn or dusk. I want viewers to feel relaxed yet captivated by subtle movements and atmospheric elements, inviting them to reflect and contemplate what's beyond the surface."
+				],
+				selected: false
+			},
+			{
+				artist: 'Hypereikon',
+				response: [
+					"The inspiration comes from the landscapes of southern Chile, specifically Valdivia. There’s something about this environment—this perpetual dampness, where moss, lichens, and fungi coexist in symbiosis—that captivates us. You observe these organisms and often can’t tell if you're looking at a plant, a fungus, or something else entirely. There’s this constant sense of confusion and fascination with the textures and life all around. That feeling of everything being alive, intertwined, and thriving in the humidity is central to our work.",
+					'As we transitioned from field recordings and sound-based exploration to working with Artificial Intelligence, these landscapes continued to influence us. Through our research, we began searching for digital representations that felt like ecosystems, not just static objects or entities. Our goal is to evoke a particular climate or atmosphere, something that transports viewers into a world where everything seems to coexist in an intricate, alive system.'
+				],
+				selected: false
+			}
+		],
+		selected: false
+	},
+	{
+		question: 'How do you shape these landscapes?',
+		responses: [
+			{
+				artist: 'Joaquina',
+				response: [
+					'I focus on smooth, flowing forms and collaborate with sound artists to create ambient soundscapes. These soft visuals and calming sounds aim to evoke a feeling of serenity, similar to how water calms the mind. ',
+					"My creative direction is guided by the contemplative nature of water. Achieving a sense of pause is difficult in our fast-paced, image-saturated digital world, so I align my work with the principles of 'Slow Media', a movement that encourages deceleration and invites deeper engagement with digital content."
+				],
+				selected: false
+			},
+			{
+				artist: 'Okytomo',
+				response: [
+					"Building these environments starts with 3D scans that act as the foundation. I like to use elements from places I've visited, like rocks or floors from Italy, and recreate a bit of that space in my work. From there, I add my personal touches—things that inspired me or have meaning for me, like grass or Roman classical elements.",
+					" I think a lot about composition, aiming to capture the viewer's gaze. I use basic tools like the grid and Golden Ratio to create visual harmony. Sound also plays a big role, though I usually collaborate with others for that part. The sound, like the visuals, is looped and meant to reinforce the enigma and depth of the environment, keeping the viewer engaged."
+				],
+				selected: false
+			},
+			{
+				artist: 'Hypereikon',
+				response: [
+					'Our process is centered around image prompts rather than text. We believe there’s something in images that can’t always be captured in words, and we prefer to let images guide the creation of new images. It’s like a feedback loop— an image feeds into another, constantly evolving through digital processes. The AI plays a huge role here. We don’t simply feed text into a model and wait for results. ',
+					'Instead, we work iteratively, exploring what the models can extract from images and pushing the boundaries of what they can produce. We’re interested in how AI “sees” humidity, climate, and light in ways that are difficult to describe but feel immediately tangible in the final result.'
+				],
+				selected: false
+			}
+		],
+		selected: false
+	},
+	{
+		question: 'Are you looking for real-world systems or abstract concepts?',
+		responses: [
+			{
+				artist: 'Joaquina',
+				response: [
+					'Water has a fascinating duality—it’s both a real-world element and a powerful symbol in our collective imagination. Different types of water evoke different emotions and mental images. For instance, clear spring water conjures calm, fresh imagery, while turbulent or swampy waters evoke a darker, more complex response. ',
+					'This connection between water and our unconscious makes it a perfect starting point for my work. While I reference the physical properties of water, I often transform these into something more abstract or dreamlike. 3D scanning plays a big role in this, allowing me to transfer real-world objects into virtual spaces, blending reality with imagination.'
+				],
+				selected: false
+			},
+			{
+				artist: 'Okytomo',
+				response: [
+					'What I do is a mixture of both. There’s a strong representation of the physical world through my personal gaze and how I choose to frame it in the digital realm. While I try to reflect reality, or something close to it, I add personal elements that give the work a unique lens. For instance, I work a lot with light, specifically the hours around sunrise and sunset, when landscapes take on a mysterious quality. ',
+					'There’s a color during those times that makes even the most ordinary scene feel as though it hides something deeper. I aim to captivate the viewer with these subtle, looping landscapes and soft winds — creating a scene that seems calm but urges you to look closer and reflect. It’s like a visual meditation that invites the viewer to linger, think, and perhaps find a window into something beyond the surface of reality.'
+				],
+				selected: false
+			},
+			{
+				artist: 'Hypereikon',
+				response: [
+					'It’s a blend of both. We are fascinated by the idea that nature today is, in many ways, mediated or altered by human influence. But at the same time, we are drawn to the idea of fantastical nature—a surreal, almost plastic beauty that emerges from the interplay between the real and the artificial.',
+					'We always aim for a sense of ecosystem, where various elements coexist in a believable yet abstract environment. Our inspiration often comes from places like the Chilean coastlines, where you’ll find seaweed, shells, and mollusks that blur the line between the living and the lifeless, between organic and alien. This tension between reality and fantasy is something we constantly strive to capture.'
+				],
+				selected: false
+			}
+		],
+		selected: false
+	},
+	{
+		question: 'How do you achieve balance and harmony in your visual composition?',
+		responses: [
+			{
+				artist: 'Joaquina',
+				response: [
+					'I strive for balance, but it’s not always easy. I often look outside the digital realm for inspiration—whether it’s visiting exhibitions, studying art books, or observing natural environments like the sea. Being by the water, for example, puts me in a meditative state that sparks new ideas, which I then translate into digital compositions. ',
+					'While Unreal Engine gives me more control than working with chaotic image generators, it’s still a real-time system, which introduces an element of unpredictability. Especially in interactive installations, things can break or behave unexpectedly, and you have to embrace that fluidity as part of the process.'
+				],
+				selected: false
+			},
+			{
+				artist: 'Okytomo',
+				response: [
+					"Yes, definitely. I attended an Italian school where art history was given a lot of importance, and those early lessons left a lasting impression on me. I grew up studying what are considered the masterpieces of human history, and those works introduced me to the concept of depth and the use of visual elements to hold a viewer's attention. Later, my film studies reinforced my understanding of composition and visual harmony. ",
+					"So while I don’t use any complicated, rigid compositional tools, I do work with basics like the grid and the Golden Ratio to make sure the viewer’s gaze stays anchored in the work. It's less about following a specific method and more about an intuitive process where the arrangement of objects organically pulls the viewer in. It’s something I put a lot of thought and time into because, ultimately, I want people to feel the same magnetism I did when I was a kid, being drawn into an image and unable to look away."
+				],
+				selected: false
+			},
+			{
+				artist: 'Hypereikon',
+				response: [
+					'For us, it’s about a continuous digestion and transformation of images. Over the years, we’ve collected and synthesized a large library of visuals, constantly redirecting them through new AI models to see how they can regenerate and evolve.',
+					'This process creates a natural coherence between images, even as they change. There’s a sense of harmony that comes from allowing the images to feed back into themselves—an organic flow that gives them balance even when they are abstract or ambiguous. It’s about seeing how far the image can stretch, how much it can regenerate and still remain captivating.'
+				],
+				selected: false
+			}
+		],
+		selected: false
+	},
+	{
+		question: 'What strategies generate immersion in your worlds?',
+		responses: [
+			{
+				artist: 'Joaquina',
+				response: [
+					"Before I dive into digital creation, I spend time with analog tools—sketching and writing. When I move into the interactive space, I carefully consider how I want people to engage with the environment. In more contemplative works, I opt for minimal actions that encourage stillness, like in my game 'Simulación de lo Esencial', where players simply guide a small fish around.",
+					'I design my own interfaces to ensure simplicity, making the experience intuitive and reflective. By asking myself how I want the audience to position their body in front of the work, I build worlds that prioritize immersion and contemplation over complexity.'
+				],
+				selected: false
+			},
+			{
+				artist: 'Okytomo',
+				response: [
+					'Sound plays a huge role in immersing the viewer, although I don’t always work on the sound myself. Early on, I did, but now I collaborate with friends who specialize in sound design. I usually give them direction, like: “I want it to sound as though you’re physically in the environment,” and then build from there. I’m very hands-on with them, sometimes even hopping onto Discord to work through the nuances in real-time. ',
+					'The sound, just like the visuals, often loops, creating a sense of continuity that draws people in without jarring transitions. The melody and atmosphere support the idea that there’s something deeper hidden within the work. Another technique I use is the loop itself. Visually, I love creating scenes that slowly repeat without any sharp cuts, which makes the viewer stay longer, almost trapped in that space. It’s subtle, but these tools—the looping visuals and sound—are key in generating the immersive, enigmatic experience I want the viewer to feel.'
+				],
+				selected: false
+			},
+			{
+				artist: 'Hypereikon',
+				response: [
+					'We aim for a sense of immersion by constructing landscapes that feel alive yet unfamiliar. This immersiveness often comes from the landscape itself—it’s a place that doesn’t exist, but feels as if it could. Sometimes, sound plays a crucial role in deepening the experience. We think about sound not just in human terms, but from non-human perspectives: What might an insect hear when it emerges from its shell? What is the auditory experience of a plant?',
+					'We also play with scale, blurring the lines between micro and macro worlds. Are you looking at something tiny, like a spore, or something vast, like a planet? This ambiguity in scale enhances the immersive quality of the work. Over the years, we’ve also explored the idea of emergence—the patterns and meanings that arise when large datasets are fed into AI models. We let the AI generate systems of its own, and through trial and error, we find the images that truly captivate us.'
+				],
+				selected: false
+			}
+		],
+		selected: false
+	}
+];
