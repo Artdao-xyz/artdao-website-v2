@@ -1,7 +1,5 @@
 <script lang="ts">
-	import nicoInterviewBgImage from '$lib/assets/images/projects/inherentInstability/241857826_6552809161428142_9057190300881452001_n_1.png';
 	import inaInterviewBgImage from '$lib/assets/images/projects/inherentInstability/Background_Img.png';
-	import elbiInterviewBgImage from '$lib/assets/images/projects/inherentInstability/studio1_1.png';
 	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectInterview from '$lib/components/ProjectInterview/ProjectInterview.svelte';
@@ -21,11 +19,7 @@
 		nicoAbout,
 		nicoAboutImages
 	} from '../../../data/Projects/InherentInstability/ProjectAbout';
-	import {
-		elbiQuestions,
-		inaVareQuestions,
-		nicoQuestions
-	} from '../../../data/Projects/InherentInstability/ProjectInterview';
+	import { inherentQuestions } from '../../../data/Projects/InherentInstability/ProjectInterview';
 	import { inherentInstabilityProjectIntro } from '../../../data/Projects/InherentInstability/ProjectIntro';
 	import {
 		inaVarePolaroidsImages,
@@ -158,6 +152,8 @@
 >
 	<ProjectIntro project={inherentInstabilityProjectIntro} textColor="white" isContain />
 
+	<ProjectInterview bgImage={inaInterviewBgImage} filteredQuestions={inherentQuestions} />
+
 	<div id={inherentInstabilityNavItems[1].route}>
 		<ProjectAbout
 			aboutItem={inaVareAbout}
@@ -166,8 +162,6 @@
 			colorVariant={EColorVariant.LIGHT}
 		/>
 	</div>
-
-	<ProjectInterview bgImage={inaInterviewBgImage} questions={inaVareQuestions} />
 
 	<ProjectVideo videoProjects={inaVideo} />
 
@@ -190,15 +184,11 @@
 		<ProjectAbout aboutItem={elbiAbout} aboutImages={elbiAboutImages} route="" />
 	</div>
 
-	<ProjectInterview bgImage={elbiInterviewBgImage} questions={elbiQuestions} />
-
 	<ProjectVideo videoProjects={elbiVideo} route="elbi-end" />
 
 	<div id={inherentInstabilityNavItems[3].route}>
 		<ProjectAbout aboutItem={nicoAbout} aboutImages={nicoAboutImages} route="" />
 	</div>
-
-	<ProjectInterview bgImage={nicoInterviewBgImage} questions={nicoQuestions} />
 
 	<ProjectVideo videoProjects={nicoVideo} />
 

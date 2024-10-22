@@ -67,15 +67,15 @@
 
 	{#if selectedResponse}
 		<div
-			class="w-full flex flex-col gap-5 font-clash leading-[1.5625rem] overflow-y-auto mb-[2rem]"
+			class="w-full flex flex-col gap-5 font-clash leading-[1.5625rem] mb-[2rem] overflow-y-auto"
 		>
-			<p class="font-clash font-semibold leading-[1.5625rem] text-base">
-				{selectedResponse.response[0]}
-			</p>
-
-			<p class="font-clash font-semibold leading-[1.5625rem] text-base">
-				{selectedResponse.response[1]}
-			</p>
+			{#each selectedResponse.response as response}
+				{#if response}
+					<p class="font-clash font-semibold leading-[1.5625rem] text-base">
+						{response}
+					</p>
+				{/if}
+			{/each}
 		</div>
 	{/if}
 

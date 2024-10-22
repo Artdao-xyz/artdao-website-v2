@@ -75,17 +75,15 @@
 						<div
 							class="w-full flex flex-col gap-5 font-clash leading-[1.5625rem] overflow-y-auto mb-[2rem]"
 						>
-							<p
-								class="text-[1.125rem] font-clash font-medium leading-[1.5rem] px-[1.4375rem] pb-[1rem] text-color-black"
-							>
-								{selectedResponse.response[0]}
-							</p>
-
-							<p
-								class="text-[1.125rem] font-clash font-medium leading-[1.5rem] px-[1.4375rem] pb-[1rem] text-color-black"
-							>
-								{selectedResponse.response[1]}
-							</p>
+							{#each selectedResponse.response as response}
+								{#if response}
+									<p
+										class="text-[1.125rem] font-clash font-medium leading-[1.5rem] px-[1.4375rem] pb-[1rem] text-color-black"
+									>
+										{response}
+									</p>
+								{/if}
+							{/each}
 						</div>
 					{/if}
 				</div>
