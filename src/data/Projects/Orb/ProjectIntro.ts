@@ -1,11 +1,13 @@
+import bgImageMobile from '$lib/assets/images/projects/mobile-intro/Orb_Cover 1-min.png';
 import bgImage from '$lib/assets/images/projects/orb/Img_ProjectPage-min.png';
 
 export const orbProject = {
 	name: 'o.r.b.',
 	description: [
-		'ORB, from the acronym Official Reunion Of Brazilians, an organization created in 2024 with the aim of leveraging initiatives focused on art, more specifically cryptoart. Bringing together artists who orbit this virtual three-dimensional circle that is the web3 universe, and the diversity found in its 360º.',
-		'It was born as a response to a current creative anxiety, expressing itself as the unquestionable union of these voices in an authentic and official reunion that gives focus to those who have believed most in their potential. Standing as a pilar, or rather an ORB, as an element that represents the interconnection of all the concentric circles of people, beings and energies that expands infinitely.',
-		'By making the O.R.B official, the artists are affirming their contribution in a national context and at the forefront of global digital art. An essential claim for breaking down these barriers and making Brazil official as a hub for the evolution of contemporary art.'
+		'O.R.B. — The Official Reunion of Brazilians — emerges as a beacon in the dynamic world of web3, uniting digital artists from across Brazil. This phyisical and digital exhibition showcases the work of collectives and artists that are propelling Brazilian digital artistry onto the global stage.',
+		"This event features the convergence of three  DAOs — S.E.E.D, HiveMind, and Magma — each playing a crucial role in keeping the digital web3 art scene alive and thriving. O.R.B. provides a platform where these diverse artistic energies coalesce, fostering a collaborative atmosphere that amplifies the collective potential of Brazil's digital creators.",
+		"We spoke with O.R.B.'s curators to help us understand the importance of this reunion and why is it happening now and also representatives from the three participating collectives to understand their achievements, as these communities unite to celebrate their shared journey, O.R.B. stands as a testament to the power of collective potential in the expanding universe of digital art."
 	],
-	bgImage: bgImage
+	bgImage,
+	bgImageMobile
 };
