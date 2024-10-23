@@ -3,6 +3,7 @@ import { json } from '@sveltejs/kit';
 
 const LIST_ID = 3;
 const URL = `https://api.brevo.com/v3/contacts`;
+const API_KEY = BREVO_API_KEY;
 
 export async function POST({ request }) {
 	const { email } = await request.json();
@@ -17,7 +18,7 @@ export async function POST({ request }) {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			'api-key': BREVO_API_KEY
+			'api-key': API_KEY
 		},
 		body
 	});
