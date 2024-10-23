@@ -7,7 +7,13 @@
 	export let section: 'home' | 'drop' | 'project' = 'home';
 </script>
 
-<div class="{section === 'project' ? 'fixed top-[0.9%] left-[2%]' : 'block'} w-full z-50">
+<div
+	class="{section === 'project'
+		? 'w-full fixed'
+		: section === 'home'
+			? 'block w-full'
+			: 'w-[98%] fixed'} left-[2%] top-[0.9%] w-full z-50"
+>
 	<div class="sm:hidden flex justify-between items-center sm:mb-[0.5rem] mb-[-1rem]">
 		<a href={'/'}>
 			<img src={homeIcon} alt="Home Icon" class="w-[2.5625rem]" />

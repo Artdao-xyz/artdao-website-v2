@@ -4,11 +4,14 @@
 	import psikokoBanner from '$lib/assets/images/drops/psipsikoko-banner.png';
 	import hammer from '$lib/assets/images/drops/psipsikoko-hammer.png';
 	import HomeDropMenu from '$lib/components/HomeDropMenu/HomeDropMenu.svelte';
+	import HomeMobileMenu from '$lib/components/HomeMobileMenu/HomeMobileMenu.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { homeDropMenuNames, homeDropMenuText } from '../../data/HomeDropMenu';
 </script>
 
 <div class="w-full h-full overflow-x-hidden">
+	<HomeMobileMenu toggle="white" section="drop" />
+
 	<!-- TODO: implement date -->
 	<HomeDropMenu
 		dropNumber={'001'}

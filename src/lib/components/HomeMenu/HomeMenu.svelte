@@ -27,7 +27,7 @@
 		<img src={blackToggle} alt="Go to Drops" class="w-[5.9063rem] cursor-pointer mb-[-0.5rem]" />
 	</a>
 
-	<HomeMobileMenu />
+	<HomeMobileMenu section="home" />
 
 	<div class="sm:flex flex-col gap-2 hidden">
 		<HomeTop logo={artDaoLogo} {homeParagraphs} />
@@ -35,7 +35,7 @@
 			<HomeDrop dropNumber={'000'} dropName={'psipsikoko'} dropLogo={hammer} />
 			<HomeMap title={'bridging the global & hyperlocal'} logo={mapLogo} />
 		</div>
-		<HomeNewsletter route="" />
+		<HomeNewsletter />
 		<div class="flex gap-[2.375rem] h-full w-full">
 			<HomeSocial icon={discordIcon} />
 			<HomeSocial icon={instagramIcon} />
@@ -65,7 +65,7 @@
 						<div transition:slide={{ axis: 'y', duration: 900 }} class="flex flex-col gap-2">
 							<HomeDrop dropNumber={'000'} dropName={'psipsikoko'} dropLogo={hammer} />
 							<HomeMap title={'bridging the global & hyperlocal'} logo={mapLogo} />
-							<HomeNewsletter route="" />
+							<HomeNewsletter />
 							<div class="flex gap-[2.375rem] h-full w-full">
 								<HomeSocial icon={discordIcon} />
 								<HomeSocial icon={instagramIcon} />
