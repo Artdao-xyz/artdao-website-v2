@@ -2,6 +2,7 @@
 	import dottedLine from '$lib/assets/images/dotted-line-drop.png';
 	import infoCircle from '$lib/assets/images/Ellipse 30.png';
 	import infoCircleWhite from '$lib/assets/images/Ellipse-white.png';
+	import whiteToggle from '$lib/assets/images/white-toggle.png';
 
 	import HomeDropMenuDetails from '$lib/elements/HomeDropMenuDetails/HomeDropMenuDetails.svelte';
 	import { slide } from 'svelte/transition';
@@ -25,8 +26,12 @@
 
 <div
 	style={`background-image: url("${bgImage}"); background-size: cover; background-position: center;`}
-	class="w-full h-[100dvh] p-2 relative"
+	class="w-full h-[100dvh] p-2 relative snap-start"
 >
+	<a href="/drops" class="hidden sm:block">
+		<img src={whiteToggle} alt="Go to Home" class="w-[5.9063rem] cursor-pointer mb-[-0.5rem]" />
+	</a>
+
 	<button on:click={toggleVisibility}>
 		<div
 			class="dropMenu font-robotoMono tracking-[0.0625rem] text-[0.8rem] sm:text-[0.625rem] flex flex-col items-start gap-2.5 sm:w-[20rem] gray-gradient rounded-20 px-[1.25rem] pt-[0.9375rem] pb-[1.25rem] backdrop-filter backdrop-blur-[2.5rem] absolute top-[4rem]"
