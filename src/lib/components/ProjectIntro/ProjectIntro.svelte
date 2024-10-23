@@ -6,20 +6,20 @@
 	export let isContain = false;
 	const { name, description, image, bgImage, bgImageMobile } = project;
 
-	let size: number;
+	let width: number;
 	let height: number;
 </script>
 
-<svelte:window bind:innerWidth={size} bind:innerHeight={height} />
+<svelte:window bind:innerWidth={width} bind:innerHeight={height} />
 <SectionContainer hasPadding={false} isOverflow={false}>
 	<div
-		class="w-full {height > 700 && size < 1100
+		class="w-full {height > 850 && width < 1100
 			? 'h-screen'
 			: 'pb-[10rem]'} flex flex-row pt-[3.5rem] sm:pt-[4.5rem] gap-28 {bgImage
-			? `${isContain && size > 1100 ? 'sm:bg-contain' : 'bg-cover'} bg-fit bg-no-repeat bg-bottom sm:h-full bg-color-black`
+			? `${isContain && width > 1100 ? 'sm:bg-contain' : 'bg-cover'} bg-fit bg-no-repeat bg-bottom sm:h-full bg-color-black`
 			: ''} {textColor === 'black' ? 'bg-color-white' : 'bg-color-black'} pr-global-padding"
 		id="intro"
-		style={size > 1100
+		style={width > 1100
 			? `background-image: url(${bgImage});`
 			: `background-image: url(${bgImageMobile});`}
 	>
