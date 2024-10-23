@@ -29,7 +29,7 @@
 
 				<div
 					class=" sm:max-w-[30rem] {height < 800
-						? ''
+						? 'max-w-[300px]'
 						: 'max-w-fit h-auto '} p-5 bg-color-white rounded-30 border border-color-black flex flex-col flex-grow-0 justify-between mx-auto"
 				>
 					<img
