@@ -81,8 +81,8 @@
 		overflow-y: hidden;
 		-ms-overflow-style: scroll;
 		scrollbar-width: none;
-		touch-action: none;
-		user-select: none;
+		/* touch-action: none; */
+		/* user-select: none; */
 		overflow-x: scroll;
 		overscroll-behavior-x: contain;
 		scroll-snap-type: x mandatory;
