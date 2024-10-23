@@ -1,6 +1,8 @@
 <script lang="ts">
-	import buttonIconDark from '$lib/assets/images/button-icon-dark.png';
-	import buttonIcon from '$lib/assets/images/button-icon.png';
+	import {
+		default as buttonIcon,
+		default as buttonIconDark
+	} from '$lib/assets/images/video-arrow.svg';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import type { IVideoProject } from '$lib/elements/VideoCard/interfaces';
 	import VideoCard from '$lib/elements/VideoCard/VideoCard.svelte';
@@ -68,9 +70,9 @@
 					on:mouseleave={setLeftArrowDark}
 					class="{isPrevButtonDisabled
 						? 'cursor-not-allowed'
-						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center"
+						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center hover:invert"
 				>
-					<img src={arrowLeft} alt="Button" class="rotate-180" />
+					<img src={arrowLeft} alt="Button" class="w-[15px]" />
 				</button>
 
 				<button
@@ -79,9 +81,9 @@
 					on:mouseleave={setRightArrowDark}
 					class="{isNextButtonDisabled
 						? 'cursor-not-allowed'
-						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center"
+						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center hover:invert"
 				>
-					<img src={arrowRight} alt="Button" />
+					<img src={arrowRight} alt="Button" class="rotate-180 w-[15px]" />
 				</button>
 			</div>
 		{/if}
