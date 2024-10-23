@@ -25,7 +25,7 @@
 		class="h-[20%] sm:[15%] w-full sm:bg-color-dark rounded-20 p-0 sm:p-[1.25rem] flex items-center justify-between"
 	>
 		<div class="flex flex-col gap-[0.3125rem] justify-center items-start w-full">
-			<p class="font-clash text-[1.25rem] leading-[1.5625rem]">
+			<p class="font-clash text-[1rem] sm:text-[1.25rem] leading-[1.5625rem]">
 				{videoProject.name}
 			</p>
 			<div
