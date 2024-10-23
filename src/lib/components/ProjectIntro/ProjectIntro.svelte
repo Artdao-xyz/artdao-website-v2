@@ -15,7 +15,7 @@
 	<div
 		class="w-full {height > 700 && size < 1100
 			? 'h-screen'
-			: 'pb-[2rem]'} flex flex-row pt-[3.5rem] sm:pt-[4.5rem] gap-28 {bgImage
+			: 'pb-[10rem]'} flex flex-row pt-[3.5rem] sm:pt-[4.5rem] gap-28 {bgImage
 			? `${isContain && size > 1100 ? 'sm:bg-contain' : 'bg-cover'} bg-fit bg-no-repeat bg-bottom sm:h-full bg-color-black`
 			: ''} {textColor === 'black' ? 'bg-color-white' : 'bg-color-black'} pr-global-padding"
 		id="intro"
