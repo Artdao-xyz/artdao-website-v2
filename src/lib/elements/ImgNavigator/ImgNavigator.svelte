@@ -42,7 +42,7 @@
 		class="{isSmall
 			? 'left-[20px]'
 			: 'left-0'} flex flex-col-reverse gap-[0.625rem] laptopM:flex-row sm:gap-[1.375rem] laptopM:left-10 laptopM:bottom-10
-			 absolute {height > 700 ? 'bottom-20' : 'bottom-0'} "
+			 absolute {height > 700 ? 'bottom-20' : 'bottom-[1.25rem]'} "
 	>
 		{#each images as image, i}
 			{#if height > 700}
@@ -56,17 +56,19 @@
 						class="w-full h-full object-cover rounded-[6.25rem] shadow"
 					/>
 				</button>
-			{:else if i !== images.length - 1}
-				<button
-					class="w-[2.5rem] h-[2.5rem] laptopM:w-[5.375rem] laptopM:h-[5.375rem] hover:scale-105"
-					on:click={() => handleOnClick(i)}
-				>
-					<img
-						src={image}
-						alt="Small view"
-						class="w-full h-full object-cover rounded-[6.25rem] shadow"
-					/>
-				</button>
+			{:else if height < 700}
+				{#if i < 9}
+					<button
+						class="w-[2.5rem] h-[2.5rem] laptopM:w-[5.375rem] laptopM:h-[5.375rem] hover:scale-105"
+						on:click={() => handleOnClick(i)}
+					>
+						<img
+							src={image}
+							alt="Small view"
+							class="w-full h-full object-cover rounded-[6.25rem] shadow"
+						/>
+					</button>
+				{/if}
 			{/if}
 		{/each}
 	</div>

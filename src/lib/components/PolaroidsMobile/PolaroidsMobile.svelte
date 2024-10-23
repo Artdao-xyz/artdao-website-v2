@@ -3,8 +3,10 @@
 
 	export let polaroidImages: IPolaroidImage[];
 	export let route: string;
+	let height: number;
 </script>
 
+<svelte:window bind:innerHeight={height} />
 <div
 	class="sm:snap-start h-screen laptopM:hidden flex flex-col justify-between bg-color-white"
 	id={route}
@@ -14,7 +16,7 @@
 	>
 		{#each polaroidImages as polaroidImage}
 			<div
-				class="flex flex-col min-w-full w-full gap-[1.875rem] snap-center"
+				class="flex flex-col min-w-full w-full gap-[1.875rem] sm:snap-center"
 				id={polaroidImage.image}
 			>
 				<div class="w-full flex items-end">
@@ -26,9 +28,15 @@
 				</div>
 
 				<div
-					class="max-w-fit sm:max-w-[30rem] h-auto p-5 bg-color-white rounded-30 border border-color-black flex flex-col flex-grow-0 justify-between mx-auto"
+					class=" sm:max-w-[30rem] {height < 800
+						? ''
+						: 'max-w-fit h-auto '} p-5 bg-color-white rounded-30 border border-color-black flex flex-col flex-grow-0 justify-between mx-auto"
 				>
-					<img src={polaroidImage.image} alt="Gallery" class="h-auto w-full" />
+					<img
+						src={polaroidImage.image}
+						alt="Gallery"
+						class={height > 800 ? 'h-auto w-full' : 'h-[18rem]'}
+					/>
 					{#if polaroidImage.name && polaroidImage.description}
 						<div
 							class="flex flex-col text-color-black font-robotoMono text-[0.625rem] font-semibold leading-4"
@@ -41,7 +49,11 @@
 			</div>
 		{/each}
 	</div>
-	<div class="flex flex-row gap-[0.625rem] pb-[4.375rem] justify-center">
+	<div
+		class="flex flex-row gap-[0.625rem] {height > 800
+			? 'pb-[4.375rem]'
+			: 'pb-[1rem]'} justify-center"
+	>
 		{#each polaroidImages as polaroidImage}
 			<button
 				on:click={() =>
