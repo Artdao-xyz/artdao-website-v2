@@ -23,18 +23,16 @@
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
-<div
-	class="{navigatorWidth} {height > 700 && height < 1000
-		? 'h-screen'
-		: 'h-full mb-[10rem]'} relative"
->
+<div class="{navigatorWidth} {height > 660 && height < 1000 ? '' : 'mb-[10rem]'} h-full relative">
 	<div class="w-full h-full {!isSmall ? 'flex justify-center items-center' : ''}">
 		<img
 			src={images[index]}
 			alt="Big view"
-			class="h-fit laptopM:h-full {variant === ESizeVariant.SMALL
+			class="laptopM:h-full {variant === ESizeVariant.SMALL
 				? 'w-full object-cover h-full'
-				: 'rounded-20 sm:h-full'} {isImageWhiteBg ? 'bg-color-white' : ''} object-contain"
+				: 'rounded-20 max-h-fit h-fit sm:h-full'} {isImageWhiteBg
+				? 'bg-color-white'
+				: ''} object-contain"
 		/>
 	</div>
 
