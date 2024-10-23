@@ -16,7 +16,7 @@
 	>
 		{#each polaroidImages as polaroidImage}
 			<div
-				class="flex flex-col min-w-full w-full gap-[1.875rem] sm:snap-center"
+				class="flex flex-col min-w-full w-full gap-[1.875rem] snap-center"
 				id={polaroidImage.image}
 			>
 				<div class="w-full flex items-end">
