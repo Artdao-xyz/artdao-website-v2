@@ -8,7 +8,9 @@
 </script>
 
 <section
-	class="snap-start shrink-0 w-full {isOverflow ? 'h-screen' : ''} sm:h-full-desktop-height {bgImage
+	class="sm:snap-start shrink-0 w-full {isOverflow
+		? 'h-screen'
+		: ''} sm:h-full-desktop-height {bgImage
 		? 'bg-cover bg-center'
 		: colorVariant === EColorVariant.LIGHT
 			? 'bg-color-white'

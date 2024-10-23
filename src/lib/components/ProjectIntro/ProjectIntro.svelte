@@ -10,7 +10,7 @@
 </script>
 
 <svelte:window bind:innerWidth={size} />
-<SectionContainer hasPadding={false}>
+<SectionContainer hasPadding={false} isOverflow={false}>
 	<div
 		class="w-full h-full flex flex-row pt-[3.5rem] sm:pt-[4.5rem] gap-28 {bgImage
 			? `${isContain && size > 1100 ? 'sm:bg-contain' : 'bg-cover'} bg-fit bg-no-repeat bg-bottom h-screen sm:h-full bg-color-black`

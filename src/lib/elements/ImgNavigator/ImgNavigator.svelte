@@ -31,7 +31,7 @@
 
 	<div
 		class="{isSmall
-			? 'left-10'
+			? 'left-[20px]'
 			: 'left-0'} flex flex-col-reverse gap-[0.625rem] laptopM:flex-row sm:gap-[1.375rem] laptopM:left-10 laptopM:bottom-10
 			 absolute bottom-20"
 	>

@@ -155,7 +155,7 @@
 <svelte:window bind:innerWidth={size} />
 <div
 	on:scroll={handleScroll}
-	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-mandatory overflow-y-auto h-screen"
+	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:sm:snap-y sm:sm:snap-mandatory overflow-y-auto h-screen"
 >
 	<ProjectIntro project={digitalMatterProjectIntro} />
 
@@ -203,7 +203,7 @@
 		<ProjectArtworkGrid galleryImages={parsaArtworkImages} showDetails />
 	</div>
 
-	<div class="block sm:hidden snap-start">
+	<div class="block sm:hidden sm:snap-start">
 		<ProjectArtworkGridMobile
 			isOverflow={false}
 			imagesLeft={parsaArtworkImages1}
