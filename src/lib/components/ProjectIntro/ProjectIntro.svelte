@@ -7,13 +7,16 @@
 	const { name, description, image, bgImage, bgImageMobile } = project;
 
 	let size: number;
+	let height: number;
 </script>
 
-<svelte:window bind:innerWidth={size} />
+<svelte:window bind:innerWidth={size} bind:innerHeight={height} />
 <SectionContainer hasPadding={false} isOverflow={false}>
 	<div
-		class="w-full h-full flex flex-row pt-[3.5rem] sm:pt-[4.5rem] gap-28 {bgImage
-			? `${isContain && size > 1100 ? 'sm:bg-contain' : 'bg-cover'} bg-fit bg-no-repeat bg-bottom h-screen sm:h-full bg-color-black`
+		class="w-full {height > 700 && size < 1100
+			? 'h-screen'
+			: 'pb-[2rem]'} flex flex-row pt-[3.5rem] sm:pt-[4.5rem] gap-28 {bgImage
+			? `${isContain && size > 1100 ? 'sm:bg-contain' : 'bg-cover'} bg-fit bg-no-repeat bg-bottom sm:h-full bg-color-black`
 			: ''} {textColor === 'black' ? 'bg-color-white' : 'bg-color-black'} pr-global-padding"
 		id="intro"
 		style={size > 1100

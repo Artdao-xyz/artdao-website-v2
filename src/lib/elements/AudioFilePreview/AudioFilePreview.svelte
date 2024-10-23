@@ -35,14 +35,21 @@
 	export let index: number;
 
 	$: isLastTrack = index === audioItems.length - 1;
+	let height: number;
 </script>
 
-<svelte:window bind:innerWidth={size} />
+<svelte:window bind:innerWidth={size} bind:innerHeight={height} />
 <div
-	class="sm:w-full w-[21.875rem] mx-auto laptopM:mx-0 h-[37.5rem] laptopM:h-full flex flex-col gap-[0.625rem] justify-between p-5 rounded-20 border border-color-black gray-gradient shadow-audioShadow"
+	class="sm:w-full w-[21.875rem] mx-auto laptopM:mx-0 {height > 800
+		? 'h-[37.5rem]'
+		: 'h-[28rem]'} laptopM:h-full flex flex-col gap-[0.625rem] justify-between p-5 rounded-20 border border-color-black gray-gradient shadow-audioShadow"
 >
 	<video
-		style={size > 1100 ? 'height: calc(100% - 2.375rem)' : ''}
+		style={size > 1100
+			? 'height: calc(100% - 2.375rem)'
+			: height < 800
+				? 'border border-color-red'
+				: ''}
 		src={audioItems[index].songFile}
 		controls
 		bind:this={videoPlayer}
