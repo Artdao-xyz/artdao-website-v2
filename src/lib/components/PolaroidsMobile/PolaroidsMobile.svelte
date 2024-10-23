@@ -35,7 +35,7 @@
 					<img
 						src={polaroidImage.image}
 						alt="Gallery"
-						class={height > 800 ? 'h-auto w-full' : 'h-[18rem]'}
+						class={height > 800 ? 'h-auto w-full' : 'h-auto'}
 					/>
 					{#if polaroidImage.name && polaroidImage.description}
 						<div
