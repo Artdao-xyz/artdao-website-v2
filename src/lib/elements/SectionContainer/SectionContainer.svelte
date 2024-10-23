@@ -7,7 +7,7 @@
 	export let isOverflow = true;
 </script>
 
-<section
+<div
 	class="sm:snap-start shrink-0 w-full {isOverflow
 		? 'h-screen'
 		: ''} sm:h-full-desktop-height {bgImage
@@ -20,4 +20,4 @@
 	style="background-image: url({bgImage});"
 >
 	<slot />
-</section>
+</div>
