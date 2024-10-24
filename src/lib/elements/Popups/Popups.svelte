@@ -163,7 +163,6 @@
 									{:else if memberExists}
 										<div class="flex flex-row gap-1">
 											<img src={errorIcon} alt="error" class="w-[250px] mt-[-0.5rem]" />
-											<p>Member already exists!</p>
 										</div>
 									{:else if error}
 										<img src={errorIcon} alt="error" class="w-[250px] mt-[-0.5rem]" />
