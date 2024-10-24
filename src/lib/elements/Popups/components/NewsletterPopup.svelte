@@ -85,90 +85,97 @@
 
 		return styleStore;
 	});
+
+	let size: number;
 </script>
 
+<svelte:window bind:innerWidth={size} />
 <button
+	style={size < 1100 ? `width: ${size * 0.92}px;` : ''}
 	class="h-[4.9375rem] sm:h-[4.0625rem] {!visible
-		? 'w-[22.5rem] sm:w-[10.6875rem]'
-		: 'w-[22.5rem] sm:w-[15rem]'} {!visible
+		? '!sm:w-[10.6875rem]'
+		: '!sm:w-[15rem]'} {!visible
 		? 'bg-color-gray-background'
 		: 'bg-color-dark'} rounded-[6.25rem] px-10 sm:px-5 flex flex-col justify-center sm:hover:scale-105"
 	on:click={handleOnClick}
 >
-	<div class="flex gap-[0.25rem] w-full justify-start items-center">
-		<img src={!visible ? infoCircle : infoCircleWhite} alt="info" class="w-[0.5rem] h-[0.5rem]" />
-		<p
-			class="font-clash text-[1rem] sm:text-[0.625rem] font-semibold tracking-[0.0081rem] leading-[1.375rem]"
-		>
-			NEWSLETTER
-		</p>
-	</div>
-	<div class="w-full flex flex-row justify-start gap-[0.5rem] items-center">
-		{#if !visible}
-			<p class="font-robotoMono text-[1rem] sm:text-[0.625rem] font-medium align-top">
-				Sign up for updates
+	{#if !submitting && !success && !error && !memberExists}
+		<div class="flex gap-[6px] w-full justify-start items-center">
+			<img src={!visible ? infoCircle : infoCircleWhite} alt="info" class="w-[0.5rem] h-[0.5rem]" />
+			<p
+				class="font-clash text-[1rem] sm:text-[0.625rem] font-semibold tracking-[0.0081rem] leading-[1.375rem]"
+			>
+				NEWSLETTER
 			</p>
-		{/if}
-		{#if visible}
-			<div class="w-full flex flex-row justify-start gap-[0.5rem] items-center">
-				<form
-					in:fade={{ delay: 50, duration: 150 }}
-					out:fade={{ delay: 50, duration: 50 }}
-					on:submit|preventDefault={handleSubmit}
-					method="POST"
-					action="/api/subscribe"
-					id="subscribeForm"
-					class="w-full"
-				>
-					<div class="flex gap-[1rem] items-center flex-row">
+		</div>
+		<div class="w-full flex flex-row justify-start gap-[0.5rem] items-center">
+			{#if !visible}
+				<p class="font-robotoMono text-[1rem] sm:text-[0.625rem] font-medium align-top">
+					Sign up for updates
+				</p>
+			{/if}
+			{#if visible}
+				<div class="w-full flex flex-row justify-start gap-[0.5rem] items-center">
+					<form
+						in:fade={{ delay: 50, duration: 150 }}
+						out:fade={{ delay: 50, duration: 50 }}
+						on:submit|preventDefault={handleSubmit}
+						method="POST"
+						action="/api/subscribe"
+						id="subscribeForm"
+						class="w-full"
+					>
 						{#if !submitting && !success && !error && !memberExists}
-							<label for="email" class="hidden"></label>
-							<input
-								bind:this={input}
-								type="email"
-								name="EMAIL"
-								class="placeholder:text-color-white ml-[-0.7rem] py-0 placeholder:text-[1rem] !placeholder:ml-[0.2rem] w-[70%] font-robotoMono placeholder:sm:text-[0.625rem] sm:text-[0.625rem] font-medium align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem]"
-								required
-								value=""
-								placeholder="Enter Your Email"
-							/>
-							<button
-								bind:this={submit}
-								type="submit"
-								class="bg-color-gray rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 text-[1rem] sm:text-[0.625rem] font-medium invisible flex-none w-[30%] align-top"
-								>submit</button
-							>
-						{:else}
-							<div
-								in:fade={{ delay: 50, duration: 150 }}
-								out:fade={{ delay: 50, duration: 50 }}
-								class="font-robotoMono font-medium italic flex items-center justify-center w-full h-full"
-							>
-								{#if submitting}
-									<img src={loadingIcon} alt="submitting" class="h-[25px]" />
-								{:else if success}
-									<img src={successIcon} alt="success" class="h-[25px]" />
-								{:else if memberExists}
-									<div class="flex flex-row gap-1">
-										<img src={errorIcon} alt="error" class="h-[33px] mt-[-0.5rem]" />
-									</div>
-								{:else if error}
-									<img src={errorIcon} alt="error" class="h-[33px] mt-[-0.5rem]" />
-								{/if}
+							<div class="flex gap-[1rem] items-center flex-row">
+								<label for="email" class="hidden"></label>
+								<input
+									bind:this={input}
+									type="email"
+									name="EMAIL"
+									class="placeholder:text-color-white ml-[-0.7rem] py-0 placeholder:text-[1rem] !placeholder:ml-[0.2rem] w-[70%] font-robotoMono placeholder:sm:text-[0.625rem] sm:text-[0.625rem] font-medium align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem]"
+									required
+									value=""
+									placeholder="Enter Your Email"
+								/>
+								<button
+									bind:this={submit}
+									type="submit"
+									class="bg-color-gray rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 text-[1rem] sm:text-[0.625rem] font-medium invisible flex-none w-[30%] align-top"
+									>submit</button
+								>
 							</div>
 						{/if}
-					</div>
-					<div aria-hidden="true" style="position: absolute; left: -5000px;">
-						<!-- /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */ -->
-						<input
-							type="text"
-							name="b_d150dd71762335c56d7e5811c_6f099dd01d"
-							tabindex="-1"
-							value=""
-						/>
-					</div>
-				</form>
-			</div>
-		{/if}
-	</div>
+						<div aria-hidden="true" style="position: absolute; left: -5000px;">
+							<!-- /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */ -->
+							<input
+								type="text"
+								name="b_d150dd71762335c56d7e5811c_6f099dd01d"
+								tabindex="-1"
+								value=""
+							/>
+						</div>
+					</form>
+				</div>
+			{/if}
+		</div>
+	{/if}
+	{#if submitting || success || memberExists || error}
+		<div
+			in:fade={{ delay: 50, duration: 150 }}
+			out:fade={{ delay: 50, duration: 50 }}
+			class="font-robotoMono font-medium italic flex items-center justify-center w-full h-full"
+		>
+			{#if submitting}
+				<img src={loadingIcon} alt="submitting" class="h-[30px] sm:h-[21px]" />
+			{:else if success}
+				<img src={successIcon} alt="success" class="w-[29px] sm:w-[24px]" />
+			{:else if memberExists}
+				<div class="flex flex-row gap-1">
+					<img src={errorIcon} alt="error" class="w-[17px] sm:w-[14px]" />
+				</div>
+			{:else if error}
+				<img src={errorIcon} alt="error" class="w-[17px] sm:w-[14px]" />
+			{/if}
+		</div>
+	{/if}
 </button>

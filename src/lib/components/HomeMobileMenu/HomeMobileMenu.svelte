@@ -1,19 +1,37 @@
 <script lang="ts">
 	import blackToggle from '$lib/assets/images/black-toggle.png';
 	import homeIcon from '$lib/assets/images/home-icon.png';
-	import minusIcon from '$lib/assets/images/minus-menu-mobile.png';
-	import plusIcon from '$lib/assets/images/plus-menu-mobile.png';
+	import minus from '$lib/assets/images/minus-icon.png';
+	import plus from '$lib/assets/images/plus-icon.png';
 	import whiteToggle from '$lib/assets/images/white-toggle.png';
 	import NewsletterPopup from '$lib/elements/Popups/components/NewsletterPopup.svelte';
+	import { isNavOpen, isPopupOpen } from '$lib/elements/Popups/components/store';
+	import { onDestroy } from 'svelte';
 	import { slide } from 'svelte/transition';
 
 	export let toggle: 'black' | 'white' = 'black';
 	export let section: 'home' | 'drop' | 'project' = 'home';
 
-	let isOpen = false;
+	$: isOpen = false;
+	$: isPopupOpen.set(isOpen);
+	let isNavbarOpen = false;
+
+	const unsubscribe = isNavOpen.subscribe((boolean) => {
+		isNavbarOpen = boolean;
+
+		if (isNavbarOpen) {
+			isOpen = false;
+		}
+	});
+
+	onDestroy(unsubscribe);
 
 	const handleOnClick = () => {
 		isOpen = !isOpen;
+
+		if (isOpen) {
+			isNavOpen.set(false);
+		}
 	};
 </script>
 
@@ -33,21 +51,31 @@
 			<img src={homeIcon} alt="Home Icon" class="w-[2.5625rem]" />
 		</a>
 
-		<div>
-			<button on:click={handleOnClick}>
-				<img
-					src={!isOpen ? plusIcon : minusIcon}
-					alt="open menu"
-					class="w-[2.375rem] mt-[0.2rem]"
-				/>
-			</button>
+		{#if section === 'project'}
+			<div>
+				<button
+					on:click={handleOnClick}
+					class="w-[2.25rem] rounded-[100px] {isOpen
+						? 'nav-gradient-unselected border-color-gray'
+						: 'nav-gradient-selected border-color-dark'}  h-[2.25rem] border"
+				>
+					<img
+						src={isOpen ? minus : plus}
+						alt="open menu"
+						class="w-[20px] my-auto mx-auto invert"
+					/>
+				</button>
 
-			{#if isOpen}
-				<div class="absolute top-[46px] left-[5px]" transition:slide={{ axis: 'y', duration: 500 }}>
-					<NewsletterPopup />
-				</div>
-			{/if}
-		</div>
+				{#if isOpen}
+					<div
+						class="absolute top-[46px] left-[5px]"
+						transition:slide={{ axis: 'y', duration: 500 }}
+					>
+						<NewsletterPopup />
+					</div>
+				{/if}
+			</div>
+		{/if}
 
 		{#if section === 'home' || section === 'drop'}
 			<a href={section === 'home' ? '/drops' : '/'}>

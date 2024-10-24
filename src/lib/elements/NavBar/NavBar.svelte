@@ -1,5 +1,7 @@
 <script lang="ts">
+	import { onDestroy } from 'svelte';
 	import { slide } from 'svelte/transition';
+	import { isNavOpen, isPopupOpen } from '../Popups/components/store';
 	import type { INavBarItem } from './interfaces';
 
 	export let navItems: INavBarItem[];
@@ -8,7 +10,13 @@
 	navItems[index].selected = true;
 	$: selectedItem = navItems.find((item) => item.selected === true);
 
-	$: visible = false;
+	$: visible = false && isPopupOpen;
+	$: isNavOpen.set(visible);
+
+	$: console.log('visible', visible);
+	$: console.log('isPopOpen', isPopOpen);
+
+	let isPopOpen = false;
 
 	const handleOnClick = (i: number) => {
 		index = i;
@@ -20,8 +28,21 @@
 	const toggleVisibility = () => {
 		visible = !visible;
 	};
+
+	const unsubscribe = isPopupOpen.subscribe((boolean) => {
+		isPopOpen = boolean;
+
+		if (isPopOpen) {
+			visible = false;
+		}
+	});
+
+	onDestroy(unsubscribe);
+
+	let size: number;
 </script>
 
+<svelte:window bind:innerWidth={size} />
 <div
 	class="w-100dvw rounded-[6.25rem] h-[1rem] sm:flex flex-row items-center z-50 sticky top-[2.88%] mx-[1.625rem] gap-2.5 hidden"
 >
@@ -48,7 +69,8 @@
 			on:click={toggleVisibility}
 			data-sveltekit-noscroll
 			href={`#${selectedItem.route}`}
-			class="w-[16.8rem] h-[2.3125rem] rounded-[6.25rem] font-robotoMono text-[1rem] font-medium !opacity-100 text-color-white {selectedItem.selected
+			style="width: {size * 0.69}px;"
+			class=" h-[2.3125rem] rounded-[6.25rem] font-robotoMono text-[1rem] font-medium !opacity-100 text-color-white {selectedItem.selected
 				? 'nav-gradient-selected font-semibold border border-color-dark'
 				: 'nav-gradient-unselected'} capitalize h-[1rem] justify-end
 		flex flex-row items-center py-[0.75rem] pr-[2.5rem] pl-[3.75rem] transition delay-75 duration-700 ease-in-out transform"
@@ -60,9 +82,10 @@
 		<div transition:slide={{ axis: 'y', duration: 300 }} class="flex flex-col gap-[0.375rem]">
 			{#each navItems as navItem, i}
 				<a
+					style="width: {size * 0.69}px;"
 					data-sveltekit-noscroll
 					href={`#${navItem.route}`}
-					class="w-[16.1875rem] h-[2.3125rem] rounded-[6.25rem] font-robotoMono text-[1rem] font-medium !opacity-100 text-color-white {navItem.selected
+					class="h-[2.3125rem] rounded-[6.25rem] font-robotoMono text-[1rem] font-medium !opacity-100 text-color-white {navItem.selected
 						? 'nav-gradient-selected font-semibold border border-color-dark'
 						: 'nav-gradient-unselected'} capitalize h-[1rem] justify-end
                 flex flex-row items-center py-[0.75rem] pr-[2.5rem] pl-[3.75rem] transition delay-75 duration-700 ease-in-out transform"
