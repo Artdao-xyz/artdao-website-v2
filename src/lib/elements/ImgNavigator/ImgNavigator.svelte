@@ -18,8 +18,6 @@
 	const navigatorWidth = isSmall ? 'w-full sm:w-1/2' : 'w-full h-full pt-0 sm:pt-[2.4375rem]';
 	let width: number;
 	let height: number;
-
-	$: console.log('width', width);
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
@@ -29,8 +27,8 @@
 			src={images[index]}
 			alt="Big view"
 			class="laptopM:h-full {variant === ESizeVariant.SMALL
-				? 'w-full object-cover h-full'
-				: 'rounded-20 max-h-fit h-fit sm:h-full'} {isImageWhiteBg
+				? 'w-full object-cover h-full '
+				: 'rounded-20 max-h-[80%] sm:h-full sm:max-h-full'} {isImageWhiteBg
 				? 'bg-color-white'
 				: ''} object-contain"
 		/>

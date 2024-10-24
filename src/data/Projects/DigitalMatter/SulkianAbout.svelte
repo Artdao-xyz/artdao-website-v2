@@ -1,20 +1,17 @@
 <div class="flex flex-col gap-10">
 	<p>
-		“Sculpting in virtual reality for me has been like rediscovering the sensitivity of the pencil
-		and the hand, but this time with virtual tools. Unlike traditional 3D modeling, which starts
-		with hard and primitive shapes, virtual reality allows me to work more organically and fluidly.
+		Sulkian redefines the relationship between traditional sculpture and digital creation through
+		the medium of virtual reality. Sculpting in VR feels akin to rediscovering the tactile
+		sensitivity of a pencil and hand, enabling a more organic and fluid approach compared to
+		traditional 3D modeling. This immersive experience not only restores a sense of sensitivity to
+		the process but also deepens his connection to the art of sculpture, allowing him to engage
+		directly with the matter.
 	</p>
 	<p>
-		This approach restores sensitivity to the creative process and has made me connect with the art
-		of sculpture in a profound way. Coming face to face with the sculpted work helps me better
-		understand its topology and three-dimensionality, being able to interact directly with the
-		digital matter, molding it, enlarging it or reducing it with my virtual hands. Additionally, its
-		versatility and speed allow me to complete jobs more quickly.
-	</p>
-	<p>
-		Something I like is that in virtual reality modeling programs the term "Clay" or "clay" is used.
-		This connects the concept of organic and terrestrial matter with modeled digital matter. For me,
-		it is a nice way to link the traditional and the technological, offering infinite creative
-		possibilities.”
+		Through this interaction, he can mold, enlarge, or reduce forms with his virtual hands, gaining
+		a richer understanding of topology and three-dimensionality. The reference to "Clay” when it
+		comes to sculpting in VR bridges the gap between organic, earthly materials and digital
+		constructs highlighting the harmonious relationship between traditional and technological
+		practices, presenting endless creative possibilities.
 	</p>
 </div>
