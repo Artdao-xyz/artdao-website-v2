@@ -1,8 +1,5 @@
 <script lang="ts">
-	import {
-		default as buttonIcon,
-		default as buttonIconDark
-	} from '$lib/assets/images/video-arrow.svg';
+	import { default as buttonIcon } from '$lib/assets/images/video-arrow.svg';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import type { IVideoProject } from '$lib/elements/VideoCard/interfaces';
 	import VideoCard from '$lib/elements/VideoCard/VideoCard.svelte';
@@ -28,25 +25,6 @@
 			index -= 1;
 		}
 	};
-
-	let arrowLeft = buttonIconDark;
-	let arrowRight = buttonIconDark;
-
-	const setLeftArrow = () => {
-		arrowLeft = buttonIcon;
-	};
-
-	const setLeftArrowDark = () => {
-		arrowLeft = buttonIconDark;
-	};
-
-	const setRightArrow = () => {
-		arrowRight = buttonIcon;
-	};
-
-	const setRightArrowDark = () => {
-		arrowRight = buttonIconDark;
-	};
 </script>
 
 <SectionContainer colorVariant={EColorVariant.LIGHT} hasPadding>
@@ -66,24 +44,20 @@
 			<div class="flex flex-row gap-[0.9375rem] sm:hidden justify-start w-full">
 				<button
 					on:click={handlePrevButton}
-					on:mouseenter={setLeftArrow}
-					on:mouseleave={setLeftArrowDark}
 					class="{isPrevButtonDisabled
 						? 'cursor-not-allowed'
-						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center hover:invert"
+						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center"
 				>
-					<img src={arrowLeft} alt="Button" class="w-[15px]" />
+					<img src={buttonIcon} alt="Button" class="w-[15px]" />
 				</button>
 
 				<button
 					on:click={handleNextButton}
-					on:mouseenter={setRightArrow}
-					on:mouseleave={setRightArrowDark}
 					class="{isNextButtonDisabled
 						? 'cursor-not-allowed'
-						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center hover:invert"
+						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center"
 				>
-					<img src={arrowRight} alt="Button" class="rotate-180 w-[15px]" />
+					<img src={buttonIcon} alt="Button" class="rotate-180 w-[15px]" />
 				</button>
 			</div>
 		{/if}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import buttonIcon from '$lib/assets/images/button-icon-dark.png';
+	import buttonIcon from '$lib/assets/images/video-arrow.svg';
 	import ArtworkContainer from '$lib/elements/ArtworkContainer/ArtworkContainer.svelte';
 	import type { IGalleryImage } from '$lib/elements/ArtworkContainer/interfaces';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
@@ -72,18 +72,16 @@
 			class="text-color-black"
 			bind:this={prevButton}
 			on:click={() => sideScroll(container, 'left', 200, 10, 700)}
-			><img src={buttonIcon} alt="left" class="h-[1rem] rotate-180" /></button
+			><img src={buttonIcon} alt="left" class="h-[1rem] hover:scale-125" /></button
 		>
 		<button
 			class="text-color-black"
 			bind:this={nextButton}
 			on:click={() => sideScroll(container, 'right', 200, 10, 700)}
-			><img src={buttonIcon} alt="right" class="h-[1rem]" /></button
+			><img src={buttonIcon} alt="right" class="h-[1rem] rotate-180 hover:scale-125" /></button
 		>
 	</div>
 </SectionContainer>
-
-<!-- max-h-[22rem] macBook:max-h-[25rem] laptopL:max-h-[20rem] bigScreen:max-h-[41.5%] -->
 
 <style>
 	.scroll-panel {
