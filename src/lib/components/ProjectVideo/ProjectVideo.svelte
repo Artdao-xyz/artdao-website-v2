@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { default as buttonIcon } from '$lib/assets/images/video-arrow.svg';
+	import buttonIcon from '$lib/assets/images/video-arrow.svg';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import type { IVideoProject } from '$lib/elements/VideoCard/interfaces';
 	import VideoCard from '$lib/elements/VideoCard/VideoCard.svelte';
