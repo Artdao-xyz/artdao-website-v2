@@ -2,8 +2,11 @@
 	import dropHammer from '$lib/assets/images/drops/psipsikoko-hammer.png';
 	import infoCircle from '$lib/assets/images/Ellipse 30.png';
 	import infoCircleWhite from '$lib/assets/images/Ellipse-white.png';
+	import errorIcon from '$lib/assets/images/error-icon.png';
+	import loadingIcon from '$lib/assets/images/loading-icon.png';
+	import successIcon from '$lib/assets/images/success-icon.png';
 	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { fade, slide } from 'svelte/transition';
 	import { indexStyle } from './store';
 
 	let visible: boolean = false;
@@ -17,6 +20,7 @@
 	let success = false;
 	let error = false;
 	let memberExists = false;
+	$: console.log('memberExists', memberExists);
 
 	const handleSubmit = async (event: any) => {
 		// console.log('submitting', submitting);
@@ -42,7 +46,9 @@
 			const errorType = JSON.parse(data.error);
 			const errorTitle = errorType.message;
 			console.error(errorTitle);
-			if (errorTitle === 'Contact already exist') {
+			if (
+				errorTitle === 'Unable to create contact, email is already associated with another Contact'
+			) {
 				memberExists = true;
 			} else {
 				error = true;
@@ -54,6 +60,7 @@
 			success = false;
 			memberExists = false;
 			error = false;
+			visible = false;
 		}, 4000);
 	};
 	let input: HTMLInputElement;
@@ -93,6 +100,7 @@
 		<img src={dropHammer} alt="drop" class="w-[2.8234rem] h-[2.6282rem]" />
 	</a>
 	<button
+		transition:slide={{ axis: 'x', duration: 2500 }}
 		class="h-[4.0625rem] {!visible ? 'w-[10.6875rem]' : 'w-[15rem]'} {!visible
 			? 'bg-color-gray-background'
 			: 'bg-color-dark'} rounded-[6.25rem] px-5 flex flex-col justify-center gap-[0.5rem] hover:scale-105"
@@ -104,12 +112,16 @@
 				NEWSLETTER
 			</p>
 		</div>
-		<div class="w-full flex flex-row justify-start gap-[0.5rem] items-center">
+		<div
+			class="w-full flex flex-row justify-start gap-[0.5rem] items-center"
+			transition:slide={{ axis: 'x', duration: 600 }}
+		>
 			{#if !visible}
 				<p class="font-robotoMono text-[0.625rem] font-medium h-[0.4375rem] align-top">
 					Sign up for updates
 				</p>
-			{:else}
+			{/if}
+			{#if visible}
 				<div class="w-full h-[7px]">
 					<form
 						in:fade={{ delay: 50, duration: 150 }}
@@ -121,22 +133,43 @@
 						class="w-full"
 					>
 						<div class="flex gap-[1rem] items-center flex-row">
-							<label for="email" class="hidden"></label>
-							<input
-								bind:this={input}
-								type="email"
-								name="EMAIL"
-								class="placeholder:text-color-white w-[70%] font-robotoMono text-[0.625rem] font-medium h-[0.4375rem] align-top bg-transparent outline-none border-none rounded-[6.25rem]"
-								required
-								value=""
-								placeholder="Enter Your Email"
-							/>
-							<button
-								bind:this={submit}
-								type="submit"
-								class="bg-color-gray rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 text-[0.625rem] font-medium invisible flex-none w-[30%] align-top"
-								>submit</button
-							>
+							{#if !submitting && !success && !error && !memberExists}
+								<label for="email" class="hidden"></label>
+								<input
+									bind:this={input}
+									type="email"
+									name="EMAIL"
+									class="placeholder:text-color-white w-[70%] font-robotoMono text-[0.625rem] font-medium h-[0.4375rem] align-top bg-transparent outline-none border-none rounded-[6.25rem]"
+									required
+									value=""
+									placeholder="Enter Your Email"
+								/>
+								<button
+									bind:this={submit}
+									type="submit"
+									class="bg-color-gray rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 text-[0.625rem] font-medium invisible flex-none w-[30%] align-top"
+									>submit</button
+								>
+							{:else}
+								<div
+									in:fade={{ delay: 50, duration: 150 }}
+									out:fade={{ delay: 50, duration: 50 }}
+									class="font-robotoMono font-medium italic flex items-center justify-center w-full h-full"
+								>
+									{#if submitting}
+										<img src={loadingIcon} alt="submitting" class="w-[15px]" />
+									{:else if success}
+										<img src={successIcon} alt="success" class="w-[15px]" />
+									{:else if memberExists}
+										<div class="flex flex-row gap-1">
+											<img src={errorIcon} alt="error" class="w-[250px] mt-[-0.5rem]" />
+											<p>Member already exists!</p>
+										</div>
+									{:else if error}
+										<img src={errorIcon} alt="error" class="w-[250px] mt-[-0.5rem]" />
+									{/if}
+								</div>
+							{/if}
 						</div>
 						<div aria-hidden="true" style="position: absolute; left: -5000px;">
 							<!-- /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */ -->
@@ -148,24 +181,6 @@
 							/>
 						</div>
 					</form>
-
-					<div
-						in:fade={{ delay: 50, duration: 150 }}
-						out:fade={{ delay: 50, duration: 50 }}
-						class="font-robotoMono font-medium italic flex items-center rounded-[6.25rem] mt-[1rem] bg-color-dark"
-					>
-						{#if submitting}
-							<p class="text-xs lp:text-sm mx-auto tracking-wider py-1">🔨 submitting...</p>
-						{:else if success}
-							<p class="text-xs lp:text-sm tracking-wider py-1">Thank you for subscribing!</p>
-						{:else if memberExists}
-							<p class="text-xs lp:text-sm tracking-wider py-1">You're already subscribed!</p>
-						{:else if error}
-							<p class="text-xs lp:text-sm tracking-wider py-1">
-								Something went wrong, please try again.
-							</p>
-						{/if}
-					</div>
 				</div>
 			{/if}
 		</div>

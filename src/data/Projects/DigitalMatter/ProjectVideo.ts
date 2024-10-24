@@ -17,3 +17,13 @@ export const aeroVideo: IVideoProject[] = [
 		size: 'square'
 	}
 ];
+
+export const parsaVideo: IVideoProject[] = [
+	{
+		name: 'WIP',
+		artist: 'Parsa',
+		year: '2024',
+		videoUrl: 'https://storage.googleapis.com/videoszine/Digital%20Matter/PARSA/Parsa%20Wip(1).mp4',
+		size: 'vertical'
+	}
+];

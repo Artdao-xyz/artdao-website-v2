@@ -12,7 +12,6 @@
 	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
 	import { EColorVariant } from '../../../constants/enums';
 	import { sulkianImages } from '../../../data/Projects/DigitalMatter/ImgNavigator';
-	import { digitalMatterNavItems } from '../../../data/Projects/DigitalMatter/NavItems';
 	import {
 		marcusAbout,
 		marcusAboutImages,
@@ -21,10 +20,7 @@
 		sulkianAbout,
 		sulkianAboutImages
 	} from '../../../data/Projects/DigitalMatter/ProjectAbout';
-	import {
-		marcusDropdownItems,
-		parsaDropdownItems
-	} from '../../../data/Projects/DigitalMatter/ProjectAboutDropdown';
+	import { marcusDropdownItems } from '../../../data/Projects/DigitalMatter/ProjectAboutDropdown';
 	import {
 		parsaArtworkImages,
 		parsaArtworkImages1,
@@ -35,7 +31,7 @@
 		marcusPolaroidsImages,
 		parsaPolaroidsImages
 	} from '../../../data/Projects/DigitalMatter/ProjectPolaroids';
-	import { aeroVideo } from '../../../data/Projects/DigitalMatter/ProjectVideo';
+	import { aeroVideo, parsaVideo } from '../../../data/Projects/DigitalMatter/ProjectVideo';
 	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
 	import { digitalMatterNavStoreItems } from './store';
 
@@ -193,11 +189,7 @@
 		<ProjectAbout aboutItem={parsaAbout} aboutImages={parsaAboutImages} route="" />
 	</div>
 
-	<ProjectAboutDropdown
-		images={parsaDropdownItems.map((item) => item.image)}
-		aboutDropdownItems={parsaDropdownItems}
-		route={digitalMatterNavItems[1].route}
-	/>
+	<ProjectVideo videoProjects={parsaVideo} route="" />
 
 	<div class="hidden sm:block">
 		<ProjectArtworkGrid galleryImages={parsaArtworkImages} showDetails />
