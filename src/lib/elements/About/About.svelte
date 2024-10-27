@@ -27,7 +27,7 @@
 		</p>
 	</div>
 	<h2
-		class="w-full h-[4.9375rem] font-semibold leading-[55px] tracking-[0.065rem] uppercase font-neue text-[40px] sm:text-[3.75rem]"
+		class="w-full sm:mb-[24px] mb-[20px] font-semibold leading-[55px] tracking-[0.065rem] uppercase font-neue text-[40px] sm:text-[3.75rem]"
 	>
 		{title}
 	</h2>
