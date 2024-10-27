@@ -12,7 +12,7 @@
 
 	$: videoCardWidth =
 		videoProject.size === 'rectangle'
-			? 'w-full bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:max-h-[800px] macBook:w-[80rem] macBook:max-w-full bigScreen:!h-[90%] max-h-[350px] sm:max-h-[40rem] sm:w-[45rem]'
+			? 'w-full bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:max-h-[800px] macBook:w-[80rem] macBook:max-w-full bigScreen:!h-[90%] max-h-[360px] sm:max-h-[40rem] sm:w-[45rem]'
 			: videoProject.size === 'square'
 				? 'w-full sm:w-[700px] max-h-[420px] sm:h-[800px] sm:max-h-[800px] '
 				: 'max-h-[500px] sm:h-full w-full max-w-[350px] sm:max-h-[800px] sm:max-w-[450px]';
@@ -22,7 +22,7 @@
 	class="{videoCardWidth} black-gradient px-[0.9375rem] pb-[0.9375rem] sm:p-[1.875rem] rounded-20 flex flex-col h-full mx-auto gap-0 sm:gap-[0.9375rem]"
 >
 	<div
-		class="h-[20%] sm:[15%] w-full sm:bg-color-dark rounded-20 p-0 sm:p-[1.25rem] flex items-center justify-between"
+		class="h-fit w-full sm:bg-color-dark rounded-20 py-3 sm:p-[1.25rem] flex items-center justify-between"
 	>
 		<div class="flex flex-col gap-[0.3125rem] justify-center items-start w-full">
 			<p class="font-clash text-[1rem] sm:text-[1.25rem] leading-[1.5625rem]">
