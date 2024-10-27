@@ -1,7 +1,7 @@
-import bgImage from '$lib/assets/images/projects/digitalMatter/DigitalMatter_IMG 2-min.png';
-import bgImageMobile from '$lib/assets/images/projects/mobile-intro/DigitalMatter_Cover 1-min.png';
+import bgImageMobile from '$lib/assets/images/projects/nonPlaces/NonPlaces_Cover 1-min.png';
+import bgImage from '$lib/assets/images/projects/nonPlaces/Rectangle-min.png';
 
-export const nonPLacesProjectIntro = {
+export const nonPlacesProjectIntro = {
 	name: 'non places',
 	description: [
 		'Set in a four-room building during the 4 days of EthCC, this pop-up exhibition created a cutting-edge experience bringing together emergent Paris talent and collectives alongside leading artists and founders in the space. Partnering with local Paris collectives and global brands like Ledger, MOCA, SuperChief, and Entropy, non/places transformed the venue into a multifaceted showcase of digital art, fashion exhibitions, performances, and evening parties with DJ sets.',
