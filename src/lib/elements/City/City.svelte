@@ -2,9 +2,10 @@
 	export let dotOnLeft = true;
 	export let top: string;
 	export let left: string;
+	export let eventToShow;
 	import menuLine from '$lib/assets/images/map-menu-line.png';
 	import buttonIcon from '$lib/assets/images/video-arrow.svg';
-	import type { IMapLocation } from '../../../data/Map/MapData';
+	import type { IMapEvent, IMapLocation } from '../../../data/Map/MapData';
 	export let mapLocation: IMapLocation;
 	export let showOnTop = false;
 
@@ -32,6 +33,10 @@
 			}
 		};
 	}
+
+	const handleOnClick = (event: IMapEvent) => {
+		eventToShow = event;
+	};
 </script>
 
 <button
@@ -65,6 +70,7 @@
 			<img src={menuLine} alt="line" class="w-[449px]" />
 			{#each mapLocation.events as event}
 				<button
+					on:click={() => handleOnClick(event)}
 					class="group w-full h-[2.9375rem] hover:bg-color-dark rounded-[100px] flex justify-between items-center pl-[15px] pr-[8px]"
 				>
 					<p class="font-neue text-[20px] tracking-[0.0163rem] font-semibold uppercase">

@@ -1,9 +1,22 @@
+import artifice from '$lib/assets/images/events/artifice-1 1-min.png';
+import ceroUno from '$lib/assets/images/events/cerouno-1 1-min.png';
+import devCon from '$lib/assets/images/events/devcon-1 1-min.png';
+import ethDenver from '$lib/assets/images/events/eth-denver-1 1-min.png';
+import intertwined from '$lib/assets/images/events/intertwined-1 1-min.png';
+import nftParis from '$lib/assets/images/events/nft-paris-1 1-min.png';
+import nonPlaces from '$lib/assets/images/events/non-places-min.png';
+import orb from '$lib/assets/images/events/orb-1 1-min.png';
+import psispikoko from '$lib/assets/images/events/psipsikoko-1 1-min.png';
+import rave from '$lib/assets/images/events/rave-1 1-min.png';
+import underworld from '$lib/assets/images/events/underworld-1 1-min.png';
+
 export interface IMapEvent {
 	title: string;
 	subtitle: string;
 	date: string;
 	location: string;
 	image: string;
+	city: string;
 }
 
 export interface IMapLocation {
@@ -20,28 +33,32 @@ export const mapData: IMapLocation[] = [
 				subtitle: 'Exhibition / Party',
 				date: 'Nov 10th-16th, 2023',
 				location: 'Arroz Estudios, Lisbon',
-				image: ''
+				image: intertwined,
+				city: 'Lisbon'
 			},
 			{
 				title: 'UNDERWORLD',
 				subtitle: 'EXHIBITION / PARTY',
 				date: 'July 18th-20th, 2023',
 				location: '31 Rue HEnri Chevreu, Paris',
-				image: ''
+				image: underworld,
+				city: 'Lisbon'
 			},
 			{
 				title: 'RAVE',
 				subtitle: 'EXHIBITION / PARTY',
 				date: 'May 5th, 2024',
 				location: 'Higher Ground, Lisbon',
-				image: ''
+				image: rave,
+				city: 'Lisbon'
 			},
 			{
 				title: 'artifice',
 				subtitle: 'EXHIBITION / PARTY',
 				date: 'May 28th-30th, 2024',
 				location: 'RNA Studio, Lisbon',
-				image: ''
+				image: artifice,
+				city: 'Lisbon'
 			}
 		]
 	},
@@ -53,14 +70,16 @@ export const mapData: IMapLocation[] = [
 				subtitle: 'Lukas Truniger Showcase',
 				date: 'February 23rd, 2023',
 				location: '101 Rue Réaumur, PARIS',
-				image: ''
+				image: nftParis,
+				city: 'Paris'
 			},
 			{
 				title: 'NON PLACES',
 				subtitle: 'EXHIBITION / PARTY',
 				date: 'July 18th-20th, 2023',
 				location: '31 Rue HEnri Chevreu, Paris',
-				image: ''
+				image: nonPlaces,
+				city: 'Paris'
 			}
 		]
 	},
@@ -72,7 +91,8 @@ export const mapData: IMapLocation[] = [
 				subtitle: 'Exhibition',
 				date: 'March 2th-6th, 2023',
 				location: 'Denver, Colorado',
-				image: ''
+				image: ethDenver,
+				city: 'Denver'
 			}
 		]
 	},
@@ -84,7 +104,8 @@ export const mapData: IMapLocation[] = [
 				subtitle: 'Exhibition / mural / talk',
 				date: 'October 11th-14th, 2022',
 				location: 'Bogotá, Colombia',
-				image: ''
+				image: devCon,
+				city: 'Bogotá'
 			}
 		]
 	},
@@ -96,7 +117,8 @@ export const mapData: IMapLocation[] = [
 				subtitle: 'Exhibition',
 				date: 'March 23rd - April 6th, 2024',
 				location: 'Caroço, São Pablo',
-				image: ''
+				image: orb,
+				city: 'São Paulo'
 			}
 		]
 	},
@@ -108,14 +130,16 @@ export const mapData: IMapLocation[] = [
 				subtitle: 'Exhibition / TALKS / AFTER PARTY',
 				date: 'March 31th, 2023',
 				location: 'Artlab, Buenos Aires',
-				image: ''
+				image: ceroUno,
+				city: 'Buenos Aires'
 			},
 			{
 				title: 'psipsikoko',
 				subtitle: 'Exhibition',
 				date: 'October 26th-27th, 2023',
 				location: 'Aura Fabrica, Buenos Aires',
-				image: ''
+				image: psispikoko,
+				city: 'Buenos Aires'
 			}
 		]
 	}

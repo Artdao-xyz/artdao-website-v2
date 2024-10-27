@@ -22,6 +22,7 @@ export default {
 
 			'2xl': '1536px',
 			// => @media (min-width: 1536px) { ... }
+
 			laptopM: '1366px',
 			// => @media(min-width: 1366px) {...}
 			macBook: '1440px',

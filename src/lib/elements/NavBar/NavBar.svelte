@@ -13,9 +13,6 @@
 	$: visible = false && isPopupOpen;
 	$: isNavOpen.set(visible);
 
-	$: console.log('visible', visible);
-	$: console.log('isPopOpen', isPopOpen);
-
 	let isPopOpen = false;
 
 	const handleOnClick = (i: number) => {
