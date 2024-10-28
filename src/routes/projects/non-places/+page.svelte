@@ -17,19 +17,16 @@
 
 	const handleScroll = () => {
 		const intro = document.getElementById('intro');
-		const marcus = document.getElementById('marcus');
-		const marcusEnd = document.getElementById('marcus-end');
-		const sulkian = document.getElementById('sulkian');
-		const sulkianEnd = document.getElementById('sulkian-end');
-		const parsa = document.getElementById('parsa');
-		const parsaEnd = document.getElementById('parsa-end');
+		const venue = document.getElementById('venue');
+		const artworks = document.getElementById('artworks');
+		const vernisagge = document.getElementById('vernisagge');
 
 		if (elementIsVisibleInViewport(intro)) {
 			nonPlacesNavStoreItems.update((items) => [
 				{
 					text: 'About',
 					route: 'intro',
-					selected: false
+					selected: true
 				},
 				{
 					text: 'The Venue',
@@ -49,7 +46,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(marcus, true) || elementIsVisibleInViewport(marcusEnd)) {
+		if (elementIsVisibleInViewport(venue)) {
 			nonPlacesNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -59,7 +56,7 @@
 				{
 					text: 'The Venue',
 					route: 'venue',
-					selected: false
+					selected: true
 				},
 				{
 					text: 'Artworks',
@@ -74,7 +71,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(sulkian, true) || elementIsVisibleInViewport(sulkianEnd)) {
+		if (elementIsVisibleInViewport(artworks)) {
 			nonPlacesNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -89,7 +86,7 @@
 				{
 					text: 'Artworks',
 					route: 'artworks',
-					selected: false
+					selected: true
 				},
 				{
 					text: 'Vernisagge',
@@ -99,7 +96,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(parsa, true) || elementIsVisibleInViewport(parsaEnd)) {
+		if (elementIsVisibleInViewport(vernisagge)) {
 			nonPlacesNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -119,7 +116,7 @@
 				{
 					text: 'Vernisagge',
 					route: 'vernisagge',
-					selected: false
+					selected: true
 				}
 			]);
 		}
@@ -133,18 +130,18 @@
 >
 	<ProjectIntro project={nonPlacesProjectIntro} />
 
-	<ProjectVideo videoProjects={nonPlacesVideo} route="" />
+	<ProjectVideo videoProjects={nonPlacesVideo} route="venue" />
 
 	<ProjectAboutDropdown
 		images={nonPlacesDropdownItems.map((item) => item.image)}
 		aboutDropdownItems={nonPlacesDropdownItems}
-		route=""
+		route="artworks"
 	/>
 
 	<ProjectAboutDropdown
 		images={nonPlacesTwoDropdownItems.map((item) => item.image)}
 		aboutDropdownItems={nonPlacesTwoDropdownItems}
-		route=""
+		route="vernisagge"
 	/>
 
 	<HomeIcon />
