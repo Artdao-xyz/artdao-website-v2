@@ -68,7 +68,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(inaVare, true) || elementIsVisibleInViewport(inaVareEnd)) {
+		if (elementIsVisibleInViewport(inaVare) || elementIsVisibleInViewport(inaVareEnd)) {
 			inherentInstabilityNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -93,7 +93,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(elbi, true) || elementIsVisibleInViewport(elbiEnd)) {
+		if (elementIsVisibleInViewport(elbi) || elementIsVisibleInViewport(elbiEnd)) {
 			inherentInstabilityNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -118,7 +118,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(nico, true)) {
+		if (elementIsVisibleInViewport(nico)) {
 			inherentInstabilityNavStoreItems.update((items) => [
 				{
 					text: 'About',
