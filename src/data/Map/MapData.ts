@@ -53,7 +53,7 @@ export const mapData: IMapLocation[] = [
 				city: 'Lisbon'
 			},
 			{
-				title: 'artifice',
+				title: 'ARTIFICE',
 				subtitle: 'EXHIBITION / PARTY',
 				date: 'May 28th-30th, 2024',
 				location: 'RNA Studio, Lisbon',
@@ -134,7 +134,7 @@ export const mapData: IMapLocation[] = [
 				city: 'Buenos Aires'
 			},
 			{
-				title: 'psipsikoko',
+				title: 'PSIPSIKOKO',
 				subtitle: 'Exhibition',
 				date: 'October 26th-27th, 2023',
 				location: 'Aura Fabrica, Buenos Aires',
