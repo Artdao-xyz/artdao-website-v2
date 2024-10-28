@@ -50,6 +50,11 @@
 					<HomeImgSquare image={homeImages[7].imageUrl} />
 				</a>
 			</div>
+			<div class="flex flex-col sm:flex-row gap-2 w-full">
+				<a href={homeImages[8].route} class="w-full sm:w-1/2">
+					<HomeImgSquare image={homeImages[8].imageUrl} />
+				</a>
+			</div>
 		</div>
 	</div>
 

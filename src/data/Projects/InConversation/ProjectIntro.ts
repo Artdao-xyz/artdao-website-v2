@@ -1,5 +1,5 @@
-import bgImage from '$lib/assets/images/projects/digitalMatter/DigitalMatter_IMG 2-min.png';
-import bgImageMobile from '$lib/assets/images/projects/mobile-intro/DigitalMatter_Cover 1-min.png';
+import bgImage from '$lib/assets/images/projects/inConversation/Operator_Cover 4-min.png';
+import bgImageMobile from '$lib/assets/images/projects/inConversation/Operator_Cover_Mobile 2-min.png';
 
 export const inConversationProjectIntro = {
 	name: 'in conversation with operator',

@@ -8,3 +8,4 @@ export const INHERENT = '/projects/inherent-instability';
 export const INTERTWINED = '/projects/intertwined';
 export const ARTIFICE = '/projects/artifice';
 export const NON_PLACES = '/projects/non-places';
+export const IN_CONVERSATION = '/projects/in-conversation';
