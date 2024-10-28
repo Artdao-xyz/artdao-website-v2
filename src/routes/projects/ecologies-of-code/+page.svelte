@@ -73,7 +73,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(joaquina, true) || elementIsVisibleInViewport(joaquinaEnd)) {
+		if (elementIsVisibleInViewport(joaquina) || elementIsVisibleInViewport(joaquinaEnd)) {
 			ecologiesNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -98,7 +98,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(oki, true) || elementIsVisibleInViewport(okiEnd)) {
+		if (elementIsVisibleInViewport(oki) || elementIsVisibleInViewport(okiEnd)) {
 			ecologiesNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -123,7 +123,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(hypereikon, true)) {
+		if (elementIsVisibleInViewport(hypereikon)) {
 			ecologiesNavStoreItems.update((obj) => [
 				{
 					text: 'About',
@@ -148,8 +148,6 @@
 			]);
 		}
 	};
-
-	$: console.log('size', size);
 </script>
 
 <svelte:window bind:innerWidth={size} />
