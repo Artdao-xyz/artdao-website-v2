@@ -7,13 +7,18 @@ export const orbNavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
-		text: 'Curators & DAOs',
+		text: 'Curators',
 		route: 'curators',
 		selected: false
 	},
 	{
 		text: 'Vernisagge',
 		route: 'vernisagge',
+		selected: false
+	},
+	{
+		text: 'DAOs',
+		route: 'daos',
 		selected: false
 	},
 	{
