@@ -1926,6 +1926,11 @@ svelte-hmr@^0.16.0:
   resolved "https://registry.yarnpkg.com/svelte-hmr/-/svelte-hmr-0.16.0.tgz#9f345b7d1c1662f1613747ed7e82507e376c1716"
   integrity sha512-Gyc7cOS3VJzLlfj7wKS0ZnzDVdv3Pn2IuVeJPk9m2skfhcu5bq3wtIZyQGggr7/Iim5rH5cncyQft/kRLupcnA==
 
+svelte-inview@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/svelte-inview/-/svelte-inview-4.0.4.tgz#3d12dc00073376a36a6635d143a314cd0db66ab0"
+  integrity sha512-PlXNSHHijvQ6MhmSYUj6cMyS+39NttoTffk7W5WYF8T2tsyLgJnKhyuAF+/hSujbY0vpsmqXaMd2nolEKvR8Kw==
+
 svelte-simple-modal@^1.6.2:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/svelte-simple-modal/-/svelte-simple-modal-1.6.2.tgz#44fad4ff3074acb46fe43b940f66572673bf3dbc"

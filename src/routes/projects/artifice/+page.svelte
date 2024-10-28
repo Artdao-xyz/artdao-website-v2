@@ -5,6 +5,8 @@
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
+	import { inview } from 'svelte-inview';
+	import { artificeNavItems } from '../../../data/Projects/Artifice/NavItems';
 	import {
 		furnitureAbout,
 		furnitureAboutImages,
@@ -19,154 +21,128 @@
 	} from '../../../data/Projects/Artifice/ProjectAboutDropdown';
 	import { artificeProjectIntro } from '../../../data/Projects/Artifice/ProjectIntro';
 	import { afterEventVideo, furnitureVideo } from '../../../data/Projects/Artifice/ProjectVideo';
-	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
+	import { INVIEW_OPTIONS, updateNavBar } from '../../../utils/nav/updateNavBar';
 	import { artificeNavStoreItems } from './store';
 
 	let size: number;
 
-	const handleScroll = () => {
-		const intro = document.getElementById('intro');
-		const koko = document.getElementById('koko');
-		const furniture = document.getElementById('furniture');
-		const furnitureEnd = document.getElementById('furniture-end');
-		const panels = document.getElementById('panels');
+	let introIsInView: boolean;
+	let kokoIsInView: boolean;
+	let furnitureIsInView: boolean;
+	let panelsIsInView: boolean;
 
-		if (elementIsVisibleInViewport(intro)) {
-			artificeNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: true
-				},
-				{
-					text: 'Ko Ko ??',
-					route: 'koko',
-					selected: false
-				},
-				{
-					text: 'Furniture Searchi',
-					route: 'furniture',
-					selected: false
-				},
-				{
-					text: 'Panels & Exhibition',
-					route: 'panels',
-					selected: false
-				}
-			]);
+	const handleOnScroll = () => {
+		if (introIsInView) {
+			updateNavBar(artificeNavStoreItems, artificeNavItems, artificeNavItems[0].route);
 		}
 
-		if (elementIsVisibleInViewport(koko)) {
-			artificeNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'Ko Ko ??',
-					route: 'koko',
-					selected: true
-				},
-				{
-					text: 'Furniture Searchi',
-					route: 'furniture',
-					selected: false
-				},
-				{
-					text: 'Panels & Exhibition',
-					route: 'panels',
-					selected: false
-				}
-			]);
+		if (kokoIsInView) {
+			updateNavBar(artificeNavStoreItems, artificeNavItems, artificeNavItems[1].route);
 		}
 
-		if (elementIsVisibleInViewport(furniture) || elementIsVisibleInViewport(furnitureEnd)) {
-			artificeNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'Ko Ko ??',
-					route: 'koko',
-					selected: false
-				},
-				{
-					text: 'Furniture Searchi',
-					route: 'furniture',
-					selected: true
-				},
-				{
-					text: 'Panels & Exhibition',
-					route: 'panels',
-					selected: false
-				}
-			]);
+		if (furnitureIsInView) {
+			updateNavBar(artificeNavStoreItems, artificeNavItems, artificeNavItems[2].route);
 		}
 
-		if (elementIsVisibleInViewport(panels)) {
-			artificeNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'Ko Ko ??',
-					route: 'koko',
-					selected: false
-				},
-				{
-					text: 'Furniture Searchi',
-					route: 'furniture',
-					selected: false
-				},
-				{
-					text: 'Panels & Exhibition',
-					route: 'panels',
-					selected: true
-				}
-			]);
+		if (panelsIsInView) {
+			updateNavBar(artificeNavStoreItems, artificeNavItems, artificeNavItems[3].route);
 		}
 	};
 </script>
 
 <svelte:window bind:innerWidth={size} />
 <div
-	on:scroll={handleScroll}
+	on:scroll={handleOnScroll}
+	on:touchmove={handleOnScroll}
 	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
 >
-	<ProjectIntro project={artificeProjectIntro} isCenterImage />
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+	>
+		<ProjectIntro project={artificeProjectIntro} isCenterImage />
 
-	<ProjectVideo videoProjects={furnitureVideo} route="" />
+		<ProjectVideo videoProjects={furnitureVideo} route="" />
+	</div>
 
-	<div id="koko">
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			kokoIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			kokoIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			kokoIsInView = inView;
+		}}
+	>
 		<ProjectAbout aboutItem={kokoAbout} aboutImages={kokoAboutImahges} route="" isImageLeft />
 	</div>
 
-	<div id="furniture">
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			furnitureIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			furnitureIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			furnitureIsInView = inView;
+		}}
+	>
 		<ProjectAbout aboutItem={furnitureAbout} aboutImages={furnitureAboutImages} route="" />
+
+		<ProjectAboutDropdown
+			images={psipsikokoDropdownItems.map((item) => item.image)}
+			aboutDropdownItems={psipsikokoDropdownItems}
+			route="furniture-end"
+		/>
 	</div>
 
-	<ProjectAboutDropdown
-		images={psipsikokoDropdownItems.map((item) => item.image)}
-		aboutDropdownItems={psipsikokoDropdownItems}
-		route="furniture-end"
-	/>
-
-	<div id="panels">
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			panelsIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			panelsIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			panelsIsInView = inView;
+		}}
+	>
 		<ProjectAbout aboutItem={panelsAbout} aboutImages={panelsAboutImages} route="" />
+
+		<ProjectAboutDropdown
+			images={vernisaggeDropdownItems.map((item) => item.image)}
+			aboutDropdownItems={vernisaggeDropdownItems}
+			route=""
+		/>
+
+		<ProjectVideo videoProjects={afterEventVideo} route="" />
 	</div>
-
-	<ProjectAboutDropdown
-		images={vernisaggeDropdownItems.map((item) => item.image)}
-		aboutDropdownItems={vernisaggeDropdownItems}
-		route=""
-	/>
-
-	<ProjectVideo videoProjects={afterEventVideo} route="" />
 
 	<HomeIcon />
 	<Footer />

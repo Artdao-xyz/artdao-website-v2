@@ -1,11 +1,13 @@
-<script>
+<script lang="ts">
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
+	import { inview } from 'svelte-inview';
 	import { EColorVariant } from '../../../constants/enums';
+	import { intertwinedNavItems } from '../../../data/Projects/Intertwined/NavItems';
 	import {
 		cryptoargAbout,
 		cryptoargAboutImages,
@@ -23,166 +25,141 @@
 		cryptoVideo,
 		introVideo
 	} from '../../../data/Projects/Intertwined/ProjectVideo';
-	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
+	import { INVIEW_OPTIONS, updateNavBar } from '../../../utils/nav/updateNavBar';
 	import { intertwinedNavStoreItems } from './store';
 
-	const handleScroll = () => {
-		const intro = document.getElementById('intro');
-		const artdao = document.getElementById('artdao');
-		const artdaoEnd = document.getElementById('artdao-end');
-		const crypto = document.getElementById('crypto');
-		const cryptoEnd = document.getElementById('crypto-end');
-		const vernisagge = document.getElementById('vernisagge');
+	let introIsInView: boolean;
+	let artdaoIsInView: boolean;
+	let cryptoIsInView: boolean;
+	let vernisaggeIsInView: boolean;
 
-		if (elementIsVisibleInViewport(intro)) {
-			intertwinedNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: true
-				},
-				{
-					text: 'ArtDao Curation',
-					route: 'artdao',
-					selected: false
-				},
-				{
-					text: 'CryptoArg',
-					route: 'crypto',
-					selected: false
-				},
-				{
-					text: 'Vernisagge',
-					route: 'vernisagge',
-					selected: false
-				}
-			]);
+	const handleOnScroll = () => {
+		if (introIsInView) {
+			updateNavBar(intertwinedNavStoreItems, intertwinedNavItems, intertwinedNavItems[0].route);
 		}
 
-		if (elementIsVisibleInViewport(artdao) || elementIsVisibleInViewport(artdaoEnd)) {
-			intertwinedNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'ArtDao Curation',
-					route: 'artdao',
-					selected: true
-				},
-				{
-					text: 'CryptoArg',
-					route: 'crypto',
-					selected: false
-				},
-				{
-					text: 'Vernisagge',
-					route: 'vernisagge',
-					selected: false
-				}
-			]);
+		if (artdaoIsInView) {
+			updateNavBar(intertwinedNavStoreItems, intertwinedNavItems, intertwinedNavItems[1].route);
 		}
 
-		if (elementIsVisibleInViewport(crypto) || elementIsVisibleInViewport(cryptoEnd)) {
-			intertwinedNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'ArtDao Curation',
-					route: 'artdao',
-					selected: false
-				},
-				{
-					text: 'CryptoArg',
-					route: 'crypto',
-					selected: true
-				},
-				{
-					text: 'Vernisagge',
-					route: 'vernisagge',
-					selected: false
-				}
-			]);
+		if (cryptoIsInView) {
+			updateNavBar(intertwinedNavStoreItems, intertwinedNavItems, intertwinedNavItems[2].route);
 		}
 
-		if (elementIsVisibleInViewport(vernisagge)) {
-			intertwinedNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'ArtDao Curation',
-					route: 'artdao',
-					selected: false
-				},
-				{
-					text: 'CryptoArg',
-					route: 'crypto',
-					selected: false
-				},
-				{
-					text: 'Vernisagge',
-					route: 'vernisagge',
-					selected: true
-				}
-			]);
+		if (vernisaggeIsInView) {
+			updateNavBar(intertwinedNavStoreItems, intertwinedNavItems, intertwinedNavItems[3].route);
 		}
 	};
 </script>
 
 <div
-	on:scroll={handleScroll}
+	on:scroll={handleOnScroll}
+	on:touchmove={handleOnScroll}
 	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
 >
-	<ProjectIntro project={intertwinedProjectIntro} textColor="black" />
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+	>
+		<ProjectIntro project={intertwinedProjectIntro} textColor="black" />
 
-	<ProjectVideo videoProjects={introVideo} />
+		<ProjectVideo videoProjects={introVideo} />
+	</div>
 
-	<div id="artdao">
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			artdaoIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			artdaoIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			artdaoIsInView = inView;
+		}}
+	>
 		<ProjectAbout
 			aboutItem={curationAbout}
 			aboutImages={curationAboutImages}
 			route=""
 			colorVariant={EColorVariant.BLACK}
 		/>
+
+		<ProjectAboutDropdown
+			images={artdaoDropdownItems.map((item) => item.image)}
+			aboutDropdownItems={artdaoDropdownItems}
+			route=""
+		/>
+
+		<ProjectVideo videoProjects={artdaoVideo} route="artdao-end" />
 	</div>
 
-	<ProjectAboutDropdown
-		images={artdaoDropdownItems.map((item) => item.image)}
-		aboutDropdownItems={artdaoDropdownItems}
-		route=""
-	/>
-
-	<ProjectVideo videoProjects={artdaoVideo} route="artdao-end" />
-
-	<div id="crypto">
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			cryptoIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			cryptoIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			cryptoIsInView = inView;
+		}}
+	>
 		<ProjectAbout
 			aboutItem={cryptoargAbout}
 			aboutImages={cryptoargAboutImages}
 			route=""
 			colorVariant={EColorVariant.BLACK}
 		/>
+
+		<ProjectAboutDropdown
+			images={cryptoargDropdownItems.map((item) => item.image)}
+			aboutDropdownItems={cryptoargDropdownItems}
+			route=""
+		/>
+
+		<ProjectVideo videoProjects={cryptoVideo} route="crypto-end" />
 	</div>
 
-	<ProjectAboutDropdown
-		images={cryptoargDropdownItems.map((item) => item.image)}
-		aboutDropdownItems={cryptoargDropdownItems}
-		route=""
-	/>
-
-	<ProjectVideo videoProjects={cryptoVideo} route="crypto-end" />
-
-	<ProjectAboutDropdown
-		images={intertwinedVernisaggeDropdownItems.map((item) => item.image)}
-		aboutDropdownItems={intertwinedVernisaggeDropdownItems}
-		route="vernisagge"
-	/>
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			vernisaggeIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			vernisaggeIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			vernisaggeIsInView = inView;
+		}}
+	>
+		<ProjectAboutDropdown
+			images={intertwinedVernisaggeDropdownItems.map((item) => item.image)}
+			aboutDropdownItems={intertwinedVernisaggeDropdownItems}
+			route="vernisagge"
+		/>
+	</div>
 
 	<HomeIcon />
 	<Footer />

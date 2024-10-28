@@ -1,10 +1,11 @@
-<script>
+<script lang="ts">
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectAudioFiles from '$lib/components/ProjectAudioFiles/ProjectAudioFiles.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
+	import { inview } from 'svelte-inview';
 	import { raveNavItems } from '../../../data/Projects/Rave/NavItems';
 	import {
 		performanceDropdownItems,
@@ -20,111 +21,110 @@
 		fwvnVideo,
 		petroVideo
 	} from '../../../data/Projects/Rave/ProjectVideo';
-	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
+	import { INVIEW_OPTIONS, updateNavBar } from '../../../utils/nav/updateNavBar';
 	import { raveNavStoreItems } from './store';
 
-	const handleScroll = () => {
-		const intro = document.getElementById('intro');
-		const artists = document.getElementById('artists');
-		const artistsEnd = document.getElementById('artists-end');
-		const event = document.getElementById('event');
-		const eventEnd = document.getElementById('event-end');
+	let introIsInView: boolean;
+	let artistsIsInView: boolean;
+	let eventIsInView: boolean;
 
-		if (elementIsVisibleInViewport(intro)) {
-			raveNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: true
-				},
-				{
-					text: 'Artists & Artworks',
-					route: 'artists',
-					selected: false
-				},
-				{
-					text: 'Event & After Party',
-					route: 'event',
-					selected: false
-				}
-			]);
+	const handleOnScroll = () => {
+		if (introIsInView) {
+			updateNavBar(raveNavStoreItems, raveNavItems, raveNavItems[0].route);
 		}
 
-		if (elementIsVisibleInViewport(artists) || elementIsVisibleInViewport(artistsEnd)) {
-			raveNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'Artists & Artworks',
-					route: 'artists',
-					selected: true
-				},
-				{
-					text: 'Event & After Party',
-					route: 'event',
-					selected: false
-				}
-			]);
+		if (artistsIsInView) {
+			updateNavBar(raveNavStoreItems, raveNavItems, raveNavItems[1].route);
 		}
 
-		if (elementIsVisibleInViewport(event) || elementIsVisibleInViewport(eventEnd)) {
-			raveNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'Artists & Artworks',
-					route: 'artists',
-					selected: false
-				},
-				{
-					text: 'Event & After Party',
-					route: 'event',
-					selected: true
-				}
-			]);
+		if (eventIsInView) {
+			updateNavBar(raveNavStoreItems, raveNavItems, raveNavItems[2].route);
 		}
 	};
 </script>
 
 <div
-	on:scroll={handleScroll}
+	on:scroll={handleOnScroll}
+	on:touchmove={handleOnScroll}
 	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto h-screen"
 >
-	<ProjectIntro project={raveProject} />
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+	>
+		<ProjectIntro project={raveProject} />
+	</div>
 
-	<ProjectAboutDropdown
-		images={raveAboutDropdopwnItems.map((image) => image.image)}
-		aboutDropdownItems={raveAboutDropdopwnItems}
-		route={raveNavItems[1].route}
-	/>
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			artistsIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			artistsIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			artistsIsInView = inView;
+		}}
+	>
+		<ProjectAboutDropdown
+			images={raveAboutDropdopwnItems.map((image) => image.image)}
+			aboutDropdownItems={raveAboutDropdopwnItems}
+			route={raveNavItems[1].route}
+		/>
 
-	<ProjectVideo videoProjects={[blessingForSaleVideo, fwvnVideo, frequencyVideo]} />
+		<ProjectVideo videoProjects={[blessingForSaleVideo, fwvnVideo, frequencyVideo]} />
 
-	<ProjectAudioFiles
-		audioItems={raveAudioFiles}
-		title="cybernetic collaboration between Clauthewitch and NICØ"
-		route="artists-end"
-	/>
+		<ProjectAudioFiles
+			audioItems={raveAudioFiles}
+			title="cybernetic collaboration between Clauthewitch and NICØ"
+			route="artists-end"
+		/>
+	</div>
 
-	<ProjectAboutDropdown
-		images={performanceDropdownItems.map((item) => item.image)}
-		aboutDropdownItems={performanceDropdownItems}
-		route={raveNavItems[2].route}
-	/>
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			eventIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			eventIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			eventIsInView = inView;
+		}}
+	>
+		<ProjectAboutDropdown
+			images={performanceDropdownItems.map((item) => item.image)}
+			aboutDropdownItems={performanceDropdownItems}
+			route={raveNavItems[2].route}
+		/>
 
-	<ProjectVideo videoProjects={[afterPartyVideo, petroVideo]} />
+		<ProjectVideo videoProjects={[afterPartyVideo, petroVideo]} />
 
-	<ProjectAboutDropdown
-		images={raveAboutDropdopwnItemsTwo.map((item) => item.image)}
-		aboutDropdownItems={raveAboutDropdopwnItemsTwo}
-		route=""
-	/>
+		<ProjectAboutDropdown
+			images={raveAboutDropdopwnItemsTwo.map((item) => item.image)}
+			aboutDropdownItems={raveAboutDropdopwnItemsTwo}
+			route=""
+		/>
+	</div>
 
 	<HomeIcon />
 	<Footer />

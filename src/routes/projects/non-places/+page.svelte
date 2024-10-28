@@ -4,145 +4,128 @@
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
+	import { inview } from 'svelte-inview';
+	import { nonPlacesNavItems } from '../../../data/Projects/NonPlaces/NavItems';
 	import {
 		nonPlacesDropdownItems,
 		nonPlacesTwoDropdownItems
 	} from '../../../data/Projects/NonPlaces/ProjectAboutDropdown';
 	import { nonPlacesProjectIntro } from '../../../data/Projects/NonPlaces/ProjectIntro';
 	import { nonPlacesVideo } from '../../../data/Projects/NonPlaces/ProjectVideo';
-	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
+	import { INVIEW_OPTIONS, updateNavBar } from '../../../utils/nav/updateNavBar';
 	import { nonPlacesNavStoreItems } from './store';
 
 	let size: number;
 
-	const handleScroll = () => {
-		const intro = document.getElementById('intro');
-		const venue = document.getElementById('venue');
-		const artworks = document.getElementById('artworks');
-		const vernisagge = document.getElementById('vernisagge');
+	let introIsInView: boolean;
+	let venueIsInView: boolean;
+	let artworksIsInView: boolean;
+	let vernisaggeIsInView: boolean;
 
-		if (elementIsVisibleInViewport(intro)) {
-			nonPlacesNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: true
-				},
-				{
-					text: 'The Venue',
-					route: 'venue',
-					selected: false
-				},
-				{
-					text: 'Artworks',
-					route: 'artworks',
-					selected: false
-				},
-				{
-					text: 'Vernisagge',
-					route: 'vernisagge',
-					selected: false
-				}
-			]);
+	const handleOnScroll = () => {
+		if (introIsInView) {
+			updateNavBar(nonPlacesNavStoreItems, nonPlacesNavItems, nonPlacesNavItems[0].route);
 		}
 
-		if (elementIsVisibleInViewport(venue)) {
-			nonPlacesNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'The Venue',
-					route: 'venue',
-					selected: true
-				},
-				{
-					text: 'Artworks',
-					route: 'artworks',
-					selected: false
-				},
-				{
-					text: 'Vernisagge',
-					route: 'vernisagge',
-					selected: false
-				}
-			]);
+		if (venueIsInView) {
+			updateNavBar(nonPlacesNavStoreItems, nonPlacesNavItems, nonPlacesNavItems[1].route);
 		}
 
-		if (elementIsVisibleInViewport(artworks)) {
-			nonPlacesNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'The Venue',
-					route: 'venue',
-					selected: false
-				},
-				{
-					text: 'Artworks',
-					route: 'artworks',
-					selected: true
-				},
-				{
-					text: 'Vernisagge',
-					route: 'vernisagge',
-					selected: false
-				}
-			]);
+		if (artworksIsInView) {
+			updateNavBar(nonPlacesNavStoreItems, nonPlacesNavItems, nonPlacesNavItems[2].route);
 		}
 
-		if (elementIsVisibleInViewport(vernisagge)) {
-			nonPlacesNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'The Venue',
-					route: 'venue',
-					selected: false
-				},
-				{
-					text: 'Artworks',
-					route: 'artworks',
-					selected: false
-				},
-				{
-					text: 'Vernisagge',
-					route: 'vernisagge',
-					selected: true
-				}
-			]);
+		if (vernisaggeIsInView) {
+			updateNavBar(nonPlacesNavStoreItems, nonPlacesNavItems, nonPlacesNavItems[3].route);
 		}
 	};
 </script>
 
 <svelte:window bind:innerWidth={size} />
 <div
-	on:scroll={handleScroll}
+	on:scroll={handleOnScroll}
+	on:touchmove={handleOnScroll}
 	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
 >
-	<ProjectIntro project={nonPlacesProjectIntro} />
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+	>
+		<ProjectIntro project={nonPlacesProjectIntro} />
+	</div>
 
-	<ProjectVideo videoProjects={nonPlacesVideo} route="venue" />
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			venueIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			venueIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			venueIsInView = inView;
+		}}
+	>
+		<ProjectVideo videoProjects={nonPlacesVideo} route="venue" />
+	</div>
 
-	<ProjectAboutDropdown
-		images={nonPlacesDropdownItems.map((item) => item.image)}
-		aboutDropdownItems={nonPlacesDropdownItems}
-		route="artworks"
-	/>
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			artworksIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			artworksIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			artworksIsInView = inView;
+		}}
+	>
+		<ProjectAboutDropdown
+			images={nonPlacesDropdownItems.map((item) => item.image)}
+			aboutDropdownItems={nonPlacesDropdownItems}
+			route="artworks"
+		/>
+	</div>
 
-	<ProjectAboutDropdown
-		images={nonPlacesTwoDropdownItems.map((item) => item.image)}
-		aboutDropdownItems={nonPlacesTwoDropdownItems}
-		route="vernisagge"
-	/>
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			vernisaggeIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			vernisaggeIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			vernisaggeIsInView = inView;
+		}}
+	>
+		<ProjectAboutDropdown
+			images={nonPlacesTwoDropdownItems.map((item) => item.image)}
+			aboutDropdownItems={nonPlacesTwoDropdownItems}
+			route="vernisagge"
+		/>
+	</div>
 
 	<HomeIcon />
 	<Footer />

@@ -11,6 +11,7 @@
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
+	import { inview } from 'svelte-inview';
 	import { ecologiesNavItems } from '../../../data/Projects/EcologiesOfCode/NavItems';
 	import {
 		hypereikonAbout,
@@ -35,187 +36,160 @@
 		ecologiesVideoProjectOne,
 		okyVideos
 	} from '../../../data/Projects/EcologiesOfCode/ProjectVIdeo';
-	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
+	import { INVIEW_OPTIONS, updateNavBar } from '../../../utils/nav/updateNavBar';
 	import { ecologiesNavStoreItems } from './store';
 
 	let size: number;
 
-	const handleScroll = () => {
-		const intro = document.getElementById('intro');
-		const joaquina = document.getElementById('joaquina');
-		const joaquinaEnd = document.getElementById('joaquina-end');
-		const oki = document.getElementById('oki');
-		const okiEnd = document.getElementById('oki-end');
-		const hypereikon = document.getElementById('hypereikon');
+	let introIsInView: boolean;
+	let joaquinaIsInView: boolean;
+	let okiIsInView: boolean;
+	let hyperIsInView: boolean;
 
-		if (elementIsVisibleInViewport(intro)) {
-			ecologiesNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: true
-				},
-				{
-					text: 'Joaquina',
-					route: 'joaquina',
-					selected: false
-				},
-				{
-					text: 'Okytomo',
-					route: 'oki',
-					selected: false
-				},
-				{
-					text: 'Hypereikon',
-					route: 'hypereikon',
-					selected: false
-				}
-			]);
+	const handleOnScroll = () => {
+		if (introIsInView) {
+			updateNavBar(ecologiesNavStoreItems, ecologiesNavItems, ecologiesNavItems[0].route);
 		}
 
-		if (elementIsVisibleInViewport(joaquina) || elementIsVisibleInViewport(joaquinaEnd)) {
-			ecologiesNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'Joaquina',
-					route: 'joaquina',
-					selected: true
-				},
-				{
-					text: 'Okytomo',
-					route: 'oki',
-					selected: false
-				},
-				{
-					text: 'Hypereikon',
-					route: 'hypereikon',
-					selected: false
-				}
-			]);
+		if (joaquinaIsInView) {
+			updateNavBar(ecologiesNavStoreItems, ecologiesNavItems, ecologiesNavItems[1].route);
 		}
 
-		if (elementIsVisibleInViewport(oki) || elementIsVisibleInViewport(okiEnd)) {
-			ecologiesNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'Joaquina',
-					route: 'joaquina',
-					selected: false
-				},
-				{
-					text: 'Okytomo',
-					route: 'oki',
-					selected: true
-				},
-				{
-					text: 'Hypereikon',
-					route: 'hypereikon',
-					selected: false
-				}
-			]);
+		if (okiIsInView) {
+			updateNavBar(ecologiesNavStoreItems, ecologiesNavItems, ecologiesNavItems[2].route);
 		}
 
-		if (elementIsVisibleInViewport(hypereikon)) {
-			ecologiesNavStoreItems.update((obj) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'Joaquina',
-					route: 'joaquina',
-					selected: false
-				},
-				{
-					text: 'Okytomo',
-					route: 'oki',
-					selected: false
-				},
-				{
-					text: 'Hypereikon',
-					route: 'hypereikon',
-					selected: true
-				}
-			]);
+		if (hyperIsInView) {
+			updateNavBar(ecologiesNavStoreItems, ecologiesNavItems, ecologiesNavItems[3].route);
 		}
 	};
 </script>
 
 <svelte:window bind:innerWidth={size} />
 <div
-	on:scroll={handleScroll}
+	on:scroll={handleOnScroll}
+	on:touchmove={handleOnScroll}
 	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
 >
-	<ProjectIntro project={ecologiesOfCodeProject} textColor="white" />
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+	>
+		<ProjectIntro project={ecologiesOfCodeProject} textColor="white" />
+	</div>
 
-	<div id={ecologiesNavItems[1].route}>
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			joaquinaIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			joaquinaIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			joaquinaIsInView = inView;
+		}}
+	>
 		<ProjectAbout aboutItem={joaquinaAbout} aboutImages={joaquinaAboutImages} route="" />
+
+		<ProjectInterview bgImage={ecoInterviewBg} filteredQuestions={ecologiesQuestions} />
+
+		<ProjectVideo videoProjects={[ecologiesVideoProjectOne]} />
+
+		{#if size > 1100}
+			<ProjectPolaroids
+				images={ecologiesPolaroidImages}
+				route="joaquina-end"
+				polaroidsTypes={[
+					EPolaroidType.RECTANGLE,
+					EPolaroidType.VERTICAL,
+					EPolaroidType.RECTANGLE,
+					EPolaroidType.RECTANGLE
+				]}
+			/>
+		{:else}
+			<PolaroidsMobile polaroidImages={ecologiesPolaroidImages} route="joaquina-end" />
+		{/if}
 	</div>
 
-	<ProjectInterview bgImage={ecoInterviewBg} filteredQuestions={ecologiesQuestions} />
-
-	<ProjectVideo videoProjects={[ecologiesVideoProjectOne]} />
-
-	{#if size > 1100}
-		<ProjectPolaroids
-			images={ecologiesPolaroidImages}
-			route="joaquina-end"
-			polaroidsTypes={[
-				EPolaroidType.RECTANGLE,
-				EPolaroidType.VERTICAL,
-				EPolaroidType.RECTANGLE,
-				EPolaroidType.RECTANGLE
-			]}
-		/>
-	{:else}
-		<PolaroidsMobile polaroidImages={ecologiesPolaroidImages} route="joaquina-end" />
-	{/if}
-
-	<div id={ecologiesNavItems[2].route}>
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			okiIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			okiIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			okiIsInView = inView;
+		}}
+	>
 		<ProjectAbout aboutItem={okytomoAbout} aboutImages={okytomoAboutImages} route="" />
+
+		<ProjectVideo videoProjects={okyVideos} />
+
+		{#if size > 1100}
+			<ProjectPolaroids
+				images={ecologiesPolaroidImagesTwo}
+				route="oki-end"
+				polaroidsTypes={[
+					EPolaroidType.RECTANGLE,
+					EPolaroidType.VERTICAL,
+					EPolaroidType.RECTANGLE,
+					EPolaroidType.RECTANGLE
+				]}
+				viewImageFit="cover"
+			/>
+		{:else}
+			<PolaroidsMobile polaroidImages={ecologiesPolaroidImagesTwo} route="oki-end" />
+		{/if}
 	</div>
 
-	<ProjectVideo videoProjects={okyVideos} />
-
-	{#if size > 1100}
-		<ProjectPolaroids
-			images={ecologiesPolaroidImagesTwo}
-			route="oki-end"
-			polaroidsTypes={[
-				EPolaroidType.RECTANGLE,
-				EPolaroidType.VERTICAL,
-				EPolaroidType.RECTANGLE,
-				EPolaroidType.RECTANGLE
-			]}
-			viewImageFit="cover"
-		/>
-	{:else}
-		<PolaroidsMobile polaroidImages={ecologiesPolaroidImagesTwo} route="oki-end" />
-	{/if}
-
-	<div id={ecologiesNavItems[3].route}>
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			hyperIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			hyperIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			hyperIsInView = inView;
+		}}
+	>
 		<ProjectAbout aboutItem={hypereikonAbout} aboutImages={hypereikonAboutImages} route="" />
-	</div>
 
-	<div class="hidden sm:block">
-		<ProjectArtworkGrid galleryImages={ecologiesArtworkImages} />
-	</div>
+		<div class="hidden sm:block">
+			<ProjectArtworkGrid galleryImages={ecologiesArtworkImages} />
+		</div>
 
-	<div class="block sm:hidden sm:snap-start">
-		<ProjectArtworkGridMobile
-			isOverflow={false}
-			imagesLeft={ecologiesGallery1}
-			imagesRight={ecologiesGallery2}
-		/>
+		<div class="block sm:hidden sm:snap-start">
+			<ProjectArtworkGridMobile
+				isOverflow={false}
+				imagesLeft={ecologiesGallery1}
+				imagesRight={ecologiesGallery2}
+			/>
+		</div>
 	</div>
 
 	<HomeIcon />

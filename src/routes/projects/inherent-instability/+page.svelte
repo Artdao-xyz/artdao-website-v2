@@ -9,6 +9,7 @@
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
+	import { inview } from 'svelte-inview';
 	import { EColorVariant } from '../../../constants/enums';
 	import { inherentInstabilityNavItems } from '../../../data/Projects/InherentInstability/NavItems';
 	import {
@@ -30,181 +31,170 @@
 		inaVideo,
 		nicoVideo
 	} from '../../../data/Projects/InherentInstability/ProjectVideo';
-	import { elementIsVisibleInViewport } from '../../../utils/elementVisibility';
+	import { INVIEW_OPTIONS, updateNavBar } from '../../../utils/nav/updateNavBar';
 	import { inherentInstabilityNavStoreItems } from './store';
 
 	let size: number;
 
-	const handleScroll = () => {
-		const intro = document.getElementById('intro');
-		const inaVare = document.getElementById('ina');
-		const inaVareEnd = document.getElementById('ina-end');
-		const elbi = document.getElementById('elbi');
-		const elbiEnd = document.getElementById('elbi-end');
-		const nico = document.getElementById('nico');
+	let introIsInView: boolean;
+	let inaIsInView: boolean;
+	let elbiIsInView: boolean;
+	let nicoIsInView: boolean;
 
-		if (elementIsVisibleInViewport(intro)) {
-			inherentInstabilityNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: true
-				},
-				{
-					text: 'Ina Vare',
-					route: 'inaVare',
-					selected: false
-				},
-				{
-					text: 'Elbi',
-					route: 'elbi',
-					selected: false
-				},
-				{
-					text: 'Nico',
-					route: 'nico',
-					selected: false
-				}
-			]);
+	const handleOnScroll = () => {
+		if (introIsInView) {
+			updateNavBar(
+				inherentInstabilityNavStoreItems,
+				inherentInstabilityNavItems,
+				inherentInstabilityNavItems[0].route
+			);
 		}
 
-		if (elementIsVisibleInViewport(inaVare) || elementIsVisibleInViewport(inaVareEnd)) {
-			inherentInstabilityNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'Ina Vare',
-					route: 'inaVare',
-					selected: true
-				},
-				{
-					text: 'Elbi',
-					route: 'elbi',
-					selected: false
-				},
-				{
-					text: 'Nico',
-					route: 'nico',
-					selected: false
-				}
-			]);
+		if (inaIsInView) {
+			updateNavBar(
+				inherentInstabilityNavStoreItems,
+				inherentInstabilityNavItems,
+				inherentInstabilityNavItems[1].route
+			);
 		}
 
-		if (elementIsVisibleInViewport(elbi) || elementIsVisibleInViewport(elbiEnd)) {
-			inherentInstabilityNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'Ina Vare',
-					route: 'inaVare',
-					selected: false
-				},
-				{
-					text: 'Elbi',
-					route: 'elbi',
-					selected: true
-				},
-				{
-					text: 'Nico',
-					route: 'nico',
-					selected: false
-				}
-			]);
+		if (elbiIsInView) {
+			updateNavBar(
+				inherentInstabilityNavStoreItems,
+				inherentInstabilityNavItems,
+				inherentInstabilityNavItems[2].route
+			);
 		}
 
-		if (elementIsVisibleInViewport(nico)) {
-			inherentInstabilityNavStoreItems.update((items) => [
-				{
-					text: 'About',
-					route: 'intro',
-					selected: false
-				},
-				{
-					text: 'Ina Vare',
-					route: 'inaVare',
-					selected: false
-				},
-				{
-					text: 'Elbi',
-					route: 'elbi',
-					selected: false
-				},
-				{
-					text: 'Nico',
-					route: 'nico',
-					selected: true
-				}
-			]);
+		if (nicoIsInView) {
+			updateNavBar(
+				inherentInstabilityNavStoreItems,
+				inherentInstabilityNavItems,
+				inherentInstabilityNavItems[3].route
+			);
 		}
 	};
 </script>
 
 <svelte:window bind:innerWidth={size} />
 <div
-	on:scroll={handleScroll}
+	on:scroll={handleOnScroll}
+	on:touchmove={handleOnScroll}
 	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
 >
-	<ProjectIntro project={inherentInstabilityProjectIntro} textColor="white" isContain />
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			introIsInView = inView;
+		}}
+	>
+		<ProjectIntro project={inherentInstabilityProjectIntro} textColor="white" isContain />
 
-	<ProjectInterview bgImage={inaInterviewBgImage} filteredQuestions={inherentQuestions} />
+		<ProjectInterview bgImage={inaInterviewBgImage} filteredQuestions={inherentQuestions} />
+	</div>
 
-	<div id={inherentInstabilityNavItems[1].route}>
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			inaIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			inaIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			inaIsInView = inView;
+		}}
+	>
 		<ProjectAbout
 			aboutItem={inaVareAbout}
 			aboutImages={inaVareAboutImages}
 			route=""
 			colorVariant={EColorVariant.LIGHT}
 		/>
+
+		<ProjectVideo videoProjects={inaVideo} />
+
+		{#if size > 1100}
+			<ProjectPolaroids
+				images={inaVarePolaroidsImages}
+				polaroidsTypes={[
+					EPolaroidType.RECTANGLE,
+					EPolaroidType.VERTICAL,
+					EPolaroidType.RECTANGLE,
+					EPolaroidType.VERTICAL
+				]}
+				route="ina-end"
+			/>
+		{:else}
+			<PolaroidsMobile polaroidImages={inaVarePolaroidsImages} route="ina-end" />
+		{/if}
 	</div>
 
-	<ProjectVideo videoProjects={inaVideo} />
-
-	{#if size > 1100}
-		<ProjectPolaroids
-			images={inaVarePolaroidsImages}
-			polaroidsTypes={[
-				EPolaroidType.RECTANGLE,
-				EPolaroidType.VERTICAL,
-				EPolaroidType.RECTANGLE,
-				EPolaroidType.VERTICAL
-			]}
-			route="ina-end"
-		/>
-	{:else}
-		<PolaroidsMobile polaroidImages={inaVarePolaroidsImages} route="ina-end" />
-	{/if}
-
-	<div id={inherentInstabilityNavItems[2].route}>
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			elbiIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			elbiIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			elbiIsInView = inView;
+		}}
+	>
 		<ProjectAbout aboutItem={elbiAbout} aboutImages={elbiAboutImages} route="" />
+
+		<ProjectVideo videoProjects={elbiVideo} route="elbi-end" />
 	</div>
 
-	<ProjectVideo videoProjects={elbiVideo} route="elbi-end" />
-
-	<div id={inherentInstabilityNavItems[3].route}>
+	<div
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			nicoIsInView = inView;
+		}}
+		on:inview_enter={(event) => {
+			const { inView } = event.detail;
+			nicoIsInView = inView;
+		}}
+		on:inview_leave={(event) => {
+			const { inView } = event.detail;
+			nicoIsInView = inView;
+		}}
+	>
 		<ProjectAbout aboutItem={nicoAbout} aboutImages={nicoAboutImages} route="" />
+
+		<ProjectVideo videoProjects={nicoVideo} />
+
+		{#if size > 1100}
+			<ProjectPolaroids
+				images={nicoPolaroidsImages}
+				polaroidsTypes={[
+					EPolaroidType.VERTICAL,
+					EPolaroidType.VERTICAL,
+					EPolaroidType.SQUARE,
+					EPolaroidType.RECTANGLE
+				]}
+			/>
+		{:else}
+			<PolaroidsMobile polaroidImages={nicoPolaroidsImages} route="" />
+		{/if}
 	</div>
-
-	<ProjectVideo videoProjects={nicoVideo} />
-
-	{#if size > 1100}
-		<ProjectPolaroids
-			images={nicoPolaroidsImages}
-			polaroidsTypes={[
-				EPolaroidType.VERTICAL,
-				EPolaroidType.VERTICAL,
-				EPolaroidType.SQUARE,
-				EPolaroidType.RECTANGLE
-			]}
-		/>
-	{:else}
-		<PolaroidsMobile polaroidImages={nicoPolaroidsImages} route="" />
-	{/if}
 
 	<HomeIcon />
 	<Footer />
