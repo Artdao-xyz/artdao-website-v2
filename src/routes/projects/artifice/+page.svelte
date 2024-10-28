@@ -26,12 +26,10 @@
 
 	const handleScroll = () => {
 		const intro = document.getElementById('intro');
-		const marcus = document.getElementById('marcus');
-		const marcusEnd = document.getElementById('marcus-end');
-		const sulkian = document.getElementById('sulkian');
-		const sulkianEnd = document.getElementById('sulkian-end');
-		const parsa = document.getElementById('parsa');
-		const parsaEnd = document.getElementById('parsa-end');
+		const koko = document.getElementById('koko');
+		const furniture = document.getElementById('furniture');
+		const furnitureEnd = document.getElementById('furniture-end');
+		const panels = document.getElementById('panels');
 
 		if (elementIsVisibleInViewport(intro)) {
 			artificeNavStoreItems.update((items) => [
@@ -58,7 +56,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(marcus, true) || elementIsVisibleInViewport(marcusEnd)) {
+		if (elementIsVisibleInViewport(koko)) {
 			artificeNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -83,7 +81,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(sulkian, true) || elementIsVisibleInViewport(sulkianEnd)) {
+		if (elementIsVisibleInViewport(furniture) || elementIsVisibleInViewport(furnitureEnd)) {
 			artificeNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -108,7 +106,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(parsa, true) || elementIsVisibleInViewport(parsaEnd)) {
+		if (elementIsVisibleInViewport(panels)) {
 			artificeNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -155,7 +153,7 @@
 	<ProjectAboutDropdown
 		images={psipsikokoDropdownItems.map((item) => item.image)}
 		aboutDropdownItems={psipsikokoDropdownItems}
-		route=""
+		route="furniture-end"
 	/>
 
 	<div id="panels">
