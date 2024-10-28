@@ -71,7 +71,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(marcus, true) || elementIsVisibleInViewport(marcusEnd)) {
+		if (elementIsVisibleInViewport(marcus) || elementIsVisibleInViewport(marcusEnd)) {
 			digitalMatterNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -96,7 +96,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(sulkian, true) || elementIsVisibleInViewport(sulkianEnd)) {
+		if (elementIsVisibleInViewport(sulkian) || elementIsVisibleInViewport(sulkianEnd)) {
 			digitalMatterNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -121,7 +121,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(parsa, true) || elementIsVisibleInViewport(parsaEnd)) {
+		if (elementIsVisibleInViewport(parsa) || elementIsVisibleInViewport(parsaEnd)) {
 			digitalMatterNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -165,11 +165,13 @@
 		route=""
 	/>
 
-	{#if size > 1100}
-		<ProjectPolaroids images={marcusPolaroidsImages} route="marcus-end" />
-	{:else}
-		<PolaroidsMobile polaroidImages={marcusPolaroidsImages} route="marcus-end" />
-	{/if}
+	<div id="marcus-end">
+		{#if size > 1100}
+			<ProjectPolaroids images={marcusPolaroidsImages} />
+		{:else}
+			<PolaroidsMobile polaroidImages={marcusPolaroidsImages} route="" />
+		{/if}
+	</div>
 
 	<div id="sulkian">
 		<ProjectAbout aboutItem={sulkianAbout} aboutImages={sulkianAboutImages} route="" />
