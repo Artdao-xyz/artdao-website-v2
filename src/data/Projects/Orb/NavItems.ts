@@ -12,13 +12,13 @@ export const orbNavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
-		text: 'Artworks',
-		route: 'artworks',
+		text: 'Vernisagge',
+		route: 'vernisagge',
 		selected: false
 	},
 	{
-		text: 'Vernisagge',
-		route: 'vernisagge',
+		text: 'Artworks',
+		route: 'artworks',
 		selected: false
 	}
 ];
