@@ -37,17 +37,18 @@
 					<HomeImgRectV image={homeImages[4].imageUrl} />
 				</a>
 			</div>
-			<div class="flex flex-col gap-2 w-full h-full">
-				<a href={homeImages[5].route}>
-					<HomeImgRectV image={homeImages[5].imageUrl} />
-				</a>
-			</div>
+
 			<div class="flex flex-col sm:flex-row gap-2 w-full">
 				<a href={homeImages[6].route} class="w-full sm:w-1/2">
 					<HomeImgSquare image={homeImages[6].imageUrl} />
 				</a>
 				<a href={homeImages[7].route} class="w-full sm:w-1/2">
 					<HomeImgSquare image={homeImages[7].imageUrl} />
+				</a>
+			</div>
+			<div class="flex flex-col gap-2 w-full h-full">
+				<a href={homeImages[5].route}>
+					<HomeImgRectV image={homeImages[5].imageUrl} />
 				</a>
 			</div>
 			<div class="flex flex-col sm:flex-row gap-2 w-full">

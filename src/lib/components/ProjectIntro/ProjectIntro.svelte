@@ -5,6 +5,7 @@
 	export let textColor: 'black' | 'white' = 'black';
 	export let isContain = false;
 	export let isCenterImage = false;
+	export let isWiderTitle = false;
 	const { name, description, image, bgImage, bgImageMobile } = project;
 
 	let width: number;
@@ -27,8 +28,9 @@
 			: `background-image: url(${bgImageMobile});`}
 	>
 		<div
-			class="flex flex-col h-full w-full sm:w-full sm:max-w-[40rem] bigScreen:max-w-[45rem] xlScreen:max-w-[55rem] {textColor ===
-			'black'
+			class="flex flex-col h-full w-full sm:w-full sm:max-w-[40rem] {isWiderTitle
+				? 'bigScreen:max-w-[67rem]'
+				: 'bigScreen:max-w-[45rem]'} xlScreen:max-w-[55rem] {textColor === 'black'
 				? 'text-color-black'
 				: 'text-color-white'} pl-global-padding gap-5 bigScreen:gap-10"
 		>
