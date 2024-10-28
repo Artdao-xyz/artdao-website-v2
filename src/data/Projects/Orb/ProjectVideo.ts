@@ -1,11 +1,11 @@
 import type { IVideoProject } from '$lib/elements/VideoCard/interfaces';
 
 export const orbVideo: IVideoProject = {
-	name: 'REMIX',
+	name: 'After Movie',
 	artist: 'Artist',
 	year: '2024',
 	videoUrl: '',
-	size: 'vertical'
+	size: 'rectangle'
 };
 
 export const artworksVideo: IVideoProject[] = [
@@ -66,7 +66,7 @@ export const artworksVideo: IVideoProject[] = [
 		size: 'vertical'
 	},
 	{
-		name: 'eternal_gardens_of_immaterial_mem',
+		name: 'eternal gardens of immaterial mem',
 		artist: 'Julia',
 		videoUrl:
 			'https://storage.googleapis.com/videoszine/ORB/ORB%20ARTWORKS%20VIDEOS/Julia%20-%20eternal_gardens_of_immaterial_memories.mp4#t=0.1',
