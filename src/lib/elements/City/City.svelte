@@ -45,7 +45,7 @@
 		isSelected = false;
 	}}
 	style="position: absolute; left: {left}%; top: {top}%;"
-	class="relative flex flex-row items-center justify-center rounded-40 py-[13px] px-[17px] w-[143px] h-[2.9375rem] {!isSelected
+	class="relative flex flex-row items-center justify-center rounded-40 py-[13px] px-[17px] w-full max-w-[160px] h-[2.9375rem] {!isSelected
 		? 'unselected'
 		: 'selected'}"
 >
@@ -53,7 +53,7 @@
 		<div class="w-[0.75rem] h-[0.75rem] bg-color-white rounded-[100px]" />
 	{/if}
 	<p
-		class="w-[90px] h-[21px] text-color-white font-robotoMono text-[12px] font-medium tracking-[0.156px] uppercase"
+		class="w-full h-[21px] text-color-white font-robotoMono text-[12px] font-medium tracking-[0.156px] uppercase"
 	>
 		{mapLocation.location}
 	</p>
@@ -73,7 +73,9 @@
 					on:click={() => handleOnClick(event)}
 					class="group w-full h-[2.9375rem] hover:bg-color-dark rounded-[100px] flex justify-between items-center pl-[15px] pr-[8px]"
 				>
-					<p class="font-neue text-[20px] tracking-[0.0163rem] font-semibold uppercase">
+					<p
+						class="font-neue text-[20px] tracking-[0.0163rem] font-semibold uppercase text-color-black hover:text-color-white"
+					>
 						{event.title}
 					</p>
 					<button
