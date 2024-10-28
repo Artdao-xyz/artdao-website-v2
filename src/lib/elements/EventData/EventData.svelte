@@ -1,5 +1,4 @@
 <script lang="ts">
-	import buttonIcon from '$lib/assets/images/video-arrow.svg';
 	import type { IMapEvent } from '../../../data/Map/MapData';
 
 	export let eventToShow: IMapEvent | undefined;
@@ -29,13 +28,6 @@
 					<p class="pr-[22px] font-robotoMono text-[12px] font-medium uppercase tracking-[0.156px]">
 						{eventToShow.city}
 					</p>
-				</div>
-				<div class="p-[6px] gray-gradient rounded-[100px]">
-					<button
-						class="w-[30px] h-[30px] rounded-[6.25rem] border-color-black border group-hover:border-color-white flex items-center justify-center"
-					>
-						<img src={buttonIcon} alt="Button" class="rotate-180 w-[10px] group-hover:invert" />
-					</button>
 				</div>
 			</div>
 
