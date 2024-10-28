@@ -13,8 +13,6 @@
 	let eventToShow: IMapEvent | undefined = undefined;
 	let width: number;
 	let mapLocationToShow: IMapLocation | undefined;
-
-	$: console.log('event to show', eventToShow);
 </script>
 
 <svelte:window bind:innerWidth={width} />

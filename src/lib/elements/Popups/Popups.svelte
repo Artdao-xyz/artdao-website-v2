@@ -15,7 +15,6 @@
 	let success = false;
 	let error = false;
 	let memberExists = false;
-	$: console.log('memberExists', memberExists);
 
 	const handleSubmit = async (event: any) => {
 		// console.log('submitting', submitting);
