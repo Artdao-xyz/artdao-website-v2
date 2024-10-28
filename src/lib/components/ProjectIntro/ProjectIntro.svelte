@@ -4,6 +4,7 @@
 	export let project: IProject;
 	export let textColor: 'black' | 'white' = 'black';
 	export let isContain = false;
+	export let isCenterImage = false;
 	const { name, description, image, bgImage, bgImageMobile } = project;
 
 	let width: number;
@@ -16,8 +17,10 @@
 		class="w-full {height > 850 && width < 1100
 			? 'h-screen'
 			: 'pb-[10rem]'} flex flex-row pt-[3.5rem] sm:pt-[4.5rem] gap-28 {bgImage
-			? `${isContain && width > 1100 ? 'sm:bg-contain' : 'bg-cover'} bg-fit bg-no-repeat bg-bottom sm:h-full bg-color-black`
-			: ''} {textColor === 'black' ? 'bg-color-white' : 'bg-color-black'} pr-global-padding"
+			? `${isContain && width > 1100 ? 'sm:bg-contain' : 'bg-cover'} bg-fit bg-no-repeat sm:h-full bg-color-black`
+			: ''} {textColor === 'black'
+			? 'bg-color-white'
+			: 'bg-color-black'} pr-global-padding {isCenterImage ? 'bg-center' : 'bg-bottom'}"
 		id="intro"
 		style={width > 1100
 			? `background-image: url(${bgImage});`

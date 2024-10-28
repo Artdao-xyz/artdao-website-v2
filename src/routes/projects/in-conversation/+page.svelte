@@ -84,7 +84,7 @@
 	on:scroll={handleScroll}
 	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
 >
-	<ProjectIntro project={inConversationProjectIntro} textColor="white" />
+	<ProjectIntro project={inConversationProjectIntro} textColor="white" isCenterImage />
 
 	<ProjectVideo videoProjects={inConversationVideo} route="interview" />
 
