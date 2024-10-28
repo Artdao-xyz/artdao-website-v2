@@ -1,9 +1,10 @@
 export const HOME = '/';
 export const DROPS = '/drops';
-export const ECOLOGIES_OF_CODE = 'projects/ecologies-of-code';
+export const ECOLOGIES_OF_CODE = '/projects/ecologies-of-code';
 export const RAVE = '/projects/rave';
 export const DIGITAL_MATTER = '/projects/digital-matter';
 export const ORB = '/projects/orb';
 export const INHERENT = '/projects/inherent-instability';
 export const INTERTWINED = '/projects/intertwined';
 export const ARTIFICE = '/projects/artifice';
+export const NON_PLACES = '/projects/non-places';

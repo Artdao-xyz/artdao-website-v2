@@ -1,5 +1,5 @@
 import bgImageMobile from '$lib/assets/images/projects/nonPlaces/NonPlaces_Cover 1-min.png';
-import bgImage from '$lib/assets/images/projects/nonPlaces/Rectangle-min.png';
+import bgImage from '$lib/assets/images/projects/nonPlaces/Title Page 1-min.png';
 
 export const nonPlacesProjectIntro = {
 	name: 'non places',
