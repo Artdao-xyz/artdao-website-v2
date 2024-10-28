@@ -20,7 +20,7 @@
 
 <HomeMobileMenu toggle="white" section="drop" />
 <SectionContainer colorVariant={EColorVariant.BLACK}>
-	<div class="h-full flex justify-center items-center relative w-full pt-[3rem]">
+	<div class="h-full flex justify-center items-center relative w-full pt-[3rem] sm:pt-0">
 		{#if width > 768}
 			{#if !eventToShow}
 				<img src={mapBg} alt="map" class="h-full" />
