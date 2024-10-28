@@ -59,7 +59,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(artdao, true) || elementIsVisibleInViewport(artdaoEnd)) {
+		if (elementIsVisibleInViewport(artdao) || elementIsVisibleInViewport(artdaoEnd)) {
 			intertwinedNavStoreItems.update((items) => [
 				{
 					text: 'About',
@@ -84,7 +84,7 @@
 			]);
 		}
 
-		if (elementIsVisibleInViewport(crypto, true) || elementIsVisibleInViewport(cryptoEnd)) {
+		if (elementIsVisibleInViewport(crypto) || elementIsVisibleInViewport(cryptoEnd)) {
 			intertwinedNavStoreItems.update((items) => [
 				{
 					text: 'About',
