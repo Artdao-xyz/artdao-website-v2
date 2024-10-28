@@ -94,6 +94,10 @@
 		backdrop-filter: blur(2px);
 	}
 
+	.unselected:hover {
+		background: linear-gradient(95deg, rgba(0, 0, 0, 0.64) 6.17%, rgba(0, 0, 0, 0.8) 92.59%);
+	}
+
 	.selected {
 		background: linear-gradient(95deg, rgba(0, 0, 0, 0.64) 6.17%, rgba(0, 0, 0, 0.8) 92.59%);
 	}
