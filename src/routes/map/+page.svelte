@@ -5,6 +5,7 @@
 	import CityMobile from '$lib/elements/CityMobile/CityMobile.svelte';
 	import EventData from '$lib/elements/EventData/EventData.svelte';
 	import EventDataMobile from '$lib/elements/EventDataMobile/EventDataMobile.svelte';
+	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import { EColorVariant } from '../../constants/enums';
 	import { mapData, type IMapEvent, type IMapLocation } from '../../data/Map/MapData';
@@ -70,6 +71,8 @@
 		{/if}
 	</div>
 </SectionContainer>
+
+<HomeIcon />
 
 <style>
 	.mobileBg {
