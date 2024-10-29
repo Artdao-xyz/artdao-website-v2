@@ -73,7 +73,7 @@
 			introIsInView = inView;
 		}}
 	>
-		<ProjectIntro project={intertwinedProjectIntro} textColor="black" />
+		<ProjectIntro project={intertwinedProjectIntro} textColor="black" isCenterImage />
 
 		<ProjectVideo videoProjects={introVideo} />
 	</div>

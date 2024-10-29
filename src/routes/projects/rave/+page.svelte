@@ -63,7 +63,7 @@
 			introIsInView = inView;
 		}}
 	>
-		<ProjectIntro project={raveProject} />
+		<ProjectIntro project={raveProject} isCenterImage />
 	</div>
 
 	<div
