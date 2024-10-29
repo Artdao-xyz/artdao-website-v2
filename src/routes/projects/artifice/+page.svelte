@@ -72,7 +72,7 @@
 			introIsInView = inView;
 		}}
 	>
-		<ProjectIntro project={artificeProjectIntro} isCenterImage />
+		<ProjectIntro project={artificeProjectIntro} isCenterImage textColor="white" />
 
 		<ProjectVideo videoProjects={furnitureVideo} route="" />
 	</div>
