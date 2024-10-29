@@ -20,7 +20,7 @@
 </script>
 
 {#if mapLocation}
-	<div class="flex flex-col gap-[15px] justify-center items-center">
+	<div class="flex flex-col gap-[10px] justify-center items-center h-full">
 		<button
 			on:click={() => {
 				toggleSelected;
@@ -42,7 +42,7 @@
 		</button>
 
 		{#if isSelected}
-			<div class="flex flex-col justify-center items-center gap-[5px] w-full">
+			<div class="flex flex-col justify-center items-center gap-[15px] w-full">
 				{#each mapLocation.events as event}
 					<button
 						on:click={() => handleOnClick(event)}

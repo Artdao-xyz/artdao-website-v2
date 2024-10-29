@@ -9,6 +9,7 @@ import orb from '$lib/assets/images/events/orb-1 1-min.png';
 import psispikoko from '$lib/assets/images/events/psipsikoko-1 1-min.png';
 import rave from '$lib/assets/images/events/rave-1 1-min.png';
 import underworld from '$lib/assets/images/events/underworld-1 1-min.png';
+import { ARTIFICE, INTERTWINED, NON_PLACES, ORB, RAVE } from '../../constants/routes';
 
 export interface IMapEvent {
 	title: string;
@@ -17,6 +18,7 @@ export interface IMapEvent {
 	location: string;
 	image: string;
 	city: string;
+	watchMore?: string;
 }
 
 export interface IMapLocation {
@@ -34,7 +36,8 @@ export const mapData: IMapLocation[] = [
 				date: 'Nov 10th-16th, 2023',
 				location: 'Arroz Estudios, Lisbon',
 				image: intertwined,
-				city: 'Lisbon'
+				city: 'Lisbon',
+				watchMore: INTERTWINED
 			},
 			{
 				title: 'UNDERWORLD',
@@ -50,7 +53,8 @@ export const mapData: IMapLocation[] = [
 				date: 'May 5th, 2024',
 				location: 'Higher Ground, Lisbon',
 				image: rave,
-				city: 'Lisbon'
+				city: 'Lisbon',
+				watchMore: RAVE
 			},
 			{
 				title: 'ARTIFICE',
@@ -58,7 +62,8 @@ export const mapData: IMapLocation[] = [
 				date: 'May 28th-30th, 2024',
 				location: 'RNA Studio, Lisbon',
 				image: artifice,
-				city: 'Lisbon'
+				city: 'Lisbon',
+				watchMore: ARTIFICE
 			}
 		]
 	},
@@ -79,7 +84,8 @@ export const mapData: IMapLocation[] = [
 				date: 'July 18th-20th, 2023',
 				location: '31 Rue HEnri Chevreu, Paris',
 				image: nonPlaces,
-				city: 'Paris'
+				city: 'Paris',
+				watchMore: NON_PLACES
 			}
 		]
 	},
@@ -118,7 +124,8 @@ export const mapData: IMapLocation[] = [
 				date: 'March 23rd - April 6th, 2024',
 				location: 'Caroço, São Pablo',
 				image: orb,
-				city: 'São Paulo'
+				city: 'São Paulo',
+				watchMore: ORB
 			}
 		]
 	},

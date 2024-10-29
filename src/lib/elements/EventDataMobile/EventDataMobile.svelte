@@ -50,10 +50,12 @@
 	</div>
 
 	<div class="flex flex-col gap-[15px]">
-		<button
-			class="sm:max-w-[400px] sm:mx-auto px-[20px] py-[12px] rounded-[100px] gray-gradient w-full h-[47px] leading-[16px] text-[16px] font-robotoMono text-color-white"
-			>Watch more</button
-		>
+		{#if eventToShow.watchMore}
+			<button
+				class="sm:max-w-[400px] sm:mx-auto px-[20px] py-[12px] rounded-[100px] gray-gradient w-full h-[47px] leading-[16px] text-[16px] font-robotoMono text-color-white"
+				><a href={eventToShow.watchMore}>Watch more</a></button
+			>
+		{/if}
 
 		<button
 			on:click={() => (eventToShow = undefined)}
