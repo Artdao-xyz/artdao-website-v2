@@ -10,9 +10,9 @@
 		polaroidPosition === EPolaroidPosition.TOP_LEFT
 			? `top-[20%] left-[10%] laptopM:left-[15%] macBook:left-[10%] laptopL:left-[25%] bigScreen:left-[10%] rotate-[-15deg]`
 			: polaroidPosition === EPolaroidPosition.TOP_RIGHT
-				? 'top-[20%] right-[10%] rotate-[15deg]'
+				? 'top-[20%] right-[15%] rotate-[15deg]'
 				: polaroidPosition === EPolaroidPosition.BOTTOM_LEFT
-					? 'top-[38%] right-[10%] rotate-[15deg]'
+					? 'top-[38%] right-[15%] rotate-[15deg]'
 					: 'top-[35%] left-[10%] laptopM:left-[15%] macBook:left-[10%] laptopL:left-[25%] bigScreen:left-[10%] rotate-[-15deg]';
 
 	const isOnlyImage = !polaroid.name && !polaroid.date;
