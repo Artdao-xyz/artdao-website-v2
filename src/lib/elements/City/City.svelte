@@ -74,7 +74,7 @@
 					class="group w-full h-[2.9375rem] hover:bg-color-dark rounded-[100px] flex justify-between items-center pl-[15px] pr-[8px]"
 				>
 					<p
-						class="font-neue text-[20px] tracking-[0.0163rem] font-semibold uppercase text-color-black hover:text-color-white"
+						class="font-neue text-[20px] tracking-[0.0163rem] font-semibold uppercase text-color-black group-hover:text-color-white"
 					>
 						{event.title}
 					</p>
