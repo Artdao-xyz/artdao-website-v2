@@ -1,5 +1,5 @@
 <script lang="ts">
-	import buttonIcon from '$lib/assets/images/button-icon.png';
+	import buttonIcon from '$lib/assets/images/video-arrow.svg';
 	import VideoPlayer from '../VideoPlayer/VideoPlayer.svelte';
 	import type { IVideoProject } from './interfaces';
 
@@ -45,18 +45,22 @@
 					on:click={handlePrevButton}
 					class="{isPrevButtonDisabled
 						? 'cursor-not-allowed'
-						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border border-color-white flex items-center justify-center"
+						: 'hover:scale-105'} group w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border border-color-white flex items-center justify-center"
 				>
-					<img src={buttonIcon} alt="Button" class="rotate-180" />
+					<img src={buttonIcon} alt="Button" class="w-[15px] invert group-hover:scale-105" />
 				</button>
 
 				<button
 					on:click={handleNextButton}
 					class="{isNextButtonDisabled
 						? 'cursor-not-allowed'
-						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border border-color-white flex items-center justify-center"
+						: 'hover:scale-105'} group w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border border-color-white flex items-center justify-center"
 				>
-					<img src={buttonIcon} alt="Button" />
+					<img
+						src={buttonIcon}
+						alt="Button"
+						class="rotate-180 w-[15px] invert group-hover:scale-105"
+					/>
 				</button>
 			</div>
 		{/if}
