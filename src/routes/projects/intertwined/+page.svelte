@@ -58,6 +58,7 @@
 	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
 >
 	<div
+		id="intro"
 		use:inview={INVIEW_OPTIONS}
 		on:inview_change={(event) => {
 			const { inView } = event.detail;
@@ -78,6 +79,7 @@
 	</div>
 
 	<div
+		id="artdao"
 		use:inview={INVIEW_OPTIONS}
 		on:inview_change={(event) => {
 			const { inView } = event.detail;
@@ -109,6 +111,7 @@
 	</div>
 
 	<div
+		id="crypto"
 		use:inview={INVIEW_OPTIONS}
 		on:inview_change={(event) => {
 			const { inView } = event.detail;
@@ -140,6 +143,7 @@
 	</div>
 
 	<div
+		id="vernisagge"
 		use:inview={INVIEW_OPTIONS}
 		on:inview_change={(event) => {
 			const { inView } = event.detail;
@@ -157,7 +161,7 @@
 		<ProjectAboutDropdown
 			images={intertwinedVernisaggeDropdownItems.map((item) => item.image)}
 			aboutDropdownItems={intertwinedVernisaggeDropdownItems}
-			route="vernisagge"
+			route=""
 		/>
 	</div>
 

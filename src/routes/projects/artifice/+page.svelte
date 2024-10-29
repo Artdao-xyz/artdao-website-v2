@@ -57,6 +57,7 @@
 	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
 >
 	<div
+		id="intro"
 		use:inview={INVIEW_OPTIONS}
 		on:inview_change={(event) => {
 			const { inView } = event.detail;
@@ -77,6 +78,7 @@
 	</div>
 
 	<div
+		id="koko"
 		use:inview={INVIEW_OPTIONS}
 		on:inview_change={(event) => {
 			const { inView } = event.detail;
@@ -95,6 +97,7 @@
 	</div>
 
 	<div
+		id="furniture"
 		use:inview={INVIEW_OPTIONS}
 		on:inview_change={(event) => {
 			const { inView } = event.detail;
@@ -119,6 +122,7 @@
 	</div>
 
 	<div
+		id="panels"
 		use:inview={INVIEW_OPTIONS}
 		on:inview_change={(event) => {
 			const { inView } = event.detail;
