@@ -22,10 +22,10 @@
 
 <button
 	on:click={toggleVisibility}
-	class="absolute z-40 top-5 laptopM:top-0 mt-[2.5%] {!hasInfo ? 'cursor-default' : ''}"
+	class="absolute z-40 top-5 laptopM:top-0 mt-[2.5%] {!hasInfo ? 'cursor-default' : ''} w-full"
 >
 	<div
-		class="flex flex-col gap-2.5 w-[82.5dvw] sm:w-[20rem] rounded-20 gray-gradient p-5 absolute z-40 top-0 mt-[2.5%]"
+		class="flex flex-col gap-2.5 w-full sm:w-[20rem] rounded-20 gray-gradient p-5 absolute z-40 top-0 mt-[2.5%]"
 	>
 		<div class="flex flex-col items-start gap-[0.3125rem]">
 			<h1
