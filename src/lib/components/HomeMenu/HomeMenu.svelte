@@ -43,10 +43,10 @@
 		</div>
 	</div>
 
-	<button class="flex flex-col sm:hidden" on:click={toggleVisibility}>
+	<div class="flex flex-col sm:hidden">
 		<div class="flex flex-col gap-2 w-full py-5">
 			<div class="flex flex-col gap-2">
-				<div class="bg-color-dark rounded-20 py-2.5 px-5">
+				<button class="bg-color-dark rounded-20 py-2.5 px-5" on:click={toggleVisibility}>
 					<img src={artDaoLogo} alt="ArtDao Logo" class="w-[7.5389rem] h-[1.8125rem] mx-auto" />
 
 					{#if visible}
@@ -59,7 +59,7 @@
 							{/each}
 						</div>
 					{/if}
-				</div>
+				</button>
 				<div>
 					{#if visible}
 						<div transition:slide={{ axis: 'y', duration: 900 }} class="flex flex-col gap-2">
@@ -76,5 +76,5 @@
 				</div>
 			</div>
 		</div>
-	</button>
+	</div>
 </div>
