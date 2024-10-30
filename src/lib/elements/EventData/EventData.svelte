@@ -56,7 +56,7 @@
 				{#if eventToShow.watchMore}
 					<button
 						class="px-[20px] py-[12px] rounded-[100px] dark-gradient w-[151px] h-[47px] leading-[16px] text-[12px] font-robotoMono text-color-white"
-						>Watch more</button
+						><a href={eventToShow.watchMore}>Watch more</a></button
 					>
 				{/if}
 			</div>
