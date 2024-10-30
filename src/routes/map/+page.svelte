@@ -19,7 +19,7 @@
 
 <HomeMobileMenu toggle="white" section="drop" />
 
-<div class="h-full flex justify-center items-center relative w-full pt-[3rem] sm:pt-0">
+<div class="h-[100dvh] flex justify-center items-center relative w-full pt-[3rem] sm:pt-0">
 	{#if width > 768}
 		{#if !eventToShow}
 			<SectionContainer colorVariant={EColorVariant.BLACK}>

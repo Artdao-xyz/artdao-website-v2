@@ -6,7 +6,7 @@
 
 {#if eventToShow}
 	<div
-		class="h-fit w-full rounded-20 bg-color-gray py-[18px] px-[24px] text-color-black bigScreen:max-w-full xl:max-w-[900px]"
+		class="h-fit w-full rounded-20 bg-color-gray py-[18px] px-[24px] text-color-black bigScreen:max-w-[90%]"
 	>
 		<div
 			class="h-full w-full py-[26px] px-[20px] bg-color-dark rounded-20 gap-[20px] flex flex-col"
@@ -34,7 +34,7 @@
 			<img
 				src={eventToShow.image}
 				alt="event"
-				class="h-auto xl:max-h-[300px] bigScreen:max-h-[516px] xlScreen:max-h-[900px] bigScreen:w-full object-cover object-top"
+				class="h-auto xl:max-h-[300px] bigScreen:max-h-[516px] xlScreen:max-h-[700px] bigScreen:w-full object-cover object-top"
 			/>
 
 			<div
@@ -53,10 +53,12 @@
 						</p>
 					</div>
 				</div>
-				<button
-					class="px-[20px] py-[12px] rounded-[100px] dark-gradient w-[151px] h-[47px] leading-[16px] text-[12px] font-robotoMono text-color-white"
-					>Watch more</button
-				>
+				{#if eventToShow.watchMore}
+					<button
+						class="px-[20px] py-[12px] rounded-[100px] dark-gradient w-[151px] h-[47px] leading-[16px] text-[12px] font-robotoMono text-color-white"
+						>Watch more</button
+					>
+				{/if}
 			</div>
 		</div>
 	</div>
