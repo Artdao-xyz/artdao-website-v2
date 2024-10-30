@@ -14,7 +14,7 @@
 			</div>
 		</div>
 
-		<div class="flex flex-col gap-2 mt-[-1.2rem] sm:mt-[3.486rem]">
+		<div class="flex flex-col gap-2">
 			<div class="flex flex-col gap-2 w-full h-full">
 				<a href={homeImages[5].route}>
 					<HomeImgRectV image={homeImages[5].imageUrl} />
