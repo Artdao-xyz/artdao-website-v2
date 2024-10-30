@@ -1,15 +1,13 @@
 <script lang="ts">
-	import blackToggle from '$lib/assets/images/black-toggle.png';
 	import homeIcon from '$lib/assets/images/home-icon.png';
 	import minus from '$lib/assets/images/minus-icon.png';
 	import plus from '$lib/assets/images/plus-icon.png';
-	import whiteToggle from '$lib/assets/images/white-toggle.png';
 	import NewsletterPopup from '$lib/elements/Popups/components/NewsletterPopup.svelte';
 	import { isNavOpen, isPopupOpen } from '$lib/elements/Popups/components/store';
 	import { onDestroy } from 'svelte';
 	import { slide } from 'svelte/transition';
 
-	export let toggle: 'black' | 'white' = 'black';
+	// export let toggle: 'black' | 'white' = 'black';
 	export let section: 'home' | 'drop' | 'project' = 'home';
 
 	$: isOpen = false;
@@ -77,7 +75,7 @@
 			</div>
 		{/if}
 
-		{#if section === 'home' || section === 'drop'}
+		<!-- {#if section === 'home' || section === 'drop'}
 			<a href={section === 'home' ? '/drops' : '/'}>
 				<img
 					src={toggle === 'black' ? blackToggle : whiteToggle}
@@ -85,6 +83,6 @@
 					class="w-[4.5rem] cursor-pointer mb-[-0.5rem]"
 				/>
 			</a>
-		{/if}
+		{/if} -->
 	</div>
 </div>

@@ -17,7 +17,7 @@
 
 <svelte:window bind:innerWidth={width} />
 
-<HomeMobileMenu toggle="white" section="drop" />
+<HomeMobileMenu section="drop" />
 
 <div class="h-[100dvh] flex justify-center items-center relative w-full pt-[3rem] sm:pt-0">
 	{#if width > 768}
