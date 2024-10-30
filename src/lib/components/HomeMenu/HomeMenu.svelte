@@ -22,7 +22,7 @@
 	};
 </script>
 
-<div class="flex flex-col gap-2 h-100dvh max-h-[59rem]">
+<div class="flex flex-col gap-2">
 	<a href="/drops" class="hidden sm:block">
 		<img src={blackToggle} alt="Go to Drops" class="w-[5.9063rem] cursor-pointer mb-[-0.5rem]" />
 	</a>
