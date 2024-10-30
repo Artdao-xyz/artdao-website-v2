@@ -9,7 +9,9 @@
 	import { homeDropMenuNames, homeDropMenuText } from '../../data/HomeDropMenu';
 </script>
 
-<div class="w-full h-screen overflow-x-hidden snap-y snap-mandatory overflow-y-auto">
+<div
+	class="w-full h-[100dvh] sm:h-screen overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto"
+>
 	<HomeMobileMenu toggle="white" section="drop" />
 
 	<!-- TODO: implement date -->
