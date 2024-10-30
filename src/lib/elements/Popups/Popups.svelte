@@ -1,8 +1,6 @@
 <script lang="ts">
 	import dropHammer from '$lib/assets/images/drops/psipsikoko-hammer.png';
-	import { onMount } from 'svelte';
 	import NewsletterPopup from './components/NewsletterPopup.svelte';
-	import { indexStyle } from './store';
 
 	let visible: boolean = false;
 
@@ -57,30 +55,6 @@
 			visible = false;
 		}, 4000);
 	};
-	let input: HTMLInputElement;
-	let submit: HTMLButtonElement;
-
-	onMount(() => {
-		const styleStore = indexStyle.subscribe((value) => {
-			index = value;
-		});
-		onfocus = () => {
-			// console.log('focus');
-			if (input.value.trim().length > 0) {
-				submit.style.visibility = 'visible';
-			}
-		};
-
-		onkeyup = () => {
-			if (input.value.trim().length > 0) {
-				submit.style.visibility = 'visible';
-			} else {
-				submit.style.visibility = 'hidden';
-			}
-		};
-
-		return styleStore;
-	});
 </script>
 
 <div class="hidden absolute right-40 bottom-16 flex-row laptopM:flex gap-[0.5rem] z-50">
