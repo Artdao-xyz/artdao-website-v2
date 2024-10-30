@@ -36,7 +36,7 @@
 		{/if}
 	{:else if !mapLocationToShow}
 		<div
-			class="flex flex-col gap-[10px] w-full bg-color-gray rounded-20 py-[45px] px-[20px] mobileBg h-full justify-center my-3 mx-[10px]"
+			class="flex flex-col gap-[10px] w-full bg-color-gray rounded-20 py-[45px] px-[20px] mobileBg h-fit self-start my-3 mx-[10px]"
 		>
 			<CityMobile mapLocation={mapData[0]} bind:eventToShow bind:mapLocationToShow />
 			<CityMobile mapLocation={mapData[1]} bind:eventToShow bind:mapLocationToShow />
@@ -47,7 +47,7 @@
 		</div>
 	{:else if !eventToShow}
 		<div
-			class="flex flex-col justify-between gap-[10px] w-full bg-color-gray rounded-20 py-[45px] px-[20px] mobileBg h-full my-3 mx-[10px] min-h-[556px]"
+			class="flex flex-col justify-between gap-[10px] w-full bg-color-gray rounded-20 py-[45px] px-[20px] mobileBg my-3 mx-[10px] min-h-[665px] self-start"
 		>
 			<CityMobile
 				mapLocation={mapLocationToShow}
@@ -64,7 +64,7 @@
 		</div>
 	{:else}
 		<div
-			class="flex flex-col justify-between gap-[10px] w-full bg-color-gray rounded-20 py-[45px] px-[20px] mobileBg h-full my-3 mx-[10px]"
+			class="flex flex-col justify-between gap-[10px] w-full bg-color-gray rounded-20 py-[45px] px-[20px] mobileBg my-3 mx-[10px] self-start min-h-[750px] sm:min-h-[900px]"
 		>
 			<EventDataMobile bind:eventToShow />
 		</div>
