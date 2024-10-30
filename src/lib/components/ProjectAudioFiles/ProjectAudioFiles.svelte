@@ -7,7 +7,7 @@
 	import { playingIndex } from './store';
 
 	export let audioItems: IAudioItem[];
-	export let title: string;
+	export let title: string | undefined = undefined;
 	export let route = '';
 	let index = 0;
 
@@ -27,14 +27,18 @@
 
 <SectionContainer colorVariant={EColorVariant.LIGHT}>
 	<div
-		class="h-full pt-[2.5rem] laptopM:pt-[3%] xlScreen:pt-[8%] flex flex-col sm:justify-center laptopM:justify-start laptopM:gap-10 xlScreen:gap-24"
+		class="h-full {title
+			? 'pt-[2.5rem]'
+			: '!pt-[8rem]'} laptopM:pt-[3%] xlScreen:pt-[8%] flex flex-col justify-center laptopM:justify-start laptopM:gap-10 xlScreen:gap-24"
 		id={route}
 	>
-		<h1
-			class="hidden laptopM:block px-[1%] text-color-black text-[3.5rem] xlScreen:text-[5rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
-		>
-			&gt; {title} &lt;
-		</h1>
+		{#if title}
+			<h1
+				class="hidden laptopM:block px-[1%] text-color-black text-[3.5rem] xlScreen:text-[5rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
+			>
+				&gt; {title} &lt;
+			</h1>
+		{/if}
 		<div
 			class="flex flex-col laptopM:flex-row justify-between items-start mx-auto gap-[2rem] laptopM:gap-[5rem] laptopM:h-[70%]"
 		>

@@ -2,6 +2,7 @@
 	import bgImage from '$lib/assets/images/projects/orb/240326_caroco_035_1.png';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
+	import ProjectAudioFiles from '$lib/components/ProjectAudioFiles/ProjectAudioFiles.svelte';
 	import ProjectInterview from '$lib/components/ProjectInterview/ProjectInterview.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
@@ -23,6 +24,7 @@
 		daoDropdownItems,
 		vernisaggeDropdownItems
 	} from '../../../data/Projects/Orb/ProjectAboutDropdown';
+	import { orbAudioFiles } from '../../../data/Projects/Orb/ProjectAudioFiles';
 	import { orbQuestions } from '../../../data/Projects/Orb/ProjectInterview';
 	import { orbProject } from '../../../data/Projects/Orb/ProjectIntro';
 	import { artworksVideo, orbVideo } from '../../../data/Projects/Orb/ProjectVideo';
@@ -176,6 +178,8 @@
 		/>
 
 		<ProjectVideo videoProjects={artworksVideo} route="artworks-end" />
+
+		<ProjectAudioFiles audioItems={orbAudioFiles} route="" />
 	</div>
 
 	<HomeIcon />

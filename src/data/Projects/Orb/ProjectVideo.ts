@@ -59,7 +59,7 @@ export const artworksVideo: IVideoProject[] = [
 	},
 	{
 		name: 'W3T_WOMB_FULL',
-		artist: '',
+		artist: 'K0TY9V0S',
 		videoUrl:
 			'https://storage.googleapis.com/videoszine/ORB/ORB%20ARTWORKS%20VIDEOS/Lucas%20Chagas%20-%20W3t%20Womb%20Full.mp4#t=0.1',
 		link: 'https://zora.co/collect/zora:0x6cfd003dade0b1c3f3620705082f341611f08655/28',

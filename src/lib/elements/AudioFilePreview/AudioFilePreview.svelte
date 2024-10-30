@@ -46,14 +46,10 @@
 <div
 	class="sm:w-full w-[21.875rem] mx-auto laptopM:mx-0 {height > 800
 		? 'h-[37.5rem]'
-		: 'h-[28rem]'} laptopM:h-full flex flex-col gap-[0.625rem] justify-between p-5 rounded-20 border border-color-black gray-gradient shadow-audioShadow"
+		: 'h-full'} laptopM:h-full flex flex-col gap-[0.625rem] justify-between p-5 rounded-20 border border-color-black gray-gradient shadow-audioShadow"
 >
 	<video
-		style={size > 1100
-			? 'height: calc(100% - 2.375rem)'
-			: height < 800
-				? 'border border-color-red'
-				: ''}
+		style={size > 1100 ? 'height: calc(100% - 2.375rem)' : ''}
 		src={audioItems[index].songFile}
 		controls
 		bind:this={videoPlayer}
