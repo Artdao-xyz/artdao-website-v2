@@ -20,8 +20,11 @@
 	const toggleVisibility = () => {
 		visible = !visible;
 	};
+
+	let width: number;
 </script>
 
+<svelte:window bind:innerWidth={width} />
 <div class="flex flex-col gap-2">
 	<a href="/drops" class="hidden sm:block">
 		<img src={blackToggle} alt="Go to Drops" class="w-[5.9063rem] cursor-pointer mb-[-0.5rem]" />
@@ -29,7 +32,11 @@
 
 	<HomeMobileMenu section="home" />
 
-	<div class="sm:flex flex-col gap-2 hidden">
+	<div
+		class="sm:flex flex-col gap-2 hidden {width >= 1280 && width < 1600
+			? '!overflow-y-scroll'
+			: ''}"
+	>
 		<HomeTop logo={artDaoLogo} {homeParagraphs} />
 		<div class="flex flex-row sm:flex-col gap-2">
 			<HomeDrop dropNumber={'000'} dropName={'psipsikoko'} dropLogo={hammer} />
