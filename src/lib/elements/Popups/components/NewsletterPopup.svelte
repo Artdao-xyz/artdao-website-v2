@@ -91,7 +91,7 @@
 
 <svelte:window bind:innerWidth={size} />
 <button
-	style={size < 1100 ? `width: ${size * 0.92}px;` : ''}
+	style={size < 1100 ? `width: ${size * 0.92}px;` : 'width: 257.27px'}
 	class="h-[4.9375rem] sm:h-[4.0625rem] {!visible
 		? '!sm:w-[10.6875rem]'
 		: '!sm:w-[15rem]'} {!visible
@@ -132,7 +132,7 @@
 									bind:this={input}
 									type="email"
 									name="EMAIL"
-									class="placeholder:text-color-white ml-[-0.7rem] py-0 placeholder:text-[1rem] !placeholder:ml-[0.2rem] w-[70%] font-robotoMono placeholder:sm:text-[0.625rem] sm:text-[0.625rem] font-medium align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem]"
+									class="placeholder:text-color-white py-0 placeholder:text-[1rem] !placeholder:ml-[0.2rem] w-[70%] font-robotoMono placeholder:sm:text-[0.625rem] sm:text-[0.625rem] font-medium align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem]"
 									required
 									value=""
 									placeholder="Enter Your Email"
@@ -140,7 +140,7 @@
 								<button
 									bind:this={submit}
 									type="submit"
-									class="bg-color-gray rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 text-[1rem] sm:text-[0.625rem] font-medium invisible flex-none w-[30%] align-top"
+									class="bg-color-gray rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 text-[1rem] sm:text-[0.625rem] font-medium invisible flex-none w-[30%] align-top border border-color-gray"
 									>submit</button
 								>
 							</div>
