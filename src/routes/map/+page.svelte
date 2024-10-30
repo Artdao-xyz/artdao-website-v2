@@ -23,7 +23,7 @@
 	{#if width > 768}
 		{#if !eventToShow}
 			<SectionContainer colorVariant={EColorVariant.BLACK}>
-				<img src={mapBg} alt="map" class="h-full" />
+				<img src={mapBg} alt="map" class="h-full mx-auto" />
 				<City mapLocation={mapData[0]} top="27" left="44.5" dotOnLeft={false} bind:eventToShow />
 				<City mapLocation={mapData[1]} top="34.5" left="49" bind:eventToShow />
 				<City mapLocation={mapData[2]} top="40" left="24" bind:eventToShow />
