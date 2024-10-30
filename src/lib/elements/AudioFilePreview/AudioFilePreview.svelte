@@ -1,9 +1,13 @@
 <script lang="ts">
-	import nextIcon from '$lib/assets/images/next-icon.png';
-	import playIcon from '$lib/assets/images/play-icon.png';
-	import previousIcon from '$lib/assets/images/previous-icon.png';
+	import nextIcon from '$lib/assets/images/next-icon-black.png';
+	import nextDisabled from '$lib/assets/images/next-icon-gray.png';
+	import pauseIconBlack from '$lib/assets/images/pause-icon-black.svg';
+	import playIcon from '$lib/assets/images/play-icon-black.png';
+	import previousIcon from '$lib/assets/images/previous-icon-black.png';
+	import previousDisabled from '$lib/assets/images/previuos-icon-gray.png';
 	import { onMount } from 'svelte';
 	import type { IAudioItem } from '../AudioFile/interfaces';
+
 	let size: number;
 
 	let videoPlayer: HTMLVideoElement;
@@ -69,24 +73,30 @@
 			<button
 				on:click={() => handlePreviousTrack(index)}
 				class="{index === 0
-					? 'pointer-events-none bg-color-disabled'
-					: ''} w-[2.375rem] h-[2.375rem] rounded-[6.25rem] flex flex-row items-center justify-center border border-color-black hover:scale-105"
+					? 'pointer-events-none bg-[#D9D9D9]'
+					: ''} w-[2.375rem] h-[2.375rem] rounded-[6.25rem] flex flex-row py-[12px] pl-[10px] pr-[12px] border border-color-black hover:scale-105"
 			>
-				<img src={previousIcon} alt="previous" class="h-[16px] {index === 0 ? 'invert' : ''}" />
+				<img
+					src={index === 0 ? previousDisabled : previousIcon}
+					alt="previous"
+					class="h-full w-full"
+				/>
 			</button>
 			<button
 				on:click={isPaused ? playVideo : pauseVideo}
-				class="w-[2.375rem] h-[2.375rem] rounded-[6.25rem] flex flex-row items-center justify-center border hover:scale-105 border-color-black"
+				class="w-[2.375rem] h-[2.375rem] rounded-[6.25rem] flex flex-row {isPaused
+					? ''
+					: 'pr-[13px]'} p-[12px] border hover:scale-105 border-color-black"
 			>
-				<img src={playIcon} alt="play/pause" class="w-[13px] h-[13px] ml-[0.13rem]" />
+				<img src={isPaused ? playIcon : pauseIconBlack} alt="play/pause" class="h-full w-full" />
 			</button>
 			<button
 				on:click={() => handleNextTrack(index)}
 				class="{isLastTrack
-					? 'pointer-events-none bg-color-disabled'
-					: ''} w-[2.375rem] h-[2.375rem] rounded-[6.25rem] flex flex-row items-center justify-center border hover:scale-105 border-color-black"
+					? 'pointer-events-none bg-[#D9D9D9]'
+					: ''} w-[2.375rem] h-[2.375rem] rounded-[6.25rem] flex flex-row py-[12px] pr-[10px] pl-[12px] border hover:scale-105 border-color-black"
 			>
-				<img src={nextIcon} alt="next" class="h-[16px] {isLastTrack ? 'invert' : ''}" />
+				<img src={isLastTrack ? nextDisabled : nextIcon} alt="next" class="h-full w-full" />
 			</button>
 		</div>
 	</div>
