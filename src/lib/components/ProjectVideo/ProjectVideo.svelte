@@ -45,8 +45,8 @@
 				<button
 					on:click={handlePrevButton}
 					class="{isPrevButtonDisabled
-						? 'cursor-not-allowed'
-						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center"
+						? 'hidden'
+						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border bg-color-white border-color-dark flex items-center justify-center"
 				>
 					<img src={buttonIcon} alt="Button" class="w-[15px]" />
 				</button>
@@ -54,8 +54,8 @@
 				<button
 					on:click={handleNextButton}
 					class="{isNextButtonDisabled
-						? 'cursor-not-allowed'
-						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border hover:bg-color-dark bg-color-white border-color-dark flex items-center justify-center"
+						? 'hidden'
+						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border bg-color-white border-color-dark flex items-center justify-center"
 				>
 					<img src={buttonIcon} alt="Button" class="rotate-180 w-[15px]" />
 				</button>
