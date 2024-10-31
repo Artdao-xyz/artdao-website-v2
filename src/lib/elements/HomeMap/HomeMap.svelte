@@ -4,7 +4,7 @@
 </script>
 
 <a
-	class="flex flex-row items-center justify-between gap-2.5 w-full gray-gradient rounded-20 py-5 sm:py-[0.9375rem] px-10 hover:gray-gradient"
+	class="flex flex-row items-center justify-between gap-2.5 w-full gray-gradient rounded-20 py-5 sm:py-[0.9375rem] px-10 hover:bg-color-gray"
 	href="/map"
 >
 	<div class="flex flex-col justify-start gap-0 sm:gap-2.5">
