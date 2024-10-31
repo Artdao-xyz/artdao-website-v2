@@ -1,0 +1,66 @@
+Arguments: 
+  /usr/local/bin/node /home/pablo/.yarn/bin/yarn.js install
+
+PATH: 
+  /home/pablo/.yarn/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Python312/Scripts/:/mnt/c/Python312/:/mnt/c/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler:/mnt/c/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/ia32/compiler:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/GitHub CLI/:/mnt/c/Program Files/nodejs/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Mullvad VPN/resources:/mnt/c/Program Files/Go/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/Usuario/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Usuario/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/heroku/bin:/mnt/c/Users/Usuario/AppData/Roaming/npm:/mnt/c/Users/Usuario/go/bin:/snap/bin:/home/pablo/.foundry/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  21.2.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: getaddrinfo EAI_AGAIN registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:118:26)
+
+npm manifest: 
+  {
+  	"name": "artdao-components",
+  	"version": "0.0.1",
+  	"private": true,
+  	"scripts": {
+  		"dev": "vite dev",
+  		"build": "vite build",
+  		"preview": "vite preview",
+  		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+  		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+  		"lint": "prettier --check . && eslint .",
+  		"format": "prettier --write ."
+  	},
+  	"devDependencies": {
+  		"@sveltejs/adapter-auto": "^3.0.0",
+  		"@sveltejs/kit": "^2.0.0",
+  		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+  		"@types/eslint": "^9.6.0",
+  		"autoprefixer": "^10.4.20",
+  		"eslint": "^9.0.0",
+  		"eslint-config-prettier": "^9.1.0",
+  		"eslint-plugin-svelte": "^2.36.0",
+  		"globals": "^15.0.0",
+  		"postcss": "^8.4.47",
+  		"prettier": "^3.1.1",
+  		"prettier-plugin-svelte": "^3.1.2",
+  		"svelte": "^4.2.7",
+  		"svelte-check": "^4.0.0",
+  		"tailwindcss": "^3.4.12",
+  		"typescript": "^5.0.0",
+  		"typescript-eslint": "^8.0.0",
+  		"vite": "^5.0.3"
+  	},
+  	"type": "module",
+  	"dependencies": {
+  		"flowbite-svelte": "^0.47.1",
+  		"svelte-inview": "^4.0.4",
+  		"svelte-simple-modal": "^1.6.2"
+  	}
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
