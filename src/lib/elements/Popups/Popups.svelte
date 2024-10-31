@@ -1,5 +1,4 @@
 <script lang="ts">
-	import dropHammer from '$lib/assets/images/drops/psipsikoko-hammer.png';
 	import NewsletterPopup from './components/NewsletterPopup.svelte';
 
 	let visible: boolean = false;
@@ -58,7 +57,7 @@
 </script>
 
 <div class="hidden absolute right-40 bottom-16 flex-row laptopM:flex gap-[0.5rem] z-50">
-	<a
+	<!-- <a
 		href="/drops"
 		class="h-[4.0625rem] w-[10.6875rem] flex flex-row bg-color-gray-background rounded-[6.25rem] items-center justify-center hover:scale-105"
 	>
@@ -66,6 +65,6 @@
 			10W 12D OOH
 		</p>
 		<img src={dropHammer} alt="drop" class="w-[2.8234rem] h-[2.6282rem]" />
-	</a>
+	</a> -->
 	<NewsletterPopup />
 </div>
