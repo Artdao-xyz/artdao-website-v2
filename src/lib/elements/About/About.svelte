@@ -15,7 +15,7 @@
 		? 'bg-color-black'
 		: 'bg-color-white'} w-full max-w-[31.9375rem] mx-[2rem] min-h-screen sm:max-h-[82%] pt-[4rem] sm:pt-0 pb-[2rem] sm:pb-0"
 >
-	<div
+	<!-- <div
 		class="h-9 px-5 border {colorVariant === EColorVariant.BLACK
 			? 'border-color-white'
 			: 'border-color-black'} justify-start items-center rounded-40 flex flex-row w-full"
@@ -25,7 +25,7 @@
 		>
 			{subtitle}
 		</p>
-	</div>
+	</div> -->
 	<h2
 		class="w-full sm:mb-[24px] mb-[20px] font-semibold leading-[55px] tracking-[0.065rem] uppercase font-neue text-[40px] sm:text-[3.75rem]"
 	>
