@@ -1,7 +1,11 @@
 <script lang="ts">
+	import { inview } from 'svelte-inview';
 	import type { IMapEvent } from '../../../data/Map/MapData';
+	import { INVIEW_OPTIONS } from '../../../utils/nav/updateNavBar';
 
 	export let eventToShow: IMapEvent | undefined;
+
+	let imagesToShow = eventToShow?.images.map((image) => false) ?? [false];
 </script>
 
 {#if eventToShow}
@@ -28,11 +32,48 @@
 			</p>
 		</button>
 
-		<img
-			src={eventToShow.image}
-			alt="event"
-			class="h-[163px] sm:h-[326px] w-full object-cover object-top rounded-20"
-		/>
+		<div
+			class="scroll-panel flex flex-row flex-grow overflow-x-auto items-center gap-[20px] w-full min-w-full snap-center"
+		>
+			{#each eventToShow.images as image, i}
+				<img
+					use:inview={INVIEW_OPTIONS}
+					on:inview_change={(event) => {
+						const { inView } = event.detail;
+						imagesToShow[i] = inView;
+					}}
+					on:inview_enter={(event) => {
+						const { inView } = event.detail;
+						imagesToShow[i] = inView;
+					}}
+					on:inview_leave={(event) => {
+						const { inView } = event.detail;
+						imagesToShow[i] = inView;
+					}}
+					src={image}
+					alt="event"
+					class="h-[163px] sm:h-[326px] min-w-full w-full object-cover object-top rounded-20"
+					id={image}
+				/>
+			{/each}
+		</div>
+
+		<div class="flex flex-row gap-[8px] justify-center items center">
+			{#each eventToShow.images as image, i}
+				<button
+					class="rounded-[100px] w-[5px] h-[5px] border border-color-black {imagesToShow[i]
+						? 'bg-color-black'
+						: ''}"
+					id={image}
+					on:click={() =>
+						document.getElementById(`${image}`)?.scrollIntoView({
+							behavior: 'smooth',
+							block: 'nearest',
+							inline: 'start'
+						})}
+				/>
+			{/each}
+		</div>
 
 		<div class="flex flex-col items-start gap-[10px] dark-gradient rounded-20 p-[24px] w-full">
 			<p class="text-[18px] uppercase font-neue font-semibold leading-[30px]">
@@ -64,3 +105,21 @@
 		>
 	</div>
 {/if}
+
+<style>
+	.scroll-panel {
+		width: 100%;
+		overflow: auto;
+		outline: none;
+		overflow-y: hidden;
+		-ms-overflow-style: scroll;
+		scrollbar-width: none;
+		overflow-x: scroll;
+		overscroll-behavior-x: contain;
+		scroll-snap-type: x mandatory;
+	}
+
+	.scroll-panel::-webkit-scrollbar {
+		display: none;
+	}
+</style>

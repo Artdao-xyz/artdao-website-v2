@@ -13,6 +13,25 @@
 	let eventToShow: IMapEvent | undefined = undefined;
 	let width: number;
 	let mapLocationToShow: IMapLocation | undefined;
+
+	$: index = 0;
+	$: imageToShow = eventToShow?.images[index];
+
+	$: isNextButtonDisabled = Boolean(eventToShow && eventToShow.images.length - 1 === index);
+
+	$: isPrevButtonDisabled = index === 0;
+
+	const handleNextButton = () => {
+		if (Boolean(eventToShow && eventToShow.images.length > index + 1)) {
+			index += 1;
+		}
+	};
+
+	const handlePrevButton = () => {
+		if (index !== 0) {
+			index -= 1;
+		}
+	};
 </script>
 
 <svelte:window bind:innerWidth={width} />
@@ -32,7 +51,14 @@
 				<City mapLocation={mapData[5]} top="73" left="34" showOnTop bind:eventToShow />
 			</SectionContainer>
 		{:else}
-			<EventData bind:eventToShow />
+			<EventData
+				bind:eventToShow
+				{imageToShow}
+				{handleNextButton}
+				{handlePrevButton}
+				{isNextButtonDisabled}
+				{isPrevButtonDisabled}
+			/>
 		{/if}
 	{:else if !mapLocationToShow}
 		<div

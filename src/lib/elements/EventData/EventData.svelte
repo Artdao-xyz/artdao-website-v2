@@ -1,9 +1,18 @@
 <script lang="ts">
+	import buttonIcon from '$lib/assets/images/video-arrow.svg';
 	import type { IMapEvent } from '../../../data/Map/MapData';
+	export let isNextButtonDisabled: boolean;
+	export let isPrevButtonDisabled: boolean;
+	export let handlePrevButton: () => void;
+	export let handleNextButton: () => void;
+	export let imageToShow: string | undefined;
 
 	export let eventToShow: IMapEvent | undefined;
+
+	let height: number;
 </script>
 
+<svelte:window bind:innerHeight={height} />
 {#if eventToShow}
 	<div
 		class="h-fit w-full rounded-20 bg-color-gray py-[18px] px-[24px] text-color-black sm:max-w-[90%]"
@@ -29,12 +38,36 @@
 						{eventToShow.city}
 					</p>
 				</div>
+				<div
+					class="sm:flex flex-row gap-[0.5rem] hidden mr-[0.5rem] bg-color-gray rounded-20 p-[6px]"
+				>
+					<button
+						on:click={handlePrevButton}
+						class="{isPrevButtonDisabled
+							? 'hidden'
+							: 'hover:scale-105'} group w-[2rem] h-[2rem] rounded-[6.25rem] border border-color-black flex items-center justify-center"
+					>
+						<img src={buttonIcon} alt="Button" class="w-[10px] group-hover:scale-105" />
+					</button>
+
+					<button
+						on:click={handleNextButton}
+						class="{isNextButtonDisabled
+							? 'hidden'
+							: 'hover:scale-105'} group w-[2rem] h-[2rem] rounded-[6.25rem] border border-color-black flex items-center justify-center"
+					>
+						<img src={buttonIcon} alt="Button" class="rotate-180 w-[10px] group-hover:scale-105" />
+					</button>
+				</div>
 			</div>
 
 			<img
-				src={eventToShow.image}
+				src={imageToShow}
 				alt="event"
-				class="h-auto xl:max-h-[300px] bigScreen:max-h-[516px] xlScreen:max-h-[700px] bigScreen:w-full object-cover object-center"
+				class="h-auto xl:max-h-[300px] bigScreen:max-h-[516px] xlScreen:max-h-[700px] bigScreen:w-full object-cover {height >
+				950
+					? 'object-top'
+					: 'object-center'}"
 			/>
 
 			<div
