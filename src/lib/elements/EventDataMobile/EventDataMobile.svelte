@@ -61,8 +61,8 @@
 		<div class="flex flex-row gap-[8px] justify-center items center">
 			{#each eventToShow.images as image, i}
 				<button
-					class="rounded-[100px] w-[5px] h-[5px] border border-color-black {imagesToShow[i]
-						? 'bg-color-black'
+					class="rounded-[100px] w-[5px] h-[5px] border border-color-white {imagesToShow[i]
+						? 'bg-color-white'
 						: ''}"
 					id={image}
 					on:click={() =>
