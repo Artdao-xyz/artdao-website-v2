@@ -43,8 +43,8 @@
 	</div>
 
 	<div class="flex flex-col sm:hidden">
-		<div class="flex flex-col gap-2 w-full py-5">
-			<div class="flex flex-col gap-2">
+		<div class="flex flex-col gap-2 w-full pt-5">
+			<div class="flex flex-col gap-2 {!visible ? 'mb-[-8px]' : ''}">
 				<button class="bg-color-dark rounded-20 py-2.5 px-5" on:click={toggleVisibility}>
 					<img src={artDaoLogo} alt="ArtDao Logo" class="w-[7.5389rem] h-[1.8125rem] mx-auto" />
 
