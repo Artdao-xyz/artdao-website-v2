@@ -33,7 +33,7 @@
 		</button>
 
 		<div
-			class="scroll-panel flex flex-row flex-grow overflow-x-auto items-center gap-[20px] w-full min-w-full snap-center"
+			class="scroll-panel flex flex-row flex-grow overflow-x-auto items-center gap-[20px] w-full min-w-full"
 		>
 			{#each eventToShow.images as image, i}
 				<img
@@ -52,7 +52,7 @@
 					}}
 					src={image}
 					alt="event"
-					class="h-[163px] sm:h-[326px] min-w-full w-full object-cover object-top rounded-20"
+					class="h-[163px] sm:h-[326px] min-w-full w-full object-cover object-top rounded-20 snap-center"
 					id={image}
 				/>
 			{/each}
