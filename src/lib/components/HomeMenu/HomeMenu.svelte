@@ -40,6 +40,9 @@
 			<HomeSocial icon={instagramIcon} />
 			<HomeSocial icon={xIcon} />
 		</div>
+		<!-- <div class="w-full h-full">
+			<img src={homeHammer} alt="artdao" class="object-cover" />
+		</div> -->
 	</div>
 
 	<div class="flex flex-col sm:hidden">
