@@ -109,54 +109,47 @@
 			</p>
 		</div>
 		<div class="w-full flex flex-row justify-start gap-[0.5rem] items-center">
-			{#if !visible}
-				<p class="font-robotoMono text-[1rem] sm:text-[0.625rem] font-medium align-top">
-					Sign up for updates
-				</p>
-			{/if}
-			{#if visible}
-				<div class="w-full flex flex-row justify-start gap-[0.5rem] items-center">
-					<form
-						in:fade={{ delay: 50, duration: 150 }}
-						out:fade={{ delay: 50, duration: 50 }}
-						on:submit|preventDefault={handleSubmit}
-						method="POST"
-						action="/api/subscribe"
-						id="subscribeForm"
-						class="w-full"
-					>
-						{#if !submitting && !success && !error && !memberExists}
-							<div class="flex gap-[1rem] items-center flex-row">
-								<label for="email" class="hidden"></label>
-								<input
-									bind:this={input}
-									type="email"
-									name="EMAIL"
-									class="placeholder:text-color-white py-0 placeholder:text-[1rem] !placeholder:ml-[0.2rem] w-[70%] font-robotoMono placeholder:sm:text-[0.625rem] sm:text-[0.625rem] font-medium align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem]"
-									required
-									value=""
-									placeholder="Enter Your Email"
-								/>
-								<button
-									bind:this={submit}
-									type="submit"
-									class="bg-color-gray rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 text-[1rem] sm:text-[0.625rem] font-medium invisible flex-none w-[30%] align-top border border-color-gray"
-									>submit</button
-								>
-							</div>
-						{/if}
-						<div aria-hidden="true" style="position: absolute; left: -5000px;">
-							<!-- /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */ -->
+			<div class="w-full flex flex-row justify-start gap-[0.5rem] items-center">
+				<form
+					in:fade={{ delay: 50, duration: 150 }}
+					out:fade={{ delay: 50, duration: 50 }}
+					on:submit|preventDefault={handleSubmit}
+					method="POST"
+					action="/api/subscribe"
+					id="subscribeForm"
+					class="w-full"
+				>
+					{#if !submitting && !success && !error && !memberExists}
+						<div class="flex gap-[1rem] items-center flex-row">
+							<label for="email" class="hidden"></label>
 							<input
-								type="text"
-								name="b_d150dd71762335c56d7e5811c_6f099dd01d"
-								tabindex="-1"
+								bind:this={input}
+								type="email"
+								name="EMAIL"
+								class="placeholder:text-color-white py-0 placeholder:text-[1rem] !placeholder:ml-[0.2rem] w-[70%] font-robotoMono placeholder:sm:text-[0.625rem] sm:text-[0.625rem] font-medium align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem]"
+								required
 								value=""
+								placeholder="Enter Your Email"
 							/>
+							<button
+								bind:this={submit}
+								type="submit"
+								class="bg-color-gray rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 text-[1rem] sm:text-[0.625rem] font-medium invisible flex-none w-[30%] align-top border border-color-gray"
+								>submit</button
+							>
 						</div>
-					</form>
-				</div>
-			{/if}
+					{/if}
+					<div aria-hidden="true" style="position: absolute; left: -5000px;">
+						<!-- /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */ -->
+						<input
+							type="text"
+							name="b_d150dd71762335c56d7e5811c_6f099dd01d"
+							tabindex="-1"
+							value=""
+						/>
+					</div>
+				</form>
+			</div>
 		</div>
 	{/if}
 	{#if submitting || success || memberExists || error}
