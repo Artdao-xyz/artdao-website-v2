@@ -44,7 +44,7 @@
 				<button
 					on:click={handlePrevButton}
 					class="{isPrevButtonDisabled
-						? 'cursor-not-allowed'
+						? 'hidden'
 						: 'hover:scale-105'} group w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border border-color-white flex items-center justify-center"
 				>
 					<img src={buttonIcon} alt="Button" class="w-[15px] invert group-hover:scale-105" />
@@ -53,7 +53,7 @@
 				<button
 					on:click={handleNextButton}
 					class="{isNextButtonDisabled
-						? 'cursor-not-allowed'
+						? 'hidden'
 						: 'hover:scale-105'} group w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border border-color-white flex items-center justify-center"
 				>
 					<img
