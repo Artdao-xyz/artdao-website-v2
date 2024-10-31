@@ -24,7 +24,7 @@
 >
 	<img src={logo} alt="ArtDao Logo" class="w-[13.5625rem] h-[3.0931rem]" />
 	<div
-		class="flex flex-col justify-start gap-4 text-sm font-medium font-clash leading-5 text-color-white overflow-y-auto"
+		class="flex flex-col justify-start text-left gap-4 text-sm font-medium font-clash leading-5 text-color-white overflow-y-auto"
 	>
 		{#each homeParagraphs as homeParagraph}
 			<p>{homeParagraph}</p>
