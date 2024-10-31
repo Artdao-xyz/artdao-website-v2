@@ -112,7 +112,7 @@
 							bind:this={input}
 							type="email"
 							name="EMAIL"
-							class="placeholder:text-color-white ml-[-1rem] w-[70%] font-clash leading-[1.375rem] align-top uppercase tracking-[0.0375rem] text-[0.875rem] font-semibold bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] h-full"
+							class="placeholder:text-color-white ml-[-1rem] w-[70%] font-robotoMono leading-[1.375rem] align-top tracking-[0.0375rem] text-[0.875rem] font-semibold bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] h-full"
 							required
 							value=""
 							placeholder="Enter Your Email"
@@ -120,7 +120,7 @@
 						<button
 							bind:this={submit}
 							type="submit"
-							class="bg-color-gray rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 font-clash leading-[1.375rem] uppercase tracking-[0.0375rem] text-[0.875rem] font-semibold invisible flex-none w-[30%] align-top h-full"
+							class="bg-color-gray rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 font-robotoMono leading-[1.375rem] tracking-[0.0375rem] text-[0.875rem] font-semibold invisible flex-none w-[30%] align-top h-full border border-color-gray"
 							>submit</button
 						>
 					</div>
