@@ -10,7 +10,6 @@
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
 	import { inview } from 'svelte-inview';
-	import { EColorVariant } from '../../../constants/enums';
 	import { inherentInstabilityNavItems } from '../../../data/Projects/InherentInstability/NavItems';
 	import {
 		elbiAbout,
@@ -119,12 +118,7 @@
 			inaIsInView = inView;
 		}}
 	>
-		<ProjectAbout
-			aboutItem={inaVareAbout}
-			aboutImages={inaVareAboutImages}
-			route=""
-			colorVariant={EColorVariant.LIGHT}
-		/>
+		<ProjectAbout aboutItem={inaVareAbout} aboutImages={inaVareAboutImages} route="" />
 
 		<ProjectVideo videoProjects={inaVideo} />
 
