@@ -1,6 +1,7 @@
 <script lang="ts">
 	import artDaoLogo from '$lib/assets/images/artdao-logo.png';
 	import discordIcon from '$lib/assets/images/discord-icon.png';
+	import hammer from '$lib/assets/images/hammer-min.png';
 	import instagramIcon from '$lib/assets/images/instagram-icon.png';
 	import mapLogo from '$lib/assets/images/map.png';
 	import xIcon from '$lib/assets/images/x-icon.png';
@@ -50,17 +51,28 @@
 	<div class="flex flex-col sm:hidden">
 		<div class="flex flex-col gap-2 w-full pt-5">
 			<div class="flex flex-col gap-2 {!visible ? 'mb-[-8px]' : ''}">
-				<button class="bg-color-dark rounded-20 py-2.5 px-5" on:click={toggleVisibility}>
+				<button class="gray-gradient rounded-20 py-2.5 px-5" on:click={toggleVisibility}>
 					<img src={artDaoLogo} alt="ArtDao Logo" class="w-[7.5389rem] h-[1.8125rem] mx-auto" />
 
 					{#if visible}
 						<div
 							transition:slide={{ axis: 'y', duration: 900 }}
-							class="flex flex-col text-left bg-color-dark rounded-20 justify-start gap-4 text-[1.125rem] font-normal font-clash leading-5 text-color-white py-5 sm:py-[1.875rem] px-0 sm:px-5"
+							class="flex flex-col w-full gap-[1rem] justify-center items-center mt-[1rem]"
 						>
-							{#each homeParagraphs as homeParagraph}
-								<p>{homeParagraph}</p>
-							{/each}
+							<img src={hammer} alt="hammer logo" class="w-[100px] self-center ml-[1rem]" />
+
+							<div class="flex flex-col items-start">
+								<h1
+									class="text-[18px] font-clash font-medium leading-[20px] tracking-[0.234px] uppercase text-left"
+								>
+									ARTISTS HELPING ARTISTS
+								</h1>
+								<p
+									class="text-[14px] font-clash font-medium leading-[22.4px] tracking-[0.28px] uppercase w-full"
+								>
+									© 2024
+								</p>
+							</div>
 						</div>
 					{/if}
 				</button>
@@ -68,6 +80,8 @@
 					{#if visible}
 						<div transition:slide={{ axis: 'y', duration: 900 }} class="flex flex-col gap-2">
 							<!-- <HomeDrop dropNumber={'000'} dropName={'psipsikoko'} dropLogo={hammer} /> -->
+							<HomeLogo logo={artDaoLogo} />
+							<HomeTop {homeParagraphs} />
 							<HomeMap title={'bridging the global & hyperlocal'} logo={mapLogo} />
 							<HomeNewsletter />
 							<div class="flex gap-[2.375rem] h-full w-full">
