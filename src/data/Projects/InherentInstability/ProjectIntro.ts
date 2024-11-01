@@ -1,5 +1,5 @@
-import bgImage from '$lib/assets/images/projects/inherentInstability/InherentInstability_IMG.png';
-import bgImageMobile from '$lib/assets/images/projects/mobile-intro/InherentInstability_Cover 1-min.png';
+import bgImage from '$lib/assets/images/projects/inherentInstability/inherent-cover-desktop-min.png';
+import bgImageMobile from '$lib/assets/images/projects/inherentInstability/inherent-cover-mobile-min.png';
 
 export const inherentInstabilityProjectIntro = {
 	name: 'inherent instability',
