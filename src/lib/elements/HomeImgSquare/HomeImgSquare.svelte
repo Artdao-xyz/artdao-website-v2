@@ -1,8 +1,9 @@
 <script lang="ts">
 	export let image: string;
+	export let className: string | undefined = undefined;
 </script>
 
-<div class="w-full">
+<div class="w-full {className}">
 	<img
 		src={image}
 		alt="Square Layout"
