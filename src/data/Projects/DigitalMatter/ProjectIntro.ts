@@ -1,5 +1,5 @@
-import bgImage from '$lib/assets/images/projects/digitalMatter/DigitalMatter_IMG 2-min.png';
-import bgImageMobile from '$lib/assets/images/projects/mobile-intro/DigitalMatter_Cover 1-min.png';
+import bgImage from '$lib/assets/images/projects/digitalMatter/matter-cover-desktop-min.png';
+import bgImageMobile from '$lib/assets/images/projects/digitalMatter/matter-cover-mobile-min.png';
 
 export const digitalMatterProjectIntro = {
 	name: 'digital matter',

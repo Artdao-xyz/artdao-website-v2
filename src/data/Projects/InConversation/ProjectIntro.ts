@@ -1,5 +1,5 @@
-import bgImage from '$lib/assets/images/projects/inConversation/Operator_Cover 4-min.png';
-import bgImageMobile from '$lib/assets/images/projects/inConversation/Operator_Cover_Mobile 2-min.png';
+import bgImage from '$lib/assets/images/projects/inConversation/operator-cover-desktop-min.png';
+import bgImageMobile from '$lib/assets/images/projects/inConversation/operator-cover-mobile-min.png';
 
 export const inConversationProjectIntro = {
 	name: 'interview with operator',

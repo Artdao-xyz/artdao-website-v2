@@ -1,5 +1,5 @@
-import bgImageMobile from '$lib/assets/images/projects/artifice/Artifice_Cover 1-min.png';
-import bgImage from '$lib/assets/images/projects/artifice/Title Page 1-min.png';
+import bgImage from '$lib/assets/images/projects/artifice/artifice-cover-desktop-min.png';
+import bgImageMobile from '$lib/assets/images/projects/artifice/artifice-cover-mobile-min.png';
 
 export const artificeProjectIntro = {
 	name: 'artifice',
