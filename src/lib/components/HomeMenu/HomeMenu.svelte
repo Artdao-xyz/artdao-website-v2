@@ -4,6 +4,7 @@
 	import instagramIcon from '$lib/assets/images/instagram-icon.png';
 	import mapLogo from '$lib/assets/images/map.png';
 	import xIcon from '$lib/assets/images/x-icon.png';
+	import HomeLogo from '$lib/elements/HomeLogo/HomeLogo.svelte';
 	import HomeMap from '$lib/elements/HomeMap/HomeMap.svelte';
 	import HomeNewsletter from '$lib/elements/HomeNewsletter/HomeNewsletter.svelte';
 	import HomeSocial from '$lib/elements/HomeSocial/HomeSocial.svelte';
@@ -29,7 +30,8 @@
 	<!-- <HomeMobileMenu section="home" /> -->
 
 	<div class="sm:flex flex-col gap-2 hidden">
-		<HomeTop logo={artDaoLogo} {homeParagraphs} />
+		<HomeLogo logo={artDaoLogo} />
+		<HomeTop {homeParagraphs} />
 		<div class="flex flex-row sm:flex-col gap-2">
 			<!-- <HomeDrop dropNumber={'000'} dropName={'psipsikoko'} dropLogo={hammer} /> -->
 			<HomeMap title={'bridging the global & hyperlocal'} logo={mapLogo} />
