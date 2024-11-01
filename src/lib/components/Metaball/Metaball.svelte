@@ -4,6 +4,7 @@
     import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 	import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 	import MetaSymbol from '../../../lib/components/Metaball/MetaSymbol';
+	import { HOME } from '../../../constants/routes';	
 
 	let canvas = null;
     let metaSymbol = null;
@@ -14,8 +15,8 @@
 
 		/* SETTINGS */
 		const sizes = {
-			width: 100,
-			height: 100
+			width: window.innerWidth <= 768 ? 50 : 100,
+			height: window.innerWidth <= 768 ? 50 : 100
 		};
 
 		/* SCENE */
@@ -47,7 +48,7 @@
 
 		// Preload the matcap texture
 		const textures = textureLoader.load(
-			'src/lib/assets/images/metaball/matcap-black.png',
+			'/src/lib/assets/images/metaball/matcap-black.png',
 			() => {
 				// console.log('Texture loaded!');
 				// Texture is now loaded and can be used
@@ -111,4 +112,11 @@
     // }
 </script>
 
-<canvas bind:this={canvas} class="bg-transparent fixed bottom-4 right-4 z-10"></canvas>
+<a href={HOME}>
+	<canvas 
+	bind:this={canvas} 
+	class="bg-transparent fixed z-50 
+			top-2 left-2 
+			md:bottom-4 md:right-4 md:top-auto md:left-auto">
+	</canvas>
+</a>

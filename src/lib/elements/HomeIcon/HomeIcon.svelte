@@ -6,7 +6,7 @@
 	// export let isHome: boolean = false;
 </script>
 
-<a href={HOME}>
+<!-- <a href={HOME}> -->
 	<!-- <img
 		src={homeIcon}
 		alt="Home Icon"
@@ -15,6 +15,4 @@
 			: 'right-[3%]'} w-[4.6875rem] hidden sm:block"
 	/> -->
 	<Metaball/>
-</a>
-
-
+<!-- </a> -->

@@ -59,6 +59,8 @@
 			</div>
 		</div>
 	</div>
-
-	<HomeIcon isHome />
+	
+	<div class="hidden sm:block">
+		<HomeIcon isHome />
+	</div>
 </div>
