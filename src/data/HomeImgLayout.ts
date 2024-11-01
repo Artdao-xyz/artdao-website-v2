@@ -8,13 +8,13 @@ import hoverIntertwined from '$lib/assets/images/projects/desktop-home/interwine
 import intertwined from '$lib/assets/images/projects/desktop-home/interwined-min.png';
 import hoverDigitalMatter from '$lib/assets/images/projects/desktop-home/matter-hover-desktop-min.png';
 import digitalMatter from '$lib/assets/images/projects/desktop-home/matter-min.png';
+import hoverNonPlaces from '$lib/assets/images/projects/desktop-home/nonplaces-hover-desktop-min.png';
 import nonPlaces from '$lib/assets/images/projects/desktop-home/nonplaces-min.png';
-import hoverNonPlaces from '$lib/assets/images/projects/desktop-home/nonplaves-hover-desktop-min.png';
 import hoverInConversation from '$lib/assets/images/projects/desktop-home/operator-hover-desktop-min.png';
 import inConversation from '$lib/assets/images/projects/desktop-home/operator-min.png';
+import orb from '$lib/assets/images/projects/desktop-home/orb-cover-desktop-min.png';
 import hoverOrb from '$lib/assets/images/projects/desktop-home/orb-hover-desktop-min.png';
-import orb from '$lib/assets/images/projects/desktop-home/orb-min.png';
-import hoverRave from '$lib/assets/images/projects/desktop-home/rave-hover-desktop-v2-min.png';
+import hoverRave from '$lib/assets/images/projects/desktop-home/rave-hover-desktop-min.png';
 import rave from '$lib/assets/images/projects/desktop-home/rave-min.png';
 import hoverArtificeMobile from '$lib/assets/images/projects/mobile-home/artifice-hover-mobile-min.png';
 import artificeMobile from '$lib/assets/images/projects/mobile-home/Artifice-min.png';
