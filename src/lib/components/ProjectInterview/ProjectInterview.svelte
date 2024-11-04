@@ -17,7 +17,7 @@
 <svelte:window bind:innerWidth={size} />
 <SectionContainer {bgImage} isOverflow={size > 1100 ? true : false}>
 	<div
-		class="flex flex-row justify-center laptopM:items-center h-full w-full overflow-y-scroll laptopM:overflow-y-hidden pt-[2.5rem] laptopM:pt-0"
+		class="flex flex-row justify-center laptopM:items-center h-full w-full sm:overflow-y-scroll laptopM:overflow-y-hidden pt-[2.5rem] laptopM:pt-0"
 		id={route}
 	>
 		{#if !filteredQuestions && questions}
