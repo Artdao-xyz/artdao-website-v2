@@ -45,9 +45,8 @@
 			? 'justify-between'
 			: 'gap-[0.5rem]'} items-center sm:mb-[0.5rem] mb-[-1rem]"
 	>
-		<a href={'/'}>
-			<img src={homeIcon} alt="Home Icon" class="w-[2.5625rem]" />
-		</a>
+
+		<span class="w-[2.5625rem]"></span>
 
 		{#if section === 'project'}
 			<div>
