@@ -6,6 +6,7 @@
 	export let handlePrevButton: () => void;
 	export let handleNextButton: () => void;
 	export let imageToShow: string | undefined;
+	export let isCenter = false;
 
 	export let eventToShow: IMapEvent | undefined;
 
@@ -64,10 +65,9 @@
 			<img
 				src={imageToShow}
 				alt="event"
-				class="h-auto xl:max-h-[300px] bigScreen:max-h-[516px] xlScreen:max-h-[700px] bigScreen:w-full object-cover {height >
-				950
-					? 'object-top'
-					: 'object-center'}"
+				class="h-auto xl:max-h-[300px] bigScreen:max-h-[516px] xlScreen:max-h-[700px] bigScreen:w-full object-cover {isCenter
+					? 'object-center'
+					: 'object-top'}"
 			/>
 
 			<div

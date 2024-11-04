@@ -45,6 +45,7 @@ export interface IMapEvent {
 	images: string[];
 	city: string;
 	watchMore?: string;
+	isCenter?: boolean;
 }
 
 export interface IMapLocation {
@@ -89,7 +90,8 @@ export const mapData: IMapLocation[] = [
 				location: 'RNA Studio, Lisbon',
 				images: [artifice01, artifice02, artifice03, artifice04],
 				city: 'Lisbon',
-				watchMore: ARTIFICE
+				watchMore: ARTIFICE,
+				isCenter: true
 			}
 		]
 	},
@@ -111,7 +113,8 @@ export const mapData: IMapLocation[] = [
 				location: '31 Rue HEnri Chevreu, Paris',
 				images: [nonPlaces01, nonPlaces02, nonPlaces03],
 				city: 'Paris',
-				watchMore: NON_PLACES
+				watchMore: NON_PLACES,
+				isCenter: true
 			}
 		]
 	},
@@ -151,7 +154,8 @@ export const mapData: IMapLocation[] = [
 				location: 'Caroço, São Pablo',
 				images: [orb01, orb02, orb03],
 				city: 'São Paulo',
-				watchMore: ORB
+				watchMore: ORB,
+				isCenter: true
 			}
 		]
 	},

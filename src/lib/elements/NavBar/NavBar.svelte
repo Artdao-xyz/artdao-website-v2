@@ -70,7 +70,7 @@
 			class=" h-[2.3125rem] rounded-[6.25rem] font-robotoMono text-[1rem] font-medium !opacity-100 text-color-white {selectedItem.selected
 				? 'nav-gradient-selected font-semibold border border-color-dark'
 				: 'nav-gradient-unselected'} capitalize h-[1rem] justify-end
-		flex flex-row items-center py-[0.75rem] pr-[2.5rem] transition delay-75 duration-700 ease-in-out transform"
+		flex flex-row items-center py-[0.75rem] pr-[2.5rem] transition delay-75 duration-700 ease-in-out transform mt-[-0.25rem]"
 		>
 			{selectedItem.text}
 		</a>

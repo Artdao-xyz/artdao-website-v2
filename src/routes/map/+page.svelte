@@ -58,6 +58,7 @@
 				{handlePrevButton}
 				{isNextButtonDisabled}
 				{isPrevButtonDisabled}
+				isCenter={eventToShow.isCenter}
 			/>
 		{/if}
 	{:else if !mapLocationToShow}
