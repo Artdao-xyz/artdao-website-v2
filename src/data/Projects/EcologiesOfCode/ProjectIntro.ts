@@ -4,9 +4,8 @@ import bgImageMobile from '$lib/assets/images/projects/mobile-intro/EcologiesOfC
 export const ecologiesOfCodeProject = {
 	name: 'ecologies of code',
 	description: [
-		"When we look at an image of an environment, it can evoke a range of emotions. It's in this realm of feelings that three artists - Joaquina, Okytomo, and Hypereikon - create their work, crafting landscapes that go beyond the visual and resonate with the viewer.",
-		"For this three artists whose works are more than just representations of scenes; they're gateways to immersive experiences that challenge our perception and stimulate our imagination.",
-		'Inspired by the natural world and what surrounds them, they developed a close relationship with the art of contemplation and immersion. In this conversation, they shared insights into their creative process, revealing their sources of inspiration and the techniques they use to bring to life worlds that exist between reality and dreams.'
+		'The tools of digital technologies open up new pathways to the construction of digital landscapes as symbiotic environments that place the viewer in an immersive relationship with the work of art.  Going beyond ideas of an artwork as  a single framed image towards a conception of a living piece which places the viewer and wider ecological systems in dialogue with a creative practice.',
+		'Drawing inspiration and materials from the natural world and what surrounds them,  Joaquina Salgado, Okytomo and Hyperikon share insights into their own creative practice and how they approach develop works that inhabit a new space between nature and technology, organic system and machine.'
 	],
 	bgImage,
 	bgImageMobile

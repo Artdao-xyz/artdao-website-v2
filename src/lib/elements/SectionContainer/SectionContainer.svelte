@@ -5,13 +5,14 @@
 	export let bgImage: string | undefined = undefined;
 	export let hasPadding = true;
 	export let isOverflow = true;
+	export let isCover = false;
 </script>
 
 <div
-	class="sm:snap-start shrink-0 w-full {isOverflow
+	class="sm:snap-start shrink-0 w-full {isCover ? 'bg-cover' : ''} {isOverflow
 		? 'h-screen'
 		: ''} sm:h-full-desktop-height {bgImage && !colorVariant
-		? 'bg-cover bg-center mb-[-0.7rem]'
+		? 'bg-center bg-no-repeat'
 		: colorVariant === EColorVariant.LIGHT
 			? 'bg-color-white'
 			: colorVariant === EColorVariant.BLACK

@@ -10,14 +10,15 @@
 	export let questions: IQuestion[] | undefined = undefined;
 	export let route = '';
 	export let filteredQuestions: IFilteredQuestions[] | undefined = undefined;
+	export let isCover = false;
 
-	let size: number;
+	let width: number;
 </script>
 
-<svelte:window bind:innerWidth={size} />
-<SectionContainer {bgImage} isOverflow={size > 1100 ? true : false}>
+<svelte:window bind:innerWidth={width} />
+<SectionContainer {bgImage} isOverflow={width > 1100 ? true : false} {isCover}>
 	<div
-		class="flex flex-row justify-center laptopM:items-center h-full w-full sm:overflow-y-scroll laptopM:overflow-y-hidden pt-[2.5rem] laptopM:pt-0"
+		class="flex flex-row justify-center laptopM:items-center h-full w-full pt-[2.5rem] laptopM:pt-0"
 		id={route}
 	>
 		{#if !filteredQuestions && questions}

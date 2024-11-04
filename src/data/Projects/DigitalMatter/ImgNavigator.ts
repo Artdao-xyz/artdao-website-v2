@@ -1,10 +1,12 @@
-import sulkianImageOne from '$lib/assets/images/projects/digitalMatter/984.png';
-import sulkianImageTwo from '$lib/assets/images/projects/digitalMatter/985.png';
-import sulkianImageThree from '$lib/assets/images/projects/digitalMatter/986.png';
-import sulkianImageFour from '$lib/assets/images/projects/digitalMatter/987.png';
-import sulkianImageFive from '$lib/assets/images/projects/digitalMatter/988.png';
-import sulkianImageSix from '$lib/assets/images/projects/digitalMatter/989.png';
-import sulkianImageSeven from '$lib/assets/images/projects/digitalMatter/990.png';
+import sulkianImageOne from '$lib/assets/images/projects/digitalMatter/01-min.png';
+import sulkianImageTwo from '$lib/assets/images/projects/digitalMatter/02-min.png';
+import sulkianImageThree from '$lib/assets/images/projects/digitalMatter/03-min.png';
+import sulkianImageFour from '$lib/assets/images/projects/digitalMatter/04-min.png';
+import sulkianImageFive from '$lib/assets/images/projects/digitalMatter/05-min.png';
+import sulkianImageSix from '$lib/assets/images/projects/digitalMatter/06-min.png';
+import sulkianImageSeven from '$lib/assets/images/projects/digitalMatter/07-min.png';
+import sulkianImageEight from '$lib/assets/images/projects/digitalMatter/08-min.png';
+import sulkianImageNine from '$lib/assets/images/projects/digitalMatter/09-min.png';
 
 export const sulkianImages = [
 	sulkianImageOne,
@@ -13,5 +15,7 @@ export const sulkianImages = [
 	sulkianImageFour,
 	sulkianImageFive,
 	sulkianImageSix,
-	sulkianImageSeven
+	sulkianImageSeven,
+	sulkianImageEight,
+	sulkianImageNine
 ];

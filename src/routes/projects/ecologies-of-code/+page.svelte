@@ -108,7 +108,7 @@
 	>
 		<ProjectAbout aboutItem={joaquinaAbout} aboutImages={joaquinaAboutImages} route="" />
 
-		<ProjectInterview bgImage={ecoInterviewBg} filteredQuestions={ecologiesQuestions} />
+		<ProjectInterview bgImage={ecoInterviewBg} filteredQuestions={ecologiesQuestions} isCover />
 
 		<ProjectVideo videoProjects={[ecologiesVideoProjectOne]} />
 
