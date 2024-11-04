@@ -60,7 +60,7 @@
 </div>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div class="flex flex-col sm:hidden gap-[0.375rem] z-50 fixed top-[14px] right-[1.25rem]">
+<div class="flex flex-col sm:hidden gap-[0.375rem] z-50 fixed top-[13px] right-[1.25rem]">
 	{#if selectedItem && !visible}
 		<a
 			on:click={toggleVisibility}
