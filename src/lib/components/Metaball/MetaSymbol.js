@@ -75,8 +75,7 @@ export default class MetaSymbol {
 				((document.documentElement.scrollTop || document.body.scrollTop) /
 					((document.documentElement.scrollHeight || document.body.scrollHeight) -
 						document.documentElement.clientHeight)) *
-				100;
-
+				100;			
 			parent.scrollPercentD = newS;
 			//document.getElementById('scrollProgress').innerText = 'Progreso : ' + scrollPercent.toFixed(2)
 		};

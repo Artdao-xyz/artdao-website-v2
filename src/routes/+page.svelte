@@ -101,6 +101,6 @@
 	</div>
 	
 	<div class="hidden sm:block">
-		<HomeIcon isHome />
+		<HomeIcon />
 	</div>
 </div>

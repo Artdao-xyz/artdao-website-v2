@@ -26,7 +26,7 @@
 
 <div
 	style={`background-image: url("${bgImage}"); background-size: cover; background-position: center;`}
-	class="w-full h-full p-2 relative sm:snap-start"
+	class="w-full min-h-screen p-2 relative sm:snap-start"
 >
 	<a href="/" class="hidden sm:block">
 		<img src={whiteToggle} alt="Go to Home" class="w-[5.9063rem] cursor-pointer mb-[-0.5rem]" />

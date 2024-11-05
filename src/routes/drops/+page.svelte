@@ -10,7 +10,7 @@
 </script>
 
 <div
-	class="w-full h-[100dvh] sm:h-screen overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto"
+	class="w-full h-[100dvh] sm:min-h-screen sm:h-auto overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto"
 >
 	<HomeMobileMenu toggle="white" section="drop" />
 
