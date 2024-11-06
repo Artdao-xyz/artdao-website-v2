@@ -27,18 +27,39 @@
 	<div
 		class="flex flex-col gap-2.5 w-full sm:w-[20rem] rounded-20 gray-gradient p-5 absolute z-40 top-0 mt-[2.5%]"
 	>
-		<div class="flex flex-col items-start gap-[0.3125rem]">
-			<h1
-				class="font-clash text-[0.875rem] leading-[0.875rem] tracking-[1.6px] capitalize self-start"
-			>
-				{aboutDropdown.name}
-			</h1>
+		{#if aboutDropdown.artist}
+			<div class="flex flex-col items-start gap-[0.3125rem]">
+				<h1
+					class="font-clash text-[0.875rem] leading-[0.875rem] tracking-[1.6px] capitalize self-start"
+				>
+					{aboutDropdown.name}
+				</h1>
 
+				<div class="flex flex-row justify-between w-full">
+					<h1
+						class="font-robotoMono text-[12px] leading-[1rem] tracking-[0.0625rem] capitalize self-start"
+					>
+						{aboutDropdown.artist ?? ''}
+					</h1>
+
+					{#if hasInfo}
+						<div class="flex flex-row gap-1 items-center">
+							<p class="font-robotoMono text-[10px] leading-[1rem] tracking-[0.05rem]">INFO</p>
+							<img
+								src={!visible ? infoCircle : infoCircleWhite}
+								alt="info"
+								class="w-[0.5rem] h-[0.5rem]"
+							/>
+						</div>
+					{/if}
+				</div>
+			</div>
+		{:else}
 			<div class="flex flex-row justify-between w-full">
 				<h1
-					class="font-robotoMono text-[12px] leading-[1rem] tracking-[0.0625rem] capitalize self-start"
+					class="font-clash text-[0.875rem] leading-[0.875rem] tracking-[1.6px] capitalize self-start"
 				>
-					{aboutDropdown.artist ?? ''}
+					{aboutDropdown.name}
 				</h1>
 
 				{#if hasInfo}
@@ -52,7 +73,7 @@
 					</div>
 				{/if}
 			</div>
-		</div>
+		{/if}
 
 		{#if visible && hasInfo}
 			<div

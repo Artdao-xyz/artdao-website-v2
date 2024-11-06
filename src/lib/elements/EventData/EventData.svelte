@@ -1,4 +1,5 @@
 <script lang="ts">
+	import mapBg from '$lib/assets/images/map-background.png';
 	import buttonIcon from '$lib/assets/images/video-arrow.svg';
 	import type { IMapEvent } from '../../../data/Map/MapData';
 	export let isNextButtonDisabled: boolean;
@@ -16,10 +17,11 @@
 <svelte:window bind:innerHeight={height} />
 {#if eventToShow}
 	<div
-		class="h-fit w-full rounded-20 bg-color-gray py-[18px] px-[24px] text-color-black sm:max-w-[90%]"
+		style={`background-image: url("${mapBg}"); background-size: cover; background-position: center;`}
+		class="w-full h-full flex flex-row items-center justify-center"
 	>
 		<div
-			class="h-full w-full py-[26px] px-[20px] bg-color-dark rounded-20 gap-[20px] flex flex-col"
+			class="h-fit w-full rounded-20 bg-color-dark bg-opacity-90 py-[26px] px-[20px] text-color-black sm:max-w-[90%] gap-[20px] flex flex-col"
 		>
 			<div class="flex-row flex items-center gap-[10px]">
 				<button

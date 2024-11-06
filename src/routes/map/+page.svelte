@@ -41,8 +41,8 @@
 <div class="h-[100dvh] flex justify-center items-center relative w-full pt-[3rem] sm:pt-0">
 	{#if width > 768}
 		{#if !eventToShow}
-			<SectionContainer colorVariant={EColorVariant.BLACK}>
-				<img src={mapBg} alt="map" class="h-full mx-auto" />
+			<SectionContainer colorVariant={EColorVariant.BLACK} hasPadding={false}>
+				<img src={mapBg} alt="map" class="w-full h-full object-cover" />
 				<City mapLocation={mapData[0]} top="27" left="44.5" dotOnLeft={false} bind:eventToShow />
 				<City mapLocation={mapData[1]} top="34.5" left="49" bind:eventToShow />
 				<City mapLocation={mapData[2]} top="40" left="24" bind:eventToShow />

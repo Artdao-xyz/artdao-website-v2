@@ -4,16 +4,16 @@ import type { IAudioItem } from '$lib/elements/AudioFile/interfaces';
 
 export const orbAudioFiles: IAudioItem[] = [
 	{
-		artist: 'KONTRONATURA',
-		songName: 'BIYI',
+		artist: 'Kontronatura',
+		songName: 'Biyi',
 		songYear: '2024',
 		artistImage: artistOne,
 		songImage: '',
 		songFile: 'https://storage.googleapis.com/videoszine/ORB/MUSICA/Kontronatura%20-%20Biyi.mp4'
 	},
 	{
-		artist: 'EPX',
-		songName: 'ELECTRIC BLUES',
+		artist: 'Epx',
+		songName: 'Electric Blues',
 		songYear: '2024',
 		artistImage: artistTwo,
 		songImage: '',

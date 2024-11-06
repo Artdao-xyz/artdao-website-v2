@@ -5,16 +5,16 @@ import type { IAudioItem } from '$lib/elements/AudioFile/interfaces';
 
 export const raveAudioFiles: IAudioItem[] = [
 	{
-		artist: 'PROXY FAE',
-		songName: "GOD'S OFFLINE",
+		artist: 'Proxy Fae',
+		songName: "God's offline",
 		songYear: '2024',
 		artistImage: artistOne,
 		songImage: songImage,
 		songFile: 'https://storage.cloud.google.com/artdao-files/videos/Gods_Offline_-_Proxy_Fae.mov'
 	},
 	{
-		artist: 'PROXY FAE',
-		songName: 'BLINDED',
+		artist: 'Proxy Fae',
+		songName: 'Blinded',
 		songYear: '2024',
 		artistImage: artistTwo,
 		songImage: songImage,

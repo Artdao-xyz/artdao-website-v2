@@ -17,54 +17,81 @@
 		<div class="flex-col gap-[14px] hidden sm:flex">
 			<div class="flex flex-row w-full gap-[14px]">
 				<div class="flex flex-col gap-[14px] w-1/2">
-					<a href={homeImages[0].route} class="w-full group">
-						<HomeImgSquare image={homeImages[0].imageUrl} className={`group-hover:hidden block`} />
-						<HomeImgSquare image={homeImages[0].hover} className={`group-hover:block hidden`} />
+					<a href={homeImages[0].route} class="w-full group relative">
+						<HomeImgSquare image={homeImages[0].imageUrl} />
+						<HomeImgSquare
+							image={homeImages[0].hover}
+							className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+						/>
 					</a>
-					<a href={homeImages[1].route} class="w-full group">
-						<HomeImgSquare image={homeImages[1].imageUrl} className={`group-hover:hidden block`} />
-						<HomeImgSquare image={homeImages[1].hover} className={`group-hover:block hidden`} />
+					<a href={homeImages[1].route} class="w-full group relative">
+						<HomeImgSquare image={homeImages[1].imageUrl} />
+						<HomeImgSquare
+							image={homeImages[1].hover}
+							className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+						/>
 					</a>
 				</div>
 				<div class="w-1/2">
-					<a href={homeImages[2].route} class="group">
-						<HomeImgRectV image={homeImages[2].imageUrl} className={`group-hover:hidden block`} />
-						<HomeImgRectV image={homeImages[2].hover} className={`group-hover:block hidden`} />
+					<a href={homeImages[2].route} class="w-full group relative">
+						<HomeImgRectV image={homeImages[2].imageUrl} />
+						<HomeImgRectV
+							image={homeImages[2].hover}
+							className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+						/>
 					</a>
 				</div>
 			</div>
 
 			<div class="w-full flex gap-[14px] flex-col">
 				<div class="flex flex-col sm:flex-row gap-[14px] w-full">
-					<a href={homeImages[3].route} class="w-full group">
-						<HomeImgSquare image={homeImages[3].imageUrl} className={`group-hover:hidden block`} />
-						<HomeImgSquare image={homeImages[3].hover} className={`group-hover:block hidden`} />
+					<a href={homeImages[3].route} class="w-full group relative">
+						<HomeImgSquare image={homeImages[3].imageUrl} />
+						<HomeImgSquare
+							image={homeImages[3].hover}
+							className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+						/>
 					</a>
-					<a href={homeImages[4].route} class="w-full group">
-						<HomeImgSquare image={homeImages[4].imageUrl} className={`group-hover:hidden block`} />
-						<HomeImgSquare image={homeImages[4].hover} className={`group-hover:block hidden`} />
+					<a href={homeImages[4].route} class="w-full group relative">
+						<HomeImgSquare image={homeImages[4].imageUrl} />
+						<HomeImgSquare
+							image={homeImages[4].hover}
+							className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+						/>
 					</a>
 				</div>
-				<a href={homeImages[5].route} class="group">
-					<HomeImgRectV image={homeImages[5].imageUrl} className={`group-hover:hidden block`} />
-					<HomeImgRectV image={homeImages[5].hover} className={`group-hover:block hidden`} />
+				<a href={homeImages[5].route} class="w-full group relative">
+					<HomeImgRectV image={homeImages[5].imageUrl} />
+					<HomeImgRectV
+						image={homeImages[5].hover}
+						className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+					/>
 				</a>
 			</div>
 
 			<div class="w-full flex gap-[14px] flex-col">
 				<div class="flex flex-col sm:flex-row gap-[14px] w-full">
-					<a href={homeImages[6].route} class="w-full group">
-						<HomeImgSquare image={homeImages[6].imageUrl} className={`group-hover:hidden block`} />
-						<HomeImgSquare image={homeImages[6].hover} className={`group-hover:block hidden`} />
+					<a href={homeImages[6].route} class="w-full group relative">
+						<HomeImgSquare image={homeImages[6].imageUrl} />
+						<HomeImgSquare
+							image={homeImages[6].hover}
+							className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+						/>
 					</a>
-					<a href={homeImages[7].route} class="w-full group">
-						<HomeImgSquare image={homeImages[7].imageUrl} className={`group-hover:hidden block`} />
-						<HomeImgSquare image={homeImages[7].hover} className={`group-hover:block hidden`} />
+					<a href={homeImages[7].route} class="w-full group relative">
+						<HomeImgSquare image={homeImages[7].imageUrl} />
+						<HomeImgSquare
+							image={homeImages[7].hover}
+							className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+						/>
 					</a>
 				</div>
-				<a href={homeImages[8].route} class="group">
-					<HomeImgRectV image={homeImages[8].imageUrl} className={`group-hover:hidden block`} />
-					<HomeImgRectV image={homeImages[8].hover} className={`group-hover:block hidden`} />
+				<a href={homeImages[8].route} class="w-full group relative">
+					<HomeImgRectV image={homeImages[8].imageUrl} />
+					<HomeImgRectV
+						image={homeImages[8].hover}
+						className="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+					/>
 				</a>
 			</div>
 		</div>
@@ -99,7 +126,7 @@
 			</a>
 		</div>
 	</div>
-	
+
 	<div class="hidden sm:block">
 		<HomeIcon />
 	</div>

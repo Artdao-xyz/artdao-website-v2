@@ -112,7 +112,12 @@
 			furnitureIsInView = inView;
 		}}
 	>
-		<ProjectAbout aboutItem={furnitureAbout} aboutImages={furnitureAboutImages} route="" />
+		<ProjectAbout
+			aboutItem={furnitureAbout}
+			aboutImages={furnitureAboutImages}
+			route=""
+			isImageLeft={false}
+		/>
 
 		<ProjectAboutDropdown
 			images={psipsikokoDropdownItems.map((item) => item.image)}

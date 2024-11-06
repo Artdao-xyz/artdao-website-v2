@@ -29,7 +29,7 @@
 	>
 		<div class="w-full flex items-end sm:h-[25%]">
 			<h1
-				class="text-color-black text-[32px] sm:text-[3rem] macBook:text-[50px] xlScreen:text-[4rem] font-semibold sm:leading-[3.4375rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
+				class="text-color-black text-[32px] sm:text-[3rem] capitalize macBook:text-[50px] xlScreen:text-[4rem] font-semibold sm:leading-[3.4375rem] tracking-[0.065rem] font-neue w-full text-center"
 			>
 				“{images[selectedItem].quote}”
 			</h1>

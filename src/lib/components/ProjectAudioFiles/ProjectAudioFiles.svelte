@@ -34,9 +34,9 @@
 	>
 		{#if title}
 			<h1
-				class="hidden laptopM:block px-[1%] text-color-black text-[3.5rem] xlScreen:text-[5rem] font-semibold leading-[5rem] tracking-[0.065rem] uppercase font-neue w-full text-center"
+				class="hidden laptopM:block px-[1%] text-color-black text-[3.5rem] xlScreen:text-[5rem] font-semibold leading-[5rem] tracking-[0.065rem] capitalize font-neue w-full text-center"
 			>
-				&gt; {title} &lt;
+				{title}
 			</h1>
 		{/if}
 		<div

@@ -24,10 +24,10 @@
 	{#if height > 1100}
 		<img src={logo} alt="ArtDao Logo" class="w-[163px] h-[37.17633px]" />
 		<div class="flex flex-col items-start">
-			<h1 class="text-[18px] font-clash font-medium leading-[20px] tracking-[0.234px] uppercase">
-				ARTISTS HELPING ARTISTS
+			<h1 class="text-[20px] font-clash font-medium leading-[20px] tracking-[0.234px]">
+				Artists Helping Artists
 			</h1>
-			<p class="text-[14px] font-clash font-medium leading-[22.4px] tracking-[0.28px] uppercase">
+			<p class="text-[16px] font-clash font-medium leading-[22.4px] tracking-[0.28px] uppercase">
 				© 2024
 			</p>
 		</div>
@@ -39,12 +39,12 @@
 				<img src={logo} alt="ArtDao Logo" class="w-[163px] h-[37.17633px]" />
 				<div class="flex flex-col items-start">
 					<h1
-						class="text-[18px] font-clash font-medium leading-[20px] tracking-[0.234px] uppercase w-[164px] text-left"
+						class="text-[20px] font-clash font-medium leading-[20px] tracking-[0.234px] w-[164px] text-left"
 					>
-						ARTISTS HELPING ARTISTS
+						Artists Helping Artists
 					</h1>
 					<p
-						class="text-[14px] font-clash font-medium leading-[22.4px] tracking-[0.28px] uppercase"
+						class="text-[16px] font-clash font-medium leading-[22.4px] tracking-[0.28px] uppercase"
 					>
 						© 2024
 					</p>

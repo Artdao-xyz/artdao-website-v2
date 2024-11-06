@@ -90,7 +90,7 @@
 >
 	{#if !isClicked}
 		<p
-			class="font-clash leading-[1.375rem] uppercase tracking-[0.0375rem] text-[0.875rem] font-semibold"
+			class="font-clash leading-[1.375rem] capitalize tracking-[0.0375rem] text-[20px] font-medium"
 		>
 			subscribe
 		</p>

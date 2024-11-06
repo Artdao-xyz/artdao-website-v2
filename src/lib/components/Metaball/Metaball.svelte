@@ -1,18 +1,17 @@
 <script>
-    import { onMount } from 'svelte';
-    import * as THREE from 'three';
-    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+	import { onMount } from 'svelte';
+	import * as THREE from 'three';
+	import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 	import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+	import { HOME } from '../../../constants/routes';
 	import MetaSymbol from '../../../lib/components/Metaball/MetaSymbol';
-	import { HOME } from '../../../constants/routes';	
 
 	let canvas = null;
-    let metaSymbol = null;
+	let metaSymbol = null;
 
-    const scene = new THREE.Scene();
+	const scene = new THREE.Scene();
 
 	onMount(() => {
-		
 		/* SETTINGS */
 		const sizes = {
 			width: window.innerWidth <= 768 ? 40 : 100,
@@ -60,8 +59,8 @@
 			}
 		);
 
-        metaSymbol = new MetaSymbol(textures);
-        scene.add(metaSymbol.getMesh());
+		metaSymbol = new MetaSymbol(textures);
+		scene.add(metaSymbol.getMesh());
 
 		/* ANIMATION */
 		const animate = () => {
@@ -76,8 +75,8 @@
 		onresize = (e) => {
 			// Update sizes
 			if (window.innerWidth !== sizes.width) {
-				sizes.width = window.innerWidth <= 768 ? 40 : 100,
-				sizes.height = window.innerWidth <= 768 ? 40 : 100
+				(sizes.width = window.innerWidth <= 768 ? 40 : 100),
+					(sizes.height = window.innerWidth <= 768 ? 40 : 100);
 
 				// Adjust camera position based on viewport size
 				if (sizes.width < 1025) {
@@ -105,19 +104,20 @@
 		};
 	});
 
-    // $: {
-    //     if (metaSymbol)   {    
-    //         metaSymbol.changeTexture(0);
-    //         document.body.className = themes[0];
-    //     }
-    // }
+	// $: {
+	//     if (metaSymbol)   {
+	//         metaSymbol.changeTexture(0);
+	//         document.body.className = themes[0];
+	//     }
+	// }
 </script>
 
 <a href={HOME}>
-	<canvas 
-	bind:this={canvas} 
-	class="bg-transparent fixed z-50
-			top-2 left-2 
-			md:bottom-4 md:right-4 md:top-auto md:left-auto">
+	<canvas
+		bind:this={canvas}
+		class="bg-transparent fixed z-50
+			top-2 left-2
+			md:bottom-4 md:right-4 md:top-auto md:left-auto"
+	>
 	</canvas>
 </a>

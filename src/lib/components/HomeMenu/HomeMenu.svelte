@@ -63,12 +63,12 @@
 
 							<div class="flex flex-col items-start">
 								<h1
-									class="text-[18px] font-clash font-medium leading-[20px] tracking-[0.234px] uppercase text-left"
+									class="text-[20px] font-clash font-medium leading-[20px] tracking-[0.234px] text-left"
 								>
-									ARTISTS HELPING ARTISTS
+									Artists Helping Artists
 								</h1>
 								<p
-									class="text-[14px] font-clash font-medium leading-[22.4px] tracking-[0.28px] uppercase w-full"
+									class="text-[16px] font-clash font-medium leading-[22.4px] tracking-[0.28px] uppercase w-full"
 								>
 									© 2024
 								</p>
