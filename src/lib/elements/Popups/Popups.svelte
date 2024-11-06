@@ -56,7 +56,7 @@
 	};
 </script>
 
-<div class="hidden absolute right-40 bottom-16 flex-row laptopM:flex gap-[0.5rem] z-50">
+<div class="hidden absolute left-[40px] bottom-8 sm:flex flex-row gap-[0.5rem] z-50">
 	<!-- <a
 		href="/drops"
 		class="h-[4.0625rem] w-[10.6875rem] flex flex-row bg-color-gray-background rounded-[6.25rem] items-center justify-center hover:scale-105"

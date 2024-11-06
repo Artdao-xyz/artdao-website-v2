@@ -55,7 +55,7 @@
 <div
 	on:scroll={handleOnScroll}
 	on:touchmove={handleOnScroll}
-	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:min-h-screen"
+	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
 >
 	<div
 		id="intro"

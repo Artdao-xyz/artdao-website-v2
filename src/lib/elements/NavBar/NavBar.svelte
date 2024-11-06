@@ -1,4 +1,5 @@
 <script lang="ts">
+	import buttonIcon from '$lib/assets/images/button-icon.png';
 	import { onDestroy } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { isNavOpen, isPopupOpen } from '../Popups/components/store';
@@ -43,6 +44,14 @@
 <div
 	class="w-100dvw rounded-[6.25rem] h-[1rem] sm:flex flex-row items-center z-50 sticky top-[2.88%] mx-[1.625rem] gap-2.5 hidden"
 >
+	<a href={'/'}>
+		<div
+			class="rounded-[100px] nav-gradient-unselected w-[24px] h-[24px] flex flex-row items-center justify-center"
+		>
+			<img src={buttonIcon} alt="Go to home" class="rotate-180 w-[10px]" />
+		</div>
+	</a>
+
 	{#each navItems as navItem, i}
 		<a
 			data-sveltekit-noscroll

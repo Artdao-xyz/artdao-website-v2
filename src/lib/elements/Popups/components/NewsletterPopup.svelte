@@ -1,6 +1,4 @@
 <script lang="ts">
-	import infoCircle from '$lib/assets/images/Ellipse 30.png';
-	import infoCircleWhite from '$lib/assets/images/Ellipse-white.png';
 	import errorIcon from '$lib/assets/images/error-icon.png';
 	import loadingIcon from '$lib/assets/images/loading-icon.png';
 	import successIcon from '$lib/assets/images/success-icon.png';
@@ -91,23 +89,13 @@
 
 <svelte:window bind:innerWidth={size} />
 <button
-	style={size < 1100 ? `width: ${size * 0.92}px;` : 'width: 257.27px'}
-	class="h-[4.9375rem] sm:h-[4.0625rem] {!visible
+	style={size < 500 ? `width: ${size * 0.92}px;` : 'width: 257.27px'}
+	class="h-[2.3125rem] sm:h-[1.5rem] {!visible
 		? '!sm:w-[10.6875rem]'
-		: '!sm:w-[15rem]'} {!visible
-		? 'bg-color-gray-background'
-		: 'bg-color-dark'} rounded-[6.25rem] px-10 sm:px-5 flex flex-col justify-center sm:hover:scale-105"
+		: '!sm:w-[15rem]'} nav-gradient-unselected rounded-[6.25rem] px-5 sm:px-5 flex flex-col justify-center hover:nav-gradient-selected"
 	on:click={handleOnClick}
 >
 	{#if !submitting && !success && !error && !memberExists}
-		<div class="flex gap-[6px] w-full justify-start items-center">
-			<img src={!visible ? infoCircle : infoCircleWhite} alt="info" class="w-[0.5rem] h-[0.5rem]" />
-			<p
-				class="font-clash text-[1rem] sm:text-[0.625rem] font-semibold tracking-[0.0081rem] leading-[1.375rem]"
-			>
-				NEWSLETTER
-			</p>
-		</div>
 		<div class="w-full flex flex-row justify-start gap-[0.5rem] items-center">
 			<div class="w-full flex flex-row justify-start gap-[0.5rem] items-center">
 				<form
@@ -120,21 +108,21 @@
 					class="w-full"
 				>
 					{#if !submitting && !success && !error && !memberExists}
-						<div class="flex gap-[1rem] items-center flex-row">
+						<div class="flex gap-[0.5rem] items-center flex-row">
 							<label for="email" class="hidden"></label>
 							<input
 								bind:this={input}
 								type="email"
 								name="EMAIL"
-								class="placeholder:text-color-white py-0 placeholder:text-[1rem] !placeholder:ml-[0.2rem] w-[70%] font-robotoMono placeholder:sm:text-[0.625rem] sm:text-[0.625rem] font-medium align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem]"
+								class="placeholder:text-color-white h-[18px] py-0 placeholder:text-[1rem] !placeholder:ml-[0.2rem] font-robotoMono placeholder:sm:text-[0.625rem] sm:text-[0.625rem] font-medium align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem]"
 								required
 								value=""
-								placeholder="Enter Your Email"
+								placeholder="Sign Up For Updates"
 							/>
 							<button
 								bind:this={submit}
 								type="submit"
-								class="bg-color-gray rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 text-[1rem] sm:text-[0.625rem] font-medium invisible flex-none w-[30%] align-top border border-color-gray"
+								class="bg-color-gray rounded-[6.25rem] shadow-custom my-auto h-[18px] py-[0.125rem] px-2 text-[0.625rem] leading-[0.625rem] font-medium invisible flex-none w-[25%] align-top border border-color-gray"
 								>submit</button
 							>
 						</div>
