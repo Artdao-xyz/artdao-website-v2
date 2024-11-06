@@ -90,7 +90,7 @@
 <svelte:window bind:innerWidth={size} />
 <button
 	style={size < 500 ? `width: ${size * 0.92}px;` : 'width: 257.27px'}
-	class="h-[2.3125rem] sm:h-[1.5rem] {!visible
+	class="h-[2.3125rem] sm:h-[1.625rem] {!visible
 		? '!sm:w-[10.6875rem]'
 		: '!sm:w-[15rem]'} nav-gradient-unselected rounded-[6.25rem] px-5 sm:px-5 flex flex-col justify-center hover:nav-gradient-selected"
 	on:click={handleOnClick}
@@ -114,7 +114,7 @@
 								bind:this={input}
 								type="email"
 								name="EMAIL"
-								class="placeholder:text-color-white h-[18px] py-0 placeholder:text-[1rem] !placeholder:ml-[0.2rem] font-robotoMono placeholder:sm:text-[0.625rem] sm:text-[0.625rem] font-medium align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem]"
+								class="placeholder:text-color-white w-full h-[18px] py-0 pr-0 placeholder:text-[1rem] !placeholder:ml-[0.2rem] font-robotoMono placeholder:sm:text-[0.75rem] sm:text-[0.75rem] font-medium align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem]"
 								required
 								value=""
 								placeholder="Sign Up For Updates"
@@ -122,7 +122,7 @@
 							<button
 								bind:this={submit}
 								type="submit"
-								class="bg-color-gray rounded-[6.25rem] shadow-custom my-auto h-[18px] py-[0.125rem] px-2 text-[0.625rem] leading-[0.625rem] font-medium invisible flex-none w-[25%] align-top border border-color-gray"
+								class="bg-color-gray rounded-[6.25rem] shadow-custom my-auto h-[18px] py-[0.125rem] px-2 text-[0.75rem] leading-[0.75rem] font-medium invisible flex-none w-[25%] align-top border border-color-gray"
 								>submit</button
 							>
 						</div>
