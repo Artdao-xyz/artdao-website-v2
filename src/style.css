@@ -125,16 +125,11 @@
 	padding: 0;
 	box-sizing: border-box;
 	scroll-behavior: smooth;
-}
-
-body {
-	color: #ffffff;
-	background-color: #1e1e1e;
 
 	/* Scrollbar width */
 	::-webkit-scrollbar {
 		width: 0.1rem !important;
-		height: 0.5rem;
+		height: 0.5rem !important;
 	}
 
 	/* Scrollbar Track */
@@ -152,4 +147,9 @@ body {
 	::-webkit-scrollbar-thumb:hover {
 		background: #555 !important;
 	}
+}
+
+body {
+	color: #ffffff;
+	background-color: #1e1e1e;
 }
