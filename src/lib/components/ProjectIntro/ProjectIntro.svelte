@@ -40,7 +40,7 @@
 				{name}
 			</h1>
 			<div
-				class="w-full sm:w-[36.25rem] flex flex-col gap-10 font-clash text-base macBook:text-base laptopL:text-sm bigScreen:text-base xlScreen:text-2xl font-semibold leading-[1.5625rem]"
+				class="w-full sm:w-[36.25rem] flex flex-col gap-5 font-clash text-base macBook:text-base laptopL:text-sm bigScreen:text-base xlScreen:text-2xl font-semibold leading-[1.5625rem]"
 			>
 				{#each description as text}
 					<p>{text}</p>

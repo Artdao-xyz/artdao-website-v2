@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		S.E.E.D (Experimental Singularity In Reverie), founded in 2021 by 9 members, aims to
 		revolutionize digital art presentation. Embracing hacker, DIY, and open-source philosophies,

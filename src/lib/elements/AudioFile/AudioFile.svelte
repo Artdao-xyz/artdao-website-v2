@@ -22,7 +22,7 @@
 		/>
 	</div>
 	<div class="hidden sm:flex flex-col gap-[0.25rem] text-color-black items-start">
-		<p class="font-neue text-[1.25rem] font-semibold capitalize">{audioItem.songName}</p>
+		<p class="font-clash text-[1.25rem] font-semibold capitalize">{audioItem.songName}</p>
 		<div class="font-robotoMono flex gap-2 text-[10px] font-medium capitalize">
 			<p class="capitalize">{audioItem.artist}</p>
 			<p>.</p>

@@ -3,7 +3,7 @@
 </script>
 
 <footer
-	class="snap-end w-full h-24 bg-color-black flex flex-row justify-between py-[1.25rem] px-[2.5rem]"
+	class="snap-end w-full h-24 bg-color-black flex flex-row justify-between py-[1.25rem] px-[2.5rem] !z-50"
 >
 	<div
 		class="flex flex-col font-robotoMono leading-snug tracking-tight font-normal text-[0.75rem] my-auto w-[15rem] gap-2.5"

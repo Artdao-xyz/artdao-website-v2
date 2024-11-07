@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		Joaquina uses water as the central point of her environments to evoke states of contemplation.
 		Their work emphasizes creating contemplative and ambient experiences while collaborating with

@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		Oky creates digital environments that reflect the physical world through they’re unique
 		perspective, aiming to evoke relaxation and contemplation. Oky’s work features landscapes at

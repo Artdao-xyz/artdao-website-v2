@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		Magma, named for earth-enriching matter, emerged in 2020 during the pandemic. Its founder,
 		initially studying NFTs, united multi-disciplinary artists in Brazil, where collective action is

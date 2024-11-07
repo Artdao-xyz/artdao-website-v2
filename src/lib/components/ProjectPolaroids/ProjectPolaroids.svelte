@@ -27,7 +27,7 @@
 		id={route}
 		class="hidden sm:w-full h-screen sm:h-full sm:flex flex-col items-center gap-5 sm:gap-10 overflow-x-auto sm:overflow-x-hidden"
 	>
-		<div class="w-full flex items-end sm:h-[25%]">
+		<div class="w-[65%] flex items-end sm:h-[25%]">
 			<h1
 				class="text-color-black text-[32px] sm:text-[3rem] capitalize macBook:text-[50px] xlScreen:text-[4rem] font-semibold sm:leading-[3.4375rem] tracking-[0.065rem] font-neue w-full text-center"
 			>

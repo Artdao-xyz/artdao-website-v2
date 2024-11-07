@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		Sulkian redefines the relationship between traditional sculpture and digital creation through
 		the medium of virtual reality. Sculpting in VR feels akin to rediscovering the tactile

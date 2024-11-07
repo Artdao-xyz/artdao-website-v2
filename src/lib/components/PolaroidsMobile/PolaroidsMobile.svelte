@@ -21,7 +21,7 @@
 			>
 				<div class="w-full flex items-end">
 					<h1
-						class="text-color-black text-[1.5rem] leading-[1.5rem] font-semibold tracking-[0.0244rem] uppercase font-neue w-full sm:max-w-[40rem] text-center mx-auto"
+						class="text-color-black text-[1.5rem] leading-[1.5rem] font-semibold tracking-[0.0244rem] capitalize font-neue w-full sm:max-w-[40rem] text-center mx-auto"
 					>
 						“{polaroidImage.quote}”
 					</h1>

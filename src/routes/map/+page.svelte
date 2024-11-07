@@ -38,7 +38,11 @@
 
 <HomeMobileMenu section="drop" />
 
-<div class="h-[100dvh] flex justify-center items-center relative w-full pt-[3rem] sm:pt-0">
+<div
+	class="h-[100dvh] flex justify-center items-center relative w-full {width > 768
+		? 'pt-[3rem]'
+		: 'p-0'} sm:pt-0"
+>
 	{#if width > 768}
 		{#if !eventToShow}
 			<SectionContainer colorVariant={EColorVariant.BLACK} hasPadding={false}>
@@ -63,7 +67,7 @@
 		{/if}
 	{:else if !mapLocationToShow}
 		<div
-			class="flex flex-col gap-[10px] w-full bg-color-gray rounded-20 py-[45px] px-[20px] mobileBg h-fit self-start my-3 mx-[10px]"
+			class="flex flex-col gap-[15px] w-full bg-color-gray py-[45px] px-[20px] h-full self-start"
 		>
 			<CityMobile mapLocation={mapData[0]} bind:eventToShow bind:mapLocationToShow />
 			<CityMobile mapLocation={mapData[1]} bind:eventToShow bind:mapLocationToShow />
@@ -74,7 +78,7 @@
 		</div>
 	{:else if !eventToShow}
 		<div
-			class="flex flex-col justify-between gap-[10px] w-full bg-color-gray rounded-20 py-[45px] px-[20px] mobileBg my-3 mx-[10px] min-h-[665px] self-start"
+			class="flex flex-col items-center justify-between gap-[15px] w-full bg-color-gray py-[45px] px-[20px] h-full self-start"
 		>
 			<CityMobile
 				mapLocation={mapLocationToShow}
@@ -85,13 +89,13 @@
 
 			<button
 				on:click={() => (mapLocationToShow = undefined)}
-				class="w-full h-[47px] py-[14px] px-[24px] sm:max-w-[400px] font-robotoMono text-[16px] leading-[1rem] tracking-[0.156px] rounded-[100px] gray-gradient sm:mx-auto"
+				class="w-[302px] h-[47px] py-[14px] px-[24px] sm:max-w-[400px] font-robotoMono text-[16px] leading-[1rem] tracking-[0.156px] rounded-[100px] gray-gradient sm:mx-auto"
 				>Go Back</button
 			>
 		</div>
 	{:else}
 		<div
-			class="flex flex-col justify-between gap-[10px] w-full bg-color-gray rounded-20 py-[45px] px-[20px] mobileBg my-3 mx-[10px] self-start min-h-[750px] sm:min-h-[900px]"
+			class="flex flex-col items-center gap-[15px] w-full bg-color-gray py-[45px] px-[20px] h-full self-start"
 		>
 			<EventDataMobile bind:eventToShow />
 		</div>
@@ -99,9 +103,3 @@
 </div>
 
 <HomeIcon />
-
-<style>
-	.mobileBg {
-		border: 2px solid rgba(255, 255, 255, 0.76);
-	}
-</style>

@@ -9,7 +9,7 @@
 </script>
 
 {#if eventToShow}
-	<div class="flex flex-col gap-[10px] items-center">
+	<div class="flex flex-col gap-[15px] items-center w-[302px]">
 		<button
 			class="relative flex flex-row dark-gradient items-center justify-center rounded-40 py-[15px] px-[17px] w-full h-[5.4375rem] sm:max-w-[400px] selected"
 		>
@@ -76,7 +76,7 @@
 		</div>
 
 		<div class="flex flex-col items-start gap-[10px] dark-gradient rounded-20 p-[24px] w-full">
-			<p class="text-[18px] uppercase font-neue font-semibold leading-[30px]">
+			<p class="text-[18px] capitalize font-neue font-medium leading-[30px]">
 				{eventToShow.subtitle}
 			</p>
 			<div class="flex flex-col h-[31px]">
@@ -90,7 +90,7 @@
 		</div>
 	</div>
 
-	<div class="flex flex-col gap-[15px]">
+	<div class="flex flex-col gap-[15px] w-[302px]">
 		{#if eventToShow.watchMore}
 			<button
 				class="sm:max-w-[400px] sm:mx-auto px-[20px] py-[12px] rounded-[100px] gray-gradient w-full h-[47px] leading-[16px] text-[16px] font-robotoMono text-color-white"

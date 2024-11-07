@@ -46,7 +46,7 @@
 <div
 	class="sm:w-full w-[21.875rem] mx-auto laptopM:mx-0 {height > 800
 		? 'h-[37.5rem]'
-		: 'h-full'} laptopM:h-full flex flex-col gap-[0.625rem] justify-between p-5 rounded-20 border border-color-black gray-gradient shadow-audioShadow"
+		: 'h-full'} laptopM:h-full flex flex-col gap-[0.625rem] justify-between p-5 rounded-20 border border-color-black gray-gradient"
 >
 	<video
 		style={size > 1100 ? 'height: calc(100% - 2.375rem)' : ''}
@@ -60,7 +60,9 @@
 	</video>
 
 	<div class="flex justify-between h-[2.375rem] w-full items-center relative">
-		<p class="font-clash text-[1.25rem] leading-[4.375rem] text-color-black font-semibold">
+		<p
+			class="font-clash text-[1.25rem] leading-[4.375rem] text-color-black font-semibold capitalize"
+		>
 			{audioItems[index].songName}
 		</p>
 		<div
@@ -69,7 +71,7 @@
 			<button
 				on:click={() => handlePreviousTrack(index)}
 				class="{index === 0
-					? 'pointer-events-none bg-[#D9D9D9]'
+					? 'pointer-events-none bg-[#D9D9D9] border-color-gray-secondary'
 					: ''} w-[2.375rem] h-[2.375rem] rounded-[6.25rem] flex flex-row py-[12px] pl-[10px] pr-[12px] border border-color-black hover:scale-105"
 			>
 				<img
@@ -89,7 +91,7 @@
 			<button
 				on:click={() => handleNextTrack(index)}
 				class="{isLastTrack
-					? 'pointer-events-none bg-[#D9D9D9]'
+					? 'pointer-events-none bg-[#D9D9D9] border-color-gray-secondary'
 					: ''} w-[2.375rem] h-[2.375rem] rounded-[6.25rem] flex flex-row py-[12px] pr-[10px] pl-[12px] border hover:scale-105 border-color-black"
 			>
 				<img src={isLastTrack ? nextDisabled : nextIcon} alt="next" class="h-full w-full" />

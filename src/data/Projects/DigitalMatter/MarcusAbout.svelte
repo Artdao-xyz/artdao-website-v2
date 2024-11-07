@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		Marcus found his artistic process driven by efficiency and the need to quickly convey
 		recognizable forms. However, with the integration of VR into his practice, he began to

@@ -27,7 +27,7 @@
 <div
 	class="hidden cardBlur w-card-width-full-bg laptopM:w-[34rem] macBook:w-card-width-full-bg laptopL:w-[34rem] bigScreen:w-card-width-full-bg h-card-height rounded-40 p-10 laptopM:flex flex-col gap-5 bg-color-interview-card text-color-black mx-auto max-w-[40rem] max-h-[50rem] mt-[4%]"
 >
-	<div
+	<!-- <div
 		class="px-10 py-[0.375rem] border border-color-black items-center rounded-40 flex flex-row w-full justify-between"
 	>
 		<p class="font-robotoMono text-xs leading-[1.375rem] tracking-[0.075rem] font-semibold">
@@ -43,7 +43,7 @@
 				{/each}
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<h2
 		class="w-full font-semibold leading-[3.4375rem] font-clash text-[3rem] overflow-y-auto flex-shrink-0"

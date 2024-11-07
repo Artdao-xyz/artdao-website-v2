@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		Parsa Mostaghim’s artistic evolution began as a painter, but the limitations of physical storage
 		pushed him to embrace digital art and sculpting. This transition not only offered him unlimited

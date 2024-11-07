@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		To recreate the Psipsikoko world's atmosphere, the production team sourced materials from
 		second-hand stores that were characterized by their chaotic organization. One particular store,

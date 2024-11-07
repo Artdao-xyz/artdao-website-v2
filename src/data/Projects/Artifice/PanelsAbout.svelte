@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		The Artifice event was stage to a series of talks focusing on the intersection of digital
 		artistry, AI, and culture. The panel discussions covered various topics including "Building

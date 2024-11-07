@@ -30,7 +30,7 @@
 		{#if aboutDropdown.artist}
 			<div class="flex flex-col items-start gap-[0.3125rem]">
 				<h1
-					class="font-clash text-[0.875rem] leading-[0.875rem] tracking-[1.6px] capitalize self-start"
+					class="font-clash text-[0.875rem] leading-[0.875rem] tracking-[1.3px] capitalize self-start font-medium"
 				>
 					{aboutDropdown.name}
 				</h1>

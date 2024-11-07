@@ -52,7 +52,7 @@
 					on:click={handleOnClick}
 					class="w-[2.25rem] rounded-[100px] {isOpen
 						? 'nav-gradient-unselected border-color-gray'
-						: 'nav-gradient-selected border-color-dark'}  h-[2.25rem] border"
+						: 'nav-gradient-selected border-color-dark'}  h-[2.25rem] border mt-[0.1rem]"
 				>
 					<img
 						src={isOpen ? minus : plus}

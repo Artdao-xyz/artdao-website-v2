@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		Hivemind emerged in 2022, aiming to diversify the NFT space. "The entire NFT community was very
 		crypto-centric and male-dominated, or it was a highly elitist space making a lot of money," the

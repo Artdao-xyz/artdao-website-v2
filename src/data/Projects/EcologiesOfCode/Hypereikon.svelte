@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		Hypereikon started working on environments when they were living in the southern part of Chile.
 		They started recording and working with sounds from the nature. They were deeply inspired by the

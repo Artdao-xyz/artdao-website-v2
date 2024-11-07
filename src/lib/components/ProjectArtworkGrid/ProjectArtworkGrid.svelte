@@ -67,18 +67,18 @@
 			{/each}
 		</div>
 	</div>
-	<div class="flex flex-row gap-10 mt-[-1.5rem]">
+	<div class="flex flex-row gap-10 mt-[-0.7rem] justify-center w-full">
 		<button
 			class="text-color-black"
 			bind:this={prevButton}
 			on:click={() => sideScroll(container, 'left', 200, 10, 700)}
-			><img src={buttonIcon} alt="left" class="h-[0.8rem] hover:scale-125" /></button
+			><img src={buttonIcon} alt="left" class="h-[10px] hover:scale-125" /></button
 		>
 		<button
 			class="text-color-black"
 			bind:this={nextButton}
 			on:click={() => sideScroll(container, 'right', 200, 10, 700)}
-			><img src={buttonIcon} alt="right" class="h-[0.8rem] rotate-180 hover:scale-125" /></button
+			><img src={buttonIcon} alt="right" class="h-[10px] rotate-180 hover:scale-125" /></button
 		>
 	</div>
 </SectionContainer>

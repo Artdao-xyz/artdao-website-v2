@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		Elbi attraction to analog machines stems from a deep-rooted nostalgia, influenced by growing up
 		with retro technology like CRT TVs, VHS tapes, and early video game consoles. His creative

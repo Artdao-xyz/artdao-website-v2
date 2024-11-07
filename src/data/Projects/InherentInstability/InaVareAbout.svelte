@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		INA VARE is drawn to working with analog machines because their physical nature and inherent
 		unpredictability excite her in ways that digital work does not. Analog video technology feels

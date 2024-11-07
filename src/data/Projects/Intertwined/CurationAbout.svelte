@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		Disrupting the binary classification of tool and operator, philosopher Gilbert Simondon sought
 		an approach to technology which would examine the internal experience, essence, and behaviour of

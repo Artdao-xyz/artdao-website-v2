@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		In an era where algorithms shape nearly every aspect of life, Psipsikoko emerges as a bold
 		artistic exploration by Frenetik Void and Julian Brangold. Rather than resisting the

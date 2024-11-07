@@ -13,7 +13,7 @@
 		? 'text-color-white'
 		: 'text-color-black'} {colorVariant === EColorVariant.BLACK
 		? 'bg-color-black'
-		: 'bg-color-white'} w-full max-w-[31.9375rem] mx-[2rem] min-h-screen sm:max-h-[82%] pt-[4rem] sm:pt-0 pb-[2rem] sm:pb-0"
+		: 'bg-color-white'} w-full max-w-[31.9375rem] mx-[2rem] min-h-screen sm:max-h-[82%] pt-[4rem] sm:pt-0 pb-[4rem] sm:pb-0"
 >
 	<!-- <div
 		class="h-9 px-5 border {colorVariant === EColorVariant.BLACK
@@ -27,7 +27,7 @@
 		</p>
 	</div> -->
 	<h2
-		class="w-full sm:mb-[24px] mb-[20px] font-semibold leading-[55px] tracking-[0.065rem] uppercase font-neue text-[40px] sm:text-[3.75rem]"
+		class="w-full sm:mb-[20px] mb-0 font-semibold leading-[55px] tracking-[0.065rem] uppercase font-neue text-[40px] sm:text-[3.75rem]"
 	>
 		{title}
 	</h2>

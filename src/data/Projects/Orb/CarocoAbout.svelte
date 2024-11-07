@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		The "Caroço," is a Brazilian initiative founded in 2022, challenges the boundaries of
 		conventional contemporary art in Brazil by focusing on artistic projects that explore

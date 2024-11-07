@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-10">
+<div class="flex flex-col gap-5">
 	<p>
 		What attracts Nico’s the most working with analog machines is their inherent instability, which
 		asks for a pragmatic and creative approach, pushing him to innovate. The heart of the studio is
