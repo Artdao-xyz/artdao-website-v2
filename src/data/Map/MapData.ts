@@ -68,7 +68,7 @@ export const mapData: IMapLocation[] = [
 			},
 			{
 				title: 'UNDERWORLD',
-				subtitle: 'EXHIBITION / PARTY',
+				subtitle: 'Exhibition / Party',
 				date: 'July 18th-20th, 2023',
 				location: '31 Rue HEnri Chevreu, Paris',
 				images: [underworld01, underworld02, underworld03, underworld04],
@@ -76,7 +76,7 @@ export const mapData: IMapLocation[] = [
 			},
 			{
 				title: 'RAVE',
-				subtitle: 'EXHIBITION / PARTY',
+				subtitle: 'Exhibition / Party',
 				date: 'May 5th, 2024',
 				location: 'Higher Ground, Lisbon',
 				images: [rave01, rave02, rave03, rave04],
@@ -85,7 +85,7 @@ export const mapData: IMapLocation[] = [
 			},
 			{
 				title: 'ARTIFICE',
-				subtitle: 'EXHIBITION / PARTY',
+				subtitle: 'Exhibition / Party',
 				date: 'May 28th-30th, 2024',
 				location: 'RNA Studio, Lisbon',
 				images: [artifice01, artifice02, artifice03, artifice04],
@@ -108,7 +108,7 @@ export const mapData: IMapLocation[] = [
 			},
 			{
 				title: 'NON PLACES',
-				subtitle: 'EXHIBITION / PARTY',
+				subtitle: 'EExhibition / Party',
 				date: 'July 18th-20th, 2023',
 				location: '31 Rue HEnri Chevreu, Paris',
 				images: [nonPlaces01, nonPlaces02, nonPlaces03],
@@ -164,7 +164,7 @@ export const mapData: IMapLocation[] = [
 		events: [
 			{
 				title: 'CERO UNO',
-				subtitle: 'Exhibition / TALKS / AFTER PARTY',
+				subtitle: 'Exhibition / Talks / After Party',
 				date: 'March 31th, 2023',
 				location: 'Artlab, Buenos Aires',
 				images: [ceroUno01, ceroUno02, ceroUno03, ceroUno04],

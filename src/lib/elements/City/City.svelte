@@ -53,7 +53,7 @@
 		<div class="w-[0.75rem] h-[0.75rem] bg-color-white rounded-[100px]" />
 	{/if}
 	<p
-		class="w-full h-[21px] text-color-white font-robotoMono text-[12px] font-medium tracking-[0.156px] uppercase"
+		class="w-full h-[21px] text-color-white font-robotoMono text-[12px] font-medium tracking-[0.156px] capitalize"
 	>
 		{mapLocation.location}
 	</p>

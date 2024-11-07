@@ -24,7 +24,7 @@
 	{#if height > 1100}
 		<img src={logo} alt="ArtDao Logo" class="w-[163px] h-[37.17633px]" />
 		<div class="flex flex-col items-start">
-			<h1 class="text-[20px] font-clash font-medium leading-[20px] tracking-[0.234px]">Artists</h1>
+			<h1 class="text-[20px] font-clash font-medium leading-[20px] tracking-[0.2336px]">Artists</h1>
 			<h1 class="text-[20px] font-clash font-medium leading-[20px] tracking-[0.234px]">
 				Helping Artists
 			</h1>
