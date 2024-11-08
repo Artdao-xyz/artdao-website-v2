@@ -51,11 +51,13 @@
 					class="w-full gray-gradient rounded-[100px] h-[44px] flex flex-row items-center justify-between"
 				>
 					<h1
-						class="w-[500px] gray-gradient uppercase rounded-[100px] h-[44px] my-auto text-[20px] font-semibold font-neue leading-[44px] pl-[22px]"
+						class="w-[500px] gray-gradient uppercase rounded-[100px] h-[44px] my-auto text-[20px] font-medium font-neue leading-[44px] pl-[22px]"
 					>
 						{eventToShow.title}
 					</h1>
-					<p class="pr-[22px] font-robotoMono text-[12px] font-medium uppercase tracking-[0.156px]">
+					<p
+						class="pr-[22px] font-robotoMono text-[12px] font-medium capitalize tracking-[0.156px]"
+					>
 						{eventToShow.city}
 					</p>
 				</div>

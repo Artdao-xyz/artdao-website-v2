@@ -14,7 +14,7 @@
 			class="relative flex flex-row dark-gradient items-center justify-center rounded-40 py-[15px] px-[17px] w-full h-[5.4375rem] sm:max-w-[400px] selected"
 		>
 			<p
-				class="w-full h-full text-color-white font-robotoMono text-[18px] font-medium tracking-[0.234px] uppercase flex items-center justify-center"
+				class="w-full h-full text-color-white font-robotoMono text-[18px] font-medium tracking-[0.234px] capitalize flex items-center justify-center"
 			>
 				{eventToShow.city}
 			</p>
@@ -26,7 +26,7 @@
 			class="flex flex-rowitems-center justify-center rounded-40 w-full h-[47px] gray-gradient sm:max-w-[400px]"
 		>
 			<p
-				class="font-neue text-[20px] tracking-[0.0163rem] font-semibold uppercase flex justify-center items-center leading-[47px]"
+				class="font-neue text-[20px] tracking-[0.0163rem] font-medium uppercase flex justify-center items-center leading-[47px]"
 			>
 				{eventToShow.title}
 			</p>

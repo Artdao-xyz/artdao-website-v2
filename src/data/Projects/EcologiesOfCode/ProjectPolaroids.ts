@@ -15,11 +15,11 @@ export const ecologiesPolaroidImages: IPolaroidImage[] = [
 	},
 	{
 		image: joaquinaPolaroidTwo,
-		quote: 'it’s both a real-world element'
+		quote: 'It’s both a real-world element'
 	},
 	{
 		image: ecologiesPolaroidFour,
-		quote: 'and a powerful symbol in our collective imagination'
+		quote: 'And a powerful symbol in our collective imagination'
 	},
 	{
 		image: ecologiesPolaroidOne,

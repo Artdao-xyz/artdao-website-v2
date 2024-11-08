@@ -29,12 +29,12 @@
 	<div
 		class="h-full {title
 			? 'pt-[2.5rem]'
-			: '!pt-[8rem]'} laptopM:pt-[3%] xlScreen:pt-[8%] flex flex-col justify-center laptopM:justify-start laptopM:gap-10 xlScreen:gap-24"
+			: '!pt-[8rem]'} laptopM:pt-[3%] xlScreen:pt-[8%] flex flex-col justify-center items-center laptopM:justify-start laptopM:gap-10 xlScreen:gap-24"
 		id={route}
 	>
 		{#if title}
 			<h1
-				class="hidden laptopM:block px-[1%] text-color-black text-[3.5rem] xlScreen:text-[5rem] font-semibold leading-[5rem] tracking-[0.065rem] capitalize font-neue w-full text-center"
+				class="hidden laptopM:block px-[1%] text-color-black text-[3.5rem] xlScreen:text-[5rem] font-semibold leading-[5rem] tracking-[0.065rem] w-[65%] font-neue text-center"
 			>
 				{title}
 			</h1>

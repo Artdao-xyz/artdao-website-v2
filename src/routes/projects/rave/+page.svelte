@@ -91,7 +91,7 @@
 
 		<ProjectAudioFiles
 			audioItems={raveAudioFiles}
-			title="cybernetic collaboration between Clauthewitch and NICØ"
+			title="Cybernetic collaboration between Clauthewitch and NICØ"
 			route="artists-end"
 		/>
 	</div>

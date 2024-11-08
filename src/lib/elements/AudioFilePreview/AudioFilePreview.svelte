@@ -65,9 +65,7 @@
 		>
 			{audioItems[index].songName}
 		</p>
-		<div
-			class="flex flex-row absolute bottom-[-0.1875rem] right-0 items-center justify-center gap-[0.625rem]"
-		>
+		<div class="flex flex-row absolute bottom-0 right-0 items-center justify-center gap-[0.625rem]">
 			<button
 				on:click={() => handlePreviousTrack(index)}
 				class="{index === 0
