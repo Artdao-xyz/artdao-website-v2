@@ -11,7 +11,7 @@
 {#if eventToShow}
 	<div class="flex flex-col gap-[15px] items-center w-[302px]">
 		<button
-			class="relative flex flex-row dark-gradient items-center justify-center rounded-40 py-[15px] px-[17px] w-full h-[5.4375rem] sm:max-w-[400px] selected"
+			class="relative flex flex-row dark-gradient items-center justify-center rounded-40 py-[15px] pl-[17px] pr-[40px] w-full h-[5.4375rem] sm:max-w-[400px] selected"
 		>
 			<p
 				class="w-full h-full text-color-white font-robotoMono text-[18px] font-medium tracking-[0.234px] capitalize flex items-center justify-center"

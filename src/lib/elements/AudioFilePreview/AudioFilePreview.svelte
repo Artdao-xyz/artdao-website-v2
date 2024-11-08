@@ -46,10 +46,10 @@
 <div
 	class="sm:w-full w-[21.875rem] mx-auto laptopM:mx-0 {height > 800
 		? 'h-[37.5rem]'
-		: 'h-full'} laptopM:h-full flex flex-col gap-[0.625rem] justify-between p-5 rounded-20 border border-color-black gray-gradient"
+		: 'h-full'} laptopM:h-full flex flex-col gap-5 sm:gap-[0.625rem] justify-between p-5 rounded-20 border border-color-black gray-gradient"
 >
 	<video
-		style={size > 1100 ? 'height: calc(100% - 2.375rem)' : ''}
+		style={size > 1100 ? 'height: calc(100% - 1.75rem)' : ''}
 		src={audioItems[index].songFile}
 		controls
 		bind:this={videoPlayer}
@@ -59,7 +59,7 @@
 		<track kind="captions" />
 	</video>
 
-	<div class="flex justify-between h-[2.375rem] w-full items-center relative">
+	<div class="flex justify-between h-[1.75rem] w-full items-center relative">
 		<p
 			class="font-clash text-[1.25rem] leading-[4.375rem] text-color-black font-semibold capitalize"
 		>
@@ -70,7 +70,7 @@
 				on:click={() => handlePreviousTrack(index)}
 				class="{index === 0
 					? 'pointer-events-none bg-[#D9D9D9] border-color-gray-secondary'
-					: ''} w-[2.375rem] h-[2.375rem] rounded-[6.25rem] flex flex-row py-[12px] pl-[10px] pr-[12px] border border-color-black hover:scale-105"
+					: ''} w-[1.75rem] h-[1.75rem] rounded-[6.25rem] flex flex-row py-[8px] pl-[6px] pr-[8px] border border-color-black hover:scale-105"
 			>
 				<img
 					src={index === 0 ? previousDisabled : previousIcon}
@@ -80,9 +80,9 @@
 			</button>
 			<button
 				on:click={isPaused ? playVideo : pauseVideo}
-				class="w-[2.375rem] h-[2.375rem] rounded-[6.25rem] flex flex-row {isPaused
+				class="w-[1.75rem] h-[1.75rem] rounded-[6.25rem] flex flex-row {isPaused
 					? ''
-					: 'pr-[13px]'} p-[12px] border hover:scale-105 border-color-black"
+					: 'pr-[13px]'} p-[8px] border hover:scale-105 border-color-black"
 			>
 				<img src={isPaused ? playIcon : pauseIconBlack} alt="play/pause" class="h-full w-full" />
 			</button>
@@ -90,7 +90,7 @@
 				on:click={() => handleNextTrack(index)}
 				class="{isLastTrack
 					? 'pointer-events-none bg-[#D9D9D9] border-color-gray-secondary'
-					: ''} w-[2.375rem] h-[2.375rem] rounded-[6.25rem] flex flex-row py-[12px] pr-[10px] pl-[12px] border hover:scale-105 border-color-black"
+					: ''} w-[1.75rem] h-[1.75rem] rounded-[6.25rem] flex flex-row py-[8px] pr-[6px] pl-[8px] border hover:scale-105 border-color-black"
 			>
 				<img src={isLastTrack ? nextDisabled : nextIcon} alt="next" class="h-full w-full" />
 			</button>
@@ -98,7 +98,7 @@
 	</div>
 </div>
 
-<!-- style="height: calc(100% - 2.375rem)" -->
+<!-- style="height: calc(100% - 1.75rem)" -->
 
 <!-- laptopM:h-[87%] macBook:h-full laptopL:h-[90%] bigScreen:h-full -->
 
