@@ -38,22 +38,37 @@
 		class="{isSmall
 			? 'left-[20px]'
 			: 'left-0'} flex flex-row gap-[0.625rem] sm:gap-[1.375rem] laptopM:left-10 laptopM:bottom-10
-			 absolute {height > 700 ? 'bottom-20' : 'bottom-[1.25rem]'} {width < 500
-			? 'scroll-panel !w-fit'
-			: ''}"
+			 absolute {height > 700 ? 'bottom-20' : 'bottom-[1.25rem]'} {width < 500 ? 'scroll-panel' : ''}"
 	>
-		{#each images as image, i}
-			<button
-				class="w-[2.5rem] h-[2.5rem] laptopM:w-[5.375rem] laptopM:h-[5.375rem] hover:scale-105"
-				on:click={() => handleOnClick(i)}
-			>
-				<img
-					src={image}
-					alt="Small view"
-					class="w-full h-full object-cover rounded-[6.25rem] shadow"
-				/>
-			</button>
-		{/each}
+		{#if width < 500}
+			<div class="w-fit flex flex-row flex-nowrap gap-[0.625rem]">
+				{#each images as image, i}
+					<button
+						class="w-[2.5rem] h-[2.5rem] laptopM:w-[5.375rem] laptopM:h-[5.375rem] hover:scale-105"
+						on:click={() => handleOnClick(i)}
+					>
+						<img
+							src={image}
+							alt="Small view"
+							class="w-full h-full object-cover rounded-[6.25rem] shadow"
+						/>
+					</button>
+				{/each}
+			</div>
+		{:else}
+			{#each images as image, i}
+				<button
+					class="w-[2.5rem] h-[2.5rem] laptopM:w-[5.375rem] laptopM:h-[5.375rem] hover:scale-105"
+					on:click={() => handleOnClick(i)}
+				>
+					<img
+						src={image}
+						alt="Small view"
+						class="w-full h-full object-cover rounded-[6.25rem] shadow"
+					/>
+				</button>
+			{/each}
+		{/if}
 	</div>
 
 	{#if aboutDropdownItems}
