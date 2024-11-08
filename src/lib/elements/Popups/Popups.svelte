@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onDestroy } from 'svelte';
+	import { isFooterVisible } from '../Footer/store';
 	import NewsletterPopup from './components/NewsletterPopup.svelte';
 
 	let visible: boolean = false;
@@ -54,9 +56,24 @@
 			visible = false;
 		}, 4000);
 	};
+
+	let hidePopup = false;
+
+	$: console.log('hidePopup', hidePopup);
+
+	const unsubscribe = isFooterVisible.subscribe((boolean) => {
+		console.log('boolean', boolean);
+		hidePopup = boolean;
+	});
+
+	onDestroy(unsubscribe);
 </script>
 
-<div class="hidden absolute left-[40px] bottom-8 sm:flex flex-row gap-[0.5rem] z-50">
+<div
+	class="hidden absolute left-[40px] bottom-8 sm:flex flex-row gap-[0.5rem] {hidePopup
+		? 'sm:hidden z-0'
+		: 'z-50'}"
+>
 	<!-- <a
 		href="/drops"
 		class="h-[4.0625rem] w-[10.6875rem] flex flex-row bg-color-gray-background rounded-[6.25rem] items-center justify-center hover:scale-105"
