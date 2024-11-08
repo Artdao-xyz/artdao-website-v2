@@ -3,7 +3,6 @@
 	import * as THREE from 'three';
 	import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 	import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-	import { HOME } from '../../../constants/routes';
 	import MetaSymbol from '../../../lib/components/Metaball/MetaSymbol';
 
 	let canvas = null;
@@ -112,7 +111,7 @@
 	// }
 </script>
 
-<a href={HOME}>
+<a href={'#intro'}>
 	<canvas
 		bind:this={canvas}
 		class="bg-transparent fixed z-50

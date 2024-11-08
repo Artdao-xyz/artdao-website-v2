@@ -40,7 +40,7 @@
 				</button>
 			</Gallery>
 		</Gallery>
-		<Modal bind:open={showModal} outsideclose autoclose class="h-full !bg-transparent">
+		<Modal bind:open={showModal} outsideclose autoclose class="h-full !bg-transparent modal">
 			<div
 				class="h-full bg-color-white w-auto p-5 rounded-30 border border-color-black flex flex-col flex-shrink-0 flex-grow-0"
 			>
