@@ -1,7 +1,7 @@
 <script lang="ts">
-	import errorIcon from '$lib/assets/images/error-icon.png';
-	import loadingIcon from '$lib/assets/images/loading-icon.png';
-	import successIcon from '$lib/assets/images/success-icon.png';
+	import errorIcon from '$lib/assets/images/error-icon.webp';
+	import loadingIcon from '$lib/assets/images/loading-icon.webp';
+	import successIcon from '$lib/assets/images/success-icon.webp';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { indexStyle } from './store';

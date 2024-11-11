@@ -1,8 +1,8 @@
 <script lang="ts">
-	import linkIcon from '$lib/assets/images/about-dropdown-link-icon.png';
-	import dottedLine from '$lib/assets/images/dotted-line-about-dropdown.png';
-	import infoCircle from '$lib/assets/images/Ellipse 30.png';
-	import infoCircleWhite from '$lib/assets/images/Ellipse-white.png';
+	import linkIcon from '$lib/assets/images/about-dropdown-link-icon.webp';
+	import dottedLine from '$lib/assets/images/dotted-line-about-dropdown.webp';
+	import infoCircle from '$lib/assets/images/Ellipse 30.webp';
+	import infoCircleWhite from '$lib/assets/images/Ellipse-white.webp';
 	import { slide } from 'svelte/transition';
 	import { type IAboutDropdown } from './interfaces';
 

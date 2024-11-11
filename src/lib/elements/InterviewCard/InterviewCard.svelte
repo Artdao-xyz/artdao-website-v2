@@ -1,5 +1,5 @@
 <script lang="ts">
-	import dottedLineLong from '$lib/assets/images/dotted-line-long.png';
+	import dottedLineLong from '$lib/assets/images/dotted-line-long.webp';
 	import type { IQuestion } from './interfaces';
 
 	export let questions: IQuestion[];

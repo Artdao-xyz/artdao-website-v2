@@ -1,8 +1,8 @@
 <script lang="ts">
-	import chimericaBg from '$lib/assets/images/drops/chimerica-bg.png';
-	import drop3Bg from '$lib/assets/images/drops/drop3-bg.png';
-	import psikokoBanner from '$lib/assets/images/drops/psipsikoko-banner.png';
-	import hammer from '$lib/assets/images/drops/psipsikoko-hammer.png';
+	import chimericaBg from '$lib/assets/images/drops/chimerica-bg.webp';
+	import drop3Bg from '$lib/assets/images/drops/drop3-bg.webp';
+	import psikokoBanner from '$lib/assets/images/drops/psipsikoko-banner.webp';
+	import hammer from '$lib/assets/images/drops/psipsikoko-hammer.webp';
 	import HomeDropMenu from '$lib/components/HomeDropMenu/HomeDropMenu.svelte';
 	import HomeMobileMenu from '$lib/components/HomeMobileMenu/HomeMobileMenu.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
@@ -12,7 +12,7 @@
 <div
 	class="w-full h-[100dvh] sm:min-h-screen sm:h-auto overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto"
 >
-	<HomeMobileMenu toggle="white" section="drop" />
+	<HomeMobileMenu section="drop" />
 
 	<!-- TODO: implement date -->
 	<HomeDropMenu

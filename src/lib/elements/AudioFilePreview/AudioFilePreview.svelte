@@ -1,10 +1,10 @@
 <script lang="ts">
-	import nextIcon from '$lib/assets/images/next-icon-black.png';
-	import nextDisabled from '$lib/assets/images/next-icon-gray.png';
+	import nextIcon from '$lib/assets/images/next-icon-black.webp';
+	import nextDisabled from '$lib/assets/images/next-icon-gray.webp';
 	import pauseIconBlack from '$lib/assets/images/pause-icon-black.svg';
-	import playIcon from '$lib/assets/images/play-icon-black.png';
-	import previousIcon from '$lib/assets/images/previous-icon-black.png';
-	import previousDisabled from '$lib/assets/images/previuos-icon-gray.png';
+	import playIcon from '$lib/assets/images/play-icon-black.webp';
+	import previousIcon from '$lib/assets/images/previous-icon-black.webp';
+	import previousDisabled from '$lib/assets/images/previuos-icon-gray.webp';
 	import { onMount } from 'svelte';
 	import type { IAudioItem } from '../AudioFile/interfaces';
 

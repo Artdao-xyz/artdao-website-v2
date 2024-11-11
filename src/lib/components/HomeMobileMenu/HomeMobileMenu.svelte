@@ -1,6 +1,6 @@
 <script lang="ts">
-	import minus from '$lib/assets/images/minus-icon.png';
-	import plus from '$lib/assets/images/plus-icon.png';
+	import minus from '$lib/assets/images/minus-icon.webp';
+	import plus from '$lib/assets/images/plus-icon.webp';
 	import NewsletterPopup from '$lib/elements/Popups/components/NewsletterPopup.svelte';
 	import { isNavOpen, isPopupOpen } from '$lib/elements/Popups/components/store';
 	import { onDestroy } from 'svelte';

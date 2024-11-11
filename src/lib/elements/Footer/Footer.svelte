@@ -1,5 +1,5 @@
 <script>
-	import footerLogo from '$lib/assets/images/artdao-logo.png';
+	import footerLogo from '$lib/assets/images/artdao-logo.webp';
 	import { inview } from 'svelte-inview';
 	import { isFooterVisible } from './store';
 </script>

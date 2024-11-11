@@ -3,7 +3,7 @@
 	export let top: string;
 	export let left: string;
 	export let eventToShow;
-	import menuLine from '$lib/assets/images/map-menu-line.png';
+	import menuLine from '$lib/assets/images/map-menu-line.webp';
 	import buttonIcon from '$lib/assets/images/video-arrow.svg';
 	import type { IMapEvent, IMapLocation } from '../../../data/Map/MapData';
 	export let mapLocation: IMapLocation;

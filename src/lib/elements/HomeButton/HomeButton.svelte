@@ -1,5 +1,5 @@
 <script lang="ts">
-	import buttonIcon from '$lib/assets/images/button-icon.png';
+	import buttonIcon from '$lib/assets/images/button-icon.webp';
 	export let route: string;
 </script>
 

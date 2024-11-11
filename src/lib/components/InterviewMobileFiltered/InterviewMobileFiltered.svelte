@@ -1,6 +1,6 @@
 <script lang="ts">
-	import iconOpened from '$lib/assets/images/minus-icon.png';
-	import iconClosed from '$lib/assets/images/plus-icon.png';
+	import iconOpened from '$lib/assets/images/minus-icon.webp';
+	import iconClosed from '$lib/assets/images/plus-icon.webp';
 	import { slide } from 'svelte/transition';
 	import type {
 		IFilteredQuestions,

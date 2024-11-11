@@ -1,5 +1,5 @@
 <script lang="ts">
-	import buttonIcon from '$lib/assets/images/button-icon.png';
+	import buttonIcon from '$lib/assets/images/button-icon.webp';
 	import { onDestroy } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { isNavOpen, isPopupOpen } from '../Popups/components/store';

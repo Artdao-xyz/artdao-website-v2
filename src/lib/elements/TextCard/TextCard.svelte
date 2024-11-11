@@ -1,5 +1,5 @@
 <script lang="ts">
-	import dottedLine from '$lib/assets/images/dotted-line-black.png';
+	import dottedLine from '$lib/assets/images/dotted-line-black.webp';
 	import { EColorVariant, ESizeVariant } from '../../../constants/enums';
 	import type { ITextCardItem } from './interfaces';
 

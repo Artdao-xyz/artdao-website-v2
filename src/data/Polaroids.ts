@@ -1,7 +1,7 @@
-import imgOne from '$lib/assets/images/img-1.png';
-import imgTwo from '$lib/assets/images/img-2.png';
-import imgThree from '$lib/assets/images/img-3.png';
-import imgFour from '$lib/assets/images/img-7.png';
+import imgOne from '$lib/assets/images/img-1.webp';
+import imgTwo from '$lib/assets/images/img-2.webp';
+import imgThree from '$lib/assets/images/img-3.webp';
+import imgFour from '$lib/assets/images/img-7.webp';
 import type { IPolaroidImage } from '$lib/elements/Polaroids/interface';
 
 export const polaroidImages: IPolaroidImage[] = [

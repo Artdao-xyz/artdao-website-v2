@@ -1,10 +1,10 @@
 <script lang="ts">
-	import artDaoLogo from '$lib/assets/images/artdao-logo.png';
-	import discordIcon from '$lib/assets/images/discord-icon.png';
+	import artDaoLogo from '$lib/assets/images/artdao-logo.webp';
+	import discordIcon from '$lib/assets/images/discord-icon.webp';
 	import hammer from '$lib/assets/images/hammer-min.webp';
-	import instagramIcon from '$lib/assets/images/instagram-icon.png';
-	import mapLogo from '$lib/assets/images/map.png';
-	import xIcon from '$lib/assets/images/x-icon.png';
+	import instagramIcon from '$lib/assets/images/instagram-icon.webp';
+	import mapLogo from '$lib/assets/images/map.webp';
+	import xIcon from '$lib/assets/images/x-icon.webp';
 	import HomeLogo from '$lib/elements/HomeLogo/HomeLogo.svelte';
 	import HomeMap from '$lib/elements/HomeMap/HomeMap.svelte';
 	import HomeNewsletter from '$lib/elements/HomeNewsletter/HomeNewsletter.svelte';

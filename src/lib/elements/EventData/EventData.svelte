@@ -1,5 +1,5 @@
 <script lang="ts">
-	import closeButton from '$lib/assets/images/close-button-min.png';
+	import closeButton from '$lib/assets/images/close-button-min.webp';
 	import mapBg from '$lib/assets/images/map-background.webp';
 	import buttonIcon from '$lib/assets/images/video-arrow.svg';
 	import type { IMapEvent } from '../../../data/Map/MapData';

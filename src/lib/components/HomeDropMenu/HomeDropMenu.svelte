@@ -1,8 +1,8 @@
 <script lang="ts">
-	import dottedLine from '$lib/assets/images/dotted-line-drop.png';
-	import infoCircle from '$lib/assets/images/Ellipse 30.png';
-	import infoCircleWhite from '$lib/assets/images/Ellipse-white.png';
-	import whiteToggle from '$lib/assets/images/white-toggle.png';
+	import dottedLine from '$lib/assets/images/dotted-line-drop.webp';
+	import infoCircle from '$lib/assets/images/Ellipse 30.webp';
+	import infoCircleWhite from '$lib/assets/images/Ellipse-white.webp';
+	import whiteToggle from '$lib/assets/images/white-toggle.webp';
 
 	import HomeDropMenuDetails from '$lib/elements/HomeDropMenuDetails/HomeDropMenuDetails.svelte';
 	import { slide } from 'svelte/transition';

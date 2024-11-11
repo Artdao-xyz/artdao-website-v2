@@ -1,4 +1,4 @@
-import imgOne from '$lib/assets/images/img-1.png';
+import imgOne from '$lib/assets/images/img-1.webp';
 import type { ITextCardItem } from '$lib/elements/TextCard/interfaces';
 
 export const textCardItemOne: ITextCardItem = {
