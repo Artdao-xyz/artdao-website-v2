@@ -43,22 +43,6 @@
 
 <svelte:window bind:innerWidth={size} />
 
-{#each nonPlacesProjectIntro.bgImage as image}
-	<link rel="preload" as="image" href={image} />
-{/each}
-
-{#each nonPlacesProjectIntro.bgImageMobile as image}
-	<link rel="preload" as="image" href={image} />
-{/each}
-
-{#each nonPlacesDropdownItems.map((item) => item.image) as image}
-	<link rel="preload" as="image" href={image} />
-{/each}
-
-{#each nonPlacesTwoDropdownItems.map((item) => item.image) as image}
-	<link rel="preload" as="image" href={image} />
-{/each}
-
 <div
 	on:scroll={handleOnScroll}
 	on:touchmove={handleOnScroll}

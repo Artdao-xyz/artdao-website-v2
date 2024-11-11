@@ -76,6 +76,7 @@
 </script>
 
 <svelte:window bind:innerWidth={size} />
+
 <div
 	on:scroll={handleOnScroll}
 	on:touchmove={handleOnScroll}
