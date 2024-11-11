@@ -43,6 +43,26 @@
 	};
 </script>
 
+{#each raveProject.bgImage as image}
+	<link rel="preload" as="image" href={image} />
+{/each}
+
+{#each raveProject.bgImageMobile as image}
+	<link rel="preload" as="image" href={image} />
+{/each}
+
+{#each raveAboutDropdopwnItems.map((image) => image.image) as image}
+	<link rel="preload" as="image" href={image} />
+{/each}
+
+{#each performanceDropdownItems.map((item) => item.image) as image}
+	<link rel="preload" as="image" href={image} />
+{/each}
+
+{#each raveAboutDropdopwnItemsTwo.map((item) => item.image) as image}
+	<link rel="preload" as="image" href={image} />
+{/each}
+
 <div
 	on:scroll={handleOnScroll}
 	on:touchmove={handleOnScroll}

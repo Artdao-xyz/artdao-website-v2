@@ -60,6 +60,40 @@
 	};
 </script>
 
+<svelte:head>
+	{#each orbProject.bgImage as image}
+		<link rel="preload" as="image" href={image} />
+	{/each}
+
+	{#each orbProject.bgImageMobile as image}
+		<link rel="preload" as="image" href={image} />
+	{/each}
+
+	{#each carocoAboutImages as image}
+		<link rel="preload" as="image" href={image} />
+	{/each}
+
+	{#each vernisaggeDropdownItems.map((item) => item.image) as image}
+		<link rel="preload" as="image" href={image} />
+	{/each}
+
+	{#each hivemindAboutImages as image}
+		<link rel="preload" as="image" href={image} />
+	{/each}
+
+	{#each magmaAboutImages as image}
+		<link rel="preload" as="image" href={image} />
+	{/each}
+
+	{#each seedAboutImages as image}
+		<link rel="preload" as="image" href={image} />
+	{/each}
+
+	{#each daoDropdownItems.map((item) => item.image) as image}
+		<link rel="preload" as="image" href={image} />
+	{/each}
+</svelte:head>
+
 <div
 	on:scroll={handleOnScroll}
 	on:touchmove={handleOnScroll}
