@@ -1,7 +1,7 @@
 <script lang="ts">
 	import artDaoLogo from '$lib/assets/images/artdao-logo.png';
 	import discordIcon from '$lib/assets/images/discord-icon.png';
-	import hammer from '$lib/assets/images/hammer-min.png';
+	import hammer from '$lib/assets/images/hammer-min.webp';
 	import instagramIcon from '$lib/assets/images/instagram-icon.png';
 	import mapLogo from '$lib/assets/images/map.png';
 	import xIcon from '$lib/assets/images/x-icon.png';

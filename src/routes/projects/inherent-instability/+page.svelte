@@ -1,5 +1,5 @@
 <script lang="ts">
-	import inaInterviewBgImage from '$lib/assets/images/projects/inherentInstability/Background_Img.png';
+	import inaInterviewBgImage from '$lib/assets/images/projects/inherentInstability/Background_Img.webp';
 	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectInterview from '$lib/components/ProjectInterview/ProjectInterview.svelte';

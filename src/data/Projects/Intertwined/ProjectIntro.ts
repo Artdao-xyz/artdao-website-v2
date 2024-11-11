@@ -1,5 +1,5 @@
-import bgImage from '$lib/assets/images/projects/intertwined/Interwined_IMG 1-min.png';
-import bgImageMobile from '$lib/assets/images/projects/mobile-intro/Interwined_Cover 1-min.png';
+import bgImage from '$lib/assets/images/projects/intertwined/Interwined_IMG 1-min.webp';
+import bgImageMobile from '$lib/assets/images/projects/mobile-intro/Interwined_Cover 1-min.webp';
 
 export const intertwinedProjectIntro = {
 	name: 'intertwined',

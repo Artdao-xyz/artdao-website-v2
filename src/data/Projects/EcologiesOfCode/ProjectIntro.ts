@@ -1,5 +1,5 @@
-import bgImage from '$lib/assets/images/projects/ecologiesOfCode/EcologiesOfCode_IMG 1-min.png';
-import bgImageMobile from '$lib/assets/images/projects/mobile-intro/EcologiesOfCode_Cover 1-min.png';
+import bgImage from '$lib/assets/images/projects/ecologiesOfCode/EcologiesOfCode_IMG 1-min.webp';
+import bgImageMobile from '$lib/assets/images/projects/mobile-intro/EcologiesOfCode_Cover 1-min.webp';
 
 export const ecologiesOfCodeProject = {
 	name: 'ecologies of code',

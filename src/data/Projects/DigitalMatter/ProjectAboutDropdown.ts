@@ -1,9 +1,9 @@
-import parsaAboutDropdownTwo from '$lib/assets/images/projects/digitalMatter/Crucifixtion.png';
-import parsaAboutDropdownOne from '$lib/assets/images/projects/digitalMatter/Crucifixtion_blender.png';
-import marcusAboutDropdownTwo from '$lib/assets/images/projects/digitalMatter/caballo.png';
-import marcusAboutDropdownFour from '$lib/assets/images/projects/digitalMatter/cocodrilo.png';
-import marcusAboutDropdownThree from '$lib/assets/images/projects/digitalMatter/cuervos.png';
-import marcusAboutDropdownOne from '$lib/assets/images/projects/digitalMatter/perro.png';
+import parsaAboutDropdownTwo from '$lib/assets/images/projects/digitalMatter/Crucifixtion.webp';
+import parsaAboutDropdownOne from '$lib/assets/images/projects/digitalMatter/Crucifixtion_blender.webp';
+import marcusAboutDropdownTwo from '$lib/assets/images/projects/digitalMatter/caballo.webp';
+import marcusAboutDropdownFour from '$lib/assets/images/projects/digitalMatter/cocodrilo.webp';
+import marcusAboutDropdownThree from '$lib/assets/images/projects/digitalMatter/cuervos.webp';
+import marcusAboutDropdownOne from '$lib/assets/images/projects/digitalMatter/perro.webp';
 import type { IAboutDropdown } from '$lib/elements/AboutDropdown/interfaces';
 
 export const marcusDropdownItems: IAboutDropdown[] = [

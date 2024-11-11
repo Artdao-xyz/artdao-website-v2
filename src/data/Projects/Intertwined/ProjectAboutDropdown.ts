@@ -1,20 +1,20 @@
-import vernisagge08 from '$lib/assets/images/projects/intertwined/12-DSCF3777 1-min.png';
-import vernisagge07 from '$lib/assets/images/projects/intertwined/15-DSCF3840 1-min.png';
-import vernisagge03 from '$lib/assets/images/projects/intertwined/21-DSCF4428 1-min.png';
-import vernisagge01 from '$lib/assets/images/projects/intertwined/26-DSCF4477 1-min.png';
-import vernisagge06 from '$lib/assets/images/projects/intertwined/33-DSCF4512 1-min.png';
-import vernisagge04 from '$lib/assets/images/projects/intertwined/36-DSCF4527 1-min.png';
-import vernisagge02 from '$lib/assets/images/projects/intertwined/5-DSCF4312 1-min.png';
-import vernisagge05 from '$lib/assets/images/projects/intertwined/6-DSCF4317 1-min.png';
-import accident from '$lib/assets/images/projects/intertwined/8 The accident - P Xhita 1-min.png';
-import afrodita from '$lib/assets/images/projects/intertwined/afr0dita 1-min.png';
-import cyto from '$lib/assets/images/projects/intertwined/C32B6EF2-3184-45A1-BC0F-04EBB8AF7368 - Ricardo Santos 1-min.png';
-import concussion from '$lib/assets/images/projects/intertwined/CONCUSSION1 - Tomás Santos 1-min.png';
-import enchanted from '$lib/assets/images/projects/intertwined/Enchanted Fusion_Lulú_ARTDAO - Lulú Ponteville 1-min.png';
-import faktor from '$lib/assets/images/projects/intertwined/Faktor-min.png';
-import sharing from '$lib/assets/images/projects/intertwined/sharingiscaring_DAO - malaguts 1-min.png';
-import keyhole from '$lib/assets/images/projects/intertwined/Through_the_keyhole_meelayya - Meelayya 1-min.png';
-import mar from '$lib/assets/images/projects/intertwined/UNTITLED LISBOA EDIT JPEG - mardeformas 1-min.png';
+import vernisagge08 from '$lib/assets/images/projects/intertwined/12-DSCF3777 1-min.webp';
+import vernisagge07 from '$lib/assets/images/projects/intertwined/15-DSCF3840 1-min.webp';
+import vernisagge03 from '$lib/assets/images/projects/intertwined/21-DSCF4428 1-min.webp';
+import vernisagge01 from '$lib/assets/images/projects/intertwined/26-DSCF4477 1-min.webp';
+import vernisagge06 from '$lib/assets/images/projects/intertwined/33-DSCF4512 1-min.webp';
+import vernisagge04 from '$lib/assets/images/projects/intertwined/36-DSCF4527 1-min.webp';
+import vernisagge02 from '$lib/assets/images/projects/intertwined/5-DSCF4312 1-min.webp';
+import vernisagge05 from '$lib/assets/images/projects/intertwined/6-DSCF4317 1-min.webp';
+import accident from '$lib/assets/images/projects/intertwined/8 The accident - P Xhita 1-min.webp';
+import afrodita from '$lib/assets/images/projects/intertwined/afr0dita 1-min.webp';
+import cyto from '$lib/assets/images/projects/intertwined/C32B6EF2-3184-45A1-BC0F-04EBB8AF7368 - Ricardo Santos 1-min.webp';
+import concussion from '$lib/assets/images/projects/intertwined/CONCUSSION1 - Tomás Santos 1-min.webp';
+import enchanted from '$lib/assets/images/projects/intertwined/Enchanted Fusion_Lulú_ARTDAO - Lulú Ponteville 1-min.webp';
+import faktor from '$lib/assets/images/projects/intertwined/Faktor-min.webp';
+import sharing from '$lib/assets/images/projects/intertwined/sharingiscaring_DAO - malaguts 1-min.webp';
+import keyhole from '$lib/assets/images/projects/intertwined/Through_the_keyhole_meelayya - Meelayya 1-min.webp';
+import mar from '$lib/assets/images/projects/intertwined/UNTITLED LISBOA EDIT JPEG - mardeformas 1-min.webp';
 import type { IAboutDropdown } from '$lib/elements/AboutDropdown/interfaces';
 
 export const artdaoDropdownItems: IAboutDropdown[] = [

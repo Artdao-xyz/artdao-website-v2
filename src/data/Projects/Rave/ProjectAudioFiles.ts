@@ -1,6 +1,6 @@
-import artistOne from '$lib/assets/images/projects/rave/audio/artistOne.png';
-import artistTwo from '$lib/assets/images/projects/rave/audio/artistTwo.png';
-import songImage from '$lib/assets/images/projects/rave/audio/audioImg.png';
+import artistOne from '$lib/assets/images/projects/rave/audio/artistOne.webp';
+import artistTwo from '$lib/assets/images/projects/rave/audio/artistTwo.webp';
+import songImage from '$lib/assets/images/projects/rave/audio/audioImg.webp';
 import type { IAudioItem } from '$lib/elements/AudioFile/interfaces';
 
 export const raveAudioFiles: IAudioItem[] = [

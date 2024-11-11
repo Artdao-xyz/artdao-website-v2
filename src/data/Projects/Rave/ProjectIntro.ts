@@ -1,5 +1,5 @@
-import bgImage from '$lib/assets/images/projects/rave/rave-cover-desktop-min.png';
-import bgImageMobile from '$lib/assets/images/projects/rave/rave-cover-mobile-min.png';
+import bgImage from '$lib/assets/images/projects/rave/rave-cover-desktop-min.webp';
+import bgImageMobile from '$lib/assets/images/projects/rave/rave-cover-mobile-min.webp';
 
 export const raveProject = {
 	name: 'rave',

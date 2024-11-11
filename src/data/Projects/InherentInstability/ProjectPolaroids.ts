@@ -1,11 +1,11 @@
-import nicoPolaroids02 from '$lib/assets/images/projects/inherentInstability/37096F03-725B-409D-8347-B7826C84F9FA.JPG.png';
-import inaPolaroids03 from '$lib/assets/images/projects/inherentInstability/GYzjLPsXAAA8Yx0_1.png';
-import inaPolaroids01 from '$lib/assets/images/projects/inherentInstability/HOLY-CHORES-expo-NFT-EUROPE-VALENCIA2023-2_1.png';
-import inaPolaroids02 from '$lib/assets/images/projects/inherentInstability/IMG_0170_1.png';
-import nicoPolaroids03 from '$lib/assets/images/projects/inherentInstability/IMG_0233.HEIC.png';
-import inaPolaroids04 from '$lib/assets/images/projects/inherentInstability/IMG_4614_1.png';
-import nicoPolaroids01 from '$lib/assets/images/projects/inherentInstability/IMG_7001.png';
-import nicoPolaroids04 from '$lib/assets/images/projects/inherentInstability/IMG_9120.HEIC_1.png';
+import nicoPolaroids02 from '$lib/assets/images/projects/inherentInstability/37096F03-725B-409D-8347-B7826C84F9FA.JPG.webp';
+import inaPolaroids03 from '$lib/assets/images/projects/inherentInstability/GYzjLPsXAAA8Yx0_1.webp';
+import inaPolaroids01 from '$lib/assets/images/projects/inherentInstability/HOLY-CHORES-expo-NFT-EUROPE-VALENCIA2023-2_1.webp';
+import inaPolaroids02 from '$lib/assets/images/projects/inherentInstability/IMG_0170_1.webp';
+import nicoPolaroids03 from '$lib/assets/images/projects/inherentInstability/IMG_0233.HEIC.webp';
+import inaPolaroids04 from '$lib/assets/images/projects/inherentInstability/IMG_4614_1.webp';
+import nicoPolaroids01 from '$lib/assets/images/projects/inherentInstability/IMG_7001.webp';
+import nicoPolaroids04 from '$lib/assets/images/projects/inherentInstability/IMG_9120.HEIC_1.webp';
 import type { IPolaroidImage } from '$lib/elements/Polaroids/interface';
 
 export const inaVarePolaroidsImages: IPolaroidImage[] = [

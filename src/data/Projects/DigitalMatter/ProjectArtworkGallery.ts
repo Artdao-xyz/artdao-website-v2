@@ -1,13 +1,13 @@
-import parsaGallery04 from '$lib/assets/images/projects/digitalMatter/Another_Happy_Accident.png';
-import parsaGallery11 from '$lib/assets/images/projects/digitalMatter/clownboy-min.png';
-import parsaGallery03 from '$lib/assets/images/projects/digitalMatter/image 34.png';
-import parsaGallery07 from '$lib/assets/images/projects/digitalMatter/image 35.png';
-import parsaGallery02 from '$lib/assets/images/projects/digitalMatter/murderOnAWeddingcake.png';
-import parsaGallery10 from '$lib/assets/images/projects/digitalMatter/off-balance-min.png';
-import parsaGallery12 from '$lib/assets/images/projects/digitalMatter/start-a-fire-min.png';
-import parsaGallery05 from '$lib/assets/images/projects/digitalMatter/Sweating_Dogs.png';
-import parsaGallery08 from '$lib/assets/images/projects/digitalMatter/theCoinsInMyPocket.png';
-import parsaGallery09 from '$lib/assets/images/projects/digitalMatter/theGoodSon.png';
+import parsaGallery04 from '$lib/assets/images/projects/digitalMatter/Another_Happy_Accident.webp';
+import parsaGallery11 from '$lib/assets/images/projects/digitalMatter/clownboy-min.webp';
+import parsaGallery03 from '$lib/assets/images/projects/digitalMatter/image 34.webp';
+import parsaGallery07 from '$lib/assets/images/projects/digitalMatter/image 35.webp';
+import parsaGallery02 from '$lib/assets/images/projects/digitalMatter/murderOnAWeddingcake.webp';
+import parsaGallery10 from '$lib/assets/images/projects/digitalMatter/off-balance-min.webp';
+import parsaGallery12 from '$lib/assets/images/projects/digitalMatter/start-a-fire-min.webp';
+import parsaGallery05 from '$lib/assets/images/projects/digitalMatter/Sweating_Dogs.webp';
+import parsaGallery08 from '$lib/assets/images/projects/digitalMatter/theCoinsInMyPocket.webp';
+import parsaGallery09 from '$lib/assets/images/projects/digitalMatter/theGoodSon.webp';
 
 import type { IGalleryImage, IGalleryImageMobile } from '$lib/elements/ArtworkContainer/interfaces';
 

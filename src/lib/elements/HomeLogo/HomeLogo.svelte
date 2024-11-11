@@ -1,5 +1,5 @@
 <script lang="ts">
-	import hammer from '$lib/assets/images/hammer-min.png';
+	import hammer from '$lib/assets/images/hammer-min.webp';
 	export let logo: string;
 
 	let m = { x: 0, y: 0 };

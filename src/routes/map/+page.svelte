@@ -1,5 +1,5 @@
 <script lang="ts">
-	import mapBg from '$lib/assets/images/map-background.png';
+	import mapBg from '$lib/assets/images/map-background.webp';
 	import HomeMobileMenu from '$lib/components/HomeMobileMenu/HomeMobileMenu.svelte';
 	import City from '$lib/elements/City/City.svelte';
 	import CityMobile from '$lib/elements/CityMobile/CityMobile.svelte';

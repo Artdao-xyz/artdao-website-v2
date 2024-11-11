@@ -1,5 +1,5 @@
-import inConversation01 from '$lib/assets/images/projects/inConversation/image (31)-min.png';
-import inConversation02 from '$lib/assets/images/projects/inConversation/image (32)-min.png';
+import inConversation01 from '$lib/assets/images/projects/inConversation/image (31)-min.webp';
+import inConversation02 from '$lib/assets/images/projects/inConversation/image (32)-min.webp';
 import type { IAboutDropdown } from '$lib/elements/AboutDropdown/interfaces';
 
 export const inConversationDropdownItems: IAboutDropdown[] = [

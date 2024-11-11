@@ -1,5 +1,5 @@
-import bgImageMobile from '$lib/assets/images/projects/nonPlaces/nonplace-cover-mobile-min.png';
-import bgImage from '$lib/assets/images/projects/nonPlaces/Title Page 1-min.png';
+import bgImageMobile from '$lib/assets/images/projects/nonPlaces/nonplace-cover-mobile-min.webp';
+import bgImage from '$lib/assets/images/projects/nonPlaces/Title Page 1-min.webp';
 
 export const nonPlacesProjectIntro = {
 	name: 'non places',

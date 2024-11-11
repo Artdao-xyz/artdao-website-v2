@@ -1,5 +1,5 @@
-import bgImageMobile from '$lib/assets/images/projects/mobile-intro/Orb_Cover 1-min.png';
-import bgImage from '$lib/assets/images/projects/orb/Img_ProjectPage-min.png';
+import bgImageMobile from '$lib/assets/images/projects/mobile-intro/Orb_Cover 1-min.webp';
+import bgImage from '$lib/assets/images/projects/orb/Img_ProjectPage-min.webp';
 
 export const orbProject = {
 	name: 'o.r.b.',

@@ -1,11 +1,11 @@
-import parsaPolaroidsTwo from '$lib/assets/images/projects/digitalMatter/1.png';
-import parsaPolaroidsThree from '$lib/assets/images/projects/digitalMatter/2.png';
-import parsaPolaroidsOne from '$lib/assets/images/projects/digitalMatter/3.png';
-import parsaPolaroidsFour from '$lib/assets/images/projects/digitalMatter/5.png';
-import marcusPolaroidsThree from '$lib/assets/images/projects/digitalMatter/SaveClip.App_341766475_6716237288405642_5129891025817825423_n.png';
-import marcusPolaroidsTwo from '$lib/assets/images/projects/digitalMatter/SaveClip.App_341950897_770383014495634_8158274282921773720_n.png';
-import marcusPolaroidsFour from '$lib/assets/images/projects/digitalMatter/SaveClip.App_342046454_807141040259784_9112264041733936694_n.png';
-import marcusPolaroidsOne from '$lib/assets/images/projects/digitalMatter/SaveClip.App_342383072_928061838501136_3557387611596278564_n.png';
+import parsaPolaroidsTwo from '$lib/assets/images/projects/digitalMatter/1.webp';
+import parsaPolaroidsThree from '$lib/assets/images/projects/digitalMatter/2.webp';
+import parsaPolaroidsOne from '$lib/assets/images/projects/digitalMatter/3.webp';
+import parsaPolaroidsFour from '$lib/assets/images/projects/digitalMatter/5.webp';
+import marcusPolaroidsThree from '$lib/assets/images/projects/digitalMatter/SaveClip.App_341766475_6716237288405642_5129891025817825423_n.webp';
+import marcusPolaroidsTwo from '$lib/assets/images/projects/digitalMatter/SaveClip.App_341950897_770383014495634_8158274282921773720_n.webp';
+import marcusPolaroidsFour from '$lib/assets/images/projects/digitalMatter/SaveClip.App_342046454_807141040259784_9112264041733936694_n.webp';
+import marcusPolaroidsOne from '$lib/assets/images/projects/digitalMatter/SaveClip.App_342383072_928061838501136_3557387611596278564_n.webp';
 import type { IPolaroidImage } from '$lib/elements/Polaroids/interface';
 
 export const marcusPolaroidsImages: IPolaroidImage[] = [
