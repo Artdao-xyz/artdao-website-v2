@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { MarchingCubes } from 'three/addons/objects/MarchingCubes.js';
-import * as Symbols from '../../../lib/components/Metaball/symbols';
 import { app } from '../../../lib/components/Metaball/config';
+import * as Symbols from '../../../lib/components/Metaball/symbols';
 
 export default class MetaSymbol {
 	constructor(_textures) {
@@ -70,17 +70,34 @@ export default class MetaSymbol {
 		this.metaball.isolation = 60;
 		// this.modelToObject("../../model/ArtdaoSymbols_Luxi.fbx_1.fbx")
 
-		document.onscroll = (e) => {
-			const newS =
-				((document.documentElement.scrollTop || document.body.scrollTop) /
-					((document.documentElement.scrollHeight || document.body.scrollHeight) -
-						document.documentElement.clientHeight)) *
-				100;			
-			parent.scrollPercentD = newS;
-			//document.getElementById('scrollProgress').innerText = 'Progreso : ' + scrollPercent.toFixed(2)
-		};
+		if (window.innerWidth < 768) {
+			document.onscroll = (e) => {
+				const newS =
+					((document.documentElement.scrollTop || document.body.scrollTop) /
+						((document.documentElement.scrollHeight || document.body.scrollHeight) -
+							document.documentElement.clientHeight)) *
+					100;
+				parent.scrollPercentD = newS;
+				//document.getElementById('scrollProgress').innerText = 'Progreso : ' + scrollPercent.toFixed(2)
+			};
+			//    this.goTo(1)z
+		} else {
+			let newS = 0;
 
-		//    this.goTo(1)z
+			this.modifyScroll = () => {
+				if (parent.scrollPercentD >= 0 && parent.scrollPercentD < 100) {
+					newS += 0.005;
+					parent.scrollPercentD = newS;
+				}
+
+				if (parent.scrollPercentD === 100) {
+					while (parent.scrollPercentD > 0) {
+						newS -= 0.00001;
+						parent.scrollPercentD = newS;
+					}
+				}
+			};
+		}
 	}
 
 	getMesh() {
@@ -109,6 +126,8 @@ export default class MetaSymbol {
 
 	update() {
 		const time = this.clock.getElapsedTime();
+
+		setInterval(this.modifyScroll, 100);
 
 		this.fixedTable.map((fixed, index) => {
 			if (Math.abs(this.scrollPercentD - fixed * 100.0) < 10.0) {
