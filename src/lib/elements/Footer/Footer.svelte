@@ -7,11 +7,9 @@
 <footer
 	use:inview={{ rootMargin: '0%', unobserveOnEnter: false }}
 	on:inview_enter={() => {
-		console.log('enter');
 		isFooterVisible.set(true);
 	}}
 	on:inview_leave={() => {
-		console.log('leave');
 		isFooterVisible.set(false);
 	}}
 	class="snap-end w-full h-24 bg-color-black flex flex-row justify-between py-[1.25rem] px-[2.5rem] !z-50"

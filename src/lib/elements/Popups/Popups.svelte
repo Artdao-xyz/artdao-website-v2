@@ -59,10 +59,7 @@
 
 	let hidePopup = false;
 
-	$: console.log('hidePopup', hidePopup);
-
 	const unsubscribe = isFooterVisible.subscribe((boolean) => {
-		console.log('boolean', boolean);
 		hidePopup = boolean;
 	});
 

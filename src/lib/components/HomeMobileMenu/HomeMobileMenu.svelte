@@ -37,7 +37,7 @@
 		? 'w-full fixed'
 		: section === 'home'
 			? 'block w-full'
-			: 'w-[98%] fixed'} left-[2%] top-[1%] w-[98%] z-50"
+			: 'w-[98%] fixed'} left-[2%] top-[1%] w-[98%] z-40"
 >
 	<div
 		class="sm:hidden flex {section !== 'project'

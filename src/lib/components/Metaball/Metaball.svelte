@@ -3,6 +3,7 @@
 	import * as THREE from 'three';
 	import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 	import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+	import { HOME } from '../../../constants/routes';
 	import MetaSymbol from '../../../lib/components/Metaball/MetaSymbol';
 
 	let canvas = null;
@@ -109,9 +110,15 @@
 	//         document.body.className = themes[0];
 	//     }
 	// }
+
+	/**
+	 * @type {any}
+	 */
+	let width;
 </script>
 
-<a href={'#intro'}>
+<svelte:window bind:innerWidth={width} />
+<a href={width <= 768 ? HOME : '#intro'} on:click={() => console.log('cilcked')}>
 	<canvas
 		bind:this={canvas}
 		class="bg-transparent fixed z-50
