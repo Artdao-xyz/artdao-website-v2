@@ -86,7 +86,7 @@ export default class MetaSymbol {
 
 			this.modifyScroll = () => {
 				if (parent.scrollPercentD >= 0 && parent.scrollPercentD < 100) {
-					newS += 0.007;
+					newS += 0.001;
 					parent.scrollPercentD = newS;
 				}
 
