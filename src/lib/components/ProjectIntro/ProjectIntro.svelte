@@ -38,7 +38,7 @@
 				: 'text-color-white'} pl-global-padding gap-5 bigScreen:gap-10"
 		>
 			<h1
-				class="font-neue text-[2.5rem] sm:text-[4.375rem] macBook:text-[6.25rem] xlScreen:text-[10rem] xlScreen:leading-[10rem] font-semibold leading-[3.4375rem] sm:leading-[5rem] laptopM:leading-[6.5625rem] tracking-[0.0975rem] uppercase"
+				class="font-neue text-[2.5rem] sm:text-[4.375rem] macBook:text-[6.25rem] xlScreen:text-[10rem] xlScreen:leading-[10rem] font-semibold leading-[3rem] sm:leading-[5rem] laptopM:leading-[6.5625rem] tracking-[0.0975rem] uppercase"
 			>
 				{name}
 			</h1>
