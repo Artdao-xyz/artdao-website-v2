@@ -37,6 +37,46 @@ import underworld03 from '$lib/assets/images/events/under-3-min.webp';
 import underworld04 from '$lib/assets/images/events/under-4-min.webp';
 import { ARTIFICE, INTERTWINED, NON_PLACES, ORB, RAVE } from '../../constants/routes';
 
+export const eventImages = [
+	intertwined01,
+	intertwined02,
+	intertwined03,
+	intertwined04,
+	underworld01,
+	underworld02,
+	underworld03,
+	underworld04,
+	rave01,
+	rave02,
+	rave03,
+	rave04,
+	artifice01,
+	artifice02,
+	artifice03,
+	artifice04,
+	nftParis01,
+	nftParis02,
+	nonPlaces01,
+	nonPlaces02,
+	nonPlaces03,
+	ethDenver01,
+	ethDenver02,
+	ethDenver03,
+	devCon01,
+	devCon02,
+	devCon03,
+	orb01,
+	orb02,
+	orb03,
+	ceroUno01,
+	ceroUno02,
+	ceroUno03,
+	ceroUno04,
+	psispikoko01,
+	psispikoko02,
+	psispikoko03
+];
+
 export interface IMapEvent {
 	title: string;
 	subtitle: string;

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Loading from '$lib/components/Loading/Loading.svelte';
 	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
@@ -35,6 +36,7 @@
 	} from '../../../data/Projects/DigitalMatter/ProjectPolaroids';
 	import { aeroVideo, parsaVideo } from '../../../data/Projects/DigitalMatter/ProjectVideo';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../../utils/nav/updateNavBar';
+	import preloadImages from '../../../utils/preloadImages';
 	import { digitalMatterNavStoreItems } from './store';
 
 	let size: number;
@@ -76,139 +78,157 @@
 			);
 		}
 	};
+
+	const preloadedImages = preloadImages([
+		[digitalMatterProjectIntro.bgImage, digitalMatterProjectIntro.bgImageMobile],
+		marcusAboutImages,
+		marcusDropdownItems.map((item) => item.image),
+		marcusPolaroidsImages.map((item) => item.image),
+		sulkianAboutImages,
+		parsaAboutImages,
+		parsaArtworkImages.map((item) => item.image),
+		parsaArtworkImages1.map((item) => item.src),
+		parsaArtworkImages2.map((item) => item.src),
+		parsaPolaroidsImages.map((item) => item.image)
+	]);
 </script>
 
 <svelte:window bind:innerWidth={size} />
-<div
-	on:scroll={handleOnScroll}
-	on:touchmove={handleOnScroll}
-	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
->
+
+{#await preloadedImages}
+	<Loading />
+{:then images}
 	<div
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			introIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			introIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			introIsInView = inView;
-		}}
+		on:scroll={handleOnScroll}
+		on:touchmove={handleOnScroll}
+		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
 	>
-		<ProjectIntro project={digitalMatterProjectIntro} />
-	</div>
-
-	<div
-		id="marcus"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			marcusIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			marcusIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			marcusIsInView = inView;
-		}}
-	>
-		<ProjectAbout aboutItem={marcusAbout} aboutImages={marcusAboutImages} route="" />
-
-		<ProjectAboutDropdown
-			images={marcusDropdownItems.map((item) => item.image)}
-			aboutDropdownItems={marcusDropdownItems}
-			route=""
-		/>
-
-		{#if size > 1100}
-			<ProjectPolaroids images={marcusPolaroidsImages} />
-		{:else}
-			<PolaroidsMobile polaroidImages={marcusPolaroidsImages} route="" />
-		{/if}
-	</div>
-
-	<div
-		id="sulkian"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			sulkianIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			sulkianIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			sulkianIsInView = inView;
-		}}
-	>
-		<ProjectAbout aboutItem={sulkianAbout} aboutImages={sulkianAboutImages} route="" />
-
-		<ProjectAboutDropdown
-			images={sulkianImages}
-			route={''}
-			colorVariant={EColorVariant.BLACK}
-			aboutDropdownItems={undefined}
-			isImageWhiteBg
-		/>
-
-		<ProjectVideo videoProjects={aeroVideo} route="sulkian-end" />
-	</div>
-
-	<div
-		id="parsa"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			parsaIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			parsaIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			parsaIsInView = inView;
-		}}
-	>
-		<ProjectAbout aboutItem={parsaAbout} aboutImages={parsaAboutImages} route="" />
-
-		<ProjectVideo videoProjects={parsaVideo} route="" />
-
-		<div class="hidden sm:block">
-			<ProjectArtworkGrid galleryImages={parsaArtworkImages} showDetails />
-		</div>
-
-		<div class="block sm:hidden sm:snap-start">
-			<ProjectArtworkGridMobile
-				isOverflow={false}
-				imagesLeft={parsaArtworkImages1}
-				imagesRight={parsaArtworkImages2}
+		<div
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				introIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				introIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				introIsInView = inView;
+			}}
+		>
+			<ProjectIntro
+				project={digitalMatterProjectIntro}
+				bgImage={images[0][0]}
+				bgImageMobile={images[0][1]}
 			/>
 		</div>
 
-		{#if size > 1100}
-			<ProjectPolaroids
-				images={parsaPolaroidsImages}
-				polaroidsTypes={[
-					EPolaroidType.RECTANGLE,
-					EPolaroidType.RECTANGLE,
-					EPolaroidType.RECTANGLE,
-					EPolaroidType.VERTICAL
-				]}
-			/>
-		{:else}
-			<PolaroidsMobile polaroidImages={parsaPolaroidsImages} route="" />
-		{/if}
-	</div>
+		<div
+			id="marcus"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				marcusIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				marcusIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				marcusIsInView = inView;
+			}}
+		>
+			<ProjectAbout aboutItem={marcusAbout} aboutImages={images[1]} route="" />
 
-	<HomeIcon />
-	<Footer />
-</div>
+			<ProjectAboutDropdown images={images[2]} aboutDropdownItems={marcusDropdownItems} route="" />
+
+			{#if size > 1100}
+				<ProjectPolaroids images={marcusPolaroidsImages} />
+			{:else}
+				<PolaroidsMobile polaroidImages={marcusPolaroidsImages} route="" />
+			{/if}
+		</div>
+
+		<div
+			id="sulkian"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				sulkianIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				sulkianIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				sulkianIsInView = inView;
+			}}
+		>
+			<ProjectAbout aboutItem={sulkianAbout} aboutImages={images[4]} route="" />
+
+			<ProjectAboutDropdown
+				images={sulkianImages}
+				route={''}
+				colorVariant={EColorVariant.BLACK}
+				aboutDropdownItems={undefined}
+				isImageWhiteBg
+			/>
+
+			<ProjectVideo videoProjects={aeroVideo} route="sulkian-end" />
+		</div>
+
+		<div
+			id="parsa"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				parsaIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				parsaIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				parsaIsInView = inView;
+			}}
+		>
+			<ProjectAbout aboutItem={parsaAbout} aboutImages={images[5]} route="" />
+
+			<ProjectVideo videoProjects={parsaVideo} route="" />
+
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid galleryImages={parsaArtworkImages} showDetails />
+			</div>
+
+			<div class="block sm:hidden sm:snap-start">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={parsaArtworkImages1}
+					imagesRight={parsaArtworkImages2}
+				/>
+			</div>
+
+			{#if size > 1100}
+				<ProjectPolaroids
+					images={parsaPolaroidsImages}
+					polaroidsTypes={[
+						EPolaroidType.RECTANGLE,
+						EPolaroidType.RECTANGLE,
+						EPolaroidType.RECTANGLE,
+						EPolaroidType.VERTICAL
+					]}
+				/>
+			{:else}
+				<PolaroidsMobile polaroidImages={parsaPolaroidsImages} route="" />
+			{/if}
+		</div>
+
+		<HomeIcon />
+		<Footer />
+	</div>
+{/await}

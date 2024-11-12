@@ -1,6 +1,7 @@
 <script lang="ts">
 	import mapBg from '$lib/assets/images/map-background.webp';
 	import HomeMobileMenu from '$lib/components/HomeMobileMenu/HomeMobileMenu.svelte';
+	import Loading from '$lib/components/Loading/Loading.svelte';
 	import City from '$lib/elements/City/City.svelte';
 	import CityMobile from '$lib/elements/CityMobile/CityMobile.svelte';
 	import EventData from '$lib/elements/EventData/EventData.svelte';
@@ -8,7 +9,8 @@
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import { EColorVariant } from '../../constants/enums';
-	import { mapData, type IMapEvent, type IMapLocation } from '../../data/Map/MapData';
+	import { eventImages, mapData, type IMapEvent, type IMapLocation } from '../../data/Map/MapData';
+	import preloadImages from '../../utils/preloadImages';
 
 	let eventToShow: IMapEvent | undefined = undefined;
 	let width: number;
@@ -32,74 +34,86 @@
 			index -= 1;
 		}
 	};
+
+	const preloadedImages = preloadImages([[mapBg]]);
+
+	const preloadedEventImages = preloadImages([eventImages]);
 </script>
 
 <svelte:window bind:innerWidth={width} />
 
 <HomeMobileMenu section="drop" />
 
-<div
-	class="h-[100dvh] flex justify-center items-center relative w-full {width > 768
-		? 'pt-[3rem]'
-		: 'p-0'} sm:pt-0"
->
-	{#if width > 768}
-		{#if !eventToShow}
-			<SectionContainer colorVariant={EColorVariant.BLACK} hasPadding={false}>
-				<img src={mapBg} alt="map" class="w-full h-full object-cover" />
-				<City mapLocation={mapData[0]} top="27" left="44.5" dotOnLeft={false} bind:eventToShow />
-				<City mapLocation={mapData[1]} top="34.5" left="49" bind:eventToShow />
-				<City mapLocation={mapData[2]} top="40" left="24" bind:eventToShow />
-				<City mapLocation={mapData[3]} top="56.5" left="30.2" bind:eventToShow />
-				<City mapLocation={mapData[4]} top="67" left="36" bind:eventToShow />
-				<City mapLocation={mapData[5]} top="73" left="34" showOnTop bind:eventToShow />
-			</SectionContainer>
-		{:else}
-			<EventData
-				bind:eventToShow
-				{imageToShow}
-				{handleNextButton}
-				{handlePrevButton}
-				{isNextButtonDisabled}
-				{isPrevButtonDisabled}
-				isCenter={eventToShow.isCenter}
-			/>
-		{/if}
-	{:else if !mapLocationToShow}
-		<div
-			class="flex flex-col gap-[15px] w-full bg-color-gray py-[45px] px-[20px] h-full self-start"
-		>
-			<CityMobile mapLocation={mapData[0]} bind:eventToShow bind:mapLocationToShow />
-			<CityMobile mapLocation={mapData[1]} bind:eventToShow bind:mapLocationToShow />
-			<CityMobile mapLocation={mapData[2]} bind:eventToShow bind:mapLocationToShow />
-			<CityMobile mapLocation={mapData[3]} bind:eventToShow bind:mapLocationToShow />
-			<CityMobile mapLocation={mapData[4]} bind:eventToShow bind:mapLocationToShow />
-			<CityMobile mapLocation={mapData[5]} bind:eventToShow bind:mapLocationToShow />
-		</div>
-	{:else if !eventToShow}
-		<div
-			class="flex flex-col items-center justify-between gap-[15px] w-full bg-color-gray py-[45px] px-[20px] h-full self-start"
-		>
-			<CityMobile
-				mapLocation={mapLocationToShow}
-				bind:eventToShow
-				bind:mapLocationToShow
-				isSelected
-			/>
-
-			<button
-				on:click={() => (mapLocationToShow = undefined)}
-				class="w-[302px] h-[47px] py-[14px] px-[24px] sm:max-w-[400px] font-robotoMono text-[16px] leading-[1rem] tracking-[0.156px] rounded-[100px] gray-gradient sm:mx-auto"
-				>Go Back</button
+{#await preloadedImages}
+	<Loading />
+{:then images}
+	<div
+		class="h-[100dvh] flex justify-center items-center relative w-full {width > 768
+			? 'pt-[3rem]'
+			: 'p-0'} sm:pt-0"
+	>
+		{#if width > 768}
+			{#if !eventToShow}
+				<SectionContainer colorVariant={EColorVariant.BLACK} hasPadding={false}>
+					<img src={images[0][0]} alt="map" class="w-full h-full object-cover" />
+					<City mapLocation={mapData[0]} top="27" left="44.5" dotOnLeft={false} bind:eventToShow />
+					<City mapLocation={mapData[1]} top="34.5" left="49" bind:eventToShow />
+					<City mapLocation={mapData[2]} top="40" left="24" bind:eventToShow />
+					<City mapLocation={mapData[3]} top="56.5" left="30.2" bind:eventToShow />
+					<City mapLocation={mapData[4]} top="67" left="36" bind:eventToShow />
+					<City mapLocation={mapData[5]} top="73" left="34" showOnTop bind:eventToShow />
+				</SectionContainer>
+			{:else}
+				{#await preloadedEventImages}
+					<Loading />
+				{:then eventImages}
+					<EventData
+						bind:eventToShow
+						{imageToShow}
+						{handleNextButton}
+						{handlePrevButton}
+						{isNextButtonDisabled}
+						{isPrevButtonDisabled}
+						isCenter={eventToShow.isCenter}
+					/>
+				{/await}
+			{/if}
+		{:else if !mapLocationToShow}
+			<div
+				class="flex flex-col gap-[15px] w-full bg-color-gray py-[45px] px-[20px] h-full self-start"
 			>
-		</div>
-	{:else}
-		<div
-			class="flex flex-col items-center gap-[15px] w-full bg-color-gray py-[45px] px-[20px] h-full self-start"
-		>
-			<EventDataMobile bind:eventToShow />
-		</div>
-	{/if}
-</div>
+				<CityMobile mapLocation={mapData[0]} bind:eventToShow bind:mapLocationToShow />
+				<CityMobile mapLocation={mapData[1]} bind:eventToShow bind:mapLocationToShow />
+				<CityMobile mapLocation={mapData[2]} bind:eventToShow bind:mapLocationToShow />
+				<CityMobile mapLocation={mapData[3]} bind:eventToShow bind:mapLocationToShow />
+				<CityMobile mapLocation={mapData[4]} bind:eventToShow bind:mapLocationToShow />
+				<CityMobile mapLocation={mapData[5]} bind:eventToShow bind:mapLocationToShow />
+			</div>
+		{:else if !eventToShow}
+			<div
+				class="flex flex-col items-center justify-between gap-[15px] w-full bg-color-gray py-[45px] px-[20px] h-full self-start"
+			>
+				<CityMobile
+					mapLocation={mapLocationToShow}
+					bind:eventToShow
+					bind:mapLocationToShow
+					isSelected
+				/>
 
-<HomeIcon />
+				<button
+					on:click={() => (mapLocationToShow = undefined)}
+					class="w-[302px] h-[47px] py-[14px] px-[24px] sm:max-w-[400px] font-robotoMono text-[16px] leading-[1rem] tracking-[0.156px] rounded-[100px] gray-gradient sm:mx-auto"
+					>Go Back</button
+				>
+			</div>
+		{:else}
+			<div
+				class="flex flex-col items-center gap-[15px] w-full bg-color-gray py-[45px] px-[20px] h-full self-start"
+			>
+				<EventDataMobile bind:eventToShow />
+			</div>
+		{/if}
+	</div>
+
+	<HomeIcon />
+{/await}

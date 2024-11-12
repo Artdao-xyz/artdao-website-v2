@@ -1,5 +1,6 @@
 <script lang="ts">
 	import bgImage from '$lib/assets/images/projects/orb/240326_caroco_035_1.webp';
+	import Loading from '$lib/components/Loading/Loading.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectAudioFiles from '$lib/components/ProjectAudioFiles/ProjectAudioFiles.svelte';
@@ -29,6 +30,7 @@
 	import { orbProject } from '../../../data/Projects/Orb/ProjectIntro';
 	import { artworksVideo, orbVideo } from '../../../data/Projects/Orb/ProjectVideo';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../../utils/nav/updateNavBar';
+	import preloadImages from '../../../utils/preloadImages';
 	import { orbNavStoreItems } from './store';
 
 	let introIsInView: boolean;
@@ -58,130 +60,149 @@
 			updateNavBar(orbNavStoreItems, orbNavItems, orbNavItems[4].route);
 		}
 	};
+
+	const preloadedImages = preloadImages([
+		[orbProject.bgImage, orbProject.bgImageMobile],
+		[bgImage],
+		carocoAboutImages,
+		vernisaggeDropdownItems.map((item) => item.image),
+		magmaAboutImages,
+		hivemindAboutImages,
+		daoDropdownItems.map((item) => item.image)
+	]);
 </script>
 
-<div
-	on:scroll={handleOnScroll}
-	on:touchmove={handleOnScroll}
-	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
->
+{#await preloadedImages}
+	<Loading />
+{:then images}
 	<div
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			introIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			introIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			introIsInView = inView;
-		}}
+		on:scroll={handleOnScroll}
+		on:touchmove={handleOnScroll}
+		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
 	>
-		<ProjectIntro project={orbProject} textColor="white" />
-	</div>
-
-	<div
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			curatorsIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			curatorsIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			curatorsIsInView = inView;
-		}}
-	>
-		<ProjectInterview filteredQuestions={orbQuestions} {bgImage} route="curators" />
-
-		<ProjectAbout aboutImages={carocoAboutImages} aboutItem={carocoAbout} route="curators-end" />
-	</div>
-
-	<div
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			vernisaggeIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			vernisaggeIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			vernisaggeIsInView = inView;
-		}}
-	>
-		<ProjectAboutDropdown
-			aboutDropdownItems={vernisaggeDropdownItems}
-			images={vernisaggeDropdownItems.map((item) => item.image)}
-			route="vernisagge"
-		/>
-
-		<ProjectVideo videoProjects={[orbVideo]} route="vernisagge-end" />
-	</div>
-
-	<div
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			daosIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			daosIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			daosIsInView = inView;
-		}}
-	>
-		<ProjectAbout aboutImages={magmaAboutImages} aboutItem={magmaAbout} route="daos" />
-
-		<ProjectAbout
-			aboutImages={seedAboutImages}
-			aboutItem={seedAbout}
-			route=""
-			isImageLeft={false}
-		/>
-
-		<div id="daos-end">
-			<ProjectAbout aboutImages={hivemindAboutImages} aboutItem={hivemindAbout} route="" />
+		<div
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				introIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				introIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				introIsInView = inView;
+			}}
+		>
+			<ProjectIntro
+				project={orbProject}
+				textColor="white"
+				bgImage={images[0][0]}
+				bgImageMobile={images[0][1]}
+			/>
 		</div>
+
+		<div
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				curatorsIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				curatorsIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				curatorsIsInView = inView;
+			}}
+		>
+			<ProjectInterview filteredQuestions={orbQuestions} bgImage={images[1][0]} route="curators" />
+
+			<ProjectAbout aboutImages={images[2]} aboutItem={carocoAbout} route="curators-end" />
+		</div>
+
+		<div
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				vernisaggeIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				vernisaggeIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				vernisaggeIsInView = inView;
+			}}
+		>
+			<ProjectAboutDropdown
+				aboutDropdownItems={vernisaggeDropdownItems}
+				images={images[3]}
+				route="vernisagge"
+			/>
+
+			<ProjectVideo videoProjects={[orbVideo]} route="vernisagge-end" />
+		</div>
+
+		<div
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				daosIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				daosIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				daosIsInView = inView;
+			}}
+		>
+			<ProjectAbout aboutImages={images[4]} aboutItem={magmaAbout} route="daos" />
+
+			<ProjectAbout
+				aboutImages={seedAboutImages}
+				aboutItem={seedAbout}
+				route=""
+				isImageLeft={false}
+			/>
+
+			<div id="daos-end">
+				<ProjectAbout aboutImages={images[5]} aboutItem={hivemindAbout} route="" />
+			</div>
+		</div>
+
+		<div
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				artworksIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				artworksIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				artworksIsInView = inView;
+			}}
+		>
+			<ProjectAboutDropdown
+				aboutDropdownItems={daoDropdownItems}
+				images={images[6]}
+				route="artworks"
+			/>
+
+			<ProjectVideo videoProjects={artworksVideo} route="artworks-end" />
+
+			<ProjectAudioFiles audioItems={orbAudioFiles} route="" />
+		</div>
+
+		<HomeIcon />
+		<Footer />
 	</div>
-
-	<div
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			artworksIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			artworksIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			artworksIsInView = inView;
-		}}
-	>
-		<ProjectAboutDropdown
-			aboutDropdownItems={daoDropdownItems}
-			images={daoDropdownItems.map((item) => item.image)}
-			route="artworks"
-		/>
-
-		<ProjectVideo videoProjects={artworksVideo} route="artworks-end" />
-
-		<ProjectAudioFiles audioItems={orbAudioFiles} route="" />
-	</div>
-
-	<HomeIcon />
-	<Footer />
-</div>
+{/await}

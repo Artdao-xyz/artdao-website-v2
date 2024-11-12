@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Loading from '$lib/components/Loading/Loading.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
@@ -13,6 +14,7 @@
 	import { nonPlacesProjectIntro } from '../../../data/Projects/NonPlaces/ProjectIntro';
 	import { nonPlacesVideo } from '../../../data/Projects/NonPlaces/ProjectVideo';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../../utils/nav/updateNavBar';
+	import preloadImages from '../../../utils/preloadImages';
 	import { nonPlacesNavStoreItems } from './store';
 
 	let size: number;
@@ -39,95 +41,109 @@
 			updateNavBar(nonPlacesNavStoreItems, nonPlacesNavItems, nonPlacesNavItems[3].route);
 		}
 	};
+
+	const preloadedImages = preloadImages([
+		[nonPlacesProjectIntro.bgImage, nonPlacesProjectIntro.bgImageMobile],
+		nonPlacesDropdownItems.map((item) => item.image),
+		nonPlacesTwoDropdownItems.map((item) => item.image)
+	]);
 </script>
 
 <svelte:window bind:innerWidth={size} />
 
-<div
-	on:scroll={handleOnScroll}
-	on:touchmove={handleOnScroll}
-	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
->
+{#await preloadedImages}
+	<Loading />
+{:then images}
 	<div
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			introIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			introIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			introIsInView = inView;
-		}}
+		on:scroll={handleOnScroll}
+		on:touchmove={handleOnScroll}
+		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
 	>
-		<ProjectIntro project={nonPlacesProjectIntro} />
-	</div>
+		<div
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				introIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				introIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				introIsInView = inView;
+			}}
+		>
+			<ProjectIntro
+				project={nonPlacesProjectIntro}
+				bgImage={images[0][0]}
+				bgImageMobile={images[0][1]}
+			/>
+		</div>
 
-	<div
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			venueIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			venueIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			venueIsInView = inView;
-		}}
-	>
-		<ProjectVideo videoProjects={nonPlacesVideo} route="venue" />
-	</div>
+		<div
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				venueIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				venueIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				venueIsInView = inView;
+			}}
+		>
+			<ProjectVideo videoProjects={nonPlacesVideo} route="venue" />
+		</div>
 
-	<div
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			artworksIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			artworksIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			artworksIsInView = inView;
-		}}
-	>
-		<ProjectAboutDropdown
-			images={nonPlacesDropdownItems.map((item) => item.image)}
-			aboutDropdownItems={nonPlacesDropdownItems}
-			route="artworks"
-		/>
-	</div>
+		<div
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				artworksIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				artworksIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				artworksIsInView = inView;
+			}}
+		>
+			<ProjectAboutDropdown
+				images={images[1]}
+				aboutDropdownItems={nonPlacesDropdownItems}
+				route="artworks"
+			/>
+		</div>
 
-	<div
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			vernisaggeIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			vernisaggeIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			vernisaggeIsInView = inView;
-		}}
-	>
-		<ProjectAboutDropdown
-			images={nonPlacesTwoDropdownItems.map((item) => item.image)}
-			aboutDropdownItems={nonPlacesTwoDropdownItems}
-			route="vernisagge"
-		/>
-	</div>
+		<div
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				vernisaggeIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				vernisaggeIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				vernisaggeIsInView = inView;
+			}}
+		>
+			<ProjectAboutDropdown
+				images={images[2]}
+				aboutDropdownItems={nonPlacesTwoDropdownItems}
+				route="vernisagge"
+			/>
+		</div>
 
-	<HomeIcon />
-	<Footer />
-</div>
+		<HomeIcon />
+		<Footer />
+	</div>
+{/await}

@@ -2,6 +2,7 @@
 	import closeButton from '$lib/assets/images/close-button-min.webp';
 	import mapBg from '$lib/assets/images/map-background.webp';
 	import buttonIcon from '$lib/assets/images/video-arrow.svg';
+	import { scale } from 'svelte/transition';
 	import type { IMapEvent } from '../../../data/Map/MapData';
 	export let isNextButtonDisabled: boolean;
 	export let isPrevButtonDisabled: boolean;
@@ -23,6 +24,7 @@
 	>
 		<div
 			class="h-fit w-full rounded-20 bg-color-dark bg-opacity-90 py-[26px] px-[20px] text-color-black sm:max-w-[90%] gap-[20px] flex flex-col"
+			in:scale
 		>
 			<div class="flex-row flex items-center gap-[10px]">
 				<div

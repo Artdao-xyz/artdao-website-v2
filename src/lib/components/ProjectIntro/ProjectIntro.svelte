@@ -6,13 +6,16 @@
 	export let isContain = false;
 	export let isCenterImage = false;
 	export let isWiderTitle = false;
-	const { name, description, image, bgImage, bgImageMobile } = project;
+	export let bgImage: string;
+	export let bgImageMobile: string;
+	const { name, description, image } = project;
 
 	let width: number;
 	let height: number;
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
+
 <SectionContainer hasPadding={false} isOverflow={false}>
 	<div
 		class="w-full {height > 850 && width < 1100

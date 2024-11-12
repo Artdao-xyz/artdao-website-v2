@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Loading from '$lib/components/Loading/Loading.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectAudioFiles from '$lib/components/ProjectAudioFiles/ProjectAudioFiles.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
@@ -22,6 +23,7 @@
 		petroVideo
 	} from '../../../data/Projects/Rave/ProjectVideo';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../../utils/nav/updateNavBar';
+	import preloadImages from '../../../utils/preloadImages';
 	import { raveNavStoreItems } from './store';
 
 	let introIsInView: boolean;
@@ -41,91 +43,107 @@
 			updateNavBar(raveNavStoreItems, raveNavItems, raveNavItems[2].route);
 		}
 	};
+
+	const preloadedImages = preloadImages([
+		[raveProject.bgImage, raveProject.bgImageMobile],
+		raveAboutDropdopwnItems.map((image) => image.image),
+		performanceDropdownItems.map((item) => item.image),
+		raveAboutDropdopwnItemsTwo.map((item) => item.image)
+	]);
 </script>
 
-<div
-	on:scroll={handleOnScroll}
-	on:touchmove={handleOnScroll}
-	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
->
+{#await preloadedImages}
+	<Loading />
+{:then images}
 	<div
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			introIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			introIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			introIsInView = inView;
-		}}
+		on:scroll={handleOnScroll}
+		on:touchmove={handleOnScroll}
+		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
 	>
-		<ProjectIntro project={raveProject} isCenterImage />
+		<div
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				introIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				introIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				introIsInView = inView;
+			}}
+		>
+			<ProjectIntro
+				project={raveProject}
+				isCenterImage
+				bgImage={images[0][0]}
+				bgImageMobile={images[0][1]}
+			/>
+		</div>
+
+		<div
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				artistsIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				artistsIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				artistsIsInView = inView;
+			}}
+		>
+			<ProjectAboutDropdown
+				images={images[1]}
+				aboutDropdownItems={raveAboutDropdopwnItems}
+				route={raveNavItems[1].route}
+			/>
+
+			<ProjectVideo videoProjects={[blessingForSaleVideo, fwvnVideo, frequencyVideo]} />
+
+			<ProjectAudioFiles
+				audioItems={raveAudioFiles}
+				title="Cybernetic collaboration between Clauthewitch and NICØ"
+				route="artists-end"
+			/>
+		</div>
+
+		<div
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				eventIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				eventIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				eventIsInView = inView;
+			}}
+		>
+			<ProjectAboutDropdown
+				images={images[2]}
+				aboutDropdownItems={performanceDropdownItems}
+				route={raveNavItems[2].route}
+			/>
+
+			<ProjectVideo videoProjects={[afterPartyVideo, petroVideo]} />
+
+			<ProjectAboutDropdown
+				images={images[3]}
+				aboutDropdownItems={raveAboutDropdopwnItemsTwo}
+				route=""
+			/>
+		</div>
+
+		<HomeIcon />
+		<Footer />
 	</div>
-
-	<div
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			artistsIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			artistsIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			artistsIsInView = inView;
-		}}
-	>
-		<ProjectAboutDropdown
-			images={raveAboutDropdopwnItems.map((image) => image.image)}
-			aboutDropdownItems={raveAboutDropdopwnItems}
-			route={raveNavItems[1].route}
-		/>
-
-		<ProjectVideo videoProjects={[blessingForSaleVideo, fwvnVideo, frequencyVideo]} />
-
-		<ProjectAudioFiles
-			audioItems={raveAudioFiles}
-			title="Cybernetic collaboration between Clauthewitch and NICØ"
-			route="artists-end"
-		/>
-	</div>
-
-	<div
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			eventIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			eventIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			eventIsInView = inView;
-		}}
-	>
-		<ProjectAboutDropdown
-			images={performanceDropdownItems.map((item) => item.image)}
-			aboutDropdownItems={performanceDropdownItems}
-			route={raveNavItems[2].route}
-		/>
-
-		<ProjectVideo videoProjects={[afterPartyVideo, petroVideo]} />
-
-		<ProjectAboutDropdown
-			images={raveAboutDropdopwnItemsTwo.map((item) => item.image)}
-			aboutDropdownItems={raveAboutDropdopwnItemsTwo}
-			route=""
-		/>
-	</div>
-
-	<HomeIcon />
-	<Footer />
-</div>
+{/await}

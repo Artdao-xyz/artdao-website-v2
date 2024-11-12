@@ -1,5 +1,6 @@
 <script lang="ts">
 	import inaInterviewBgImage from '$lib/assets/images/projects/inherentInstability/Background_Img.webp';
+	import Loading from '$lib/components/Loading/Loading.svelte';
 	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectInterview from '$lib/components/ProjectInterview/ProjectInterview.svelte';
@@ -31,6 +32,7 @@
 		nicoVideo
 	} from '../../../data/Projects/InherentInstability/ProjectVideo';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../../utils/nav/updateNavBar';
+	import preloadImages from '../../../utils/preloadImages';
 	import { inherentInstabilityNavStoreItems } from './store';
 
 	let size: number;
@@ -73,128 +75,148 @@
 			);
 		}
 	};
+
+	const preloadedImages = preloadImages([
+		[inherentInstabilityProjectIntro.bgImage, inherentInstabilityProjectIntro.bgImageMobile],
+		[inaInterviewBgImage],
+		inaVareAboutImages,
+		inaVarePolaroidsImages.map((item) => item.image),
+		elbiAboutImages,
+		nicoAboutImages,
+		nicoPolaroidsImages.map((item) => item.image)
+	]);
 </script>
 
 <svelte:window bind:innerWidth={size} />
 
-<div
-	on:scroll={handleOnScroll}
-	on:touchmove={handleOnScroll}
-	class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory sm:h-screen"
->
+{#await preloadedImages}
+	<Loading />
+{:then images}
 	<div
-		id="intro"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			introIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			introIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			introIsInView = inView;
-		}}
+		on:scroll={handleOnScroll}
+		on:touchmove={handleOnScroll}
+		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory sm:h-screen"
 	>
-		<ProjectIntro project={inherentInstabilityProjectIntro} textColor="white" isContain />
-
-		<ProjectInterview bgImage={inaInterviewBgImage} filteredQuestions={inherentQuestions} />
-	</div>
-
-	<div
-		id="ina"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			inaIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			inaIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			inaIsInView = inView;
-		}}
-	>
-		<ProjectAbout aboutItem={inaVareAbout} aboutImages={inaVareAboutImages} route="" />
-
-		<ProjectVideo videoProjects={inaVideo} />
-
-		{#if size > 1100}
-			<ProjectPolaroids
-				images={inaVarePolaroidsImages}
-				polaroidsTypes={[
-					EPolaroidType.RECTANGLE,
-					EPolaroidType.VERTICAL,
-					EPolaroidType.RECTANGLE,
-					EPolaroidType.VERTICAL
-				]}
-				route="ina-end"
+		<div
+			id="intro"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				introIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				introIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				introIsInView = inView;
+			}}
+		>
+			<ProjectIntro
+				project={inherentInstabilityProjectIntro}
+				textColor="white"
+				isContain
+				bgImage={images[0][0]}
+				bgImageMobile={images[0][1]}
 			/>
-		{:else}
-			<PolaroidsMobile polaroidImages={inaVarePolaroidsImages} route="ina-end" />
-		{/if}
+
+			<ProjectInterview bgImage={images[1][0]} filteredQuestions={inherentQuestions} />
+		</div>
+
+		<div
+			id="ina"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				inaIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				inaIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				inaIsInView = inView;
+			}}
+		>
+			<ProjectAbout aboutItem={inaVareAbout} aboutImages={images[2]} route="" />
+
+			<ProjectVideo videoProjects={inaVideo} />
+
+			{#if size > 1100}
+				<ProjectPolaroids
+					images={inaVarePolaroidsImages}
+					polaroidsTypes={[
+						EPolaroidType.RECTANGLE,
+						EPolaroidType.VERTICAL,
+						EPolaroidType.RECTANGLE,
+						EPolaroidType.VERTICAL
+					]}
+					route="ina-end"
+				/>
+			{:else}
+				<PolaroidsMobile polaroidImages={inaVarePolaroidsImages} route="ina-end" />
+			{/if}
+		</div>
+
+		<div
+			id="elbi"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				elbiIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				elbiIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				elbiIsInView = inView;
+			}}
+		>
+			<ProjectAbout aboutItem={elbiAbout} aboutImages={images[4]} route="" />
+
+			<ProjectVideo videoProjects={elbiVideo} route="elbi-end" />
+		</div>
+
+		<div
+			id="nico"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				nicoIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				nicoIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				nicoIsInView = inView;
+			}}
+		>
+			<ProjectAbout aboutItem={nicoAbout} aboutImages={images[5]} route="" />
+
+			<ProjectVideo videoProjects={nicoVideo} />
+
+			{#if size > 1100}
+				<ProjectPolaroids
+					images={nicoPolaroidsImages}
+					polaroidsTypes={[
+						EPolaroidType.VERTICAL,
+						EPolaroidType.VERTICAL,
+						EPolaroidType.SQUARE,
+						EPolaroidType.RECTANGLE
+					]}
+				/>
+			{:else}
+				<PolaroidsMobile polaroidImages={nicoPolaroidsImages} route="" />
+			{/if}
+		</div>
+
+		<HomeIcon />
+		<Footer />
 	</div>
-
-	<div
-		id="elbi"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			elbiIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			elbiIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			elbiIsInView = inView;
-		}}
-	>
-		<ProjectAbout aboutItem={elbiAbout} aboutImages={elbiAboutImages} route="" />
-
-		<ProjectVideo videoProjects={elbiVideo} route="elbi-end" />
-	</div>
-
-	<div
-		id="nico"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			nicoIsInView = inView;
-		}}
-		on:inview_enter={(event) => {
-			const { inView } = event.detail;
-			nicoIsInView = inView;
-		}}
-		on:inview_leave={(event) => {
-			const { inView } = event.detail;
-			nicoIsInView = inView;
-		}}
-	>
-		<ProjectAbout aboutItem={nicoAbout} aboutImages={nicoAboutImages} route="" />
-
-		<ProjectVideo videoProjects={nicoVideo} />
-
-		{#if size > 1100}
-			<ProjectPolaroids
-				images={nicoPolaroidsImages}
-				polaroidsTypes={[
-					EPolaroidType.VERTICAL,
-					EPolaroidType.VERTICAL,
-					EPolaroidType.SQUARE,
-					EPolaroidType.RECTANGLE
-				]}
-			/>
-		{:else}
-			<PolaroidsMobile polaroidImages={nicoPolaroidsImages} route="" />
-		{/if}
-	</div>
-
-	<HomeIcon />
-	<Footer />
-</div>
+{/await}
