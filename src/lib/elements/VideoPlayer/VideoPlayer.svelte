@@ -21,19 +21,36 @@
 			isPaused = false;
 		});
 	});
+
+	let width: number;
 </script>
 
+<svelte:window bind:innerWidth={width} />
 <div class="video-player w-full h-full relative flex flex-row items-center justify-center">
-	<video
-		src={videoUrl}
-		class="w-full h-full object-cover"
-		controls
-		bind:this={videoPlayer}
-		preload="metadata"
-		playsinline
-	>
-		<track kind="captions" />
-	</video>
+	{#if width > 700}
+		<video
+			src={videoUrl}
+			class="w-full h-full object-cover"
+			controls
+			bind:this={videoPlayer}
+			preload="metadata"
+		>
+			<track kind="captions" />
+		</video>
+	{:else}
+		<video
+			src={videoUrl}
+			class="w-full h-full object-cover"
+			controls
+			bind:this={videoPlayer}
+			preload="metadata"
+			playsinline
+			autoplay
+			muted
+		>
+			<track kind="captions" />
+		</video>
+	{/if}
 
 	<div
 		class="{isPaused
