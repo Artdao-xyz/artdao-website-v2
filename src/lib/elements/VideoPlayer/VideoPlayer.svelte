@@ -30,6 +30,7 @@
 		controls
 		bind:this={videoPlayer}
 		preload="metadata"
+		playsinline
 	>
 		<track kind="captions" />
 	</video>
