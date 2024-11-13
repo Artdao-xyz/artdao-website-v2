@@ -45,8 +45,8 @@
 			bind:this={videoPlayer}
 			preload="metadata"
 			playsinline
-			autoplay
 			muted
+			loop
 		>
 			<track kind="captions" />
 		</video>
