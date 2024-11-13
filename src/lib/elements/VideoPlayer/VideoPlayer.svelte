@@ -47,6 +47,7 @@
 			playsinline
 			muted
 			loop
+			autoplay
 		>
 			<track kind="captions" />
 		</video>
