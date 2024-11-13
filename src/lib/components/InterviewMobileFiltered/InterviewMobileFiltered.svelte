@@ -44,17 +44,20 @@
 <div class="flex flex-col gap-[1.3125rem] laptopM:hidden w-full min-h-screen">
 	{#each questions as question, i}
 		<div class="flex flex-col card rounded-20 w-full">
-			<div class="w-full flex flex-row justify-between py-[1rem] px-[1.4375rem] items-center">
+			<button
+				class="w-full flex flex-row justify-between py-[1rem] px-[1.4375rem] items-center"
+				on:click={() => toggleVisibility(i)}
+			>
 				<p
-					class="w-full max-w-[15rem] sm:max-w-[35rem] h-fit text-color-black text-[1.125rem] font-semibold font-clash capitalize"
+					class="w-full max-w-[15rem] sm:max-w-[35rem] h-fit text-color-black text-left text-[1.125rem] font-semibold font-clash capitalize"
 				>
 					{question.question}
 				</p>
 
-				<button class="w-[1.5625rem] h-full" on:click={() => toggleVisibility(i)}>
+				<button class="w-[1.5625rem] h-full">
 					<img src={visible && index === i ? iconOpened : iconClosed} alt="Show Answer " />
 				</button>
-			</div>
+			</button>
 
 			{#if visible && index === i}
 				<div transition:slide={{ axis: 'y', duration: 1000 }}>

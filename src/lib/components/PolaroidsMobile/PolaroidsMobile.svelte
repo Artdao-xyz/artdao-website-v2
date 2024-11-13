@@ -52,15 +52,14 @@
 	<div
 		class="flex flex-row gap-[0.625rem] {height > 800
 			? 'pb-[4.375rem]'
-			: 'pb-[1rem]'} justify-center"
+			: 'pb-[1rem]'} justify-center overflow-x-hidden"
 	>
 		{#each polaroidImages as polaroidImage}
 			<button
 				on:click={() =>
 					document.getElementById(`${polaroidImage.image}`)?.scrollIntoView({
 						behavior: 'smooth',
-						block: 'nearest',
-						inline: 'start'
+						block: 'nearest'
 					})}
 			>
 				<img
