@@ -20,9 +20,10 @@
 		>
 			{#if width > 500}
 				<h2>{title}</h2>
+			{:else}
+				<h2>Bridging</h2>
+				<h2>The GLobal & Hyperlocal</h2>
 			{/if}
-			<h2>Bridging</h2>
-			<h2>The GLobal & Hyperlocal</h2>
 		</div>
 	</div>
 
