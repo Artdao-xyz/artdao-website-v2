@@ -14,8 +14,8 @@
 	onMount(() => {
 		/* SETTINGS */
 		const sizes = {
-			width: window.innerWidth <= 768 ? 40 : 100,
-			height: window.innerWidth <= 768 ? 40 : 100
+			width: window.innerWidth <= 768 ? 60 : 100,
+			height: window.innerWidth <= 768 ? 60 : 100
 		};
 
 		/* SCENE */
@@ -75,8 +75,8 @@
 		onresize = (e) => {
 			// Update sizes
 			if (window.innerWidth !== sizes.width) {
-				(sizes.width = window.innerWidth <= 768 ? 40 : 100),
-					(sizes.height = window.innerWidth <= 768 ? 40 : 100);
+				(sizes.width = window.innerWidth <= 768 ? 60 : 100),
+					(sizes.height = window.innerWidth <= 768 ? 60 : 100);
 
 				// Adjust camera position based on viewport size
 				if (sizes.width < 1025) {
@@ -118,12 +118,7 @@
 </script>
 
 <svelte:window bind:innerWidth={width} />
-<a href={width <= 768 ? HOME : '#intro'} on:click={() => console.log('cilcked')}>
-	<canvas
-		bind:this={canvas}
-		class="bg-transparent fixed z-50
-			top-2 left-2
-			md:bottom-4 md:right-4 md:top-auto md:left-auto"
-	>
+<a href={width <= 768 ? HOME : '#intro'}>
+	<canvas bind:this={canvas} class="bg-transparent fixed z-50 bottom-4 right-4 top-auto left-auto">
 	</canvas>
 </a>

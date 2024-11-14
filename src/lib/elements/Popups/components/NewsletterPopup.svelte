@@ -89,10 +89,10 @@
 
 <svelte:window bind:innerWidth={size} />
 <button
-	style={size < 500 ? `width: ${size * 0.92}px;` : 'width: 257.27px'}
-	class="h-[2.3125rem] sm:h-[1.625rem] {!visible
+	style={size < 500 ? `width: 100%;` : 'width: 257.27px'}
+	class="h-[49px] rounded-[0.9375rem] sm:h-[1.625rem] {!visible
 		? '!sm:w-[10.6875rem]'
-		: '!sm:w-[15rem]'} nav-gradient-unselected rounded-[6.25rem] px-5 sm:px-5 flex flex-col justify-center hover:nav-gradient-selected hover:border hover:border-color-dark"
+		: '!sm:w-[15rem]'} nav-gradient-unselected sm:rounded-[6.25rem] px-5 sm:px-5 flex flex-col justify-center hover:nav-gradient-selected hover:border hover:border-color-dark"
 	on:click={handleOnClick}
 >
 	{#if !submitting && !success && !error && !memberExists}

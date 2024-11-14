@@ -20,7 +20,7 @@
 </script>
 
 {#if mapLocation}
-	<div class="flex flex-col gap-[15px] justify-center items-center h-fit">
+	<div class="flex flex-col gap-[15px] justify-center items-center h-fit w-full">
 		<button
 			on:click={() => {
 				toggleSelected;
@@ -28,12 +28,12 @@
 			}}
 			class="relative flex flex-row {!isSelected
 				? 'gray-gradient'
-				: 'dark-gradient'} items-center justify-center rounded-40 py-[15px] pl-[17px] pr-[40px] w-[302px] h-[5.4375rem] {!isSelected
+				: 'dark-gradient'} items-center justify-center rounded-[0.9375rem] py-[15px] pl-[17px] pr-[40px] w-full h-[5.4375rem] {!isSelected
 				? 'unselected'
 				: 'selected'}"
 		>
 			<p
-				class="w-full h-full text-color-white font-robotoMono text-[18px] font-medium tracking-[0.234px] capitalize flex items-center justify-center"
+				class="w-full h-full text-color-white font-robotoMono text-[18px] pl-[20px] font-medium tracking-[0.234px] capitalize flex items-center justify-center"
 			>
 				{mapLocation.location}
 			</p>
@@ -46,7 +46,7 @@
 				{#each mapLocation.events as event}
 					<button
 						on:click={() => handleOnClick(event)}
-						class="flex flex-rowitems-center justify-center rounded-40 w-[302px] h-[47px] gray-gradient"
+						class="flex flex-rowitems-center justify-center rounded-[0.9375rem] w-full h-[47px] gray-gradient"
 					>
 						<p
 							class="font-neue text-[20px] tracking-[0.0163rem] font-medium uppercase flex justify-center items-center leading-[47px]"

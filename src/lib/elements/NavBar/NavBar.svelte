@@ -1,20 +1,22 @@
 <script lang="ts">
 	import buttonIcon from '$lib/assets/images/button-icon.webp';
-	import { onDestroy } from 'svelte';
+	import menuIcon from '$lib/assets/images/mobile-hamburguer.svg';
 	import { slide } from 'svelte/transition';
-	import { isNavOpen, isPopupOpen } from '../Popups/components/store';
+	import NewsletterPopup from '../Popups/components/NewsletterPopup.svelte';
 	import type { INavBarItem } from './interfaces';
 
-	export let navItems: INavBarItem[];
+	export let navItems: INavBarItem[] | [];
+	export let isMap = false;
 	let index: number = 0;
 	$: percentage = 100 / navItems.length + 50;
-	navItems[index].selected = true;
+
+	if (navItems.length) {
+		navItems[index].selected = true;
+	}
+
 	$: selectedItem = navItems.find((item) => item.selected === true);
 
-	$: visible = false && isPopupOpen;
-	$: isNavOpen.set(visible);
-
-	let isPopOpen = false;
+	$: visible = false;
 
 	const handleOnClick = (i: number) => {
 		index = i;
@@ -26,16 +28,6 @@
 	const toggleVisibility = () => {
 		visible = !visible;
 	};
-
-	const unsubscribe = isPopupOpen.subscribe((boolean) => {
-		isPopOpen = boolean;
-
-		if (isPopOpen) {
-			visible = false;
-		}
-	});
-
-	onDestroy(unsubscribe);
 
 	let size: number;
 </script>
@@ -68,38 +60,47 @@
 	{/each}
 </div>
 
-<!-- svelte-ignore a11y-no-static-element-interactions -->
-<div class="flex flex-col sm:hidden gap-[0.375rem] z-50 fixed top-[13px] right-[1.25rem]">
-	{#if selectedItem && !visible}
-		<a
-			on:click={toggleVisibility}
-			data-sveltekit-noscroll
-			href={`#${selectedItem.route}`}
-			style="width: {size * 0.69}px;"
-			class=" h-[2.3125rem] rounded-[6.25rem] font-robotoMono text-[1rem] font-medium !opacity-100 text-color-white {selectedItem.selected
-				? 'nav-gradient-selected font-semibold border border-color-dark'
-				: 'nav-gradient-unselected'} capitalize h-[1rem] justify-end
-		flex flex-row items-center py-[0.75rem] pr-[2.5rem] transition delay-75 duration-700 ease-in-out transform mt-[-0.25rem]"
-		>
-			{selectedItem.text}
+<div class="flex flex-col z-50 fixed top-[13px] w-full gap-[10px] sm:hidden">
+	<div class="flex flex-row justify-between w-full px-[1.3125rem] items-center">
+		<a href={'/'}>
+			<div
+				class="rounded-[100px] nav-gradient-selected w-[49px] h-[49px] flex flex-row items-center justify-center border border-color-dark"
+			>
+				<img src={buttonIcon} alt="Go to home" class="rotate-180 w-[10px]" />
+			</div>
 		</a>
-	{/if}
+
+		<button on:click={toggleVisibility}>
+			<div
+				class="rounded-[100px] {!visible
+					? 'nav-gradient-selected'
+					: 'nav-gradient-unselected'} w-[49px] h-[49px] flex flex-row items-center justify-center border border-color-dark"
+			>
+				<img src={menuIcon} alt="menu" class="" />
+			</div>
+		</button>
+	</div>
 	{#if visible}
-		<div transition:slide={{ axis: 'y', duration: 300 }} class="flex flex-col gap-[0.375rem]">
-			{#each navItems as navItem, i}
-				<a
-					style="width: {size * 0.69}px;"
-					data-sveltekit-noscroll
-					href={`#${navItem.route}`}
-					class="h-[2.3125rem] rounded-[6.25rem] font-robotoMono text-[1rem] font-medium !opacity-100 text-color-white {navItem.selected
-						? 'nav-gradient-selected font-semibold border border-color-dark'
-						: 'nav-gradient-unselected'} capitalize h-[1rem] justify-end
-                flex flex-row items-center py-[0.75rem] pr-[2.5rem] transition delay-75 duration-700 ease-in-out transform w-full"
-					on:click={() => handleOnClick(i)}
-				>
-					{navItem.text}
-				</a>
-			{/each}
+		<div
+			transition:slide={{ axis: 'y', duration: 300 }}
+			class="flex flex-col gap-[6px] h-full px-[1.3125rem]"
+		>
+			{#if !isMap}
+				{#each navItems as navItem, i}
+					<a
+						data-sveltekit-noscroll
+						href={`#${navItem.route}`}
+						class="h-[49px] rounded-[0.9375rem] font-robotoMono text-[1rem] font-medium !opacity-100 text-color-white {navItem.selected
+							? 'nav-gradient-selected font-semibold border border-color-dark'
+							: 'nav-gradient-unselected'} capitalize justify-end
+	flex flex-row items-center py-[0.75rem] pr-[2.5rem] transition delay-75 duration-700 ease-in-out transform"
+						on:click={() => handleOnClick(i)}
+					>
+						{navItem.text}
+					</a>
+				{/each}
+			{/if}
+			<NewsletterPopup />
 		</div>
 	{/if}
 </div>

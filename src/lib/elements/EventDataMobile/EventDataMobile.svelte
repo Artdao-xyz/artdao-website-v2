@@ -9,9 +9,9 @@
 </script>
 
 {#if eventToShow}
-	<div class="flex flex-col gap-[15px] items-center w-[302px]">
+	<div class="flex flex-col gap-[15px] items-center w-full">
 		<button
-			class="relative flex flex-row dark-gradient items-center justify-center rounded-40 py-[15px] pl-[17px] pr-[40px] w-full h-[5.4375rem] sm:max-w-[400px] selected"
+			class="relative flex flex-row dark-gradient items-center justify-center rounded-[0.9375rem] py-[15px] pl-[17px] pr-[40px] w-full h-[5.4375rem] sm:max-w-[400px] selected"
 		>
 			<p
 				class="w-full h-full text-color-white font-robotoMono text-[18px] font-medium tracking-[0.234px] capitalize flex items-center justify-center"
@@ -23,7 +23,7 @@
 		</button>
 
 		<button
-			class="flex flex-rowitems-center justify-center rounded-40 w-full h-[47px] gray-gradient sm:max-w-[400px]"
+			class="flex flex-rowitems-center justify-center rounded-[0.9375rem] w-full h-[47px] gray-gradient sm:max-w-[400px]"
 		>
 			<p
 				class="font-neue text-[20px] tracking-[0.0163rem] font-medium uppercase flex justify-center items-center leading-[47px]"
@@ -90,17 +90,17 @@
 		</div>
 	</div>
 
-	<div class="flex flex-col gap-[15px] w-[302px]">
+	<div class="flex flex-col gap-[15px] w-full">
 		{#if eventToShow.watchMore}
 			<button
-				class="sm:max-w-[400px] sm:mx-auto px-[20px] py-[12px] rounded-[100px] gray-gradient w-full h-[47px] leading-[16px] text-[16px] font-robotoMono text-color-white"
+				class="sm:max-w-[400px] sm:mx-auto px-[20px] py-[12px] rounded-[0.9375rem] gray-gradient w-full h-[47px] leading-[16px] text-[16px] font-robotoMono text-color-white"
 				><a href={eventToShow.watchMore}>Watch more</a></button
 			>
 		{/if}
 
 		<button
 			on:click={() => (eventToShow = undefined)}
-			class="sm:max-w-[400px] sm:mx-auto w-full py-[14px] px-[24px] font-robotoMono text-[16px] leading-[1rem] tracking-[0.156px] rounded-[100px] gray-gradient"
+			class="sm:max-w-[400px] sm:mx-auto w-full py-[14px] px-[24px] font-robotoMono text-[16px] leading-[1rem] tracking-[0.156px] rounded-[0.9375rem] gray-gradient"
 			>Go Back</button
 		>
 	</div>
