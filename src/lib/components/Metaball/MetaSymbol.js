@@ -82,21 +82,19 @@ export default class MetaSymbol {
 			};
 			//    this.goTo(1)z
 		} else {
-			let newS = 0;
-
-			this.modifyScroll = () => {
-				if (parent.scrollPercentD >= 0 && parent.scrollPercentD < 100) {
-					newS += 0.001;
-					parent.scrollPercentD = newS;
-				}
-
-				if (parent.scrollPercentD === 100) {
-					while (parent.scrollPercentD > 0) {
-						newS -= 0.000001;
-						parent.scrollPercentD = newS;
-					}
-				}
-			};
+			// let newS = 0;
+			// this.modifyScroll = () => {
+			// 	if (parent.scrollPercentD >= 0 && parent.scrollPercentD < 100) {
+			// 		newS += 0.001;
+			// 		parent.scrollPercentD = newS;
+			// 	}
+			// 	if (parent.scrollPercentD === 100) {
+			// 		while (parent.scrollPercentD > 0) {
+			// 			newS -= 0.000001;
+			// 			parent.scrollPercentD = newS;
+			// 		}
+			// 	}
+			// };
 		}
 	}
 

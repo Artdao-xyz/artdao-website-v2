@@ -33,74 +33,79 @@
 </script>
 
 <svelte:window bind:innerWidth={size} />
-<div
-	class="w-100dvw rounded-[6.25rem] h-[1rem] sm:flex flex-row items-center z-50 sticky top-[2.88%] mx-[1.625rem] gap-2.5 hidden"
->
-	<a href={'/'}>
-		<div
-			class="rounded-[100px] nav-gradient-unselected w-[24px] h-[24px] flex flex-row items-center justify-center"
-		>
-			<img src={buttonIcon} alt="Go to home" class="rotate-180 w-[10px]" />
-		</div>
-	</a>
 
-	{#each navItems as navItem, i}
-		<a
-			data-sveltekit-noscroll
-			href={`#${navItem.route}`}
-			class="rounded-[6.25rem] font-robotoMono text-[0.75rem] font-medium tracking-[0.075rem] !opacity-100 text-color-white {navItem.selected
-				? 'nav-gradient-selected font-semibold border border-color-dark'
-				: 'nav-gradient-unselected'} capitalize h-[1rem] justify-end
-                flex flex-row items-center py-[0.75rem] pr-[2.5rem] pl-[3.75rem] transition delay-75 duration-700 ease-in-out transform"
-			style="width: {percentage}%; z-index: -{i};"
-			on:click={() => handleOnClick(i)}
-		>
-			{navItem.text}
-		</a>
-	{/each}
-</div>
-
-<div class="flex flex-col z-50 fixed top-[13px] w-full gap-[10px] sm:hidden">
-	<div class="flex flex-row justify-between w-full px-[1.3125rem] items-center">
+{#if isMap && size > 500}
+	<div></div>
+{:else}
+	<div
+		class="w-100dvw rounded-[6.25rem] h-[1rem] sm:flex flex-row items-center z-50 sticky top-[2.88%] mx-[1.625rem] gap-2.5 hidden"
+	>
 		<a href={'/'}>
 			<div
-				class="rounded-[100px] nav-gradient-selected w-[49px] h-[49px] flex flex-row items-center justify-center border border-color-dark"
+				class="rounded-[100px] nav-gradient-unselected w-[24px] h-[24px] flex flex-row items-center justify-center"
 			>
 				<img src={buttonIcon} alt="Go to home" class="rotate-180 w-[10px]" />
 			</div>
 		</a>
 
-		<button on:click={toggleVisibility}>
-			<div
-				class="rounded-[100px] {!visible
-					? 'nav-gradient-selected'
-					: 'nav-gradient-unselected'} w-[49px] h-[49px] flex flex-row items-center justify-center border border-color-dark"
+		{#each navItems as navItem, i}
+			<a
+				data-sveltekit-noscroll
+				href={`#${navItem.route}`}
+				class="rounded-[6.25rem] font-robotoMono text-[0.75rem] font-medium tracking-[0.075rem] !opacity-100 text-color-white {navItem.selected
+					? 'nav-gradient-selected font-semibold border border-color-dark'
+					: 'nav-gradient-unselected'} capitalize h-[1rem] justify-end
+                flex flex-row items-center py-[0.75rem] pr-[2.5rem] pl-[3.75rem] transition delay-75 duration-700 ease-in-out transform"
+				style="width: {percentage}%; z-index: -{i};"
+				on:click={() => handleOnClick(i)}
 			>
-				<img src={menuIcon} alt="menu" class="" />
-			</div>
-		</button>
+				{navItem.text}
+			</a>
+		{/each}
 	</div>
-	{#if visible}
-		<div
-			transition:slide={{ axis: 'y', duration: 300 }}
-			class="flex flex-col gap-[6px] h-full px-[1.3125rem]"
-		>
-			{#if !isMap}
-				{#each navItems as navItem, i}
-					<a
-						data-sveltekit-noscroll
-						href={`#${navItem.route}`}
-						class="h-[49px] rounded-[0.9375rem] font-robotoMono text-[1rem] font-medium !opacity-100 text-color-white {navItem.selected
-							? 'nav-gradient-selected font-semibold border border-color-dark'
-							: 'nav-gradient-unselected'} capitalize justify-end
-	flex flex-row items-center py-[0.75rem] pr-[2.5rem] transition delay-75 duration-700 ease-in-out transform"
-						on:click={() => handleOnClick(i)}
-					>
-						{navItem.text}
-					</a>
-				{/each}
-			{/if}
-			<NewsletterPopup />
+
+	<div class="flex flex-col z-50 fixed top-[13px] w-full gap-[10px] sm:hidden">
+		<div class="flex flex-row justify-between w-full px-[1.3125rem] items-center">
+			<a href={'/'}>
+				<div
+					class="rounded-[100px] nav-gradient-selected w-[49px] h-[49px] flex flex-row items-center justify-center border border-color-dark"
+				>
+					<img src={buttonIcon} alt="Go to home" class="rotate-180 w-[10px]" />
+				</div>
+			</a>
+
+			<button on:click={toggleVisibility}>
+				<div
+					class="rounded-[100px] {!visible
+						? 'nav-gradient-selected'
+						: 'nav-gradient-unselected'} w-[49px] h-[49px] flex flex-row items-center justify-center border border-color-dark"
+				>
+					<img src={menuIcon} alt="menu" class="" />
+				</div>
+			</button>
 		</div>
-	{/if}
-</div>
+		{#if visible}
+			<div
+				transition:slide={{ axis: 'y', duration: 300 }}
+				class="flex flex-col gap-[6px] h-full px-[1.3125rem]"
+			>
+				{#if !isMap}
+					{#each navItems as navItem, i}
+						<a
+							data-sveltekit-noscroll
+							href={`#${navItem.route}`}
+							class="h-[49px] rounded-[0.9375rem] font-robotoMono text-[1rem] font-medium !opacity-100 text-color-white {navItem.selected
+								? 'nav-gradient-selected font-semibold border border-color-dark'
+								: 'nav-gradient-unselected'} capitalize justify-end
+	flex flex-row items-center py-[0.75rem] pr-[2.5rem] transition delay-75 duration-700 ease-in-out transform"
+							on:click={() => handleOnClick(i)}
+						>
+							{navItem.text}
+						</a>
+					{/each}
+				{/if}
+				<NewsletterPopup />
+			</div>
+		{/if}
+	</div>
+{/if}
