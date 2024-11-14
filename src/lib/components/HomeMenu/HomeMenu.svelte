@@ -4,6 +4,7 @@
 	import hammer from '$lib/assets/images/hammer-min.webp';
 	import instagramIcon from '$lib/assets/images/instagram-icon.webp';
 	import mapLogo from '$lib/assets/images/map.webp';
+	import menuIcon from '$lib/assets/images/mobile-hamburguer.svg';
 	import xIcon from '$lib/assets/images/x-icon.webp';
 	import HomeLogo from '$lib/elements/HomeLogo/HomeLogo.svelte';
 	import HomeMap from '$lib/elements/HomeMap/HomeMap.svelte';
@@ -17,6 +18,22 @@
 
 	const toggleVisibility = () => {
 		visible = !visible;
+	};
+
+	let isAboutVisible: boolean = false;
+
+	const toggleAboutOnClick = () => {
+		isAboutVisible = !isAboutVisible;
+	};
+
+	const handleMenuIcon = () => {
+		if (!isAboutVisible) {
+			toggleVisibility();
+			return;
+		}
+
+		toggleAboutOnClick();
+		setTimeout(toggleVisibility, 100);
 	};
 
 	let width: number;
@@ -49,39 +66,69 @@
 	</div>
 
 	<div class="flex flex-col sm:hidden">
-		<div class="flex flex-col gap-2 w-full pt-10">
-			<div class="flex flex-col gap-2 {!visible ? 'mb-[-8px]' : ''}">
-				<button class="gray-gradient rounded-20 py-2.5 px-5" on:click={toggleVisibility}>
-					<img src={artDaoLogo} alt="ArtDao Logo" class="w-[7.5389rem] h-[1.8125rem] mx-auto" />
+		<div class="flex flex-col gap-2 w-full">
+			<div class="flex flex-col gap-2">
+				<button class="">
+					<div class="flex-row flex justify-between items-center py-2.5 px-5">
+						<img src={artDaoLogo} alt="ArtDao Logo" class="w-[7.5389rem] h-[1.8125rem]" />
 
-					{#if visible}
-						<div
-							transition:slide={{ axis: 'y', duration: 900 }}
-							class="flex flex-col w-full gap-[1rem] justify-center items-center mt-[1rem]"
-						>
-							<img src={hammer} alt="hammer logo" class="w-[100px] self-center ml-[1rem]" />
-
-							<div class="flex flex-col items-start">
-								<h1
-									class="text-[20px] font-clash font-medium leading-[20px] tracking-[0.234px] text-left"
-								>
-									Artists Helping Artists
-								</h1>
-								<p
-									class="text-[16px] font-clash font-medium leading-[22.4px] tracking-[0.28px] uppercase w-full"
-								>
-									© 2024
-								</p>
+						<button on:click={handleMenuIcon}>
+							<div
+								class="rounded-[100px] {!visible
+									? 'nav-gradient-selected'
+									: 'nav-gradient-unselected'} w-[49px] h-[49px] flex flex-row items-center justify-center border border-color-dark"
+							>
+								<img src={menuIcon} alt="menu" class="" />
 							</div>
-						</div>
-					{/if}
+						</button>
+					</div>
 				</button>
 				<div>
 					{#if visible}
 						<div transition:slide={{ axis: 'y', duration: 900 }} class="flex flex-col gap-2">
 							<!-- <HomeDrop dropNumber={'000'} dropName={'psipsikoko'} dropLogo={hammer} /> -->
-							<HomeLogo logo={artDaoLogo} />
-							<HomeTop {homeParagraphs} />
+							<div
+								class="flex flex-col w-full gap-[1rem] py-[20px] justify-center items-center mt-[1rem] gray-gradient rounded-20"
+							>
+								<img src={hammer} alt="hammer logo" class="w-[100px] self-center ml-[1rem]" />
+
+								<div class="flex flex-col items-start">
+									<h1
+										class="text-[20px] font-clash font-medium leading-[20px] tracking-[0.234px] text-left"
+									>
+										Artists Helping Artists
+									</h1>
+									<p
+										class="text-[16px] font-clash font-medium leading-[22.4px] tracking-[0.28px] uppercase w-full"
+									>
+										© 2024
+									</p>
+								</div>
+							</div>
+							<button
+								on:click={toggleAboutOnClick}
+								class="w-full min-h-[3.875rem] sm:h-[2.625rem] gray-gradient rounded-20 px-5 flex items-center justify-center"
+							>
+								<div>
+									<p
+										class="font-clash leading-[1.375rem] tracking-[0.0375rem] text-[20px] font-medium h-fit py-5"
+									>
+										About
+
+										{#if isAboutVisible}
+											<div
+												transition:slide={{ axis: 'y', duration: 500 }}
+												class="flex flex-col justify-start text-left gap-4 text-[1rem] font-medium font-clash leading-5 text-color-white pt-2.5"
+											>
+												{#each homeParagraphs as homeParagraph}
+													<p>{homeParagraph}</p>
+												{/each}
+											</div>
+										{/if}
+									</p>
+								</div>
+							</button>
+
 							<HomeMap title={'bridging the global & hyperlocal'} logo={mapLogo} />
 							<HomeNewsletter />
 							<div class="flex gap-[2.375rem] h-full w-full">
