@@ -110,21 +110,34 @@
 					{#if !submitting && !success && !error && !memberExists}
 						<div class="flex gap-[0.5rem] items-center flex-row">
 							<label for="email" class="hidden"></label>
-							<button
-								bind:this={submit}
-								type="submit"
-								class="bg-color-gray rounded-[6.25rem] shadow-custom my-auto h-[18px] py-[0.125rem] px-2 text-[0.75rem] leading-[0.75rem] font-medium invisible flex-none w-[25%] align-top border border-color-gray"
-								>submit</button
-							>
+							{#if size < 500}
+								<button
+									bind:this={submit}
+									type="submit"
+									class="bg-color-gray rounded-[6.25rem] shadow-custom my-auto h-[18px] py-[0.125rem] px-2 text-[0.75rem] leading-[0.75rem] font-medium invisible flex-none w-[25%] align-top border border-color-gray"
+									>submit</button
+								>
+							{/if}
 							<input
 								bind:this={input}
 								type="email"
 								name="EMAIL"
-								class="placeholder:text-color-white w-full h-[18px] py-0 placeholder:text-[1rem] !placeholder:ml-[0.2rem] font-robotoMono placeholder:sm:text-[0.75rem] pr-[20px] sm:text-[0.75rem] font-medium align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] text-right"
+								class="placeholder:text-color-white w-full h-[18px] py-0 placeholder:text-[1rem] !placeholder:ml-[0.2rem] font-robotoMono placeholder:sm:text-[0.75rem] pr-[20px] sm:text-[0.75rem] font-medium align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] {size <
+								500
+									? 'text-right'
+									: 'text-left'}"
 								required
 								value=""
 								placeholder="Enter Your Email"
 							/>
+							{#if size > 500}
+								<button
+									bind:this={submit}
+									type="submit"
+									class="bg-color-gray rounded-[6.25rem] shadow-custom my-auto h-[18px] py-[0.125rem] px-2 text-[0.75rem] leading-[0.75rem] font-medium invisible flex-none w-[25%] align-top border border-color-gray"
+									>submit</button
+								>
+							{/if}
 						</div>
 					{/if}
 					<div aria-hidden="true" style="position: absolute; left: -5000px;">
