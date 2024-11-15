@@ -19,7 +19,7 @@
 	on:mousemove={handleMousemove}
 	class="hidden sm:flex flex-col gap-[16px] w-full {height > 1100
 		? 'py-[1.875rem]'
-		: 'py-[1rem]'} px-5 sm:px-10 rounded-20 h-full sm:h-fit"
+		: 'py-[1rem]'} px-5 sm:px-10 rounded-20 h-full sm:h-fit !cursor-default"
 >
 	{#if height > 1100}
 		<img src={logo} alt="ArtDao Logo" class="w-[163px] h-[37.17633px]" />

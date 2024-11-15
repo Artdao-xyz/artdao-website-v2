@@ -18,7 +18,7 @@
 	on:mousemove={handleMousemove}
 	class="flex flex-col gap-[1.875rem] w-full {height > 900
 		? 'py-[1.875rem]'
-		: 'py-[1rem]'} px-5 sm:px-10 rounded-20 h-full sm:h-fit"
+		: 'py-[1rem]'} px-5 sm:px-10 rounded-20 h-full sm:h-fit !cursor-default"
 >
 	<div
 		class="flex flex-col justify-start text-left gap-4 text-[1rem] font-medium font-clash leading-5 text-color-white overflow-y-auto"
