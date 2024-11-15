@@ -108,36 +108,25 @@
 					class="w-full"
 				>
 					{#if !submitting && !success && !error && !memberExists}
-						<div class="flex gap-[0.5rem] items-center flex-row">
+						<div class="flex gap-[0.5rem] items-center flex-row pr-[20px]">
 							<label for="email" class="hidden"></label>
-							{#if size < 500}
-								<button
-									bind:this={submit}
-									type="submit"
-									class="bg-color-gray rounded-[6.25rem] shadow-custom my-auto h-[18px] py-[0.125rem] px-2 text-[0.75rem] leading-[0.75rem] font-medium invisible flex-none w-[25%] align-top border border-color-gray"
-									>submit</button
-								>
-							{/if}
 							<input
 								bind:this={input}
 								type="email"
 								name="EMAIL"
-								class="placeholder:text-color-white w-full h-[18px] py-0 placeholder:text-[1rem] !placeholder:ml-[0.2rem] font-robotoMono placeholder:sm:text-[0.75rem] pr-[20px] sm:text-[0.75rem] font-medium align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] {size <
-								500
-									? 'text-right'
-									: 'text-left'}"
+								class="placeholder:text-color-white w-full h-[18px] py-0 placeholder:text-[1rem] !placeholder:ml-[0.2rem] font-robotoMono placeholder:sm:text-[0.75rem] pr-[20px] sm:text-[0.75rem] font-medium align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] text-left"
 								required
 								value=""
 								placeholder="Enter your email"
 							/>
-							{#if size > 500}
-								<button
-									bind:this={submit}
-									type="submit"
-									class="rounded-[6.25rem] shadow-custom my-auto h-[18px] py-[0.125rem] text-[0.75rem] leading-[0.75rem] font-medium flex-none w-[25%] align-top border border-color-gray"
-									>Submit</button
-								>
-							{/if}
+							<button
+								bind:this={submit}
+								type="submit"
+								class="rounded-[6.25rem] shadow-custom my-auto {size > 500
+									? 'h-[18px]'
+									: 'h-[26px]'} py-[0.125rem] text-[0.75rem] sm:text-[0.6rem] leading-[0.75rem] font-medium flex-none w-[25%] align-top border border-color-white font-robotoMono"
+								>Submit</button
+							>
 						</div>
 					{/if}
 					<div aria-hidden="true" style="position: absolute; left: -5000px;">
