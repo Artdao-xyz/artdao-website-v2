@@ -118,16 +118,16 @@
 						bind:this={input}
 						type="email"
 						name="EMAIL"
-						class="placeholder:text-color-white ml-[-1rem] w-[70%] font-clash leading-[1.375rem] align-top tracking-[0.0375rem] text-[0.875rem] font-medium bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] h-full"
+						class="placeholder:text-color-white ml-[-1rem] w-[70%] text-[1rem] font-medium font-clash leading-5 align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] h-full"
 						required
 						value=""
-						placeholder="Enter Your Email"
+						placeholder="Enter your email"
 					/>
 					<button
 						bind:this={submit}
 						type="submit"
-						class=" rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 font-clash leading-[0.875rem] tracking-[0.0375rem] text-[0.875rem] font-medium flex-none w-[30%] align-top h-full border border-color-white"
-						>submit</button
+						class=" rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 font-clash leading-[0.875rem] text-[0.875rem] font-medium flex-none w-[30%] align-top h-full border border-color-white"
+						>Submit</button
 					>
 				</div>
 				<div aria-hidden="true" style="position: absolute; left: -5000px;">

@@ -128,14 +128,14 @@
 									: 'text-left'}"
 								required
 								value=""
-								placeholder="Enter Your Email"
+								placeholder="Enter your email"
 							/>
 							{#if size > 500}
 								<button
 									bind:this={submit}
 									type="submit"
-									class="bg-color-gray rounded-[6.25rem] shadow-custom my-auto h-[18px] py-[0.125rem] px-2 text-[0.75rem] leading-[0.75rem] font-medium invisible flex-none w-[25%] align-top border border-color-gray"
-									>submit</button
+									class="rounded-[6.25rem] shadow-custom my-auto h-[18px] py-[0.125rem] text-[0.75rem] leading-[0.75rem] font-medium flex-none w-[25%] align-top border border-color-gray"
+									>Submit</button
 								>
 							{/if}
 						</div>
