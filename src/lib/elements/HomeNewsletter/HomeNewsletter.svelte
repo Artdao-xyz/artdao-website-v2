@@ -88,73 +88,60 @@
 	on:click={handleOnClick}
 	class="w-full h-[3.875rem] sm:h-[2.625rem] gray-gradient rounded-20 px-10 py-2.5 flex items-center justify-center hover:bg-color-gray"
 >
-	{#if !isClicked}
-		<p
-			class="font-clash leading-[1.375rem] capitalize tracking-[0.0375rem] text-[20px] font-medium"
-		>
-			subscribe
-		</p>
-	{:else}
-		<div class="w-full h-full">
-			{#if !submitting && !success && !error && !memberExists}
-				<form
-					in:fade={{ delay: 50, duration: 150 }}
-					out:fade={{ delay: 50, duration: 50 }}
-					on:submit|preventDefault={handleSubmit}
-					method="POST"
-					action="/api/subscribe"
-					id="subscribeForm"
-					class="w-full h-full flex-row items-center"
-				>
-					<div class="flex items-center flex-row justify-between h-full w-full my-auto">
-						<label for="email" class="hidden"></label>
-						<input
-							bind:this={input}
-							type="email"
-							name="EMAIL"
-							class="placeholder:text-color-white ml-[-1rem] w-[70%] font-robotoMono leading-[1.375rem] align-top tracking-[0.0375rem] text-[0.875rem] font-semibold bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] h-full"
-							required
-							value=""
-							placeholder="Signup For Updates"
-						/>
-						<button
-							bind:this={submit}
-							type="submit"
-							class="bg-color-gray rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 font-robotoMono leading-[0.875rem] tracking-[0.0375rem] text-[0.875rem] font-semibold invisible flex-none w-[30%] align-top h-full border border-color-gray"
-							>submit</button
-						>
-					</div>
-					<div aria-hidden="true" style="position: absolute; left: -5000px;">
-						<!-- /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */ -->
-						<input
-							type="text"
-							name="b_d150dd71762335c56d7e5811c_6f099dd01d"
-							tabindex="-1"
-							value=""
-						/>
-					</div>
-				</form>
-			{/if}
-
-			{#if submitting || success || memberExists || error}
-				<div
-					in:fade={{ delay: 50, duration: 150 }}
-					out:fade={{ delay: 50, duration: 50 }}
-					class="font-robotoMono font-medium italic flex items-center justify-center w-full h-full"
-				>
-					{#if submitting}
-						<img src={loadingIcon} alt="submitting" class="h-[30px] sm:h-[21px]" />
-					{:else if success}
-						<img src={successIcon} alt="success" class="w-[29px] sm:w-[24px]" />
-					{:else if memberExists}
-						<div class="flex flex-row gap-1">
-							<img src={errorIcon} alt="error" class="w-[17px] sm:w-[14px]" />
-						</div>
-					{:else if error}
-						<img src={errorIcon} alt="error" class="w-[17px] sm:w-[14px]" />
-					{/if}
+	<div class="w-full h-full">
+		{#if !submitting && !success && !error && !memberExists}
+			<form
+				in:fade={{ delay: 50, duration: 150 }}
+				out:fade={{ delay: 50, duration: 50 }}
+				on:submit|preventDefault={handleSubmit}
+				method="POST"
+				action="/api/subscribe"
+				id="subscribeForm"
+				class="w-full h-full flex-row items-center"
+			>
+				<div class="flex items-center flex-row justify-between h-full w-full my-auto">
+					<label for="email" class="hidden"></label>
+					<input
+						bind:this={input}
+						type="email"
+						name="EMAIL"
+						class="placeholder:text-color-white ml-[-1rem] w-[70%] font-clash leading-[1.375rem] align-top tracking-[0.0375rem] text-[0.875rem] font-medium bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] h-full"
+						required
+						value=""
+						placeholder="Enter Your Email"
+					/>
+					<button
+						bind:this={submit}
+						type="submit"
+						class=" rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 font-clash leading-[0.875rem] tracking-[0.0375rem] text-[0.875rem] font-medium flex-none w-[30%] align-top h-full border border-color-white"
+						>submit</button
+					>
 				</div>
-			{/if}
-		</div>
-	{/if}
+				<div aria-hidden="true" style="position: absolute; left: -5000px;">
+					<!-- /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */ -->
+					<input type="text" name="b_d150dd71762335c56d7e5811c_6f099dd01d" tabindex="-1" value="" />
+				</div>
+			</form>
+		{/if}
+
+		{#if submitting || success || memberExists || error}
+			<div
+				in:fade={{ delay: 50, duration: 150 }}
+				out:fade={{ delay: 50, duration: 50 }}
+				class="font-robotoMono font-medium italic flex items-center justify-center w-full h-full"
+			>
+				{#if submitting}
+					<img src={loadingIcon} alt="submitting" class="h-[30px] sm:h-[21px]" />
+				{:else if success}
+					<img src={successIcon} alt="success" class="w-[29px] sm:w-[24px]" />
+				{:else if memberExists}
+					<div class="flex flex-row gap-1">
+						<img src={errorIcon} alt="error" class="w-[17px] sm:w-[14px]" />
+					</div>
+				{:else if error}
+					<img src={errorIcon} alt="error" class="w-[17px] sm:w-[14px]" />
+				{/if}
+			</div>
+		{/if}
+	</div>
 </button>
