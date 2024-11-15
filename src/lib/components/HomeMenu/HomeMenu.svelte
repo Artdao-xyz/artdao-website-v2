@@ -92,14 +92,14 @@
 							>
 								<img src={hammer} alt="hammer logo" class="w-[100px] self-center ml-[1rem]" />
 
-								<div class="flex flex-col items-start">
+								<div class="flex flex-col items-center justify-center">
 									<h1
 										class="text-[20px] font-clash font-medium leading-[20px] tracking-[0.234px] text-left"
 									>
 										Artists Helping Artists
 									</h1>
 									<p
-										class="text-[16px] font-clash font-medium leading-[22.4px] tracking-[0.28px] uppercase w-full"
+										class="text-[16px] font-clash font-medium leading-[22.4px] tracking-[0.28px] uppercase mx-auto"
 									>
 										© 2024
 									</p>
