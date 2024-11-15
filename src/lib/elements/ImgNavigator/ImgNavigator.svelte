@@ -37,10 +37,8 @@
 	<div
 		class="{isSmall
 			? 'left-[20px]'
-			: 'left-0'} flex flex-row gap-[0.625rem] sm:gap-[1.375rem] laptopM:left-10 laptopM:bottom-10
-			 absolute {height > 700 ? 'bottom-30' : 'bottom-[1.25rem]'} {width < 500
-			? 'scroll-panel'
-			: '!bottom-[4rem]'} "
+			: 'left-0'} flex flex-row gap-[0.625rem] sm:gap-[1.375rem] laptopM:left-10
+			 absolute {width < 500 ? 'scroll-panel' : ''} bottom-[4rem]"
 	>
 		{#if width < 500}
 			<div class="w-fit flex flex-row flex-nowrap gap-[0.625rem]">
