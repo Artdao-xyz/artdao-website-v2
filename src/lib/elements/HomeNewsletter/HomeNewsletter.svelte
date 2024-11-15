@@ -82,11 +82,24 @@
 
 		return styleStore;
 	});
+
+	let m = { x: 0, y: 0 };
+
+	function handleMousemove(event: any) {
+		m.x = event.clientX;
+		m.y = event.clientY;
+	}
+
+	let width: number;
+	let height: number;
 </script>
 
+<svelte:window bind:innerWidth={width} bind:innerHeight={height} />
 <button
+	style={`background: radial-gradient(at ${(m.x * 1000) / width}% ${(m.y * 1000) / height}%, #A6A6A6, #313431)`}
+	on:mousemove={handleMousemove}
 	on:click={handleOnClick}
-	class="w-full h-[3.875rem] sm:h-[2.625rem] gray-gradient rounded-20 px-10 py-2.5 flex items-center justify-center hover:bg-color-gray"
+	class="w-full h-[3.875rem] sm:h-[2.625rem] gray-gradient rounded-20 px-10 py-2.5 flex items-center justify-center"
 >
 	<div class="w-full h-full">
 		{#if !submitting && !success && !error && !memberExists}

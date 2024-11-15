@@ -2,14 +2,24 @@
 	export let title: string;
 	export let logo: string;
 
+	let m = { x: 0, y: 0 };
+
+	function handleMousemove(event: any) {
+		m.x = event.clientX;
+		m.y = event.clientY;
+	}
+
 	let width: number;
+	let height: number;
 </script>
 
-<svelte:window bind:innerWidth={width} />
+<svelte:window bind:innerWidth={width} bind:innerHeight={height} />
 <a
+	style={`background: radial-gradient(at ${(m.x * 1000) / width}% ${(m.y * 1000) / height}%, #A6A6A6, #313431)`}
+	on:mousemove={handleMousemove}
 	class="flex {width < 500
 		? 'flex-col-reverse'
-		: 'flex-row'} items-center justify-between gap-2.5 w-full gray-gradient rounded-20 py-5 sm:py-[0.9375rem] px-10 hover:bg-color-gray"
+		: 'flex-row'} items-center justify-between gap-2.5 w-full gray-gradient rounded-20 py-5 sm:py-[0.9375rem] px-10"
 	href="/map"
 >
 	<div class="flex flex-col justify-start gap-0 sm:gap-2.5">
