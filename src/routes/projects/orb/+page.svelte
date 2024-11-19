@@ -78,7 +78,7 @@
 	<div
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
-		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden sm:snap-y sm:snap-mandatory overflow-y-auto sm:h-screen"
+		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<div
 			use:inview={INVIEW_OPTIONS}
@@ -206,3 +206,11 @@
 		<Footer />
 	</div>
 {/await}
+
+<style>
+	.mobile-scroll {
+		-webkit-overflow-scrolling: touch;
+		scroll-snap-coordinate: 0 0;
+		scroll-snap-points-x: repeat(100%);
+	}
+</style>

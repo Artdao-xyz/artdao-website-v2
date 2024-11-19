@@ -9,7 +9,7 @@
 </script>
 
 <div
-	class="sm:snap-start shrink-0 w-full {isCover ? 'bg-cover' : ''} {isOverflow
+	class="!snap-start shrink-0 w-full {isCover ? 'bg-cover' : ''} {isOverflow
 		? 'h-screen'
 		: ''} sm:h-full-desktop-height {bgImage && !colorVariant
 		? 'bg-center bg-no-repeat'
