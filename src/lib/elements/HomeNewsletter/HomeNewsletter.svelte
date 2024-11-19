@@ -126,8 +126,8 @@
 					<button
 						bind:this={submit}
 						type="submit"
-						class=" rounded-[6.25rem] shadow-custom py-[0.125rem] px-2 font-clash leading-[0.875rem] text-[0.875rem] font-medium flex-none w-[30%] align-top h-full border border-color-white"
-						>Submit</button
+						class=" rounded-[6.25rem] shadow-custom invisible py-[0.125rem] px-2 font-clash leading-[0.875rem] text-[0.875rem] font-medium flex-none w-[30%] align-top h-full border border-color-white"
+						>Subscribe</button
 					>
 				</div>
 				<div aria-hidden="true" style="position: absolute; left: -5000px;">
