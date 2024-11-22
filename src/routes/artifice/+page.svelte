@@ -22,6 +22,7 @@
 	} from '../../data/Projects/Artifice/ProjectAboutDropdown';
 	import { artificeProjectIntro } from '../../data/Projects/Artifice/ProjectIntro';
 	import { afterEventVideo, furnitureVideo } from '../../data/Projects/Artifice/ProjectVideo';
+	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { artificeNavStoreItems } from './store';
@@ -33,7 +34,11 @@
 	let furnitureIsInView: boolean;
 	let panelsIsInView: boolean;
 
+	let containerRef: any;
+
 	const handleOnScroll = () => {
+		getMetaballProgress(containerRef);
+
 		if (introIsInView) {
 			updateNavBar(artificeNavStoreItems, artificeNavItems, artificeNavItems[0].route);
 		}
@@ -67,6 +72,7 @@
 	<Loading />
 {:then images}
 	<div
+		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"

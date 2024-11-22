@@ -29,6 +29,7 @@
 	import { orbQuestions } from '../../data/Projects/Orb/ProjectInterview';
 	import { orbProject } from '../../data/Projects/Orb/ProjectIntro';
 	import { artworksVideo, orbVideo } from '../../data/Projects/Orb/ProjectVideo';
+	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { orbNavStoreItems } from './store';
@@ -39,7 +40,11 @@
 	let daosIsInView: boolean;
 	let artworksIsInView: boolean;
 
+	let containerRef: any;
+
 	const handleOnScroll = () => {
+		getMetaballProgress(containerRef);
+
 		if (introIsInView) {
 			updateNavBar(orbNavStoreItems, orbNavItems, orbNavItems[0].route);
 		}
@@ -76,6 +81,7 @@
 	<Loading />
 {:then images}
 	<div
+		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"

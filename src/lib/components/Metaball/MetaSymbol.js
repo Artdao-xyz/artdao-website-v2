@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { MarchingCubes } from 'three/addons/objects/MarchingCubes.js';
 import { app } from '../../../lib/components/Metaball/config';
 import * as Symbols from '../../../lib/components/Metaball/symbols';
+import { metaballProgress } from '../../../routes/artifice/store';
 
 export default class MetaSymbol {
 	constructor(_textures) {
@@ -70,32 +71,31 @@ export default class MetaSymbol {
 		this.metaball.isolation = 60;
 		// this.modelToObject("../../model/ArtdaoSymbols_Luxi.fbx_1.fbx")
 
-		if (window.innerWidth < 768) {
-			document.onscroll = (e) => {
-				const newS =
-					((document.documentElement.scrollTop || document.body.scrollTop) /
-						((document.documentElement.scrollHeight || document.body.scrollHeight) -
-							document.documentElement.clientHeight)) *
-					100;
-				parent.scrollPercentD = newS;
-				//document.getElementById('scrollProgress').innerText = 'Progreso : ' + scrollPercent.toFixed(2)
-			};
-			//    this.goTo(1)z
-		} else {
-			// let newS = 0;
-			// this.modifyScroll = () => {
-			// 	if (parent.scrollPercentD >= 0 && parent.scrollPercentD < 100) {
-			// 		newS += 0.001;
-			// 		parent.scrollPercentD = newS;
-			// 	}
-			// 	if (parent.scrollPercentD === 100) {
-			// 		while (parent.scrollPercentD > 0) {
-			// 			newS -= 0.000001;
-			// 			parent.scrollPercentD = newS;
-			// 		}
-			// 	}
-			// };
-		}
+		// FOR HOME AND MOBILE
+		document.onscroll = (e) => {
+			const newS =
+				((document.documentElement.scrollTop || document.body.scrollTop) /
+					((document.documentElement.scrollHeight || document.body.scrollHeight) -
+						document.documentElement.clientHeight)) *
+				100;
+			parent.scrollPercentD = newS;
+			//document.getElementById('scrollProgress').innerText = 'Progreso : ' + scrollPercent.toFixed(2)
+		};
+
+		// FOR SNAPPING DESKTOP SECTIONS
+		this.modifyScroll = () => {
+			let progress;
+
+			metaballProgress.subscribe((number) => {
+				progress = number;
+			});
+
+			if (!progress) {
+				return;
+			}
+
+			parent.scrollPercentD = progress;
+		};
 	}
 
 	getMesh() {
@@ -123,6 +123,8 @@ export default class MetaSymbol {
 	}
 
 	update() {
+		this.modifyScroll();
+
 		const time = this.clock.getElapsedTime();
 
 		setInterval(this.modifyScroll, 100);

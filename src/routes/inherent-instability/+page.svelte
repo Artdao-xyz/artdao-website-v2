@@ -31,6 +31,7 @@
 		inaVideo,
 		nicoVideo
 	} from '../../data/Projects/InherentInstability/ProjectVideo';
+	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { inherentInstabilityNavStoreItems } from './store';
@@ -42,7 +43,11 @@
 	let elbiIsInView: boolean;
 	let nicoIsInView: boolean;
 
+	let containerRef: any;
+
 	const handleOnScroll = () => {
+		getMetaballProgress(containerRef);
+
 		if (introIsInView) {
 			updateNavBar(
 				inherentInstabilityNavStoreItems,
@@ -93,6 +98,7 @@
 	<Loading />
 {:then images}
 	<div
+		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory h-screen mobile-scroll"

@@ -26,6 +26,7 @@
 		cryptoVideo,
 		introVideo
 	} from '../../data/Projects/Intertwined/ProjectVideo';
+	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { intertwinedNavStoreItems } from './store';
@@ -35,7 +36,11 @@
 	let cryptoIsInView: boolean;
 	let vernisaggeIsInView: boolean;
 
+	let containerRef: any;
+
 	const handleOnScroll = () => {
+		getMetaballProgress(containerRef);
+
 		if (introIsInView) {
 			updateNavBar(intertwinedNavStoreItems, intertwinedNavItems, intertwinedNavItems[0].route);
 		}
@@ -67,6 +72,7 @@
 	<Loading />
 {:then images}
 	<div
+		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
