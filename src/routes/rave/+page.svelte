@@ -7,6 +7,7 @@
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { inview } from 'svelte-inview';
+	import { EProjects } from '../../constants/enums';
 	import { raveNavItems } from '../../data/Projects/Rave/NavItems';
 	import {
 		performanceDropdownItems,
@@ -25,6 +26,7 @@
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
+	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { raveNavStoreItems } from './store';
 
 	let introIsInView: boolean;
@@ -55,6 +57,10 @@
 		performanceDropdownItems.map((item) => item.image),
 		raveAboutDropdopwnItemsTwo.map((item) => item.image)
 	]);
+
+	let refs = getProjectRefs(EProjects.RAVE);
+
+	console.log('Refs', refs);
 </script>
 
 {#await preloadedImages}

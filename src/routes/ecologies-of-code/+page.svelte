@@ -13,6 +13,7 @@
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
 	import { inview } from 'svelte-inview';
+	import { EProjects } from '../../constants/enums';
 	import { ecologiesNavItems } from '../../data/Projects/EcologiesOfCode/NavItems';
 	import {
 		hypereikonAbout,
@@ -40,6 +41,7 @@
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
+	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { ecologiesNavStoreItems } from './store';
 
 	let size: number;
@@ -83,6 +85,10 @@
 		ecologiesGallery1.map((item) => item.src),
 		ecologiesGallery2.map((item) => item.src)
 	]);
+
+	let refs = getProjectRefs(EProjects.ECOLOGIES_OF_CODE);
+
+	console.log('Refs', refs);
 </script>
 
 <svelte:window bind:innerWidth={size} />

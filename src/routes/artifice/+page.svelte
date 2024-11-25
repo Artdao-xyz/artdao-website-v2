@@ -7,6 +7,7 @@
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { inview } from 'svelte-inview';
+	import { EProjects } from '../../constants/enums';
 	import { artificeNavItems } from '../../data/Projects/Artifice/NavItems';
 	import {
 		furnitureAbout,
@@ -25,6 +26,7 @@
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
+	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { artificeNavStoreItems } from './store';
 
 	let size: number;
@@ -64,6 +66,10 @@
 		panelsAboutImages,
 		vernisaggeDropdownItems.map((item) => item.image)
 	]);
+
+	let refs = getProjectRefs(EProjects.ARTIFICE);
+
+	console.log('Refs', refs);
 </script>
 
 <svelte:window bind:innerWidth={size} />

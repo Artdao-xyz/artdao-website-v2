@@ -7,7 +7,7 @@
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { inview } from 'svelte-inview';
-	import { EColorVariant } from '../../constants/enums';
+	import { EColorVariant, EProjects } from '../../constants/enums';
 	import { intertwinedNavItems } from '../../data/Projects/Intertwined/NavItems';
 	import {
 		cryptoargAbout,
@@ -29,6 +29,7 @@
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
+	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { intertwinedNavStoreItems } from './store';
 
 	let introIsInView: boolean;
@@ -66,6 +67,10 @@
 		cryptoargDropdownItems.map((item) => item.image),
 		intertwinedVernisaggeDropdownItems.map((item) => item.image)
 	]);
+
+	let refs = getProjectRefs(EProjects.INTERTWINED);
+
+	console.log('Refs', refs);
 </script>
 
 {#await preloadedImages}

@@ -12,7 +12,7 @@
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
 	import { inview } from 'svelte-inview';
-	import { EColorVariant } from '../../constants/enums';
+	import { EColorVariant, EProjects } from '../../constants/enums';
 	import { sulkianImages } from '../../data/Projects/DigitalMatter/ImgNavigator';
 	import { digitalMatterNavItems } from '../../data/Projects/DigitalMatter/NavItems';
 	import {
@@ -38,6 +38,7 @@
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
+	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { digitalMatterNavStoreItems } from './store';
 
 	let size: number;
@@ -96,6 +97,10 @@
 		parsaArtworkImages2.map((item) => item.src),
 		parsaPolaroidsImages.map((item) => item.image)
 	]);
+
+	let refs = getProjectRefs(EProjects.DIGITAL_MATTER);
+
+	console.log('Refs', refs);
 </script>
 
 <svelte:window bind:innerWidth={size} />

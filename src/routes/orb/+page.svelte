@@ -10,6 +10,7 @@
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { inview } from 'svelte-inview';
+	import { EProjects } from '../../constants/enums';
 	import { orbNavItems } from '../../data/Projects/Orb/NavItems';
 	import {
 		carocoAbout,
@@ -32,6 +33,7 @@
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
+	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { orbNavStoreItems } from './store';
 
 	let introIsInView: boolean;
@@ -75,6 +77,10 @@
 		hivemindAboutImages,
 		daoDropdownItems.map((item) => item.image)
 	]);
+
+	let refs = getProjectRefs(EProjects.ORB);
+
+	console.log('Refs', refs);
 </script>
 
 {#await preloadedImages}

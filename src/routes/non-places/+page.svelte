@@ -6,6 +6,7 @@
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { inview } from 'svelte-inview';
+	import { EProjects } from '../../constants/enums';
 	import { nonPlacesNavItems } from '../../data/Projects/NonPlaces/NavItems';
 	import {
 		nonPlacesDropdownItems,
@@ -16,6 +17,7 @@
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
+	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { nonPlacesNavStoreItems } from './store';
 
 	let size: number;
@@ -52,6 +54,10 @@
 		nonPlacesDropdownItems.map((item) => item.image),
 		nonPlacesTwoDropdownItems.map((item) => item.image)
 	]);
+
+	let refs = getProjectRefs(EProjects.NON_PLACES);
+
+	console.log('Refs', refs);
 </script>
 
 <svelte:window bind:innerWidth={size} />
