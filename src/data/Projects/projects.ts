@@ -1,3 +1,12 @@
+import artificeMobile from '$lib/assets/images/projects/footer/mobile-artifice-min.webp';
+import conversationMobile from '$lib/assets/images/projects/footer/mobile-conversation-min.webp';
+import digitalMobile from '$lib/assets/images/projects/footer/mobile-digital-min.webp';
+import ecologiesMobile from '$lib/assets/images/projects/footer/mobile-ecologies-min.webp';
+import inherentMobile from '$lib/assets/images/projects/footer/mobile-inherent-min.webp';
+import intertwinedMobile from '$lib/assets/images/projects/footer/mobile-intertwined-min.webp';
+import nonPlacesMobile from '$lib/assets/images/projects/footer/mobile-nonplaces-min.webp';
+import orbMobile from '$lib/assets/images/projects/footer/mobile-orb-min.webp';
+import raveMobile from '$lib/assets/images/projects/footer/mobile-rave-min.webp';
 import artifice from '$lib/assets/images/projects/footer/projects_artifice-min.webp';
 import artificeHover from '$lib/assets/images/projects/footer/projects_artirfice_hover-min.webp';
 import digital from '$lib/assets/images/projects/footer/projects_digital-min.webp';
@@ -79,62 +88,71 @@ export const projectsDetails = [
 		nameToShow: 'artifice',
 		image: artifice,
 		hover: artificeHover,
-		url: ARTIFICE
+		url: ARTIFICE,
+		mobileImage: artificeMobile
 	},
 	{
 		name: EProjects.DIGITAL_MATTER,
 		nameToShow: 'digital matter',
 		image: digital,
 		hover: digitalHover,
-		url: DIGITAL_MATTER
+		url: DIGITAL_MATTER,
+		mobileImage: digitalMobile
 	},
 	{
 		name: EProjects.ECOLOGIES_OF_CODE,
 		nameToShow: 'ecologies of code',
 		image: ecologies,
 		hover: ecologiesHover,
-		url: ECOLOGIES_OF_CODE
+		url: ECOLOGIES_OF_CODE,
+		mobileImage: ecologiesMobile
 	},
 	{
 		name: EProjects.INHERENT_INSTABILITY,
 		nameToShow: 'inherent instability',
 		image: inherent,
 		hover: inherentHover,
-		url: INHERENT
+		url: INHERENT,
+		mobileImage: inherentMobile
 	},
 	{
 		name: EProjects.INTERTWINED,
 		nameToShow: 'intertwined',
 		image: intertwined,
 		hover: intertwinedHover,
-		url: INTERTWINED
+		url: INTERTWINED,
+		mobileImage: intertwinedMobile
 	},
 	{
 		name: EProjects.IN_CONVERSATION,
 		nameToShow: 'in conversation',
 		image: conversation,
 		hover: conversationHover,
-		url: IN_CONVERSATION
+		url: IN_CONVERSATION,
+		mobileImage: conversationMobile
 	},
 	{
 		name: EProjects.NON_PLACES,
 		nameToShow: 'non places',
 		image: nonPlaces,
 		hover: nonPlacesHover,
-		url: NON_PLACES
+		url: NON_PLACES,
+		mobileImage: nonPlacesMobile
 	},
 	{
 		name: EProjects.ORB,
 		nameToShow: 'orb',
 		image: orb,
 		hover: orbHover,
-		url: ORB
+		url: ORB,
+		mobileImage: orbMobile
 	},
 	{
 		name: EProjects.RAVE,
 		nameToShow: 'rave',
 		image: rave,
 		hover: raveHover,
-		url: RAVE
+		url: RAVE,
+		mobileImage: raveMobile
 	}
 ];

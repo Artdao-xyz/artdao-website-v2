@@ -65,7 +65,9 @@
 			<button class="relative group w-[180px] md:w-[14.1875rem] md:h-[14.1875rem]">
 				<a href={projectsDetails.find((project) => project.name === ref)?.url}>
 					<img
-						src={projectsDetails.find((project) => project.name === ref)?.image}
+						src={width > 768
+							? projectsDetails.find((project) => project.name === ref)?.image
+							: projectsDetails.find((project) => project.name === ref)?.mobileImage}
 						alt="project"
 						class="w-full h-full rounded-[0.9783rem] {width > 768
 							? 'group-hover:rounded-[7.5rem]'
