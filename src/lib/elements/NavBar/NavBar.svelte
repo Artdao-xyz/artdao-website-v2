@@ -1,7 +1,9 @@
 <script lang="ts">
 	import buttonIcon from '$lib/assets/images/button-icon.webp';
 	import menuIcon from '$lib/assets/images/mobile-hamburguer.svg';
+	import { onDestroy } from 'svelte';
 	import { slide } from 'svelte/transition';
+	import { isFooterVisible } from '../Footer/store';
 	import NewsletterPopup from '../Popups/components/NewsletterPopup.svelte';
 	import type { INavBarItem } from './interfaces';
 
@@ -30,6 +32,14 @@
 	};
 
 	let size: number;
+
+	let hideNav = false;
+
+	const unsubscribe = isFooterVisible.subscribe((boolean) => {
+		hideNav = boolean;
+	});
+
+	onDestroy(unsubscribe);
 </script>
 
 <svelte:window bind:innerWidth={size} />
@@ -38,7 +48,9 @@
 	<div></div>
 {:else}
 	<div
-		class="w-100dvw rounded-[6.25rem] h-[1rem] sm:flex flex-row items-center z-50 sticky top-[2.88%] mx-[1.625rem] gap-2.5 hidden"
+		class="{hideNav
+			? 'justify-between'
+			: ''} w-100dvw rounded-[6.25rem] h-[1rem] sm:flex flex-row items-center z-50 sticky top-[2.88%] mx-[1.625rem] gap-2.5 hidden"
 	>
 		<a href={'/'}>
 			<div
@@ -48,20 +60,32 @@
 			</div>
 		</a>
 
-		{#each navItems as navItem, i}
-			<a
-				data-sveltekit-noscroll
-				href={`#${navItem.route}`}
-				class="rounded-[6.25rem] font-robotoMono text-[0.75rem] font-medium tracking-[0.075rem] !opacity-100 text-color-white {navItem.selected
-					? 'nav-gradient-selected font-semibold border border-color-dark'
-					: 'nav-gradient-unselected'} capitalize h-[1rem] justify-end
+		{#if !hideNav}
+			{#each navItems as navItem, i}
+				<a
+					data-sveltekit-noscroll
+					href={`#${navItem.route}`}
+					class="rounded-[6.25rem] font-robotoMono text-[0.75rem] font-medium tracking-[0.075rem] !opacity-100 text-color-white {navItem.selected
+						? 'nav-gradient-selected font-semibold border border-color-dark'
+						: 'nav-gradient-unselected'} capitalize h-[1rem] justify-end
                 flex flex-row items-center py-[0.75rem] pr-[2.5rem] pl-[3.75rem] transition delay-75 duration-700 ease-in-out transform"
-				style="width: {percentage}%; z-index: -{i};"
-				on:click={() => handleOnClick(i)}
-			>
-				{navItem.text}
+					style="width: {percentage}%; z-index: -{i};"
+					on:click={() => handleOnClick(i)}
+				>
+					{navItem.text}
+				</a>
+			{/each}
+		{/if}
+
+		{#if hideNav}
+			<a href={'#intro'}>
+				<div
+					class="rounded-[100px] nav-gradient-unselected w-[24px] h-[24px] flex flex-row items-center justify-center"
+				>
+					<img src={buttonIcon} alt="Go to home" class="w-[10px] rotate-[-90deg]" />
+				</div>
 			</a>
-		{/each}
+		{/if}
 	</div>
 
 	<div class="flex flex-col z-50 fixed top-[13px] w-full gap-[10px] sm:hidden">

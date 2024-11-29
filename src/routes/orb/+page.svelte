@@ -215,7 +215,7 @@
 		</div>
 
 		<HomeIcon />
-		<Footer />
+		<Footer project={EProjects.ORB} />
 	</div>
 {/await}
 

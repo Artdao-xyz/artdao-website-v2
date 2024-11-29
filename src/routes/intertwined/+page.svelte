@@ -193,7 +193,7 @@
 		</div>
 
 		<HomeIcon />
-		<Footer />
+		<Footer project={EProjects.INTERTWINED} />
 	</div>
 {/await}
 

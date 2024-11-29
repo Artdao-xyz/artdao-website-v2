@@ -233,7 +233,7 @@
 		</div>
 
 		<HomeIcon />
-		<Footer />
+		<Footer project={EProjects.ECOLOGIES_OF_CODE} />
 	</div>
 {/await}
 

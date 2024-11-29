@@ -229,7 +229,7 @@
 		</div>
 
 		<HomeIcon />
-		<Footer />
+		<Footer project={EProjects.INHERENT_INSTABILITY} />
 	</div>
 {/await}
 

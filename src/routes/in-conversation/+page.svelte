@@ -139,7 +139,7 @@
 		</div>
 
 		<HomeIcon />
-		<Footer />
+		<Footer project={EProjects.IN_CONVERSATION} />
 	</div>
 {/await}
 

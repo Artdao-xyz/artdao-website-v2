@@ -26,7 +26,6 @@
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
-	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { artificeNavStoreItems } from './store';
 
 	let size: number;
@@ -66,10 +65,6 @@
 		panelsAboutImages,
 		vernisaggeDropdownItems.map((item) => item.image)
 	]);
-
-	let refs = getProjectRefs(EProjects.ARTIFICE);
-
-	console.log('Refs', refs);
 </script>
 
 <svelte:window bind:innerWidth={size} />
@@ -187,7 +182,7 @@
 		</div>
 
 		<HomeIcon />
-		<Footer />
+		<Footer project={EProjects.ARTIFICE} />
 	</div>
 {/await}
 

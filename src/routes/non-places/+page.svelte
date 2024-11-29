@@ -156,7 +156,7 @@
 		</div>
 
 		<HomeIcon />
-		<Footer />
+		<Footer project={EProjects.NON_PLACES} />
 	</div>
 {/await}
 

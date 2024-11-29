@@ -240,7 +240,7 @@
 		</div>
 
 		<HomeIcon />
-		<Footer />
+		<Footer project={EProjects.DIGITAL_MATTER} />
 	</div>
 {/await}
 
