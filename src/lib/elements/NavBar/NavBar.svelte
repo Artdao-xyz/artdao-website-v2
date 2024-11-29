@@ -77,7 +77,7 @@
 			{/each}
 		{/if}
 
-		{#if hideNav}
+		<!-- {#if hideNav}
 			<a href={'#intro'}>
 				<div
 					class="rounded-[100px] nav-gradient-unselected w-[24px] h-[24px] flex flex-row items-center justify-center"
@@ -85,7 +85,7 @@
 					<img src={buttonIcon} alt="Go to home" class="w-[10px] rotate-[-90deg]" />
 				</div>
 			</a>
-		{/if}
+		{/if} -->
 	</div>
 
 	<div class="flex flex-col z-50 fixed top-[13px] w-full gap-[10px] sm:hidden">

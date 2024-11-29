@@ -123,7 +123,7 @@
 						name="EMAIL"
 						class="placeholder:text-color-white ml-[-1rem] w-[70%] {!isFooter
 							? 'text-[1rem]'
-							: 'text-[12px] md:text-[1rem]'} font-medium font-clash leading-5 align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] h-full"
+							: 'text-[14px] md:text-[1rem]'} font-medium font-clash leading-5 align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] h-full"
 						required
 						value=""
 						placeholder="Enter your email"

@@ -46,7 +46,9 @@
 	}}
 	class="snap-end w-full h-fit md:h-screen bg-color-black flex flex-col justify-between py-[1.25rem] px-[2.5rem] !z-50"
 >
-	<div class="font-clash text-[1.125rem] md:text-[2.5rem] leading-[2.8125rem] mx-auto mt-[4rem]">
+	<div
+		class="font-clash text-[24px] md:text-[2.5rem] leading-[2.8125rem] mx-auto mt-[2rem] md:mt-[4rem]"
+	>
 		Discover more
 	</div>
 
@@ -56,18 +58,18 @@
 
 	<div
 		class="h-full flex {width > 768
-			? 'flex-row mt-[10.625rem] '
-			: 'flex-col items-center'}  justify-center gap-[1.1875rem] md:gap-[2.5rem]"
+			? 'flex-row mt-[-166px]'
+			: 'flex-col mt-[-1rem]'} items-center justify-center gap-[1.1875rem] md:gap-[2.5rem]"
 	>
 		{#each refs as ref}
-			<button class="relative group w-[10.1676rem] md:w-[14.1875rem] md:h-[14.1875rem]">
+			<button class="relative group w-[180px] md:w-[14.1875rem] md:h-[14.1875rem]">
 				<a href={projectsDetails.find((project) => project.name === ref)?.url}>
 					<img
 						src={projectsDetails.find((project) => project.name === ref)?.image}
 						alt="project"
 						class="w-full h-full rounded-[0.9783rem] {width > 768
 							? 'group-hover:rounded-[7.5rem]'
-							: 'h-[6.9459rem]'} transition-all duration-300 object-cover"
+							: 'h-[100px]'} transition-all duration-300 object-cover"
 					/>
 
 					{#if width > 768}
@@ -78,7 +80,7 @@
 						/>
 					{/if}
 
-					{#if width < 768}
+					<!-- {#if width < 768}
 						<div class="w-full h-[1.6143rem] rounded-[3.9373rem] gray-gradient mt-[0.7087rem]">
 							<p
 								class="capitalize font-clash text-[0.875rem] leading-[1.5rem] text-left pl-[1.1875rem]"
@@ -86,7 +88,7 @@
 								{projectsDetails.find((project) => project.name === ref)?.nameToShow}
 							</p>
 						</div>
-					{/if}
+					{/if} -->
 				</a>
 			</button>
 		{/each}
