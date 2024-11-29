@@ -23,16 +23,12 @@
 		'between art and branding'
 	];
 
-	$: if (subheader) {
+	let isVisible = false;
+
+	$: if (subheader && isVisible) {
 		new TextScramble(subheader, content[0]);
+		isVisible = false;
 	}
-
-	$: console.log('refs[0]', refs[0]);
-
-	$: console.log(
-		'Object.keys',
-		Object.keys(projectsDetails).find((key) => projectsDetails[key] === 'DigitalMatter')
-	);
 </script>
 
 <svelte:window bind:innerWidth={width} />
@@ -40,9 +36,12 @@
 	use:inview={{ rootMargin: '-50%', unobserveOnEnter: false }}
 	on:inview_enter={() => {
 		isFooterVisible.set(true);
+		isVisible = true;
 	}}
 	on:inview_leave={() => {
 		isFooterVisible.set(false);
+		isVisible(false);
+		subheader = undefined;
 	}}
 	class="snap-end w-full h-fit md:h-screen bg-color-black flex flex-col justify-between py-[1.25rem] px-[2.5rem] !z-50"
 >
@@ -97,15 +96,19 @@
 	</div>
 
 	<div
-		class=" {width < 768
+		class="{width < 768
 			? 'h-full mt-[3.25rem]'
-			: ''} flex flex-row justify-between relative font-robotoMono leading-snug tracking-tight font-normal text-[0.875rem] mb-[18px] w-full gap-2.5"
+			: 'w-full'} flex flex-row justify-between relative font-robotoMono leading-snug tracking-tight font-normal text-[0.875rem] mb-[18px] w-full gap-2.5"
 	>
-		<div>
+		<div class="w-full">
 			{#if width < 768}
 				<img src={footerLogo} alt="Footer Logo" class="w-[79px] h-[18px] mb-[0.5456rem]" />
 			{/if}
-			<p class="truncate capitalize" bind:this={subheader}>{content}</p>
+
+			<p class="truncate capitalize" bind:this={subheader}>
+				{content}
+			</p>
+
 			<p>© 2024</p>
 		</div>
 		{#if width > 768}
