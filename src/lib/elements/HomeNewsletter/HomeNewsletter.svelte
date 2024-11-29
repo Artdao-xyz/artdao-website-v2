@@ -17,6 +17,7 @@
 	let success = false;
 	let error = false;
 	let memberExists = false;
+	export let isFooter = false;
 
 	const handleSubmit = async (event: any) => {
 		// console.log('submitting', submitting);
@@ -99,7 +100,9 @@
 	style={`background: radial-gradient(at ${(m.x * 1000) / width}% ${(m.y * 1000) / height}%, #A6A6A6, #313431)`}
 	on:mousemove={handleMousemove}
 	on:click={handleOnClick}
-	class="w-full h-[3.875rem] sm:h-[2.625rem] gray-gradient rounded-20 px-10 py-2.5 flex items-center justify-center"
+	class="w-full {!isFooter
+		? 'h-[3.875rem]'
+		: 'h-[3.0625rem]'} sm:h-[2.625rem] gray-gradient rounded-20 px-10 py-2.5 flex items-center justify-center"
 >
 	<div class="w-full h-full">
 		{#if !submitting && !success && !error && !memberExists}
