@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { page } from '$app/stores'
-    import { MEASUREMENT_ID } from '$env/static/private'
+    import { page } from '$app/stores';
+    import { MEASUREMENT_ID } from '$env/static/private';
 
     $: {
       if (typeof gtag !== 'undefined') {
