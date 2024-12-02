@@ -1,10 +1,10 @@
 <script lang="ts">
     import { page } from '$app/stores';
-    import { MEASUREMENT_ID } from '$env/static/private';
+    import { PUBLIC_MEASUREMENT_ID } from '$env/static/public';
 
     $: {
       if (typeof gtag !== 'undefined') {
-        gtag('config', MEASUREMENT_ID, {
+        gtag('config', PUBLIC_MEASUREMENT_ID, {
           page_title: document.title,
           page_path: $page.url.pathname,
         })
@@ -15,7 +15,7 @@
   <svelte:head>
     <script
       async
-      src={`https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`}>
+      src={`https://www.googletagmanager.com/gtag/js?id=${PUBLIC_MEASUREMENT_ID}`}>
     </script>
     <script>
       window.dataLayer = window.dataLayer || []
