@@ -1,4 +1,5 @@
 <script>
+	import Analytics from '$lib/Analytics.svelte';
 	import Metaball from '$lib/components/Metaball/Metaball.svelte';
 	import '../style.css';
 </script>
@@ -7,5 +8,6 @@
 	<title>ArtDao</title>
 </svelte:head>
 
+<Analytics/>
 <Metaball />
 <slot />
