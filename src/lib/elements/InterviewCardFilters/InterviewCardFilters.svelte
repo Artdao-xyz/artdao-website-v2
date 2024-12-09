@@ -55,8 +55,8 @@
 	<div class="flex flex-row gap-2.5">
 		{#each responses as response, i}
 			<button
-				class="h-[1.8125rem] py-2.5 px-5 gradient-dark rounded-20 {indexArtist === i
-					? 'gray-gradient text-color-black'
+				class="h-[1.8125rem] py-2.5 px-5 gradient-dark rounded-20 {indexArtist !== i
+					? 'gray-gradient text-color-gray-background'
 					: 'dark-gradient text-color-white'} text-[0.75rem] font-medium leading-[1.5625rem] font-clash flex items-center"
 				on:click={() => handleOnClickArtist(i)}
 			>
