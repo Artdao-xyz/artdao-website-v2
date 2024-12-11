@@ -1,5 +1,4 @@
 <script lang="ts">
-	import inaInterviewBgImage from '$lib/assets/images/projects/inherentInstability/Background_Img.webp';
 	import Loading from '$lib/components/Loading/Loading.svelte';
 	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
@@ -10,16 +9,14 @@
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
+	import { onMount } from 'svelte';
 	import { inview } from 'svelte-inview';
 	import { EProjects } from '../../constants/enums';
 	import { inherentInstabilityNavItems } from '../../data/Projects/InherentInstability/NavItems';
 	import {
 		elbiAbout,
-		elbiAboutImages,
 		inaVareAbout,
-		inaVareAboutImages,
-		nicoAbout,
-		nicoAboutImages
+		nicoAbout
 	} from '../../data/Projects/InherentInstability/ProjectAbout';
 	import { inherentQuestions } from '../../data/Projects/InherentInstability/ProjectInterview';
 	import { inherentInstabilityProjectIntro } from '../../data/Projects/InherentInstability/ProjectIntro';
@@ -34,8 +31,7 @@
 	} from '../../data/Projects/InherentInstability/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
-	import preloadImages from '../../utils/preloadImages';
-	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
+	import { preloadedInherent } from '../store';
 	import { inherentInstabilityNavStoreItems } from './store';
 
 	let size: number;
@@ -83,26 +79,18 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[inherentInstabilityProjectIntro.bgImage, inherentInstabilityProjectIntro.bgImageMobile],
-		[inaInterviewBgImage],
-		inaVareAboutImages,
-		inaVarePolaroidsImages.map((item) => item.image),
-		elbiAboutImages,
-		nicoAboutImages,
-		nicoPolaroidsImages.map((item) => item.image)
-	]);
+	let images: string[][];
 
-	let refs = getProjectRefs(EProjects.INHERENT_INSTABILITY);
-
-	console.log('Refs', refs);
+	onMount(() => {
+		$preloadedInherent.then((array) => (images = array));
+	});
 </script>
 
 <svelte:window bind:innerWidth={size} />
 
-{#await preloadedImages}
+{#if !images}
 	<Loading />
-{:then images}
+{:else}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -231,7 +219,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.INHERENT_INSTABILITY} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

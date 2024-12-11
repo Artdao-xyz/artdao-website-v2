@@ -5,6 +5,7 @@
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
+	import { onMount } from 'svelte';
 	import { inview } from 'svelte-inview';
 	import { EProjects } from '../../constants/enums';
 	import { nonPlacesNavItems } from '../../data/Projects/NonPlaces/NavItems';
@@ -16,8 +17,7 @@
 	import { nonPlacesVideo } from '../../data/Projects/NonPlaces/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
-	import preloadImages from '../../utils/preloadImages';
-	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
+	import { preloadedNonplaces } from '../store';
 	import { nonPlacesNavStoreItems } from './store';
 
 	let size: number;
@@ -49,22 +49,18 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[nonPlacesProjectIntro.bgImage, nonPlacesProjectIntro.bgImageMobile],
-		nonPlacesDropdownItems.map((item) => item.image),
-		nonPlacesTwoDropdownItems.map((item) => item.image)
-	]);
+	let images: string[][];
 
-	let refs = getProjectRefs(EProjects.NON_PLACES);
-
-	console.log('Refs', refs);
+	onMount(() => {
+		$preloadedNonplaces.then((array) => (images = array));
+	});
 </script>
 
 <svelte:window bind:innerWidth={size} />
 
-{#await preloadedImages}
+{#if !images}
 	<Loading />
-{:then images}
+{:else}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -158,7 +154,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.NON_PLACES} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

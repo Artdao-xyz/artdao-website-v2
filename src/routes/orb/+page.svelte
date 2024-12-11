@@ -1,5 +1,4 @@
 <script lang="ts">
-	import bgImage from '$lib/assets/images/projects/orb/240326_caroco_035_1.webp';
 	import Loading from '$lib/components/Loading/Loading.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
@@ -9,16 +8,14 @@
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
+	import { onMount } from 'svelte';
 	import { inview } from 'svelte-inview';
 	import { EProjects } from '../../constants/enums';
 	import { orbNavItems } from '../../data/Projects/Orb/NavItems';
 	import {
 		carocoAbout,
-		carocoAboutImages,
 		hivemindAbout,
-		hivemindAboutImages,
 		magmaAbout,
-		magmaAboutImages,
 		seedAbout,
 		seedAboutImages
 	} from '../../data/Projects/Orb/ProjectAbout';
@@ -32,8 +29,7 @@
 	import { artworksVideo, orbVideo } from '../../data/Projects/Orb/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
-	import preloadImages from '../../utils/preloadImages';
-	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
+	import { preloadedOrb } from '../store';
 	import { orbNavStoreItems } from './store';
 
 	let introIsInView: boolean;
@@ -68,24 +64,16 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[orbProject.bgImage, orbProject.bgImageMobile],
-		[bgImage],
-		carocoAboutImages,
-		vernisaggeDropdownItems.map((item) => item.image),
-		magmaAboutImages,
-		hivemindAboutImages,
-		daoDropdownItems.map((item) => item.image)
-	]);
+	let images: string[][];
 
-	let refs = getProjectRefs(EProjects.ORB);
-
-	console.log('Refs', refs);
+	onMount(() => {
+		$preloadedOrb.then((array) => (images = array));
+	});
 </script>
 
-{#await preloadedImages}
+{#if !images}
 	<Loading />
-{:then images}
+{:else}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -217,7 +205,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.ORB} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

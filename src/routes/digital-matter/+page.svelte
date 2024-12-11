@@ -11,17 +11,15 @@
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
+	import { onMount } from 'svelte';
 	import { inview } from 'svelte-inview';
 	import { EColorVariant, EProjects } from '../../constants/enums';
 	import { sulkianImages } from '../../data/Projects/DigitalMatter/ImgNavigator';
 	import { digitalMatterNavItems } from '../../data/Projects/DigitalMatter/NavItems';
 	import {
 		marcusAbout,
-		marcusAboutImages,
 		parsaAbout,
-		parsaAboutImages,
-		sulkianAbout,
-		sulkianAboutImages
+		sulkianAbout
 	} from '../../data/Projects/DigitalMatter/ProjectAbout';
 	import { marcusDropdownItems } from '../../data/Projects/DigitalMatter/ProjectAboutDropdown';
 	import {
@@ -37,8 +35,7 @@
 	import { aeroVideo, parsaVideo } from '../../data/Projects/DigitalMatter/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
-	import preloadImages from '../../utils/preloadImages';
-	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
+	import { preloadedDigital } from '../store';
 	import { digitalMatterNavStoreItems } from './store';
 
 	let size: number;
@@ -85,29 +82,18 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[digitalMatterProjectIntro.bgImage, digitalMatterProjectIntro.bgImageMobile],
-		marcusAboutImages,
-		marcusDropdownItems.map((item) => item.image),
-		marcusPolaroidsImages.map((item) => item.image),
-		sulkianAboutImages,
-		parsaAboutImages,
-		parsaArtworkImages.map((item) => item.image),
-		parsaArtworkImages1.map((item) => item.src),
-		parsaArtworkImages2.map((item) => item.src),
-		parsaPolaroidsImages.map((item) => item.image)
-	]);
+	let images: string[][];
 
-	let refs = getProjectRefs(EProjects.DIGITAL_MATTER);
-
-	console.log('Refs', refs);
+	onMount(() => {
+		$preloadedDigital.then((array) => (images = array));
+	});
 </script>
 
 <svelte:window bind:innerWidth={size} />
 
-{#await preloadedImages}
+{#if !images}
 	<Loading />
-{:then images}
+{:else}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -242,7 +228,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.DIGITAL_MATTER} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {
