@@ -6,15 +6,11 @@
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
+	import { onMount } from 'svelte';
 	import { inview } from 'svelte-inview';
 	import { EColorVariant, EProjects } from '../../constants/enums';
 	import { intertwinedNavItems } from '../../data/Projects/Intertwined/NavItems';
-	import {
-		cryptoargAbout,
-		cryptoargAboutImages,
-		curationAbout,
-		curationAboutImages
-	} from '../../data/Projects/Intertwined/ProjectAbout';
+	import { cryptoargAbout, curationAbout } from '../../data/Projects/Intertwined/ProjectAbout';
 	import {
 		artdaoDropdownItems,
 		cryptoargDropdownItems,
@@ -28,8 +24,7 @@
 	} from '../../data/Projects/Intertwined/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
-	import preloadImages from '../../utils/preloadImages';
-	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
+	import { preloadedIntertwined } from '../store';
 	import { intertwinedNavStoreItems } from './store';
 
 	let introIsInView: boolean;
@@ -59,23 +54,16 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[intertwinedProjectIntro.bgImage, intertwinedProjectIntro.bgImageMobile],
-		curationAboutImages,
-		artdaoDropdownItems.map((item) => item.image),
-		cryptoargAboutImages,
-		cryptoargDropdownItems.map((item) => item.image),
-		intertwinedVernisaggeDropdownItems.map((item) => item.image)
-	]);
+	let images: string[][];
 
-	let refs = getProjectRefs(EProjects.INTERTWINED);
-
-	console.log('Refs', refs);
+	onMount(() => {
+		$preloadedIntertwined.then((array) => (images = array));
+	});
 </script>
 
-{#await preloadedImages}
+{#if !images}
 	<Loading />
-{:then images}
+{:else}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -195,7 +183,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.INTERTWINED} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

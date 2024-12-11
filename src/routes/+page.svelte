@@ -1,22 +1,27 @@
 <script lang="ts">
+	import { preloadedHome } from './store';
+
 	import HomeMenu from '$lib/components/HomeMenu/HomeMenu.svelte';
 	import Loading from '$lib/components/Loading/Loading.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import HomeImgRectV from '$lib/elements/HomeImgRectV/HomeImgRectV.svelte';
 	import HomeImgSquare from '$lib/elements/HomeImgSquare/HomeImgSquare.svelte';
+	import { onMount } from 'svelte';
 	import { homeImages, homeImagesMobile } from '../data/HomeImgLayout';
-	import preloadImages from '../utils/preloadImages';
+	import { preloadFull } from '../utils/preloadImages';
 
-	const preloadedImages = preloadImages([
-		homeImages.map((project) => project.imageUrl),
-		homeImages.map((project) => project.hover),
-		homeImagesMobile.map((project) => project.hover)
-	]);
+	let images: string[][];
+
+	onMount(() => {
+		preloadFull();
+
+		$preloadedHome.then((array) => (images = array));
+	});
 </script>
 
-{#await preloadedImages}
+{#if !images}
 	<Loading />
-{:then images}
+{:else}
 	<div class="flex flex-col items-center justify-center relative w-full h-full">
 		<div class="bg-color-black p-2 w-full h-full flex flex-col sm:flex-row gap-[14px]">
 			<div class="w-full sm:min-w-[23.125rem] sm:max-w-[370px] sm:w-home-content-width">
@@ -142,4 +147,4 @@
 			<HomeIcon />
 		</div>
 	</div>
-{/await}
+{/if}

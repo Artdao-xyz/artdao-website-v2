@@ -6,16 +6,14 @@
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
+	import { onMount } from 'svelte';
 	import { inview } from 'svelte-inview';
 	import { EProjects } from '../../constants/enums';
 	import { artificeNavItems } from '../../data/Projects/Artifice/NavItems';
 	import {
 		furnitureAbout,
-		furnitureAboutImages,
 		kokoAbout,
-		kokoAboutImahges,
-		panelsAbout,
-		panelsAboutImages
+		panelsAbout
 	} from '../../data/Projects/Artifice/ProjectAbout';
 	import {
 		psipsikokoDropdownItems,
@@ -25,7 +23,7 @@
 	import { afterEventVideo, furnitureVideo } from '../../data/Projects/Artifice/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
-	import preloadImages from '../../utils/preloadImages';
+	import { preloadedArtifice } from '../store';
 	import { artificeNavStoreItems } from './store';
 
 	let size: number;
@@ -57,21 +55,18 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[artificeProjectIntro.bgImage, artificeProjectIntro.bgImageMobile],
-		kokoAboutImahges,
-		furnitureAboutImages,
-		psipsikokoDropdownItems.map((item) => item.image),
-		panelsAboutImages,
-		vernisaggeDropdownItems.map((item) => item.image)
-	]);
+	let images: string[][];
+
+	onMount(() => {
+		$preloadedArtifice.then((array) => (images = array));
+	});
 </script>
 
 <svelte:window bind:innerWidth={size} />
 
-{#await preloadedImages}
+{#if !images}
 	<Loading />
-{:then images}
+{:else}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -184,7 +179,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.ARTIFICE} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

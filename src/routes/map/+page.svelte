@@ -1,6 +1,5 @@
 <script lang="ts">
 	import buttonIcon from '$lib/assets/images/button-icon.webp';
-	import mapBg from '$lib/assets/images/map-background.webp';
 	import HomeMobileMenu from '$lib/components/HomeMobileMenu/HomeMobileMenu.svelte';
 	import Loading from '$lib/components/Loading/Loading.svelte';
 	import City from '$lib/elements/City/City.svelte';
@@ -9,9 +8,10 @@
 	import EventDataMobile from '$lib/elements/EventDataMobile/EventDataMobile.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
+	import { onMount } from 'svelte';
 	import { EColorVariant } from '../../constants/enums';
-	import { eventImages, mapData, type IMapEvent, type IMapLocation } from '../../data/Map/MapData';
-	import preloadImages from '../../utils/preloadImages';
+	import { mapData, type IMapEvent, type IMapLocation } from '../../data/Map/MapData';
+	import { preloadedEvents, preloadedMap } from '../store';
 
 	let eventToShow: IMapEvent | undefined = undefined;
 	let width: number;
@@ -36,18 +36,22 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([[mapBg]]);
+	let images: string[][];
+	let events: string[][];
 
-	const preloadedEventImages = preloadImages([eventImages]);
+	onMount(() => {
+		$preloadedMap.then((array) => (images = array));
+		$preloadedEvents.then((array) => (events = array));
+	});
 </script>
 
 <svelte:window bind:innerWidth={width} />
 
 <HomeMobileMenu section="drop" />
 
-{#await preloadedImages}
+{#if !images}
 	<Loading />
-{:then images}
+{:else}
 	<div
 		class="h-[100dvh] flex justify-center items-center relative w-full {width > 768
 			? 'pt-[3rem]'
@@ -75,20 +79,18 @@
 					<City mapLocation={mapData[4]} top="67" left="36" bind:eventToShow />
 					<City mapLocation={mapData[5]} top="73" left="34" showOnTop bind:eventToShow />
 				</SectionContainer>
+			{:else if !events}
+				<Loading />
 			{:else}
-				{#await preloadedEventImages}
-					<Loading />
-				{:then eventImages}
-					<EventData
-						bind:eventToShow
-						{imageToShow}
-						{handleNextButton}
-						{handlePrevButton}
-						{isNextButtonDisabled}
-						{isPrevButtonDisabled}
-						isCenter={eventToShow.isCenter}
-					/>
-				{/await}
+				<EventData
+					bind:eventToShow
+					{imageToShow}
+					{handleNextButton}
+					{handlePrevButton}
+					{isNextButtonDisabled}
+					{isPrevButtonDisabled}
+					isCenter={eventToShow.isCenter}
+				/>
 			{/if}
 		{:else if !mapLocationToShow}
 			<div
@@ -128,4 +130,4 @@
 	</div>
 
 	<HomeIcon />
-{/await}
+{/if}

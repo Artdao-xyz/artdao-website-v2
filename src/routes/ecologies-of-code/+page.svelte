@@ -1,5 +1,4 @@
 <script lang="ts">
-	import ecoInterviewBg from '$lib/assets/images/projects/ecologiesOfCode/ecologies-interview-bg.webp';
 	import Loading from '$lib/components/Loading/Loading.svelte';
 	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
@@ -12,16 +11,14 @@
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
+	import { onMount } from 'svelte';
 	import { inview } from 'svelte-inview';
 	import { EProjects } from '../../constants/enums';
 	import { ecologiesNavItems } from '../../data/Projects/EcologiesOfCode/NavItems';
 	import {
 		hypereikonAbout,
-		hypereikonAboutImages,
 		joaquinaAbout,
-		joaquinaAboutImages,
-		okytomoAbout,
-		okytomoAboutImages
+		okytomoAbout
 	} from '../../data/Projects/EcologiesOfCode/ProjectAbout';
 	import {
 		ecologiesArtworkImages,
@@ -40,8 +37,7 @@
 	} from '../../data/Projects/EcologiesOfCode/ProjectVIdeo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
-	import preloadImages from '../../utils/preloadImages';
-	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
+	import { preloadedEcologies } from '../store';
 	import { ecologiesNavStoreItems } from './store';
 
 	let size: number;
@@ -73,29 +69,18 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[ecologiesOfCodeProject.bgImage, ecologiesOfCodeProject.bgImageMobile],
-		joaquinaAboutImages,
-		[ecoInterviewBg],
-		ecologiesPolaroidImages.map((item) => item.image),
-		okytomoAboutImages,
-		ecologiesPolaroidImagesTwo.map((item) => item.image),
-		hypereikonAboutImages,
-		ecologiesArtworkImages.map((item) => item.image),
-		ecologiesGallery1.map((item) => item.src),
-		ecologiesGallery2.map((item) => item.src)
-	]);
+	let images: string[][];
 
-	let refs = getProjectRefs(EProjects.ECOLOGIES_OF_CODE);
-
-	console.log('Refs', refs);
+	onMount(() => {
+		$preloadedEcologies.then((array) => (images = array));
+	});
 </script>
 
 <svelte:window bind:innerWidth={size} />
 
-{#await preloadedImages}
+{#if !images}
 	<Loading />
-{:then images}
+{:else}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -235,7 +220,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.ECOLOGIES_OF_CODE} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {
