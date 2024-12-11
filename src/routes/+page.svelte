@@ -13,6 +13,10 @@
 	let images: string[][];
 
 	onMount(() => {
+		if (images) {
+			return;
+		}
+
 		preloadFull();
 
 		$preloadedHome.then((array) => (images = array));
