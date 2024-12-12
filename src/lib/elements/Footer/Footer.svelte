@@ -41,7 +41,7 @@
 	on:inview_leave={() => {
 		isFooterVisible.set(false);
 		isVisible = false;
-		subheader = undefined;
+		// subheader = undefined;
 	}}
 	class="snap-end w-full h-fit md:h-screen bg-color-black flex flex-col justify-between py-[1.25rem] px-[2.5rem] !z-50"
 >
