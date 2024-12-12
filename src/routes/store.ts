@@ -2,6 +2,7 @@ import { writable } from 'svelte/store';
 
 export const alreadyShown = writable(false);
 
+export const preloadHomeMenu = writable<Promise<string[][]>>();
 export const preloadedHome = writable<Promise<string[][]>>();
 export const preloadedArtifice = writable<Promise<string[][]>>();
 export const preloadedDigital = writable<Promise<string[][]>>();

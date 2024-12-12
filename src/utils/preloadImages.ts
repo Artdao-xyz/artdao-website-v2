@@ -10,14 +10,22 @@ import {
 	preloadedMap,
 	preloadedNonplaces,
 	preloadedOrb,
-	preloadedRave
+	preloadedRave,
+	preloadHomeMenu
 } from '../routes/store';
 import { progress } from './store';
 
+import artDaoLogo from '$lib/assets/images/artdao-logo.webp';
+import discordIcon from '$lib/assets/images/discord-icon.webp';
+import hammer from '$lib/assets/images/hammer-min.webp';
+import instagramIcon from '$lib/assets/images/instagram-icon.webp';
 import mapBg from '$lib/assets/images/map-background.webp';
+import mapLogo from '$lib/assets/images/map.webp';
+import menuIcon from '$lib/assets/images/mobile-hamburguer.svg';
 import ecoInterviewBg from '$lib/assets/images/projects/ecologiesOfCode/ecologies-interview-bg.webp';
 import inaInterviewBgImage from '$lib/assets/images/projects/inherentInstability/Background_Img.webp';
 import orbBgImage from '$lib/assets/images/projects/orb/240326_caroco_035_1.webp';
+import xIcon from '$lib/assets/images/x-icon.webp';
 import { homeImages, homeImagesMobile } from '../data/HomeImgLayout';
 import { eventImages } from '../data/Map/MapData';
 import {
@@ -107,6 +115,13 @@ let images = [];
 export const preloadFull = async () => {
 	let loadedAssets = 0;
 
+	preloadHomeMenu.set(
+		preloadImages([[artDaoLogo, discordIcon, hammer, instagramIcon, mapLogo, menuIcon, xIcon]])
+	);
+
+	loadedAssets++;
+	progress.set((loadedAssets / 13) * 100);
+
 	preloadedHome.set(
 		preloadImages([
 			homeImages.map((project) => project.imageUrl),
@@ -116,7 +131,7 @@ export const preloadFull = async () => {
 	);
 
 	loadedAssets++;
-	progress.set((loadedAssets / 12) * 100);
+	progress.set((loadedAssets / 13) * 100);
 
 	preloadedArtifice.set(
 		preloadImages([
@@ -130,7 +145,7 @@ export const preloadFull = async () => {
 	);
 
 	loadedAssets++;
-	progress.set((loadedAssets / 12) * 100);
+	progress.set((loadedAssets / 13) * 100);
 
 	preloadedDigital.set(
 		preloadImages([
@@ -148,7 +163,7 @@ export const preloadFull = async () => {
 	);
 
 	loadedAssets++;
-	progress.set((loadedAssets / 12) * 100);
+	progress.set((loadedAssets / 13) * 100);
 
 	preloadedEcologies.set(
 		preloadImages([
@@ -166,7 +181,7 @@ export const preloadFull = async () => {
 	);
 
 	loadedAssets++;
-	progress.set((loadedAssets / 12) * 100);
+	progress.set((loadedAssets / 13) * 100);
 
 	preloadedConversation.set(
 		preloadImages([
@@ -176,7 +191,7 @@ export const preloadFull = async () => {
 	);
 
 	loadedAssets++;
-	progress.set((loadedAssets / 12) * 100);
+	progress.set((loadedAssets / 13) * 100);
 
 	preloadedInherent.set(
 		preloadImages([
@@ -191,7 +206,7 @@ export const preloadFull = async () => {
 	);
 
 	loadedAssets++;
-	progress.set((loadedAssets / 12) * 100);
+	progress.set((loadedAssets / 13) * 100);
 
 	preloadedIntertwined.set(
 		preloadImages([
@@ -205,17 +220,17 @@ export const preloadFull = async () => {
 	);
 
 	loadedAssets++;
-	progress.set((loadedAssets / 12) * 100);
+	progress.set((loadedAssets / 13) * 100);
 
 	preloadedMap.set(preloadImages([[mapBg]]));
 
 	loadedAssets++;
-	progress.set((loadedAssets / 12) * 100);
+	progress.set((loadedAssets / 13) * 100);
 
 	preloadedEvents.set(preloadImages([eventImages]));
 
 	loadedAssets++;
-	progress.set((loadedAssets / 12) * 100);
+	progress.set((loadedAssets / 13) * 100);
 
 	preloadedNonplaces.set(
 		preloadImages([
@@ -226,7 +241,7 @@ export const preloadFull = async () => {
 	);
 
 	loadedAssets++;
-	progress.set((loadedAssets / 12) * 100);
+	progress.set((loadedAssets / 13) * 100);
 
 	preloadedOrb.set(
 		preloadImages([
@@ -241,7 +256,7 @@ export const preloadFull = async () => {
 	);
 
 	loadedAssets++;
-	progress.set((loadedAssets / 12) * 100);
+	progress.set((loadedAssets / 13) * 100);
 
 	preloadedRave.set(
 		preloadImages([
@@ -253,11 +268,11 @@ export const preloadFull = async () => {
 	);
 
 	loadedAssets++;
-	progress.set((loadedAssets / 12) * 100);
+	progress.set((loadedAssets / 13) * 100);
 };
 
 export const preloadImages = async (urls: string[][]): Promise<string[][]> => {
-	let loadedAssets = 0;
+	// let loadedAssets = 0;
 
 	const getImagesArray = async () => {
 		const mappedImages = [];
@@ -278,8 +293,8 @@ export const preloadImages = async (urls: string[][]): Promise<string[][]> => {
 			images = (await Promise.all(promises)) as string[];
 
 			mappedImages.push(images);
-			loadedAssets++;
-			progress.set((loadedAssets / urls.length) * 100);
+			// loadedAssets++;
+			// progress.set((loadedAssets / urls.length) * 100);
 		}
 
 		return mappedImages;
