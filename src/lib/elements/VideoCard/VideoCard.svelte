@@ -13,7 +13,7 @@
 
 	$: videoCardWidth =
 		videoProject.size === 'rectangle'
-			? 'w-full bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:max-h-[800px] macBook:w-[80rem] macBook:max-w-full bigScreen:!h-[90%] max-h-[360px] sm:max-h-[40rem] sm:w-[45rem]'
+			? 'w-full bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:max-h-[775px] macBook:w-[80rem] macBook:max-w-full bigScreen:!h-[90%] max-h-[360px] sm:max-h-[40rem] sm:w-[45rem]'
 			: videoProject.size === 'square'
 				? 'w-full sm:w-[600px] max-h-[420px] sm:h-[800px] sm:max-h-[600px] bigScreen:w-[800px] bigScreen:max-h-[800px]'
 				: 'max-h-[500px] sm:h-full w-full max-w-[350px] sm:max-h-[800px] sm:max-w-[450px]';
