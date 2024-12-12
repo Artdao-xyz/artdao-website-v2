@@ -26,7 +26,7 @@
 <svelte:window bind:innerHeight={height} />
 <div class="flex flex-col h-full justify-between">
 	<div
-		class=" {videoCardWidth} {height < 800
+		class=" {videoCardWidth} {height < 801
 			? 'sm:max-h-[500px]'
 			: ''} black-gradient px-[0.9375rem] my-auto pb-[0.9375rem] sm:p-[1.875rem] rounded-20 flex flex-col h-full mx-auto gap-0 sm:gap-[0.9375rem]"
 	>
