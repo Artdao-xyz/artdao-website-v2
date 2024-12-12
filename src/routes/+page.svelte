@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { preloadedHome } from './store';
+	import { preloadedHome, preloadedRave } from './store';
 
 	import HomeMenu from '$lib/components/HomeMenu/HomeMenu.svelte';
 	import Loading from '$lib/components/Loading/Loading.svelte';
@@ -11,19 +11,21 @@
 	import { preloadFull } from '../utils/preloadImages';
 
 	let images: string[][];
+	let lastImages: string[][];
 
 	onMount(() => {
-		if (images) {
+		if (images && lastImages) {
 			return;
 		}
 
 		preloadFull();
 
 		$preloadedHome.then((array) => (images = array));
+		$preloadedRave.then((array) => (lastImages = array));
 	});
 </script>
 
-{#if !images}
+{#if !images && !lastImages}
 	<Loading />
 {:else}
 	<div class="flex flex-col items-center justify-center relative w-full h-full">
