@@ -21,10 +21,15 @@
 	// });
 
 	let width: number;
+	let height: number;
 </script>
 
-<svelte:window bind:innerWidth={width} />
-<div class="video-player w-full h-full relative flex flex-row items-center justify-center">
+<svelte:window bind:innerWidth={width} bind:innerHeight={height} />
+<div
+	class="video-player w-full h-full relative flex flex-row items-center justify-center {height < 801
+		? 'sm:max-h-[340px]'
+		: ''}"
+>
 	<!-- {#if width > 700}
 		<video
 			src={videoUrl}

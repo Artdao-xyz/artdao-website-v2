@@ -1,5 +1,4 @@
 <script lang="ts">
-	import buttonIcon from '$lib/assets/images/video-arrow.svg';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import type { IVideoProject } from '$lib/elements/VideoCard/interfaces';
 	import VideoCard from '$lib/elements/VideoCard/VideoCard.svelte';
@@ -36,30 +35,9 @@
 				{handlePrevButton}
 				{isNextButtonDisabled}
 				{isPrevButtonDisabled}
+				{videoProjects}
 				showButtons={videoProjects.length > 1}
 			/>
 		</div>
-
-		{#if videoProjects.length > 1}
-			<div class="flex flex-row gap-[0.9375rem] sm:hidden justify-start w-full">
-				<button
-					on:click={handlePrevButton}
-					class="{isPrevButtonDisabled
-						? 'hidden'
-						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border bg-color-white border-color-dark flex items-center justify-center"
-				>
-					<img src={buttonIcon} alt="Button" class="w-[15px]" />
-				</button>
-
-				<button
-					on:click={handleNextButton}
-					class="{isNextButtonDisabled
-						? 'hidden'
-						: 'hover:scale-105'} w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border bg-color-white border-color-dark flex items-center justify-center"
-				>
-					<img src={buttonIcon} alt="Button" class="rotate-180 w-[15px]" />
-				</button>
-			</div>
-		{/if}
 	</div>
 </SectionContainer>
