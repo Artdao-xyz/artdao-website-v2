@@ -19,11 +19,16 @@
 				: 'max-h-[500px] sm:h-full w-full max-w-[350px] sm:max-h-[800px] sm:max-w-[450px]';
 
 	$: videoProjectIndex = videoProjects.findIndex((item) => item.name === videoProject.name);
+
+	let height: number;
 </script>
 
+<svelte:window bind:innerHeight={height} />
 <div class="flex flex-col h-full justify-between">
 	<div
-		class=" {videoCardWidth} black-gradient px-[0.9375rem] my-auto pb-[0.9375rem] sm:p-[1.875rem] rounded-20 flex flex-col h-full mx-auto gap-0 sm:gap-[0.9375rem]"
+		class=" {videoCardWidth} {height < 800
+			? 'sm:max-h-[500px]'
+			: ''} black-gradient px-[0.9375rem] my-auto pb-[0.9375rem] sm:p-[1.875rem] rounded-20 flex flex-col h-full mx-auto gap-0 sm:gap-[0.9375rem]"
 	>
 		<div
 			class="h-fit w-full sm:bg-color-dark rounded-20 py-3 sm:p-[1.25rem] flex items-center justify-between"
