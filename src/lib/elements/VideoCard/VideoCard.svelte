@@ -56,9 +56,9 @@
 				on:click={handlePrevButton}
 				class="{isPrevButtonDisabled
 					? 'nav-gradient-unselected'
-					: 'hover:scale-105'} group w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border dark-gradient flex items-center justify-center"
+					: 'hover:scale-105'} group w-[2.125rem] h-[2.125rem] sm:w-[3.125rem] sm:h-[3.125rem] rounded-[6.25rem] border dark-gradient flex items-center justify-center"
 			>
-				<img src={buttonIcon} alt="Button" class="w-[15px] invert group-hover:scale-105" />
+				<img src={buttonIcon} alt="Button" class="w-[8px] invert group-hover:scale-105" />
 			</button>
 
 			<div class="hidden sm:flex flex-row h-full items-center">
@@ -78,19 +78,18 @@
 				{/each}
 			</div>
 
-			<div class="flex sm:hidden flex-row h-full items-center">
+			<div class="flex sm:hidden flex-row h-full items-center w-[5rem] justify-center">
 				{#each videoProjects as video, i}
 					<!-- svelte-ignore a11y-media-has-caption -->
 					<video
 						preload="metadata"
 						class="{videoProject.name === videoProjects[i].name
-							? 'h-[5.3125rem] w-[5.3125rem]'
-							: 'h-[3.4375rem] w-[3.4375rem]'} rounded-[3.0523rem] object-cover {i ===
-						videoProjectIndex + 1
+							? 'h-[50px] w-[50px]'
+							: 'h-[35px] w-[35px]'} rounded-[3.0523rem] object-cover {i === videoProjectIndex + 1
 							? 'ml-[-1.125rem]'
 							: ''} {video.name === videoProject.name || i === videoProjectIndex + 1
 							? 'visible'
-							: 'hidden'}"
+							: 'hidden'} transition-all duration-300"
 						style={`z-index: ${videoProjects.length - i};`}
 					>
 						<source src={video.videoUrl} type="video/mp4" />
@@ -102,12 +101,12 @@
 				on:click={handleNextButton}
 				class="{isNextButtonDisabled
 					? 'nav-gradient-unselected'
-					: 'hover:scale-105'} group w-[3.125rem] h-[3.125rem] rounded-[6.25rem] border dark-gradient flex items-center justify-center"
+					: 'hover:scale-105'} group w-[2.125rem] h-[2.125rem] sm:w-[3.125rem] sm:h-[3.125rem] rounded-[6.25rem] border dark-gradient flex items-center justify-center"
 			>
 				<img
 					src={buttonIcon}
 					alt="Button"
-					class="rotate-180 w-[15px] invert group-hover:scale-105"
+					class="rotate-180 w-[8px] invert group-hover:scale-105"
 				/>
 			</button>
 		</div>
