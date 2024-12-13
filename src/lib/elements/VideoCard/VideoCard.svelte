@@ -16,7 +16,7 @@
 			? 'w-full h-[330px] w-[330px] sm:h-[600px] bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:max-h-[775px] macBook:w-[1280px] macBook:max-w-full bigScreen:max-h-[650px] xlScreen:max-h-[800px] xlScreen:!w-[1500px] max-h-[360px] sm:max-h-[640px] sm:w-[45rem]'
 			: videoProject.size === 'square'
 				? 'w-full h-[330px] w-[330px] sm:w-[600px] sm:h-[600px] max-h-[420px] sm:h-[800px] sm:max-h-[600px] bigScreen:w-[650px] bigScreen:max-h-[650px] xlScreen:max-h-[800px] xlScreen:w-[800px]'
-				: videoProject.size === 'vertical' && height < 801
+				: videoProject.size === 'vertical' && height < 1000
 					? 'sm:w-[300px] sm:!h-[500px] !h-[420px] w-[250px]'
 					: 'w-full sm:max-h-[650px] sm:max-w-[450px] xlScreen:max-h-[800px]';
 
@@ -29,9 +29,9 @@
 <svelte:window bind:innerHeight={height} bind:innerWidth={width} />
 <div class="flex flex-col h-full justify-between">
 	<div
-		class=" {videoCardWidth} {height < 801 && videoProject.size === 'square'
+		class=" {videoCardWidth} {height < 1000 && videoProject.size === 'square'
 			? 'sm:w-[500px] sm:h-[500px] w-[300px] h-[350px]'
-			: ''} {height < 801 && videoProject.size === 'rectangle'
+			: ''} {height < 1000 && videoProject.size === 'rectangle'
 			? 'sm:w-[60dvw] w-[300px] h-[350px] sm:!h-[500px]'
 			: ''} overflow-hidden black-gradient px-[0.9375rem] my-auto pb-[0.9375rem] sm:p-[1.875rem] rounded-20 flex flex-col h-full mx-auto gap-0 sm:gap-[0.9375rem]"
 	>
@@ -61,8 +61,8 @@
 	{#if showButtons}
 		<div
 			class="flex flex-row gap-[0.9375rem] w-full justify-center h-[4.375rem] items-center sm:mt-[2.25rem] {height <
-			801
-				? 'sm:!mb-[1.5rem] sm:!mt-[1.5rem] mb-0 mt-0'
+			1000
+				? 'sm:!mb-[1.5rem] sm:!mt-[1.5rem] mb-[2rem] mt-0'
 				: 'sm:mb-[2.5rem]'}"
 		>
 			<button
