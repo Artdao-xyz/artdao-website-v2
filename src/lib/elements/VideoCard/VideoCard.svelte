@@ -13,7 +13,7 @@
 
 	$: videoCardWidth =
 		videoProject.size === 'rectangle'
-			? 'w-full bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:max-h-[775px] macBook:w-[1280px] macBook:max-w-full bigScreen:max-h-[650px] xlScreen:max-h-[800px] xlScreen:!w-[1500px] max-h-[360px] sm:max-h-[40rem] sm:w-[45rem]'
+			? 'w-full bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:max-h-[775px] macBook:w-[1280px] macBook:max-w-full bigScreen:max-h-[650px] xlScreen:max-h-[800px] xlScreen:!w-[1500px] max-h-[360px] sm:max-h-[640px] sm:w-[45rem]'
 			: videoProject.size === 'square'
 				? 'w-full sm:w-[600px] max-h-[420px] sm:h-[800px] sm:max-h-[600px] bigScreen:w-[650px] bigScreen:max-h-[650px] xlScreen:max-h-[800px] xlScreen:w-[800px]'
 				: videoProject.size === 'vertical' && height < 801
@@ -30,7 +30,7 @@
 	<div
 		class=" {videoCardWidth} {height < 801 ? 'sm:h-[500px]' : ''} {height < 801 &&
 		videoProject.size === 'square'
-			? 'sm:w-[500px]'
+			? 'sm:!w-[500px] sm:!h-[500px]'
 			: ''} {height < 801 && videoProject.size === 'rectangle'
 			? 'sm:!w-[60dvw]'
 			: ''} black-gradient px-[0.9375rem] my-auto pb-[0.9375rem] sm:p-[1.875rem] rounded-20 flex flex-col h-full mx-auto gap-0 sm:gap-[0.9375rem]"
