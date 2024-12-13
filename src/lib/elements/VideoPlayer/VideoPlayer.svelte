@@ -27,8 +27,8 @@
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
 <div
 	class="video-player w-full h-full relative flex flex-row items-center justify-center {height < 801
-		? 'sm:max-h-[340px]'
-		: ''}"
+		? 'sm:h-[340px]'
+		: ''} xlScreen:h-[630px]"
 >
 	<!-- {#if width > 700}
 		<video
