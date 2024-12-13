@@ -13,10 +13,12 @@
 
 	$: videoCardWidth =
 		videoProject.size === 'rectangle'
-			? 'w-full bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:max-h-[775px] macBook:w-[80rem] macBook:max-w-full bigScreen:!h-[90%] max-h-[360px] sm:max-h-[40rem] sm:w-[45rem]'
+			? 'w-full bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:max-h-[775px] macBook:w-[1280px] macBook:max-w-full bigScreen:max-h-[650px] xlScreen:max-h-[800px] xlScreen:!w-[1500px] max-h-[360px] sm:max-h-[40rem] sm:w-[45rem]'
 			: videoProject.size === 'square'
-				? 'w-full sm:w-[600px] max-h-[420px] sm:h-[800px] sm:max-h-[600px] bigScreen:w-[800px] bigScreen:max-h-[800px]'
-				: 'max-h-[500px] sm:h-full w-full max-w-[350px] sm:max-h-[800px] sm:max-w-[450px]';
+				? 'w-full sm:w-[600px] max-h-[420px] sm:h-[800px] sm:max-h-[600px] bigScreen:w-[650px] bigScreen:max-h-[650px] xlScreen:max-h-[800px] xlScreen:w-[800px]'
+				: videoProject.size === 'vertical' && height < 801
+					? 'sm:w-[300px]'
+					: 'max-h-[500px] w-full max-w-[350px] sm:max-h-[650px] sm:max-w-[450px] xlScreen:max-h-[800px]';
 
 	$: videoProjectIndex = videoProjects.findIndex((item) => item.name === videoProject.name);
 
@@ -26,8 +28,11 @@
 <svelte:window bind:innerHeight={height} />
 <div class="flex flex-col h-full justify-between">
 	<div
-		class=" {videoCardWidth} {height < 801
-			? 'sm:max-h-[500px]'
+		class=" {videoCardWidth} {height < 801 ? 'sm:h-[500px]' : ''} {height < 801 &&
+		videoProject.size === 'square'
+			? 'sm:w-[500px]'
+			: ''} {height < 801 && videoProject.size === 'rectangle'
+			? 'sm:!w-[60dvw]'
 			: ''} black-gradient px-[0.9375rem] my-auto pb-[0.9375rem] sm:p-[1.875rem] rounded-20 flex flex-col h-full mx-auto gap-0 sm:gap-[0.9375rem]"
 	>
 		<div
@@ -55,7 +60,10 @@
 
 	{#if showButtons}
 		<div
-			class="flex flex-row gap-[0.9375rem] w-full justify-center h-[4.375rem] items-center mt-[2.25rem] mb-[1.75rem]"
+			class="flex flex-row gap-[0.9375rem] w-full justify-center h-[4.375rem] items-center mt-[2.25rem] {height <
+			801
+				? 'mb-[1.5rem]'
+				: 'mb-[2.5rem]'}"
 		>
 			<button
 				on:click={handlePrevButton}
