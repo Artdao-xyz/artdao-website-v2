@@ -13,7 +13,10 @@
 		nonPlacesTwoDropdownItems
 	} from '../../data/Projects/NonPlaces/ProjectAboutDropdown';
 	import { nonPlacesProjectIntro } from '../../data/Projects/NonPlaces/ProjectIntro';
-	import { nonPlacesVideo } from '../../data/Projects/NonPlaces/ProjectVideo';
+	import {
+		nonPlacesVernissageVideo,
+		nonPlacesVideo
+	} from '../../data/Projects/NonPlaces/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
@@ -56,8 +59,6 @@
 	]);
 
 	let refs = getProjectRefs(EProjects.NON_PLACES);
-
-	console.log('Refs', refs);
 </script>
 
 <svelte:window bind:innerWidth={size} />
@@ -115,28 +116,6 @@
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
-				artworksIsInView = inView;
-			}}
-			on:inview_enter={(event) => {
-				const { inView } = event.detail;
-				artworksIsInView = inView;
-			}}
-			on:inview_leave={(event) => {
-				const { inView } = event.detail;
-				artworksIsInView = inView;
-			}}
-		>
-			<ProjectAboutDropdown
-				images={images[1]}
-				aboutDropdownItems={nonPlacesDropdownItems}
-				route="artworks"
-			/>
-		</div>
-
-		<div
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
 				vernisaggeIsInView = inView;
 			}}
 			on:inview_enter={(event) => {
@@ -152,6 +131,30 @@
 				images={images[2]}
 				aboutDropdownItems={nonPlacesTwoDropdownItems}
 				route="vernisagge"
+			/>
+
+			<ProjectVideo videoProjects={nonPlacesVernissageVideo} route="venue" />
+		</div>
+
+		<div
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				artworksIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				artworksIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				artworksIsInView = inView;
+			}}
+		>
+			<ProjectAboutDropdown
+				images={images[1]}
+				aboutDropdownItems={nonPlacesDropdownItems}
+				route="artworks"
 			/>
 		</div>
 
