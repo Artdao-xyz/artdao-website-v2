@@ -10,12 +10,17 @@
 	import { EColorVariant, EProjects } from '../../constants/enums';
 	import { intertwinedNavItems } from '../../data/Projects/Intertwined/NavItems';
 	import {
+		artBlocksAbout,
+		artBlocksAboutImages,
 		cryptoargAbout,
 		cryptoargAboutImages,
 		curationAbout,
-		curationAboutImages
+		curationAboutImages,
+		mocaAbout,
+		mocaAboutImages
 	} from '../../data/Projects/Intertwined/ProjectAbout';
 	import {
+		artBlocksDropdownItems,
 		artdaoDropdownItems,
 		cryptoargDropdownItems,
 		intertwinedVernisaggeDropdownItems
@@ -24,6 +29,7 @@
 	import {
 		artdaoVideo,
 		cryptoVideo,
+		intertwinedLastVideo,
 		introVideo
 	} from '../../data/Projects/Intertwined/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
@@ -35,6 +41,8 @@
 	let introIsInView: boolean;
 	let artdaoIsInView: boolean;
 	let cryptoIsInView: boolean;
+	let artBlocksIsInView: boolean;
+	let mocaIsInView: boolean;
 	let vernisaggeIsInView: boolean;
 
 	let containerRef: any;
@@ -54,8 +62,16 @@
 			updateNavBar(intertwinedNavStoreItems, intertwinedNavItems, intertwinedNavItems[2].route);
 		}
 
-		if (vernisaggeIsInView) {
+		if (artBlocksIsInView) {
 			updateNavBar(intertwinedNavStoreItems, intertwinedNavItems, intertwinedNavItems[3].route);
+		}
+
+		if (mocaIsInView) {
+			updateNavBar(intertwinedNavStoreItems, intertwinedNavItems, intertwinedNavItems[4].route);
+		}
+
+		if (vernisaggeIsInView) {
+			updateNavBar(intertwinedNavStoreItems, intertwinedNavItems, intertwinedNavItems[5].route);
 		}
 	};
 
@@ -65,12 +81,13 @@
 		artdaoDropdownItems.map((item) => item.image),
 		cryptoargAboutImages,
 		cryptoargDropdownItems.map((item) => item.image),
+		artBlocksAboutImages,
+		artBlocksDropdownItems.map((item) => item.image),
+		mocaAboutImages,
 		intertwinedVernisaggeDropdownItems.map((item) => item.image)
 	]);
 
 	let refs = getProjectRefs(EProjects.INTERTWINED);
-
-	console.log('Refs', refs);
 </script>
 
 {#await preloadedImages}
@@ -170,6 +187,60 @@
 		</div>
 
 		<div
+			id="artBlocks"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				artBlocksIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				artBlocksIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				artBlocksIsInView = inView;
+			}}
+		>
+			<ProjectAbout
+				aboutItem={artBlocksAbout}
+				aboutImages={images[5]}
+				route=""
+				colorVariant={EColorVariant.BLACK}
+			/>
+
+			<ProjectAboutDropdown
+				images={images[6]}
+				aboutDropdownItems={artBlocksDropdownItems}
+				route="artBlocks-end"
+			/>
+		</div>
+
+		<div
+			id="moca"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				mocaIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				mocaIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				mocaIsInView = inView;
+			}}
+		>
+			<ProjectAbout
+				aboutItem={mocaAbout}
+				aboutImages={images[7]}
+				route="moca-end"
+				colorVariant={EColorVariant.BLACK}
+			/>
+		</div>
+
+		<div
 			id="vernisagge"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
@@ -186,10 +257,12 @@
 			}}
 		>
 			<ProjectAboutDropdown
-				images={images[5]}
+				images={images[8]}
 				aboutDropdownItems={intertwinedVernisaggeDropdownItems}
 				route=""
 			/>
+
+			<ProjectVideo videoProjects={intertwinedLastVideo} route="vernisagge-end" />
 		</div>
 
 		<HomeIcon />

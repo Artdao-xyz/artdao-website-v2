@@ -7,13 +7,23 @@ export const intertwinedNavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
-		text: 'ArtDao Curation',
+		text: 'Entangled Wires',
 		route: 'artdao',
 		selected: false
 	},
 	{
 		text: 'CryptoArg',
 		route: 'crypto',
+		selected: false
+	},
+	{
+		text: 'Art Blocks',
+		route: 'artBlocks',
+		selected: false
+	},
+	{
+		text: 'Moca',
+		route: 'moca',
 		selected: false
 	},
 	{

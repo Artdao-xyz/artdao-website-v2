@@ -6,14 +6,8 @@ export const introVideo: IVideoProject[] = [
 		artist: 'Intertwined',
 		year: '2023',
 		videoUrl:
-			'https://storage.googleapis.com/videoszine/Intertwined/EVENT%20VIDEOS/Opening%20Day.mp4#t=0.1'
-	},
-	{
-		name: 'Three Days Event',
-		artist: 'Intertwined',
-		year: '2023',
-		videoUrl:
-			'https://storage.googleapis.com/videoszine/Intertwined/EVENT%20VIDEOS/Three%20Day%20Event.mp4#t=0.1'
+			'https://storage.googleapis.com/videoszine/Intertwined/EVENT%20VIDEOS/Opening%20Day.mp4#t=0.1',
+		size: 'rectangle'
 	}
 ];
 
@@ -103,7 +97,7 @@ export const artdaoVideo: IVideoProject[] = [
 		artist: 'Parsa Mostaghim',
 		year: '2023',
 		videoUrl:
-			'https://storage.googleapis.com/videoszine/Intertwined/EVENT%20VIDEOS/Three%20Day%20Event.mp4#t=0.1',
+			'https://storage.googleapis.com/videoszine/Intertwined/ARTWORK%20VIDEOS/Parsa%20Mostaghim%20-%20Oleaginous%20Shroud.mp4#t=0.1',
 		size: 'vertical'
 	}
 ];
@@ -131,6 +125,17 @@ export const cryptoVideo: IVideoProject[] = [
 		year: '2023',
 		videoUrl:
 			'https://storage.googleapis.com/videoszine/Intertwined/CRYPTOARG/Basseadx%20-%20Zero.mp4#t=0.1',
+		size: 'vertical'
+	}
+];
+
+export const intertwinedLastVideo: IVideoProject[] = [
+	{
+		name: 'Intertwined',
+		artist: 'Intertwined',
+		year: '2023',
+		videoUrl:
+			'https://storage.googleapis.com/videoszine/Intertwined/EVENT%20VIDEOS/Three%20Day%20Event.mp4#t=0.1',
 		size: 'vertical'
 	}
 ];

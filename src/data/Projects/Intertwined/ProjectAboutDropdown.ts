@@ -1,17 +1,19 @@
-import vernisagge08 from '$lib/assets/images/projects/intertwined/12-DSCF3777 1-min.webp';
-import vernisagge07 from '$lib/assets/images/projects/intertwined/15-DSCF3840 1-min.webp';
-import vernisagge03 from '$lib/assets/images/projects/intertwined/21-DSCF4428 1-min.webp';
-import vernisagge01 from '$lib/assets/images/projects/intertwined/26-DSCF4477 1-min.webp';
-import vernisagge06 from '$lib/assets/images/projects/intertwined/33-DSCF4512 1-min.webp';
-import vernisagge04 from '$lib/assets/images/projects/intertwined/36-DSCF4527 1-min.webp';
-import vernisagge02 from '$lib/assets/images/projects/intertwined/5-DSCF4312 1-min.webp';
-import vernisagge05 from '$lib/assets/images/projects/intertwined/6-DSCF4317 1-min.webp';
 import accident from '$lib/assets/images/projects/intertwined/8 The accident - P Xhita 1-min.webp';
 import afrodita from '$lib/assets/images/projects/intertwined/afr0dita 1-min.webp';
+import artBlocks01 from '$lib/assets/images/projects/intertwined/art-blocks-about-1-compressed.webp';
+import artBlocks02 from '$lib/assets/images/projects/intertwined/art-blocks-about-2-compressed.webp';
+import artBlocks03 from '$lib/assets/images/projects/intertwined/art-blocks-about-3-compressed.webp';
+import artBlocks04 from '$lib/assets/images/projects/intertwined/art-blocks-about-4-compressed.webp';
+import artBlocks05 from '$lib/assets/images/projects/intertwined/art-blocks-about-5-compressed.webp';
+import artBlocks06 from '$lib/assets/images/projects/intertwined/art-blocks-about-6-compressed.webp';
 import cyto from '$lib/assets/images/projects/intertwined/C32B6EF2-3184-45A1-BC0F-04EBB8AF7368 - Ricardo Santos 1-min.webp';
 import concussion from '$lib/assets/images/projects/intertwined/CONCUSSION1 - Tomás Santos 1-min.webp';
+import vertigo from '$lib/assets/images/projects/intertwined/crypto-arg-about-2-compressed.webp';
 import enchanted from '$lib/assets/images/projects/intertwined/Enchanted Fusion_Lulú_ARTDAO - Lulú Ponteville 1-min.webp';
 import faktor from '$lib/assets/images/projects/intertwined/Faktor-min.webp';
+import vernisagge01 from '$lib/assets/images/projects/intertwined/moca-drop-1-compressed.webp';
+import vernisagge02 from '$lib/assets/images/projects/intertwined/moca-drop-2-compressed.webp';
+import vernisagge03 from '$lib/assets/images/projects/intertwined/moca-drop-3-compressed.webp';
 import sharing from '$lib/assets/images/projects/intertwined/sharingiscaring_DAO - malaguts 1-min.webp';
 import keyhole from '$lib/assets/images/projects/intertwined/Through_the_keyhole_meelayya - Meelayya 1-min.webp';
 import mar from '$lib/assets/images/projects/intertwined/UNTITLED LISBOA EDIT JPEG - mardeformas 1-min.webp';
@@ -79,7 +81,7 @@ export const cryptoargDropdownItems: IAboutDropdown[] = [
 	{
 		name: 'VERTIGO',
 		artist: 'Okytomo',
-		image: concussion
+		image: vertigo
 	},
 	{
 		name: 'NEGRO SERA EL SOL EN VERANO',
@@ -90,69 +92,75 @@ export const cryptoargDropdownItems: IAboutDropdown[] = [
 	}
 ];
 
+export const artBlocksDropdownItems: IAboutDropdown[] = [
+	{
+		name: 'Operator',
+		image: artBlocks01,
+		date: '08.06.2023',
+		location: 'Armazém souL',
+		about:
+			'Human Unreadable is a three-act, embodied generative artwork hiding the human body in plain sight (on-chain). Bringing together choreography, code, blockchain, generative art, and cryptography, the work culminates in a live performance.'
+	},
+	{
+		name: 'Operator',
+		image: artBlocks02,
+		date: '08.06.2023',
+		location: 'Armazém souL',
+		about:
+			'Each output is driven by the motion data of its underlying unique, on-chain choreographic sequence.'
+	},
+	{
+		name: 'Operator',
+		image: artBlocks03,
+		date: '08.06.2023',
+		location: 'Armazém souL',
+		about:
+			'As part of the Intertwined event, we invited Jeff Davis and Operator to have a open-conversation.'
+	},
+	{
+		name: 'Operator',
+		image: artBlocks04,
+		date: '08.06.2023',
+		location: 'Armazém souL',
+		about:
+			"Their conversation explored various themes, from the collective's creative process around the Human Unreadable collection."
+	},
+	{
+		name: 'Operator',
+		image: artBlocks05,
+		date: '08.06.2023',
+		location: 'Armazém souL',
+		about:
+			'The evolution of technology and it’s potential for artist practice and connecting technology with human bodies and the expanding horizons of AI.'
+	},
+	{
+		name: 'Operator',
+		image: artBlocks06,
+		date: '08.06.2023',
+		location: 'Armazém souL',
+		about:
+			'Leading to a very interesting conversation, where the public also interacted with the artistic-duo. The full conversation was recorded and published into our Content Archive.'
+	}
+];
+
 export const intertwinedVernisaggeDropdownItems: IAboutDropdown[] = [
 	{
 		name: 'Vernisagge',
-		artist: 'Various artists',
 		date: '06.06.2023',
 		image: vernisagge01,
 		about:
-			'The geography of Portugal and the physicality of technological innovation plays a pivotal role, as we disperse the modern within a deeper investigation into how discoveries and technocratic interventions intersect with the terrains, plants, and trees that shape the landscape, lives and economy of this country. This exhibition forms but a threshold into uncharted territories.'
+			'For the closing of Intertwined event we took over Carpintarias de S. Lázaro for an after party with DIM SUM hosting a series of DJ Sets and Nicø & Basseadx with Live Performances'
 	},
 	{
 		name: 'Vernisagge',
-		artist: 'Various artists',
 		date: '06.06.2023',
 		image: vernisagge02,
-		about:
-			'The geography of Portugal and the physicality of technological innovation plays a pivotal role, as we disperse the modern within a deeper investigation into how discoveries and technocratic interventions intersect with the terrains, plants, and trees that shape the landscape, lives and economy of this country. This exhibition forms but a threshold into uncharted territories.'
+		about: 'NICØ performing'
 	},
 	{
 		name: 'Vernisagge',
-		artist: 'Various artists',
 		date: '06.06.2023',
 		image: vernisagge03,
-		about:
-			'The geography of Portugal and the physicality of technological innovation plays a pivotal role, as we disperse the modern within a deeper investigation into how discoveries and technocratic interventions intersect with the terrains, plants, and trees that shape the landscape, lives and economy of this country. This exhibition forms but a threshold into uncharted territories.'
-	},
-	{
-		name: 'Vernisagge',
-		artist: 'Various artists',
-		date: '06.06.2023',
-		image: vernisagge04,
-		about:
-			'The geography of Portugal and the physicality of technological innovation plays a pivotal role, as we disperse the modern within a deeper investigation into how discoveries and technocratic interventions intersect with the terrains, plants, and trees that shape the landscape, lives and economy of this country. This exhibition forms but a threshold into uncharted territories.'
-	},
-	{
-		name: 'Vernisagge',
-		artist: 'Various artists',
-		date: '06.06.2023',
-		image: vernisagge05,
-		about:
-			'The geography of Portugal and the physicality of technological innovation plays a pivotal role, as we disperse the modern within a deeper investigation into how discoveries and technocratic interventions intersect with the terrains, plants, and trees that shape the landscape, lives and economy of this country. This exhibition forms but a threshold into uncharted territories.'
-	},
-	{
-		name: 'Vernisagge',
-		artist: 'Various artists',
-		date: '06.06.2023',
-		image: vernisagge06,
-		about:
-			'The geography of Portugal and the physicality of technological innovation plays a pivotal role, as we disperse the modern within a deeper investigation into how discoveries and technocratic interventions intersect with the terrains, plants, and trees that shape the landscape, lives and economy of this country. This exhibition forms but a threshold into uncharted territories.'
-	},
-	{
-		name: 'Vernisagge',
-		artist: 'Various artists',
-		date: '06.06.2023',
-		image: vernisagge07,
-		about:
-			'The geography of Portugal and the physicality of technological innovation plays a pivotal role, as we disperse the modern within a deeper investigation into how discoveries and technocratic interventions intersect with the terrains, plants, and trees that shape the landscape, lives and economy of this country. This exhibition forms but a threshold into uncharted territories.'
-	},
-	{
-		name: 'Vernisagge',
-		artist: 'Various artists',
-		date: '06.06.2023',
-		image: vernisagge08,
-		about:
-			'The geography of Portugal and the physicality of technological innovation plays a pivotal role, as we disperse the modern within a deeper investigation into how discoveries and technocratic interventions intersect with the terrains, plants, and trees that shape the landscape, lives and economy of this country. This exhibition forms but a threshold into uncharted territories.'
+		about: 'André Cebola’s Glitch Box installation at the Intertwined After-Party'
 	}
 ];

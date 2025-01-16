@@ -55,6 +55,12 @@
 		background-size: 100%;
 	}
 
+	.video-gradient {
+		background: linear-gradient(95deg, rgba(0, 0, 0, 0.72) 6.17%, rgba(0, 0, 0, 0.9) 92.59%);
+		background-size: 100%;
+		backdrop-filter: blur(2px);
+	}
+
 	.menu-line {
 		stroke-width: 0.25rem;
 		stroke: #ffffff;

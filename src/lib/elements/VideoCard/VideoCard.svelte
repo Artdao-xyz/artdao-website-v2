@@ -13,11 +13,11 @@
 
 	$: videoCardWidth =
 		videoProject.size === 'rectangle'
-			? 'w-full h-[330px] w-[330px] sm:h-[600px] bigScreen:max-w-[85%] laptopL:max-w-[80%] macBook:max-h-[775px] macBook:w-[1280px] macBook:max-w-full bigScreen:max-h-[650px] xlScreen:max-h-[800px] xlScreen:!w-[1500px] max-h-[360px] sm:max-h-[640px] sm:w-[45rem]'
+			? 'w-full h-[330px] w-[330px] laptopM:!h-[682px] md:!h-[500px] md:!w-[700px] laptopM:!w-[1332px] lg:!w-[900px] lg:!h-[600px]'
 			: videoProject.size === 'square'
 				? 'w-full h-[330px] w-[330px] sm:w-[600px] sm:h-[600px] max-h-[420px] sm:h-[800px] sm:max-h-[600px] bigScreen:w-[650px] bigScreen:max-h-[650px] xlScreen:max-h-[800px] xlScreen:w-[800px]'
 				: videoProject.size === 'vertical' && height < 1000
-					? 'sm:w-[300px] sm:!h-[500px] !h-[420px] w-[250px]'
+					? 'sm:w-[400px] sm:!h-[682px] !h-[420px] w-[250px]'
 					: 'w-full sm:max-h-[650px] sm:max-w-[450px] xlScreen:max-h-[800px]';
 
 	$: videoProjectIndex = videoProjects.findIndex((item) => item.name === videoProject.name);
@@ -32,8 +32,8 @@
 		class=" {videoCardWidth} {height < 1000 && videoProject.size === 'square'
 			? 'sm:w-[500px] sm:h-[500px] w-[300px] h-[350px]'
 			: ''} {height < 1000 && videoProject.size === 'rectangle'
-			? 'sm:w-[60dvw] w-[300px] h-[350px] sm:!h-[500px]'
-			: ''} overflow-hidden black-gradient px-[0.9375rem] my-auto pb-[0.9375rem] sm:p-[1.875rem] rounded-20 flex flex-col h-full mx-auto gap-0 sm:gap-[0.9375rem]"
+			? 'sm:!max-w-[80dvw] !max-w-[350px] !h-[350px] sm:!h-[500px]'
+			: ''} overflow-hidden video-gradient px-[0.9375rem] my-auto pb-[0.9375rem] sm:!p-[15px] rounded-20 flex flex-col h-full mx-auto gap-0 sm:gap-[0.9375rem]"
 	>
 		<div
 			class="h-fit w-full sm:bg-color-dark rounded-20 py-3 sm:p-[1.25rem] flex items-center justify-between"
