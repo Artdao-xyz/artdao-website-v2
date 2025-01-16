@@ -45,9 +45,13 @@
 				<div
 					class="font-robotoMono flex flex-row gap-5 text-[1rem] laptopM:text-[0.75rem] text-color-gray-secondary leading-[1rem] tracking-[0.075rem]"
 				>
-					<p>{videoProject.artist}</p>
+					{#if videoProject.artist}
+						<p>{videoProject.artist}</p>
+					{/if}
 					{#if videoProject.year}
-						<p>.</p>
+						{#if videoProject.artist}
+							<p>.</p>
+						{/if}
 						<p>{videoProject.year}</p>
 					{/if}
 				</div>
@@ -83,7 +87,7 @@
 							? 'h-[5.3125rem] w-[5.3125rem]'
 							: 'h-[3.4375rem] w-[3.4375rem]'} rounded-[3.0523rem] object-cover {i !== 0
 							? 'ml-[-1.125rem]'
-							: ''} transition-all duration-300"
+							: ''} transition-all duration-300 shadow-xl"
 						style={`z-index: ${videoProjects.length - i};`}
 					>
 						<source src={video.videoUrl} type="video/mp4" />

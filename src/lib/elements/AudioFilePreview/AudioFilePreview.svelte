@@ -80,9 +80,7 @@
 			</button>
 			<button
 				on:click={isPaused ? playVideo : pauseVideo}
-				class="w-[1.75rem] h-[1.75rem] rounded-[6.25rem] flex flex-row {isPaused
-					? ''
-					: 'pr-[13px]'} p-[8px] border hover:scale-105 border-color-black"
+				class="w-[1.75rem] h-[1.75rem] rounded-[6.25rem] flex flex-row p-[8px] border hover:scale-105 border-color-black"
 			>
 				<img src={isPaused ? playIcon : pauseIconBlack} alt="play/pause" class="h-full w-full" />
 			</button>

@@ -24,6 +24,7 @@
 	} from '../../data/Projects/Orb/ProjectAbout';
 	import {
 		daoDropdownItems,
+		orbArtworksDropdownItems,
 		vernisaggeDropdownItems
 	} from '../../data/Projects/Orb/ProjectAboutDropdown';
 	import { orbAudioFiles } from '../../data/Projects/Orb/ProjectAudioFiles';
@@ -75,12 +76,11 @@
 		vernisaggeDropdownItems.map((item) => item.image),
 		magmaAboutImages,
 		hivemindAboutImages,
-		daoDropdownItems.map((item) => item.image)
+		daoDropdownItems.map((item) => item.image),
+		orbArtworksDropdownItems.map((item) => item.image)
 	]);
 
 	let refs = getProjectRefs(EProjects.ORB);
-
-	console.log('Refs', refs);
 </script>
 
 {#await preloadedImages}
@@ -150,6 +150,12 @@
 				vernisaggeIsInView = inView;
 			}}
 		>
+			<ProjectAboutDropdown
+				aboutDropdownItems={orbArtworksDropdownItems}
+				images={images[7]}
+				route="artworks"
+			/>
+
 			<ProjectAboutDropdown
 				aboutDropdownItems={vernisaggeDropdownItems}
 				images={images[3]}

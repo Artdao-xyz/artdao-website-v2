@@ -43,11 +43,11 @@
 			updateNavBar(nonPlacesNavStoreItems, nonPlacesNavItems, nonPlacesNavItems[1].route);
 		}
 
-		if (artworksIsInView) {
+		if (vernisaggeIsInView) {
 			updateNavBar(nonPlacesNavStoreItems, nonPlacesNavItems, nonPlacesNavItems[2].route);
 		}
 
-		if (vernisaggeIsInView) {
+		if (artworksIsInView) {
 			updateNavBar(nonPlacesNavStoreItems, nonPlacesNavItems, nonPlacesNavItems[3].route);
 		}
 	};
@@ -73,6 +73,7 @@
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<div
+			id="intro"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
@@ -95,6 +96,7 @@
 		</div>
 
 		<div
+			id="venue"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
@@ -109,10 +111,11 @@
 				venueIsInView = inView;
 			}}
 		>
-			<ProjectVideo videoProjects={nonPlacesVideo} route="venue" />
+			<ProjectVideo videoProjects={nonPlacesVideo} route="venue-end" />
 		</div>
 
 		<div
+			id="vernisagge"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
@@ -130,13 +133,14 @@
 			<ProjectAboutDropdown
 				images={images[2]}
 				aboutDropdownItems={nonPlacesTwoDropdownItems}
-				route="vernisagge"
+				route=""
 			/>
 
-			<ProjectVideo videoProjects={nonPlacesVernissageVideo} route="venue" />
+			<ProjectVideo videoProjects={nonPlacesVernissageVideo} route="vernisagge-end" />
 		</div>
 
 		<div
+			id="artworks"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
@@ -154,7 +158,7 @@
 			<ProjectAboutDropdown
 				images={images[1]}
 				aboutDropdownItems={nonPlacesDropdownItems}
-				route="artworks"
+				route="artworks-end"
 			/>
 		</div>
 

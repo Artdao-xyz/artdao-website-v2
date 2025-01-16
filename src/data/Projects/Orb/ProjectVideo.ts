@@ -1,10 +1,11 @@
 import type { IVideoProject } from '$lib/elements/VideoCard/interfaces';
 
 export const orbVideo: IVideoProject = {
-	name: 'After Movie',
-	artist: 'Artist',
+	name: 'Reflections on ORB',
+	artist: '',
 	year: '2024',
-	videoUrl: '',
+	videoUrl:
+		'https://storage.googleapis.com/videoszine/ORB/ORB%20after%20party/Reflection%20on%20ORB.mp4#t=0.1',
 	size: 'rectangle'
 };
 

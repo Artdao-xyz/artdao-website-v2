@@ -46,7 +46,7 @@
 	</div> -->
 
 	<h2
-		class="w-full font-semibold leading-[3.4375rem] font-clash text-[3rem] overflow-y-auto flex-shrink-0"
+		class="w-full font-semibold leading-[2.8125rem] font-clash text-[2.5rem] overflow-y-auto flex-shrink-0"
 	>
 		{questions[indexQuestion].question[0].toUpperCase() +
 			questions[indexQuestion].question.slice(1)}

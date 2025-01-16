@@ -1,23 +1,14 @@
 <div class="flex flex-col gap-5">
 	<p>
-		Hivemind emerged in 2022, aiming to diversify the NFT space. "The entire NFT community was very
-		crypto-centric and male-dominated, or it was a highly elitist space making a lot of money," the
-		founders noted. They created a more inclusive community through Twitter, Discord, and
-		exhibitions.
+		Emerging in 2023 as a response to an NFT community that was heavily focused on the crypto scene,
+		entered around making money, and predominantly male-dominated. It sought to create a new
+		community free from these barriers, despite the complexity of market movements and the
+		terminology that could be difficult for outsiders to understand.
 	</p>
 	<p>
-		Challenges persist: "Knowing what to do as a collective is challenging; there are many ideas and
-		desires." They also struggle with "educating other artists who don't understand NFTs; it's a
-		complex world with many terms and market movements that are difficult to explain."
-	</p>
-	<p>
-		Despite this, Hivemind has achieved success: "Being able to mobilize funds and bring many people
-		into this world is something we take great pride in." They've provided education and
-		opportunities for artists in web3.
-	</p>
-	<p>
-		Looking ahead, they emphasize physical events: "An event that gathers a part of the community is
-		good for those who interact with us but may not understand what we do, helping them grasp our
-		physical activities."
+		The collective's work began by generating opportunities and mobilising funds to develop projects
+		and further expanding each others knowledge by connecting with other artists entering the Web3
+		world. O.R.B. is an important milestone, bringing together all those who have been part of this
+		journey in Brazil .
 	</p>
 </div>
