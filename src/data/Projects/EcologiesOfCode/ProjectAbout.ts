@@ -1,18 +1,18 @@
-import hyperAboutOne from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/about/image-one.webp';
-import hyperAboutThree from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/about/image-three.webp';
-import hyperAboutTwo from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/about/image-two.webp';
-import joaquinaAboutOne from '$lib/assets/images/projects/ecologiesOfCode/joaquina/about/img-one.webp';
-import joaquinaAboutThree from '$lib/assets/images/projects/ecologiesOfCode/joaquina/about/img-three.webp';
-import joaquinaAboutTwo from '$lib/assets/images/projects/ecologiesOfCode/joaquina/about/img-two.webp';
-import okytomoAboutOne from '$lib/assets/images/projects/ecologiesOfCode/okytomo/about/image-one.webp';
-import okytomoAboutThree from '$lib/assets/images/projects/ecologiesOfCode/okytomo/about/image-three.webp';
-import okytomoAboutTwo from '$lib/assets/images/projects/ecologiesOfCode/okytomo/about/image-two.webp';
+import hyperAboutOne from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/about/hyper-about-1-compressed.webp';
+import hyperAboutTwo from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/about/hyper-about-2-compressed.webp';
+import hyperAboutThree from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/about/hyper-about-3-compressed.webp';
+import joaquinaAboutOne from '$lib/assets/images/projects/ecologiesOfCode/joaquina/about/joaquina-about-1-compressed.webp';
+import joaquinaAboutTwo from '$lib/assets/images/projects/ecologiesOfCode/joaquina/about/joaquina-about-2-compressed.webp';
+import joaquinaAboutThree from '$lib/assets/images/projects/ecologiesOfCode/joaquina/about/joaquina-about-3-compressed.webp';
+import okytomoAboutOne from '$lib/assets/images/projects/ecologiesOfCode/okytomo/about/oky-about-1-compressed.webp';
+import okytomoAboutTwo from '$lib/assets/images/projects/ecologiesOfCode/okytomo/about/oky-about-2-compressed.webp';
+import okytomoAboutThree from '$lib/assets/images/projects/ecologiesOfCode/okytomo/about/oky-about-3-compressed.webp';
 import Hypereikon from './Hypereikon.svelte';
 import JoaquinaAbout from './JoaquinaAbout.svelte';
 import OkytomoAbout from './OkytomoAbout.svelte';
 
 export const joaquinaAbout = {
-	title: 'joaquina',
+	title: 'joaquina salgado',
 	subtitle: 'digital art + installation',
 	text: JoaquinaAbout
 };

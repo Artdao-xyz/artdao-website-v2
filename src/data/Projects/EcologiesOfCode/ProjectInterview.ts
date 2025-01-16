@@ -255,7 +255,7 @@ export interface IFilteredQuestions {
 
 export const ecologiesQuestions: IFilteredQuestions[] = [
 	{
-		question: 'What inspires you when you create environments?',
+		question: 'What inspires you to create these environments?',
 		responses: [
 			{
 				artist: 'Joaquina',

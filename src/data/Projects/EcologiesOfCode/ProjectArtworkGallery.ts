@@ -1,11 +1,11 @@
-import hyperGalleryOne from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/img-01.webp';
-import hyperGalleryTwo from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/img-02.webp';
-import hyperGalleryThree from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/img-03.webp';
-import hyperGalleryFour from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/img-04.webp';
-import hyperGalleryFive from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/img-05.webp';
-import hyperGallerySix from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/img-06.webp';
-import hyperGallerySeven from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/img-07.webp';
-import hyperGalleryEight from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/img-08.webp';
+import hyperGalleryOne from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/eco-gallery-1-compressed.webp';
+import hyperGalleryTwo from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/eco-gallery-2-compressed.webp';
+import hyperGalleryThree from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/eco-gallery-3-compressed.webp';
+import hyperGalleryFour from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/eco-gallery-4-compressed.webp';
+import hyperGalleryFive from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/eco-gallery-5-compressed.webp';
+import hyperGallerySix from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/eco-gallery-6-compressed.webp';
+import hyperGallerySeven from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/eco-gallery-7-compressed.webp';
+import hyperGalleryEight from '$lib/assets/images/projects/ecologiesOfCode/hypereikon/gallery/eco-gallery-8-compressed.webp';
 import type { IGalleryImage, IGalleryImageMobile } from '$lib/elements/ArtworkContainer/interfaces';
 
 export const ecologiesArtworkImages: IGalleryImage[] = [

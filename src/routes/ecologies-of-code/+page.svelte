@@ -41,7 +41,6 @@
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
-	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { ecologiesNavStoreItems } from './store';
 
 	let size: number;
@@ -85,10 +84,6 @@
 		ecologiesGallery1.map((item) => item.src),
 		ecologiesGallery2.map((item) => item.src)
 	]);
-
-	let refs = getProjectRefs(EProjects.ECOLOGIES_OF_CODE);
-
-	console.log('Refs', refs);
 </script>
 
 <svelte:window bind:innerWidth={size} />
@@ -124,6 +119,8 @@
 				bgImage={images[0][0]}
 				bgImageMobile={images[0][1]}
 			/>
+
+			<ProjectInterview bgImage={images[2][0]} filteredQuestions={ecologiesQuestions} isCover />
 		</div>
 
 		<div
@@ -143,8 +140,6 @@
 			}}
 		>
 			<ProjectAbout aboutItem={joaquinaAbout} aboutImages={images[1]} route="" />
-
-			<ProjectInterview bgImage={images[2][0]} filteredQuestions={ecologiesQuestions} isCover />
 
 			<ProjectVideo videoProjects={[ecologiesVideoProjectOne]} />
 

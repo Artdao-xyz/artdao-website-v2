@@ -34,7 +34,6 @@
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
-	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { orbNavStoreItems } from './store';
 
 	let introIsInView: boolean;
@@ -79,8 +78,6 @@
 		daoDropdownItems.map((item) => item.image),
 		orbArtworksDropdownItems.map((item) => item.image)
 	]);
-
-	let refs = getProjectRefs(EProjects.ORB);
 </script>
 
 {#await preloadedImages}
@@ -93,6 +90,7 @@
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<div
+			id="intro"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
@@ -116,6 +114,7 @@
 		</div>
 
 		<div
+			id="curators"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
@@ -130,12 +129,13 @@
 				curatorsIsInView = inView;
 			}}
 		>
-			<ProjectInterview filteredQuestions={orbQuestions} bgImage={images[1][0]} route="curators" />
+			<ProjectInterview filteredQuestions={orbQuestions} bgImage={images[1][0]} route="" />
 
 			<ProjectAbout aboutImages={images[2]} aboutItem={carocoAbout} route="curators-end" />
 		</div>
 
 		<div
+			id="vernisagge"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
@@ -153,19 +153,20 @@
 			<ProjectAboutDropdown
 				aboutDropdownItems={orbArtworksDropdownItems}
 				images={images[7]}
-				route="artworks"
+				route=""
 			/>
 
 			<ProjectAboutDropdown
 				aboutDropdownItems={vernisaggeDropdownItems}
 				images={images[3]}
-				route="vernisagge"
+				route=""
 			/>
 
 			<ProjectVideo videoProjects={[orbVideo]} route="vernisagge-end" />
 		</div>
 
 		<div
+			id="daos"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
@@ -180,7 +181,7 @@
 				daosIsInView = inView;
 			}}
 		>
-			<ProjectAbout aboutImages={images[4]} aboutItem={magmaAbout} route="daos" />
+			<ProjectAbout aboutImages={images[4]} aboutItem={magmaAbout} route="" />
 
 			<ProjectAbout
 				aboutImages={seedAboutImages}
@@ -189,12 +190,13 @@
 				isImageLeft={false}
 			/>
 
-			<div id="daos-end">
-				<ProjectAbout aboutImages={images[5]} aboutItem={hivemindAbout} route="" />
+			<div>
+				<ProjectAbout aboutImages={images[5]} aboutItem={hivemindAbout} route="daos-end" />
 			</div>
 		</div>
 
 		<div
+			id="artworks"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
@@ -209,15 +211,11 @@
 				artworksIsInView = inView;
 			}}
 		>
-			<ProjectAboutDropdown
-				aboutDropdownItems={daoDropdownItems}
-				images={images[6]}
-				route="artworks"
-			/>
+			<ProjectAboutDropdown aboutDropdownItems={daoDropdownItems} images={images[6]} route="" />
 
-			<ProjectVideo videoProjects={artworksVideo} route="artworks-end" />
+			<ProjectVideo videoProjects={artworksVideo} route="" />
 
-			<ProjectAudioFiles audioItems={orbAudioFiles} route="" />
+			<ProjectAudioFiles audioItems={orbAudioFiles} route="artworks-end" />
 		</div>
 
 		<HomeIcon />

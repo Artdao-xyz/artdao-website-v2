@@ -16,7 +16,7 @@
 		navItems[index].selected = true;
 	}
 
-	$: selectedItem = navItems.find((item) => item.selected === true);
+	let selectedItem;
 
 	$: visible = false;
 
@@ -25,6 +25,7 @@
 		navItems.forEach((navItem) => (navItem.selected = false));
 		navItems[i].selected = true;
 		visible = false;
+		selectedItem = navItems.find((item) => item.selected === true);
 	};
 
 	const toggleVisibility = () => {
@@ -68,7 +69,7 @@
 					class="truncate rounded-[6.25rem] font-robotoMono text-[0.75rem] font-medium tracking-[0.075rem] !opacity-100 text-color-white {navItem.selected
 						? 'nav-gradient-selected font-semibold border border-color-dark'
 						: 'nav-gradient-unselected'} capitalize h-[1rem] justify-end
-                flex flex-row items-center py-[0.75rem] pr-[2.5%] pl-[3.75rem] transition delay-75 duration-700 ease-in-out transform"
+                flex flex-row items-center py-[0.75rem] pr-[2.5%] pl-[3.75rem]"
 					style="width: {percentage}%; z-index: -{i};"
 					on:click={() => handleOnClick(i)}
 				>
@@ -76,6 +77,8 @@
 				</a>
 			{/each}
 		{/if}
+
+		<!-- transition delay-75 duration-700 ease-in-out transform -->
 
 		<!-- {#if hideNav}
 			<a href={'#intro'}>

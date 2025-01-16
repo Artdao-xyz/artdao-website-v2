@@ -10,26 +10,27 @@ import type { IPolaroidImage } from '$lib/elements/Polaroids/interface';
 
 export const ecologiesPolaroidImages: IPolaroidImage[] = [
 	{
-		image: ecologiesPolaroidThree,
-		quote: 'Water has a fascinating duality'
+		image: ecologiesPolaroidOne,
+		quote: 'Different types of water evoke different emotions and mental images'
 	},
+
 	{
 		image: joaquinaPolaroidTwo,
 		quote: 'It’s both a real-world element'
 	},
 	{
-		image: ecologiesPolaroidFour,
-		quote: 'And a powerful symbol in our collective imagination'
+		image: ecologiesPolaroidThree,
+		quote: 'Water has a fascinating duality'
 	},
 	{
-		image: ecologiesPolaroidOne,
-		quote: 'Different types of water evoke different emotions and mental images'
+		image: ecologiesPolaroidFour,
+		quote: 'And a powerful symbol in our collective imagination'
 	}
 ];
 
 export const ecologiesPolaroidImagesTwo: IPolaroidImage[] = [
-	{ image: imageOne, quote: 'I seek to relax the person with a looping landscape' },
-	{ image: imageTwo, quote: 'I work a lot with light.' },
-	{ image: imageThree, quote: 'I always work in those hours that are a sunset or sunrise' },
-	{ image: imageFour, quote: 'where that landscape looks mysterious or as if it hides something.' }
+	{ image: imageOne, quote: 'I always work in those hours that are a sunset or sunrise' },
+	{ image: imageTwo, quote: 'where that landscape looks mysterious or as if it hides something.' },
+	{ image: imageThree, quote: 'I work a lot with light.' },
+	{ image: imageFour, quote: 'in that hour everything is bathed in a special color' }
 ];

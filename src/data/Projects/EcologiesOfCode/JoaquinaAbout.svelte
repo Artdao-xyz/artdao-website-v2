@@ -1,10 +1,17 @@
 <div class="flex flex-col gap-5">
 	<p>
-		Joaquina uses water as the central point of her environments to evoke states of contemplation.
-		Their work emphasizes creating contemplative and ambient experiences while collaborating with
-		sound design artists to give it more immersion. Drawing inspiration from water in many different
-		states and places in nature and how they associated each one with emotional states, using
-		real-world references as starting points for reinterpretations. The objective is to craft
-		environments that invite viewers to slow down and reflect.
+		Drawing inspiration from water's diverse forms in nature - from serene lakes to turbulent seas -
+		Joaquina crafts digital environments that serve as places for contemplation.
+	</p>
+	<p>
+		Whether capturing the reflective stillness of a lake or the raw energy of ocean waves, each
+		piece invites viewers to pause and reflect. This "slow media" approach encourages viewers to
+		step back from their frenetic daily lives and find moments of serenity.
+	</p>
+	<p>
+		Developing her work across wider collaborations with sound designers and physical installations,
+		Joaquina creates environments where soft visuals and calming sounds work in harmony with the
+		digital code the comprises them to open new pathways to meditating upon our contemporary
+		existence.
 	</p>
 </div>
