@@ -16,16 +16,12 @@
 		questions.forEach((question) => (question.selected = false));
 		questions[i].selected = true;
 		questions[i].responses[indexArtist].selected = true;
-		console.log('indexArtist', indexArtist);
-		console.log('indexQuestion', indexQuestion);
 	};
 
 	const handleOnClickArtist = (i: number) => {
 		indexArtist = i;
 		questions[indexQuestion].responses.forEach((response) => (response.selected = false));
 		questions[indexQuestion].responses[indexArtist].selected = true;
-		console.log('indexArtist', indexArtist);
-		console.log('indexQuestion', indexQuestion);
 	};
 </script>
 
@@ -68,7 +64,7 @@
 		</div>
 	{/if}
 
-	<div class="flex flex-row gap-[0.3125rem] h-[1.875rem] absolute bottom-28 right-11">
+	<div class="flex flex-row gap-[0.3125rem] h-[1.875rem] absolute bottom-9 right-11">
 		{#each questions as question, i}
 			<button
 				on:click={() => handleOnClickQuestion(i)}
