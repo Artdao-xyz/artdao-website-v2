@@ -10,20 +10,25 @@
 		polaroidPosition === EPolaroidPosition.TOP_LEFT
 			? `top-[20%] left-[10%] laptopM:left-[15%] macBook:left-[10%] laptopL:left-[25%] bigScreen:left-[10%] rotate-[-15deg]`
 			: polaroidPosition === EPolaroidPosition.TOP_RIGHT
-				? 'top-[20%] right-[15%] rotate-[15deg]'
+				? 'top-[20%] right-[6%] rotate-[15deg]'
 				: polaroidPosition === EPolaroidPosition.BOTTOM_LEFT
-					? 'top-[38%] right-[15%] rotate-[15deg]'
+					? 'top-[38%] right-[6%] rotate-[15deg]'
 					: 'top-[35%] left-[10%] laptopM:left-[15%] macBook:left-[10%] laptopL:left-[25%] bigScreen:left-[10%] rotate-[-15deg]';
 
 	const isOnlyImage = !polaroid.name && !polaroid.date;
+
+	let width: number;
 </script>
 
+<svelte:window bind:innerWidth={width} />
 <button
 	on:click
 	class="{isSelected
 		? 'z-40'
 		: 'z-0'} h-[40%] aspect-square bg-color-white p-5 flex flex-col gap-2.5 rounded-20
-		absolute cursor-pointer hover:scale-[101%] border border-color-black {positionClass}"
+		absolute cursor-pointer hover:scale-[101%] border border-color-black {positionClass} {width > 1669
+		? '!right-[25%]'
+		: ''}"
 >
 	<img
 		src={polaroid.image}

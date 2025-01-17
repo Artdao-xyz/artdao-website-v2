@@ -1,17 +1,16 @@
 <div class="flex flex-col gap-5">
 	<p>
-		Marcus found his artistic process driven by efficiency and the need to quickly convey
-		recognizable forms. However, with the integration of VR into his practice, he began to
-		experiment with how digital objects could evolve and interact in space, transforming his
-		approach to modeling and composition.
+		Before incorporating V.R in his work Marcus faced limitations when it comes to hardware. The
+		moment of sculpting wasn’t as pleasant as creating a scenario and the composition, however the
+		V.R came to change everything, offering a digital playground where manipulating 3D geometries
+		quickly become more joyful.
 	</p>
 	<p>
-		Digital matter becomes fluid, shaped and reshaped through time, with each element embodying both
-		its spatial presence and its potential for transformation creating a dynamic play between form
-		and time, allowing him to iterate, stretch, and manipulate objects in real time.
+		Re-shaping this digital material twisting, stretching, cutting, patching or rearranging creating
+		new elements for his artworks from the same origin.
 	</p>
 	<p>
-		His creative process now revolves around crafting intricate, imperfect volumes that exist as
-		placeholders for larger ideas.
+		The simplicity and fluidity of working with this medium transformed Marcus experience and
+		expanded the artistic expression enabling new forms to emerge and mutate.
 	</p>
 </div>

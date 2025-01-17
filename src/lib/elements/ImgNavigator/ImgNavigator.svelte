@@ -72,7 +72,7 @@
 	</div>
 
 	{#if aboutDropdownItems}
-		<AboutDropdown bind:aboutDropdown={aboutDropdownItems[index]} />
+		<AboutDropdown bind:aboutDropdown={aboutDropdownItems[index]} isWhite={isImageWhiteBg} />
 	{/if}
 </div>
 

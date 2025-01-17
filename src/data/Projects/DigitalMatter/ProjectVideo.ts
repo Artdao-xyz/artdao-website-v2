@@ -11,7 +11,7 @@ export const aeroVideo: IVideoProject[] = [
 	{
 		name: 'Subatomical Hi-tech',
 		artist: 'Sulkian',
-		year: '2024',
+		year: '2023',
 		videoUrl:
 			'https://storage.googleapis.com/videoszine/Digital%20Matter/SULKIAN/Subatomic%20Hi-Tech.mp4#t=0.1',
 		size: 'square'
@@ -24,6 +24,6 @@ export const parsaVideo: IVideoProject[] = [
 		artist: 'Parsa',
 		year: '2024',
 		videoUrl: 'https://storage.googleapis.com/videoszine/Digital%20Matter/PARSA/Parsa%20Wip(1).mp4',
-		size: 'vertical'
+		size: 'square'
 	}
 ];

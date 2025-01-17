@@ -24,7 +24,7 @@ export const sulkianAbout = {
 };
 
 export const parsaAbout = {
-	title: 'parsa',
+	title: 'parsa mostaghim',
 	subtitle: 'VR',
 	text: ParsaAbout
 };

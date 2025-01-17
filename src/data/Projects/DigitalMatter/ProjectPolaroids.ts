@@ -10,29 +10,29 @@ import type { IPolaroidImage } from '$lib/elements/Polaroids/interface';
 
 export const marcusPolaroidsImages: IPolaroidImage[] = [
 	{
-		image: marcusPolaroidsOne,
+		image: marcusPolaroidsTwo,
 		quote: "It's easy to play around with VR"
 	},
 	{
-		image: marcusPolaroidsThree,
+		image: marcusPolaroidsFour,
 		quote: 'Quickly create intricate, twisted, imperfect volumes'
 	},
 	{
-		image: marcusPolaroidsTwo,
+		image: marcusPolaroidsThree,
 		quote: 'Iterate, test positions, stretch and arrange, cut and patch'
 	},
 	{
-		image: marcusPolaroidsFour,
+		image: marcusPolaroidsOne,
 		quote: 'There is no work in which I do not use it'
 	}
 ];
 
 export const parsaPolaroidsImages: IPolaroidImage[] = [
 	{ image: parsaPolaroidsOne, quote: 'Digital mediums are like flying...' },
+	{ image: parsaPolaroidsFour, quote: 'I hope more people in the future realize this potential.' },
 	{ image: parsaPolaroidsTwo, quote: 'And physical mediums are like walking' },
-	{ image: parsaPolaroidsThree, quote: "It's that kind of freedom" },
 	{
-		image: parsaPolaroidsFour,
-		quote: 'Space took a really important shift in his artistic practice'
+		image: parsaPolaroidsThree,
+		quote: "It's that kind of freedom"
 	}
 ];

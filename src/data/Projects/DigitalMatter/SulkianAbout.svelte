@@ -1,17 +1,18 @@
 <div class="flex flex-col gap-5">
 	<p>
-		Sulkian redefines the relationship between traditional sculpture and digital creation through
-		the medium of virtual reality. Sculpting in VR feels akin to rediscovering the tactile
-		sensitivity of a pencil and hand, enabling a more organic and fluid approach compared to
-		traditional 3D modeling. This immersive experience not only restores a sense of sensitivity to
-		the process but also deepens his connection to the art of sculpture, allowing him to engage
-		directly with the matter.
+		Virtual Reality became a process of rediscovering the sensitivity of pencil and hand within a
+		digital context, offering a more organic and fluid way of creating and exploring new
+		possibilities.
 	</p>
 	<p>
-		Through this interaction, he can mold, enlarge, or reduce forms with his virtual hands, gaining
-		a richer understanding of topology and three-dimensionality. The reference to "Clay” when it
-		comes to sculpting in VR bridges the gap between organic, earthly materials and digital
-		constructs highlighting the harmonious relationship between traditional and technological
-		practices, presenting endless creative possibilities.
+		This process proved defining for his artistic practice, allowing him to connect with his
+		creations on a more profound level - coming face to face with them. The medium enables direct
+		contact with digital matter, letting him reshape and model it more versatilely and rapidly using
+		his virtual hands.
+	</p>
+	<p>
+		Sulkian views the intersection of organic, terrestrial matter with modeled digital materials as
+		a bridge between traditional and technological aspects of creation, opening up infinite creative
+		possibilities.
 	</p>
 </div>

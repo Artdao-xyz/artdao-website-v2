@@ -10,21 +10,20 @@ import type { IPolaroidImage } from '$lib/elements/Polaroids/interface';
 
 export const ecologiesPolaroidImages: IPolaroidImage[] = [
 	{
-		image: ecologiesPolaroidOne,
-		quote: 'Different types of water evoke different emotions and mental images'
-	},
-
-	{
-		image: joaquinaPolaroidTwo,
-		quote: 'It’s both a real-world element'
-	},
-	{
 		image: ecologiesPolaroidThree,
 		quote: 'Water has a fascinating duality'
 	},
 	{
 		image: ecologiesPolaroidFour,
 		quote: 'And a powerful symbol in our collective imagination'
+	},
+	{
+		image: joaquinaPolaroidTwo,
+		quote: 'It’s both a real-world element'
+	},
+	{
+		image: ecologiesPolaroidOne,
+		quote: 'Different types of water evoke different emotions and mental images'
 	}
 ];
 

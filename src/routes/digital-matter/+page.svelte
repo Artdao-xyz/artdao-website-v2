@@ -23,7 +23,10 @@
 		sulkianAbout,
 		sulkianAboutImages
 	} from '../../data/Projects/DigitalMatter/ProjectAbout';
-	import { marcusDropdownItems } from '../../data/Projects/DigitalMatter/ProjectAboutDropdown';
+	import {
+		marcusDropdownItems,
+		sulkianDropdownItems
+	} from '../../data/Projects/DigitalMatter/ProjectAboutDropdown';
 	import {
 		parsaArtworkImages,
 		parsaArtworkImages1,
@@ -38,7 +41,6 @@
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
-	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { digitalMatterNavStoreItems } from './store';
 
 	let size: number;
@@ -97,10 +99,6 @@
 		parsaArtworkImages2.map((item) => item.src),
 		parsaPolaroidsImages.map((item) => item.image)
 	]);
-
-	let refs = getProjectRefs(EProjects.DIGITAL_MATTER);
-
-	console.log('Refs', refs);
 </script>
 
 <svelte:window bind:innerWidth={size} />
@@ -185,7 +183,7 @@
 				images={sulkianImages}
 				route={''}
 				colorVariant={EColorVariant.BLACK}
-				aboutDropdownItems={undefined}
+				aboutDropdownItems={sulkianDropdownItems}
 				isImageWhiteBg
 			/>
 

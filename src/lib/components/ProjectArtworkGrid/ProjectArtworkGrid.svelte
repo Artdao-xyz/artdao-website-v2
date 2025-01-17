@@ -54,14 +54,14 @@
 	<div
 		bind:this={container}
 		on:click={pointerScroll}
-		class="scroll-panel cursor-grabbing h-full !overflow-x-scroll flex flex-col gap-5 overflow-y-hidden justify-center flex-grow"
+		class="scroll-panel cursor-grabbing h-full !overflow-x-scroll flex flex-col gap-[50px] overflow-y-hidden justify-center flex-grow"
 	>
-		<div class="h-full flex items-center gap-5 max-h-[45%] flex-grow">
+		<div class="h-full flex items-center gap-[50px] max-h-[40%] flex-grow">
 			{#each imagesTop as imageTop}
 				<ArtworkContainer galleryImage={imageTop} {showDetails} />
 			{/each}
 		</div>
-		<div class="h-full flex items-center gap-5 max-h-[45%] flex-grow">
+		<div class="h-full flex items-center gap-[50px] max-h-[40%] flex-grow">
 			{#each imagesBottom as imageBottom}
 				<ArtworkContainer galleryImage={imageBottom} {showDetails} />
 			{/each}

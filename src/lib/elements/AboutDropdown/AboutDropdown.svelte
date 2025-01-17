@@ -7,6 +7,7 @@
 	import { type IAboutDropdown } from './interfaces';
 
 	export let aboutDropdown: IAboutDropdown;
+	export let isWhite = false;
 
 	let visible: boolean = false;
 
@@ -17,7 +18,11 @@
 	let isTransitionEnd = false;
 
 	const hasInfo =
-		aboutDropdown.about || aboutDropdown.date || aboutDropdown.link || aboutDropdown.location;
+		aboutDropdown.about ||
+		aboutDropdown.date ||
+		aboutDropdown.link ||
+		aboutDropdown.location ||
+		aboutDropdown.aboutArray;
 </script>
 
 <button
@@ -25,7 +30,9 @@
 	class="absolute z-40 top-5 laptopM:top-0 mt-[2.5%] {!hasInfo ? 'cursor-default' : ''} w-full"
 >
 	<div
-		class="flex flex-col gap-2.5 w-full sm:w-[20rem] rounded-20 gray-gradient p-5 absolute z-40 top-0 mt-[2.5%]"
+		class="flex flex-col gap-2.5 w-full sm:w-[20rem] rounded-20 {!isWhite
+			? 'gray-gradient'
+			: 'gray-gradient-2'} p-5 absolute z-40 top-0 mt-[2.5%]"
 	>
 		{#if aboutDropdown.artist}
 			<div class="flex flex-col items-start gap-[0.3125rem]">
@@ -131,7 +138,7 @@
 					<img src={dottedLine} alt="Dotted Line" />
 				{/if}
 
-				{#if aboutDropdown.about}
+				{#if aboutDropdown.about || aboutDropdown.aboutArray}
 					<div
 						class="flex flex-col gap-[0.5rem] justify-start items-start font-robotoMono font-light text-[12px] leading-[1.125rem] tracking-[0.0625rem] max-h-[25.5rem] {visible &&
 						isTransitionEnd
@@ -139,7 +146,15 @@
 							: ''}"
 					>
 						<p class="font-robotoMono">About</p>
-						<p class="text-left font-robotoMono">{aboutDropdown.about}</p>
+						{#if aboutDropdown.about}
+							<p class="text-left font-robotoMono">{aboutDropdown.about}</p>
+						{/if}
+
+						{#if aboutDropdown.aboutArray}
+							{#each aboutDropdown.aboutArray as array}
+								<p class="text-left font-robotoMono max-w-[265px]">{array}</p>
+							{/each}
+						{/if}
 					</div>
 				{/if}
 			</div>
