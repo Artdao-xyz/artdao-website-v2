@@ -1,4 +1,5 @@
 <script lang="ts">
+	import dottedLine from '$lib/assets/images/dotted-line-black.webp';
 	import type { IFilteredQuestions } from '../../../data/Projects/EcologiesOfCode/ProjectInterview';
 
 	export let questions: IFilteredQuestions[];
@@ -50,6 +51,8 @@
 			</button>
 		{/each}
 	</div>
+
+	<img src={dottedLine} alt="Dotted Line" class="w-full" />
 
 	{#if selectedResponse}
 		<div
