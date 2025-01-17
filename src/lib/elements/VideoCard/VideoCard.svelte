@@ -106,7 +106,7 @@
 							? 'ml-[-1.125rem]'
 							: ''} {video.name === videoProject.name || i === videoProjectIndex + 1
 							? 'visible'
-							: 'hidden'} transition-all duration-300"
+							: 'hidden'} transition-all duration-300 shadow-xl"
 						style={`z-index: ${videoProjects.length - i};`}
 					>
 						<source src={video.videoUrl} type="video/mp4" />

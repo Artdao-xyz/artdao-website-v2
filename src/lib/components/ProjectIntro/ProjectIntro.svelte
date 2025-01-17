@@ -18,7 +18,7 @@
 
 <SectionContainer hasPadding={false} isOverflow={false}>
 	<div
-		class="w-full {height > 850 && width < 1100
+		class="w-full {height > 750 && width < 1100
 			? 'h-screen'
 			: 'pb-[10rem]'} flex flex-row pt-[4.5rem] gap-28 {bgImage
 			? `${isContain && width > 1100 ? 'sm:bg-contain' : 'bg-cover'} bg-fit bg-no-repeat sm:h-full bg-color-black`
