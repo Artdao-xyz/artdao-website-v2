@@ -43,7 +43,9 @@
 		isVisible = false;
 		subheader = undefined;
 	}}
-	class="snap-end w-full h-fit md:h-screen bg-color-black flex flex-col justify-between py-[1.25rem] px-[2.5rem] !z-50"
+	class="snap-end w-full {width < 768
+		? 'h-screen'
+		: 'h-fit'} md:h-screen bg-color-black flex flex-col justify-between py-[1.25rem] px-[2.5rem] !z-50"
 >
 	<div
 		class="font-clash text-[24px] md:text-[2.5rem] leading-[2.8125rem] mx-auto mt-[2rem] md:mt-[4rem]"
@@ -61,7 +63,7 @@
 			: 'flex-col mt-[-1rem]'} items-center justify-center gap-[1.1875rem] md:gap-[2.5rem]"
 	>
 		{#each refs as ref}
-			<button class="relative group w-[180px] md:w-[14.1875rem] md:h-[14.1875rem]">
+			<button class="relative group w-[180px] lg:w-[14.1875rem] lg:h-[14.1875rem]">
 				<a href={projectsDetails.find((project) => project.name === ref)?.url}>
 					<img
 						src={width > 768
@@ -97,7 +99,7 @@
 
 	<div
 		class="{width < 768
-			? 'h-full mt-[3.25rem]'
+			? 'mt-[3.25rem]'
 			: 'w-full'} flex flex-row justify-between relative font-robotoMono leading-snug tracking-tight font-normal text-[0.875rem] mb-[18px] w-full gap-2.5"
 	>
 		<div class="w-full">
