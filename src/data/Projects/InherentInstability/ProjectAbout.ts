@@ -1,11 +1,12 @@
-import nicoAbout03 from '$lib/assets/images/projects/inherentInstability/2BECBBE5-176D-4D72-8363-36CC116205A2.JPG_1.webp';
-import elbiAbout02 from '$lib/assets/images/projects/inherentInstability/GNGJJvZX0AAHAOx.webp';
-import elbiAbout03 from '$lib/assets/images/projects/inherentInstability/GV604_rWAAABVEQ.webp';
-import nicoAbout01 from '$lib/assets/images/projects/inherentInstability/IMG_0061_2.JPG_1.webp';
+import elbiAbout01 from '$lib/assets/images/projects/inherentInstability/elbi-about-1-compressed.webp';
+import elbiAbout02 from '$lib/assets/images/projects/inherentInstability/elbi-about-2-compressed.webp';
+import elbiAbout03 from '$lib/assets/images/projects/inherentInstability/elbi-about-3-compressed.webp';
 import inaAbout02 from '$lib/assets/images/projects/inherentInstability/IMG_4977_1.webp';
-import nicoAbout02 from '$lib/assets/images/projects/inherentInstability/IMG_9143.HEIC_1.webp';
 import inaAbout01 from '$lib/assets/images/projects/inherentInstability/IMG_Navigator.webp';
-import elbiAbout01 from '$lib/assets/images/projects/inherentInstability/studioselfie_1.webp';
+import inaAbout03 from '$lib/assets/images/projects/inherentInstability/ina-about-3-compressed.webp';
+import nicoAbout01 from '$lib/assets/images/projects/inherentInstability/nico-about-1-compressed.webp';
+import nicoAbout02 from '$lib/assets/images/projects/inherentInstability/nico-about-2-compressed.webp';
+import nicoAbout03 from '$lib/assets/images/projects/inherentInstability/nico-about-3-compressed.webp';
 import ElbiAbout from './ElbiAbout.svelte';
 import InaVareAbout from './InaVareAbout.svelte';
 import NicoAbout from './NicoAbout.svelte';
@@ -16,7 +17,7 @@ export const inaVareAbout = {
 	text: InaVareAbout
 };
 
-export const inaVareAboutImages = [inaAbout01, inaAbout02];
+export const inaVareAboutImages = [inaAbout01, inaAbout02, inaAbout03];
 
 export const elbiAbout = {
 	title: 'elbi',

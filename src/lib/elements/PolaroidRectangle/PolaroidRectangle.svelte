@@ -22,7 +22,7 @@
 	on:click
 	class="{isSelected
 		? 'z-40'
-		: 'z-0'} h-[35%] laptopM:h-[40%] w-[65%] laptopL:w-[60%] bigScreen:h-[35%] bigScreen:w-[60%] bg-color-white p-5 flex flex-col gap-2.5 rounded-20
+		: 'z-0'} h-[40%] laptopM:h-[40%] w-[65%] laptopL:w-[60%] bigScreen:h-[40%] bigScreen:w-[60%] bg-color-white p-5 flex flex-col gap-2.5 rounded-20
 		absolute cursor-pointer hover:scale-[101%] border border-color-black {positionClass} "
 >
 	<img

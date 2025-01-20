@@ -16,13 +16,15 @@
 					: 'top-[35%] left-[3%] rotate-[-15deg]';
 
 	const isOnlyImage = !polaroid.name && !polaroid.date;
+
+	// laptopM:w-[40%] laptopL:w-[35%] laptopL:h-[60%] bigScreen:h-[65%] bigScreen:w-[40%]
 </script>
 
 <button
 	on:click
 	class="{isSelected
 		? 'z-40'
-		: 'z-0'} h-[60%] w-[45%] laptopM:w-[40%] laptopL:w-[35%] laptopL:h-[60%] bigScreen:h-[60%] bigScreen:w-[40%] bg-color-white p-5 flex flex-col gap-2.5 rounded-20
+		: 'z-0'} h-[60%] w-[45%] bg-color-white p-5 flex flex-col gap-2.5 rounded-20
 		absolute cursor-pointer hover:scale-[101%] border border-color-black {positionClass}"
 >
 	<img

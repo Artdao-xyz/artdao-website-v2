@@ -154,8 +154,6 @@
 		>
 			<ProjectAbout aboutItem={inaVareAbout} aboutImages={images[2]} route="" />
 
-			<ProjectVideo videoProjects={inaVideo} />
-
 			{#if size > 1100}
 				<ProjectPolaroids
 					images={inaVarePolaroidsImages}
@@ -170,6 +168,8 @@
 			{:else}
 				<PolaroidsMobile polaroidImages={inaVarePolaroidsImages} route="ina-end" />
 			{/if}
+
+			<ProjectVideo videoProjects={inaVideo} />
 		</div>
 
 		<div
@@ -211,8 +211,6 @@
 		>
 			<ProjectAbout aboutItem={nicoAbout} aboutImages={images[5]} route="" />
 
-			<ProjectVideo videoProjects={nicoVideo} />
-
 			{#if size > 1100}
 				<ProjectPolaroids
 					images={nicoPolaroidsImages}
@@ -226,6 +224,8 @@
 			{:else}
 				<PolaroidsMobile polaroidImages={nicoPolaroidsImages} route="" />
 			{/if}
+
+			<ProjectVideo videoProjects={nicoVideo} />
 		</div>
 
 		<HomeIcon />

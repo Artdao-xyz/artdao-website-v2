@@ -41,7 +41,7 @@
 	let responseToShow: IFilteredResponse;
 </script>
 
-<div class="flex flex-col gap-[1.3125rem] laptopM:hidden w-full min-h-screen">
+<div class="flex flex-col gap-[1.3125rem] sm:hidden w-full min-h-screen pt-5">
 	{#each questions as question, i}
 		<div class="flex flex-col card rounded-20 w-full">
 			<button

@@ -153,6 +153,7 @@
 						EPolaroidType.RECTANGLE,
 						EPolaroidType.RECTANGLE
 					]}
+					viewImageFit="cover"
 				/>
 			{:else}
 				<PolaroidsMobile polaroidImages={ecologiesPolaroidImages} route="joaquina-end" />

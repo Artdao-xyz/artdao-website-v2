@@ -1,22 +1,13 @@
 <div class="flex flex-col gap-5">
 	<p>
-		INA VARE is drawn to working with analog machines because their physical nature and inherent
-		unpredictability excite her in ways that digital work does not. Analog video technology feels
-		alive it’s like working with natural elements such as waves, and it engages her dynamic
-		conversation with the medium.
+		Captivated by the unpredictability of what we know as analog, Ina’s work embraces the
+		imperfections and physicality of old technology. Drawing upon its natural instability to explore
+		deeply personal themes.
 	</p>
 	<p>
-		The artistic productions are very personal, exploring themes like love, nature, glitches, female
-		empowerment, and performance art, often featuring herself on the videos. She aims to create
-		multi-layered works that provoke questions rather than provide answers.
-	</p>
-	<p>
-		They value the synergy between digital and analog mediums, using digital tools to showcase her
-		analog creations and bring them to platforms like the blockchain to blend the bridge between
-		what’s obsolete and contemporary.
-	</p>
-	<p>
-		She finds endless new possibilities in connecting old equipment, and her preference for vintage
-		materials aligns with her fascination with history and its connection to the future.
+		While her art begins and ends digitally, the process happens in the unpredictable, tactile space
+		of merging analog and digital. Using VHS players, circuit-bent video processors and camcorders
+		to create visually layered works. Bridging history with present dialogues of the self to
+		reimagine its current possibilities.
 	</p>
 </div>

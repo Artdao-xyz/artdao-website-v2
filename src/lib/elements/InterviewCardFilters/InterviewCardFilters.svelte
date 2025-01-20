@@ -4,18 +4,19 @@
 
 	export let questions: IFilteredQuestions[];
 	let indexQuestion: number = 0;
-	let indexArtist: number = 0;
+	$: indexArtist = 0;
 	$: responses = questions[indexQuestion].responses;
-	$: percentage = 100 / questions.length;
 	$: selectedResponse = responses.find((response) => response.selected === true);
 	questions[indexQuestion].selected = true;
-	questions[indexQuestion].responses[indexArtist].selected = true;
+	questions[indexQuestion].responses[indexArtist ?? 0].selected = true;
 
 	const handleOnClickQuestion = (i: number) => {
 		indexQuestion = i;
 		questions.forEach((question) => (question.selected = false));
 		questions[i].selected = true;
 		questions[i].responses[indexArtist].selected = true;
+		questions[indexQuestion].responses.forEach((response) => (response.selected = false));
+		questions[indexQuestion].responses[indexArtist].selected = true;
 	};
 
 	const handleOnClickArtist = (i: number) => {
@@ -26,7 +27,7 @@
 </script>
 
 <div
-	class="hidden cardBlur w-card-width-full-bg h-card-height rounded-40 px-[40px] pt-[80px] laptopM:flex flex-col gap-5 bg-color-interview-card text-color-black mx-auto max-h-[49.6875rem] mt-[4%]"
+	class="hidden cardBlur w-card-width-full-bg h-card-height rounded-40 px-[40px] pt-[80px] sm:flex flex-col gap-5 bg-color-interview-card text-color-black mx-auto max-h-[49.6875rem] mt-[4%]"
 >
 	<h2
 		class="w-full font-semibold leading-[2.8125rem] font-clash text-[2.5rem] overflow-y-auto flex-shrink-0"
