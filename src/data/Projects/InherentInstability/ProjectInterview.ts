@@ -80,7 +80,7 @@ export const inherentQuestions: IFilteredQuestions[] = [
 			{
 				artist: 'Elbi',
 				response: [
-					"I like how wide the possibilities are when you unite both. I've been mainly minting on Tezos since the early Hic Et Nunc days (2021). I still post a lot of work on objkt, but since last year, I believe Zora has become my main chain.",
+					'I got a Game Boy Camera about 3-4 years ago. It was something I had always dreamed of having as a kid, and the desire to have it grew as I got older and started collecting retro game stuff. At first, I bought it just to play games, but when I realized that I could use the SNES to play with photos taken with the Game Boy and then digitize them on my computer, I really saw great potential for making art with it. ',
 					'I think that working with analog video/glitch art already brings a concept to itself. Mostly about the evolution of the artistic mediums, almost like a nostalgic journey through technology.'
 				],
 				selected: false
