@@ -41,7 +41,6 @@
 	on:inview_leave={() => {
 		isFooterVisible.set(false);
 		isVisible = false;
-		subheader = undefined;
 	}}
 	class="snap-end w-full {width < 768
 		? 'h-screen'
