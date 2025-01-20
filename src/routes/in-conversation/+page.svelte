@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Loading from '$lib/components/Loading/Loading.svelte';
-	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
@@ -40,14 +39,6 @@
 				inConversationNavStoreItems,
 				inConversationNavItems,
 				inConversationNavItems[1].route
-			);
-		}
-
-		if (exhibitionIsInView) {
-			updateNavBar(
-				inConversationNavStoreItems,
-				inConversationNavItems,
-				inConversationNavItems[2].route
 			);
 		}
 	};
@@ -114,28 +105,6 @@
 			}}
 		>
 			<ProjectVideo videoProjects={inConversationVideo} route="interview" />
-		</div>
-
-		<div
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				exhibitionIsInView = inView;
-			}}
-			on:inview_enter={(event) => {
-				const { inView } = event.detail;
-				exhibitionIsInView = inView;
-			}}
-			on:inview_leave={(event) => {
-				const { inView } = event.detail;
-				exhibitionIsInView = inView;
-			}}
-		>
-			<ProjectAboutDropdown
-				images={images[1]}
-				aboutDropdownItems={inConversationDropdownItems}
-				route="exhibition"
-			/>
 		</div>
 
 		<HomeIcon />

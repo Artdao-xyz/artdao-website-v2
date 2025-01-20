@@ -10,10 +10,5 @@ export const inConversationNavItems: INavBarItem[] = [
 		text: 'Interview',
 		route: 'interview',
 		selected: false
-	},
-	{
-		text: 'Exhibition',
-		route: 'exhibition',
-		selected: false
 	}
 ];

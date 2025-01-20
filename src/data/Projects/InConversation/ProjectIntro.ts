@@ -4,7 +4,8 @@ import bgImageMobile from '$lib/assets/images/projects/inConversation/operator-c
 export const inConversationProjectIntro = {
 	name: 'interview with operator',
 	description: [
-		"As part of the Intertwined’s talks “Art in the Age of Technology” during NFC Lisbon, a compelling dialogue unfolded between Jeff Davis and the artistic duo Operator: Ania Catherine and Dejha. Their conversation explored various themes, from the collective's creative process to the evolution of technology, its potential for artist practice and connecting technology with human bodies and the expanding horizons of AI."
+		'As part of Intertwined’s series of talks “Art in the Age of Technology”, Jeff Davis sat down for an intimate conversation with the artistic duo Operator: Ania Catherine and Dejha.',
+		'The conversation explored the collective’s creative process and conceptual grounding for the Human Unreadable collection. How they came to develop their method of ‘onchain choreography’ and how technology can form works of art that stand in their own right against the grain of ‘tech demos’.'
 	],
 	bgImage,
 	bgImageMobile
