@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
 	import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
@@ -6,8 +6,8 @@
 	import { HOME } from '../../../constants/routes';
 	import MetaSymbol from '../../../lib/components/Metaball/MetaSymbol';
 
-	let canvas = null;
-	let metaSymbol = null;
+	let canvas: any = null;
+	let metaSymbol: any = null;
 
 	const scene = new THREE.Scene();
 
@@ -114,7 +114,7 @@
 	/**
 	 * @type {any}
 	 */
-	let width;
+	let width: number;
 </script>
 
 <svelte:window bind:innerWidth={width} />
