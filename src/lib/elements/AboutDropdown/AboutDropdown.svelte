@@ -140,7 +140,9 @@
 
 				{#if aboutDropdown.about || aboutDropdown.aboutArray}
 					<div
-						class="flex flex-col gap-[0.5rem] justify-start items-start font-robotoMono font-light text-[12px] leading-[1.125rem] tracking-[0.0625rem] max-h-[25.5rem] {visible &&
+						class="flex flex-col {aboutDropdown.aboutArray
+							? 'gap-0'
+							: 'gap-[0.5rem]'} justify-start items-start font-robotoMono font-light text-[12px] leading-[1.125rem] tracking-[0.0625rem] max-h-[25.5rem] {visible &&
 						isTransitionEnd
 							? 'overflow-y-auto'
 							: ''}"
@@ -151,9 +153,11 @@
 						{/if}
 
 						{#if aboutDropdown.aboutArray}
-							{#each aboutDropdown.aboutArray as array}
-								<p class="text-left font-robotoMono max-w-[265px]">{array}</p>
-							{/each}
+							<div class="pt-[0.5rem]">
+								{#each aboutDropdown.aboutArray as array}
+									<p class="text-left font-robotoMono max-w-[265px]">{array}</p>
+								{/each}
+							</div>
 						{/if}
 					</div>
 				{/if}
