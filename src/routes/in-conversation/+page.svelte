@@ -13,7 +13,6 @@
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
-	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { inConversationNavStoreItems } from './store';
 
 	let size: number;
@@ -47,10 +46,6 @@
 		[inConversationProjectIntro.bgImage, inConversationProjectIntro.bgImageMobile],
 		inConversationDropdownItems.map((item) => item.image)
 	]);
-
-	let refs = getProjectRefs(EProjects.IN_CONVERSATION);
-
-	console.log('Refs', refs);
 </script>
 
 <svelte:window bind:innerWidth={size} />

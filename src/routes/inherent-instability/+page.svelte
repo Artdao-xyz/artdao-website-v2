@@ -35,7 +35,6 @@
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
-	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { inherentInstabilityNavStoreItems } from './store';
 
 	let size: number;
@@ -92,10 +91,6 @@
 		nicoAboutImages,
 		nicoPolaroidsImages.map((item) => item.image)
 	]);
-
-	let refs = getProjectRefs(EProjects.INHERENT_INSTABILITY);
-
-	console.log('Refs', refs);
 </script>
 
 <svelte:window bind:innerWidth={size} />
