@@ -18,7 +18,7 @@
 			: colorVariant === EColorVariant.BLACK
 				? 'bg-color-black'
 				: 'bg-color-gray-background'} {hasPadding ? 'p-global-padding' : ''}"
-	style="background-image: url({bgImage});"
+	style={bgImage ? `background-image: url(${bgImage});` : ''}
 >
 	<slot />
 </div>

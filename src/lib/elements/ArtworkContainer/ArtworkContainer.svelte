@@ -12,7 +12,7 @@
 	<img src={image} alt="Gallery" class="w-auto {showDetails ? 'h-[85%]' : 'h-full'} object-cover" />
 	{#if showDetails}
 		<div
-			class="max-h-[20%] flex flex-col text-color-black font-robotoMono text-[10px] font-semibold leading-4 bigScreen:leading-6"
+			class="max-h-[20%] flex flex-col text-color-black font-robotoMono text-[10px] font-semibold leading-4"
 		>
 			<p>{name}</p>
 			<p>{description}</p>
