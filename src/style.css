@@ -168,8 +168,10 @@
 		background: #555 !important;
 	}
 }
+html {
+	background-color: #1e1e1e;
+}
 
 body {
-	color: #ffffff;
 	background-color: #1e1e1e;
 }

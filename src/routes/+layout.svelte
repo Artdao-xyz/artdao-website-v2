@@ -7,5 +7,5 @@
 	<title>ArtDao</title>
 </svelte:head>
 
-<Metaball />
+<!-- <Metaball /> -->
 <slot />
