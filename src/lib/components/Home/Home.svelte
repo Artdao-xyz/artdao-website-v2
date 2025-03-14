@@ -35,15 +35,15 @@
     <div class="h-20 relative flex justify-between items-center sm:hidden pt-2 px-4">
         <Metaball/>
         <div class="glass-gradient px-3.5 h-14 inline-flex justify-start items-center gap-2.5 z-20">
-            <button><img src="src/lib/assets/images/home/icons/world.svg" alt=""></button>
-            <button><img src="src/lib/assets/images/home/icons/zine.svg" alt=""></button>
+            <button><img src="media/home/icons/world.svg" alt=""></button>
+            <button><img src="media/home/icons/zine.svg" alt=""></button>
         </div>
     </div>
 
     <!-- Top Bar mobile -->
     <div class="hidden sm:inline-flex glass-gradient fixed top-4 right-4 px-3.5 h-14 justify-start items-center gap-2.5 z-20">
-        <button><img src="src/lib/assets/images/home/icons/world.svg" alt=""></button>
-        <button><img src="src/lib/assets/images/home/icons/zine.svg" alt=""></button>
+        <button><img src="media/home/icons/world.svg" alt=""></button>
+        <button><img src="media/home/icons/zine.svg" alt=""></button>
     </div>
     <div class="hidden sm:inline-flex fixed bottom-4 right-4 z-50">
         <Metaball/>
