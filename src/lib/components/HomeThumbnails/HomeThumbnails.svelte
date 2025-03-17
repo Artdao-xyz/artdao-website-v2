@@ -15,7 +15,7 @@
 
 <main bind:this={homeThumbnails} class="flex-1 overflow-y-auto snap-y snap-mandatory snap-always w-full">
     {#each projects as {title, subtitle, description, thumbnailPath, ref}, index}
-        <section id={(index + 1).toString()} class="relative font-neue text-color-white min-h-[calc(100dvh-10rem)] h-[calc(100dvh-10rem)] sm:h-dvh sm:min-h-dvh w-full snap-start snap-always p-4 sm:p-8 tracking-wider">
+        <section id={(index + 1).toString()} class="relative font-neue text-color-white min-h-[calc(100dvh-10rem)] h-[calc(100dvh-10rem)] sm:h-dvh sm:min-h-dvh w-full snap-start snap-always p-4 sm:pl-0 sm:pr-8 sm:py-8 tracking-wider">
             <a href={ref} class="relative w-full h-full flex flex-col justify-between flex-shrink-0 p-2 sm:p-8">
                 <img draggable="false" class="absolute top-0 left-0 w-full h-full object-cover rounded-20" src={thumbnailPath} alt="">
                 
