@@ -1,19 +1,39 @@
 <script lang="ts">
     import type { Project } from '../../../constants/projects';
+    import { onMount } from 'svelte';
     
     export let projects: Project[];
     export let selectedIndex: number;
     
+    let buttonsContainer: HTMLDivElement;
+
     function handleClick(index: number) {
-        // selectedIndex = index;
         document.getElementById((index + 1).toString())?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Watch for selectedIndex changes
+    $: if (buttonsContainer && selectedIndex !== undefined) {
+        const activeButton = buttonsContainer.children[selectedIndex] as HTMLElement;
+        if (activeButton) {
+            const offset = 200; // Adjust this value to control how much extra space you want
+            const isDesktop = window.innerWidth >= 640; // sm breakpoint
+
+            if (isDesktop) {
+                buttonsContainer.scrollTop = activeButton.offsetTop - offset;
+            } else {
+                buttonsContainer.scrollLeft = activeButton.offsetLeft - offset;
+            }
+        }
     }
 </script>
 
 <div class="h-24 sm:w-40 sm:h-screen flex sm:flex-col items-center justify-center sm:justify-between sm:sticky top-0">
-    <div class="h-full flex flex-row sm:flex-col items-center gap-4 overflow-x-auto sm:overflow-x-hidden sm:overflow-y-auto px-2 sm:px-8 pb-4 pt-2 sm:py-8 
+    <div 
+        bind:this={buttonsContainer}
+        class="h-full flex flex-row sm:flex-col items-center gap-4 overflow-x-auto sm:overflow-x-hidden sm:overflow-y-auto px-2 sm:px-8 pb-4 pt-2 sm:py-8 
         [mask-image:linear-gradient(to_right,transparent,black_4rem,black_calc(100%-4rem),transparent)] 
-        sm:[mask-image:linear-gradient(to_bottom,transparent,black_4rem,black_calc(100%-4rem),transparent)]">
+        sm:[mask-image:linear-gradient(to_bottom,transparent,black_4rem,black_calc(100%-4rem),transparent)]"
+    >
         {#each projects as {thumbnailPath}, index}
             <button 
                 class="flex-shrink-0 h-full sm:h-auto sm:w-full aspect-square rounded-128 overflow-hidden {selectedIndex === index ? 'border-2 sm:border-4 border-color-white' : ''}"
