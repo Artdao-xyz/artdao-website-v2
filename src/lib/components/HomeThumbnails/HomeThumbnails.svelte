@@ -21,7 +21,7 @@
                 
                 <div class="relative space-y-2 w-full sm:w-fit glass-gradient p-5 sm:p-8 rounded-20">
                     <h1 class="text-2xl sm:text-4xl font-semibold">{title}</h1>
-                    <h3 class="text-sm sm:text-base font-medium">{subtitle}</h3>
+                    <h3 class="text-sm sm:text-base font-medium font-roboto">{subtitle}</h3>
                 </div>
 
                 <h2 class="relative w-full sm:w-1/2 sm:max-w-xl text-sm sm:text-lg font-medium glass-gradient p-5 sm:p-8 rounded-20">
