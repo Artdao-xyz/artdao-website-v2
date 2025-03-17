@@ -15,22 +15,23 @@
     $: if (buttonsContainer && selectedIndex !== undefined) {
         const activeButton = buttonsContainer.children[selectedIndex] as HTMLElement;
         if (activeButton) {
-            const offset = 200; // Adjust this value to control how much extra space you want
             const isDesktop = window.innerWidth >= 640; // sm breakpoint
-
+            
             if (isDesktop) {
+                const offset = 200; // Adjust this value to control how much extra space you want
                 buttonsContainer.scrollTop = activeButton.offsetTop - offset;
             } else {
+                const offset = 75; // Adjust this value to control how much extra space you want
                 buttonsContainer.scrollLeft = activeButton.offsetLeft - offset;
             }
         }
     }
 </script>
 
-<div class="h-24 sm:w-40 sm:h-screen flex sm:flex-col items-center justify-center sm:justify-between sm:sticky top-0">
+<div class="h-20 sm:w-40 sm:h-screen flex sm:flex-col items-center justify-center sm:justify-between sm:sticky top-0">
     <div 
         bind:this={buttonsContainer}
-        class="h-full flex flex-row sm:flex-col items-center gap-4 overflow-x-auto sm:overflow-x-hidden sm:overflow-y-auto px-2 sm:px-8 pb-4 pt-2 sm:py-8 
+        class="h-full flex flex-row sm:flex-col items-center gap-4 overflow-x-auto sm:overflow-x-hidden sm:overflow-y-auto px-2 sm:px-8 pb-2 pt-2 sm:py-8 
         [mask-image:linear-gradient(to_right,transparent,black_4rem,black_calc(100%-4rem),transparent)] 
         sm:[mask-image:linear-gradient(to_bottom,transparent,black_4rem,black_calc(100%-4rem),transparent)]"
     >
