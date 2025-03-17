@@ -65,7 +65,7 @@ export const projects: Project[] = [
                 ref: "07"
         },
         {
-                title: "Rave",
+                title: "RAVE",
                 subtitle: "Higher Ground, lisbon | 05.31.2024",
                 description: "Exploring the intersection between digitally and the rave scene while examining how contemporary digital art inherits and transforms the rave culture through different communities.",
                 thumbnailPath: "media/home/thumbnails/08-home-rave.png",
