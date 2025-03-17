@@ -11,7 +11,7 @@
 </script>
 
 <div class="h-24 sm:w-40 sm:h-screen flex sm:flex-col items-center justify-center sm:justify-between sm:sticky top-0">
-    <div class="h-full flex flex-row sm:flex-col items-center gap-4 overflow-x-auto sm:overflow-x-hidden sm:overflow-y-auto px-4 pb-4 pt-2 sm:py-8 
+    <div class="h-full flex flex-row sm:flex-col items-center gap-4 overflow-x-auto sm:overflow-x-hidden sm:overflow-y-auto px-2 sm:px-8 pb-4 pt-2 sm:py-8 
         [mask-image:linear-gradient(to_right,transparent,black_4rem,black_calc(100%-4rem),transparent)] 
         sm:[mask-image:linear-gradient(to_bottom,transparent,black_4rem,black_calc(100%-4rem),transparent)]">
         {#each projects as {thumbnailPath}, index}
