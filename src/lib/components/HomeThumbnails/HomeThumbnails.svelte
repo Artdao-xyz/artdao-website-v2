@@ -15,16 +15,16 @@
 
 <main bind:this={homeThumbnails} class="flex-1 overflow-y-auto snap-y snap-mandatory snap-always w-full">
     {#each projects as {title, subtitle, description, thumbnailPath, ref}, index}
-        <section id={(index + 1).toString()} class="relative font-neue text-color-white min-h-[calc(100dvh-10rem)] h-[calc(100dvh-10rem)] sm:h-dvh sm:min-h-dvh w-full snap-start snap-always p-4 sm:p-8">
+        <section id={(index + 1).toString()} class="relative font-neue text-color-white min-h-[calc(100dvh-10rem)] h-[calc(100dvh-10rem)] sm:h-dvh sm:min-h-dvh w-full snap-start snap-always p-4 sm:pl-0 sm:pr-8 sm:py-8 tracking-wider">
             <a href={ref} class="relative w-full h-full flex flex-col justify-between flex-shrink-0 p-2 sm:p-8">
                 <img draggable="false" class="absolute top-0 left-0 w-full h-full object-cover rounded-20" src={thumbnailPath} alt="">
                 
-                <div class="relative space-y-2 w-full sm:w-1/3 glass-gradient p-5 sm:p-8 rounded-20">
-                    <h1 class="text-2xl sm:text-5xl font-semibold">{title}</h1>
-                    <h3 class="text-sm sm:text-lg font-medium">{subtitle}</h3>
+                <div class="relative space-y-2 w-full sm:w-fit glass-gradient p-5 sm:p-8 rounded-20">
+                    <h1 class="text-2xl sm:text-4xl font-semibold">{title}</h1>
+                    <h3 class="text-sm sm:text-base font-medium font-roboto">{subtitle}</h3>
                 </div>
 
-                <h2 class="relative w-full sm:w-1/2 text-sm sm:text-2xl font-medium glass-gradient p-5 sm:p-8 rounded-20">
+                <h2 class="relative w-full sm:w-1/2 sm:max-w-xl text-sm sm:text-lg font-medium glass-gradient p-5 sm:p-8 rounded-20">
                     {description}
                 </h2>
             </a>

@@ -11,7 +11,7 @@ export const projects: Project[] = [
         {
                 title: "Digital Matter",
                 subtitle: "Marcus3D, Sulkian & Parsa",
-                description: "Digital mediums are like flying and physical mediums is like walking. It's that kind of freedom.",
+                description: "“Digital mediums are like flying and physical mediums is like walking. It’s that kind of freedom.”",
                 thumbnailPath: "media/home/thumbnails/01-home-digital-matter.png",
                 buttonPath: "media/home/buttons/01-button-digital-matter.png",
                 ref: "01"
@@ -65,7 +65,7 @@ export const projects: Project[] = [
                 ref: "07"
         },
         {
-                title: "Rave",
+                title: "RAVE",
                 subtitle: "Higher Ground, lisbon | 05.31.2024",
                 description: "Exploring the intersection between digitally and the rave scene while examining how contemporary digital art inherits and transforms the rave culture through different communities.",
                 thumbnailPath: "media/home/thumbnails/08-home-rave.png",
