@@ -11,7 +11,7 @@ export const projects: Project[] = [
         {
                 title: "Digital Matter",
                 subtitle: "Marcus3D, Sulkian & Parsa",
-                description: "Digital mediums are like flying and physical mediums is like walking. It's that kind of freedom.",
+                description: "“Digital mediums are like flying and physical mediums is like walking. It’s that kind of freedom.”",
                 thumbnailPath: "media/home/thumbnails/01-home-digital-matter.png",
                 buttonPath: "media/home/buttons/01-button-digital-matter.png",
                 ref: "01"
