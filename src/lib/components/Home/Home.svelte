@@ -48,14 +48,11 @@
     <div class="hidden sm:inline-flex fixed bottom-4 right-4 z-50">
         <Metaball/>
     </div>
-
     <HomeThumbnails {projects} />
-
     <HomeButtons {projects} bind:selectedIndex />
 </div>
 
 <style>
-    /* Hide scrollbar but keep functionality */
     main {
         -ms-overflow-style: none;
         scrollbar-width: none;

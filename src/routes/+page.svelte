@@ -5,13 +5,11 @@
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import HomeImgRectV from '$lib/elements/HomeImgRectV/HomeImgRectV.svelte';
 	import HomeImgSquare from '$lib/elements/HomeImgSquare/HomeImgSquare.svelte';
-	import { homeImages, homeImagesMobile } from '../data/HomeImgLayout';
+	import { homeImages } from '../data/HomeImgLayout';
 	import preloadImages from '../utils/preloadImages';
 
 	const preloadedImages = preloadImages([
 		homeImages.map((project) => project.imageUrl),
-		homeImages.map((project) => project.hover),
-		homeImagesMobile.map((project) => project.hover)
 	]);
 </script>
 
