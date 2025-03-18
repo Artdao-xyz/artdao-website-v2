@@ -1,6 +1,5 @@
 <script lang="ts">
     import type { Project } from '../../../constants/projects';
-    import { onMount } from 'svelte';
     
     export let projects: Project[];
     export let selectedIndex: number;
