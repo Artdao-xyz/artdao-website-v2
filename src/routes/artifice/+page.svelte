@@ -10,12 +10,15 @@
 	import { EProjects } from '../../constants/enums';
 	import { artificeNavItems } from '../../data/Projects/Artifice/NavItems';
 	import {
-		furnitureAbout,
 		furnitureAboutImages,
 		kokoAbout,
 		kokoAboutImahges,
-		panelsAbout,
-		panelsAboutImages
+		panelsAboutImages,
+		rnaAbout,
+		rnaAboutImages,
+		oceanicWhispersAbout,
+		oceanicWhispersImages,
+		kokoExpoAboutImages,
 	} from '../../data/Projects/Artifice/ProjectAbout';
 	import {
 		psipsikokoDropdownItems,
@@ -32,9 +35,8 @@
 
 	let introIsInView: boolean;
 	let kokoIsInView: boolean;
-	let furnitureIsInView: boolean;
 	let panelsIsInView: boolean;
-
+	let videosIsInView: boolean;
 	let containerRef: any;
 
 	const handleOnScroll = () => {
@@ -48,11 +50,11 @@
 			updateNavBar(artificeNavStoreItems, artificeNavItems, artificeNavItems[1].route);
 		}
 
-		if (furnitureIsInView) {
+		if (panelsIsInView) {
 			updateNavBar(artificeNavStoreItems, artificeNavItems, artificeNavItems[2].route);
 		}
 
-		if (panelsIsInView) {
+		if (videosIsInView) {
 			updateNavBar(artificeNavStoreItems, artificeNavItems, artificeNavItems[3].route);
 		}
 	};
@@ -63,7 +65,10 @@
 		furnitureAboutImages,
 		psipsikokoDropdownItems.map((item) => item.image),
 		panelsAboutImages,
-		vernisaggeDropdownItems.map((item) => item.image)
+		vernisaggeDropdownItems.map((item) => item.image),
+		rnaAboutImages,
+		oceanicWhispersImages,
+		kokoExpoAboutImages
 	]);
 </script>
 
@@ -101,8 +106,7 @@
 				bgImage={images[0][0]}
 				bgImageMobile={images[0][1]}
 			/>
-
-			<ProjectVideo videoProjects={furnitureVideo} route="" />
+			<ProjectVideo videoProjects={afterEventVideo} route="" />
 		</div>
 
 		<div
@@ -124,34 +128,8 @@
 			<ProjectAbout aboutItem={kokoAbout} aboutImages={images[1]} route="" isImageLeft />
 		</div>
 
-		<div
-			id="furniture"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				furnitureIsInView = inView;
-			}}
-			on:inview_enter={(event) => {
-				const { inView } = event.detail;
-				furnitureIsInView = inView;
-			}}
-			on:inview_leave={(event) => {
-				const { inView } = event.detail;
-				furnitureIsInView = inView;
-			}}
-		>
-			<ProjectAbout
-				aboutItem={furnitureAbout}
-				aboutImages={images[2]}
-				route=""
-				isImageLeft={false}
-			/>
-
-			<ProjectAboutDropdown
-				images={images[3]}
-				aboutDropdownItems={psipsikokoDropdownItems}
-				route="furniture-end"
-			/>
+		<div>
+			<ProjectAboutDropdown images={kokoExpoAboutImages} aboutDropdownItems={psipsikokoDropdownItems} route="" />
 		</div>
 
 		<div
@@ -170,19 +148,44 @@
 				panelsIsInView = inView;
 			}}
 		>
-			<ProjectAbout aboutItem={panelsAbout} aboutImages={images[4]} route="" />
+			<ProjectAbout aboutItem={rnaAbout} aboutImages={rnaAboutImages} route="" />
+
+		</div>
+
+		<div
+		>
+			<!-- <ProjectAbout aboutItem={panelsAbout} aboutImages={images[4]} route="" /> -->
 
 			<ProjectAboutDropdown
-				images={images[5]}
+				images={images[4]}
 				aboutDropdownItems={vernisaggeDropdownItems}
 				route=""
 			/>
-
-			<ProjectVideo videoProjects={afterEventVideo} route="" />
 		</div>
 
-		<HomeIcon />
-		<Footer project={EProjects.ARTIFICE} />
+		<div>
+			<ProjectAbout aboutItem={oceanicWhispersAbout} aboutImages={oceanicWhispersImages} route="" />
+		</div>
+
+		<div id="videos"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				videosIsInView = inView;
+			}}
+			on:inview_enter={(event) => {
+				const { inView } = event.detail;
+				videosIsInView = inView;
+			}}
+			on:inview_leave={(event) => {
+				const { inView } = event.detail;
+				videosIsInView = inView;
+			}}
+		>
+			<ProjectVideo videoProjects={furnitureVideo} route="" />
+			<HomeIcon />
+			<Footer project={EProjects.ARTIFICE} />
+		</div>
 	</div>
 {/await}
 

@@ -23,55 +23,36 @@ export const psipsikokoDropdownItems: IAboutDropdown[] = [
 		name: 'Psipsikoko',
 		date: '28.05.24 - 30.05.24',
 		location: 'RnA Studio, Lisbon',
+		about: 'To recreate the Psipsikoko world’s atmosphere, the production team sourced materials from second-hand stores known for their chaotic organization—spaces where disorder shaped the foundation of an uncanny reality.',
 		image: psipsikoko01
 	},
 	{
 		name: 'Psipsikoko',
 		date: '28.05.24 - 30.05.24',
 		location: 'RnA Studio, Lisbon',
+		about: 'One particular store, resembling a basement, had furniture stacked in towering piles arranged haphazardly. Navigating through these cluttered spaces, felt like stepping into a surrealist world distant from what we know as reality.',
 		image: psipsikoko02
 	},
 	{
 		name: 'Psipsikoko',
 		date: '28.05.24 - 30.05.24',
 		location: 'RnA Studio, Lisbon',
+		about: 'Julian Brangold and Frenetik Void construct a seemingly ordinary yet uncanny living room—at first, a familiar and intimate setting, but reveals itself as an artificial construct.',
 		image: psipsikoko03
 	},
 	{
 		name: 'Psipsikoko',
 		date: '28.05.24 - 30.05.24',
 		location: 'RnA Studio, Lisbon',
+		about: 'This interplay creates a duality between reality and alienation, drawing viewers into an environment that feels welcoming but unsettling.',
 		image: psipsikoko04
 	},
 	{
 		name: 'Psipsikoko',
 		date: '28.05.24 - 30.05.24',
 		location: 'RnA Studio, Lisbon',
+		about: 'In an era where digital spaces continuously reshape perception, Psipsikoko challenges us to reconsider what defines the “real” and the “artificial”—and whether that distinction still holds meaning in a world of constructed realities.',
 		image: psipsikoko05
-	},
-	{
-		name: 'Psipsikoko',
-		date: '28.05.24 - 30.05.24',
-		location: 'RnA Studio, Lisbon',
-		image: psipsikoko06
-	},
-	{
-		name: 'Psipsikoko',
-		date: '28.05.24 - 30.05.24',
-		location: 'RnA Studio, Lisbon',
-		image: psipsikoko07
-	},
-	{
-		name: 'Psipsikoko',
-		date: '28.05.24 - 30.05.24',
-		location: 'RnA Studio, Lisbon',
-		image: psipsikoko08
-	},
-	{
-		name: 'Psipsikoko',
-		date: '28.05.24 - 30.05.24',
-		location: 'RnA Studio, Lisbon',
-		image: psipsikoko09
 	}
 ];
 
@@ -80,54 +61,35 @@ export const vernisaggeDropdownItems: IAboutDropdown[] = [
 		name: 'Vernisagge',
 		date: '28.05.24 - 30.05.24',
 		location: 'RnA Studio, Lisbon',
-		image: vernisagge01
+		image: vernisagge01,
+		about: 'As part of the Artifice event, in collaboration with Refraction, Zora, Optimism, Muro Digitial and Mulabs a set of talks were curated to discuss Digital Art, A.I and Community taking place at RNA Studios in Lisbon alongside Artists, Curators and Platforms.'
 	},
 	{
 		name: 'Vernisagge',
 		date: '28.05.24 - 30.05.24',
 		location: 'RnA Studio, Lisbon',
-		image: vernisagge02
+		image: vernisagge02,
+		about: 'We invited artists Dimitri De Jonghe, 204nocontent.AI, Crosslucid, HuggingFace, Apolinário to rethink and discuss the decentralization of A.I and how web3 impact their carreers.'
 	},
 	{
 		name: 'Vernisagge',
 		date: '28.05.24 - 30.05.24',
 		location: 'RnA Studio, Lisbon',
-		image: vernisagge03
+		image: vernisagge03,
+		about: 'Gianluca from Muro and Xico from MuLabs alongside Pauline Foessel from 100Collectors and Carlotta Premazzi discussing “D-Art as a Tool for Wellness and Sensorial Design”.'
 	},
 	{
 		name: 'Vernisagge',
 		date: '28.05.24 - 30.05.24',
 		location: 'RnA Studio, Lisbon',
-		image: vernisagge04
+		image: vernisagge04,
+		about: 'Zak Krevitt from Zora, Eiman representing Crowdmuse, Mo from Ledger and Superchief Gallery discussing the possibilities of “Building culture in a Digital Age.”'
 	},
 	{
 		name: 'Vernisagge',
 		date: '28.05.24 - 30.05.24',
 		location: 'RnA Studio, Lisbon',
-		image: vernisagge05
-	},
-	{
-		name: 'Vernisagge',
-		date: '28.05.24 - 30.05.24',
-		location: 'RnA Studio, Lisbon',
-		image: vernisagge06
-	},
-	{
-		name: 'Vernisagge',
-		date: '28.05.24 - 30.05.24',
-		location: 'RnA Studio, Lisbon',
-		image: vernisagge07
-	},
-	{
-		name: 'Vernisagge',
-		date: '28.05.24 - 30.05.24',
-		location: 'RnA Studio, Lisbon',
-		image: vernisagge08
-	},
-	{
-		name: 'Vernisagge',
-		date: '28.05.24 - 30.05.24',
-		location: 'RnA Studio, Lisbon',
-		image: vernisagge09
+		image: vernisagge05,
+		about: 'Cintia from 204nocontent.ai204, Avishag, Josh (TF) and the Artist OONA hosting a discussing about Art & Community.'
 	}
 ];
