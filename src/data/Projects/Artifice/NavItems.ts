@@ -7,18 +7,18 @@ export const artificeNavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
-		text: 'Ko Ko ??',
+		text: 'Psipsikoko?!',
 		route: 'koko',
 		selected: false
 	},
 	{
-		text: 'Furniture Searchi',
-		route: 'furniture',
+		text: 'Panels',
+		route: 'panels',
 		selected: false
 	},
 	{
-		text: 'Panels & Exhibition',
-		route: 'panels',
+		text: 'Artifice Videos',
+		route: 'videos',
 		selected: false
 	}
 ];
