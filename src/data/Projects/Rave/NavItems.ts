@@ -7,13 +7,13 @@ export const raveNavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
-		text: 'Artists & Artworks',
-		route: 'artists',
+		text: 'Digital Rave',
+		route: 'digital-rave',
 		selected: false
 	},
 	{
-		text: 'Event & After Party',
-		route: 'event',
+		text: 'Artworks',
+		route: 'artworks',
 		selected: false
 	}
 ];

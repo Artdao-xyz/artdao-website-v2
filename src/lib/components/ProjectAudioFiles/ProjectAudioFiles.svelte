@@ -34,7 +34,7 @@
 	>
 		{#if title}
 			<h1
-				class="hidden laptopM:block px-[1%] text-color-black text-[3.5rem] xlScreen:text-[5rem] font-semibold leading-[5rem] tracking-[0.065rem] w-[65%] font-neue text-center"
+				class="hidden laptopM:block px-[1%] text-color-black text-[3.5rem] xlScreen:text-[5rem] font-semibold leading-[3rem] tracking-[0.065rem] w-[65%] font-neue text-center"
 			>
 				{title}
 			</h1>
