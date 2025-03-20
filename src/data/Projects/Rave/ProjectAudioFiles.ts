@@ -10,14 +10,14 @@ export const raveAudioFiles: IAudioItem[] = [
 		songYear: '2024',
 		artistImage: artistOne,
 		songImage: songImage,
-		songFile: 'https://storage.cloud.google.com/artdao-files/videos/Gods_Offline_-_Proxy_Fae.mov'
+		songFile: "https://storage.googleapis.com/videoszine/Rave/AUDIO%20VIDEOS/God's%20Offline.mp4",
 	},
 	{
 		artist: 'Proxy Fae',
-		songName: 'Blinded',
+		songName: '6. Blinded',
 		songYear: '2024',
 		artistImage: artistTwo,
 		songImage: songImage,
-		songFile: 'https://storage.cloud.google.com/artdao-files/videos/BLINDED_PROXY_FAE.mov'
+		songFile: 'https://storage.googleapis.com/videoszine/Rave/AUDIO%20VIDEOS/Blinded.mp4'
 	}
 ];

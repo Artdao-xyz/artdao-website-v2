@@ -27,10 +27,13 @@
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { raveNavStoreItems } from './store';
+	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
+	import { raveAbout, findingNewLifeAboutImages, digitalRaveAbout, digitalRaveAboutImages, mixingWorldsAbout, mixingWorldsAboutImages } from '../../data/Projects/Rave/about';
+	import { EColorVariant } from '../../constants/enums';
 
 	let introIsInView: boolean;
-	let artistsIsInView: boolean;
-	let eventIsInView: boolean;
+	let digitalRaveIsInView: boolean;
+	let artworksIsInView: boolean;
 
 	let containerRef: any;
 
@@ -41,17 +44,18 @@
 			updateNavBar(raveNavStoreItems, raveNavItems, raveNavItems[0].route);
 		}
 
-		if (artistsIsInView) {
+		if (digitalRaveIsInView) {
 			updateNavBar(raveNavStoreItems, raveNavItems, raveNavItems[1].route);
 		}
 
-		if (eventIsInView) {
+		if (artworksIsInView) {
 			updateNavBar(raveNavStoreItems, raveNavItems, raveNavItems[2].route);
 		}
 	};
 
 	const preloadedImages = preloadImages([
 		[raveProject.bgImage, raveProject.bgImageMobile],
+		findingNewLifeAboutImages,
 		raveAboutDropdopwnItems.map((image) => image.image),
 		performanceDropdownItems.map((item) => item.image),
 		raveAboutDropdopwnItemsTwo.map((item) => item.image)
@@ -68,6 +72,7 @@
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<div
+			id="intro"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
@@ -88,65 +93,83 @@
 				bgImage={images[0][0]}
 				bgImageMobile={images[0][1]}
 			/>
+			<ProjectAbout
+				aboutItem={raveAbout}
+				aboutImage={images[1][0]}
+				route=""
+				colorVariant={EColorVariant.BLACK}
+				isImageLeft={true}
+			/>
+			<ProjectVideo videoProjects={[afterPartyVideo]} />
 		</div>
 
-		<div
+		<div 
+			id="digital-rave"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
-				artistsIsInView = inView;
+				digitalRaveIsInView = inView;
 			}}
 			on:inview_enter={(event) => {
 				const { inView } = event.detail;
-				artistsIsInView = inView;
+				digitalRaveIsInView = inView;
 			}}
 			on:inview_leave={(event) => {
 				const { inView } = event.detail;
-				artistsIsInView = inView;
+				digitalRaveIsInView = inView;
 			}}
 		>
-			<ProjectAboutDropdown
-				images={images[1]}
-				aboutDropdownItems={raveAboutDropdopwnItems}
-				route={raveNavItems[1].route}
+			<ProjectAbout
+				aboutItem={digitalRaveAbout}
+				aboutImages={digitalRaveAboutImages}
+				route=""
+				colorVariant={EColorVariant.BLACK}
+				isImageLeft={true}
 			/>
-
 			<ProjectVideo videoProjects={[blessingForSaleVideo, fwvnVideo, frequencyVideo]} />
-
-			<ProjectAudioFiles
-				audioItems={raveAudioFiles}
-				title="Cybernetic collaboration between Clauthewitch and NICØ"
-				route="artists-end"
-			/>
 		</div>
 
 		<div
+			id="artworks"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
-				eventIsInView = inView;
+				artworksIsInView = inView;
 			}}
 			on:inview_enter={(event) => {
 				const { inView } = event.detail;
-				eventIsInView = inView;
+				artworksIsInView = inView;
 			}}
 			on:inview_leave={(event) => {
 				const { inView } = event.detail;
-				eventIsInView = inView;
+				artworksIsInView = inView;
 			}}
 		>
 			<ProjectAboutDropdown
 				images={images[2]}
-				aboutDropdownItems={performanceDropdownItems}
+				aboutDropdownItems={raveAboutDropdopwnItems}
 				route={raveNavItems[2].route}
 			/>
+			
 
-			<ProjectVideo videoProjects={[afterPartyVideo, petroVideo]} />
+			<ProjectAbout
+				aboutItem={mixingWorldsAbout}
+				aboutImages={mixingWorldsAboutImages}
+				route=""
+				colorVariant={EColorVariant.BLACK}
+				isImageLeft={true}
+			/>
+			<ProjectAudioFiles
+				audioItems={raveAudioFiles}
+				title="Proxy Fae are an electronic duo fusing electronic experimentation and live performances into 
+				a genre-bending sonic experience"
+				route="artists-end"
+			/>
 
 			<ProjectAboutDropdown
 				images={images[3]}
-				aboutDropdownItems={raveAboutDropdopwnItemsTwo}
-				route=""
+				aboutDropdownItems={performanceDropdownItems}
+				route={raveNavItems[2].route}
 			/>
 		</div>
 

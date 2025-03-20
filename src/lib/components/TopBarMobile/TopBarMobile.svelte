@@ -1,10 +1,14 @@
 <script lang="ts">
+    import Metaball from '../Metaball/Metaball.svelte';
     export let showInfo: boolean;
 </script>
 
-<div class="hidden sm:inline-flex glass-gradient fixed top-4 right-4 px-3.5 h-14 justify-start items-center gap-2.5 z-20">
-        <a href="/map"><img class="h-6" src="media/home/icons/world.svg" alt="go to map"></a>
-        <button on:click={() => showInfo = true}><img class="h-10" src="media/home/icons/zine.svg" alt=""></button>
+<div class="h-20 relative flex justify-between items-center sm:hidden pt-2 px-4">
+        <Metaball/>
+        <div class="glass-gradient px-3.5 h-14 inline-flex justify-center items-center gap-2.5 z-20">
+            <a class="p-2" href="/map"><img src="media/home/icons/world.svg" alt=""></a>
+            <button class="p-2" on:click={() => showInfo = true}><img src="media/home/icons/link.svg" alt=""></button>
+        </div>
 </div>
 
 <style>

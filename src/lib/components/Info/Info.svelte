@@ -1,5 +1,6 @@
 <script lang="ts">
     import { fly } from 'svelte/transition';
+    import artDaoLogo from '$lib/assets/images/artdao-logo.webp';
     import { onMount } from 'svelte';
     import { scrambleText } from '../../../utils/textScramble';
     export let showInfo: boolean;
@@ -35,7 +36,7 @@
     transition:fly={{ y: -200, duration: 400 }}
     on:click={handleBackdropClick}
 >
-    <img class="h-14" src="src/lib/assets/images/artdao-logo.webp" alt="ArtDao Logo">
+    <img class="h-14" src={artDaoLogo} alt="ArtDao Logo">
     <div class="font-clash text-md font-medium leading-tight">
         <h3>{text1}</h3>
         <h3>{text2}</h3>
