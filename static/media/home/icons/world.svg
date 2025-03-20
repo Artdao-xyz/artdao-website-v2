@@ -1,11 +1,9 @@
-<svg width="37" height="20" viewBox="0 0 37 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Capa_1">
-<path id="Vector" d="M18.3588 1.479C27.4081 1.479 34.744 5.29366 34.744 9.99929C34.744 14.7049 27.4081 18.5196 18.3588 18.5196C9.30953 18.5196 1.97363 14.7049 1.97363 9.99929C1.97363 5.29366 9.30953 1.479 18.3588 1.479Z" stroke="white" stroke-width="0.655407" stroke-miterlimit="10"/>
-<path id="Vector_2" d="M18.359 1.479C22.7027 1.479 26.2239 5.29366 26.2239 9.99929C26.2239 14.7049 22.7027 18.5196 18.359 18.5196C14.0154 18.5196 10.4941 14.7049 10.4941 9.99929C10.4941 5.29366 14.0154 1.479 18.359 1.479Z" stroke="white" stroke-width="0.655407" stroke-miterlimit="10"/>
-<path id="Vector_3" d="M10.4941 2.79027C10.4941 4.9595 14.0154 6.72272 18.359 6.72272C22.7027 6.72272 26.2239 4.9595 26.2239 2.79027" stroke="white" stroke-width="0.655407" stroke-miterlimit="10"/>
-<path id="Vector_4" d="M26.2239 17.2089C26.2239 15.0396 22.7027 13.2764 18.359 13.2764C14.0154 13.2764 10.4941 15.0396 10.4941 17.2089" stroke="white" stroke-width="0.655407" stroke-miterlimit="10"/>
-<path id="Vector_5" d="M18.359 1.479C25.2364 1.479 30.8117 5.29366 30.8117 9.99929C30.8117 14.7049 25.2364 18.5196 18.359 18.5196C11.4815 18.5196 5.90625 14.7049 5.90625 9.99929C5.90625 5.29366 11.4815 1.479 18.359 1.479Z" stroke="white" stroke-width="0.655407" stroke-miterlimit="10"/>
-<path id="Vector_6" d="M18.3594 18.5196V1.479" stroke="white" stroke-width="0.655407" stroke-miterlimit="10"/>
-<path id="Vector_7" d="M34.744 9.99969H1.97363" stroke="white" stroke-width="0.655407" stroke-miterlimit="10"/>
-</g>
+<svg width="54" height="28" viewBox="0 0 54 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M27 1C40.8071 1 52 6.8203 52 14C52 21.1797 40.8071 27 27 27C13.1929 27 2 21.1797 2 14C2 6.8203 13.1929 1 27 1Z" stroke="white" stroke-miterlimit="10"/>
+<path d="M27 1C33.6274 1 39 6.8203 39 14C39 21.1797 33.6274 27 27 27C20.3726 27 15 21.1797 15 14C15 6.8203 20.3726 1 27 1Z" stroke="white" stroke-miterlimit="10"/>
+<path d="M15 3C15 6.30974 20.3726 9 27 9C33.6274 9 39 6.30974 39 3" stroke="white" stroke-miterlimit="10"/>
+<path d="M39 25C39 21.6903 33.6274 19 27 19C20.3726 19 15 21.6903 15 25" stroke="white" stroke-miterlimit="10"/>
+<path d="M27 1C37.4934 1 46 6.8203 46 14C46 21.1797 37.4934 27 27 27C16.5066 27 8 21.1797 8 14C8 6.8203 16.5066 1 27 1Z" stroke="white" stroke-miterlimit="10"/>
+<path d="M27 27V1" stroke="white" stroke-miterlimit="10"/>
+<path d="M52 14H2" stroke="white" stroke-miterlimit="10"/>
 </svg>
