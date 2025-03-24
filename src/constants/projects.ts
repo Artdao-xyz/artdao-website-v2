@@ -46,7 +46,7 @@ export const projects: Project[] = [
                 description: "“Jeff Davis sat down for an intimate conversation with the artistic duo Operator: Ania Catherine and Dejha exploring the creative process around their 3 act project Human Unreadable.”",
                 thumbnailPath: "media/home/thumbnails/05-home-conversation-with-operator.webp",
                 buttonPath: "media/home/buttons/05-button-conversation-with-operator.png",
-                pagePath: "#",
+                pagePath: "/in-conversation",
         },
         {
                 title: "Non Places",
