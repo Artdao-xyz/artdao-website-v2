@@ -33,7 +33,7 @@
 <button 
     type="button"
     class="fixed w-dvw h-dvh z-50 backdrop-blur-2xl backdrop-brightness-50 flex flex-col items-center justify-center gap-4"
-    transition:fly={{ y: -200, duration: 400 }}
+    transition:fly={{ duration: 300 }}
     on:click={handleBackdropClick}
 >
     <img class="h-14" src={artDaoLogo} alt="ArtDao Logo">
