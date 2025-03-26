@@ -4,7 +4,7 @@ export function scrambleText(
     text: string,
     onUpdate: (text: string) => void,
     speed: number = 30,
-    increment: number = 1/3
+    increment: number = 1
 ) {
     let iteration = 0;
     const finalText = text;
