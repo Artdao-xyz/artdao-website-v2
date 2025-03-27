@@ -99,18 +99,18 @@
 	<div
 		class="{width < 768
 			? 'mt-[3.25rem]'
-			: 'w-full'} flex flex-row justify-between relative font-robotoMono leading-snug tracking-tight font-normal text-[0.875rem] mb-[18px] w-full gap-2.5"
+			: 'w-full'} text-color-white flex flex-row justify-between relative font-robotoMono leading-snug tracking-tight font-normal text-[0.875rem] mb-[18px] bg-red-200 w-full gap-2.5"
 	>
 		<div class="w-full">
 			{#if width < 768}
-				<img src={footerLogo} alt="Footer Logo" class="w-[79px] h-[18px] mb-[0.5456rem]" />
+				<img src={footerLogo} alt="Footer Logo" class="absolute left-1/2 -translate-x-1/2 w-[79px] h-[18px] mb-[0.5456rem]" />
 			{/if}
-
+<!-- 
 			<p class="truncate capitalize" bind:this={subheader}>
 				{content}
 			</p>
 
-			<p>© 2024</p>
+			<p>© 2024</p> -->
 		</div>
 		{#if width > 768}
 			<img
