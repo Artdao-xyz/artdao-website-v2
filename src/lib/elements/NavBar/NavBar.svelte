@@ -131,7 +131,7 @@
 						</a>
 					{/each}
 				{/if}
-				<NewsletterPopup />
+				<!-- <NewsletterPopup /> -->
 			</div>
 		{/if}
 	</div>

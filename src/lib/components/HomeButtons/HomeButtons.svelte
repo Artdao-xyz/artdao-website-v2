@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
     import type { Project } from '../../../constants/projects';
     
     export let projects: Project[];
@@ -6,28 +7,51 @@
     
     let buttonsContainer: HTMLDivElement;
 
+    let isActive: boolean = true;
+
     function handleClick(index: number) {
-        document.getElementById((index + 1).toString())?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        isActive = false;
+        document.getElementById((index + 1).toString())?.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+        });
+
+        setTimeout(() => {
+            isActive = true;
+        }, 1000);
     }
 
-    // Watch for selectedIndex changes
-    $: if (buttonsContainer && selectedIndex !== undefined) {
-        const activeButton = buttonsContainer.children[selectedIndex] as HTMLElement;
-        if (activeButton) {
-            const isDesktop = window.innerWidth >= 640; // sm breakpoint
-            
-            if (isDesktop) {
-                const offset = 200; // Adjust this value to control how much extra space you want
-                buttonsContainer.scrollTop = activeButton.offsetTop - offset;
-            } else {
-                const offset = 75; // Adjust this value to control how much extra space you want
-                buttonsContainer.scrollLeft = activeButton.offsetLeft - offset;
-            }
-        }
-    }
+    onMount(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const newIndex = parseInt(entry.target.id) - 1;
+                    selectedIndex = newIndex;
+                    const button = buttonsContainer.children[newIndex];
+                    if (button && isActive) {
+                        button.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }
+                    
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        document.querySelectorAll('section').forEach((section) => {
+            observer.observe(section);
+        });
+
+        return () => observer.disconnect();
+    });
+
+
 </script>
 
-<div class="h-20 sm:w-40 sm:h-screen flex sm:flex-col items-center justify-center sm:justify-between sm:sticky top-0">
+<div class="h-24 sm:w-40 sm:h-screen flex sm:flex-col items-center justify-center sm:justify-between sm:sticky top-0">
     <div 
         bind:this={buttonsContainer}
         class="h-full flex flex-row sm:flex-col items-center gap-4 overflow-x-auto sm:overflow-x-hidden sm:overflow-y-auto px-2 sm:px-8 pb-2 pt-2 sm:py-8 

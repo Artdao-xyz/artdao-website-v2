@@ -12,7 +12,7 @@
 	import { EColorVariant } from '../../constants/enums';
 	import { eventImages, mapData, type IMapEvent, type IMapLocation } from '../../data/Map/MapData';
 	import preloadImages from '../../utils/preloadImages';
-
+	import { fly } from 'svelte/transition';
 	let eventToShow: IMapEvent | undefined = undefined;
 	let width: number;
 	let mapLocationToShow: IMapLocation | undefined;
@@ -49,12 +49,13 @@
 	<Loading />
 {:then images}
 	<div
+		transition:fly={{ duration: 300 }}
 		class="h-[100dvh] flex justify-center items-center relative w-full {width > 768
 			? 'pt-[3rem]'
 			: 'p-0'} sm:pt-0"
 	>
 		<div
-			class="w-100dvw rounded-[6.25rem] h-[1rem] sm:flex flex-row items-center z-50 absolute top-[2.88%] left-[0%] mx-[1.625rem] gap-2.5 hidden"
+			class="w-dvw rounded-[6.25rem] h-[1rem] sm:flex flex-row items-center z-50 absolute top-[2.88%] left-[0%] mx-[1.625rem] gap-2.5 hidden"
 		>
 			<a href={'/'}>
 				<div

@@ -54,7 +54,7 @@
 	<div
 		bind:this={container}
 		on:click={pointerScroll}
-		class="scroll-panel cursor-grabbing h-full !overflow-x-scroll flex flex-col gap-[50px] overflow-y-hidden justify-center flex-grow"
+		class="scroll-panel cursor-grabbing h-full !overflow-x-scroll flex flex-col gap-6 overflow-y-hidden justify-center flex-grow"
 	>
 		<div class="h-full flex items-center gap-[50px] max-h-[40%] flex-grow">
 			{#each imagesTop as imageTop}
@@ -67,15 +67,15 @@
 			{/each}
 		</div>
 	</div>
-	<div class="flex flex-row gap-10 mt-[-0.7rem] justify-center w-full">
+	<div class="flex flex-row gap-10 h-[2rem] justify-center w-full">
 		<button
-			class="text-color-black"
+			class="text-color-black p-3"
 			bind:this={prevButton}
 			on:click={() => sideScroll(container, 'left', 200, 10, 700)}
 			><img src={buttonIcon} alt="left" class="h-[10px] hover:scale-125" /></button
 		>
 		<button
-			class="text-color-black"
+			class="text-color-black p-3"
 			bind:this={nextButton}
 			on:click={() => sideScroll(container, 'right', 200, 10, 700)}
 			><img src={buttonIcon} alt="right" class="h-[10px] rotate-180 hover:scale-125" /></button

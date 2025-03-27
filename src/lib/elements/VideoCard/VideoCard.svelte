@@ -69,21 +69,24 @@
 				? 'sm:!mb-[1.5rem] sm:!mt-[1.5rem] mb-[2rem] mt-0'
 				: 'sm:mb-[2.5rem]'}"
 		>
-			<button
+			<!-- <button
 				on:click={handlePrevButton}
 				class="{isPrevButtonDisabled
 					? 'nav-gradient-unselected'
 					: 'hover:scale-105'} group w-[2.125rem] h-[2.125rem] sm:w-[3.125rem] sm:h-[3.125rem] rounded-[6.25rem] border dark-gradient flex items-center justify-center"
 			>
 				<img src={buttonIcon} alt="Button" class="w-[8px] invert group-hover:scale-105" />
-			</button>
+			</button> -->
 
 			<div class="hidden sm:flex flex-row h-full items-center">
 				{#each videoProjects as video, i (video.name)}
 					<!-- svelte-ignore a11y-media-has-caption -->
 					<video
+						on:click={() => {
+							videoProject = video;
+						}}
 						preload="metadata"
-						class="{videoProject.name === videoProjects[i].name
+						class="cursor-pointer {videoProject.name === videoProjects[i].name
 							? 'h-[5.3125rem] w-[5.3125rem]'
 							: 'h-[3.4375rem] w-[3.4375rem]'} rounded-[3.0523rem] object-cover {i !== 0
 							? 'ml-[-1.125rem]'
@@ -114,7 +117,7 @@
 				{/each}
 			</div>
 
-			<button
+			<!-- <button
 				on:click={handleNextButton}
 				class="{isNextButtonDisabled
 					? 'nav-gradient-unselected'
@@ -125,7 +128,7 @@
 					alt="Button"
 					class="rotate-180 w-[8px] invert group-hover:scale-105"
 				/>
-			</button>
+			</button> -->
 		</div>
 	{/if}
 </div>
