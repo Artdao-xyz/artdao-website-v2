@@ -20,7 +20,7 @@
 </script>
 
 <div class="hidden flex-row sm:flex w-full h-[65%]">
-	<div class="flex flex-row w-[64%]">
+	<div class="flex flex-row w-1/3 items-center justify-center mx-auto">
 		<PolaroidView image={images[index]} {viewImageFit} />
 	</div>
 
