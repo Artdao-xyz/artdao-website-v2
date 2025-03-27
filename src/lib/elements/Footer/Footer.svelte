@@ -52,7 +52,7 @@
 		Discover more
 	</div>
 
-	<div class="w-[18.5rem] md:w-[27.5625rem] mx-auto mt-[15px] mb-[44.75px]">
+	<div class="w-full md:w-[27.5625rem] mx-auto mt-[15px] mb-[44.75px]">
 		<HomeNewsletter isFooter />
 	</div>
 
@@ -62,7 +62,7 @@
 			: 'flex-col mt-[-1rem]'} items-center justify-center gap-[1.1875rem] md:gap-[2.5rem]"
 	>
 		{#each refs as ref}
-			<button class="relative group w-[180px] lg:w-[14.1875rem] lg:h-[14.1875rem]">
+			<button class="relative group w-[280px] lg:w-[14.1875rem] lg:h-[14.1875rem]">
 				<a href={projectsDetails.find((project) => project.name === ref)?.url}>
 					<img
 						src={width > 768

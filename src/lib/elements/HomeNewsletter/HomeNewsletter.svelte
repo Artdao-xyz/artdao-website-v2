@@ -102,7 +102,7 @@
 	on:click={handleOnClick}
 	class="w-full {!isFooter
 		? 'h-[3.875rem]'
-		: 'h-[3.0625rem]'} sm:h-[2.625rem] gray-gradient rounded-20 px-10 py-2.5 flex items-center justify-center"
+		: 'h-[3.0625rem]'} sm:h-[2.625rem] gray-gradient rounded-20 px-4 sm:px-10 py-2.5 flex items-center justify-center"
 >
 	<div class="w-full h-full">
 		{#if !submitting && !success && !error && !memberExists}
@@ -115,15 +115,15 @@
 				id="subscribeForm"
 				class="w-full h-full flex-row items-center"
 			>
-				<div class="flex items-center flex-row justify-between h-full w-full my-auto">
+				<div class="flex items-center gap-4 h-full w-full">
 					<label for="email" class="hidden"></label>
 					<input
 						bind:this={input}
 						type="email"
 						name="EMAIL"
-						class="placeholder:text-color-white ml-[-1rem] w-[70%] {!isFooter
+						class="flex-1 text-color-white placeholder:text-color-white {!isFooter
 							? 'text-[1rem]'
-							: 'text-[14px] md:text-[1rem]'} font-medium font-clash leading-5 align-top bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] h-full"
+							: 'text-[14px] md:text-[1rem]'} font-medium font-clash leading-5 bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] h-full"
 						required
 						value=""
 						placeholder="Enter your email"
@@ -131,9 +131,10 @@
 					<button
 						bind:this={submit}
 						type="submit"
-						class=" rounded-[6.25rem] shadow-custom invisible py-[0.125rem] px-2 font-clash leading-[0.875rem] text-[0.875rem] font-medium flex-none w-[30%] align-top h-full border border-color-white"
-						>Subscribe</button
+						class="text-color-white rounded-[6.25rem] shadow-custom invisible py-[0.125rem] px-4 font-clash leading-[0.875rem] text-[0.875rem] font-medium whitespace-nowrap h-full border border-color-white"
 					>
+						Subscribe
+					</button>
 				</div>
 				<div aria-hidden="true" style="position: absolute; left: -5000px;">
 					<!-- /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */ -->
