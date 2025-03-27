@@ -102,7 +102,7 @@
 	on:click={handleOnClick}
 	class="w-full {!isFooter
 		? 'h-[3.875rem]'
-		: 'h-[3.0625rem]'} sm:h-[2.625rem] gray-gradient rounded-20 px-4 sm:px-10 py-2.5 flex items-center justify-center"
+		: 'h-[3.0625rem]'} sm:h-[2.625rem] gray-gradient rounded-20 px-4 py-2.5 flex items-center justify-center"
 >
 	<div class="w-full h-full">
 		{#if !submitting && !success && !error && !memberExists}
@@ -131,7 +131,7 @@
 					<button
 						bind:this={submit}
 						type="submit"
-						class="text-color-white rounded-[6.25rem] shadow-custom invisible py-[0.125rem] px-4 font-clash leading-[0.875rem] text-[0.875rem] font-medium whitespace-nowrap h-full border border-color-white"
+						class="text-color-white hover:bg-color-white hover:text-color-black transition-all duration-300 rounded-[6.25rem] shadow-custom invisible py-[0.125rem] px-4 font-clash leading-[0.875rem] text-[0.875rem] font-medium whitespace-nowrap h-full border border-color-white"
 					>
 						Subscribe
 					</button>
