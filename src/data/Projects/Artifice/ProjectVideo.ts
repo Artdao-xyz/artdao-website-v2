@@ -13,7 +13,7 @@ export const furnitureVideo: IVideoProject[] = [
 
 export const afterEventVideo: IVideoProject[] = [
 	{
-		name: 'After the event',
+		name: 'Artifice',
 		artist: '',
 		year: '2024',
 		videoUrl:

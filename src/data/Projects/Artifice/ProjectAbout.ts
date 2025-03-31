@@ -14,7 +14,7 @@ import panels04 from '$lib/assets/images/projects/artifice/panels4.webp';
 import panels05 from '$lib/assets/images/projects/artifice/panels5.webp';
 import furniture01 from '$lib/assets/images/projects/artifice/IMG Navigator-min.webp';
 import FurnitureAbout from './FurnitureAbout.svelte';
-import KokoAbout from './RnaAbout.svelte';
+import KokoAbout from './KokoAbout.svelte';
 import PanelsAbout from './PanelsAbout.svelte';
 import RnaAbout from './RnaAbout.svelte';
 import rna01 from '$lib/assets/images/projects/artifice/rna1.webp';
