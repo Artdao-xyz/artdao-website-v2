@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ecoInterviewBg from '$lib/assets/images/projects/ecologiesOfCode/ecologies-interview-bg.webp';
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
+	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
+	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
 	import ProjectArtworkGridMobile from '$lib/components/ProjectArtworkGridMobile/ProjectArtworkGridMobile.svelte';

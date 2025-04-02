@@ -1,6 +1,7 @@
 <script lang="ts">
 	import bgImage from '$lib/assets/images/projects/orb/240326_caroco_035_1.webp';
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
+	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
+	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectAudioFiles from '$lib/components/ProjectAudioFiles/ProjectAudioFiles.svelte';
 	import ProjectInterview from '$lib/components/ProjectInterview/ProjectInterview.svelte';

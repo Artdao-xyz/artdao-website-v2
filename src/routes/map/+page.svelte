@@ -2,7 +2,8 @@
 	import buttonIcon from '$lib/assets/images/button-icon.webp';
 	import mapBg from '$lib/assets/images/map-background.webp';
 	import HomeMobileMenu from '$lib/components/HomeMobileMenu/HomeMobileMenu.svelte';
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';	import City from '$lib/elements/City/City.svelte';
+	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
+	import City from '$lib/elements/City/City.svelte';
 	import CityMobile from '$lib/elements/CityMobile/CityMobile.svelte';
 	import EventData from '$lib/elements/EventData/EventData.svelte';
 	import EventDataMobile from '$lib/elements/EventDataMobile/EventDataMobile.svelte';

@@ -30,7 +30,7 @@ export const preloadImages = async (urls: string[][]) => {
 export let isExiting = writable(false);
 const startExit = async () => {
         isExiting.set(true);
-        const ANIMATION_DURATION = 4000;
+        const ANIMATION_DURATION = 1500;
         return new Promise(resolve => setTimeout(resolve, ANIMATION_DURATION));
 };
 
