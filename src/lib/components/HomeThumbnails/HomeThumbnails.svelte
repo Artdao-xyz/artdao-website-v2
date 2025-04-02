@@ -21,8 +21,8 @@
 
 <main bind:this={homeThumbnails} class="flex-1 overflow-y-auto snap-y snap-mandatory snap-always w-full">
     {#each projects as {title, subtitle, description, thumbnailPath, pagePath}, index}
-        <section 
-            class="relative font-neue text-color-white min-h-[calc(100dvh-10rem)] h-[calc(100dvh-10rem)] sm:h-dvh sm:min-h-dvh w-full snap-start snap-always p-4 sm:pl-0 sm:pr-8 sm:py-8 tracking-wider slide-in"
+        <section id={index + 1}
+            class="relative font-neue text-color-white min-h-[calc(100dvh-10rem)] h-[calc(100dvh-10rem)] sm:h-dvh sm:min-h-dvh w-full snap-start snap-always p-4 sm:pl-0 sm:pr-8 sm:py-8 tracking-wider slide-in overflow-hidden"
             style="--slide-delay: {index * 100}ms"
         >
             <a href={pagePath} class="relative w-full h-full flex flex-col justify-between flex-shrink-0 p-2 sm:p-8">
