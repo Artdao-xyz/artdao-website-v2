@@ -2,8 +2,7 @@
 	import buttonIcon from '$lib/assets/images/button-icon.webp';
 	import mapBg from '$lib/assets/images/map-background.webp';
 	import HomeMobileMenu from '$lib/components/HomeMobileMenu/HomeMobileMenu.svelte';
-	import Loading from '$lib/components/Loading/Loading.svelte';
-	import City from '$lib/elements/City/City.svelte';
+	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';	import City from '$lib/elements/City/City.svelte';
 	import CityMobile from '$lib/elements/CityMobile/CityMobile.svelte';
 	import EventData from '$lib/elements/EventData/EventData.svelte';
 	import EventDataMobile from '$lib/elements/EventDataMobile/EventDataMobile.svelte';
@@ -46,7 +45,7 @@
 <HomeMobileMenu section="drop" />
 
 {#await preloadedImages}
-	<Loading />
+	<LoadingV2 />
 {:then images}
 	<div
 		transition:fly={{ duration: 300 }}
@@ -78,7 +77,7 @@
 				</SectionContainer>
 			{:else}
 				{#await preloadedEventImages}
-					<Loading />
+					<LoadingV2 />
 				{:then eventImages}
 					<EventData
 						bind:eventToShow

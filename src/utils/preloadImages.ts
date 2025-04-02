@@ -1,37 +1,37 @@
+import { writable } from 'svelte/store';
 import { progress } from './store';
 
-let images = [];
+export const preloadImages = async (urls: string[][]) => {
+	const flatUrls = urls.flat(); // Convertir el array 2D en 1D
+	const total = flatUrls.length;
+	let loaded = 0;
 
-export const preloadImages = async (urls: string[][]): Promise<string[][]> => {
-	let loadedAssets = 0;
-
-	const getImagesArray = async () => {
-		const mappedImages = [];
-
-		for (const imageArray of urls) {
-			const promises = imageArray.map(
-				(url) =>
-					new Promise((resolve, reject) => {
-						const img = new Image();
-						img.src = url;
-						img.onload = () => {
-							resolve(img.src);
-						};
-						img.onerror = reject;
-					})
-			);
-
-			images = (await Promise.all(promises)) as string[];
-
-			mappedImages.push(images);
-			loadedAssets++;
-			progress.set((loadedAssets / urls.length) * 100);
+	const loadPromises = flatUrls.map(async (src) => {
+		if (src.endsWith('.svg') || src.endsWith('.jpg') || src.endsWith('.png') || src.endsWith('.webp')) {
+			return new Promise((resolve) => {
+				const img = new Image();
+				img.onload = async () => {
+					loaded++;
+					progress.set((loaded / total) * 100);
+					if (loaded === total) {
+						await startExit();
+					}
+					resolve(null);
+				};
+				img.src = src;
+			});
 		}
+	});
 
-		return mappedImages;
-	};
+	await Promise.all(loadPromises);
+	return urls; // Mantenemos el return original por compatibilidad
+};
 
-	return getImagesArray();
+export let isExiting = writable(false);
+const startExit = async () => {
+        isExiting.set(true);
+        const ANIMATION_DURATION = 4000;
+        return new Promise(resolve => setTimeout(resolve, ANIMATION_DURATION));
 };
 
 export default preloadImages;

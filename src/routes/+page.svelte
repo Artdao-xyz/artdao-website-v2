@@ -1,12 +1,8 @@
 <script lang="ts">
-	import HomeMenu from '$lib/components/HomeMenu/HomeMenu.svelte';
-	import Loading from '$lib/components/Loading/Loading.svelte';
 	import Home from '$lib/components/Home/Home.svelte';
-	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
-	import HomeImgRectV from '$lib/elements/HomeImgRectV/HomeImgRectV.svelte';
-	import HomeImgSquare from '$lib/elements/HomeImgSquare/HomeImgSquare.svelte';
 	import { homeImages } from '../data/HomeImgLayout';
-	import preloadImages from '../utils/preloadImages';
+	import preloadImages, { isExiting } from '../utils/preloadImages';
+	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 
 	const preloadedImages = preloadImages([
 		homeImages.map((project) => project.imageUrl),
@@ -14,7 +10,8 @@
 </script>
 
 {#await preloadedImages}
-	<Loading />
+	<!-- <LoadingV2 /> -->
+	<LoadingV2/>
 {:then images}
 	<div class="min-h-screen w-full">
 		<Home/>
