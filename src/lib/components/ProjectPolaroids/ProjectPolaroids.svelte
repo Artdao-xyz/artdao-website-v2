@@ -25,15 +25,17 @@
 <SectionContainer colorVariant={EColorVariant.LIGHT}>
 	<div
 		id={route}
-		class="hidden sm:w-full h-screen sm:h-full sm:flex flex-col items-center gap-5 sm:gap-10 overflow-x-auto sm:overflow-x-hidden"
+		class="hidden sm:w-full h-screen sm:h-full sm:flex flex-col items-center gap-4 overflow-x-auto sm:overflow-x-hidden"
 	>
-		<div class="w-[65%] flex flex-1 items-center sm:h-auto">
+		<div class="w-[65%] flex-none items-center sm:h-auto">
 			<h1
 				class="text-color-black text-[32px] sm:text-[3rem] macBook:text-[50px] xlScreen:text-[4rem] font-semibold sm:leading-[3.4375rem] tracking-[0.065rem] font-neue w-full text-center"
 			>
-				“{images[selectedItem].quote}”
+				"{images[selectedItem].quote}"
 			</h1>
 		</div>
-		<Polaroids {images} {polaroidsTypes} {viewImageFit} />
+		<div class="flex-1 w-full overflow-hidden">
+			<Polaroids {images} {polaroidsTypes} {viewImageFit} />
+		</div>
 	</div>
 </SectionContainer>

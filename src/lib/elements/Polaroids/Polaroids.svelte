@@ -19,9 +19,11 @@
 	};
 </script>
 
-<div class="hidden flex-row sm:flex w-full h-auto">
-	<div class="flex flex-row w-1/3 items-center justify-center mx-auto">
-		<PolaroidView image={images[index]} {viewImageFit} />
+<div class="hidden flex-row sm:flex w-full h-full">
+	<div class="flex flex-row w-1/2 items-center justify-center mx-auto h-full p-2">
+		<div class="w-full h-full flex items-center justify-center">
+			<PolaroidView image={images[index]} {viewImageFit} />
+		</div>
 	</div>
 
 	<div class="w-[36%] h-full mx-auto">
