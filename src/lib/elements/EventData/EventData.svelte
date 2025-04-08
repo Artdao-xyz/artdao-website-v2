@@ -23,10 +23,10 @@
 		class="w-full h-full flex flex-row items-center justify-center"
 	>
 		<div
-			class="h-fit w-full rounded-20 bg-color-dark bg-opacity-90 py-[26px] px-[20px] text-color-black sm:max-w-[90%] gap-[20px] flex flex-col"
+			class="h-fit max-h-[90vh] w-full max-w-[1000px] rounded-20 bg-color-dark bg-opacity-90 py-[26px] px-[20px] text-color-black gap-[20px] flex flex-col"
 			in:scale
 		>
-			<div class="flex-row flex items-center gap-[10px]">
+			<div class="flex-row flex items-center gap-[10px] flex-none">
 				<div
 					class="sm:flex flex-row gap-[0.5rem] hidden mr-[0.5rem] bg-color-gray rounded-20 p-[6px]"
 				>
@@ -63,21 +63,26 @@
 						{eventToShow.city}
 					</p>
 				</div>
-				<button on:click={() => (eventToShow = undefined)} class="h-[44px] w-[49.54px]"
-					><img src={closeButton} alt="close" class="h-full w-full" /></button
+				<button
+					on:click={() => (eventToShow = undefined)}
+					class="h-auto w-[44px] hover:opacity-70"
+					><img src={closeButton} alt="close" class="h-full aspect-square w-full" /></button
 				>
 			</div>
 
-			<img
-				src={imageToShow}
-				alt="event"
-				class="h-auto xl:max-h-[300px] bigScreen:max-h-[516px] xlScreen:max-h-[700px] bigScreen:w-full object-cover {isCenter
-					? 'object-center'
-					: 'object-top'}"
-			/>
+			<div class="w-full flex-1 min-h-0 overflow-hidden flex items-center justify-center">
+				<div class="w-full" style="max-width: min(100%, calc(16 * (90vh - 200px) / 9));">
+					<img
+						src={imageToShow}
+						alt="event"
+						class="w-full object-cover {isCenter ? 'object-center' : 'object-top'}"
+						style="aspect-ratio: 16/9;"
+					/>
+				</div>
+			</div>
 
 			<div
-				class="w-full py-[47px] px-[20px] bg-color-gray flex flex-row justify-between items-center h-[160px] rounded-20"
+				class="w-full py-[20px] px-[20px] bg-color-gray flex flex-row justify-between items-center rounded-20 flex-none"
 			>
 				<div class="flex flex-col items-start gap-[10px]">
 					<p class="text-[25px] capitalize font-neue font-semibold leading-[30px]">
