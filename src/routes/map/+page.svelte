@@ -71,7 +71,7 @@
 					<img src={images[0][0]} alt="map" class="w-full h-full object-cover" />
 					<City mapLocation={mapData[0]} top="27" left="44.5" dotOnLeft={false} bind:eventToShow />
 					<City mapLocation={mapData[1]} top="34.5" left="49" bind:eventToShow />
-					<City mapLocation={mapData[2]} top="40" left="24" bind:eventToShow />
+					<!-- <City mapLocation={mapData[2]} top="40" left="24" bind:eventToShow /> -->
 					<City mapLocation={mapData[3]} top="56.5" left="30.2" bind:eventToShow />
 					<City mapLocation={mapData[4]} top="67" left="36" bind:eventToShow />
 					<City mapLocation={mapData[5]} top="73" left="34" showOnTop bind:eventToShow />
@@ -97,7 +97,7 @@
 			>
 				<CityMobile mapLocation={mapData[0]} bind:eventToShow bind:mapLocationToShow />
 				<CityMobile mapLocation={mapData[1]} bind:eventToShow bind:mapLocationToShow />
-				<CityMobile mapLocation={mapData[2]} bind:eventToShow bind:mapLocationToShow />
+				<!-- <CityMobile mapLocation={mapData[2]} bind:eventToShow bind:mapLocationToShow /> -->
 				<CityMobile mapLocation={mapData[3]} bind:eventToShow bind:mapLocationToShow />
 				<CityMobile mapLocation={mapData[4]} bind:eventToShow bind:mapLocationToShow />
 				<CityMobile mapLocation={mapData[5]} bind:eventToShow bind:mapLocationToShow />

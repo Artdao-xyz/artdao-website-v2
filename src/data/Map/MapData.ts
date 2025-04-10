@@ -1,47 +1,47 @@
-import artifice01 from '$lib/assets/images/events/artifice-1-min.webp';
-import artifice02 from '$lib/assets/images/events/artifice-2-min.webp';
-import artifice03 from '$lib/assets/images/events/artifice-3-min.webp';
-import artifice04 from '$lib/assets/images/events/artifice-4-min.webp';
-import ceroUno01 from '$lib/assets/images/events/cero-1-min.webp';
-import ceroUno02 from '$lib/assets/images/events/cero-2-min.webp';
-import ceroUno03 from '$lib/assets/images/events/cero-3-min.webp';
-import ceroUno04 from '$lib/assets/images/events/cero-4-min.webp';
+import artifice01 from '$lib/assets/images/events/artifice-1.webp';
+import artifice02 from '$lib/assets/images/events/artifice-2.webp';
+import artifice03 from '$lib/assets/images/events/artifice-3.webp';
+import artifice04 from '$lib/assets/images/events/artifice-4.webp';
+import ceroUno01 from '$lib/assets/images/events/cerouno-1.webp';
+import ceroUno02 from '$lib/assets/images/events/cerouno-2.webp';
+import ceroUno03 from '$lib/assets/images/events/cerouno-3.webp';
+import ceroUno04 from '$lib/assets/images/events/cerouno-4.webp';
 import ethDenver01 from '$lib/assets/images/events/denver-1-min.webp';
 import ethDenver02 from '$lib/assets/images/events/denver-2-min.webp';
 import ethDenver03 from '$lib/assets/images/events/denver-3-min.webp';
 import devCon01 from '$lib/assets/images/events/devcon-1-min.webp';
 import devCon02 from '$lib/assets/images/events/devcon-2-min.webp';
 import devCon03 from '$lib/assets/images/events/devcon-3-min.webp';
-import intertwined01 from '$lib/assets/images/events/inter-1-min.webp';
-import intertwined02 from '$lib/assets/images/events/inter-2-min.webp';
-import intertwined03 from '$lib/assets/images/events/inter-3-min.webp';
-import intertwined04 from '$lib/assets/images/events/inter-4-min.webp';
+import intertwined01 from '$lib/assets/images/events/intertwined-1.webp';
+import intertwined02 from '$lib/assets/images/events/intertwined-2.webp';
+import intertwined03 from '$lib/assets/images/events/intertwined-3.webp';
 import nftParis01 from '$lib/assets/images/events/nft-paris-1-min.webp';
 import nftParis02 from '$lib/assets/images/events/nft-paris-2-min.webp';
-import nonPlaces01 from '$lib/assets/images/events/nonplaces-1-min.webp';
-import nonPlaces02 from '$lib/assets/images/events/nonplaces-2-min.webp';
-import nonPlaces03 from '$lib/assets/images/events/nonplaces-3-min.webp';
-import orb01 from '$lib/assets/images/events/orb-1-min.webp';
-import orb02 from '$lib/assets/images/events/orb-2-min.webp';
-import orb03 from '$lib/assets/images/events/orb-3-min.webp';
-import psispikoko01 from '$lib/assets/images/events/psi-1-min.webp';
-import psispikoko02 from '$lib/assets/images/events/psi-2-min.webp';
-import psispikoko03 from '$lib/assets/images/events/psi-3-min.webp';
-import rave01 from '$lib/assets/images/events/rave-1-min.webp';
-import rave02 from '$lib/assets/images/events/rave-2-min.webp';
-import rave03 from '$lib/assets/images/events/rave-3-min.webp';
-import rave04 from '$lib/assets/images/events/rave-4-min.webp';
-import underworld01 from '$lib/assets/images/events/under-1-min.webp';
-import underworld02 from '$lib/assets/images/events/under-2-min.webp';
-import underworld03 from '$lib/assets/images/events/under-3-min.webp';
-import underworld04 from '$lib/assets/images/events/under-4-min.webp';
+import nonPlaces01 from '$lib/assets/images/events/nonplaces-1.webp';
+import nonPlaces02 from '$lib/assets/images/events/nonplaces-2.webp';
+import nonPlaces03 from '$lib/assets/images/events/nonplaces-3.webp';
+import orb01 from '$lib/assets/images/events/orb-1.webp';
+import orb02 from '$lib/assets/images/events/orb-2.webp';
+import orb03 from '$lib/assets/images/events/orb-3.webp';
+import orb04 from '$lib/assets/images/events/orb-4.webp';
+import psispikoko01 from '$lib/assets/images/events/psipsikoko-1.webp';
+import psispikoko02 from '$lib/assets/images/events/psipsikoko-2.webp';
+import psispikoko03 from '$lib/assets/images/events/psipsikoko-3.webp';
+import psispikoko04 from '$lib/assets/images/events/psipsikoko-4.webp';
+import rave01 from '$lib/assets/images/events/rave-1.webp';
+import rave02 from '$lib/assets/images/events/rave-2.webp';
+import rave03 from '$lib/assets/images/events/rave-3.webp';
+import rave04 from '$lib/assets/images/events/rave-4.webp';
+import underworld01 from '$lib/assets/images/events/underworld-1.webp';
+import underworld02 from '$lib/assets/images/events/underworld-2.webp';
+import underworld03 from '$lib/assets/images/events/underworld-3.webp';
+import underworld04 from '$lib/assets/images/events/underworld-4.webp';
 import { ARTIFICE, INTERTWINED, NON_PLACES, ORB, RAVE } from '../../constants/routes';
 
 export const eventImages = [
 	intertwined01,
 	intertwined02,
 	intertwined03,
-	intertwined04,
 	underworld01,
 	underworld02,
 	underworld03,
@@ -68,13 +68,15 @@ export const eventImages = [
 	orb01,
 	orb02,
 	orb03,
+	orb04,
 	ceroUno01,
 	ceroUno02,
 	ceroUno03,
 	ceroUno04,
 	psispikoko01,
 	psispikoko02,
-	psispikoko03
+	psispikoko03,
+	psispikoko04
 ];
 
 export interface IMapEvent {
@@ -102,7 +104,7 @@ export const mapData: IMapLocation[] = [
 				subtitle: 'Exhibition / Party',
 				date: 'Nov 10th-16th, 2023',
 				location: 'Arroz Estudios, Lisbon',
-				images: [intertwined01, intertwined02, intertwined03, intertwined04],
+				images: [intertwined01, intertwined02, intertwined03],
 				city: 'Lisbon',
 				watchMore: INTERTWINED
 			},
@@ -192,7 +194,7 @@ export const mapData: IMapLocation[] = [
 				subtitle: 'Exhibition',
 				date: 'March 23rd - April 6th, 2024',
 				location: 'Caroço, São Pablo',
-				images: [orb01, orb02, orb03],
+				images: [orb01, orb02, orb03, orb04],
 				city: 'São Paulo',
 				watchMore: ORB,
 				isCenter: true
@@ -215,7 +217,7 @@ export const mapData: IMapLocation[] = [
 				subtitle: 'Exhibition',
 				date: 'October 26th-27th, 2023',
 				location: 'Aura Fabrica, Buenos Aires',
-				images: [psispikoko01, psispikoko02, psispikoko03],
+				images: [psispikoko01, psispikoko02, psispikoko03, psispikoko04],
 				city: 'Buenos Aires'
 			}
 		]
