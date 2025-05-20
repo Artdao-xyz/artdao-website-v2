@@ -71,11 +71,14 @@ export default class MetaSymbol {
 		this.metaball.scale.set(metaballScale, -metaballScale, metaballScale);
 		this.metaball.isolation = 60;
 		// this.modelToObject("../../model/ArtdaoSymbols_Luxi.fbx_1.fbx")
-
 		// Subscribe to the scrollProgress store
-		scrollProgress.subscribe((value) => {
-			this.scrollPercentD = value;
+		scrollProgress.subscribe(({container, sections, progress}) => {
+			// progress now represents the current section (0-based) plus the progress within that section
+			const currentSection = Math.floor(progress);
+			// Update the scroll percent based on the current section
+			this.scrollPercentD = (currentSection / (sections - 1)) * 100;
 		});
+
 	}
 
 	getMesh() {
@@ -112,7 +115,7 @@ export default class MetaSymbol {
 		});
 
 		//this.scrollPercent=this.scrollPercentD = (4/(Symbols.default.simbols.length-1))*100
-		this.scrollPercent += (this.scrollPercentD - this.scrollPercent) * 0.05;
+		this.scrollPercent += (this.scrollPercentD - this.scrollPercent) * 0.1;
 		this.textureMix += (this.textureMixD - this.textureMix) * 0.05;
 		this.backMix += (this.backMixD - this.backMix) * 0.05;
 		this.textureMix = THREE.MathUtils.clamp(this.textureMix, 0.0, 1.0);

@@ -10,8 +10,19 @@
 
     onMount(() => {
         homeThumbnails.addEventListener('scroll', () => {
-            scrollProgress.set((homeThumbnails.scrollTop / (homeThumbnails.scrollHeight - homeThumbnails.clientHeight)) * 100);
+            const viewportHeight = homeThumbnails.clientHeight;
+            const currentSection = Math.floor(homeThumbnails.scrollTop / viewportHeight) + 1;
+            const totalSections = Math.ceil(homeThumbnails.scrollHeight / viewportHeight);
+            const sectionProgress = (homeThumbnails.scrollTop % viewportHeight) / viewportHeight;
+
+            scrollProgress.set({
+                container: homeThumbnails.scrollHeight,
+                sections: totalSections,
+                progress: currentSection - 1 + sectionProgress
+            });
         });
+
+
         
         setTimeout(() => {
             isReady = true;
