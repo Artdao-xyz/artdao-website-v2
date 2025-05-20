@@ -2,8 +2,7 @@ import * as THREE from 'three';
 import { MarchingCubes } from 'three/addons/objects/MarchingCubes.js';
 import { app } from '../../../lib/components/Metaball/config';
 import * as Symbols from '../../../lib/components/Metaball/symbols';
-import { metaballProgress } from '../../../routes/artifice/store';
-import { scrollProgress } from '../../../utils/store';
+import { metaballProgress } from '../../../utils/metaball/getMetaballProgress';
 
 export default class MetaSymbol {
 	constructor(_textures) {
@@ -71,15 +70,12 @@ export default class MetaSymbol {
 		this.metaball.scale.set(metaballScale, -metaballScale, metaballScale);
 		this.metaball.isolation = 60;
 		// this.modelToObject("../../model/ArtdaoSymbols_Luxi.fbx_1.fbx")
-		// Subscribe to the scrollProgress store
-		scrollProgress.subscribe(({container, sections, progress}) => {
-			// progress now represents the current section (0-based) plus the progress within that section
-			const currentSection = Math.floor(progress);
-			// Update the scroll percent based on the current section
-			this.scrollPercentD = (currentSection / (Symbols.default.simbols.length - 1)) * 100;
-
+		
+		// Subscribe to the metaballProgress store
+		metaballProgress.subscribe((progress) => {
+			// console.log('progress desde meta symbol', progress);
+			this.scrollPercentD = progress;
 		});
-
 	}
 
 	getMesh() {
@@ -175,6 +171,11 @@ export default class MetaSymbol {
 	}
 
 	dispose() {
+		// Clean up the subscription
+		if (this.progressSubscription) {
+			this.progressSubscription();
+		}
+
 		// this.metaball.dispose()
 		this.material.dispose();
 

@@ -1,6 +1,14 @@
 <script>
 	import Metaball from '$lib/components/Metaball/Metaball.svelte';
 	import '../style.css';
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
+	import { metaballProgress } from '../utils/metaball/getMetaballProgress';
+
+	// Reset metaballProgress when route changes
+	$: if ($page) {
+		metaballProgress.set(0);
+	}
 </script>
 
 <svelte:head>
@@ -31,5 +39,8 @@
 	<link rel="canonical" href="https://artdao.xyz" />
 </svelte:head>
 
-<!-- <Metaball /> -->
+<div class="hidden sm:inline-flex fixed bottom-4 right-4 z-50">
+        <Metaball/>
+</div>
+
 <slot />

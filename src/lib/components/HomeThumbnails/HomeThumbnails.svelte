@@ -4,25 +4,14 @@
     import { scrollProgress } from '../../../utils/store';
     export let projects: Project[];
     import { isExiting } from '../../../utils/preloadImages';
-
+    import { getMetaballProgress } from '../../../utils/metaball/getMetaballProgress';
     let homeThumbnails: HTMLElement;
     let isReady = false;
 
     onMount(() => {
         homeThumbnails.addEventListener('scroll', () => {
-            const viewportHeight = homeThumbnails.clientHeight;
-            const currentSection = Math.floor(homeThumbnails.scrollTop / viewportHeight) + 1;
-            const totalSections = Math.ceil(homeThumbnails.scrollHeight / viewportHeight);
-            const sectionProgress = (homeThumbnails.scrollTop % viewportHeight) / viewportHeight;
-
-            scrollProgress.set({
-                container: homeThumbnails.scrollHeight,
-                sections: totalSections,
-                progress: currentSection - 1 + sectionProgress
-            });
+            getMetaballProgress(homeThumbnails);
         });
-
-
         
         setTimeout(() => {
             isReady = true;
