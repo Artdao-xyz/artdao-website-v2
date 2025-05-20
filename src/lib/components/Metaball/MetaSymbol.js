@@ -76,7 +76,8 @@ export default class MetaSymbol {
 			// progress now represents the current section (0-based) plus the progress within that section
 			const currentSection = Math.floor(progress);
 			// Update the scroll percent based on the current section
-			this.scrollPercentD = (currentSection / (sections - 1)) * 100;
+			this.scrollPercentD = (currentSection / (Symbols.default.simbols.length - 1)) * 100;
+
 		});
 
 	}
