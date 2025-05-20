@@ -13,7 +13,7 @@
 	<!-- <LoadingV2 /> -->
 	<LoadingV2/>
 {:then images}
-	<div class="min-h-screen w-full">
+	<div class="h-svh w-full">
 		<Home/>
 	</div>
 {/await}

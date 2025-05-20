@@ -34,7 +34,7 @@
 </script>
 
 
-<div class="h-dvh w-full bg-black text-white flex flex-col sm:flex-row-reverse">
+<div class="h-svh w-full bg-black text-white flex flex-col sm:flex-row-reverse">
     <!-- Top Bar - Fixed height -->
     <TopBarDesktop bind:showInfo/>
     <!-- Top Bar mobile -->
