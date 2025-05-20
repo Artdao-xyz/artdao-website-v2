@@ -93,7 +93,7 @@
 			{/if}
 		{:else if !mapLocationToShow}
 			<div
-				class="flex flex-col gap-[15px] w-full bg-color-gray py-[4.5rem] px-[20px] h-fit self-start"
+				class="flex flex-col gap-[15px] w-full bg-color-gray py-[4.5rem] px-[20px] h-full self-start"
 			>
 				<CityMobile mapLocation={mapData[0]} bind:eventToShow bind:mapLocationToShow />
 				<CityMobile mapLocation={mapData[1]} bind:eventToShow bind:mapLocationToShow />
