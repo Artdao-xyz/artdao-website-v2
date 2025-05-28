@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Loading from '$lib/components/Loading/Loading.svelte';
+	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
@@ -91,7 +91,7 @@
 </script>
 
 {#await preloadedImages}
-	<Loading />
+	<LoadingV2 />
 {:then images}
 	<div
 		bind:this={containerRef}

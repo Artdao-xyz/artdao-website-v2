@@ -1,6 +1,6 @@
 <script lang="ts">
 	import bgImage from '$lib/assets/images/projects/orb/240326_caroco_035_1.webp';
-	import Loading from '$lib/components/Loading/Loading.svelte';
+	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectAudioFiles from '$lib/components/ProjectAudioFiles/ProjectAudioFiles.svelte';
@@ -81,7 +81,7 @@
 </script>
 
 {#await preloadedImages}
-	<Loading />
+	<LoadingV2 />
 {:then images}
 	<div
 		bind:this={containerRef}

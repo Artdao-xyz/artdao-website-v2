@@ -4,7 +4,7 @@ export const blessingForSaleVideo: IVideoProject = {
 	name: 'BLESSING FOR SALE',
 	artist: 'mlgnh',
 	year: '2024',
-	videoUrl: 'https://storage.cloud.google.com/artdao-files/videos/blessing_for_sale.mp4#t=0.1',
+	videoUrl: 'https://storage.googleapis.com/videoszine/Rave/ARTWORKS%20VIDEO/mlgnh%20-%20BLESSING%20FOR%20SALE.mp4',
 	size: 'rectangle'
 };
 
@@ -12,7 +12,7 @@ export const fwvnVideo: IVideoProject = {
 	name: '999',
 	artist: 'fwvn',
 	year: '2024',
-	videoUrl: 'https://storage.cloud.google.com/artdao-files/videos/999%20-%20fwvn.mp4#t=0.1',
+	videoUrl: 'https://storage.googleapis.com/videoszine/Rave/ARTWORKS%20VIDEO/Fwvn%20-%20999.mp4',
 	size: 'rectangle'
 };
 
@@ -21,7 +21,7 @@ export const frequencyVideo: IVideoProject = {
 	artist: 'Ndr0n',
 	year: '2024',
 	videoUrl:
-		'https://storage.cloud.google.com/artdao-files/videos/Frequency%20-%20Ndr0n%20.mp4#t=0.1',
+		'https://storage.googleapis.com/videoszine/Rave/ARTWORKS%20VIDEO/Ndr0n%20-%20Frequency.mp4',
 	size: 'rectangle'
 };
 
@@ -38,6 +38,6 @@ export const afterPartyVideo: IVideoProject = {
 	name: 'After Party',
 	artist: 'RAVE',
 	year: '2024',
-	videoUrl: 'https://storage.cloud.google.com/artdao-files/videos/after_movie.mp4#t=0.1',
+	videoUrl: 'https://storage.googleapis.com/videoszine/Rave/AFTER%20PARTY.mp4',
 	size: 'vertical'
 };

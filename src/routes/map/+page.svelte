@@ -2,7 +2,7 @@
 	import buttonIcon from '$lib/assets/images/button-icon.webp';
 	import mapBg from '$lib/assets/images/map-background.webp';
 	import HomeMobileMenu from '$lib/components/HomeMobileMenu/HomeMobileMenu.svelte';
-	import Loading from '$lib/components/Loading/Loading.svelte';
+	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import City from '$lib/elements/City/City.svelte';
 	import CityMobile from '$lib/elements/CityMobile/CityMobile.svelte';
 	import EventData from '$lib/elements/EventData/EventData.svelte';
@@ -12,7 +12,7 @@
 	import { EColorVariant } from '../../constants/enums';
 	import { eventImages, mapData, type IMapEvent, type IMapLocation } from '../../data/Map/MapData';
 	import preloadImages from '../../utils/preloadImages';
-
+	import { fly } from 'svelte/transition';
 	let eventToShow: IMapEvent | undefined = undefined;
 	let width: number;
 	let mapLocationToShow: IMapLocation | undefined;
@@ -46,15 +46,16 @@
 <HomeMobileMenu section="drop" />
 
 {#await preloadedImages}
-	<Loading />
+	<LoadingV2 />
 {:then images}
 	<div
+		transition:fly={{ duration: 300 }}
 		class="h-[100dvh] flex justify-center items-center relative w-full {width > 768
 			? 'pt-[3rem]'
 			: 'p-0'} sm:pt-0"
 	>
 		<div
-			class="w-100dvw rounded-[6.25rem] h-[1rem] sm:flex flex-row items-center z-50 absolute top-[2.88%] left-[0%] mx-[1.625rem] gap-2.5 hidden"
+			class="w-dvw rounded-[6.25rem] h-[1rem] sm:flex flex-row items-center z-50 absolute top-[2.88%] left-[0%] mx-[1.625rem] gap-2.5 hidden"
 		>
 			<a href={'/'}>
 				<div
@@ -70,14 +71,14 @@
 					<img src={images[0][0]} alt="map" class="w-full h-full object-cover" />
 					<City mapLocation={mapData[0]} top="27" left="44.5" dotOnLeft={false} bind:eventToShow />
 					<City mapLocation={mapData[1]} top="34.5" left="49" bind:eventToShow />
-					<City mapLocation={mapData[2]} top="40" left="24" bind:eventToShow />
+					<!-- <City mapLocation={mapData[2]} top="40" left="24" bind:eventToShow /> -->
 					<City mapLocation={mapData[3]} top="56.5" left="30.2" bind:eventToShow />
 					<City mapLocation={mapData[4]} top="67" left="36" bind:eventToShow />
 					<City mapLocation={mapData[5]} top="73" left="34" showOnTop bind:eventToShow />
 				</SectionContainer>
 			{:else}
 				{#await preloadedEventImages}
-					<Loading />
+					<LoadingV2 />
 				{:then eventImages}
 					<EventData
 						bind:eventToShow
@@ -92,11 +93,11 @@
 			{/if}
 		{:else if !mapLocationToShow}
 			<div
-				class="flex flex-col gap-[15px] w-full bg-color-gray py-[4.5rem] px-[20px] h-fit self-start"
+				class="flex flex-col gap-[15px] w-full bg-color-gray py-[4.5rem] px-[20px] h-full self-start"
 			>
 				<CityMobile mapLocation={mapData[0]} bind:eventToShow bind:mapLocationToShow />
 				<CityMobile mapLocation={mapData[1]} bind:eventToShow bind:mapLocationToShow />
-				<CityMobile mapLocation={mapData[2]} bind:eventToShow bind:mapLocationToShow />
+				<!-- <CityMobile mapLocation={mapData[2]} bind:eventToShow bind:mapLocationToShow /> -->
 				<CityMobile mapLocation={mapData[3]} bind:eventToShow bind:mapLocationToShow />
 				<CityMobile mapLocation={mapData[4]} bind:eventToShow bind:mapLocationToShow />
 				<CityMobile mapLocation={mapData[5]} bind:eventToShow bind:mapLocationToShow />

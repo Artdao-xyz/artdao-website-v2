@@ -27,7 +27,7 @@
 
 <button
 	on:click={toggleVisibility}
-	class="absolute z-40 top-5 laptopM:top-0 mt-[2.5%] {!hasInfo ? 'cursor-default' : ''} w-full"
+	class="text-color-white absolute z-40 top-5 laptopM:top-0 mt-[2.5%] {!hasInfo ? 'cursor-default' : ''} w-full"
 >
 	<div
 		class="flex flex-col gap-2.5 w-full sm:w-[20rem] rounded-20 {!isWhite

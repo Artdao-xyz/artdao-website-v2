@@ -73,7 +73,8 @@ export default {
 		borderRadius: {
 			20: '1.25rem',
 			30: '1.875rem',
-			40: '2.5rem'
+			40: '2.5rem',
+			128: '8rem'
 		},
 		extend: {
 			width: {

@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { MarchingCubes } from 'three/addons/objects/MarchingCubes.js';
 import { app } from '../../../lib/components/Metaball/config';
 import * as Symbols from '../../../lib/components/Metaball/symbols';
-import { metaballProgress } from '../../../routes/artifice/store';
+import { metaballProgress } from '../../../utils/metaball/getMetaballProgress';
 
 export default class MetaSymbol {
 	constructor(_textures) {
@@ -70,32 +70,12 @@ export default class MetaSymbol {
 		this.metaball.scale.set(metaballScale, -metaballScale, metaballScale);
 		this.metaball.isolation = 60;
 		// this.modelToObject("../../model/ArtdaoSymbols_Luxi.fbx_1.fbx")
-
-		// FOR HOME AND MOBILE
-		document.onscroll = (e) => {
-			const newS =
-				((document.documentElement.scrollTop || document.body.scrollTop) /
-					((document.documentElement.scrollHeight || document.body.scrollHeight) -
-						document.documentElement.clientHeight)) *
-				100;
-			parent.scrollPercentD = newS;
-			//document.getElementById('scrollProgress').innerText = 'Progreso : ' + scrollPercent.toFixed(2)
-		};
-
-		// FOR SNAPPING DESKTOP SECTIONS
-		this.modifyScroll = () => {
-			let progress;
-
-			metaballProgress.subscribe((number) => {
-				progress = number;
-			});
-
-			if (!progress) {
-				return;
-			}
-
-			parent.scrollPercentD = progress;
-		};
+		
+		// Subscribe to the metaballProgress store
+		metaballProgress.subscribe((progress) => {
+			// console.log('progress desde meta symbol', progress);
+			this.scrollPercentD = progress;
+		});
 	}
 
 	getMesh() {
@@ -123,11 +103,7 @@ export default class MetaSymbol {
 	}
 
 	update() {
-		this.modifyScroll();
-
 		const time = this.clock.getElapsedTime();
-
-		setInterval(this.modifyScroll, 100);
 
 		this.fixedTable.map((fixed, index) => {
 			if (Math.abs(this.scrollPercentD - fixed * 100.0) < 10.0) {
@@ -136,7 +112,7 @@ export default class MetaSymbol {
 		});
 
 		//this.scrollPercent=this.scrollPercentD = (4/(Symbols.default.simbols.length-1))*100
-		this.scrollPercent += (this.scrollPercentD - this.scrollPercent) * 0.05;
+		this.scrollPercent += (this.scrollPercentD - this.scrollPercent) * 0.1;
 		this.textureMix += (this.textureMixD - this.textureMix) * 0.05;
 		this.backMix += (this.backMixD - this.backMix) * 0.05;
 		this.textureMix = THREE.MathUtils.clamp(this.textureMix, 0.0, 1.0);
@@ -195,6 +171,11 @@ export default class MetaSymbol {
 	}
 
 	dispose() {
+		// Clean up the subscription
+		if (this.progressSubscription) {
+			this.progressSubscription();
+		}
+
 		// this.metaball.dispose()
 		this.material.dispose();
 

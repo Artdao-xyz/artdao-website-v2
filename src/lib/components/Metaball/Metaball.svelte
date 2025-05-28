@@ -71,6 +71,10 @@
 
 		animate();
 
+		// document.addEventListener('wheel', () => {
+		// 	console.log('wheel');
+		// });
+
 		/* RESIZE */
 		onresize = (e) => {
 			// Update sizes
@@ -119,6 +123,6 @@
 
 <svelte:window bind:innerWidth={width} />
 <a href={width <= 768 ? HOME : '#intro'}>
-	<canvas bind:this={canvas} class="bg-transparent fixed z-50 bottom-4 right-4 top-auto left-auto">
+	<canvas bind:this={canvas} class="bg-transparent relative">
 	</canvas>
 </a>

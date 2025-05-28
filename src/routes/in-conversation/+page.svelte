@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Loading from '$lib/components/Loading/Loading.svelte';
+	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
@@ -51,7 +51,7 @@
 <svelte:window bind:innerWidth={size} />
 
 {#await preloadedImages}
-	<Loading />
+	<LoadingV2 />
 {:then images}
 	<div
 		bind:this={containerRef}
