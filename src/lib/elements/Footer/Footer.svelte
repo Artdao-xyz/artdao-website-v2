@@ -99,7 +99,7 @@
 	<div
 		class="{width < 768
 			? 'mt-[3.25rem]'
-			: 'w-full'} text-color-white flex flex-row justify-between relative font-robotoMono leading-snug tracking-tight font-normal text-[0.875rem] mb-[18px] bg-red-200 w-full gap-2.5"
+			: 'w-full'} text-color-white flex flex-row justify-between relative font-robotoMono leading-snug tracking-tight font-normal text-[0.875rem] mb-[18px] w-full gap-2.5"
 	>
 		<div class="w-full">
 			{#if width < 768}
@@ -113,11 +113,13 @@
 			<p>© 2024</p> -->
 		</div>
 		{#if width > 768}
-			<img
-				src={footerLogo}
-				alt="Footer Logo"
-				class="w-[100px] h-[23px] absolute left-[50%] ml-[-1.4375rem] hoverTransition"
-			/>
+			<div class="pb-4">
+				<img
+					src={footerLogo}
+					alt="Footer Logo"
+					class="w-[100px] absolute left-[50%] ml-[-1.4375rem] hoverTransition"
+				/>
+			</div>
 		{/if}
 	</div>
 </footer>

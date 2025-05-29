@@ -67,7 +67,7 @@ export default {
 		fontFamily: {
 			roboto: ['Roboto-Regular'],
 			robotoMono: ['Roboto-Mono'],
-			clash: ['ClashDisplay-Regular'],
+			clash: ['ClashDisplay'],
 			neue: ['NeuePower-Variable']
 		},
 		borderRadius: {

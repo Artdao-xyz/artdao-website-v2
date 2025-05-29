@@ -131,7 +131,7 @@
 					<button
 						bind:this={submit}
 						type="submit"
-						class="text-color-white hover:bg-color-white hover:text-color-black transition-all duration-300 rounded-[6.25rem] shadow-custom invisible py-[0.125rem] px-4 font-clash leading-[0.875rem] text-[0.875rem] font-medium whitespace-nowrap h-full border border-color-white"
+						class="text-color-white hover:bg-color-white hover:text-color-black transition-all duration-300 rounded-[6.25rem] shadow-custom invisible py-[0.125rem] px-4 font-clash leading-[0.875rem] text-[0.875rem] whitespace-nowrap h-full border border-color-white"
 					>
 						Subscribe
 					</button>

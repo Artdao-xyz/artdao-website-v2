@@ -21,7 +21,7 @@
 	<div
 		class="h-[3.4375rem] px-10 py-[0.375rem] border border-black items-center rounded-40 flex flex-row w-full justify-between"
 	>
-		<p class="font-robotoMono text-xs leading-[1.375rem] tracking-[0.075rem] font-semibold">
+		<p class="font-robotoMono text-xs leading-[1.375rem] tracking-[0.075rem]">
 			[Question {index < 10 ? `0${index + 1}` : index + 1}]
 		</p>
 		<div class="w-[12.625rem] h-[0.125rem] bg-color-progress-bar-bg">
@@ -50,7 +50,7 @@
 				<img src={dottedLineLong} alt="Dotted Line" />
 			{/if}
 
-			<p class="font-clash font-semibold leading-[1.5625rem] text-base">
+			<p class="font-clash leading-[1.5625rem] text-base">
 				{response.text}
 			</p>
 		{/each}
@@ -64,7 +64,7 @@
 					'bg-color-black text-color-white font-light'}"
 			>
 				<p
-					class="font-robotoMono text-sm font-semibold leading-[1.375rem] tracking-[1.2px] p-[0.375rem] ml-[0.15rem]"
+					class="font-robotoMono text-sm leading-[1.375rem] tracking-[1.2px] p-[0.375rem] ml-[0.15rem]"
 				>
 					{i < 10 ? `0${i + 1}` : i + 1}
 				</p>

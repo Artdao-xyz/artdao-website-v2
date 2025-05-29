@@ -57,7 +57,7 @@
 		>
 			{#each selectedResponse.response as response}
 				{#if response}
-					<p class="font-clash font-semibold leading-[1.5625rem] text-base">
+					<p class="font-clash leading-[1.5625rem] text-base">
 						{response}
 					</p>
 				{/if}
