@@ -60,7 +60,7 @@
 			<img class="h-full" src="media/intro-metabola-1.gif" alt="Loading gif" />
 		</div>
 
-		<div class="text-white text-center sm:text-left font-clash font-xl leading-tight tracking-tight w-[200px] overflow-hidden">
+		<div class="text-white text-center sm:text-left font-clash font-xl leading-tight tracking-tight font-bold w-[200px] overflow-hidden">
 			<div class="space-y-1">
 				<p style="mask-image: linear-gradient(to right, 
 					black {$animationProgress - 200}%, 
