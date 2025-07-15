@@ -84,7 +84,7 @@ Main components used in project pages:
 - **Archivos / Files:** `ProjectArtworkGrid.svelte`
 - **Props:**
   - `galleryImages: IGalleryImage[]` - Array de imágenes de la galería / Gallery image array
-  - `showDetails: boolean` - Mostrar detalles de las obras / Show artwork details
+  - `showDetails: boolean` - Mostrar detalles de las obras (por defecto: false) / Show artwork details (default: false)
 
 #### **ProjectPolaroids**
 - **Propósito / Purpose:** Sección de polaroids con citas / Polaroid section with quotes
@@ -217,6 +217,92 @@ Smaller reusable elements:
 ### `/src/data/Projects/[ProjectName]/`
 Datos específicos de cada proyecto:
 Project-specific data:
+
+#### **Estructura Consolidada de Datos / Consolidated Data Structure**
+
+**Importante:** Para mantener el código limpio y mantenible, cuando un proyecto tiene múltiples secciones del mismo tipo, estas deben consolidarse en un solo archivo por tipo de dato.
+
+**Important:** To keep the code clean and maintainable, when a project has multiple sections of the same type, these should be consolidated into a single file per data type.
+
+**Ejemplo / Example:**
+- ✅ **Correcto / Correct:** `ProjectAbout.ts` con múltiples secciones / with multiple sections
+- ❌ **Incorrecto / Incorrect:** `ProjectAbout1.ts`, `ProjectAbout2.ts`, `ProjectAbout3.ts`
+
+**Estructura recomendada / Recommended structure:**
+
+```typescript
+// ProjectAbout.ts - Múltiples secciones en un archivo / Multiple sections in one file
+import AboutComponent1 from './AboutComponent1.svelte';
+import AboutComponent2 from './AboutComponent2.svelte';
+import AboutComponent3 from './AboutComponent3.svelte';
+
+// First About Section
+export const projectAbout1 = {
+    title: 'Section 1 Title',
+    subtitle: '',
+    text: AboutComponent1
+};
+
+export const projectAbout1Images = [
+    '/media/project/section1/image1.webp',
+    '/media/project/section1/image2.webp'
+];
+
+// Second About Section
+export const projectAbout2 = {
+    title: 'Section 2 Title',
+    subtitle: '',
+    text: AboutComponent2
+};
+
+export const projectAbout2Images = [
+    '/media/project/section2/image1.webp',
+    '/media/project/section2/image2.webp'
+];
+
+// Third About Section
+export const projectAbout3 = {
+    title: 'Section 3 Title',
+    subtitle: '',
+    text: AboutComponent3
+};
+
+export const projectAbout3Images = [
+    '/media/project/section3/image1.webp',
+    '/media/project/section3/image2.webp'
+];
+```
+
+```typescript
+// ProjectArtworkGrid.ts - Múltiples grillas en un archivo / Multiple grids in one file
+import type { IGalleryImage } from '$lib/elements/ArtworkContainer/interfaces';
+
+// First Artwork Grid
+export const projectArtworkGrid1: IGalleryImage[] = [
+    {
+        image: '/media/project/grid1/artwork1.webp',
+        name: '',
+        description: ''
+    },
+    // ... more images
+];
+
+// Second Artwork Grid
+export const projectArtworkGrid2: IGalleryImage[] = [
+    {
+        image: '/media/project/grid2/artwork1.webp',
+        name: '',
+        description: ''
+    },
+    // ... more images
+];
+```
+
+**Beneficios / Benefits:**
+- ✅ **Mantenibilidad / Maintainability:** Un archivo por tipo de dato / One file per data type
+- ✅ **Organización / Organization:** Fácil de encontrar y editar / Easy to find and edit
+- ✅ **Consistencia / Consistency:** Estructura uniforme en todos los proyectos / Uniform structure across all projects
+- ✅ **Escalabilidad / Scalability:** Fácil agregar nuevas secciones / Easy to add new sections
 
 #### **ProjectIntro.ts**
 ```typescript
@@ -436,12 +522,19 @@ export const newProjectNavItems: INavBarItem[] = [
 ### Paso 4: Crear la página del proyecto / Step 4: Create project page
 En `/src/routes/[project-name]/+page.svelte` / In `/src/routes/[project-name]/+page.svelte`:
 
+**Importante:** La página debe incluir todos los componentes necesarios para las secciones del proyecto, con navegación y scroll snap.
+
+**Important:** The page must include all necessary components for the project sections, with navigation and scroll snap.
+
 ```svelte
 <script lang="ts">
     import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
     import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
     import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
     import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
+    import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
+    import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+    import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
     import Footer from '$lib/elements/Footer/Footer.svelte';
     import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
     import { inview } from 'svelte-inview';
@@ -452,7 +545,6 @@ En `/src/routes/[project-name]/+page.svelte` / In `/src/routes/[project-name]/+p
     import { newProjectDropdownItems } from '../../data/Projects/[ProjectName]/ProjectAboutDropdown';
     import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
     import preloadImages from '../../utils/preloadImages';
-    import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
     import { newProjectNavStoreItems } from './store';
 
     let introIsInView: boolean;
@@ -474,8 +566,6 @@ En `/src/routes/[project-name]/+page.svelte` / In `/src/routes/[project-name]/+p
         newProjectAboutImages,
         newProjectDropdownItems.map((item) => item.image)
     ]);
-
-    let refs = getProjectRefs(EProjects.NEW_PROJECT);
 </script>
 
 {#await preloadedImages}
@@ -525,6 +615,11 @@ En `/src/routes/[project-name]/+page.svelte` / In `/src/routes/[project-name]/+p
                 aboutDropdownItems={newProjectDropdownItems}
                 route="" 
             />
+
+			<ProjectArtworkGrid
+				galleryImages={memeticRubbleArtworkGrid1}
+				showDetails={false}
+			/>
         </div>
 
         <HomeIcon />

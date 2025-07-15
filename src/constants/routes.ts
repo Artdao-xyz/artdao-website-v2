@@ -7,5 +7,6 @@ export const ORB = '/orb';
 export const INHERENT = '/inherent-instability';
 export const INTERTWINED = '/intertwined';
 export const ARTIFICE = '/artifice';
+export const MEMETIC_RUBBLE = '/memetic-rubble';
 export const NON_PLACES = '/non-places';
 export const IN_CONVERSATION = '/in-conversation';

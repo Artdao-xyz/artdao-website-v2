@@ -27,8 +27,8 @@
 			: 'bg-color-black'} pr-global-padding {isCenterImage ? 'bg-center' : 'bg-bottom'}"
 		id="intro"
 		style={width > 1100
-			? `background-image: url(${bgImage});`
-			: `background-image: url(${bgImageMobile});`}
+			? `background-image: url(${bgImage}); background-position: top;`
+			: `background-image: url(${bgImageMobile}); background-position: top;`}
 	>
 		<div
 			class="flex flex-col h-full w-full sm:w-full sm:max-w-[40rem] {isWiderTitle
