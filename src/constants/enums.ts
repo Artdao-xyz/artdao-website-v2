@@ -24,5 +24,6 @@ export enum EProjects {
 	INTERTWINED = 'Intertwined',
 	NON_PLACES = 'NonPlaces',
 	ORB = 'Orb',
-	RAVE = 'Rave'
+	RAVE = 'Rave',
+	SUBCONSCIOUS_MEDIA = 'SubconsciousMedia'
 }
