@@ -35,7 +35,8 @@
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { orbNavStoreItems } from './store';
-
+	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
+	
 	let introIsInView: boolean;
 	let curatorsIsInView: boolean;
 	let vernisaggeIsInView: boolean;
@@ -89,6 +90,13 @@
 		on:touchmove={handleOnScroll}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
+
+		<div
+			id="chat"
+		>
+			<ChatInterview />
+		</div>
+				
 		<div
 			id="intro"
 			use:inview={INVIEW_OPTIONS}
