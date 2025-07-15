@@ -39,6 +39,7 @@ src/
 ### `/src/routes/`
 Contiene las páginas de SvelteKit. Cada proyecto tiene su propia carpeta con:
 Contains SvelteKit pages. Each project has its own folder with:
+- `+layout.svelte` - Layout del proyecto, incluye la barra de navegación específica del proyecto / Project layout, includes the project-specific navigation bar
 - `+page.svelte` - Página principal del proyecto / Project main page
 - `store.ts` - Store local para navegación del proyecto / Local store for project navigation
 
@@ -519,114 +520,26 @@ export const newProjectNavItems: INavBarItem[] = [
 ];
 ```
 
-### Paso 4: Crear la página del proyecto / Step 4: Create project page
-En `/src/routes/[project-name]/+page.svelte` / In `/src/routes/[project-name]/+page.svelte`:
-
-**Importante:** La página debe incluir todos los componentes necesarios para las secciones del proyecto, con navegación y scroll snap.
-
-**Important:** The page must include all necessary components for the project sections, with navigation and scroll snap.
+### Paso 4: Crear la página y layout del proyecto / Step 4: Create project page and layout
+En `/src/routes/[project-name]/+layout.svelte` agrega el NavBar del proyecto:
 
 ```svelte
 <script lang="ts">
-    import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
-    import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
-    import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
-    import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
-    import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
-    import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
-    import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
-    import Footer from '$lib/elements/Footer/Footer.svelte';
-    import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
-    import { inview } from 'svelte-inview';
-    import { EColorVariant, EProjects } from '../../constants/enums';
-    import { newProjectNavItems } from '../../data/Projects/[ProjectName]/NavItems';
-    import { newProjectIntro } from '../../data/Projects/[ProjectName]/ProjectIntro';
-    import { newProjectAbout, newProjectAboutImages } from '../../data/Projects/[ProjectName]/ProjectAbout';
-    import { newProjectDropdownItems } from '../../data/Projects/[ProjectName]/ProjectAboutDropdown';
-    import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
-    import preloadImages from '../../utils/preloadImages';
-    import { newProjectNavStoreItems } from './store';
+	import NavBar from '$lib/elements/NavBar/NavBar.svelte';
+	import '../../style.css';
+	import { [projectNavStoreItems] } from './store';
 
-    let introIsInView: boolean;
-    let section1IsInView: boolean;
-
-    let containerRef: any;
-
-    const handleOnScroll = () => {
-        if (introIsInView) {
-            updateNavBar(newProjectNavStoreItems, newProjectNavItems, newProjectNavItems[0].route);
-        }
-        if (section1IsInView) {
-            updateNavBar(newProjectNavStoreItems, newProjectNavItems, newProjectNavItems[1].route);
-        }
-    };
-
-    const preloadedImages = preloadImages([
-        [newProjectIntro.bgImage, newProjectIntro.bgImageMobile],
-        newProjectAboutImages,
-        newProjectDropdownItems.map((item) => item.image)
-    ]);
+	let navItems: any;
+	[projectNavStoreItems].subscribe((item) => {
+		navItems = item;
+	});
 </script>
 
-{#await preloadedImages}
-    <LoadingV2 />
-{:then images}
-    <div
-        bind:this={containerRef}
-        on:scroll={handleOnScroll}
-        on:touchmove={handleOnScroll}
-        class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
-    >
-        <!-- Intro Section -->
-        <div
-            id="intro"
-            use:inview={INVIEW_OPTIONS}
-            on:inview_change={(event) => {
-                const { inView } = event.detail;
-                introIsInView = inView;
-            }}
-        >
-            <ProjectIntro
-                project={newProjectIntro}
-                textColor="black"
-                bgImage={images[0][0]}
-                bgImageMobile={images[0][1]}
-            />
-        </div>
-
-        <!-- Section 1 -->
-        <div
-            id="section1"
-            use:inview={INVIEW_OPTIONS}
-            on:inview_change={(event) => {
-                const { inView } = event.detail;
-                section1IsInView = inView;
-            }}
-        >
-            <ProjectAbout
-                aboutItem={newProjectAbout}
-                aboutImages={images[1]}
-                route=""
-                colorVariant={EColorVariant.BLACK}
-            />
-
-            <ProjectAboutDropdown 
-                images={images[2]} 
-                aboutDropdownItems={newProjectDropdownItems}
-                route="" 
-            />
-
-			<ProjectArtworkGrid
-				galleryImages={memeticRubbleArtworkGrid1}
-				showDetails={false}
-			/>
-        </div>
-
-        <HomeIcon />
-        <Footer project={EProjects.NEW_PROJECT} />
-    </div>
-{/await}
+<NavBar {navItems} />
+<slot />
 ```
+
+En `/src/routes/[project-name]/+page.svelte` incluye las secciones del proyecto como se explicó antes.
 
 ### Paso 5: Crear el store del proyecto / Step 5: Create project store
 En `/src/routes/[project-name]/store.ts` / In `/src/routes/[project-name]/store.ts`:
