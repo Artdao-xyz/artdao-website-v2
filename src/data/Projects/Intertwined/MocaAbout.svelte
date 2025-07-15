@@ -1,16 +1,11 @@
 <div class="flex flex-col gap-5">
 	<p>
-		Museum Of Crypto Art joined Intertwined to present “Making it 24/7” a digital interactive
-		experience that lead the users to a digital gallery.
+		As part of the Intertwined, Art Blocks showcased the work of Operator,  an artist-duo composed by Ania Catherine and Dejha with the project “Human Unreadable” a three-act project that brings together choreography, code, blockchain, generative art, and cryptography, the work culminates in a live performance.
 	</p>
 	<p>
-		Making It 24/7 discusses the individualistic and hyper-personal nature of artworks created by
-		"children of the Internet's genius." These works reflect the richness that comes from exposure
-		to the Internet world.
+		Nathaniel Stern and Sasha Stiles with “STILL MOVING” an interactive poem about humanity’s visceral engagement with the virtual – written and published via the blockchain as a token word performance, and embodied by each collector as a uniquely intimate, personalized interpretation. 
 	</p>
 	<p>
-		Though the artworks may seem loosely linked, they represent an important 21st-century
-		psychological phenomenon that has emerged through the Internet's influence on our children and
-		our own internal worlds.
+		And Jeff Davis, the CCO of Art Blocks, presenting “Color Study” a generative abstraction of high-rise buildings creating a randomized seed that selects one of 9 different window patterns, 4 different atmospheric conditions, and an overall color scheme based on 4 different reflections. 
 	</p>
 </div>
