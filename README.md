@@ -721,6 +721,29 @@ export interface INavBarItem {
 
 ## 🌿 Flujo de Trabajo con Ramas / Branch Workflow
 
+### Convenciones de nombres de ramas / Branch naming conventions
+```bash
+# Para agregar un nuevo proyecto / For adding a new project
+git checkout -b feat/add-[project-name]
+git checkout -b feat/add-memetic-rubble
+
+# Para actualizar un proyecto existente / For updating an existing project
+git checkout -b feat/update-[project-name]
+git checkout -b feat/update-artifice
+
+# Para nuevas funcionalidades / For new features
+git checkout -b feat/[feature-name]
+git checkout -b feat/new-conversation-component
+
+# Para correcciones / For fixes
+git checkout -b fix/[fix-description]
+git checkout -b fix/mobile-scroll-and-images
+
+# Para documentación / For documentation
+git checkout -b docs/[description]
+git checkout -b docs/add-complete-project-documentation
+```
+
 ### Crear una nueva feature / Create a new feature
 ```bash
 # Asegurarse de estar en main y actualizado / Make sure you're on main and updated
@@ -728,8 +751,8 @@ git checkout main
 git pull origin main
 
 # Crear nueva rama / Create new branch
-git checkout -b feature/nombre-de-la-feature
-git checkout -b feature/feature-name
+git checkout -b feat/nombre-de-la-feature
+git checkout -b feat/feature-name
 ```
 
 ### Trabajar en la feature / Work on the feature
