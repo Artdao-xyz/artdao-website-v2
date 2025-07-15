@@ -17,6 +17,7 @@ export enum EColorVariant {
 
 export enum EProjects {
 	ARTIFICE = 'Artifice',
+	DIGITAL_ARCHAEOLOGY = 'DigitalArchaeology',
 	DIGITAL_MATTER = 'DigitalMatter',
 	ECOLOGIES_OF_CODE = 'EcologiesOfCode',
 	IN_CONVERSATION = 'InCoversation',

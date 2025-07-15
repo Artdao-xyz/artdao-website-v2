@@ -2,6 +2,7 @@ export const HOME = '/';
 export const DROPS = '/drops';
 export const ECOLOGIES_OF_CODE = '/ecologies-of-code';
 export const RAVE = '/rave';
+export const DIGITAL_ARCHAEOLOGY = '/digital-archaeology';
 export const DIGITAL_MATTER = '/digital-matter';
 export const ORB = '/orb';
 export const INHERENT = '/inherent-instability';

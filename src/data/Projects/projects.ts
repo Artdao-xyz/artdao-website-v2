@@ -28,6 +28,7 @@ import raveHover from '$lib/assets/images/projects/footer/projects_rave_hover-mi
 import { EProjects } from '../../constants/enums';
 import {
 	ARTIFICE,
+	DIGITAL_ARCHAEOLOGY,
 	DIGITAL_MATTER,
 	ECOLOGIES_OF_CODE,
 	IN_CONVERSATION,
@@ -48,6 +49,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.ARTIFICE,
 		refs: [EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE, EProjects.IN_CONVERSATION]
+	},
+	{
+		name: EProjects.DIGITAL_ARCHAEOLOGY,
+		refs: [EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE, EProjects.INHERENT_INSTABILITY]
 	},
 	{
 		name: EProjects.DIGITAL_MATTER,
@@ -95,6 +100,14 @@ export const projectsDetails = [
 		hover: artificeHover,
 		url: ARTIFICE,
 		mobileImage: artificeMobile
+	},
+	{
+		name: EProjects.DIGITAL_ARCHAEOLOGY,
+		nameToShow: 'digital archaeology',
+		image: '/media/thumbnails/14-home-digital-archaeology.webp',
+		hover: '/media/thumbnails/14-home-digital-archaeology.webp',
+		url: DIGITAL_ARCHAEOLOGY,
+		mobileImage: '/media/thumbnails/14-home-digital-archaeology.webp'
 	},
 	{
 		name: EProjects.DIGITAL_MATTER,
