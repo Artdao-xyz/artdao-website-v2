@@ -71,6 +71,8 @@ export default {
 			neue: ['NeuePower-Variable']
 		},
 		borderRadius: {
+			0: '0rem',
+			10: '0.825rem',
 			20: '1.25rem',
 			30: '1.875rem',
 			40: '2.5rem',
