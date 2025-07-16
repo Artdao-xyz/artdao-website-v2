@@ -35,7 +35,8 @@ import {
 	INTERTWINED,
 	NON_PLACES,
 	ORB,
-	RAVE
+	RAVE,
+	QUEERING_THE_WEB3
 } from '../../constants/routes';
 
 export interface IProject {
@@ -79,6 +80,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.RAVE,
 		refs: [EProjects.IN_CONVERSATION, EProjects.INTERTWINED, EProjects.INHERENT_INSTABILITY]
+	},
+	{
+		name: EProjects.QUEERING_THE_WEB3,
+		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
 	}
 ];
 
@@ -154,5 +159,13 @@ export const projectsDetails = [
 		hover: raveHover,
 		url: RAVE,
 		mobileImage: raveMobile
+	},
+	{
+		name: EProjects.QUEERING_THE_WEB3,
+		nameToShow: 'queering the web3',
+		image: artifice, // Using placeholder image for now
+		hover: artificeHover, // Using placeholder image for now
+		url: QUEERING_THE_WEB3,
+		mobileImage: artificeMobile // Using placeholder image for now
 	}
 ];

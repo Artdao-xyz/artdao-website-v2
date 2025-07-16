@@ -9,3 +9,4 @@ export const INTERTWINED = '/intertwined';
 export const ARTIFICE = '/artifice';
 export const NON_PLACES = '/non-places';
 export const IN_CONVERSATION = '/in-conversation';
+export const QUEERING_THE_WEB3 = '/queering-the-web3';
