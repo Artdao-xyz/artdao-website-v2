@@ -37,7 +37,7 @@
     on:click={handleBackdropClick}
 >
     <img class="h-14" src={artDaoLogo} alt="ArtDao Logo">
-    <div class="font-clash leading-tight">
+    <div class="font-clash text-md font-medium leading-tight">
         <h3>{text1}</h3>
         <h3>{text2}</h3>
     </div>
