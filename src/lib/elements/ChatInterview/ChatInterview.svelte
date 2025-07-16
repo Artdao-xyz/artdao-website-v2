@@ -30,8 +30,8 @@
   <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0">
       <img src="media/home/thumbnails/01-home-digital-matter.webp" alt="Background" class="h-full w-full object-cover">
   </div>
-  <div class="h-[85vh] w-full flex flex-col relative z-10">
-    <div class="flex-1 max-w-2xl mx-auto bg-color-black p-0 overflow-hidden rounded-[20px] shadow-[0px_4px_40px_0px_rgba(0,0,0,1.00)] relative">
+  <div class="h-dvh lg:h-[85vh] w-full flex flex-col relative z-10">
+    <div class="flex-1 max-w-2xl mx-auto bg-color-black p-0 overflow-hidden lg:rounded-[20px] lg:shadow-[0px_4px_40px_0px_rgba(0,0,0,1.00)] relative">
       <div class="font-roboto font-bold text-xs tracking-widest text-center w-full absolute top-0 left-0 flex items-center justify-center h-10 z-10 bg-color-black">
         <p>
           in conversation with alice scope
@@ -54,7 +54,7 @@
               <div class="max-w-[90%] {
                 character.type === 'answer' ? 'flex flex-col items-end' : ''
               }">
-                <div class="p-6 {
+                <div class="p-3.5 sm:p-6 {
                   character.type === 'question' 
                     ? 'bg-[#989898]/20 rounded-[24px] rounded-bl-[0px]' 
                     : 'bg-transparent rounded-[24px] rounded-br-[0px] border-[1px] border-white/10'
@@ -62,7 +62,7 @@
                   {#if character.type === 'answer' && showAuthorNames}
                     <div class="text-[10px] font-roboto font-normal text-white mb-2">{character.name}</div>
                   {/if}
-                  <div>{@html processText(message.content)}</div>
+                  <div class="text-sm sm:text-base">{@html processText(message.content)}</div>
                 </div>
               </div>
             </div>
@@ -73,7 +73,7 @@
             <div class="flex justify-center mb-5">
               <img 
                 src={data.images[index]} 
-                alt="Conversation image" 
+                alt="Conversation" 
                 class="max-w-[80%] rounded-lg"
               />
             </div>
