@@ -24,5 +24,7 @@ export enum EProjects {
 	INTERTWINED = 'Intertwined',
 	NON_PLACES = 'NonPlaces',
 	ORB = 'Orb',
-	RAVE = 'Rave'
+	RAVE = 'Rave',
+	QUEERING_THE_WEB3 = 'QueeringTheWeb3',
+	CHAOS_AGENTS = 'ChaosAgents'
 }
