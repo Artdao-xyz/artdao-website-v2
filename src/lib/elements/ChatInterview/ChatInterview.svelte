@@ -26,6 +26,27 @@
   }
 </script>
 
+<style>
+  .fade-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 60px;
+    pointer-events: none;
+    z-index: 20;
+  }
+  
+  .fade-top {
+    top: 40px; /* Below the header */
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  }
+  
+  .fade-bottom {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  }
+</style>
+
 <div class="snap-start relative font-clash h-screen max-h-screen flex flex-col justify-center items-center text-white">
   <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0">
       <img src="media/home/thumbnails/01-home-digital-matter.webp" alt="Background" class="h-full w-full object-cover">
@@ -37,6 +58,11 @@
           in conversation with alice scope
         </p>
       </div>
+      
+      <!-- Fade overlays positioned outside the scroll container -->
+      <div class="fade-overlay fade-top"></div>
+      <div class="fade-overlay fade-bottom"></div>
+      
       <div class="overflow-y-auto h-full pt-14 px-5">
         {#each data.messages as message, index}
           {@const character = getCharacter(message.characterId)}
