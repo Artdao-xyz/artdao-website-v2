@@ -36,6 +36,7 @@
 	import preloadImages from '../../utils/preloadImages';
 	import { orbNavStoreItems } from './store';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
+	import { orbChatInterview } from '../../data/Projects/Orb/ProjectChatInterview';
 	
 	let introIsInView: boolean;
 	let curatorsIsInView: boolean;
@@ -90,12 +91,6 @@
 		on:touchmove={handleOnScroll}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
-
-		<div
-			id="chat"
-		>
-			<ChatInterview />
-		</div>
 				
 		<div
 			id="intro"
@@ -119,6 +114,12 @@
 				bgImage={images[0][0]}
 				bgImageMobile={images[0][1]}
 			/>
+		</div>
+
+				<div
+			id="chat"
+		>
+			<ChatInterview data={orbChatInterview} />
 		</div>
 
 		<div
