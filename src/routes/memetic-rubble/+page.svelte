@@ -5,6 +5,7 @@
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
+	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { inview } from 'svelte-inview';
@@ -12,6 +13,7 @@
 	import { memeticRubbleNavItems } from '../../data/Projects/MemeticRubble/NavItems';
 	import { memeticRubbleAbout1, memeticRubbleAbout1Images, memeticRubbleAbout2, memeticRubbleAbout2Images, memeticRubbleAbout3, memeticRubbleAbout3Images } from '../../data/Projects/MemeticRubble/ProjectAbout';
 	import { memeticRubbleArtworkGrid1, memeticRubbleArtworkGrid2 } from '../../data/Projects/MemeticRubble/ProjectArtworkGrid';
+	import { memeticRubbleChatInterview } from '../../data/Projects/MemeticRubble/ProjectChatInterview';
 	import { memeticRubbleIntro } from '../../data/Projects/MemeticRubble/ProjectIntro';
 	import { memeticRubblePolaroids } from '../../data/Projects/MemeticRubble/ProjectPolaroids';
 	import { memeticRubbleVideos } from '../../data/Projects/MemeticRubble/ProjectVideo';
@@ -26,6 +28,7 @@
 	let femzorIsInView: boolean;
 	let artworkGallery1IsInView: boolean;
 	let julianBrangoldIsInView: boolean;
+	let chatInterviewIsInView: boolean;
 	let artworkGallery2IsInView: boolean;
 	let videosIsInView: boolean;
 
@@ -50,11 +53,14 @@
 		if (julianBrangoldIsInView) {
 			updateNavBar(memeticRubbleNavStoreItems, memeticRubbleNavItems, memeticRubbleNavItems[5].route);
 		}
-		if (artworkGallery2IsInView) {
+		if (chatInterviewIsInView) {
 			updateNavBar(memeticRubbleNavStoreItems, memeticRubbleNavItems, memeticRubbleNavItems[6].route);
 		}
-		if (videosIsInView) {
+		if (artworkGallery2IsInView) {
 			updateNavBar(memeticRubbleNavStoreItems, memeticRubbleNavItems, memeticRubbleNavItems[7].route);
+		}
+		if (videosIsInView) {
+			updateNavBar(memeticRubbleNavStoreItems, memeticRubbleNavItems, memeticRubbleNavItems[8].route);
 		}
 	};
 
@@ -176,6 +182,18 @@
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
+		</div>
+
+		<!-- Chat Interview Section -->
+		<div
+			id="chat-interview"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				chatInterviewIsInView = inView;
+			}}
+		>
+			<ChatInterview data={memeticRubbleChatInterview} />
 		</div>
 
 		<!-- Artwork Gallery 2 Section -->

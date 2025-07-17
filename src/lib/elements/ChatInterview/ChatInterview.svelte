@@ -86,7 +86,7 @@
                     : 'bg-transparent rounded-[24px] rounded-br-[0px] border-[1px] border-white/10'
                 }">
                   {#if character.type === 'answer' && showAuthorNames}
-                    <div class="text-[10px] font-roboto font-normal text-white mb-2">{character.name}</div>
+                    <div class="text-[10px] font-roboto font-normal text-white mb-2 uppercase">{character.name}</div>
                   {/if}
                   <div class="text-sm sm:text-base">{@html processText(message.content)}</div>
                 </div>

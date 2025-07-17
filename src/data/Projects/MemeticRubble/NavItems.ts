@@ -32,6 +32,11 @@ export const memeticRubbleNavItems: INavBarItem[] = [
         selected: false
     },
     {
+        text: 'Interview',
+        route: 'chat-interview',
+        selected: false
+    },
+    {
         text: 'Artwork Gallery 2',
         route: 'artwork-gallery-2',
         selected: false
