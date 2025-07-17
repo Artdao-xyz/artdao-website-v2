@@ -24,7 +24,7 @@
     return uniqueAuthors.length > 1;
   }
 
-  const showAuthorNames = hasMultipleAuthors();
+  const showAuthorNames = true; // Always show author names
 
   // Función para procesar texto con saltos de línea
   function processText(text: string): string {
