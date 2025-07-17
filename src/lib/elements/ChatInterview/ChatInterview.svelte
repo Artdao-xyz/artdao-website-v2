@@ -55,7 +55,7 @@
 
 <div class="snap-start relative font-clash h-screen max-h-screen flex flex-col justify-center items-center text-white">
   <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0">
-      <img src="media/home/thumbnails/01-home-digital-matter.webp" alt="Background" class="h-full w-full object-cover">
+      <img src={data.background} alt="Background" class="h-full w-full object-cover">
   </div>
   <div class="h-dvh lg:h-[85vh] w-full flex flex-col relative z-10">
     <div class="flex-1 max-w-2xl mx-auto bg-color-black p-0 overflow-hidden lg:rounded-[20px] lg:shadow-[0px_4px_40px_0px_rgba(0,0,0,1.00)] relative">
