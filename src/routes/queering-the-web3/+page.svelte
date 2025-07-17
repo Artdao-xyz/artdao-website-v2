@@ -3,6 +3,7 @@
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { inview } from 'svelte-inview';
@@ -19,6 +20,7 @@
 	import { queeringTheWeb3Intro } from '../../data/Projects/QueeringTheWeb3/ProjectIntro';
 	import { QueeringTheWeb3ArtworkGrid } from '../../data/Projects/QueeringTheWeb3/ProjectArtworkGrid';
 	import { QueeringTheWeb3ArtworkGrid2 } from '../../data/Projects/QueeringTheWeb3/ProjectArtworkGrid2';
+	import { queeringTheWeb3ChatInterview } from '../../data/Projects/QueeringTheWeb3/ProjectChatInterview';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { queeringTheWeb3NavStoreItems } from './store';
@@ -28,6 +30,7 @@
 	let artworkGridIsInView: boolean;
 	let about2IsInView: boolean;
 	let artworkGrid2IsInView: boolean;
+	let interviewIsInView: boolean;
 	let about3IsInView: boolean;
 
 	let containerRef: any;
@@ -48,8 +51,11 @@
 		if (artworkGrid2IsInView) {
 			updateNavBar(queeringTheWeb3NavStoreItems, queeringTheWeb3NavItems, queeringTheWeb3NavItems[4].route);
 		}
-		if (about3IsInView) {
+		if (interviewIsInView) {
 			updateNavBar(queeringTheWeb3NavStoreItems, queeringTheWeb3NavItems, queeringTheWeb3NavItems[5].route);
+		}
+		if (about3IsInView) {
+			updateNavBar(queeringTheWeb3NavStoreItems, queeringTheWeb3NavItems, queeringTheWeb3NavItems[6].route);
 		}
 	};
 
@@ -91,13 +97,13 @@
 
 		<!-- About 1 Section -->
 		<div
-			id="about1"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				about1IsInView = inView;
-			}}
-		>
+		id="about1"
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			about1IsInView = inView;
+		}}
+	>
 			<ProjectAbout
 				aboutItem={queeringTheWeb3About1}
 				aboutImages={images[1]}
@@ -105,7 +111,19 @@
 				colorVariant={EColorVariant.BLACK}
 			/>
 		</div>
+	
 
+		<!-- Interview Section -->
+		<div
+		id="interview"
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			interviewIsInView = inView;
+		}}
+	>
+			<ChatInterview data={queeringTheWeb3ChatInterview} />
+		</div>
                 		<!-- About 2 Section -->
 		<div
                 id="about2"
@@ -137,13 +155,13 @@
 
 		<!-- About 3 Section -->
 		<div
-			id="about3"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				about3IsInView = inView;
-			}}
-		>
+		id="about3"
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			about3IsInView = inView;
+		}}
+	>
 			<ProjectAbout
 				aboutItem={queeringTheWeb3About3}
 				aboutImages={images[3]}
@@ -152,7 +170,7 @@
 			/>
 		</div>
 
-                		<!-- Artwork Grid 2 Section -->
+		<!-- Artwork Grid 2 Section -->
 		<div
                 id="artwork-grid-2"
                 use:inview={INVIEW_OPTIONS}

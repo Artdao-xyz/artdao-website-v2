@@ -27,6 +27,11 @@ export const queeringTheWeb3NavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
+		text: 'Interview',
+		route: 'interview',
+		selected: false
+	},
+	{
 		text: 'Future Possibilities',
 		route: 'about3',
 		selected: false
