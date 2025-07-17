@@ -61,7 +61,7 @@
     <div class="flex-1 max-w-2xl mx-auto bg-color-black p-0 overflow-hidden lg:rounded-[20px] lg:shadow-[0px_4px_40px_0px_rgba(0,0,0,1.00)] relative">
       <div class="font-roboto font-bold text-xs tracking-widest text-center w-full absolute top-0 left-0 flex items-center justify-center h-10 z-10 bg-color-black">
         <p>
-          in conversation with {getInterviewerName().toLowerCase()}
+          In conversation with {getInterviewerName()}
         </p>
       </div>
       
