@@ -27,6 +27,11 @@ export const digitalArchaeologyNavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
+		text: 'Chat Interview',
+		route: 'chat-interview',
+		selected: false
+	},
+	{
 		text: 'ESTELLE FLORES',
 		route: 'estelle',
 		selected: false
@@ -39,6 +44,11 @@ export const digitalArchaeologyNavItems: INavBarItem[] = [
 	{
 		text: 'CYDR',
 		route: 'cydr',
+		selected: false
+	},
+	{
+		text: 'Chat Interview 2',
+		route: 'chat-interview-2',
 		selected: false
 	},
 	{

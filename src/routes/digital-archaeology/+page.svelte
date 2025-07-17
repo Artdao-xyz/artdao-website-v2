@@ -5,6 +5,7 @@
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
+	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { inview } from 'svelte-inview';
@@ -28,6 +29,7 @@
 	import { DigitalArchaeologyVideo } from '../../data/Projects/DigitalArchaeology/ProjectVideo';
 	import { DigitalArchaeologyArtworkGrid } from '../../data/Projects/DigitalArchaeology/ProjectArtworkGrid';
 	import { DigitalArchaeologyPolaroids } from '../../data/Projects/DigitalArchaeology/ProjectPolaroids';
+	import { digitalArchaeologyChatInterview, digitalArchaeologyChatInterview2 } from '../../data/Projects/DigitalArchaeology/ProjectChatInterview';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { digitalArchaeologyNavStoreItems } from './store';
@@ -37,9 +39,11 @@
 	let pinkyBlueIsInView: boolean;
 	let sabatoIsInView: boolean;
 	let stipinIsInView: boolean;
+	let chatInterviewIsInView: boolean;
 	let estelleIsInView: boolean;
 	let artworkGridIsInView: boolean;
 	let cydrIsInView: boolean;
+	let chatInterview2IsInView: boolean;
 	let polaroidsIsInView: boolean;
 
 	let containerRef: any;
@@ -60,17 +64,23 @@
 		if (stipinIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[4].route);
 		}
-		if (estelleIsInView) {
+		if (chatInterviewIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[5].route);
 		}
-		if (artworkGridIsInView) {
+		if (estelleIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[6].route);
 		}
-		if (cydrIsInView) {
+		if (artworkGridIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[7].route);
 		}
-		if (polaroidsIsInView) {
+		if (cydrIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[8].route);
+		}
+		if (chatInterview2IsInView) {
+			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[9].route);
+		}
+		if (polaroidsIsInView) {
+			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[10].route);
 		}
 	};
 
@@ -130,6 +140,18 @@
 			/>
 		</div>
 
+		<!-- Chat Interview Section -->
+		<div
+		id="chat-interview"
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			chatInterviewIsInView = inView;
+		}}
+	>
+			<ChatInterview data={digitalArchaeologyChatInterview} />
+		</div>
+
 		<!-- PinkyBlue Section -->
 		<div
 			id="pinkyblue"
@@ -180,6 +202,18 @@
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
+		</div>
+
+			<!-- Chat Interview 2 Section -->
+		<div
+		id="chat-interview-2"
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			chatInterview2IsInView = inView;
+		}}
+		>
+			<ChatInterview data={digitalArchaeologyChatInterview2} />
 		</div>
 
 		<!-- Estelle Section -->
