@@ -100,24 +100,7 @@
 				bgImageMobile={images[0][1]}
 			/>
 		</div>
-
-		<!-- low ART VERSUS INTERNET highs Section -->
-		<div
-			id="low-art-vs-internet"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				lowArtVsInternetIsInView = inView;
-			}}
-		>
-			<ProjectAbout
-				aboutItem={memeticRubbleAbout1}
-				aboutImages={images[1]}
-				route=""
-				colorVariant={EColorVariant.BLACK}
-			/>
-		</div>
-
+		
 		<!-- Polaroids Section -->
 		<div
 			id="polaroids"
@@ -134,6 +117,36 @@
 				route=""
 			/>
 		</div>
+		
+		<!-- low ART VERSUS INTERNET highs Section -->
+		<div
+			id="low-art-vs-internet"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				lowArtVsInternetIsInView = inView;
+			}}
+		>
+			<ProjectAbout
+				aboutItem={memeticRubbleAbout1}
+				aboutImages={images[1]}
+				route=""
+				colorVariant={EColorVariant.BLACK}
+			/>
+		</div>
+		
+		<!-- Chat Interview Section -->
+		<div
+			id="chat-interview"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				chatInterviewIsInView = inView;
+			}}
+		>
+			<ChatInterview data={memeticRubbleChatInterview} />
+		</div>
+
 
 		<!-- Femzor Section -->
 		<div
@@ -182,18 +195,6 @@
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
-		</div>
-
-		<!-- Chat Interview Section -->
-		<div
-			id="chat-interview"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				chatInterviewIsInView = inView;
-			}}
-		>
-			<ChatInterview data={memeticRubbleChatInterview} />
 		</div>
 
 		<!-- Artwork Gallery 2 Section -->
