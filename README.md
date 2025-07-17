@@ -113,6 +113,74 @@ Main components used in project pages:
   - `route: string` - ID de la sección / Section ID
   - `isCover: boolean` - Si es página de portada / If it's a cover page
 
+#### **ChatInterview**
+Para secciones de chat/entrevista con múltiples personajes, avatares y fondo personalizado. / For chat/interview sections with multiple characters, avatars, and custom background.
+
+- **Propósito / Purpose:** Simula conversaciones tipo entrevista con preguntas y respuestas, mostrando los nombres de los personajes si hay más de uno.
+- **Archivos / Files:** `ChatInterview.svelte`
+- **Props:**
+  - `data: ChatInterviewData` - Objeto con personajes, mensajes y fondo / Object with characters, messages, and background
+
+---
+
+#### **ProjectChatInterview.ts**
+```typescript
+export interface Character {
+  id: string;
+  name: string;
+  avatar: string;
+  type: 'question' | 'answer';
+}
+
+export interface ChatMessage {
+  characterId: string;
+  content: string;
+}
+
+export interface ChatInterviewData {
+  characters: Character[];
+  messages: ChatMessage[];
+  images: string[]; // opcional, para imágenes entre mensajes
+  background: string; // imagen de fondo
+}
+
+export const orbChatInterview: ChatInterviewData = {
+  characters: [
+    {
+      id: 'interviewer',
+      name: 'Interviewer',
+      avatar: 'https://i.pravatar.cc/150?img=1',
+      type: 'question'
+    },
+    {
+      id: 'vixy',
+      name: 'VIXY',
+      avatar: 'https://i.pravatar.cc/150?img=2',
+      type: 'answer'
+    },
+    {
+      id: 'cymoon',
+      name: 'CYMOON',
+      avatar: 'https://i.pravatar.cc/150?img=3',
+      type: 'answer'
+    }
+  ],
+  messages: [
+    {
+      characterId: 'interviewer',
+      content: 'What themes drive your creative process?'
+    },
+    {
+      characterId: 'vixy',
+      content: 'In this particular series of works everything is centered on the connection between body and technology, what I call flesh and metal...'
+    },
+    // ...
+  ],
+  images: [],
+  background: 'https://picsum.photos/1920/1080?random=10'
+};
+```
+
 #### **Componentes de Navegación / Navigation Components**
 - **TopBarDesktop** - Barra superior para desktop / Top bar for desktop
 - **TopBarMobile** - Barra superior para mobile / Top bar for mobile
