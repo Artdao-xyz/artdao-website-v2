@@ -2,6 +2,7 @@
 	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
+	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { inview } from 'svelte-inview';
@@ -16,6 +17,7 @@
 		chaosAgentsAbout3Images
 	} from '../../data/Projects/ChaosAgents/ProjectAbout';
 	import { chaosAgentsIntro } from '../../data/Projects/ChaosAgents/ProjectIntro';
+	import { chaosAgentsChatInterview } from '../../data/Projects/ChaosAgents/ProjectChatInterview';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { chaosAgentsNavStoreItems } from './store';
@@ -23,6 +25,7 @@
 	let introIsInView: boolean;
 	let about1IsInView: boolean;
 	let about2IsInView: boolean;
+	let interviewIsInView: boolean;
 	let about3IsInView: boolean;
 
 	let containerRef: any;
@@ -37,8 +40,11 @@
 		if (about2IsInView) {
 			updateNavBar(chaosAgentsNavStoreItems, chaosAgentsNavItems, chaosAgentsNavItems[2].route);
 		}
-		if (about3IsInView) {
+		if (interviewIsInView) {
 			updateNavBar(chaosAgentsNavStoreItems, chaosAgentsNavItems, chaosAgentsNavItems[3].route);
+		}
+		if (about3IsInView) {
+			updateNavBar(chaosAgentsNavStoreItems, chaosAgentsNavItems, chaosAgentsNavItems[4].route);
 		}
 	};
 
@@ -91,6 +97,18 @@
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
+		</div>
+
+		<!-- Interview Section -->
+		<div
+		id="interview"
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			interviewIsInView = inView;
+		}}
+	>
+			<ChatInterview data={chaosAgentsChatInterview} />
 		</div>
 
 		<!-- About 2 Section -->

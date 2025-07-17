@@ -17,6 +17,11 @@ export const chaosAgentsNavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
+		text: 'Interview',
+		route: 'interview',
+		selected: false
+	},
+	{
 		text: 'perfect loop',
 		route: 'about3',
 		selected: false
