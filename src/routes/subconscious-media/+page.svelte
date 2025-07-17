@@ -12,7 +12,7 @@
 	import { subconsciousMediaAbout1, subconsciousMediaAbout1Images, subconsciousMediaAbout2, subconsciousMediaAbout2Images, subconsciousMediaAbout3, subconsciousMediaAbout3Images } from '../../data/Projects/SubconsciousMedia/ProjectAbout';
 	import { subconsciousMediaDropdown1, subconsciousMediaDropdown2 } from '../../data/Projects/SubconsciousMedia/ProjectAboutDropdown';
 	import { subconsciousMediaIntro } from '../../data/Projects/SubconsciousMedia/ProjectIntro';
-	import { subconsciousMediaChatInterview } from '../../data/Projects/SubconsciousMedia/ProjectChatInterview';
+	import { subconsciousMediaChatInterview, subconsciousMediaChatInterview2 } from '../../data/Projects/SubconsciousMedia/ProjectChatInterview';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { subconsciousMediaNavStoreItems } from './store';
@@ -24,6 +24,7 @@
 	let chatInterviewIsInView: boolean;
 	let artistGalleryIsInView: boolean;
 	let gregorioNashIsInView: boolean;
+	let chatInterview2IsInView: boolean = false;
 
 	let containerRef: any;
 
@@ -48,6 +49,9 @@
 		}
 		if (gregorioNashIsInView) {
 			updateNavBar(subconsciousMediaNavStoreItems, subconsciousMediaNavItems, subconsciousMediaNavItems[6].route);
+		}
+		if (chatInterview2IsInView) {
+			updateNavBar(subconsciousMediaNavStoreItems, subconsciousMediaNavItems, subconsciousMediaNavItems[7].route);
 		}
 	};
 
@@ -164,6 +168,18 @@
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
+		</div>
+
+		<!-- Chat Interview 2 Section -->
+		<div
+			id="chat-interview-2"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				chatInterview2IsInView = inView;
+			}}
+		>
+			<ChatInterview data={subconsciousMediaChatInterview2} />
 		</div>
 
 		<!-- Artist Gallery Section -->

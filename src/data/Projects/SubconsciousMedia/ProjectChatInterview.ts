@@ -76,4 +76,57 @@ export const subconsciousMediaChatInterview: ChatInterviewData = {
   ],
   images: [],
   background: '/media/subconscious-media/interview/interview-bg.webp'
+};
+
+export const subconsciousMediaChatInterview2: ChatInterviewData = {
+  characters: [
+    {
+      id: 'laura2',
+      name: 'Laura Butallo',
+      avatar: '/media/artdao-question.webp',
+      type: 'question'
+    },
+    {
+      id: 'gregorio',
+      name: 'Gregorio Nash',
+      avatar: '/media/subconscious-media/interview/pfp2.webp',
+      type: 'answer'
+    }
+  ],
+  messages: [
+    {
+      characterId: 'laura2',
+      content: 'How does the idea of the collective unconscious manifest itself in your works?'
+    },
+    {
+      characterId: 'gregorio',
+      content: 'I think many artists see the web as a kind of refuge. That idea of refuge reminds me of my childhood, when I first discovered cybercafés—that space where we connected with people and encountered the wonder of the internet.\n\nThe internet, with its collective unconscious, connects me to something similar: virtual legends and creepypastas. It leads me to imagine creatures or stories that don\'t exist physically but live only on the web. At the same time, I find parallels with the stories my grandfather used to tell from the countryside. In that way, my work creates a dialogue between the rural world, my neighborhood Don Orione, and the digital space.\n\nMy neighborhood exists in people\'s lived experience, but not on Google Maps or other digital maps. It\'s strange how this physical part of the world remains beyond the reach of the internet—and that really interests me. I\'m drawn to that threshold between what the internet doesn\'t know and what people do, and vice versa. I imagine that dialogue, that collective imaginary, as a kind of confluence—a wave in constant motion.'
+    },
+    {
+      characterId: 'laura2',
+      content: 'How do you access the realm of dreams and imagination with technological tools?'
+    },
+    {
+      characterId: 'gregorio',
+      content: 'When I go online, it feels like an infinite world opens up. I love doing this exercise I call web surfing.\n\nWeb surfing is basically jumping from one website to another, following whatever links or paths appear. I might start at midnight with one idea, then follow a link, then another, and suddenly I\'ve ended up in a completely different place—or the opposite of where I began.\n\nThis practice feels a lot like dreaming: it starts with one thought, and ends somewhere unexpected. I like to document the process—taking screenshots, recording my screen—and then start creating from there. Sometimes that becomes the beginning of a new story.'
+    },
+    {
+      characterId: 'laura2',
+      content: 'How do unconscious impulses guide your artistic practice?'
+    },
+    {
+      characterId: 'gregorio',
+      content: 'When I\'m creating, I follow what I call a "digital rule": my work always ends in a final format like JPG, PNG, or video. I usually start by modeling in Blender, generate a render, bring it into Photoshop, then into Illustrator, and from there I keep moving it through different programs—repeating the process until the image transforms into something new.\n\nI\'m really interested in that constant act of "translation" between images—how the filters, layers, and built-in biases of each digital step begin to shift their morphology. I like to think of creative unconscious impulses in the same way: as a chain of processes.'
+    },
+    {
+      characterId: 'laura2',
+      content: 'How does interconnectivity created by computers and technology influences your creative practice?'
+    },
+    {
+      characterId: 'gregorio',
+      content: 'Artificial intelligences have something in common with us: they are constantly learning, just as we are when we look at memes, scroll through feeds, chat with friends, watch videos, or read articles. This ongoing consumption connects us and immerses us in a kind of hyperculturality, where a meme from Brazil can shape how we think, or an event in South Korea can offer new perspectives.\n\nEven though it might sometimes feel like we\'re just "burning neurons," we\'re actually learning new languages, absorbing different viewpoints, and connecting with people from vastly different contexts through technology. This digital bridge allows us to admire and collaborate with artists thousands of miles away—just like in my experience working with Vidal Herrera.\n\nThere\'s something profoundly meaningful in that duality: the ability to collaborate and converse instantly across great distances, while still valuing the irreplaceable experience of physical presence after crossing those same distances.'
+    }
+  ],
+  images: [],
+  background: '/media/subconscious-media/interview/interview-bg2.webp'
 }; 

@@ -35,5 +35,10 @@ export const subconsciousMediaNavItems: INavBarItem[] = [
         text: 'Gregorio Nash',
         route: 'gregorio-nash',
         selected: false
+    },
+    {
+        text: 'Chat Interview 2',
+        route: 'chat-interview-2',
+        selected: false
     }
 ]; 
