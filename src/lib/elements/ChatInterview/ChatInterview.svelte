@@ -8,6 +8,12 @@
     return data.characters.find(char => char.id === characterId);
   }
 
+  // Función para obtener el nombre del entrevistador
+  function getInterviewerName(): string {
+    const interviewer = data.characters.find(char => char.type === 'question');
+    return interviewer?.name || 'Interviewer';
+  }
+
   // Función para verificar si hay múltiples autores diferentes
   function hasMultipleAuthors(): boolean {
     const authors = data.messages
@@ -55,7 +61,7 @@
     <div class="flex-1 max-w-2xl mx-auto bg-color-black p-0 overflow-hidden lg:rounded-[20px] lg:shadow-[0px_4px_40px_0px_rgba(0,0,0,1.00)] relative">
       <div class="font-roboto font-bold text-xs tracking-widest text-center w-full absolute top-0 left-0 flex items-center justify-center h-10 z-10 bg-color-black">
         <p>
-          in conversation with alice scope
+          in conversation with {getInterviewerName().toLowerCase()}
         </p>
       </div>
       
