@@ -1,7 +1,9 @@
 <script lang="ts">
 	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
+	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+	import ProjectArtworkGridMobile from '$lib/components/ProjectArtworkGridMobile/ProjectArtworkGridMobile.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
@@ -12,7 +14,8 @@
 	import { EColorVariant, EProjects } from '../../constants/enums';
 	import { memeticRubbleNavItems } from '../../data/Projects/MemeticRubble/NavItems';
 	import { memeticRubbleAbout1, memeticRubbleAbout1Images, memeticRubbleAbout2, memeticRubbleAbout2Images, memeticRubbleAbout3, memeticRubbleAbout3Images } from '../../data/Projects/MemeticRubble/ProjectAbout';
-	import { memeticRubbleArtworkGrid1, memeticRubbleArtworkGrid2 } from '../../data/Projects/MemeticRubble/ProjectArtworkGrid';
+	import { memeticRubbleArtworkGrid1, memeticRubbleArtworkGrid1Mobile, memeticRubbleArtworkGrid2, memeticRubbleArtworkGrid2Mobile } from '../../data/Projects/MemeticRubble/ProjectArtworkGrid';
+	import type { IGalleryImageMobile } from '$lib/elements/ArtworkContainer/interfaces';
 	import { memeticRubbleChatInterview } from '../../data/Projects/MemeticRubble/ProjectChatInterview';
 	import { memeticRubbleIntro } from '../../data/Projects/MemeticRubble/ProjectIntro';
 	import { memeticRubblePolaroids } from '../../data/Projects/MemeticRubble/ProjectPolaroids';
@@ -22,6 +25,7 @@
 	import { memeticRubbleNavStoreItems } from './store';
 	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
 
+	let size: number;
 	let introIsInView: boolean;
 	let lowArtVsInternetIsInView: boolean;
 	let polaroidsIsInView: boolean;
@@ -73,7 +77,29 @@
 		memeticRubbleAbout3Images,
 		memeticRubbleArtworkGrid2.map((item) => item.image)
 	]);
+
+	// Split mobile arrays into left/right halves for the grid
+	const splitMobileGrid = (arr: IGalleryImageMobile[]) => {
+		const half = Math.ceil(arr.length / 2);
+		return [arr.slice(0, half), arr.slice(half)];
+	};
+
+	// Convert desktop images to mobile format and split them
+	const convertAndSplitGrid = (desktopArray: any[]) => {
+		const mobileArray = desktopArray.map(item => ({
+			src: item.image,
+			name: item.name,
+			description: item.description,
+			alt: item.name || 'Artwork'
+		}));
+		return splitMobileGrid(mobileArray);
+	};
+
+	const [memeticRubbleArtworkGrid1MobileLeft, memeticRubbleArtworkGrid1MobileRight] = convertAndSplitGrid(memeticRubbleArtworkGrid1);
+	const [memeticRubbleArtworkGrid2MobileLeft, memeticRubbleArtworkGrid2MobileRight] = convertAndSplitGrid(memeticRubbleArtworkGrid2);
 </script>
+
+<svelte:window bind:innerWidth={size} />
 
 {#await preloadedImages}
 	<LoadingV2 />
@@ -110,12 +136,16 @@
 				polaroidsIsInView = inView;
 			}}
 		>
-			<ProjectPolaroids
-				images={memeticRubblePolaroids}
-				polaroidsTypes={[EPolaroidType.SQUARE, EPolaroidType.RECTANGLE, EPolaroidType.VERTICAL, EPolaroidType.SQUARE]}
-				viewImageFit="contain"
-				route=""
-			/>
+			{#if size > 1100}
+				<ProjectPolaroids
+					images={memeticRubblePolaroids}
+					polaroidsTypes={[EPolaroidType.SQUARE, EPolaroidType.RECTANGLE, EPolaroidType.VERTICAL, EPolaroidType.SQUARE]}
+					viewImageFit="contain"
+					route=""
+				/>
+			{:else}
+				<PolaroidsMobile polaroidImages={memeticRubblePolaroids} route="" />
+			{/if}
 		</div>
 		
 		<!-- low ART VERSUS INTERNET highs Section -->
@@ -174,10 +204,19 @@
 				artworkGallery1IsInView = inView;
 			}}
 		>
-			<ProjectArtworkGrid
-				galleryImages={memeticRubbleArtworkGrid1}
-				showDetails={false}
-			/>
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid
+					galleryImages={memeticRubbleArtworkGrid1}
+					showDetails={false}
+				/>
+			</div>
+			<div class="block sm:hidden sm:snap-start">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={memeticRubbleArtworkGrid1MobileLeft}
+					imagesRight={memeticRubbleArtworkGrid1MobileRight}
+				/>
+			</div>
 		</div>
 
 		<!-- Julian Brangold Section -->
@@ -206,10 +245,19 @@
 				artworkGallery2IsInView = inView;
 			}}
 		>
-			<ProjectArtworkGrid
-				galleryImages={memeticRubbleArtworkGrid2}
-				showDetails={false}
-			/>
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid
+					galleryImages={memeticRubbleArtworkGrid2}
+					showDetails={false}
+				/>
+			</div>
+			<div class="block sm:hidden sm:snap-start">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={memeticRubbleArtworkGrid2MobileLeft}
+					imagesRight={memeticRubbleArtworkGrid2MobileRight}
+				/>
+			</div>
 		</div>
 
 		<!-- Videos Section -->
