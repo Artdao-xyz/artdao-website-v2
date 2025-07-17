@@ -22,6 +22,11 @@ export const subconsciousMediaNavItems: INavBarItem[] = [
         selected: false
     },
     {
+        text: 'Chat Interview',
+        route: 'chat-interview',
+        selected: false
+    },
+    {
         text: 'Artist Gallery',
         route: 'artist-gallery',
         selected: false

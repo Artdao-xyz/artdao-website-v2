@@ -3,6 +3,7 @@
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
+	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { inview } from 'svelte-inview';
@@ -11,6 +12,7 @@
 	import { subconsciousMediaAbout1, subconsciousMediaAbout1Images, subconsciousMediaAbout2, subconsciousMediaAbout2Images, subconsciousMediaAbout3, subconsciousMediaAbout3Images } from '../../data/Projects/SubconsciousMedia/ProjectAbout';
 	import { subconsciousMediaDropdown1, subconsciousMediaDropdown2 } from '../../data/Projects/SubconsciousMedia/ProjectAboutDropdown';
 	import { subconsciousMediaIntro } from '../../data/Projects/SubconsciousMedia/ProjectIntro';
+	import { subconsciousMediaChatInterview } from '../../data/Projects/SubconsciousMedia/ProjectChatInterview';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { subconsciousMediaNavStoreItems } from './store';
@@ -19,6 +21,7 @@
 	let digitalSynchronicityIsInView: boolean;
 	let digitalSynchronicityGalleryIsInView: boolean;
 	let vidalHerreraIsInView: boolean;
+	let chatInterviewIsInView: boolean;
 	let artistGalleryIsInView: boolean;
 	let gregorioNashIsInView: boolean;
 
@@ -37,11 +40,14 @@
 		if (vidalHerreraIsInView) {
 			updateNavBar(subconsciousMediaNavStoreItems, subconsciousMediaNavItems, subconsciousMediaNavItems[3].route);
 		}
-		if (artistGalleryIsInView) {
+		if (chatInterviewIsInView) {
 			updateNavBar(subconsciousMediaNavStoreItems, subconsciousMediaNavItems, subconsciousMediaNavItems[4].route);
 		}
-		if (gregorioNashIsInView) {
+		if (artistGalleryIsInView) {
 			updateNavBar(subconsciousMediaNavStoreItems, subconsciousMediaNavItems, subconsciousMediaNavItems[5].route);
+		}
+		if (gregorioNashIsInView) {
+			updateNavBar(subconsciousMediaNavStoreItems, subconsciousMediaNavItems, subconsciousMediaNavItems[6].route);
 		}
 	};
 
@@ -98,22 +104,34 @@
 			/>
 		</div>
 
-                		<!-- Vidal Herrera Section -->
+		<!-- Vidal Herrera Section -->
 		<div
-                id="vidal-herrera"
-                use:inview={INVIEW_OPTIONS}
-                on:inview_change={(event) => {
-                        const { inView } = event.detail;
-                        vidalHerreraIsInView = inView;
-                }}
-        >
-                <ProjectAbout
-                        aboutItem={subconsciousMediaAbout2}
-                        aboutImages={images[3]}
-                        route=""
-                        colorVariant={EColorVariant.BLACK}
-                />
-                </div>
+			id="vidal-herrera"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				vidalHerreraIsInView = inView;
+			}}
+		>
+			<ProjectAbout
+				aboutItem={subconsciousMediaAbout2}
+				aboutImages={images[3]}
+				route=""
+				colorVariant={EColorVariant.BLACK}
+			/>
+		</div>
+
+		<!-- Chat Interview Section -->
+		<div
+			id="chat-interview"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				chatInterviewIsInView = inView;
+			}}
+		>
+			<ChatInterview data={subconsciousMediaChatInterview} />
+		</div>
 
 		<!-- Digital Synchronicity Gallery Section -->
 		<div
@@ -131,23 +149,22 @@
 			/>
 		</div>
 
-                		<!-- Gregorio Nash Section -->
+		<!-- Gregorio Nash Section -->
 		<div
-                id="gregorio-nash"
-                use:inview={INVIEW_OPTIONS}
-                on:inview_change={(event) => {
-                        const { inView } = event.detail;
-                        gregorioNashIsInView = inView;
-                }}
-        >
-                <ProjectAbout
-                        aboutItem={subconsciousMediaAbout3}
-                        aboutImages={images[5]}
-                        route=""
-                        colorVariant={EColorVariant.BLACK}
-                />
-                <!-- <HomeIcon /> -->
-                </div>
+			id="gregorio-nash"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				gregorioNashIsInView = inView;
+			}}
+		>
+			<ProjectAbout
+				aboutItem={subconsciousMediaAbout3}
+				aboutImages={images[5]}
+				route=""
+				colorVariant={EColorVariant.BLACK}
+			/>
+		</div>
 
 		<!-- Artist Gallery Section -->
 		<div
@@ -164,7 +181,7 @@
 				route=""
 			/>
 		</div>
-                <Footer project={EProjects.SUBCONSCIOUS_MEDIA} />
+		<Footer project={EProjects.SUBCONSCIOUS_MEDIA} />
 	</div>
 {/await}
 
