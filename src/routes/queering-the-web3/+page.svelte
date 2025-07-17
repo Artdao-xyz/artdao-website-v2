@@ -3,6 +3,7 @@
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+	import ProjectArtworkGridMobile from '$lib/components/ProjectArtworkGridMobile/ProjectArtworkGridMobile.svelte';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
@@ -18,13 +19,22 @@
 		queeringTheWeb3About3Images
 	} from '../../data/Projects/QueeringTheWeb3/ProjectAbout';
 	import { queeringTheWeb3Intro } from '../../data/Projects/QueeringTheWeb3/ProjectIntro';
-	import { QueeringTheWeb3ArtworkGrid } from '../../data/Projects/QueeringTheWeb3/ProjectArtworkGrid';
-	import { QueeringTheWeb3ArtworkGrid2 } from '../../data/Projects/QueeringTheWeb3/ProjectArtworkGrid2';
+	import { 
+		QueeringTheWeb3ArtworkGrid,
+		queeringTheWeb3ArtworkGridMobileLeft,
+		queeringTheWeb3ArtworkGridMobileRight
+	} from '../../data/Projects/QueeringTheWeb3/ProjectArtworkGrid';
+	import { 
+		QueeringTheWeb3ArtworkGrid2,
+		queeringTheWeb3ArtworkGrid2MobileLeft,
+		queeringTheWeb3ArtworkGrid2MobileRight
+	} from '../../data/Projects/QueeringTheWeb3/ProjectArtworkGrid2';
 	import { queeringTheWeb3ChatInterview } from '../../data/Projects/QueeringTheWeb3/ProjectChatInterview';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { queeringTheWeb3NavStoreItems } from './store';
 
+	let size: number;
 	let introIsInView: boolean;
 	let about1IsInView: boolean;
 	let artworkGridIsInView: boolean;
@@ -69,6 +79,8 @@
 	]);
 </script>
 
+<svelte:window bind:innerWidth={size} />
+
 {#await preloadedImages}
 	<LoadingV2 />
 {:then images}
@@ -97,13 +109,13 @@
 
 		<!-- About 1 Section -->
 		<div
-		id="about1"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			about1IsInView = inView;
-		}}
-	>
+			id="about1"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				about1IsInView = inView;
+			}}
+		>
 			<ProjectAbout
 				aboutItem={queeringTheWeb3About1}
 				aboutImages={images[1]}
@@ -111,19 +123,7 @@
 				colorVariant={EColorVariant.BLACK}
 			/>
 		</div>
-	
 
-		<!-- Interview Section -->
-		<div
-		id="interview"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			interviewIsInView = inView;
-		}}
-	>
-			<ChatInterview data={queeringTheWeb3ChatInterview} />
-		</div>
                 		<!-- About 2 Section -->
 		<div
                 id="about2"
@@ -150,7 +150,29 @@
 				artworkGridIsInView = inView;
 			}}
 		>
-			<ProjectArtworkGrid galleryImages={QueeringTheWeb3ArtworkGrid.artworks} />
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid galleryImages={QueeringTheWeb3ArtworkGrid.artworks} />
+			</div>
+
+			<div class="block sm:hidden sm:snap-start">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={queeringTheWeb3ArtworkGridMobileLeft}
+					imagesRight={queeringTheWeb3ArtworkGridMobileRight}
+				/>
+			</div>
+		</div>
+
+		<!-- Interview Section -->
+		<div
+		id="interview"
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			interviewIsInView = inView;
+		}}
+	>
+			<ChatInterview data={queeringTheWeb3ChatInterview} />
 		</div>
 
 		<!-- About 3 Section -->
@@ -179,7 +201,17 @@
                         artworkGrid2IsInView = inView;
                 }}
         >
-                <ProjectArtworkGrid galleryImages={QueeringTheWeb3ArtworkGrid2.artworks} />
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid galleryImages={QueeringTheWeb3ArtworkGrid2.artworks} />
+			</div>
+
+			<div class="block sm:hidden sm:snap-start">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={queeringTheWeb3ArtworkGrid2MobileLeft}
+					imagesRight={queeringTheWeb3ArtworkGrid2MobileRight}
+				/>
+			</div>
                 </div>
 
 		<HomeIcon />

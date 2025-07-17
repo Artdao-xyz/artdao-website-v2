@@ -1,3 +1,5 @@
+import type { IGalleryImageMobile } from '$lib/elements/ArtworkContainer/interfaces';
+
 export const QueeringTheWeb3ArtworkGrid = {
     artworks: [
         {
@@ -41,4 +43,59 @@ export const QueeringTheWeb3ArtworkGrid = {
             description: 'Building queer communities online'
         }
     ]
-}; 
+};
+
+// Mobile artwork arrays - split evenly between left and right columns
+export const queeringTheWeb3ArtworkGridMobileLeft: IGalleryImageMobile[] = [
+    {
+        src: '/media/queering-the-web3/artwork-grid/artwork-grid-1.webp',
+        alt: 'Digital Identity',
+        name: 'Digital Identity',
+        description: 'Exploring queer identity in digital spaces'
+    },
+    {
+        src: '/media/queering-the-web3/artwork-grid/artwork-grid-3.webp',
+        alt: 'Decentralized Love',
+        name: 'Decentralized Love',
+        description: 'Building connections through technology'
+    },
+    {
+        src: '/media/queering-the-web3/artwork-grid/artwork-grid-5.webp',
+        alt: 'Digital Solidarity',
+        name: 'Digital Solidarity',
+        description: 'Creating support networks online'
+    },
+    {
+        src: '/media/queering-the-web3/artwork-grid/artwork-grid-7.webp',
+        alt: 'Web3 Liberation',
+        name: 'Web3 Liberation',
+        description: 'Technology as a tool for queer liberation'
+    }
+];
+
+export const queeringTheWeb3ArtworkGridMobileRight: IGalleryImageMobile[] = [
+    {
+        src: '/media/queering-the-web3/artwork-grid/artwork-grid-2.webp',
+        alt: 'Blockchain Dreams',
+        name: 'Blockchain Dreams',
+        description: 'Reimagining blockchain for queer communities'
+    },
+    {
+        src: '/media/queering-the-web3/artwork-grid/artwork-grid-4.webp',
+        alt: 'Queer Code',
+        name: 'Queer Code',
+        description: 'Programming for diversity and inclusion'
+    },
+    {
+        src: '/media/queering-the-web3/artwork-grid/artwork-grid-6.webp',
+        alt: 'Future Visions',
+        name: 'Future Visions',
+        description: 'Envisioning queer digital futures'
+    },
+    {
+        src: '/media/queering-the-web3/artwork-grid/artwork-grid-8.webp',
+        alt: 'Digital Kinship',
+        name: 'Digital Kinship',
+        description: 'Building queer communities online'
+    }
+]; 
