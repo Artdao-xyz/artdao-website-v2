@@ -11,7 +11,6 @@ export const subconsciousMediaAbout1 = {
 
 export const subconsciousMediaAbout1Images = [
     '/media/subconscious-media/about-1.webp',
-    '/media/subconscious-media/about-2.webp'
 ];
 
 // Second About Section - Vidal HERRERA
@@ -34,6 +33,5 @@ export const subconsciousMediaAbout3 = {
 };
 
 export const subconsciousMediaAbout3Images = [
-    '/media/subconscious-media/about-3.webp',
-    '/media/subconscious-media/about-1.webp'
+    '/media/subconscious-media/about-4.webp'
 ]; 
