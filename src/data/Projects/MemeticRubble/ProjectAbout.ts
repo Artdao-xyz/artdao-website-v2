@@ -22,8 +22,8 @@ export const memeticRubbleAbout2 = {
 };
 
 export const memeticRubbleAbout2Images = [
-    '/media/memetic-rubble/femzor-profile/femzor_profile.webp',
-    '/media/memetic-rubble/femzor-profile/femzor_profile_1.webp'
+    '/media/memetic-rubble/femzor-profile/femzor_profile_1.webp',
+    '/media/memetic-rubble/femzor-profile/femzor_profile.webp'
 ];
 
 // Third About Section - julian brangold

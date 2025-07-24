@@ -19,7 +19,7 @@
 	import { memeticRubbleChatInterview } from '../../data/Projects/MemeticRubble/ProjectChatInterview';
 	import { memeticRubbleIntro } from '../../data/Projects/MemeticRubble/ProjectIntro';
 	import { memeticRubblePolaroids } from '../../data/Projects/MemeticRubble/ProjectPolaroids';
-	import { memeticRubbleVideos } from '../../data/Projects/MemeticRubble/ProjectVideo';
+	import { psipsikokoVideos } from '../../data/Projects/MemeticRubble/ProjectVideo';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { memeticRubbleNavStoreItems } from './store';
@@ -147,7 +147,7 @@
 				<PolaroidsMobile polaroidImages={memeticRubblePolaroids} route="" />
 			{/if}
 		</div>
-		
+
 		<!-- low ART VERSUS INTERNET highs Section -->
 		<div
 			id="low-art-vs-internet"
@@ -164,7 +164,7 @@
 				colorVariant={EColorVariant.BLACK}
 			/>
 		</div>
-		
+
 		<!-- Chat Interview Section -->
 		<div
 			id="chat-interview"
@@ -205,10 +205,10 @@
 			}}
 		>
 			<div class="hidden sm:block">
-				<ProjectArtworkGrid
-					galleryImages={memeticRubbleArtworkGrid1}
-					showDetails={false}
-				/>
+			<ProjectArtworkGrid
+				galleryImages={memeticRubbleArtworkGrid1}
+				showDetails={false}
+			/>
 			</div>
 			<div class="block sm:hidden sm:snap-start">
 				<ProjectArtworkGridMobile
@@ -246,10 +246,10 @@
 			}}
 		>
 			<div class="hidden sm:block">
-				<ProjectArtworkGrid
-					galleryImages={memeticRubbleArtworkGrid2}
-					showDetails={false}
-				/>
+			<ProjectArtworkGrid
+				galleryImages={memeticRubbleArtworkGrid2}
+				showDetails={false}
+			/>
 			</div>
 			<div class="block sm:hidden sm:snap-start">
 				<ProjectArtworkGridMobile
@@ -269,10 +269,8 @@
 				videosIsInView = inView;
 			}}
 		>
-			<ProjectVideo
-				videoProjects={memeticRubbleVideos}
-				route=""
-			/>
+			<ProjectVideo videoProjects={psipsikokoVideos} route="psipsikoko-videos" />
+
 			<HomeIcon />
 			<Footer project={EProjects.MEMETIC_RUBBLE} />
 		</div>
