@@ -79,6 +79,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.RAVE,
 		refs: [EProjects.IN_CONVERSATION, EProjects.INTERTWINED, EProjects.INHERENT_INSTABILITY]
+	},
+	{
+		name: EProjects.BODY_FRONTIER,
+		refs: [EProjects.ARTIFICE, EProjects.ORB, EProjects.RAVE]
 	}
 ];
 
@@ -154,5 +158,13 @@ export const projectsDetails = [
 		hover: raveHover,
 		url: RAVE,
 		mobileImage: raveMobile
+	},
+	{
+		name: EProjects.BODY_FRONTIER,
+		nameToShow: 'body frontier',
+		image: 'media/home/thumbnails/10-home-body-frontier.webp',
+		hover: 'media/home/thumbnails/10-home-body-frontier.webp',
+		url: '/body-frontier',
+		mobileImage: 'media/home/thumbnails/10-home-body-frontier.webp'
 	}
 ];
