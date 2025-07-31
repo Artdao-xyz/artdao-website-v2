@@ -2,6 +2,7 @@
 	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
+	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
@@ -17,6 +18,7 @@
 		chaosAgentsAbout3Images
 	} from '../../data/Projects/ChaosAgents/ProjectAbout';
 	import { chaosAgentsIntro } from '../../data/Projects/ChaosAgents/ProjectIntro';
+	import { roccoGalloVideo, perfectLoopVideo } from '../../data/Projects/ChaosAgents/ProjectVideo';
 	import { chaosAgentsChatInterview } from '../../data/Projects/ChaosAgents/ProjectChatInterview';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
@@ -27,6 +29,8 @@
 	let about2IsInView: boolean;
 	let interviewIsInView: boolean;
 	let about3IsInView: boolean;
+	let videoIsInView: boolean;
+	let perfectLoopVideoIsInView: boolean;
 
 	let containerRef: any;
 
@@ -45,6 +49,12 @@
 		}
 		if (about3IsInView) {
 			updateNavBar(chaosAgentsNavStoreItems, chaosAgentsNavItems, chaosAgentsNavItems[4].route);
+		}
+		if (videoIsInView) {
+			updateNavBar(chaosAgentsNavStoreItems, chaosAgentsNavItems, chaosAgentsNavItems[5].route);
+		}
+		if (perfectLoopVideoIsInView) {
+			updateNavBar(chaosAgentsNavStoreItems, chaosAgentsNavItems, chaosAgentsNavItems[6].route);
 		}
 	};
 
@@ -128,6 +138,18 @@
 			/>
 		</div>
 
+		<!-- Video Section -->
+		<div
+		id="video"
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			videoIsInView = inView;
+		}}
+		>
+			<ProjectVideo videoProjects={roccoGalloVideo} />
+		</div>
+
 		<!-- About 3 Section -->
 		<div
 			id="about3"
@@ -143,6 +165,18 @@
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
+		</div>
+
+				<!-- Perfect Loop Video Section -->
+		<div
+			id="perfect-loop-video"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				perfectLoopVideoIsInView = inView;
+			}}
+		>
+			<ProjectVideo videoProjects={perfectLoopVideo} />
 		</div>
 
 		<HomeIcon />

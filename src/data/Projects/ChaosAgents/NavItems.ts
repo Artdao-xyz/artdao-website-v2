@@ -25,5 +25,15 @@ export const chaosAgentsNavItems: INavBarItem[] = [
 		text: 'perfect loop',
 		route: 'about3',
 		selected: false
+	},
+	{
+		text: 'Video',
+		route: 'video',
+		selected: false
+	},
+	{
+		text: 'Perfect Loop Video',
+		route: 'perfect-loop-video',
+		selected: false
 	}
 ]; 
