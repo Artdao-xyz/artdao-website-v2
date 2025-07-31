@@ -33,6 +33,7 @@ import {
 	IN_CONVERSATION,
 	INHERENT,
 	INTERTWINED,
+	MEMETIC_RUBBLE,
 	NON_PLACES,
 	ORB,
 	RAVE
@@ -67,6 +68,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.INTERTWINED,
 		refs: [EProjects.ARTIFICE, EProjects.INHERENT_INSTABILITY, EProjects.DIGITAL_MATTER]
+	},
+	{
+		name: EProjects.MEMETIC_RUBBLE,
+		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.IN_CONVERSATION]
 	},
 	{
 		name: EProjects.NON_PLACES,
@@ -126,6 +131,14 @@ export const projectsDetails = [
 		hover: intertwinedHover,
 		url: INTERTWINED,
 		mobileImage: intertwinedMobile
+	},
+	{
+		name: EProjects.MEMETIC_RUBBLE,
+		nameToShow: 'memetic rubble',
+		image: '/media/home/thumbnails/12-home-memetic-rubble.webp',
+		hover: '/media/home/thumbnails/12-home-memetic-rubble.webp',
+		url: MEMETIC_RUBBLE,
+		mobileImage: '/media/home/thumbnails/12-home-memetic-rubble.webp'
 	},
 	{
 		name: EProjects.IN_CONVERSATION,

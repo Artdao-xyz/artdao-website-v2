@@ -22,6 +22,7 @@ export enum EProjects {
 	IN_CONVERSATION = 'InCoversation',
 	INHERENT_INSTABILITY = 'InherentInstability',
 	INTERTWINED = 'Intertwined',
+	MEMETIC_RUBBLE = 'MemeticRubble',
 	NON_PLACES = 'NonPlaces',
 	ORB = 'Orb',
 	RAVE = 'Rave',
