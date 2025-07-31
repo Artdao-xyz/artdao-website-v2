@@ -42,7 +42,7 @@
         <h3>{text2}</h3>
     </div>
     <div class="flex gap-2">
-        <a target="_blank" href="https://discord.gg/NTUZRU3ZNE"><img class="h-10" src="media/home/icons/discord.png" alt="discord"></a>
+        <!-- <a target="_blank" href="https://discord.gg/NTUZRU3ZNE"><img class="h-10" src="media/home/icons/discord.png" alt="discord"></a> -->
         <a target="_blank" href="https://www.instagram.com/artdao.xyz"><img class="h-10" src="media/home/icons/instagram.png" alt="instagram"></a>
         <a target="_blank" href="https://x.com/Artdao_xyz"><img class="h-10" src="media/home/icons/twitter.png" alt="twitter"></a>
     </div>

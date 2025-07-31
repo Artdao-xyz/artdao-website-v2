@@ -150,7 +150,7 @@ export const mapData: IMapLocation[] = [
 			},
 			{
 				title: 'NON PLACES',
-				subtitle: 'EExhibition / Party',
+				subtitle: 'Exhibition / Party',
 				date: 'July 18th-20th, 2023',
 				location: '31 Rue HEnri Chevreu, Paris',
 				images: [nonPlaces01, nonPlaces02, nonPlaces03],
