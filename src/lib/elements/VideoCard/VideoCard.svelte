@@ -24,16 +24,21 @@
 
 	let height: number;
 	let width: number;
+
+	$: aspectClass =
+		videoProject.size === 'rectangle'
+			? 'aspect-video'
+			: videoProject.size === 'square'
+				? 'aspect-square'
+				: videoProject.size === 'vertical'
+					? 'aspect-[9/16]'
+					: 'aspect-video';
 </script>
 
 <svelte:window bind:innerHeight={height} bind:innerWidth={width} />
 <div class="flex flex-col h-full justify-between">
 	<div
-		class=" {videoCardWidth} {height < 1000 && videoProject.size === 'square'
-			? 'sm:w-[500px] sm:h-[500px] w-[300px] h-[350px]'
-			: ''} {height < 1000 && videoProject.size === 'rectangle'
-			? 'sm:!max-w-[80dvw] !max-w-[350px] !h-[350px] sm:!h-[500px]'
-			: ''} overflow-hidden video-gradient px-[0.9375rem] my-auto pb-[0.9375rem] sm:!p-[15px] rounded-20 flex flex-col h-full mx-auto gap-0 sm:gap-[0.9375rem]"
+		class="max-h-[80vh] mx-auto {aspectClass} w-auto overflow-hidden video-gradient px-[0.9375rem] my-auto pb-[0.9375rem] sm:!p-[15px] rounded-20 flex flex-col gap-0 sm:gap-[0.9375rem]"
 	>
 		<div
 			class="h-fit w-full sm:bg-color-dark rounded-20 py-3 sm:p-[1.25rem] flex items-center justify-between"
@@ -57,7 +62,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="h-[83%] w-full overflow-hidden">
+		<div class="w-full h-full rounded-20 overflow-hidden">
 			<VideoPlayer videoUrl={videoProject.videoUrl} />
 		</div>
 	</div>
