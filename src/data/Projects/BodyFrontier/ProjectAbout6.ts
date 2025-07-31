@@ -7,5 +7,6 @@ export const bodyFrontierAbout6 = {
 };
 
 export const bodyFrontierAbout6Images = [
-  '/media/body-frontier/about-6/about-6-1.webp'
+  '/media/body-frontier/about-6/about-6-1.webp',
+  '/media/body-frontier/about-6/about-6-2.webp',
 ]; 
