@@ -26,7 +26,7 @@
 		cydrAboutImages
 	} from '../../data/Projects/DigitalArchaeology/ProjectAbout';
 	import { digitalArchaeologyIntro } from '../../data/Projects/DigitalArchaeology/ProjectIntro';
-	import { DigitalArchaeologyVideo } from '../../data/Projects/DigitalArchaeology/ProjectVideo';
+	import { pinkyBlueVideo, sabatoVideo, stipinVideo } from '../../data/Projects/DigitalArchaeology/ProjectVideo';
 	import { DigitalArchaeologyArtworkGrid } from '../../data/Projects/DigitalArchaeology/ProjectArtworkGrid';
 	import { DigitalArchaeologyPolaroids } from '../../data/Projects/DigitalArchaeology/ProjectPolaroids';
 	import { digitalArchaeologyChatInterview, digitalArchaeologyChatInterview2 } from '../../data/Projects/DigitalArchaeology/ProjectChatInterview';
@@ -45,6 +45,10 @@
 	let cydrIsInView: boolean;
 	let chatInterview2IsInView: boolean;
 	let polaroidsIsInView: boolean;
+	let videoIsInView: boolean;
+	let pinkyBlueVideoIsInView: boolean;
+	let sabatoVideoIsInView: boolean;
+	let stipinVideoIsInView: boolean;
 
 	let containerRef: any;
 
@@ -81,6 +85,15 @@
 		}
 		if (polaroidsIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[10].route);
+		}
+		if (videoIsInView) {
+			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[11].route);
+		}
+		if (sabatoVideoIsInView) {
+			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[13].route);
+		}
+		if (stipinVideoIsInView) {
+			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[14].route);
 		}
 	};
 
@@ -170,6 +183,18 @@
 			/>
 		</div>
 
+			<!-- Video Section -->
+			<div
+			id="video"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				videoIsInView = inView;
+			}}
+		>
+			<ProjectVideo videoProjects={pinkyBlueVideo} />
+		</div>
+
 		<!-- Sabato Section -->
 		<div
 			id="sabato"
@@ -185,6 +210,18 @@
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
+		</div>
+
+		<!-- Sabato Video Section -->
+		<div
+			id="sabato-video"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				sabatoVideoIsInView = inView;
+			}}
+		>
+			<ProjectVideo videoProjects={sabatoVideo} />
 		</div>
 
 		<!-- Stipin Section -->
@@ -203,6 +240,18 @@
 				colorVariant={EColorVariant.BLACK}
 			/>
 		</div>
+
+		<!-- Stipin Video Section -->
+		<div
+		id="stipin-video"
+		use:inview={INVIEW_OPTIONS}
+		on:inview_change={(event) => {
+			const { inView } = event.detail;
+			stipinVideoIsInView = inView;
+		}}
+	>
+		<ProjectVideo videoProjects={stipinVideo} />
+	</div>
 
 			<!-- Chat Interview 2 Section -->
 		<div
