@@ -26,5 +26,6 @@ export enum EProjects {
 	NON_PLACES = 'NonPlaces',
 	ORB = 'Orb',
 	RAVE = 'Rave',
-	BODY_FRONTIER = 'BodyFrontier'
+	BODY_FRONTIER = 'BodyFrontier',
+	SUBCONSCIOUS_MEDIA = 'SubconsciousMedia'
 }

@@ -36,7 +36,8 @@ import {
 	MEMETIC_RUBBLE,
 	NON_PLACES,
 	ORB,
-	RAVE
+	RAVE,
+	SUBCONSCIOUS_MEDIA
 } from '../../constants/routes';
 
 export interface IProject {
@@ -88,6 +89,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.BODY_FRONTIER,
 		refs: [EProjects.ARTIFICE, EProjects.ORB, EProjects.RAVE]
+	},
+	{
+		name: EProjects.SUBCONSCIOUS_MEDIA,
+		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
 	}
 ];
 
@@ -179,5 +184,13 @@ export const projectsDetails = [
 		hover: 'media/home/thumbnails/10-home-body-frontier.webp',
 		url: '/body-frontier',
 		mobileImage: 'media/home/thumbnails/10-home-body-frontier.webp'
+	},
+	{
+		name: EProjects.SUBCONSCIOUS_MEDIA,
+		nameToShow: 'subconscious media',
+		image: '/media/home/thumbnails/13-home-subconscious-media.webp',
+		hover: '/media/home/thumbnails/13-home-subconscious-media.webp',
+		url: SUBCONSCIOUS_MEDIA,
+		mobileImage: '/media/home/thumbnails/13-home-subconscious-media.webp'
 	}
 ];

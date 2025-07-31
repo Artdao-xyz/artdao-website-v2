@@ -11,3 +11,4 @@ export const MEMETIC_RUBBLE = '/memetic-rubble';
 export const NON_PLACES = '/non-places';
 export const IN_CONVERSATION = '/in-conversation';
 export const BODY_FRONTIER = '/body-frontier';
+export const SUBCONSCIOUS_MEDIA = '/subconscious-media';
