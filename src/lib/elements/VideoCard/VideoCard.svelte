@@ -11,34 +11,40 @@
 	export let showButtons: boolean = true;
 	export let videoProjects: IVideoProject[];
 
-	$: videoCardWidth =
-		videoProject.size === 'rectangle'
-			? 'w-full h-[330px] w-[330px] laptopM:!h-[682px] md:!h-[500px] md:!w-[700px] laptopM:!w-[1332px] lg:!w-[900px] lg:!h-[600px]'
-			: videoProject.size === 'square'
-				? 'w-full h-[330px] w-[330px] sm:w-[600px] sm:h-[600px] max-h-[420px] sm:h-[800px] sm:max-h-[600px] bigScreen:w-[650px] bigScreen:max-h-[650px] xlScreen:max-h-[800px] xlScreen:w-[800px]'
-				: videoProject.size === 'vertical' && height < 1000
-					? 'sm:w-[400px] sm:!h-[682px] !h-[420px] w-[250px]'
-					: 'w-full sm:max-h-[650px] sm:max-w-[450px] xlScreen:max-h-[800px]';
-
-	$: videoProjectIndex = videoProjects.findIndex((item) => item.name === videoProject.name);
-
+	let currentAspectRatio: number = 16/9; // Default aspect ratio
 	let height: number;
 	let width: number;
 
-	$: aspectClass =
-		videoProject.size === 'rectangle'
-			? 'aspect-video'
-			: videoProject.size === 'square'
-				? 'aspect-square'
-				: videoProject.size === 'vertical'
-					? 'aspect-[9/16]'
-					: 'aspect-video';
+	// Helper function to detect if URL is GIF or image based on final extension
+	const isGifOrImage = (url: string) => {
+		const lastDotIndex = url.lastIndexOf('.');
+		if (lastDotIndex === -1) return false;
+		const extension = url.substring(lastDotIndex + 1).toLowerCase();
+		return extension === 'gif' || ['jpg', 'jpeg', 'png', 'webp'].includes(extension);
+	};
+
+	const handleVideoLoad = (aspectRatio: number) => {
+		currentAspectRatio = aspectRatio;
+	};
+
+	// Calculate dynamic classes based on aspect ratio
+	$: getAspectClass = () => {
+		if (currentAspectRatio > 1.5) {
+			return 'aspect-video'; // Landscape
+		} else if (currentAspectRatio < 0.8) {
+			return 'aspect-[9/16]'; // Portrait
+		} else {
+			return 'aspect-square'; // Square
+		}
+	};
+
+	$: videoProjectIndex = videoProjects.findIndex((item) => item.name === videoProject.name);
 </script>
 
 <svelte:window bind:innerHeight={height} bind:innerWidth={width} />
 <div class="flex flex-col h-full justify-between">
 	<div
-		class="max-h-[80vh] mx-auto {aspectClass} w-auto overflow-hidden video-gradient px-[0.9375rem] my-auto pb-[0.9375rem] sm:!p-[15px] rounded-20 flex flex-col gap-0 sm:gap-[0.9375rem]"
+		class="max-h-[80vh] mx-auto {getAspectClass()} w-auto overflow-hidden video-gradient px-[0.9375rem] my-auto pb-[0.9375rem] sm:!p-[15px] rounded-20 flex flex-col gap-0 sm:gap-[0.9375rem]"
 	>
 		<div
 			class="h-fit w-full sm:bg-color-dark rounded-20 py-3 sm:p-[1.25rem] flex items-center justify-between"
@@ -63,7 +69,7 @@
 			</div>
 		</div>
 		<div class="w-full h-full rounded-20 overflow-hidden">
-			<VideoPlayer videoUrl={videoProject.videoUrl} />
+			<VideoPlayer videoUrl={videoProject.videoUrl} onVideoLoad={handleVideoLoad} />
 		</div>
 	</div>
 

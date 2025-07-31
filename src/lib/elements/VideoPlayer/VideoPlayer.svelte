@@ -1,71 +1,56 @@
 <script lang="ts">
 	export let videoUrl: string;
+	export let onVideoLoad: any = undefined;
 	let videoPlayer: HTMLVideoElement;
-	// let isPaused = true;
-	// let isMouseOver = false;
-	// let isPlayMouseOver = false;
-
-	// const playVideo = () => {
-	// 	isPaused = false;
-	// 	videoPlayer.play();
-	// };
-
-	// onMount(() => {
-	// 	videoPlayer.addEventListener('pause', () => {
-	// 		isPaused = true;
-	// 	});
-
-	// 	videoPlayer.addEventListener('play', () => {
-	// 		isPaused = false;
-	// 	});
-	// });
-
 	let width: number;
 	let height: number;
+
+	// Detect if the URL is a GIF or image based on final extension
+	$: getFileExtension = (url: string) => {
+		const lastDotIndex = url.lastIndexOf('.');
+		if (lastDotIndex === -1) return '';
+		return url.substring(lastDotIndex + 1).toLowerCase();
+	};
+
+	$: fileExtension = getFileExtension(videoUrl);
+	$: isGif = fileExtension === 'gif';
+	$: isImage = ['jpg', 'jpeg', 'png', 'webp'].includes(fileExtension);
+	$: isVideo = !isGif && !isImage;
+
+	const handleVideoLoad = () => {
+		if (videoPlayer && isVideo && onVideoLoad) {
+			const aspectRatio = videoPlayer.videoWidth / videoPlayer.videoHeight;
+			onVideoLoad(aspectRatio);
+		}
+	};
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
 <div
 	class="video-player w-full h-full relative flex flex-row items-center justify-center xlScreen:h-[630px] overflow-hidden"
 >
-	<!-- {#if width > 700}
+	{#if isGif || isImage}
+		<!-- For GIFs and images, use img tag -->
+		<img
+			src={videoUrl}
+			class="w-full h-full object-cover"
+			alt="Media content"
+		/>
+	{:else}
+		<!-- For videos, use video tag -->
 		<video
 			src={videoUrl}
 			class="w-full h-full object-cover"
 			controls
 			bind:this={videoPlayer}
 			preload="metadata"
+			playsinline
+			muted
+			loop
+			autoplay
+			on:loadedmetadata={handleVideoLoad}
 		>
 			<track kind="captions" />
 		</video>
-	{:else} -->
-	<video
-		src={videoUrl}
-		class="w-full h-full object-cover"
-		controls
-		bind:this={videoPlayer}
-		preload="metadata"
-		playsinline
-		muted
-		loop
-		autoplay
-	>
-		<track kind="captions" />
-	</video>
-	<!-- {/if} -->
-
-	<!-- <div
-		class="{isPaused
-			? 'opacity-1'
-			: 'opacity-0'} flex flex-row absolute w-[11.8125rem] h-[11.8125rem] bottom-[25%] sm:bottom-[40%] items-center justify-center"
-	>
-		<button
-			on:click={playVideo}
-			class="hidden w-[11.8125rem] h-[11.8125rem] rounded-[6.25rem] bg-color-play-button sm:flex flex-row items-center justify-center hover:scale-105"
-		>
-			<p class="font-neue text-[1.25rem] font-bold leading-[1.5rem]">
-				{isPaused ? 'PLAY' : 'PAUSE'}
-			</p>
-		</button>
-	</div> -->
+	{/if}
 </div>
