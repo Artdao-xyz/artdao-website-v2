@@ -11,6 +11,20 @@
 	export let showButtons: boolean = true;
 	export let videoProjects: IVideoProject[];
 
+	// Generate poster URL for video thumbnails
+	const getPosterUrl = (videoUrl: string) => {
+		return `${videoUrl}#t=0.1`;
+	};
+
+	const handleThumbnailLoad = (event: Event) => {
+		// Pause the video immediately to show only first frame
+		const video = event.target as HTMLVideoElement;
+		if (video) {
+			video.pause();
+			video.currentTime = 0;
+		}
+	};
+
 	$: videoCardWidth =
 		videoProject.size === 'rectangle'
 			? 'w-full h-[330px] w-[330px] laptopM:!h-[682px] md:!h-[500px] md:!w-[700px] laptopM:!w-[1332px] lg:!w-[900px] lg:!h-[600px]'
@@ -85,12 +99,16 @@
 
 			<div class="hidden sm:flex flex-row h-full items-center">
 				{#each videoProjects as video, i (video.name)}
-					<!-- svelte-ignore a11y-media-has-caption -->
 					<video
 						on:click={() => {
 							videoProject = video;
 						}}
+						on:loadedmetadata={handleThumbnailLoad}
+						src={video.videoUrl}
 						preload="metadata"
+						poster=""
+						muted
+						playsinline
 						class="cursor-pointer {videoProject.name === videoProjects[i].name
 							? 'h-[5.3125rem] w-[5.3125rem]'
 							: 'h-[3.4375rem] w-[3.4375rem]'} rounded-[3.0523rem] object-cover {i !== 0
@@ -98,16 +116,19 @@
 							: ''} transition-all duration-300 shadow-xl"
 						style={`z-index: ${videoProjects.length - i};`}
 					>
-						<source src={video.videoUrl} type="video/mp4" />
 					</video>
 				{/each}
 			</div>
 
 			<div class="flex sm:hidden flex-row h-full items-center w-[5rem] justify-center">
 				{#each videoProjects as video, i}
-					<!-- svelte-ignore a11y-media-has-caption -->
 					<video
+						on:loadedmetadata={handleThumbnailLoad}
+						src={video.videoUrl}
 						preload="metadata"
+						poster=""
+						muted
+						playsinline
 						class="{videoProject.name === videoProjects[i].name
 							? 'h-[50px] w-[50px]'
 							: 'h-[35px] w-[35px]'} rounded-[3.0523rem] object-cover {i === videoProjectIndex + 1
@@ -117,7 +138,6 @@
 							: 'hidden'} transition-all duration-300 shadow-xl"
 						style={`z-index: ${videoProjects.length - i};`}
 					>
-						<source src={video.videoUrl} type="video/mp4" />
 					</video>
 				{/each}
 			</div>
