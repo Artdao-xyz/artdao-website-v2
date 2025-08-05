@@ -12,6 +12,30 @@
 	export let videoProjects: IVideoProject[];
 
 	let currentAspectRatio: number = 16/9; // Default aspect ratio
+
+	// Generate poster URL for video thumbnails
+	const getPosterUrl = (videoUrl: string) => {
+		return `${videoUrl}#t=0.1`;
+	};
+
+	const handleThumbnailLoad = (event: Event) => {
+		// Pause the video immediately to show only first frame
+		const video = event.target as HTMLVideoElement;
+		if (video) {
+			video.pause();
+			video.currentTime = 0;
+		}
+	};
+
+	$: videoCardWidth =
+		videoProject.size === 'rectangle'
+			? 'w-full h-[330px] w-[330px] laptopM:!h-[682px] md:!h-[500px] md:!w-[700px] laptopM:!w-[1332px] lg:!w-[900px] lg:!h-[600px]'
+			: videoProject.size === 'square'
+				? 'w-full h-[330px] w-[330px] sm:w-[600px] sm:h-[600px] max-h-[420px] sm:h-[800px] sm:max-h-[600px] bigScreen:w-[650px] bigScreen:max-h-[650px] xlScreen:max-h-[800px] xlScreen:w-[800px]'
+				: videoProject.size === 'vertical' && height < 1000
+					? 'sm:w-[400px] sm:!h-[682px] !h-[420px] w-[250px]'
+					: 'w-full sm:max-h-[650px] sm:max-w-[450px] xlScreen:max-h-[800px]';
+
 	let height: number;
 	let width: number;
 
@@ -107,13 +131,18 @@
 							alt={video.name}
 						/>
 					{:else}
-						<!-- For videos, use video tag -->
+						<!-- For videos, use video tag with handleThumbnailLoad -->
 						<!-- svelte-ignore a11y-media-has-caption -->
 						<video
 							on:click={() => {
 								videoProject = video;
 							}}
+							on:loadedmetadata={handleThumbnailLoad}
+							src={video.videoUrl}
 							preload="metadata"
+							poster=""
+							muted
+							playsinline
 							class="cursor-pointer {videoProject.name === videoProjects[i].name
 								? 'h-[5.3125rem] w-[5.3125rem]'
 								: 'h-[3.4375rem] w-[3.4375rem]'} rounded-[3.0523rem] object-cover {i !== 0
@@ -121,7 +150,6 @@
 								: ''} transition-all duration-300 shadow-xl"
 							style={`z-index: ${videoProjects.length - i};`}
 						>
-							<source src={video.videoUrl} type="video/mp4" />
 						</video>
 					{/if}
 				{/each}
@@ -144,10 +172,15 @@
 							alt={video.name}
 						/>
 					{:else}
-						<!-- For videos, use video tag -->
+						<!-- For videos, use video tag with handleThumbnailLoad -->
 						<!-- svelte-ignore a11y-media-has-caption -->
 						<video
+							on:loadedmetadata={handleThumbnailLoad}
+							src={video.videoUrl}
 							preload="metadata"
+							poster=""
+							muted
+							playsinline
 							class="{videoProject.name === videoProjects[i].name
 								? 'h-[50px] w-[50px]'
 								: 'h-[35px] w-[35px]'} rounded-[3.0523rem] object-cover {i === videoProjectIndex + 1
@@ -157,7 +190,6 @@
 								: 'hidden'} transition-all duration-300 shadow-xl"
 							style={`z-index: ${videoProjects.length - i};`}
 						>
-							<source src={video.videoUrl} type="video/mp4" />
 						</video>
 					{/if}
 				{/each}
