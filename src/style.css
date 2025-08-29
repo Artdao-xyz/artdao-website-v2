@@ -168,6 +168,18 @@
 		background: #555 !important;
 	}
 }
+
+/* Clase para ocultar scrollbars pero mantener funcionalidad */
+.scrollbar-hide {
+	/* Firefox */
+	scrollbar-width: none;
+	/* IE and Edge */
+	-ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}
 html {
 	background-color: #1e1e1e;
 }

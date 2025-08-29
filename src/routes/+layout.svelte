@@ -1,13 +1,25 @@
-<script>
+<script lang="ts">
 	import Metaball from '$lib/components/Metaball/Metaball.svelte';
 	import '../style.css';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { metaballProgress } from '../utils/metaball/getMetaballProgress';
+	import { metaballRef } from '$lib/components/HomeV2/store';
+	
+	// Determinar si estamos en la página principal
+	$: isHomePage = $page?.route?.id === '/';
 
 	// Reset metaballProgress when route changes
 	$: if ($page) {
 		metaballProgress.set(0);
+	}
+	
+	// Referencia al contenedor del Metaball
+	let metaballContainer: HTMLDivElement;
+	
+	// Pasar la referencia al store
+	$: if (metaballContainer) {
+		metaballRef.set(metaballContainer);
 	}
 </script>
 
@@ -39,8 +51,17 @@
 	<link rel="canonical" href="https://artdao.xyz" />
 </svelte:head>
 
-<div class="hidden sm:inline-flex fixed bottom-4 right-4 z-50">
-        <Metaball/>
-</div>
+<!-- Metaball condicional según la ruta -->
+{#if isHomePage}
+    <!-- En la página principal: Metaball extra-grande y fijo en el centro -->
+    <div bind:this={metaballContainer} class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
+        <Metaball {isHomePage} size="extra-large" />
+    </div>
+{:else}
+    <!-- En otras páginas: Metaball pequeño y flotante en la esquina -->
+    <div class="hidden sm:inline-flex fixed bottom-4 right-4 z-50">
+        <Metaball {isHomePage} size="small" />
+    </div>
+{/if}
 
 <slot />

@@ -5,6 +5,11 @@
 	import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 	import { HOME } from '../../../constants/routes';
 	import MetaSymbol from '../../../lib/components/Metaball/MetaSymbol';
+	import { isMetaballTransitioning } from '../HomeV2/store';
+	
+	// Props para controlar el comportamiento
+	export let isHomePage: boolean = false;
+	export let size: 'small' | 'medium' | 'large' | 'extra-large' = 'small';
 
 	let canvas: any = null;
 	let metaSymbol: any = null;
@@ -13,9 +18,26 @@
 
 	onMount(() => {
 		/* SETTINGS */
+		let baseSize: number;
+		switch (size) {
+					case 'extra-large':
+			baseSize = window.innerWidth <= 768 ? 350 : 700;
+			break;
+			case 'large':
+				baseSize = window.innerWidth <= 768 ? 150 : 300;
+				break;
+			case 'medium':
+				baseSize = window.innerWidth <= 768 ? 80 : 150;
+				break;
+			case 'small':
+			default:
+				baseSize = window.innerWidth <= 768 ? 60 : 100;
+				break;
+		}
+		
 		const sizes = {
-			width: window.innerWidth <= 768 ? 60 : 100,
-			height: window.innerWidth <= 768 ? 60 : 100
+			width: baseSize,
+			height: baseSize
 		};
 
 		/* SCENE */
@@ -77,28 +99,7 @@
 
 		/* RESIZE */
 		onresize = (e) => {
-			// Update sizes
-			if (window.innerWidth !== sizes.width) {
-				(sizes.width = window.innerWidth <= 768 ? 60 : 100),
-					(sizes.height = window.innerWidth <= 768 ? 60 : 100);
-
-				// Adjust camera position based on viewport size
-				if (sizes.width < 1025) {
-					camera.position.y = 0;
-					camera.position.z = 300;
-				} else {
-					camera.position.y = 0;
-					camera.position.z = 200;
-				}
-
-				// Update camera
-				camera.aspect = sizes.width / sizes.height;
-				camera.updateProjectionMatrix();
-
-				// Update renderer
-				renderer.setSize(sizes.width, sizes.height);
-				renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-			}
+			
 		};
 
 		return () => {
@@ -122,7 +123,15 @@
 </script>
 
 <svelte:window bind:innerWidth={width} />
-<a href={width <= 768 ? HOME : '#intro'}>
-	<canvas bind:this={canvas} class="bg-transparent relative">
+
+{#if isHomePage}
+	<!-- En la página principal: Metaball fijo en el centro -->
+	<canvas bind:this={canvas} class="bg-transparent fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
 	</canvas>
-</a>
+{:else}
+	<!-- En otras páginas: Metaball como enlace flotante -->
+	<a href={width <= 768 ? HOME : '#intro'}>
+		<canvas bind:this={canvas} class="bg-transparent relative">
+		</canvas>
+	</a>
+{/if}
