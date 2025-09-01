@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { projectsV2, type ProjectV2 } from '../../../constants/projectsV2';
+    import { projects, type Project } from '../../../constants/projects';
     import ProjectsColumn from './ProjectsColumn/ProjectsColumn.svelte';
     import ImageGrid from './ImageGrid/ImageGrid.svelte';
     import ArtistsColumn from './ArtistsColumn/ArtistsColumn.svelte';
@@ -7,10 +7,14 @@
     import Navbar from './Navbar/Navbar.svelte';
 
     // Extraer solo los títulos de los proyectos para la primera columna
-    const projects = projectsV2.map((p: ProjectV2) => p.title);
+    const projectTitles = projects.map((p: Project) => p.title);
+    
+    // Debug: ver qué está pasando con los datos
+    console.log('Projects data:', projects);
+    console.log('Project titles:', projectTitles);
     
     // Extraer todos los artistas únicos de todos los proyectos
-    const allArtists = [...new Set(projectsV2.flatMap((p: ProjectV2) => p.artists))];
+    const allArtists = [...new Set(projects.flatMap((p: Project) => p.artists))];
     
     // Mantener el orden original de los artistas
     const artists = allArtists;
@@ -46,7 +50,7 @@
     // Función para toggle de artistas
     function toggleArtist(artist: string) {
         // Buscar en qué proyecto está este artista
-        const projectIndex = projectsV2.findIndex(project => project.artists.includes(artist));
+        const projectIndex = projects.findIndex(project => project.artists.includes(artist));
         if (projectIndex === -1) return;
         
         // Toggle: si ya está seleccionado el proyecto de este artista, deseleccionar; si no, seleccionar
@@ -69,7 +73,7 @@
     // Función para manejar hover de artistas
     function handleArtistHover(artist: string) {
         if (artist) {
-            const projectIndex = projectsV2.findIndex(project => project.artists.includes(artist));
+            const projectIndex = projects.findIndex(project => project.artists.includes(artist));
             if (projectIndex !== -1) hoveredProjectIndex = projectIndex;
         } else {
             hoveredProjectIndex = null;
@@ -87,7 +91,7 @@
         <div class="lg:hidden">
             <SelectedProject 
                 {selectedProjectIndex}
-                {projects}
+                projects={projects}
                 onProjectClick={scrollToProject}
                 onArtistClick={toggleArtist}
             />
@@ -95,7 +99,7 @@
         
         <!-- Columna 1: Projects -->
         <ProjectsColumn 
-            {projects}
+            projects={projects}
             {selectedProjectIndex}
             {hoveredProjectIndex}
             onProjectClick={scrollToProject}
@@ -106,7 +110,7 @@
         <!-- Columnas 2, 3, 4: Grilla única de 3xN con imágenes (solo desktop) -->
         <div class="hidden lg:block">
             <ImageGrid 
-                {projects}
+                projects={projects}
                 {selectedProjectIndex}
                 {hoveredProjectIndex}
                 {imageButtons}
@@ -128,7 +132,7 @@
         <div class="lg:hidden flex-1 grid grid-cols-2 w-full min-h-0">
             <!-- Columna Izquierda: Proyectos -->
             <ProjectsColumn 
-                {projects}
+                projects={projects}
                 {selectedProjectIndex}
                 {hoveredProjectIndex}
                 onProjectClick={scrollToProject}

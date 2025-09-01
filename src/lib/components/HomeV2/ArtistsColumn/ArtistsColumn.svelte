@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { projectsV2, type ProjectV2 } from '../../../../constants/projectsV2';
+    import { projects as projectsData, type Project } from '../../../../constants/projects';
     import { fade } from 'svelte/transition';
 
     // Props
@@ -15,11 +15,11 @@
         [
             // Primero los artistas del proyecto seleccionado
             ...artists.filter(artist => 
-                projectsV2[selectedProjectIndex]?.artists.includes(artist)
+                projectsData[selectedProjectIndex]?.artists.includes(artist)
             ),
             // Luego el resto de artistas
             ...artists.filter(artist => 
-                !projectsV2[selectedProjectIndex]?.artists.includes(artist)
+                !projectsData[selectedProjectIndex]?.artists.includes(artist)
             )
         ] : 
         artists; // En desktop o sin selección, orden original
@@ -32,7 +32,7 @@
         {#key selectedProjectIndex}
             {#each sortedArtists as artist, i (artist)}
                 <button 
-                    class="rounded-[100px] outline outline-[1.5px] text-right outline-offset-[-1.5px] inline-flex self-end leading-none tracking-tight text-xs font-robotoMono font-normal px-2.5 py-1.5 w-fit transition-all duration-300 text-[#949391] {selectedProjectIndex !== null && projectsV2[selectedProjectIndex]?.artists.includes(artist) ? 'outline-none bg-black text-white' : hoveredProjectIndex !== null && projectsV2[hoveredProjectIndex]?.artists.includes(artist) ? 'outline-black text-black' : 'outline-[#949391] hover:outline-black hover:text-black'}"
+                    class="rounded-[100px] outline outline-[1.5px] text-right outline-offset-[-1.5px] inline-flex self-end leading-none tracking-tight text-xs font-robotoMono font-normal px-2.5 py-1.5 w-fit transition-all duration-300 text-[#949391] {selectedProjectIndex !== null && projectsData[selectedProjectIndex]?.artists.includes(artist) ? 'outline-none bg-black text-white' : hoveredProjectIndex !== null && projectsData[hoveredProjectIndex]?.artists.includes(artist) ? 'outline-black text-black' : 'outline-[#949391] hover:outline-black hover:text-black'}"
                     on:click={() => onArtistClick(artist)}
                     on:mouseenter={() => onArtistHover(artist)}
                     on:mouseleave={() => onArtistHover('')}
@@ -46,8 +46,8 @@
                 <div class="w-full mb-8 flex justify-center lg:hidden" transition:fade={{ duration: 400 }}>
                     <div class="w-full max-w-2xl">
                         <img 
-                            src={projectsV2[selectedProjectIndex].thumbnailPath} 
-                            alt={`${projectsV2[selectedProjectIndex].title} thumbnail`}
+                            src={projectsData[selectedProjectIndex].thumbnailPath} 
+                            alt={`${projectsData[selectedProjectIndex].title} thumbnail`}
                             class="w-full h-auto object-cover rounded-lg shadow-lg"
                         />
                     </div>
@@ -65,7 +65,7 @@
     <div class="lg:hidden p-5 lg:p-10 overflow-y-auto">
         <div class="space-y-2">
             {#each artists as artist}
-                {#if selectedProjectIndex === null || !projectsV2[selectedProjectIndex].artists.includes(artist)}
+                {#if selectedProjectIndex === null || !projectsData[selectedProjectIndex].artists.includes(artist)}
                     <button
                         class="text-right flex justify-end leading-none tracking-tight text-xs font-robotoMono font-normal w-full transition-all duration-300 text-[#949391] hover:text-black"
                         on:click={() => onArtistClick(artist)}

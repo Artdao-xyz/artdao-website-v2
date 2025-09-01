@@ -1,9 +1,9 @@
 <script lang="ts">
-    import { projectsV2, type ProjectV2 } from '../../../../constants/projectsV2';
+    import { projects as projectsData, type Project } from '../../../../constants/projects';
 
     // Props
     export let selectedProjectIndex: number | null;
-    export let projects: string[];
+    export let projects: Project[];
     export let onProjectClick: (index: number) => void;
     export let onArtistClick: (artist: string) => void;
 </script>
@@ -29,13 +29,13 @@
                         class="text-black text-xs font-clash leading-none tracking-tight hover:text-[#949391] cursor-pointer transition-all"
                         on:click={() => selectedProjectIndex !== null && onProjectClick(selectedProjectIndex)}
                     >
-                        {projects[selectedProjectIndex]}
+                        {projects[selectedProjectIndex].title}
                     </button>
                 </div>
                 
                 <!-- Título "Featuring" y artistas -->
                 <div class="flex flex-col items-end gap-1.5">
-                    {#each projectsV2[selectedProjectIndex].artists as artist}
+                    {#each projects[selectedProjectIndex].artists as artist}
                         <button
                             class="rounded-[100px] inline-flex justify-center items-center leading-none tracking-tight text-xs font-robotoMono font-normal w-fit transition-all text-black hover:text-[#949391] cursor-pointer"
                             on:click={() => onArtistClick(artist)}
@@ -49,8 +49,8 @@
             <!-- Imagen del proyecto en full width -->
             <div class="w-full">
                 <img 
-                    src={projectsV2[selectedProjectIndex].thumbnailPath} 
-                    alt={projects[selectedProjectIndex]}
+                    src={projects[selectedProjectIndex].thumbnailPath} 
+                    alt={projects[selectedProjectIndex].title}
                     class="w-full h-auto object-cover rounded-lg"
                 />
             </div>
