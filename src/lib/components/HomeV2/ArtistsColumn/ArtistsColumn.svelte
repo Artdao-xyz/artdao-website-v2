@@ -45,11 +45,13 @@
             {#if selectedProjectIndex !== null}
                 <div class="w-full mb-8 flex justify-center lg:hidden" transition:fade={{ duration: 400 }}>
                     <div class="w-full max-w-2xl">
-                        <img 
-                            src={projectsData[selectedProjectIndex].thumbnailPath} 
-                            alt={`${projectsData[selectedProjectIndex].title} thumbnail`}
-                            class="w-full h-auto object-cover rounded-lg shadow-lg"
-                        />
+                        <a href={projectsData[selectedProjectIndex].pagePath} rel="noopener noreferrer">
+                            <img 
+                                src={projectsData[selectedProjectIndex].thumbnailPath} 
+                                alt={`${projectsData[selectedProjectIndex].title} thumbnail`}
+                                class="w-full h-auto object-cover rounded-lg shadow-lg cursor-pointer hover:opacity-90 transition-opacity duration-300"
+                            />
+                        </a>
                     </div>
                 </div>
                 

@@ -48,11 +48,13 @@
             
             <!-- Imagen del proyecto en full width -->
             <div class="w-full">
-                <img 
-                    src={projects[selectedProjectIndex].thumbnailPath} 
-                    alt={projects[selectedProjectIndex].title}
-                    class="w-full h-auto object-cover rounded-lg"
-                />
+                <a href={projects[selectedProjectIndex].pagePath} rel="noopener noreferrer">
+                    <img 
+                        src={projects[selectedProjectIndex].thumbnailPath} 
+                        alt={projects[selectedProjectIndex].title}
+                        class="w-full h-auto object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity duration-300"
+                    />
+                </a>
             </div>
         {/if}
     </div>
