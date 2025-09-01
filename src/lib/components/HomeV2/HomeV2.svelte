@@ -44,43 +44,23 @@
     
     // Función para toggle de artistas
     function toggleArtist(artist: string) {
-        // Si no hay proyecto seleccionado, buscar y seleccionar el proyecto del artista
-        if (selectedProjectIndex === null) {
-            // Buscar en qué proyecto está este artista
-            const projectIndex = projectsV2.findIndex(project => project.artists.includes(artist));
-            if (projectIndex !== -1) {
-                selectedProjectIndex = projectIndex;
-                
-                // Hacer scroll a la imagen correspondiente
-                if (imageButtons[projectIndex]) {
-                    imageButtons[projectIndex].scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'center',
-                        inline: 'center'
-                    });
-                }
-            }
+        // Buscar en qué proyecto está este artista
+        const projectIndex = projectsV2.findIndex(project => project.artists.includes(artist));
+        if (projectIndex === -1) return;
+        
+        // Toggle: si ya está seleccionado el proyecto de este artista, deseleccionar; si no, seleccionar
+        if (selectedProjectIndex === projectIndex) {
+            selectedProjectIndex = null;
         } else {
-            // Si hay proyecto seleccionado, verificar si el artista está en él
-            const projectArtists = projectsV2[selectedProjectIndex]?.artists || [];
-            if (projectArtists.includes(artist)) {
-                // Si el artista está en el proyecto seleccionado, deseleccionar el proyecto
-                selectedProjectIndex = null;
-            } else {
-                // Si el artista está en otro proyecto, cambiar la selección a ese proyecto
-                const newProjectIndex = projectsV2.findIndex(project => project.artists.includes(artist));
-                if (newProjectIndex !== -1) {
-                    selectedProjectIndex = newProjectIndex;
-                    
-                    // Hacer scroll a la nueva imagen
-                    if (imageButtons[newProjectIndex]) {
-                        imageButtons[newProjectIndex].scrollIntoView({ 
-                            behavior: 'smooth', 
-                            block: 'center',
-                            inline: 'center'
-                        });
-                    }
-                }
+            selectedProjectIndex = projectIndex;
+            
+            // Hacer scroll a la imagen correspondiente solo si se está seleccionando
+            if (imageButtons[projectIndex]) {
+                imageButtons[projectIndex].scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center',
+                    inline: 'center'
+                });
             }
         }
     }
@@ -96,7 +76,7 @@
     }
 </script>
 
-<div class="relative w-full h-screen text-white flex flex-col items-center justify-center pt-10 bg-dot">
+<div class="relative w-full min-h-screen text-white flex flex-col items-center justify-center pt-10 bg-dot">
     
     <Navbar />
     
@@ -130,7 +110,7 @@
     </div>
 
     <!-- Layout Mobile -->
-    <div class="lg:hidden w-full h-full flex flex-col">
+    <div class="lg:hidden w-full flex flex-col flex-1">
         <!-- Proyecto Seleccionado -->
         {#if selectedProjectIndex !== null}
             <div class="w-full p-5 lg:p-10">
@@ -147,17 +127,23 @@
                     <div class="flex justify-between">
                         <div class="flex flex-col">
                             <!-- Título del proyecto -->
-                            <h2 class="text-black text-xs font-clash leading-none tracking-tight">
+                            <button
+                                class="text-black text-xs font-clash leading-none tracking-tight hover:text-[#949391] cursor-pointer transition-all"
+                                on:click={() => selectedProjectIndex !== null && scrollToProject(selectedProjectIndex)}
+                            >
                                 {projects[selectedProjectIndex]}
-                            </h2>
+                            </button>
                         </div>
                         
                         <!-- Título "Featuring" y artistas -->
                         <div class="flex flex-col items-end gap-1.5">
                             {#each projectsV2[selectedProjectIndex].artists as artist}
-                                <span class="rounded-[100px] inline-flex justify-center items-center leading-none tracking-tight text-xs font-robotoMono font-normal w-fit transition-all text-black">
+                                <button
+                                    class="rounded-[100px] inline-flex justify-center items-center leading-none tracking-tight text-xs font-robotoMono font-normal w-fit transition-all text-black hover:text-[#949391] cursor-pointer"
+                                    on:click={() => toggleArtist(artist)}
+                                >
                                     {artist}
-                                </span>
+                                </button>
                             {/each}
                         </div>
                     </div>
@@ -175,9 +161,9 @@
         {/if}
         
         <!-- Contenido Principal Mobile -->
-        <div class="flex-1 grid grid-cols-2 w-full">
+        <div class="flex-1 grid grid-cols-2 w-full min-h-0">
             <!-- Columna Izquierda: Proyectos -->
-            <div class="p-5 lg:p-10">
+            <div class="p-5 lg:p-10 overflow-y-auto">
                 <div class="space-y-2">
                     {#each projects as project, index}
                         {#if selectedProjectIndex !== index}
@@ -195,7 +181,7 @@
             </div>
             
             <!-- Columna Derecha: Artistas -->
-            <div class="p-5 lg:p-10">
+            <div class="p-5 lg:p-10 overflow-y-auto">
                 <div class="space-y-2">
                     {#each artists as artist}
                         {#if selectedProjectIndex === null || !projectsV2[selectedProjectIndex].artists.includes(artist)}
