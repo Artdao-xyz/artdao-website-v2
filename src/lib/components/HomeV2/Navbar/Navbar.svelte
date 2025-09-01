@@ -65,7 +65,7 @@
     });
 </script>
 
-<nav class="hidden sm:flex relative w-full border-2 border-red-500 justify-between lg:w-auto lg:fixed lg:top-4 lg:left-1/2 lg:-translate-x-1/2 z-50 items-center">
+<nav class="hidden sm:flex relative w-full justify-between lg:w-auto lg:fixed lg:top-4 lg:left-1/2 lg:-translate-x-1/2 z-50 items-center">
         <!-- metaball goes here -->
         <span bind:this={metaballSpan} class="hidden lg:block h-20 lg:h-12 w-20 lg:w-12 rounded-full lg:flex-shrink-0"></span>
 
