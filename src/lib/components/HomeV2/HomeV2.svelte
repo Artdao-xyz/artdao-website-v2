@@ -3,6 +3,7 @@
     import ProjectsColumn from './ProjectsColumn/ProjectsColumn.svelte';
     import ImageGrid from './ImageGrid/ImageGrid.svelte';
     import ArtistsColumn from './ArtistsColumn/ArtistsColumn.svelte';
+    import SelectedProject from './SelectedProject/SelectedProject.svelte';
     import Navbar from './Navbar/Navbar.svelte';
 
     // Extraer solo los títulos de los proyectos para la primera columna
@@ -76,11 +77,22 @@
     }
 </script>
 
-<div class="relative w-full min-h-screen text-white flex flex-col items-center justify-center pt-10 bg-dot">
+<div class="relative w-full min-h-screen text-white flex flex-col items-center lg:justify-center lg:pt-10 bg-dot">
     
     <Navbar />
     
-    <div class="hidden relative lg:flex justify-between max-w-screen-2xl w-full h-full">
+    <!-- Layout Unificado -->
+    <div class="w-full flex flex-col lg:flex-row lg:justify-between lg:max-w-screen-2xl lg:h-full">
+        <!-- Proyecto Seleccionado (solo mobile) -->
+        <div class="lg:hidden">
+            <SelectedProject 
+                {selectedProjectIndex}
+                {projects}
+                onProjectClick={scrollToProject}
+                onArtistClick={toggleArtist}
+            />
+        </div>
+        
         <!-- Columna 1: Projects -->
         <ProjectsColumn 
             {projects}
@@ -88,16 +100,19 @@
             {hoveredProjectIndex}
             onProjectClick={scrollToProject}
             onProjectHover={(index) => hoveredProjectIndex = index}
+            variant="desktop"
         />
         
-        <!-- Columnas 2, 3, 4: Grilla única de 3xN con imágenes -->
-        <ImageGrid 
-            {projects}
-            {selectedProjectIndex}
-            {hoveredProjectIndex}
-            {imageButtons}
-            onImageHover={(index) => hoveredProjectIndex = index}
-        />
+        <!-- Columnas 2, 3, 4: Grilla única de 3xN con imágenes (solo desktop) -->
+        <div class="hidden lg:block">
+            <ImageGrid 
+                {projects}
+                {selectedProjectIndex}
+                {hoveredProjectIndex}
+                {imageButtons}
+                onImageHover={(index) => hoveredProjectIndex = index}
+            />
+        </div>
         
         <!-- Columna 5: Artists -->
         <ArtistsColumn 
@@ -106,97 +121,30 @@
             {hoveredProjectIndex}
             onArtistClick={toggleArtist}
             onArtistHover={handleArtistHover}
+            variant="desktop"
         />
-    </div>
-
-    <!-- Layout Mobile -->
-    <div class="lg:hidden w-full flex flex-col flex-1">
-        <!-- Proyecto Seleccionado -->
-        {#if selectedProjectIndex !== null}
-            <div class="w-full p-5 lg:p-10">
-                <div class="flex flex-col space-y-2">
-                    <!-- Proyecto y Artistas en columna -->
-                     <div class="flex justify-between">
-                         <h1 class="text-black text-sm font-medium font-clash leading-none tracking-tight">
-                             Welcome to the artdao zine
-                            </h1>
-                            <h1 class="text-black text-sm font-medium font-clash leading-none tracking-tight">
-                                Featuring
-                            </h1>
-                    </div>
-                    <div class="flex justify-between">
-                        <div class="flex flex-col">
-                            <!-- Título del proyecto -->
-                            <button
-                                class="text-black text-xs font-clash leading-none tracking-tight hover:text-[#949391] cursor-pointer transition-all"
-                                on:click={() => selectedProjectIndex !== null && scrollToProject(selectedProjectIndex)}
-                            >
-                                {projects[selectedProjectIndex]}
-                            </button>
-                        </div>
-                        
-                        <!-- Título "Featuring" y artistas -->
-                        <div class="flex flex-col items-end gap-1.5">
-                            {#each projectsV2[selectedProjectIndex].artists as artist}
-                                <button
-                                    class="rounded-[100px] inline-flex justify-center items-center leading-none tracking-tight text-xs font-robotoMono font-normal w-fit transition-all text-black hover:text-[#949391] cursor-pointer"
-                                    on:click={() => toggleArtist(artist)}
-                                >
-                                    {artist}
-                                </button>
-                            {/each}
-                        </div>
-                    </div>
-                    
-                    <!-- Imagen del proyecto en full width -->
-                    <div class="w-full">
-                        <img 
-                            src={projectsV2[selectedProjectIndex].thumbnailPath} 
-                            alt={projects[selectedProjectIndex]}
-                            class="w-full h-auto object-cover rounded-lg"
-                        />
-                    </div>
-                </div>
-            </div>
-        {/if}
         
-        <!-- Contenido Principal Mobile -->
-        <div class="flex-1 grid grid-cols-2 w-full min-h-0">
+        <!-- Layout Mobile: Columnas de proyectos y artistas -->
+        <div class="lg:hidden flex-1 grid grid-cols-2 w-full min-h-0">
             <!-- Columna Izquierda: Proyectos -->
-            <div class="p-5 lg:p-10 overflow-y-auto">
-                <div class="space-y-2">
-                    {#each projects as project, index}
-                        {#if selectedProjectIndex !== index}
-                            <button
-                                class="text-left leading-none tracking-tight text-xs font-robotoMono font-normal w-fit transition-all text-[#949391] duration-300 hover:text-black"
-                                on:click={() => scrollToProject(index)}
-                                on:mouseenter={() => hoveredProjectIndex = index}
-                                on:mouseleave={() => hoveredProjectIndex = null}
-                            >
-                                {project}
-                            </button>
-                        {/if}
-                    {/each}
-                </div>
-            </div>
+            <ProjectsColumn 
+                {projects}
+                {selectedProjectIndex}
+                {hoveredProjectIndex}
+                onProjectClick={scrollToProject}
+                onProjectHover={(index) => hoveredProjectIndex = index}
+                variant="mobile"
+            />
             
             <!-- Columna Derecha: Artistas -->
-            <div class="p-5 lg:p-10 overflow-y-auto">
-                <div class="space-y-2">
-                    {#each artists as artist}
-                        {#if selectedProjectIndex === null || !projectsV2[selectedProjectIndex].artists.includes(artist)}
-                            <button
-                                class="text-right flex justify-end leading-none tracking-tight text-xs font-robotoMono font-normal w-full transition-all duration-300 text-[#949391] hover:text-black"
-                                on:click={() => toggleArtist(artist)}
-                                on:mouseenter={() => handleArtistHover(artist)}
-                                on:mouseleave={() => handleArtistHover('')}
-                            >
-                                {artist}
-                            </button>
-                        {/if}
-                    {/each}
-                </div>
-            </div>
+            <ArtistsColumn 
+                {artists}
+                {selectedProjectIndex}
+                {hoveredProjectIndex}
+                onArtistClick={toggleArtist}
+                onArtistHover={handleArtistHover}
+                variant="mobile"
+            />
         </div>
     </div>
 
