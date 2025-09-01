@@ -8,18 +8,20 @@
     export let onArtistClick: (artist: string) => void;
 </script>
 
-{#if selectedProjectIndex !== null}
-    <div class="w-full p-5 lg:p-10">
-        <div class="flex flex-col space-y-2">
-            <!-- Proyecto y Artistas en columna -->
-             <div class="flex justify-between">
-                 <h1 class="text-black text-sm font-medium font-clash leading-none tracking-tight">
-                     Welcome to the artdao zine
-                    </h1>
-                    <h1 class="text-black text-sm font-medium font-clash leading-none tracking-tight">
-                        Featuring
-                    </h1>
-            </div>
+<div class="w-full px-5 lg:p-10">
+    <div class="flex flex-col space-y-2">
+        <!-- Títulos siempre visibles -->
+        <div class="flex justify-between">
+            <h1 class="text-black text-sm font-medium font-clash leading-none tracking-tight">
+                Welcome to the artdao zine
+            </h1>
+            <h1 class="text-black text-sm font-medium font-clash leading-none tracking-tight">
+                Featuring
+            </h1>
+        </div>
+        
+        <!-- Contenido del proyecto solo cuando está seleccionado -->
+        {#if selectedProjectIndex !== null}
             <div class="flex justify-between">
                 <div class="flex flex-col">
                     <!-- Título del proyecto -->
@@ -52,6 +54,6 @@
                     class="w-full h-auto object-cover rounded-lg"
                 />
             </div>
-        </div>
+        {/if}
     </div>
-{/if}
+</div>
