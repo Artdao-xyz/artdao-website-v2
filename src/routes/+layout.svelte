@@ -54,7 +54,7 @@
 <!-- Metaball condicional según la ruta -->
 {#if isHomePage}
     <!-- En la página principal: Metaball extra-grande y fijo en el centro -->
-    <div bind:this={metaballContainer} class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
+    <div bind:this={metaballContainer} class="hidden lg:block fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
         <Metaball {isHomePage} size="extra-large" />
     </div>
 {:else}

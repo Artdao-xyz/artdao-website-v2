@@ -3,10 +3,11 @@
     import { onMount } from 'svelte';
     import { gsap } from 'gsap';
     import { metaballRef, isMetaballTransitioning } from '../store';
-    
+    import TopBarMobile from '../../TopBarMobile/TopBarMobile.svelte';
+
     // Referencias a los elementos
     let metaballSpan: HTMLSpanElement;
-    
+    let showInfo = false;
     onMount(() => {
         // Estado para controlar si ya se activó la transición
         let hasTriggered = false;
@@ -64,10 +65,10 @@
     });
 </script>
 
-<nav class="relative w-full borde-2 border-red-500 justify-between lg:w-auto lg:fixed lg:top-4 lg:left-1/2 lg:-translate-x-1/2 z-50 flex items-center">
+<nav class="hidden sm:flex relative w-full border-2 border-red-500 justify-between lg:w-auto lg:fixed lg:top-4 lg:left-1/2 lg:-translate-x-1/2 z-50 items-center">
         <!-- metaball goes here -->
-        <span bind:this={metaballSpan} class="h-12 w-12 rounded-full flex-shrink-0"></span>
-        
+        <span bind:this={metaballSpan} class="hidden lg:block h-20 lg:h-12 w-20 lg:w-12 rounded-full lg:flex-shrink-0"></span>
+
          <div class="hidden lg:inline-flex h-12 p-6 bg-gradient-to-br from-black/60 to-black/80 rounded-[100px] shadow-[2px_2px_20px_0px_rgba(0,0,0,0.40)] outline outline-[1.40px] outline-offset-[-1.40px] outline-white/40 backdrop-blur-[34px] justify-center items-center gap-5">
                 <a href="/" class="flex justify-start items-center gap-2">
                          <Circle size={8} class="text-white fill-white" />
@@ -79,3 +80,5 @@
                  </a>
         </div>
 </nav>
+
+<TopBarMobile bind:showInfo/>

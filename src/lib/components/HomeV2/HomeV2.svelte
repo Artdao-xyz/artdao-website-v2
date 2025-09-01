@@ -81,7 +81,7 @@
     }
 </script>
 
-<div class="relative w-full min-h-screen lg:max-h-screen text-white flex flex-col items-center lg:justify-center lg:pt-10 bg-dot">
+<div class="relative w-full min-h-screen lg:max-h-screen text-white flex flex-col gap-10 lg:gap-0 items-center lg:justify-center lg:pt-10 bg-dot">
     
     <Navbar />
     
@@ -129,7 +129,7 @@
         />
         
         <!-- Layout Mobile: Columnas de proyectos y artistas -->
-        <div class="lg:hidden flex-1 grid grid-cols-2 w-full min-h-0">
+        <div class="lg:hidden flex-1 grid grid-cols-2 w-full h-full min-h-0">
             <!-- Columna Izquierda: Proyectos -->
             <ProjectsColumn 
                 projects={projects}

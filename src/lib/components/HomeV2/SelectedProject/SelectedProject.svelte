@@ -13,7 +13,7 @@
         <!-- Títulos siempre visibles -->
         <div class="flex justify-between">
             <h1 class="text-black text-sm font-medium font-clash leading-none tracking-tight">
-                Welcome to the artdao zine
+                Welcome to the<br>artdao zine
             </h1>
             <h1 class="text-black text-sm font-medium font-clash leading-none tracking-tight">
                 Featuring

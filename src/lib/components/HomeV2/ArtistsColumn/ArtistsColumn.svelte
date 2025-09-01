@@ -65,7 +65,7 @@
 {:else}
     <!-- Layout Mobile -->
     <div class="lg:hidden p-5 lg:p-10 overflow-y-auto">
-        <div class="space-y-2">
+        <div class="space-y-4">
             {#each artists as artist}
                 {#if selectedProjectIndex === null || !projectsData[selectedProjectIndex].artists.includes(artist)}
                     <button

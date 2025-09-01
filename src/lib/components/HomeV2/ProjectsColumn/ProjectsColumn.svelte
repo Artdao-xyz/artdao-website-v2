@@ -29,8 +29,8 @@
     </div>
 {:else}
     <!-- Layout Mobile -->
-    <div class="lg:hidden p-5 lg:p-10 overflow-y-auto">
-        <div class="flex flex-col space-y-2">
+    <div class="lg:hidden p-5 lg:p-10 overflow-y-auto border-r border-black border-dashed">
+        <div class="flex flex-col space-y-4">
             {#each projects as project, i}
                 {#if selectedProjectIndex !== i}
                     <button
