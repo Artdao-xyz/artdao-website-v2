@@ -156,6 +156,6 @@
 
 <style>
     .bg-dot {
-        background: #F7F5F2 url("media/home/home-dot.svg") repeat;
+        background: #F7F5F2 url("/media/home/home-dot.svg") repeat;
     }
 </style>
