@@ -77,12 +77,12 @@
     }
 </script>
 
-<div class="relative w-full min-h-screen text-white flex flex-col items-center lg:justify-center lg:pt-10 bg-dot">
+<div class="relative w-full min-h-screen lg:max-h-screen text-white flex flex-col items-center lg:justify-center lg:pt-10 bg-dot">
     
     <Navbar />
     
     <!-- Layout Unificado -->
-    <div class="w-full flex flex-col lg:flex-row lg:justify-between lg:max-w-screen-2xl lg:h-full">
+    <div class="w-full flex flex-col lg:flex-row lg:justify-between lg:max-w-screen-2xl lg:h-screen lg:overflow-hidden">
         <!-- Proyecto Seleccionado (solo mobile) -->
         <div class="lg:hidden">
             <SelectedProject 

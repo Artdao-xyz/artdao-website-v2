@@ -41,13 +41,6 @@
                 </button>
             {/each}
             
-            <!-- Línea divisoria -->
-            {#if selectedProjectIndex !== null}
-                <div class="w-full my-6 flex justify-center" transition:fade={{ duration: 300 }}>
-                    <div class="w-full h-px bg-gray-300"></div>
-                </div>
-            {/if}
-            
             <!-- Imagen del proyecto seleccionado (solo en mobile) -->
             {#if selectedProjectIndex !== null}
                 <div class="w-full mb-8 flex justify-center lg:hidden" transition:fade={{ duration: 400 }}>
