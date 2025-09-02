@@ -50,7 +50,7 @@
             <div class="w-full">
                 <a href={projects[selectedProjectIndex].pagePath} rel="noopener noreferrer">
                     <img 
-                        src={projects[selectedProjectIndex].thumbnailPath} 
+                        src={projects[selectedProjectIndex].thumbnailPath[0]} 
                         alt={projects[selectedProjectIndex].title}
                         class="w-full h-auto object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity duration-300"
                     />

@@ -21,9 +21,13 @@
     
     // Estado para el hover
     let hoveredProjectIndex: number | null = null;
+    let hoveredProjectIndexes: number[] = [];
     
-    // Estado para el proyecto seleccionado
-    let selectedProjectIndex: number | null = null;
+    // Estado para los proyectos seleccionados (array para múltiples selecciones)
+    let selectedProjectIndexes: number[] = [];
+    
+    // Estado para los artistas seleccionados
+    let selectedArtists: string[] = [];
     
     // Referencias a los botones de imagen para hacer scroll
     let imageButtons: HTMLAnchorElement[] = [];
@@ -31,10 +35,12 @@
     // Función para hacer scroll a una imagen específica y seleccionar el proyecto
     function scrollToProject(projectIndex: number) {
         // Toggle: si ya está seleccionado, deseleccionar; si no, seleccionar
-        if (selectedProjectIndex === projectIndex) {
-            selectedProjectIndex = null;
+        if (selectedProjectIndexes.includes(projectIndex)) {
+            selectedProjectIndexes = [];
+            selectedArtists = [];
         } else {
-            selectedProjectIndex = projectIndex;
+            selectedProjectIndexes = [projectIndex]; // Solo seleccionar este proyecto
+            selectedArtists = projects[projectIndex].artists; // Seleccionar todos los artistas del proyecto
             
             // Hacer scroll a la imagen correspondiente solo si se está seleccionando
             if (imageButtons[projectIndex]) {
@@ -49,19 +55,28 @@
     
     // Función para toggle de artistas
     function toggleArtist(artist: string) {
-        // Buscar en qué proyecto está este artista
-        const projectIndex = projects.findIndex(project => project.artists.includes(artist));
-        if (projectIndex === -1) return;
+        // Buscar todos los proyectos donde aparece este artista
+        const projectIndexes = projects
+            .map((project, index) => project.artists.includes(artist) ? index : -1)
+            .filter(index => index !== -1);
         
-        // Toggle: si ya está seleccionado el proyecto de este artista, deseleccionar; si no, seleccionar
-        if (selectedProjectIndex === projectIndex) {
-            selectedProjectIndex = null;
+        if (projectIndexes.length === 0) return;
+        
+        // Verificar si todos los proyectos del artista ya están seleccionados
+        const allSelected = projectIndexes.every(index => selectedProjectIndexes.includes(index));
+        
+        if (allSelected) {
+            // Deseleccionar todos los proyectos del artista
+            selectedProjectIndexes = [];
+            selectedArtists = [];
         } else {
-            selectedProjectIndex = projectIndex;
+            // Seleccionar SOLO los proyectos de este artista (deseleccionar todos los anteriores)
+            selectedProjectIndexes = projectIndexes;
+            selectedArtists = [artist]; // Solo seleccionar este artista
             
-            // Hacer scroll a la imagen correspondiente solo si se está seleccionando
-            if (imageButtons[projectIndex]) {
-                imageButtons[projectIndex].scrollIntoView({ 
+            // Hacer scroll al primer proyecto del artista
+            if (imageButtons[projectIndexes[0]]) {
+                imageButtons[projectIndexes[0]].scrollIntoView({ 
                     behavior: 'smooth', 
                     block: 'center',
                     inline: 'center'
@@ -73,68 +88,87 @@
     // Función para manejar hover de artistas
     function handleArtistHover(artist: string) {
         if (artist) {
-            const projectIndex = projects.findIndex(project => project.artists.includes(artist));
-            if (projectIndex !== -1) hoveredProjectIndex = projectIndex;
+            // Buscar todos los proyectos donde aparece este artista
+            const projectIndexes = projects
+                .map((project, index) => project.artists.includes(artist) ? index : -1)
+                .filter(index => index !== -1);
+            
+            hoveredProjectIndexes = projectIndexes;
+            // Para compatibilidad, mantener el primer proyecto como hoveredProjectIndex
+            hoveredProjectIndex = projectIndexes.length > 0 ? projectIndexes[0] : null;
         } else {
+            hoveredProjectIndexes = [];
             hoveredProjectIndex = null;
         }
     }
+    
+    // Función para manejar hover de cartas
+    function handleCardHover(index: number | null) {
+        hoveredProjectIndex = index;
+        hoveredProjectIndexes = index !== null ? [index] : [];
+    }
 </script>
 
-<div class="relative w-full min-h-screen lg:max-h-screen text-white flex flex-col gap-10 lg:gap-0 items-center lg:justify-center lg:pt-10 bg-dot">
+<div class="relative w-full min-h-screen lg:max-h-screen text-white flex flex-col gap-10 lg:gap-0 items-center lg:justify-center bg-dot">
     
     <Navbar />
     
     <!-- Layout Unificado -->
-    <div class="w-full flex flex-col lg:flex-row lg:justify-between lg:max-w-screen-2xl lg:h-screen lg:overflow-hidden">
+    <div class="w-full flex flex-col lg:flex-row lg:max-w-screen-2xl lg:h-screen">
         <!-- Proyecto Seleccionado (solo mobile) -->
         <div class="lg:hidden">
             <SelectedProject 
-                {selectedProjectIndex}
+                selectedProjectIndex={selectedProjectIndexes[0] || null}
                 projects={projects}
                 onProjectClick={scrollToProject}
                 onArtistClick={toggleArtist}
             />
         </div>
         
-        <!-- Columna 1: Projects -->
-        <ProjectsColumn 
-            projects={projects}
-            {selectedProjectIndex}
-            {hoveredProjectIndex}
-            onProjectClick={scrollToProject}
-            onProjectHover={(index) => hoveredProjectIndex = index}
-            variant="desktop"
-        />
-        
-        <!-- Columnas 2, 3, 4: Grilla única de 3xN con imágenes (solo desktop) -->
-        <div class="hidden lg:block">
-            <ImageGrid 
+        <!-- Columna 1: Projects (solo espacio necesario) -->
+        <div class="hidden lg:block flex-shrink-0">
+            <ProjectsColumn 
                 projects={projects}
-                {selectedProjectIndex}
-                {hoveredProjectIndex}
-                {imageButtons}
-                onImageHover={(index) => hoveredProjectIndex = index}
+                selectedProjectIndexes={selectedProjectIndexes}
+                {hoveredProjectIndexes}
+                onProjectClick={scrollToProject}
+                onProjectHover={(index) => hoveredProjectIndex = index}
+                variant="desktop"
             />
         </div>
         
-        <!-- Columna 5: Artists -->
-        <ArtistsColumn 
-            {artists}
-            {selectedProjectIndex}
-            {hoveredProjectIndex}
-            onArtistClick={toggleArtist}
-            onArtistHover={handleArtistHover}
-            variant="desktop"
-        />
+        <!-- Columnas 2, 3, 4: Grilla única de 3xN con imágenes (ocupa todo el espacio) -->
+        <div class="hidden lg:block flex-1 min-w-0">
+            <ImageGrid 
+                projects={projects}
+                selectedProjectIndexes={selectedProjectIndexes}
+                {hoveredProjectIndexes}
+                {imageButtons}
+                onImageHover={handleCardHover}
+                onImageSelect={scrollToProject}
+            />
+        </div>
+        
+        <!-- Columna 5: Artists (solo espacio necesario) -->
+        <div class="hidden lg:block flex-shrink-0">
+            <ArtistsColumn 
+                {artists}
+                selectedProjectIndexes={selectedProjectIndexes}
+                {selectedArtists}
+                {hoveredProjectIndex}
+                onArtistClick={toggleArtist}
+                onArtistHover={handleArtistHover}
+                variant="desktop"
+            />
+        </div>
         
         <!-- Layout Mobile: Columnas de proyectos y artistas -->
         <div class="lg:hidden flex-1 grid grid-cols-2 w-full h-full min-h-0">
             <!-- Columna Izquierda: Proyectos -->
             <ProjectsColumn 
                 projects={projects}
-                {selectedProjectIndex}
-                {hoveredProjectIndex}
+                selectedProjectIndexes={selectedProjectIndexes}
+                {hoveredProjectIndexes}
                 onProjectClick={scrollToProject}
                 onProjectHover={(index) => hoveredProjectIndex = index}
                 variant="mobile"
@@ -143,7 +177,8 @@
             <!-- Columna Derecha: Artistas -->
             <ArtistsColumn 
                 {artists}
-                {selectedProjectIndex}
+                selectedProjectIndexes={selectedProjectIndexes}
+                {selectedArtists}
                 {hoveredProjectIndex}
                 onArtistClick={toggleArtist}
                 onArtistHover={handleArtistHover}
