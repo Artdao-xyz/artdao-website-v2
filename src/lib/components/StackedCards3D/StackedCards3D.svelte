@@ -4,34 +4,11 @@
     export let projects: Project;
     export let isSelected: boolean = false;
     export let hasSelection: boolean = false;
-    export let isHovered: boolean = false;
-    export let hasHover: boolean = false;
+    export const isHovered: boolean = false;
+    export const hasHover: boolean = false;
     export let onSelect: (index: number) => void;
     export let onHover: (index: number | null) => void;
     export let index: number;
-    
-    let isRotated = false;
-    let hoveredLayer: 'back' | 'main' | 'front' | null = null;
-    let localHovered = false;
-    
-    // Variables de rotación del contenedor
-    let containerRotateY = -45;  // Rotación del contenedor en Y
-    let containerRotateX = -0;  // Rotación del contenedor en X (hacia abajo)
-    
-    // Variables de traslación Z individual para cada capa
-    let backTranslateZ = -50;   // Traslación Z de la capa trasera (hacia atrás)
-    let mainTranslateZ = -0;      // Traslación Z de la capa principal (centro)
-    let frontTranslateZ = 50;   // Traslación Z de la capa delantera (hacia adelante)
-    
-    // Variables de rotación Y individual para cada capa
-    let backRotateY = -30;       // Rotación Y de la capa trasera
-    let mainRotateY = -30;         // Rotación Y de la capa principal
-    let frontRotateY = -30;       // Rotación Y de la capa delantera
-    
-    // Variables de traslación X individual para cada capa
-    let backTranslateX = -20;   // Traslación X de la capa trasera
-    let mainTranslateX = 0;     // Traslación X de la capa principal
-    let frontTranslateX = -50;   // Traslación X de la capa delantera
     
     function handleClick(event: MouseEvent) {
         if (!isSelected) {
@@ -41,134 +18,159 @@
         }
         // Si ya está seleccionado, el link normal funcionará (segundo click: redirigir)
     }
-    
-    function handleLayerHover(layer: 'back' | 'main' | 'front') {
-        hoveredLayer = layer;
-    }
-    
-    function handleLayerLeave() {
-        hoveredLayer = null;
-    }
-    
-    // Rotar automáticamente cuando el proyecto está seleccionado o en hover
-    $: isRotated = isSelected || localHovered;
 </script>
 
-<a href={projects.pagePath} class="card-3d-effect" 
+<a href={projects.pagePath} class="card-container" 
      class:opacity-20={hasSelection && !isSelected}
      class:selected={isSelected}
      on:click={handleClick}
-     on:mouseenter={() => { localHovered = true; onHover(index); }}
-     on:mouseleave={() => { localHovered = false; onHover(null); }}>
-    <!-- Contenedor 3D que rota -->
-    <div class="card-3d-container" 
-         style:transform={isRotated ? 
-            `translate(-50%, -50%) scale(1.25) rotateY(0deg) rotateX(0deg)` : 
-            'translate(-50%, -50%) scale(1) rotateY(0deg) rotateX(0deg)'
-         }>
-                            <!-- Capa trasera - Centro arriba -->
-                    <div class="card-layer card-back" 
-                         role="button"
-                         tabindex="0"
-                         style:transform={isRotated ? 
-                            'translate(-50%, -50%) translateX(0px) translateY(-36px) translateZ(-1px) rotateY(0deg)' : 
-                            `translate(-50%, -50%) translateX(${backTranslateX}px) translateZ(${backTranslateZ}px) rotateY(${backRotateY}deg) translateY(0px)`
-                         }>
-                        <img src={projects.thumbnailPath[0] || ''} alt="Capa trasera" class="card-image" />
-                    </div>
-                    
-                    <!-- Capa principal - Abajo derecha -->
-                    <div class="card-layer card-main" 
-                         role="button"
-                         tabindex="0"
-                         style:transform={isRotated ? 
-                            'translate(-50%, -50%) translateX(80px) translateY(36px) translateZ(0px) rotateY(0deg)' : 
-                            `translate(-50%, -50%) translateX(${mainTranslateX}px) translateZ(${mainTranslateZ}px) rotateY(${mainRotateY}deg) translateY(0px)`
-                         }>
-                        <img src={projects.thumbnailPath[1] || ''} alt="Capa principal" class="card-image" />
-                    </div>
-                    
-                    <!-- Capa delantera - Abajo izquierda -->
-                    <div class="card-layer card-front" 
-                         role="button"
-                         tabindex="0"
-                         style:transform={isRotated ? 
-                            'translate(-50%, -50%) translateX(-80px) translateY(36px) translateZ(1px) rotateY(0deg)' : 
-                            `translate(-50%, -50%) translateX(${frontTranslateX}px) translateZ(${frontTranslateZ}px) rotateY(${frontRotateY}deg) translateY(0px)`
-                         }>
-                        <img src={projects.thumbnailPath[2] || ''} alt="Capa delantera" class="card-image" />
-                    </div>
-    </div>
+     on:mouseenter={() => onHover(index)}
+     on:mouseleave={() => onHover(null)}>
+    
+    {#if projects.thumbnailPath[0]}
+        <!-- Imagen trasera -->
+        <div class="card-layer card-back flex items-center justify-center">
+            <img src={projects.thumbnailPath[0]} alt="Capa trasera" class="card-image" />
+        </div>
+    {/if}
+    
+    {#if projects.thumbnailPath[1]}
+        <!-- Imagen principal -->
+        <div class="card-layer card-main flex items-center justify-center">
+            <img src={projects.thumbnailPath[1]} alt="Capa principal" class="card-image" />
+        </div>
+    {/if}
+    
+    {#if projects.thumbnailPath[2]}
+        <!-- Imagen delantera -->
+        <div class="card-layer card-front flex items-center justify-center">
+            <img src={projects.thumbnailPath[2]} alt="Capa delantera" class="card-image" />
+        </div>
+    {/if}
 </a>
 
 <style>
-    .card-3d-effect {
+    .card-container {
         position: relative;
-        perspective: 1000px;
-        cursor: pointer;
         display: inline-block;
         width: 300px;
         height: 200px;
-        padding: 20px;
-        box-sizing: border-box;
-        transition: opacity 0.1s ease 0.1s;
-        z-index: 1;
-        overflow: visible;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+        perspective: 1000px;
+        
+        /* Variables CSS personalizables */
+        --rotation-y: -35deg;
+        --back-scale: 0.9;
+        --front-scale: 0.9;
+        --back-translate-x: 10px;
+        --back-translate-y: 5px;
+        --back-translate-z: -30px;
+        --main-translate-x: 20px;
+        --main-translate-y: 0px;
+        --main-translate-z: 0px;
+        --front-translate-x: -35px;
+        --front-translate-y: 10px;
+        --front-translate-z: 30px;
+        --hover-translate-y: -20px;
     }
     
-    .card-3d-effect.selected {
-        z-index: 10;
+    .card-container.selected {
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        perspective: none;
     }
     
-    .card-3d-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform-style: preserve-3d;
-        transition: transform 0.6s ease;
-        transform-origin: center center;
-        overflow: visible;
-    }
-    
-
-    
-    /* Estilos para las capas */
     .card-layer {
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
         border-radius: 8px;
-        transition: transform 0.6s ease;
         overflow: hidden;
-        pointer-events: auto;
-        transform-origin: center center;
+        transform-style: preserve-3d;
+        pointer-events: none;
     }
     
     .card-image {
         display: block;
-        max-width: 300px;
-        max-height: 200px;
+        max-width: 100%;
+        max-height: 100%;
         width: auto;
         height: auto;
         object-fit: contain;
         border-radius: 8px;
+        pointer-events: auto;
     }
     
-    /* Capa trasera */
+    /* Capa trasera - más pequeña y desplazada con rotación 3D */
     .card-back {
-        z-index: 0;
-        transform-origin: center center;
-    }
-    
-    /* Capa principal */
-    .card-main {
         z-index: 1;
-        transform-origin: center center;
+        transform: scale(var(--back-scale)) translateX(var(--back-translate-x)) translateY(var(--back-translate-y)) translateZ(var(--back-translate-z)) rotateY(var(--rotation-y));
+        transition: transform 0.3s ease;
     }
     
-    /* Capa delantera */
-    .card-front {
+    /* Capa principal - tamaño normal con rotación 3D */
+    .card-main {
         z-index: 2;
-        transform-origin: center center;
+        transform: translateX(var(--main-translate-x)) translateY(var(--main-translate-y)) translateZ(var(--main-translate-z)) rotateY(var(--rotation-y));
+        transition: transform 0.3s ease;
+    }
+    
+    /* Capa delantera - más pequeña y desplazada con rotación 3D */
+    .card-front {
+        z-index: 3;
+        transform: scale(var(--front-scale)) translateX(var(--front-translate-x)) translateY(var(--front-translate-y)) translateZ(var(--front-translate-z)) rotateY(var(--rotation-y));
+        transition: transform 0.3s ease;
+    }
+    
+    /* Efecto hover individual - solo cuando NO está seleccionado */
+    .card-container:not(.selected) .card-back:hover {
+        transform: scale(var(--back-scale)) translateX(var(--back-translate-x)) translateY(calc(var(--back-translate-y) + var(--hover-translate-y))) translateZ(var(--back-translate-z)) rotateY(var(--rotation-y));
+    }
+    
+    .card-container:not(.selected) .card-main:hover {
+        transform: translateX(var(--main-translate-x)) translateY(calc(var(--main-translate-y) + var(--hover-translate-y))) translateZ(var(--main-translate-z)) rotateY(var(--rotation-y));
+    }
+    
+    .card-container:not(.selected) .card-front:hover {
+        transform: scale(var(--front-scale)) translateX(var(--front-translate-x)) translateY(calc(var(--front-translate-y) + var(--hover-translate-y))) translateZ(var(--front-translate-z)) rotateY(var(--rotation-y));
+    }
+    
+    /* Estados seleccionados - layout flex horizontal */
+    .card-container.selected .card-layer {
+        position: relative;
+        transform: none;
+        transform-style: flat;
+        flex: 1;
+        margin: 0 10px;
+    }
+    
+    /* Estado 3D - cartas justificadas al piso */
+    .card-container:not(.selected) .card-layer {
+        align-items: flex-end;
+    }
+    
+    /* Estado seleccionado - cartas centradas */
+    .card-container.selected .card-layer {
+        align-items: center;
+    }
+    
+    .card-container.selected .card-back {
+        order: 1;
+    }
+    
+    .card-container.selected .card-main {
+        order: 2;
+    }
+    
+    .card-container.selected .card-front {
+        order: 3;
     }
 </style>

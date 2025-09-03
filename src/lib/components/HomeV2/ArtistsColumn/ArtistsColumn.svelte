@@ -28,7 +28,7 @@
 {#if variant === 'desktop'}
     <!-- Layout Desktop -->
     <div class="hidden lg:flex flex-col h-full w-full overflow-y-auto p-5 lg:p-10 scrollbar-hide">
-        <h1 class="text-black text-sm font-medium font-clash leading-none tracking-tight mb-4 self-end">Featuring</h1>
+        <h1 class="text-black text-sm font-medium font-clash leading-none tracking-wide mb-4 self-end">Featuring</h1>
         {#key selectedProjectIndexes}
             {#each sortedArtists as artist, i (artist)}
                 <button 

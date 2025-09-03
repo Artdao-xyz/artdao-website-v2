@@ -143,7 +143,7 @@
     }
 </script>
 
-<div class="relative w-full min-h-screen lg:max-h-screen text-white flex flex-col gap-10 lg:gap-0 items-center lg:justify-center bg-dot">
+<div class="relative w-full min-h-screen lg:h-screen text-white flex flex-col gap-10 lg:gap-0 items-center lg:justify-center bg-dot">
     
     <Navbar />
     
