@@ -21,7 +21,7 @@
 </script>
 
 <a href={projects.pagePath} class="card-container" 
-     class:opacity-20={hasSelection && !isSelected}
+     class:opacity-50={hasSelection && !isSelected}
      class:selected={isSelected}
      on:click={handleClick}
      on:mouseenter={() => onHover(index)}
@@ -52,27 +52,28 @@
 <style>
     .card-container {
         position: relative;
-        display: inline-block;
-        width: 300px;
+        display: block;
+        width: 100%;
         height: 200px;
         cursor: pointer;
         transition: opacity 0.3s ease;
         perspective: 1000px;
         
         /* Variables CSS personalizables */
-        --rotation-y: -35deg;
-        --back-scale: 0.9;
-        --front-scale: 0.9;
+        --rotation-y: -25deg;
+        --back-scale: 1.3;
+        --main-scale: 1.3;
+        --front-scale: 1.3;
         --back-translate-x: 10px;
-        --back-translate-y: 5px;
-        --back-translate-z: -30px;
-        --main-translate-x: 20px;
-        --main-translate-y: 0px;
+        --back-translate-y: 15px;
+        --back-translate-z: -100px;
+        --main-translate-x: 0px;
+        --main-translate-y: 10px;
         --main-translate-z: 0px;
-        --front-translate-x: -35px;
-        --front-translate-y: 10px;
-        --front-translate-z: 30px;
-        --hover-translate-y: -20px;
+        --front-translate-x: -50px;
+        --front-translate-y: 20px;
+        --front-translate-z: 50px;
+        --hover-translate-y: -30px;
     }
     
     .card-container.selected {
@@ -119,7 +120,7 @@
     /* Capa principal - tamaño normal con rotación 3D */
     .card-main {
         z-index: 2;
-        transform: translateX(var(--main-translate-x)) translateY(var(--main-translate-y)) translateZ(var(--main-translate-z)) rotateY(var(--rotation-y));
+        transform: scale(var(--main-scale)) translateX(var(--main-translate-x)) translateY(var(--main-translate-y)) translateZ(var(--main-translate-z)) rotateY(var(--rotation-y));
         transition: transform 0.3s ease;
     }
     

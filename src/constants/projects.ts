@@ -40,9 +40,9 @@ export const projects: Project[] = [
                 subtitle: "Marcus3D, Sulkian & Parsa",
                 description: "“Digital mediums are like flying and physical mediums is like walking. It’s that kind of freedom.”",
                 thumbnailPath: [
+                    "media/home/thumbnails-v2/digital-matter/1.webp",
                     "media/home/thumbnails-v2/digital-matter/3.webp",
                     "media/home/thumbnails-v2/digital-matter/2.webp",
-                    "media/home/thumbnails-v2/digital-matter/1.webp",
                 ],
                 buttonPath: "media/home/buttons/01-button-digital-matter.png",
                 pagePath: "/digital-matter",
