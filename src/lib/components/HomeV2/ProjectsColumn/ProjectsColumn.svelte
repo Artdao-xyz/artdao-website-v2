@@ -12,17 +12,33 @@
     
     // Debug: ver qué está recibiendo
     console.log('ProjectsColumn received projects:', projects);
+    
+    // Ordenar proyectos: seleccionados primero, luego hovereados, luego el resto
+    $: sortedProjects = (selectedProjectIndexes.length > 0 || hoveredProjectIndexes.length > 0) ? 
+        [
+            // Primero los proyectos seleccionados
+            ...selectedProjectIndexes.map(index => ({ project: projects[index], index })),
+            // Luego los proyectos hovereados (que no están seleccionados)
+            ...hoveredProjectIndexes
+                .filter(index => !selectedProjectIndexes.includes(index))
+                .map(index => ({ project: projects[index], index })),
+            // Luego el resto de proyectos
+            ...projects
+                .map((project, index) => ({ project, index }))
+                .filter(({ index }) => !selectedProjectIndexes.includes(index) && !hoveredProjectIndexes.includes(index))
+        ] : 
+        projects.map((project, index) => ({ project, index })); // Sin selección, orden original
 </script>
 
 {#if variant === 'desktop'}
     <!-- Layout Desktop -->
     <div class="hidden lg:flex flex-col h-full w-full overflow-y-auto p-5 lg:p-10 scrollbar-hide">
         <h1 class="text-black text-sm font-medium font-clash leading-none tracking-tight mb-4">Welcome to the artdao zine</h1>
-        {#each projects as project, i}
+        {#each sortedProjects as { project, index }}
             <button
-                class="rounded-[100px] outline outline-[1.5px] text-left outline-offset-[-1.5px] flex justify-center items-center leading-none tracking-tight text-xs font-robotoMono font-normal px-2.5 py-1.5 w-fit transition-all text-[#949391] duration-300 {selectedProjectIndexes.includes(i) ? 'outline-none bg-black text-white' : hoveredProjectIndexes.includes(i) ? 'outline-black text-black' : 'outline-[#949391] hover:outline-black hover:text-black'}"
-                on:click={() => onProjectClick(i)}
-                on:mouseenter={() => onProjectHover(i)}
+                class="rounded-[100px] outline outline-[1.5px] text-left outline-offset-[-1.5px] flex justify-center items-center leading-none tracking-tight text-xs font-robotoMono font-normal px-2.5 py-1.5 w-fit transition-all text-[#949391] duration-300 {selectedProjectIndexes.includes(index) ? 'outline-none bg-black text-white' : hoveredProjectIndexes.includes(index) ? 'outline-black text-black' : 'outline-[#949391] hover:outline-black hover:text-black'}"
+                on:click={() => onProjectClick(index)}
+                on:mouseenter={() => onProjectHover(index)}
                 on:mouseleave={() => onProjectHover(null)}>
                 {project.title}
             </button>
@@ -32,12 +48,12 @@
     <!-- Layout Mobile -->
     <div class="lg:hidden p-5 lg:p-10 overflow-y-auto border-r border-black border-dashed">
         <div class="flex flex-col space-y-4">
-            {#each projects as project, i}
-                {#if !selectedProjectIndexes.includes(i)}
+            {#each sortedProjects as { project, index }}
+                {#if !selectedProjectIndexes.includes(index)}
                     <button
                         class="text-left leading-none tracking-tight text-xs font-robotoMono font-normal w-full transition-all text-[#949391] duration-300 hover:text-black"
-                        on:click={() => onProjectClick(i)}
-                        on:mouseenter={() => onProjectHover(i)}
+                        on:click={() => onProjectClick(index)}
+                        on:mouseenter={() => onProjectHover(index)}
                         on:mouseleave={() => onProjectHover(null)}
                     >
                         {project.title}

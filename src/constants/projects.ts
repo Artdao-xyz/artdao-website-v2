@@ -59,47 +59,47 @@ export const projects: Project[] = [
                 ],
                 buttonPath: "media/home/buttons/08-button-rave.png",
                 pagePath: "/rave",
-                artists: ["Nico", "Ndr0n", "PostModernBot", "CluadeTheWitch", "Duartsy", "Yuliya Liberda", "ENCO", "420Bombshell", "Cymoonv", "Daira", "Zak Krevitt", "Matheus Carvalho", "Tomas Jones"],
+                artists: ["Okytomo", "Frenetik Void", "Zak Krevitt"],
         },
-        {
-                title: "Artifice",
-                subtitle: "Rua Ferreira Lapa 12a, Lisbon | 05.28 - 05.30.2024",
-                description: "“As the boundary between artificial and real becomes increasingly blurred - technology leads us into deeper confrontations with the idea of a self that itself is born from fiction.”",
-                thumbnailPath: [
-                    "media/home/thumbnails-animation/1.webp",
-                    "media/home/thumbnails-animation/2.webp",
-                    "media/home/thumbnails-animation/3.webp"
-                ],
-                buttonPath: "media/home/buttons/04-button-artifice.png",
-                pagePath: "/artifice",
-                artists: ["Psipsikoko"],
-        },
-        {
-                title: "O.R.B",
-                subtitle: "Caroço, São Paulo | 03.23.24",
-                description: "This self-declared 'reunion' deploys institutional parody as creative strategy—simultaneously celebrating and subverting traditional art structures while amplifying Brazilian digital creators on the global stage.",
-                thumbnailPath: [
-                    "media/home/thumbnails-animation/3.webp",
-                    "media/home/thumbnails-animation/2.webp",
-                    "media/home/thumbnails-animation/1.webp",
-                ],
-                buttonPath: "media/home/buttons/09-button-orb.png",
-                pagePath: "/orb",
-                artists: ["Ygor Alves", "Pwdro", "MOXCA", "Occulted", "Cydr", "Cyshimi", "Subtle.Bubble", "Livi Liu", "Xobaia", "Estilara", "Femzor", "Kontronauta", "Epx"],
-        },
-        {
-                title: "Non Places",
-                subtitle: "31 Rue Henri Chevreu, Paris | 07.18 - 07.21.23",
-                description: "In the age of digital code, binary partitions replace geographic coordinates — erasing distinctions between original and copy while transforming from specific location to sites of manifestation.",
-                thumbnailPath: [
-                    "media/home/thumbnails-animation/1.webp",
-                    "media/home/thumbnails-animation/2.webp",
-                    "media/home/thumbnails-animation/3.webp"
-                ],
-                buttonPath: "media/home/buttons/06-button-non-places.png",
-                pagePath: "/non-places",
-                artists: ["Fede Bona", "Tomas Jones", "Luxi", "Daira", "Frenetik Void", "Parsa Mostaghim", "Zak Krevitt", "The Internet Office", "Fede Fauli"],
-        },
+        // {
+        //         title: "Artifice",
+        //         subtitle: "Rua Ferreira Lapa 12a, Lisbon | 05.28 - 05.30.2024",
+        //         description: "“As the boundary between artificial and real becomes increasingly blurred - technology leads us into deeper confrontations with the idea of a self that itself is born from fiction.”",
+        //         thumbnailPath: [
+        //             "media/home/thumbnails-animation/1.webp",
+        //             "media/home/thumbnails-animation/2.webp",
+        //             "media/home/thumbnails-animation/3.webp"
+        //         ],
+        //         buttonPath: "media/home/buttons/04-button-artifice.png",
+        //         pagePath: "/artifice",
+        //         artists: ["Psipsikoko"],
+        // },
+        // {
+        //         title: "O.R.B",
+        //         subtitle: "Caroço, São Paulo | 03.23.24",
+        //         description: "This self-declared 'reunion' deploys institutional parody as creative strategy—simultaneously celebrating and subverting traditional art structures while amplifying Brazilian digital creators on the global stage.",
+        //         thumbnailPath: [
+        //             "media/home/thumbnails-animation/3.webp",
+        //             "media/home/thumbnails-animation/2.webp",
+        //             "media/home/thumbnails-animation/1.webp",
+        //         ],
+        //         buttonPath: "media/home/buttons/09-button-orb.png",
+        //         pagePath: "/orb",
+        //         artists: ["Ygor Alves", "Pwdro", "MOXCA", "Occulted", "Cydr", "Cyshimi", "Subtle.Bubble", "Livi Liu", "Xobaia", "Estilara", "Femzor", "Kontronauta", "Epx"],
+        // },
+        // {
+        //         title: "Non Places",
+        //         subtitle: "31 Rue Henri Chevreu, Paris | 07.18 - 07.21.23",
+        //         description: "In the age of digital code, binary partitions replace geographic coordinates — erasing distinctions between original and copy while transforming from specific location to sites of manifestation.",
+        //         thumbnailPath: [
+        //             "media/home/thumbnails-animation/1.webp",
+        //             "media/home/thumbnails-animation/2.webp",
+        //             "media/home/thumbnails-animation/3.webp"
+        //         ],
+        //         buttonPath: "media/home/buttons/06-button-non-places.png",
+        //         pagePath: "/non-places",
+        //         artists: ["Fede Bona", "Tomas Jones", "Luxi", "Daira", "Frenetik Void", "Parsa Mostaghim", "Zak Krevitt", "The Internet Office", "Fede Fauli"],
+        // },
         {
                 title: "Conversation with Operator",
                 subtitle: "Ania Catherine, Dejha Ti & Jeff Davis",
@@ -113,19 +113,19 @@ export const projects: Project[] = [
                 pagePath: "/in-conversation",
                 artists: ["Operator"],
         },
-        {
-                title: "Intertwined",
-                subtitle: "Tv. do Moinho de Vento, Lisbon | 06.06 - 06.08.2023",
-                description: "By embracing the quirks and essence of code rather than just its output, digital artists enter a provocative dance of co-creation that questions who's really in control.",
-                thumbnailPath: [
-                    "media/home/thumbnails-animation/3.webp",
-                    "media/home/thumbnails-animation/2.webp",
-                    "media/home/thumbnails-animation/1.webp",
-                ],
-                buttonPath: "media/home/buttons/07-button-intertwined.png",
-                pagePath: "/intertwined",
-                artists: ["Postmodern Bot", "Tomas Jones", "Panter Xhita", "Meelayya", "Lulu", "Falvio Malaguti", "Mardeformas"],
-        },
+        // {
+        //         title: "Intertwined",
+        //         subtitle: "Tv. do Moinho de Vento, Lisbon | 06.06 - 06.08.2023",
+        //         description: "By embracing the quirks and essence of code rather than just its output, digital artists enter a provocative dance of co-creation that questions who's really in control.",
+        //         thumbnailPath: [
+        //             "media/home/thumbnails-animation/3.webp",
+        //             "media/home/thumbnails-animation/2.webp",
+        //             "media/home/thumbnails-animation/1.webp",
+        //         ],
+        //         buttonPath: "media/home/buttons/07-button-intertwined.png",
+        //         pagePath: "/intertwined",
+        //         artists: ["Postmodern Bot", "Tomas Jones", "Panter Xhita", "Meelayya", "Lulu", "Falvio Malaguti", "Mardeformas"],
+        // },
         // {
         //         title: "Body Frontier",
         //         subtitle: "VIXY, CYMOONV, BRENDY & CYSHIMI",

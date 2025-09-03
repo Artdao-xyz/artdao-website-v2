@@ -26,8 +26,11 @@
     // Estado para los proyectos seleccionados (array para múltiples selecciones)
     let selectedProjectIndexes: number[] = [];
     
-    // Estado para los artistas seleccionados
+    // Estado para los artistas seleccionados (los que hice click)
     let selectedArtists: string[] = [];
+    
+    // Estado para los artistas highlighteados (los relacionados)
+    let highlightedArtists: string[] = [];
     
     // Referencias a los botones de imagen para hacer scroll
     let imageButtons: HTMLAnchorElement[] = [];
@@ -38,9 +41,12 @@
         if (selectedProjectIndexes.includes(projectIndex)) {
             selectedProjectIndexes = [];
             selectedArtists = [];
+            highlightedArtists = [];
         } else {
-            selectedProjectIndexes = [projectIndex]; // Solo seleccionar este proyecto
-            selectedArtists = projects[projectIndex].artists; // Seleccionar todos los artistas del proyecto
+            // Si zine seleccionado -> seleccionar ese zine + artistas contenidos
+            selectedProjectIndexes = [projectIndex];
+            selectedArtists = projects[projectIndex].artists;
+            highlightedArtists = projects[projectIndex].artists;
             
             // Hacer scroll a la imagen correspondiente solo si se está seleccionando
             if (imageButtons[projectIndex]) {
@@ -53,35 +59,63 @@
         }
     }
     
-    // Función para toggle de artistas
+    // Función para toggle de artistas con lógica inteligente
     function toggleArtist(artist: string) {
         // Buscar todos los proyectos donde aparece este artista
-        const projectIndexes = projects
+        const artistProjectIndexes = projects
             .map((project, index) => project.artists.includes(artist) ? index : -1)
             .filter(index => index !== -1);
         
-        if (projectIndexes.length === 0) return;
+        if (artistProjectIndexes.length === 0) return;
         
-        // Verificar si todos los proyectos del artista ya están seleccionados
-        const allSelected = projectIndexes.every(index => selectedProjectIndexes.includes(index));
-        
-        if (allSelected) {
-            // Deseleccionar todos los proyectos del artista
-            selectedProjectIndexes = [];
-            selectedArtists = [];
+        // Si no hay artistas seleccionados, seleccionar este artista
+        if (selectedArtists.length === 0) {
+            selectedProjectIndexes = artistProjectIndexes;
+            selectedArtists = [artist]; // Solo el artista clickeado está seleccionado
+            // Highlightear todos los artistas que están en los proyectos seleccionados
+            highlightedArtists = [...new Set(artistProjectIndexes.flatMap(index => projects[index].artists))];
         } else {
-            // Seleccionar SOLO los proyectos de este artista (deseleccionar todos los anteriores)
-            selectedProjectIndexes = projectIndexes;
-            selectedArtists = [artist]; // Solo seleccionar este artista
-            
-            // Hacer scroll al primer proyecto del artista
-            if (imageButtons[projectIndexes[0]]) {
-                imageButtons[projectIndexes[0]].scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'center',
-                    inline: 'center'
-                });
+            // Verificar si este artista ya está seleccionado
+            if (selectedArtists.includes(artist)) {
+                // Si está seleccionado, deseleccionar todo
+                selectedProjectIndexes = [];
+                selectedArtists = [];
+                highlightedArtists = [];
+            } else {
+                // Verificar si este artista combina con los artistas actualmente seleccionados
+                const combinedArtists = [...selectedArtists, artist];
+                const combinedProjectIndexes = projects
+                    .map((project, index) => {
+                        // Un proyecto debe contener TODOS los artistas seleccionados
+                        return combinedArtists.every(selectedArtist => 
+                            project.artists.includes(selectedArtist)
+                        ) ? index : -1;
+                    })
+                    .filter(index => index !== -1);
+                
+                if (combinedProjectIndexes.length > 0) {
+                    // Si hay proyectos que contienen ambos artistas, mostrar esos
+                    selectedProjectIndexes = combinedProjectIndexes;
+                    selectedArtists = combinedArtists; // Los artistas clickeados están seleccionados
+                    // Highlightear todos los artistas que están en los proyectos combinados
+                    highlightedArtists = [...new Set(combinedProjectIndexes.flatMap(index => projects[index].artists))];
+                } else {
+                    // Si no hay proyectos que contengan ambos, reemplazar con el nuevo artista
+                    selectedProjectIndexes = artistProjectIndexes;
+                    selectedArtists = [artist]; // Solo el nuevo artista está seleccionado
+                    // Highlightear todos los artistas que están en los proyectos del nuevo artista
+                    highlightedArtists = [...new Set(artistProjectIndexes.flatMap(index => projects[index].artists))];
+                }
             }
+        }
+        
+        // Hacer scroll al primer proyecto seleccionado
+        if (selectedProjectIndexes.length > 0 && imageButtons[selectedProjectIndexes[0]]) {
+            imageButtons[selectedProjectIndexes[0]].scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center',
+                inline: 'center'
+            });
         }
     }
 
@@ -155,6 +189,7 @@
                 {artists}
                 selectedProjectIndexes={selectedProjectIndexes}
                 {selectedArtists}
+                {highlightedArtists}
                 {hoveredProjectIndex}
                 onArtistClick={toggleArtist}
                 onArtistHover={handleArtistHover}
@@ -179,6 +214,7 @@
                 {artists}
                 selectedProjectIndexes={selectedProjectIndexes}
                 {selectedArtists}
+                {highlightedArtists}
                 {hoveredProjectIndex}
                 onArtistClick={toggleArtist}
                 onArtistHover={handleArtistHover}

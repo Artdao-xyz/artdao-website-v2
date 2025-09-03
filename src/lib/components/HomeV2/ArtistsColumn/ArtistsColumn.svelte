@@ -6,20 +6,23 @@
     export let artists: string[];
     export let selectedProjectIndexes: number[];
     export let selectedArtists: string[];
+    export let highlightedArtists: string[];
     export let hoveredProjectIndex: number | null;
     export let onArtistClick: (artist: string) => void;
     export let onArtistHover: (artist: string) => void;
     export let variant: 'mobile' | 'desktop' = 'desktop';
     
-    // Ordenar artistas: en mobile, los seleccionados van primero
-    $: sortedArtists = selectedArtists.length > 0 ? 
+    // Ordenar artistas: seleccionados primero, luego highlighteados, luego el resto
+    $: sortedArtists = (selectedArtists.length > 0 || highlightedArtists.length > 0) ? 
         [
             // Primero los artistas seleccionados
             ...selectedArtists,
+            // Luego los artistas highlighteados (que no están seleccionados)
+            ...highlightedArtists.filter(artist => !selectedArtists.includes(artist)),
             // Luego el resto de artistas
-            ...artists.filter(artist => !selectedArtists.includes(artist))
+            ...artists.filter(artist => !selectedArtists.includes(artist) && !highlightedArtists.includes(artist))
         ] : 
-        artists; // En desktop o sin selección, orden original
+        artists; // Sin selección, orden original
 </script>
 
 {#if variant === 'desktop'}
@@ -29,7 +32,7 @@
         {#key selectedProjectIndexes}
             {#each sortedArtists as artist, i (artist)}
                 <button 
-                    class="rounded-[100px] outline outline-[1.5px] text-right outline-offset-[-1.5px] inline-flex self-end leading-none tracking-tight text-xs font-robotoMono font-normal px-2.5 py-1.5 w-fit transition-all duration-300 text-[#949391] {selectedArtists.includes(artist) ? 'outline-none bg-black text-white' : hoveredProjectIndex !== null && projectsData[hoveredProjectIndex]?.artists.includes(artist) ? 'outline-black text-black' : 'outline-[#949391] hover:outline-black hover:text-black'}"
+                    class="rounded-[100px] outline outline-[1.5px] text-right outline-offset-[-1.5px] inline-flex self-end leading-none tracking-tight text-xs font-robotoMono font-normal px-2.5 py-1.5 w-fit transition-all duration-300 text-[#949391] {selectedArtists.includes(artist) ? 'outline-none bg-black text-white' : highlightedArtists.includes(artist) ? 'outline-black text-black' : hoveredProjectIndex !== null && projectsData[hoveredProjectIndex]?.artists.includes(artist) ? 'outline-black text-black' : 'outline-[#949391] hover:outline-black hover:text-black'}"
                     on:click={() => onArtistClick(artist)}
                     on:mouseenter={() => onArtistHover(artist)}
                     on:mouseleave={() => onArtistHover('')}
@@ -64,7 +67,7 @@
     <div class="lg:hidden p-5 lg:p-10 overflow-y-auto">
         <div class="space-y-4">
             {#each artists as artist}
-                {#if selectedArtists.length === 0 || !selectedArtists.includes(artist)}
+                {#if highlightedArtists.length === 0 || !highlightedArtists.includes(artist)}
                     <button
                         class="text-right flex justify-end leading-none tracking-tight text-xs font-robotoMono font-normal w-full transition-all duration-300 text-[#949391] hover:text-black"
                         on:click={() => onArtistClick(artist)}
