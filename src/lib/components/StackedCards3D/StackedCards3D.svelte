@@ -4,11 +4,13 @@
     export let projects: Project;
     export let isSelected: boolean = false;
     export let hasSelection: boolean = false;
-    export const isHovered: boolean = false;
+    export let isHovered: boolean = false;
     export const hasHover: boolean = false;
     export let onSelect: (index: number) => void;
-    export let onHover: (index: number | null) => void;
+    export const onHover: (index: number | null) => void = () => {};
     export let index: number;
+
+    $: console.log('isHovered', isHovered, 'isSelected', isSelected, 'classes:', { selected: isSelected, 'grid-hover': isHovered });
     
     function handleClick(event: MouseEvent) {
         if (!isSelected) {
@@ -23,9 +25,9 @@
 <a href={projects.pagePath} class="card-container" 
      class:opacity-50={hasSelection && !isSelected}
      class:selected={isSelected}
+     class:grid-hover={isHovered}
      on:click={handleClick}
-     on:mouseenter={() => onHover(index)}
-     on:mouseleave={() => onHover(null)}>
+>
     
     {#if projects.thumbnailPath[0]}
         <!-- Imagen trasera -->
@@ -61,18 +63,18 @@
         
         /* Variables CSS personalizables */
         --rotation-y: -25deg;
-        --back-scale: 1.3;
-        --main-scale: 1.3;
-        --front-scale: 1.3;
-        --back-translate-x: 10px;
-        --back-translate-y: 15px;
-        --back-translate-z: -100px;
-        --main-translate-x: 0px;
-        --main-translate-y: 10px;
+        --back-scale: 1.0;
+        --main-scale: 1.0;
+        --front-scale: 1.0;
+        --back-translate-z: -75px;
         --main-translate-z: 0px;
-        --front-translate-x: -50px;
-        --front-translate-y: 20px;
         --front-translate-z: 50px;
+        --back-translate-y: 20px;
+        --main-translate-y: 20px;
+        --front-translate-y: 20px;
+        --back-translate-x: 30px;
+        --main-translate-x: 0px;
+        --front-translate-x: -60px;
         --hover-translate-y: -30px;
     }
     
@@ -97,6 +99,11 @@
         overflow: hidden;
         transform-style: preserve-3d;
         pointer-events: none;
+    }
+    
+    /* Permitir overflow visible cuando está seleccionado */
+    .card-container.selected .card-layer {
+        overflow: visible;
     }
     
     .card-image {
@@ -131,26 +138,33 @@
         transition: transform 0.3s ease;
     }
     
-    /* Efecto hover individual - solo cuando NO está seleccionado */
-    .card-container:not(.selected) .card-back:hover {
-        transform: scale(var(--back-scale)) translateX(var(--back-translate-x)) translateY(calc(var(--back-translate-y) + var(--hover-translate-y))) translateZ(var(--back-translate-z)) rotateY(var(--rotation-y));
+    /* HOVER: Dispersión moderada de las cartas */
+    .card-container.grid-hover .card-back {
+        transform: scale(0.8) translateX(0px) translateY(-35%) translateZ(-30px) rotateY(0deg) !important;
+        transform-style: flat !important;
     }
     
-    .card-container:not(.selected) .card-main:hover {
-        transform: translateX(var(--main-translate-x)) translateY(calc(var(--main-translate-y) + var(--hover-translate-y))) translateZ(var(--main-translate-z)) rotateY(var(--rotation-y));
+    .card-container.grid-hover .card-main {
+        transform: scale(0.8) translateX(-20%) translateY(35%) translateZ(-30px) rotateY(0deg) !important;
+        transform-style: flat !important;
     }
     
-    .card-container:not(.selected) .card-front:hover {
-        transform: scale(var(--front-scale)) translateX(var(--front-translate-x)) translateY(calc(var(--front-translate-y) + var(--hover-translate-y))) translateZ(var(--front-translate-z)) rotateY(var(--rotation-y));
+    .card-container.grid-hover .card-front {
+        transform: scale(0.9) translateX(20%) translateY(35%) translateZ(30px) rotateY(0deg) !important;
+        transform-style: flat !important;
     }
     
-    /* Estados seleccionados - layout flex horizontal */
-    .card-container.selected .card-layer {
-        position: relative;
-        transform: none;
-        transform-style: flat;
-        flex: 1;
-        margin: 0 10px;
+    /* SELECTED: Layout personalizado - back arriba centrada, main abajo izquierda, front abajo derecha */
+    .card-container.selected .card-back {
+        transform: scale(1.2) translateX(0px) translateY(-55%) translateZ(0px) rotateY(0deg) !important;
+    }
+    
+    .card-container.selected .card-main {
+        transform: scale(1.2) translateX(-20%) translateY(55%) translateZ(-20px) rotateY(-10deg) !important;
+    }
+    
+    .card-container.selected .card-front {
+        transform: scale(1.2) translateX(20%) translateY(55%) translateZ(-20px) rotateY(10deg) !important;
     }
     
     /* Estado 3D - cartas justificadas al piso */
@@ -161,17 +175,5 @@
     /* Estado seleccionado - cartas centradas */
     .card-container.selected .card-layer {
         align-items: center;
-    }
-    
-    .card-container.selected .card-back {
-        order: 1;
-    }
-    
-    .card-container.selected .card-main {
-        order: 2;
-    }
-    
-    .card-container.selected .card-front {
-        order: 3;
     }
 </style>

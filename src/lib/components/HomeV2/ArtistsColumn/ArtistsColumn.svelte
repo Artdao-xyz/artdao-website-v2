@@ -12,17 +12,8 @@
     export let onArtistHover: (artist: string) => void;
     export let variant: 'mobile' | 'desktop' = 'desktop';
     
-    // Ordenar artistas: seleccionados primero, luego highlighteados, luego el resto
-    $: sortedArtists = (selectedArtists.length > 0 || highlightedArtists.length > 0) ? 
-        [
-            // Primero los artistas seleccionados
-            ...selectedArtists,
-            // Luego los artistas highlighteados (que no están seleccionados)
-            ...highlightedArtists.filter(artist => !selectedArtists.includes(artist)),
-            // Luego el resto de artistas
-            ...artists.filter(artist => !selectedArtists.includes(artist) && !highlightedArtists.includes(artist))
-        ] : 
-        artists; // Sin selección, orden original
+    // Mantener artistas en su orden original (sin reordenar)
+    $: sortedArtists = artists; // Sin selección, orden original
 </script>
 
 {#if variant === 'desktop'}

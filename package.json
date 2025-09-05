@@ -34,6 +34,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"animate-css-grid": "^1.5.1",
 		"flowbite-svelte": "^0.47.1",
 		"gsap": "^3.13.0",
 		"lucide-svelte": "^0.542.0",

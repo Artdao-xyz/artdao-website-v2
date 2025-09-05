@@ -5,6 +5,7 @@
     import ArtistsColumn from './ArtistsColumn/ArtistsColumn.svelte';
     import SelectedProject from './SelectedProject/SelectedProject.svelte';
     import Navbar from './Navbar/Navbar.svelte';
+    import { expandProject, collapseAll, expandedProjectIndex } from '../../stores/expansionStore';
 
     // Extraer solo los títulos de los proyectos para la primera columna
     const projectTitles = projects.map((p: Project) => p.title);
@@ -35,6 +36,25 @@
     // Referencias a los botones de imagen para hacer scroll
     let imageButtons: HTMLAnchorElement[] = [];
     
+    // Sincronizar selectedProjectIndexes con el store de expansión
+    $: {
+        if ($expandedProjectIndex !== null) {
+            // Si hay un proyecto expandido en la grilla, sincronizar la selección
+            if (!selectedProjectIndexes.includes($expandedProjectIndex)) {
+                selectedProjectIndexes = [$expandedProjectIndex];
+                selectedArtists = projects[$expandedProjectIndex].artists;
+                highlightedArtists = projects[$expandedProjectIndex].artists;
+            }
+        } else {
+            // Si no hay proyecto expandido, limpiar la selección
+            if (selectedProjectIndexes.length > 0) {
+                selectedProjectIndexes = [];
+                selectedArtists = [];
+                highlightedArtists = [];
+            }
+        }
+    }
+    
     // Función para hacer scroll a una imagen específica y seleccionar el proyecto
     function scrollToProject(projectIndex: number) {
         // Toggle: si ya está seleccionado, deseleccionar; si no, seleccionar
@@ -42,20 +62,22 @@
             selectedProjectIndexes = [];
             selectedArtists = [];
             highlightedArtists = [];
+            collapseAll(); // Contraer expansión en la grilla
         } else {
             // Si zine seleccionado -> seleccionar ese zine + artistas contenidos
             selectedProjectIndexes = [projectIndex];
             selectedArtists = projects[projectIndex].artists;
             highlightedArtists = projects[projectIndex].artists;
+            expandProject(projectIndex); // Expandir en la grilla
             
             // Hacer scroll a la imagen correspondiente solo si se está seleccionando
-            if (imageButtons[projectIndex]) {
-                imageButtons[projectIndex].scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'center',
-                    inline: 'center'
-                });
-            }
+            // if (imageButtons[projectIndex]) {
+            //     imageButtons[projectIndex].scrollIntoView({ 
+            //         behavior: 'smooth', 
+            //         block: 'center',
+            //         inline: 'center'
+            //     });
+            // }
         }
     }
     
@@ -74,6 +96,10 @@
             selectedArtists = [artist]; // Solo el artista clickeado está seleccionado
             // Highlightear todos los artistas que están en los proyectos seleccionados
             highlightedArtists = [...new Set(artistProjectIndexes.flatMap(index => projects[index].artists))];
+            // Expandir el primer proyecto en la grilla
+            if (artistProjectIndexes.length > 0) {
+                expandProject(artistProjectIndexes[0]);
+            }
         } else {
             // Verificar si este artista ya está seleccionado
             if (selectedArtists.includes(artist)) {
@@ -81,6 +107,7 @@
                 selectedProjectIndexes = [];
                 selectedArtists = [];
                 highlightedArtists = [];
+                collapseAll(); // Contraer expansión en la grilla
             } else {
                 // Verificar si este artista combina con los artistas actualmente seleccionados
                 const combinedArtists = [...selectedArtists, artist];
@@ -99,12 +126,18 @@
                     selectedArtists = combinedArtists; // Los artistas clickeados están seleccionados
                     // Highlightear todos los artistas que están en los proyectos combinados
                     highlightedArtists = [...new Set(combinedProjectIndexes.flatMap(index => projects[index].artists))];
+                    // Expandir el primer proyecto combinado
+                    expandProject(combinedProjectIndexes[0]);
                 } else {
                     // Si no hay proyectos que contengan ambos, reemplazar con el nuevo artista
                     selectedProjectIndexes = artistProjectIndexes;
                     selectedArtists = [artist]; // Solo el nuevo artista está seleccionado
                     // Highlightear todos los artistas que están en los proyectos del nuevo artista
                     highlightedArtists = [...new Set(artistProjectIndexes.flatMap(index => projects[index].artists))];
+                    // Expandir el primer proyecto del nuevo artista
+                    if (artistProjectIndexes.length > 0) {
+                        expandProject(artistProjectIndexes[0]);
+                    }
                 }
             }
         }
@@ -141,14 +174,20 @@
         hoveredProjectIndex = index;
         hoveredProjectIndexes = index !== null ? [index] : [];
     }
+    
+    // Función para manejar hover de proyectos (desde ProjectsColumn)
+    function handleProjectHover(index: number | null) {
+        hoveredProjectIndex = index;
+        hoveredProjectIndexes = index !== null ? [index] : [];
+    }
 </script>
 
-<div class="relative w-full min-h-screen lg:h-screen text-white flex flex-col gap-10 lg:gap-0 items-center lg:justify-center bg-dot">
+<div class="relative w-full min-h-screen lg:h-screen text-white flex flex-col gap-10 lg:gap-0 items-center lg:justify-center bg-dot overflow-visible">
     
     <Navbar />
     
     <!-- Layout Unificado -->
-    <div class="w-full flex flex-col lg:flex-row lg:max-w-screen-2xl lg:h-screen">
+    <div class="w-full flex flex-col lg:flex-row lg:max-w-screen-2xl lg:h-screen overflow-visible">
         <!-- Proyecto Seleccionado (solo mobile) -->
         <div class="lg:hidden">
             <SelectedProject 
@@ -166,13 +205,13 @@
                 selectedProjectIndexes={selectedProjectIndexes}
                 {hoveredProjectIndexes}
                 onProjectClick={scrollToProject}
-                onProjectHover={(index) => hoveredProjectIndex = index}
+                onProjectHover={handleProjectHover}
                 variant="desktop"
             />
         </div>
         
         <!-- Columnas 2, 3, 4: Grilla única de 3xN con imágenes (ocupa todo el espacio) -->
-        <div class="hidden lg:block flex-1 min-w-0">
+        <div class="hidden lg:block flex-1 min-w-0 overflow-visible">
             <ImageGrid 
                 projects={projects}
                 selectedProjectIndexes={selectedProjectIndexes}
@@ -205,7 +244,7 @@
                 selectedProjectIndexes={selectedProjectIndexes}
                 {hoveredProjectIndexes}
                 onProjectClick={scrollToProject}
-                onProjectHover={(index) => hoveredProjectIndex = index}
+                onProjectHover={handleProjectHover}
                 variant="mobile"
             />
             

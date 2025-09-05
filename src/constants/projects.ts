@@ -28,8 +28,8 @@ export const projects: Project[] = [
                 description: "“Water has a fascinating duality it's both a real-world element and a powerful symbol in our collective imagination.”",
                 thumbnailPath: [
                     "media/home/thumbnails-v2/ecologies-of-code/3.webp",
-                    "media/home/thumbnails-v2/ecologies-of-code/2.webp",
                     "media/home/thumbnails-v2/ecologies-of-code/1.webp",
+                    "media/home/thumbnails-v2/ecologies-of-code/2.webp",
                 ],
                 buttonPath: "media/home/buttons/02-button-ecologies-of-code.png",
                 pagePath: "/ecologies-of-code",
