@@ -25,6 +25,7 @@
     let gridContainer: HTMLDivElement;
     let wrapGridFunction: any = null;
     let isGridAnimating = false;
+    let hoverBlocked = false;
 
     onMount(async () => {
         if (gridContainer) {
@@ -35,15 +36,28 @@
                 
                 wrapGrid(gridContainer, {
                     stagger: 0,
-                    duration: 300, // Animación más rápida para reducir desplazamiento
+                    duration: 200, // Animación más rápida para reducir desplazamiento
                     easing: 'easeIn',
                     onStart: (animatingElementList) => {
                         console.log('Grid animation started', animatingElementList);
                         isGridAnimating = true;
+
+                        setTimeout(() => {
+                        hoverBlocked = true;
+                        // Limpiar hover actual
+                        // onImageHover(null);
+                        }, 200);
+                        // Deshabilitar pointer events en toda la grilla
+                        // gridContainer.style.pointerEvents = 'none';
                     },
                     onEnd: (animatingElementList) => {
                         console.log('Grid animation ended', animatingElementList);
                         isGridAnimating = false;
+                        // Rehabilitar después de un delay
+                        setTimeout(() => {
+                            hoverBlocked = false;
+                            // gridContainer.style.pointerEvents = 'auto';
+                        }, 200);
                     }
                 });
             } catch (error) {
@@ -54,15 +68,18 @@
 
     // Función para manejar click
     function handleClick(originalIndex: number) {
+        // Bloquear hover inmediatamente al hacer click
+        hoverBlocked = true;
+        // Limpiar hover actual
+        onImageHover(null);
         // Solo usar el store para toggle de expansión
         toggleExpansion(originalIndex);
     }
 
     // Funciones para manejar hover de las cartas
     function handleMouseEnter(originalIndex: number) {
-        // No reaccionar al hover si la grilla está animando
-        if (isGridAnimating) {
-            console.log('Hover blocked - grid is animating');
+        // No reaccionar al hover si está bloqueado o animando
+        if (hoverBlocked || isGridAnimating) {
             return;
         }
         
@@ -71,9 +88,8 @@
     }
 
     function handleMouseLeave() {
-        // No reaccionar al hover si la grilla está animando
-        if (isGridAnimating) {
-            console.log('Hover leave blocked - grid is animating');
+        // No reaccionar al hover si está bloqueado o animando
+        if (hoverBlocked || isGridAnimating) {
             return;
         }
         
@@ -140,7 +156,7 @@
     <!-- Proyectos reorganizados: seleccionados primero -->
     {#each orderedProjects as { project, originalIndex, isSelected }, i}
         <div 
-            class="grid-item flex items-center justify-center w-full h-full cursor-pointer relative
+            class="grid-item  w-full h-full cursor-pointer relative
                     {isProjectActive(originalIndex) ? 'grid-item-expanded' : 'grid-item-normal'}"
             role="button"
             tabindex="0"
@@ -149,8 +165,6 @@
             on:mouseenter={() => handleMouseEnter(originalIndex)}
             on:mouseleave={handleMouseLeave}
         >
-            <!-- Contenedor único para animate-css-grid -->
-            <div class="grid-item-content flex items-center justify-center relative w-full h-full">
                 <StackedCards3D
                     projects={project}
                     isSelected={isProjectActive(originalIndex)}
@@ -167,7 +181,6 @@
                     href={project.pagePath}
                     isVisible={$buttonVisibility[originalIndex] || false}
                 />
-            </div>
         </div>
     {/each}
 

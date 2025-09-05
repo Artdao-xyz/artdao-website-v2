@@ -7,6 +7,7 @@ export interface Project {
     pagePath: string;
     artists: string[];
     artworks: string[]; 
+    quote: string;
 }
 
 export const projects: Project[] = [
@@ -23,6 +24,7 @@ export const projects: Project[] = [
                 pagePath: "/inherent-instability",
                 artists: ["NICØ", "Elbi", "Ina Vare"],
                 artworks: ["No One Has Ever Seen a T-Rex", "NicØ playing", "Mercy"],
+                quote: "“Every time I work with this equipment, something new happens — it’s like creating a new network.”",
         },
         {
                 title: "Ecologies Of Code",
@@ -37,6 +39,7 @@ export const projects: Project[] = [
                 pagePath: "/ecologies-of-code",
                 artists: ["Joaquina Salgado", "Okytomo", "Hypereikon"],
                 artworks: ["Untitled", "Guia", "Untitled"],
+                quote: "“Water has a fascinating duality it’s both a real-world element and a powerful symbol.”",
         },
         {
                 title: "Digital Matter",
@@ -51,6 +54,7 @@ export const projects: Project[] = [
                 pagePath: "/digital-matter",
                 artists: ["Marcus3D", "Sulkian", "Parsa"],
                 artworks: ["Aero", "Pay to Win", "Digestive Delight"],
+                quote: "“Digital mediums are like flying... and physical mediums is like walking. It’s that kind of freedom.",
         },
         {
             title: "Conversation with Operator",
@@ -65,6 +69,7 @@ export const projects: Project[] = [
             pagePath: "/in-conversation",
             artists: ["Operator"],
             artworks: ["Human Unreadable", "Operator Interview", "Human Unreadable"],
+            quote: "“When flesh meets algorithm, we expose the hidden values encoded in our technological systems—disrupting digital art's sterile perfection.“",
         },
         // {
         //         title: "Artifice",
