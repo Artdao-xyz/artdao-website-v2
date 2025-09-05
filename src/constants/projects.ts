@@ -6,6 +6,7 @@ export interface Project {
     buttonPath: string;
     pagePath: string;
     artists: string[];
+    artworks: string[]; 
 }
 
 export const projects: Project[] = [
@@ -21,6 +22,7 @@ export const projects: Project[] = [
                 buttonPath: "media/home/buttons/03-button-inherent-instability.png",
                 pagePath: "/inherent-instability",
                 artists: ["NICØ", "Elbi", "Ina Vare"],
+                artworks: ["No One Has Ever Seen a T-Rex", "NicØ playing", "Mercy"],
         },
         {
                 title: "Ecologies Of Code",
@@ -34,6 +36,7 @@ export const projects: Project[] = [
                 buttonPath: "media/home/buttons/02-button-ecologies-of-code.png",
                 pagePath: "/ecologies-of-code",
                 artists: ["Joaquina Salgado", "Okytomo", "Hypereikon"],
+                artworks: ["Untitled", "Guia", "Untitled"],
         },
         {
                 title: "Digital Matter",
@@ -47,6 +50,7 @@ export const projects: Project[] = [
                 buttonPath: "media/home/buttons/01-button-digital-matter.png",
                 pagePath: "/digital-matter",
                 artists: ["Marcus3D", "Sulkian", "Parsa"],
+                artworks: ["Aero", "Pay to Win", "Digestive Delight"],
         },
         {
             title: "Conversation with Operator",
@@ -60,6 +64,7 @@ export const projects: Project[] = [
             buttonPath: "media/home/buttons/05-button-conversation-with-operator.png",
             pagePath: "/in-conversation",
             artists: ["Operator"],
+            artworks: ["Human Unreadable", "Operator Interview", "Human Unreadable"],
         },
         // {
         //         title: "Artifice",

@@ -134,14 +134,14 @@
 
 <div 
     bind:this={gridContainer}
-    class="hidden lg:grid grid-cols-3 flex-1 w-full h-full overflow-visible gap-6 pt-20 scrollbar-hide relative border-2 border-red-500"
+    class="hidden lg:grid grid-cols-3 flex-1 w-full h-full overflow-visible gap-6 pt-20 scrollbar-hide relative"
 >
     
     <!-- Proyectos reorganizados: seleccionados primero -->
     {#each orderedProjects as { project, originalIndex, isSelected }, i}
         <div 
             class="grid-item flex items-center justify-center w-full h-full cursor-pointer relative
-                   {isProjectActive(originalIndex) ? 'grid-item-expanded' : 'grid-item-normal'} border-2 border-blue-500"
+                    {isProjectActive(originalIndex) ? 'grid-item-expanded' : 'grid-item-normal'}"
             role="button"
             tabindex="0"
             on:click={() => handleClick(originalIndex)}

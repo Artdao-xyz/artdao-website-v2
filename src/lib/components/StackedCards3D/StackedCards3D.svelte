@@ -10,6 +10,20 @@
     export const onHover: (index: number | null) => void = () => {};
     export let index: number;
 
+    // Generar valores aleatorios para back-scale y main-scale
+    $: {
+        const random = Math.random();
+        if (random < 0.5) {
+            // 50% de probabilidad: back-scale = 0.9, main-scale = 1.3
+            document.documentElement.style.setProperty('--back-scale', '0.9');
+            document.documentElement.style.setProperty('--main-scale', '1.3');
+        } else {
+            // 50% de probabilidad: back-scale = 1.3, main-scale = 0.9
+            document.documentElement.style.setProperty('--back-scale', '1.3');
+            document.documentElement.style.setProperty('--main-scale', '0.9');
+        }
+    }
+
     $: console.log('isHovered', isHovered, 'isSelected', isSelected, 'classes:', { selected: isSelected, 'grid-hover': isHovered });
     
     function handleClick(event: MouseEvent | KeyboardEvent) {
@@ -67,14 +81,14 @@
         /* Variables CSS personalizables */
         --rotation-y: -25deg;
         --back-scale: 1.0;
-        --main-scale: 1.0;
-        --front-scale: 1.0;
-        --back-translate-z: -75px;
+        --main-scale: 1.2;
+        --front-scale: 0.8;
+        --back-translate-z: -5px;
         --main-translate-z: 0px;
-        --front-translate-z: 50px;
-        --back-translate-y: 20px;
-        --main-translate-y: 20px;
-        --front-translate-y: 20px;
+        --front-translate-z: 5px;
+        --back-translate-y: 0%;
+        --main-translate-y: -5%;
+        --front-translate-y: 15%;
         --back-translate-x: 30px;
         --main-translate-x: 0px;
         --front-translate-x: -60px;
@@ -143,40 +157,31 @@
     
     /* HOVER: Dispersión moderada de las cartas */
     .card-container.grid-hover .card-back {
-        transform: scale(0.8) translateX(0px) translateY(-35%) translateZ(-30px) rotateY(0deg) !important;
+        transform: scale(1.0) translateX(20%) translateY(-30%) translateZ(-30px) rotateY(0deg) !important;
         transform-style: flat !important;
     }
     
     .card-container.grid-hover .card-main {
-        transform: scale(0.8) translateX(-20%) translateY(35%) translateZ(-30px) rotateY(0deg) !important;
+        transform: scale(1.0) translateX(0%) translateY(30%) translateZ(-10px) rotateY(0deg) !important;
         transform-style: flat !important;
     }
     
     .card-container.grid-hover .card-front {
-        transform: scale(0.9) translateX(20%) translateY(35%) translateZ(30px) rotateY(0deg) !important;
+        transform: scale(0.8) translateX(-20%) translateY(-30%) translateZ(30px) rotateY(0deg) !important;
         transform-style: flat !important;
     }
     
     /* SELECTED: Layout personalizado - back arriba centrada, main abajo izquierda, front abajo derecha */
     .card-container.selected .card-back {
-        transform: scale(1.2) translateX(0px) translateY(-55%) translateZ(0px) rotateY(0deg) !important;
+        transform: scale(1.0) translateX(20%) translateY(-45%) translateZ(0px) rotateY(0deg) !important;
     }
     
     .card-container.selected .card-main {
-        transform: scale(1.2) translateX(-20%) translateY(55%) translateZ(-20px) rotateY(-10deg) !important;
+        transform: scale(1.5) translateX(0%) translateY(45%) translateZ(-20px) rotateY(-10deg) !important;
     }
     
     .card-container.selected .card-front {
-        transform: scale(1.2) translateX(20%) translateY(55%) translateZ(-20px) rotateY(10deg) !important;
+        transform: scale(1.0) translateX(-20%) translateY(-45%) translateZ(-20px) rotateY(10deg) !important;
     }
     
-    /* Estado 3D - cartas justificadas al piso */
-    .card-container:not(.selected) .card-layer {
-        align-items: flex-end;
-    }
-    
-    /* Estado seleccionado - cartas centradas */
-    .card-container.selected .card-layer {
-        align-items: center;
-    }
 </style>
