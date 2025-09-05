@@ -12,7 +12,7 @@
 
     $: console.log('isHovered', isHovered, 'isSelected', isSelected, 'classes:', { selected: isSelected, 'grid-hover': isHovered });
     
-    function handleClick(event: MouseEvent) {
+    function handleClick(event: MouseEvent | KeyboardEvent) {
         if (!isSelected) {
             // Primer click: seleccionar
             event.preventDefault();
@@ -22,11 +22,14 @@
     }
 </script>
 
-<a href={projects.pagePath} class="card-container" 
+<div class="card-container" 
+    role="button"
+    tabindex="0"
      class:opacity-50={hasSelection && !isSelected}
      class:selected={isSelected}
      class:grid-hover={isHovered}
      on:click={handleClick}
+     on:keydown={(e) => e.key === 'Enter' && handleClick(e)}
 >
     
     {#if projects.thumbnailPath[0]}
@@ -49,7 +52,7 @@
             <img src={projects.thumbnailPath[2]} alt="Capa delantera" class="card-image" />
         </div>
     {/if}
-</a>
+</div>
 
 <style>
     .card-container {

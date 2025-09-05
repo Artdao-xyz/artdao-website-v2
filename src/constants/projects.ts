@@ -28,8 +28,8 @@ export const projects: Project[] = [
                 description: "“Water has a fascinating duality it's both a real-world element and a powerful symbol in our collective imagination.”",
                 thumbnailPath: [
                     "media/home/thumbnails-v2/ecologies-of-code/3.webp",
-                    "media/home/thumbnails-v2/ecologies-of-code/1.webp",
                     "media/home/thumbnails-v2/ecologies-of-code/2.webp",
+                    "media/home/thumbnails-v2/ecologies-of-code/1.webp",
                 ],
                 buttonPath: "media/home/buttons/02-button-ecologies-of-code.png",
                 pagePath: "/ecologies-of-code",
@@ -40,9 +40,9 @@ export const projects: Project[] = [
                 subtitle: "Marcus3D, Sulkian & Parsa",
                 description: "“Digital mediums are like flying and physical mediums is like walking. It’s that kind of freedom.”",
                 thumbnailPath: [
-                    "media/home/thumbnails-v2/digital-matter/1.webp",
                     "media/home/thumbnails-v2/digital-matter/3.webp",
                     "media/home/thumbnails-v2/digital-matter/2.webp",
+                    "media/home/thumbnails-v2/digital-matter/1.webp",
                 ],
                 buttonPath: "media/home/buttons/01-button-digital-matter.png",
                 pagePath: "/digital-matter",
@@ -53,6 +53,7 @@ export const projects: Project[] = [
             subtitle: "Ania Catherine, Dejha Ti & Jeff Davis",
             description: "“Jeff Davis sat down for an intimate conversation with the artistic duo Operator: Ania Catherine and Dejha exploring the creative process around their 3 act project Human Unreadable.”",
             thumbnailPath: [
+                "media/home/thumbnails-v2/operator/3.webp",
                 "media/home/thumbnails-v2/operator/2.webp",
                 "media/home/thumbnails-v2/operator/1.webp",
             ],
