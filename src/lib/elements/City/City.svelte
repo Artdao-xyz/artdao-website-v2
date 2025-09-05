@@ -45,46 +45,31 @@
 		isSelected = false;
 	}}
 	style="position: absolute; left: {left}%; top: {top}%;"
-	class="relative flex flex-row items-center justify-center rounded-40 py-[13px] px-[17px] w-full max-w-[160px] h-[2.9375rem] {!isSelected
-		? 'unselected'
-		: 'selected'}"
+	class="relative flex flex-row items-center justify-center w-40 h-6 px-4 py-[5px] {isSelected ? 'bg-[#101010]' : 'bg-[#f7f5f2]'} rounded-[100px] outline outline-1 outline-black"
 >
-	{#if dotOnLeft}
-		<div class="w-[0.75rem] h-[0.75rem] bg-color-white rounded-[100px]" />
-	{/if}
 	<p
-		class="w-full h-[21px] text-color-white font-robotoMono text-[12px] font-medium tracking-[0.156px] capitalize"
+		class="w-full {isSelected ? 'text-[#f7f5f2]' : 'text-[#101010]'} text-xs font-normal font-robotoMono leading-none tracking-wide capitalize"
 	>
 		{mapLocation.location}
 	</p>
-	{#if !dotOnLeft}
-		<div class="w-[0.75rem] h-[0.75rem] bg-color-white rounded-[100px]" />
-	{/if}
 
 	{#if isSelected}
 		<div
-			class="z-50 w-[32.3125rem] h-fit menu py-[30px] px-[19px] rounded-20 {!showOnTop
+			class="z-50 w-40 h-fit bg-[#101010] rounded-[20px] outline outline-1 outline-[#f7f5f2] py-[20px] px-[20px] {!showOnTop
 				? 'top-[120%]'
-				: 'top-[-400%]'} left-0 absolute flex flex-col justify-center items-center gap-[5px]"
+				: 'top-[-400%]'} left-0 absolute flex flex-col justify-center items-center gap-[20px]"
 		>
-			<img src={menuLine} alt="line" class="w-[449px]" />
 			{#each mapLocation.events as event}
 				<button
 					on:click={() => handleOnClick(event)}
-					class="group w-full h-[2.9375rem] hover:bg-color-dark rounded-[100px] flex justify-between items-center pl-[15px] pr-[8px]"
+					class="group w-full h-6 px-4 py-[5px] bg-[#101010] hover:bg-[#f7f5f2] rounded-[100px] outline outline-1 outline-[#f7f5f2] hover:outline-[#101010] flex justify-center items-center"
 				>
 					<p
-						class="font-neue text-[20px] tracking-[0.0163rem] font-semibold uppercase text-color-black group-hover:text-color-white"
+						class="text-[#f7f5f2] text-xs font-normal font-robotoMono leading-none tracking-wide group-hover:text-[#101010]"
 					>
 						{event.title}
 					</p>
-					<button
-						class="w-[30px] h-[30px] rounded-[6.25rem] border-color-black border group-hover:border-color-white flex items-center justify-center"
-					>
-						<img src={buttonIcon} alt="Button" class="rotate-180 w-[10px] group-hover:invert" />
-					</button>
 				</button>
-				<img src={menuLine} alt="line" class="w-[449px]" />
 			{/each}
 		</div>
 	{/if}

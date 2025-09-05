@@ -13,6 +13,7 @@
 	import { eventImages, mapData, type IMapEvent, type IMapLocation } from '../../data/Map/MapData';
 	import preloadImages from '../../utils/preloadImages';
 	import { fly } from 'svelte/transition';
+	import { onMount } from 'svelte';
 	let eventToShow: IMapEvent | undefined = undefined;
 	let width: number;
 	let mapLocationToShow: IMapLocation | undefined;
@@ -36,9 +37,13 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([[mapBg]]);
+	let preloadedImages: Promise<string[][]>;
+	let preloadedEventImages: Promise<string[][]>;
 
-	const preloadedEventImages = preloadImages([eventImages]);
+	onMount(() => {
+		preloadedImages = preloadImages([[mapBg]]);
+		preloadedEventImages = preloadImages([eventImages]);
+	});
 </script>
 
 <svelte:window bind:innerWidth={width} />
@@ -67,14 +72,14 @@
 		</div>
 		{#if width > 768}
 			{#if !eventToShow}
-				<SectionContainer colorVariant={EColorVariant.BLACK} hasPadding={false}>
-					<img src={images[0][0]} alt="map" class="w-full h-full object-cover" />
+				<SectionContainer hasPadding={false}>
+					<img src={images[0][0]} alt="map" class="w-full h-full object-contain" />
 					<City mapLocation={mapData[0]} top="27" left="44.5" dotOnLeft={false} bind:eventToShow />
 					<City mapLocation={mapData[1]} top="34.5" left="49" bind:eventToShow />
 					<!-- <City mapLocation={mapData[2]} top="40" left="24" bind:eventToShow /> -->
 					<City mapLocation={mapData[3]} top="56.5" left="30.2" bind:eventToShow />
 					<City mapLocation={mapData[4]} top="67" left="36" bind:eventToShow />
-					<City mapLocation={mapData[5]} top="73" left="34" showOnTop bind:eventToShow />
+					<City mapLocation={mapData[5]} top="73" left="34" bind:eventToShow />
 				</SectionContainer>
 			{:else}
 				{#await preloadedEventImages}

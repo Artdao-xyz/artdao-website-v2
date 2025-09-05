@@ -1,7 +1,4 @@
 <script lang="ts">
-	import { EColorVariant } from '../../../constants/enums';
-
-	export let colorVariant: EColorVariant | undefined = undefined;
 	export let bgImage: string | undefined = undefined;
 	export let hasPadding = true;
 	export let isOverflow = true;
@@ -11,14 +8,8 @@
 <div
 	class="!snap-start shrink-0 w-full {isCover ? 'bg-cover' : ''} {isOverflow
 		? 'h-screen'
-		: ''} sm:h-full-desktop-height {bgImage && !colorVariant
-		? 'bg-center bg-no-repeat'
-		: colorVariant === EColorVariant.LIGHT
-			? 'bg-color-white'
-			: colorVariant === EColorVariant.BLACK
-				? 'bg-color-black'
-				: 'bg-color-gray-background'} {hasPadding ? 'p-global-padding' : ''}"
-	style={bgImage ? `background-image: url(${bgImage});` : ''}
+		: ''} sm:h-full-desktop-height {bgImage ? 'bg-center bg-no-repeat' : ''} {hasPadding ? 'p-global-padding' : ''}"
+	style={bgImage ? `background-image: url(${bgImage});` : 'background-color: #F7F5F2;'}
 >
 	<slot />
 </div>

@@ -100,7 +100,7 @@ export const mapData: IMapLocation[] = [
 		location: 'Lisbon',
 		events: [
 			{
-				title: 'INTERTWINED',
+				title: 'Intertwined',
 				subtitle: 'Exhibition / Party',
 				date: 'Nov 10th-16th, 2023',
 				location: 'Arroz Estudios, Lisbon',
@@ -109,7 +109,7 @@ export const mapData: IMapLocation[] = [
 				watchMore: INTERTWINED
 			},
 			{
-				title: 'UNDERWORLD',
+				title: 'Underworld',
 				subtitle: 'Exhibition / Party',
 				date: 'July 18th-20th, 2023',
 				location: '31 Rue HEnri Chevreu, Paris',
@@ -117,7 +117,7 @@ export const mapData: IMapLocation[] = [
 				city: 'Lisbon'
 			},
 			{
-				title: 'RAVE',
+				title: 'Rave',
 				subtitle: 'Exhibition / Party',
 				date: 'May 5th, 2024',
 				location: 'Higher Ground, Lisbon',
@@ -141,7 +141,7 @@ export const mapData: IMapLocation[] = [
 		location: 'Paris',
 		events: [
 			{
-				title: 'NFT PARIS',
+				title: 'NFT Paris',
 				subtitle: 'Lukas Truniger Showcase',
 				date: 'February 23rd, 2023',
 				location: '101 Rue Réaumur, PARIS',
@@ -149,7 +149,7 @@ export const mapData: IMapLocation[] = [
 				city: 'Paris'
 			},
 			{
-				title: 'NON PLACES',
+				title: 'Non Places',
 				subtitle: 'Exhibition / Party',
 				date: 'July 18th-20th, 2023',
 				location: '31 Rue HEnri Chevreu, Paris',
@@ -164,7 +164,7 @@ export const mapData: IMapLocation[] = [
 		location: 'Denver',
 		events: [
 			{
-				title: 'ETH DENVER',
+				title: 'ETH Denver',
 				subtitle: 'Exhibition',
 				date: 'March 2th-6th, 2023',
 				location: 'Denver, Colorado',
@@ -177,7 +177,7 @@ export const mapData: IMapLocation[] = [
 		location: 'Bogotá',
 		events: [
 			{
-				title: 'DEVCON',
+				title: 'Devcon',
 				subtitle: 'Exhibition / mural / talk',
 				date: 'October 11th-14th, 2022',
 				location: 'Bogotá, Colombia',
@@ -205,7 +205,7 @@ export const mapData: IMapLocation[] = [
 		location: 'Buenos Aires',
 		events: [
 			{
-				title: 'CERO UNO',
+				title: 'Cero Uno',
 				subtitle: 'Exhibition / Talks / After Party',
 				date: 'March 31th, 2023',
 				location: 'Artlab, Buenos Aires',
@@ -213,7 +213,7 @@ export const mapData: IMapLocation[] = [
 				city: 'Buenos Aires'
 			},
 			{
-				title: 'PSIPSIKOKO',
+				title: 'Psipsikoko',
 				subtitle: 'Exhibition',
 				date: 'October 26th-27th, 2023',
 				location: 'Aura Fabrica, Buenos Aires',
