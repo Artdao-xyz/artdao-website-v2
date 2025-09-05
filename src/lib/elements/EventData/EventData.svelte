@@ -5,10 +5,6 @@
 	import { scale } from 'svelte/transition';
 	import type { IMapEvent } from '../../../data/Map/MapData';
 	import { mapData } from '../../../data/Map/MapData';
-	export let isNextButtonDisabled: boolean;
-	export let isPrevButtonDisabled: boolean;
-	export let handlePrevButton: () => void;
-	export let handleNextButton: () => void;
 	export let imageToShow: string | undefined;
 	export let isCenter = false;
 
