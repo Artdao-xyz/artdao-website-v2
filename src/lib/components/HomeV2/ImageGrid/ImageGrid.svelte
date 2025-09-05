@@ -46,7 +46,7 @@
                         hoverBlocked = true;
                         // Limpiar hover actual
                         // onImageHover(null);
-                        }, 200);
+                        }, 300);
                         // Deshabilitar pointer events en toda la grilla
                         // gridContainer.style.pointerEvents = 'none';
                     },
@@ -57,7 +57,7 @@
                         setTimeout(() => {
                             hoverBlocked = false;
                             // gridContainer.style.pointerEvents = 'auto';
-                        }, 200);
+                        }, 300);
                     }
                 });
             } catch (error) {
@@ -74,6 +74,15 @@
         onImageHover(null);
         // Solo usar el store para toggle de expansión
         toggleExpansion(originalIndex);
+        
+        // Rehabilitar hover después de un breve delay
+        setTimeout(() => {
+            hoverBlocked = false;
+            // Forzar hover en el elemento clickeado si está expandido
+            if (isProjectActive(originalIndex)) {
+                onImageHover(originalIndex);
+            }
+        }, 150);
     }
 
     // Funciones para manejar hover de las cartas
@@ -95,6 +104,9 @@
         
         // Limpiar el hover
         onImageHover(null);
+        
+        // Limpiar visibilidad de todos los botones
+        clearAllButtons();
     }
     
     // Función para determinar si un proyecto está activo/expandido
@@ -128,7 +140,7 @@
         orderedProjects.forEach(({ originalIndex }) => {
             const isActive = isProjectActive(originalIndex);
             const isHovered = hoveredProjectIndexes.includes(originalIndex);
-            const shouldShow = isActive && isHovered;
+            const shouldShow = isActive && isHovered && !hoverBlocked && !isGridAnimating;
             
             // Actualizar inmediatamente sin delays
             updateButtonVisibility(originalIndex, shouldShow);
@@ -141,7 +153,8 @@
                     shouldShow,
                     expandedProjectIndex: $expandedProjectIndex,
                     hoveredProjectIndexes,
-                    isGridAnimating
+                    isGridAnimating,
+                    hoverBlocked
                 });
             }
         });
@@ -150,7 +163,7 @@
 
 <div 
     bind:this={gridContainer}
-    class="hidden lg:grid grid-cols-3 flex-1 w-full h-full overflow-visible gap-6 pt-20 scrollbar-hide relative"
+    class="hidden lg:grid grid-cols-3 flex-1 w-full h-full overflow-visible gap-6 py-20 scrollbar-hide relative"
 >
     
     <!-- Proyectos reorganizados: seleccionados primero -->

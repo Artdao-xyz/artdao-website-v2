@@ -10,18 +10,12 @@
     export let onHover: (index: number | null) => void = () => {};
     export let index: number;
 
-    // Generar valores aleatorios para back-scale y main-scale
+    // Valores fijos para posicionamiento consistente
     $: {
-        const random = Math.random();
-        if (random < 0.5) {
-            // 50% de probabilidad: back-scale = 0.9, main-scale = 1.3
-            document.documentElement.style.setProperty('--back-scale', '0.9');
-            document.documentElement.style.setProperty('--main-scale', '0.7');
-        } else {
-            // 50% de probabilidad: back-scale = 1.3, main-scale = 0.9
-            document.documentElement.style.setProperty('--back-scale', '0.7');
-            document.documentElement.style.setProperty('--main-scale', '0.9');
-        }
+        // Valores fijos para un posicionamiento más confiable - un poco menos
+        document.documentElement.style.setProperty('--back-scale', '0.65');
+        document.documentElement.style.setProperty('--main-scale', '0.8');
+        document.documentElement.style.setProperty('--front-scale', '0.6');
     }
 
     $: console.log('isHovered', isHovered, 'isSelected', isSelected, 'classes:', { selected: isSelected, 'grid-hover': isHovered });
@@ -51,7 +45,10 @@
         <div class="card-layer card-back flex flex-col items-center justify-center">
             <img src={projects.thumbnailPath[0]} alt="Capa trasera" class="card-image" />
             {#if isSelected && projects.artworks && projects.artworks[0]}
-                <div class="artwork-name">{projects.artworks[0]}</div>
+                <div class="artwork-name">
+                    <div class="w-1.5 h-1.5 bg-black rounded-[100px]"></div>
+                    {projects.artworks[0]}
+                </div>
             {/if}
         </div>
     {/if}
@@ -61,7 +58,10 @@
         <div class="card-layer card-main flex flex-col items-center justify-center">
             <img src={projects.thumbnailPath[1]} alt="Capa principal" class="card-image" />
             {#if isSelected && projects.artworks && projects.artworks[1]}
-                <div class="artwork-name">{projects.artworks[1]}</div>
+                <div class="artwork-name">
+                    <div class="w-1.5 h-1.5 bg-black rounded-[100px]"></div>
+                    {projects.artworks[1]}
+                </div>
             {/if}
         </div>
     {/if}
@@ -71,8 +71,18 @@
         <div class="card-layer card-front flex flex-col items-center justify-center">
             <img src={projects.thumbnailPath[2]} alt="Capa delantera" class="card-image" />
             {#if isSelected && projects.artworks && projects.artworks[2]}
-                <div class="artwork-name">{projects.artworks[2]}</div>
+                <div class="artwork-name">
+                    <div class="w-1.5 h-1.5 bg-black rounded-[100px]"></div>
+                    {projects.artworks[2]}
+                </div>
             {/if}
+        </div>
+    {/if}
+    
+    <!-- Quote absoluto centrado abajo -->
+    {#if isSelected && projects.quote}
+        <div class="quote-container">
+            <p class="quote-text">{projects.quote}</p>
         </div>
     {/if}
 </div>
@@ -87,20 +97,25 @@
         transition: opacity 0.3s ease;
         perspective: 1000px;
         
-        /* Variables CSS personalizables */
-        --rotation-y: -25deg;
-        --back-scale: 0.75;
-        --main-scale: 0.75;
-        --front-scale: 0.7;
-        --back-translate-z: 0px;
+        /* Variables CSS para posicionamiento consistente */
+        --rotation-y: -20deg;
+        --back-scale: 0.65;
+        --main-scale: 0.8;
+        --front-scale: 0.6;
+        
+        /* Posicionamiento base - offset dramático del centro */
+        --back-translate-x: 80px;     /* Derecha dramática */
+        --main-translate-x: 0px;      /* Centro horizontal */
+        --front-translate-x: -80px;   /* Izquierda dramática */
+        
+        --back-translate-y: 60px;     /* Piso alineado */
+        --main-translate-y: 0px;      /* Piso alineado */
+        --front-translate-y: 60px;    /* Piso alineado */
+        
+        --back-translate-z: -20px;
         --main-translate-z: 0px;
-        --front-translate-z: 0px;
-        --back-translate-y: 0%;
-        --main-translate-y: 0%;
-        --front-translate-y: 0%;
-        --back-translate-x: 30px;
-        --main-translate-x: 0px;
-        --front-translate-x: -60px;
+        --front-translate-z: 20px;
+        
         --hover-translate-y: -30px;
     }
     
@@ -116,9 +131,9 @@
     
     .card-layer {
         position: absolute;
-        top: 0%;
-        left: 0%;
-        /* transform: translate(-50%, -50%); */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 100%;
         height: 100%;
         display: flex;
@@ -160,9 +175,11 @@
         text-align: center;
         white-space: nowrap;
         z-index: 10;
-        backdrop-filter: blur(4px);
         width: fit-content;
         align-self: start;
+        display: flex;
+        align-items: center;
+        gap: 6px;
     }
     
     /* Alineación específica para la primera capa (back) */
@@ -173,51 +190,73 @@
     /* Capa trasera - más pequeña y desplazada con rotación 3D */
     .card-back {
         z-index: 1;
-        transform: scale(var(--back-scale)) translateX(var(--back-translate-x)) translateY(var(--back-translate-y)) translateZ(var(--back-translate-z)) rotateY(var(--rotation-y));
+        transform: translate(-50%, -50%) scale(var(--back-scale)) translateX(var(--back-translate-x)) translateY(var(--back-translate-y)) translateZ(var(--back-translate-z)) rotateY(var(--rotation-y));
         transition: transform 0.3s ease;
     }
     
     /* Capa principal - tamaño normal con rotación 3D */
     .card-main {
         z-index: 2;
-        transform: scale(var(--main-scale)) translateX(var(--main-translate-x)) translateY(var(--main-translate-y)) translateZ(var(--main-translate-z)) rotateY(var(--rotation-y));
+        transform: translate(-50%, -50%) scale(var(--main-scale)) translateX(var(--main-translate-x)) translateY(var(--main-translate-y)) translateZ(var(--main-translate-z)) rotateY(var(--rotation-y));
         transition: transform 0.3s ease;
     }
     
     /* Capa delantera - más pequeña y desplazada con rotación 3D */
     .card-front {
         z-index: 3;
-        transform: scale(var(--front-scale)) translateX(var(--front-translate-x)) translateY(var(--front-translate-y)) translateZ(var(--front-translate-z)) rotateY(var(--rotation-y));
+        transform: translate(-50%, -50%) scale(var(--front-scale)) translateX(var(--front-translate-x)) translateY(var(--front-translate-y)) translateZ(var(--front-translate-z)) rotateY(var(--rotation-y));
         transition: transform 0.3s ease;
     }
     
-    /* HOVER: Dispersión moderada de las cartas */
+    /* HOVER: Dispersión moderada - sin drama */
     .card-container.grid-hover .card-back {
-        transform: scale(0.60) translateX(20%) translateY(-30%) translateZ(-30px) rotateY(0deg) !important;
+        transform: translate(-50%, -50%) scale(0.65) translateX(40px) translateY(-30px) translateZ(-30px) rotateY(0deg) !important;
         transform-style: flat !important;
     }
     
     .card-container.grid-hover .card-main {
-        transform: scale(0.60) translateX(0%) translateY(30%) translateZ(-10px) rotateY(0deg) !important;
+        transform: translate(-50%, -50%) scale(0.65) translateX(0px) translateY(30px) translateZ(-10px) rotateY(0deg) !important;
         transform-style: flat !important;
     }
     
     .card-container.grid-hover .card-front {
-        transform: scale(0.6) translateX(-20%) translateY(-30%) translateZ(30px) rotateY(0deg) !important;
+        transform: translate(-50%, -50%) scale(0.65) translateX(-40px) translateY(-30px) translateZ(30px) rotateY(0deg) !important;
         transform-style: flat !important;
     }
     
-    /* SELECTED: Layout personalizado - back arriba centrada, main abajo izquierda, front abajo derecha */
+    /* SELECTED: Layout SÚPER DRAMÁTICO con offset del centro */
     .card-container.selected .card-back {
-        transform: scale(0.75) translateX(75%) translateY(-20%) translateZ(0px) rotateY(0deg) !important;
+        transform: translate(-50%, -50%) scale(0.6) translateX(200px) translateY(-120px) translateZ(0px) rotateY(-15deg) !important;
+        transform-style: flat !important;
     }
     
     .card-container.selected .card-main {
-        transform: scale(0.75) translateX(40%) translateY(20%) translateZ(0px) rotateY(-10deg) !important;
+        transform: translate(-50%, -50%) scale(0.6) translateX(0px) translateY(120px) translateZ(0px) rotateY(0deg) !important;
     }
     
     .card-container.selected .card-front {
-        transform: scale(0.75) translateX(10%) translateY(-20%) translateZ(0px) rotateY(10deg) !important;
-        }
+        transform: translate(-50%, -50%) scale(0.6) translateX(-200px) translateY(-120px) translateZ(0px) rotateY(15deg) !important;
+    }
+    
+    /* Quote container - posicionamiento absoluto centrado abajo */
+    .quote-container {
+        position: absolute;
+        bottom: 0%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 20;
+        width: 70%;
+        text-align: center;
+    }
+    
+    .quote-text {
+        color: black;
+        font-size: 12px;
+        font-weight: 400;
+        font-family: 'Roboto Mono', monospace;
+        line-height: 1.4;
+        margin: 0;
+        padding: 8px 12px;
+    }
     
 </style>

@@ -86,10 +86,6 @@
 					<EventData
 						bind:eventToShow
 						{imageToShow}
-						{handleNextButton}
-						{handlePrevButton}
-						{isNextButtonDisabled}
-						{isPrevButtonDisabled}
 						isCenter={eventToShow.isCenter}
 					/>
 			{/if}
