@@ -82,9 +82,7 @@
 					<City mapLocation={mapData[5]} top="73" left="34" bind:eventToShow />
 				</SectionContainer>
 			{:else}
-				{#await preloadedEventImages}
-					<LoadingV2 />
-				{:then eventImages}
+	
 					<EventData
 						bind:eventToShow
 						{imageToShow}
@@ -94,7 +92,6 @@
 						{isPrevButtonDisabled}
 						isCenter={eventToShow.isCenter}
 					/>
-				{/await}
 			{/if}
 		{:else if !mapLocationToShow}
 			<div

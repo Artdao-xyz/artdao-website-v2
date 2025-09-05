@@ -35,7 +35,8 @@
 <svelte:window bind:innerHeight={height} />
 {#if eventToShow}
 	<div
-		class="w-full h-full flex flex-col gap-5 items-center justify-center bg-[#F7F5F2F0]"
+		class="w-full h-full flex flex-col gap-5 items-center justify-center"
+		style="background: #F7F5F2 url('/media/home/home-dot.svg') repeat;"
 	>
 		<div
 			class="h-fit max-h-[90vh] w-full max-w-2xl rounded-20 bg-[#101010] py-[26px] px-[20px] text-color-white gap-[20px] flex flex-col"
