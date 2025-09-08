@@ -36,7 +36,7 @@
 	class="bg-black absolute left-0 top-0 w-full h-full flex justify-center items-center z-50"
 >
 	<div class="flex flex-col sm:flex-row items-center gap-12 relative">
-		<div class="w-[200px] overflow-hidden">
+		<div class="w-[200px] overflow-hidden hidden">
 			<img 
 				class="w-full"
 				style="mask-image: linear-gradient(to right, 
@@ -60,7 +60,7 @@
 			<img class="h-full" src="media/intro-metabola-1.gif" alt="Loading gif" />
 		</div>
 
-		<div class="text-white text-center sm:text-left font-clash font-xl leading-tight tracking-tight font-medium w-[200px] overflow-hidden">
+		<div class="hidden text-white text-center sm:text-left font-clash font-xl leading-tight tracking-tight font-medium w-[200px] overflow-hidden">
 			<div class="space-y-1">
 				<p style="mask-image: linear-gradient(to right, 
 					black {$animationProgress - 200}%, 

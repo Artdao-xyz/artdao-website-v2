@@ -7,8 +7,9 @@
     export let isHovered: boolean = false;
     export const hasHover: boolean = false;
     export let onSelect: (index: number) => void;
-    export let onHover: (index: number | null) => void = () => {};
+    export const onHover: (index: number | null) => void = () => {};
     export let index: number;
+    export let isAnimating: boolean = false; // Nueva prop para controlar animaciones
 
     // Valores fijos para posicionamiento consistente
     $: {
@@ -18,7 +19,10 @@
         document.documentElement.style.setProperty('--front-scale', '0.6');
     }
 
-    $: console.log('isHovered', isHovered, 'isSelected', isSelected, 'classes:', { selected: isSelected, 'grid-hover': isHovered });
+    // Solo aplicar hover si no está animando
+    $: shouldShowHover = isHovered && !isAnimating;
+    
+    $: console.log('isHovered', isHovered, 'isSelected', isSelected, 'isAnimating', isAnimating, 'shouldShowHover', shouldShowHover);
     
     function handleClick(event: MouseEvent | KeyboardEvent) {
         if (!isSelected) {
@@ -35,7 +39,7 @@
     tabindex="0"
      class:opacity-50={hasSelection && !isSelected}
      class:selected={isSelected}
-     class:grid-hover={isHovered}
+     class:grid-hover={shouldShowHover}
      on:click={handleClick}
      on:keydown={(e) => e.key === 'Enter' && handleClick(e)}
 >
@@ -94,7 +98,7 @@
         width: 100%;
         height: 100%;
         cursor: pointer;
-        transition: opacity 0.3s ease;
+        transition: all 3s ease;
         perspective: 1000px;
         
         /* Variables CSS para posicionamiento consistente */
@@ -208,20 +212,24 @@
         transition: transform 0.3s ease;
     }
     
+    
     /* HOVER: Dispersión moderada - sin drama */
     .card-container.grid-hover .card-back {
-        transform: translate(-50%, -50%) scale(0.65) translateX(40px) translateY(-30px) translateZ(-30px) rotateY(0deg) !important;
-        transform-style: flat !important;
+        transform: translate(-50%, -50%) scale(0.65) translateX(40px) translateY(-30px) translateZ(-30px) rotateY(0deg);
+        transform-style: flat;
+        /* transition: transform 0.2s ease; */
     }
     
     .card-container.grid-hover .card-main {
-        transform: translate(-50%, -50%) scale(0.65) translateX(0px) translateY(30px) translateZ(-10px) rotateY(0deg) !important;
-        transform-style: flat !important;
+        transform: translate(-50%, -50%) scale(0.65) translateX(0px) translateY(30px) translateZ(-10px) rotateY(0deg);
+        transform-style: flat;
+        /* transition: transform 0.2s ease; */
     }
     
     .card-container.grid-hover .card-front {
-        transform: translate(-50%, -50%) scale(0.65) translateX(-40px) translateY(-30px) translateZ(30px) rotateY(0deg) !important;
-        transform-style: flat !important;
+        transform: translate(-50%, -50%) scale(0.65) translateX(-40px) translateY(-30px) translateZ(30px) rotateY(0deg);
+        transform-style: flat;
+        /* transition: transform 0.2s ease; */
     }
     
     /* SELECTED: Layout SÚPER DRAMÁTICO con offset del centro */

@@ -144,7 +144,7 @@ export const mapData: IMapLocation[] = [
 				title: 'NFT Paris',
 				subtitle: 'Lukas Truniger Showcase',
 				date: 'February 23rd, 2023',
-				location: '101 Rue Réaumur, PARIS',
+				location: '101 Rue Réaumur, Paris',
 				images: [nftParis01, nftParis02],
 				city: 'Paris'
 			},

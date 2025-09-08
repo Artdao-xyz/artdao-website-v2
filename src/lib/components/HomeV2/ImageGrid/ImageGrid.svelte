@@ -36,28 +36,22 @@
                 
                 wrapGrid(gridContainer, {
                     stagger: 0,
-                    duration: 200, // Animación más rápida para reducir desplazamiento
+                    duration: 300, // Animación más rápida para reducir desplazamiento
                     easing: 'easeIn',
                     onStart: (animatingElementList) => {
                         console.log('Grid animation started', animatingElementList);
                         isGridAnimating = true;
-
-                        setTimeout(() => {
                         hoverBlocked = true;
-                        // Limpiar hover actual
-                        // onImageHover(null);
-                        }, 300);
-                        // Deshabilitar pointer events en toda la grilla
-                        // gridContainer.style.pointerEvents = 'none';
+                        // Limpiar hover actual inmediatamente
+                        onImageHover(null);
                     },
                     onEnd: (animatingElementList) => {
                         console.log('Grid animation ended', animatingElementList);
                         isGridAnimating = false;
-                        // Rehabilitar después de un delay
+                        // Rehabilitar después de un delay más corto
                         setTimeout(() => {
                             hoverBlocked = false;
-                            // gridContainer.style.pointerEvents = 'auto';
-                        }, 300);
+                        }, 100);
                     }
                 });
             } catch (error) {
@@ -75,14 +69,14 @@
         // Solo usar el store para toggle de expansión
         toggleExpansion(originalIndex);
         
-        // Rehabilitar hover después de un breve delay
+        // Rehabilitar hover después de un delay más corto
         setTimeout(() => {
             hoverBlocked = false;
             // Forzar hover en el elemento clickeado si está expandido
             if (isProjectActive(originalIndex)) {
                 onImageHover(originalIndex);
             }
-        }, 150);
+        }, 50);
     }
 
     // Funciones para manejar hover de las cartas
@@ -108,6 +102,14 @@
         // Limpiar visibilidad de todos los botones
         clearAllButtons();
     }
+
+    // Función para manejar mouse move - más suave
+    function handleMouseMove(originalIndex: number) {
+        // Solo actualizar si no está animando y no está bloqueado
+        if (!hoverBlocked && !isGridAnimating) {
+            onImageHover(originalIndex);
+        }
+    }
     
     // Función para determinar si un proyecto está activo/expandido
     function isProjectActive(originalIndex: number) {
@@ -132,33 +134,7 @@
         }
         
         return shouldShow;
-    }
-    
-    // Actualizar visibilidad de botones cuando cambien los estados
-    $: {
-        // Actualizar botones para cada proyecto
-        orderedProjects.forEach(({ originalIndex }) => {
-            const isActive = isProjectActive(originalIndex);
-            const isHovered = hoveredProjectIndexes.includes(originalIndex);
-            const shouldShow = isActive && isHovered && !hoverBlocked && !isGridAnimating;
-            
-            // Actualizar inmediatamente sin delays
-            updateButtonVisibility(originalIndex, shouldShow);
-            
-            // Debug para el primer proyecto
-            if (originalIndex === 0) {
-                console.log(`Button visibility for project ${originalIndex}:`, {
-                    isActive,
-                    isHovered,
-                    shouldShow,
-                    expandedProjectIndex: $expandedProjectIndex,
-                    hoveredProjectIndexes,
-                    isGridAnimating,
-                    hoverBlocked
-                });
-            }
-        });
-    }
+    }   
 </script>
 
 <div 
@@ -177,6 +153,7 @@
             on:keydown={(e) => e.key === 'Enter' && handleClick(originalIndex)}
             on:mouseenter={() => handleMouseEnter(originalIndex)}
             on:mouseleave={handleMouseLeave}
+            on:mousemove={() => handleMouseMove(originalIndex)}
         >
                 <StackedCards3D
                     projects={project}
@@ -185,6 +162,7 @@
                     isHovered={hoveredProjectIndexes.includes(originalIndex)}
                     hasHover={hoveredProjectIndexes.length > 0}
                     index={originalIndex}
+                    isAnimating={isGridAnimating}
                     onSelect={() => {}}
                     onHover={onImageHover}
                 />

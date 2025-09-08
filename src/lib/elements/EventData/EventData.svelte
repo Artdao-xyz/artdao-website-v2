@@ -1,8 +1,7 @@
 <script lang="ts">
-	import closeButton from '$lib/assets/images/close-button-min.webp';
-	import mapBg from '$lib/assets/images/map-background.webp';
-	import buttonIcon from '$lib/assets/images/video-arrow.svg';
+
 	import { scale } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	import type { IMapEvent } from '../../../data/Map/MapData';
 	import { mapData } from '../../../data/Map/MapData';
 	export let imageToShow: string | undefined;
@@ -12,6 +11,7 @@
 
 	let height: number;
 	let index = 0;
+	let modalContainer: HTMLDivElement;
 
 	// Get other events from the same city
 	$: otherEvents = eventToShow ? 
@@ -26,19 +26,39 @@
 		eventToShow = event;
 		index = 0; // Reset to first image when switching events
 	};
+
+	// Handle click outside modal to close it
+	const handleClickOutside = (event: MouseEvent) => {
+		// Only close if clicking on the background (not on the modal content)
+		if (event.target === modalContainer) {
+			eventToShow = undefined;
+		}
+	};
 </script>
 
 <svelte:window bind:innerHeight={height} />
 {#if eventToShow}
 	<div
+		bind:this={modalContainer}
 		class="w-full h-full flex flex-col gap-5 items-center justify-center"
 		style="background: #F7F5F2 url('/media/home/home-dot.svg') repeat;"
+		on:click={handleClickOutside}
+		transition:fly={{ duration: 300 }}
+		on:keydown={(e) => {
+			if (e.key === 'Escape') {
+				eventToShow = undefined;
+			} else if (e.key === 'Enter' || e.key === ' ') {
+				handleClickOutside(e);
+			}
+		}}
+		tabindex="0"
+		role="button"
 	>
 		<div
-			class="h-fit max-h-[90vh] w-full max-w-2xl rounded-20 bg-[#101010] py-[26px] px-[20px] text-color-white gap-[20px] flex flex-col"
+			class="h-[70vh] w-full max-w-2xl rounded-20 bg-[#101010] py-[26px] px-[20px] text-color-white gap-[20px] flex flex-col"
 			in:scale
 		>
-			<div class="flex flex-col outline outline-1 outline-white/20 rounded-30 py-5 px-8">
+			<div class="flex flex-col outline outline-1 outline-white/20 rounded-10 py-4 px-8">
 				<div class="flex-row flex items-center justify-between gap-[10px]">
 					<h1
 						class="w-[500px] rounded-[100px] h-[44px] my-auto text-[20px] font-medium font-neue leading-[44px]"
@@ -48,6 +68,7 @@
 
 					<button
 					on:click={() => (eventToShow = undefined)}
+					on:click|stopPropagation
 					class="h-auto hover:opacity-70"
 					><svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd" clip-rule="evenodd" d="M0.120292 0.895504L0.895504 0.120292C1.05589 -0.0400972 1.30984 -0.0400972 1.45687 0.120292L5.49332 4.15674L9.54313 0.120292C9.69016 -0.0400972 9.94411 -0.0400972 10.0911 0.120292L10.8797 0.895504C11.0401 1.05589 11.0401 1.30984 10.8797 1.45687L6.84326 5.49332L10.8797 9.54313C11.0401 9.69016 11.0401 9.94411 10.8797 10.0911L10.0911 10.8797C9.94411 11.0401 9.69016 11.0401 9.54313 10.8797L5.49332 6.84326L1.45687 10.8797C1.30984 11.0401 1.05589 11.0401 0.895504 10.8797L0.120292 10.0911C-0.0400972 9.94411 -0.0400972 9.69016 0.120292 9.54313L4.15674 5.49332L0.120292 1.45687C-0.0400972 1.30984 -0.0400972 1.05589 0.120292 0.895504Z" fill="white"/>
@@ -55,9 +76,9 @@
 					</button>
 				</div>
 				
-				<div class="flex items-center justify-between gap-2.5 font-robotoMono text-xs font-bold leading-none tracking-wide">
-					<p class="w-1/2 flex items-center py-3 justify-center bg-[#989898]/20 h-full rounded-20">{eventToShow.location}</p>
-					<p class="w-1/2 flex items-center py-3 justify-center bg-[#989898]/20 h-full rounded-20">{eventToShow.date}</p>
+				<div class="flex items-center justify-between gap-2.5 font-robotoMono text-xs font-bold leading-none tracking-widest">
+					<p class="w-1/2 flex items-center py-2 justify-center bg-[#989898]/20 h-full rounded-20">{eventToShow.location}</p>
+					<p class="w-1/2 flex items-center py-2 justify-center bg-[#989898]/20 h-full rounded-20">{eventToShow.date}</p>
 
 				</div>
 			</div>
@@ -75,6 +96,7 @@
 							{#each eventToShow.images as image, i}
 								<button
 									on:click={() => index = i}
+									on:click|stopPropagation
 									class="w-20 h-20 rounded-[100px] overflow-hidden border-2 {index === i ? 'border-white' : 'border-white/0'} hover:border-white/80 transition-colors"
 								>
 									<img
@@ -89,16 +111,12 @@
 				</div>
 			</div>
 
-			<div
-				class="w-full py-[20px] px-[20px] bg-[#101010] flex flex-row justify-between items-center rounded-20 flex-none"
-			>
-				{#if eventToShow.watchMore}
-					<button
-						class="px-5 py-2.5 bg-[#989898]/20 hover:bg-[#989898]/40 w-full font-robotoMono text-xs leading-none tracking-wide rounded-[40px] outline outline-1 outline-white/20"
-						><a href={eventToShow.watchMore}>View more</a></button
-					>
-				{/if}
-			</div>
+			{#if eventToShow.watchMore}
+				<button
+					class="px-5 py-2.5 bg-[#989898]/20 hover:bg-[#989898]/40 w-full font-robotoMono text-xs leading-none tracking-wide rounded-[40px] outline outline-1 outline-white/20"
+					><a href={eventToShow.watchMore}>View more</a></button
+				>
+			{/if}
 		</div>
 
 		{#if otherEvents.length > 0}		

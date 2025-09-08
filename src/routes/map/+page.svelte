@@ -9,11 +9,11 @@
 	import EventDataMobile from '$lib/elements/EventDataMobile/EventDataMobile.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
-	import { EColorVariant } from '../../constants/enums';
 	import { eventImages, mapData, type IMapEvent, type IMapLocation } from '../../data/Map/MapData';
 	import preloadImages from '../../utils/preloadImages';
 	import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	import Navbar from '$lib/components/HomeV2/Navbar/Navbar.svelte';
 	let eventToShow: IMapEvent | undefined = undefined;
 	let width: number;
 	let mapLocationToShow: IMapLocation | undefined;
@@ -59,7 +59,7 @@
 			? 'pt-[3rem]'
 			: 'p-0'} sm:pt-0"
 	>
-		<div
+		<!-- <div
 			class="w-dvw rounded-[6.25rem] h-[1rem] sm:flex flex-row items-center z-50 absolute top-[2.88%] left-[0%] mx-[1.625rem] gap-2.5 hidden"
 		>
 			<a href={'/'}>
@@ -69,7 +69,9 @@
 					<img src={buttonIcon} alt="Go to home" class="rotate-180 w-[10px]" />
 				</div>
 			</a>
-		</div>
+		</div> -->
+
+		<Navbar />
 		{#if width > 768}
 			{#if !eventToShow}
 				<SectionContainer hasPadding={false}>
