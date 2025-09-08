@@ -119,8 +119,9 @@
     // Función para determinar si mostrar el botón Enter the zine
     function shouldShowEnterButton(originalIndex: number) {
         const isActive = isProjectActive(originalIndex);
-        // Mostrar el botón automáticamente cuando el proyecto está expandido
-        return isActive;
+        const isHovered = hoveredProjectIndexes.includes(originalIndex);
+        // Mostrar el botón cuando está expandido Y hovereado
+        return isActive && isHovered;
     }   
 </script>
 
@@ -157,7 +158,7 @@
                 <!-- Botón Enter the zine -->
                 <EnterZineButton 
                     href={project.pagePath}
-                    isVisible={shouldShowEnterButton(originalIndex)}
+                    isVisible={isProjectActive(originalIndex) && hoveredProjectIndexes.includes(originalIndex)}
                 />
         </div>
     {/each}
