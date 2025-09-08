@@ -67,6 +67,12 @@
                     {projects.artworks[1]}
                 </div>
             {/if}
+            <!-- Quote dentro de la capa principal -->
+            {#if isSelected && projects.quote}
+                <div class="quote-container">
+                    <p class="quote-text">{projects.quote}</p>
+                </div>
+            {/if}
         </div>
     {/if}
     
@@ -83,12 +89,6 @@
         </div>
     {/if}
     
-    <!-- Quote absoluto centrado abajo -->
-    {#if isSelected && projects.quote}
-        <div class="quote-container">
-            <p class="quote-text">{projects.quote}</p>
-        </div>
-    {/if}
 </div>
 
 <style>
@@ -239,32 +239,28 @@
     }
     
     .card-container.selected .card-main {
-        transform: translate(-50%, -50%) scale(0.6) translateX(0px) translateY(120px) translateZ(0px) rotateY(0deg) !important;
+        transform: translate(-50%, -50%) scale(0.6) translateX(0px) translateY(30%) translateZ(0px) rotateY(0deg) !important;
     }
     
     .card-container.selected .card-front {
         transform: translate(-50%, -50%) scale(0.6) translateX(-200px) translateY(-120px) translateZ(0px) rotateY(15deg) !important;
     }
     
-    /* Quote container - posicionamiento absoluto centrado abajo */
+    /* Quote container - posicionamiento relativo dentro de la capa principal */
     .quote-container {
-        position: absolute;
-        bottom: 0%;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 20;
-        width: 70%;
+        position: relative;
+        width: 200%;
         text-align: center;
+        margin-top: 12px;
+        z-index: 20;
     }
     
     .quote-text {
         color: black;
-        font-size: 12px;
-        font-weight: 400;
+        font-size: 20px;
         font-family: 'Roboto Mono', monospace;
-        line-height: 1.4;
+        line-height: 1.3;
         margin: 0;
-        padding: 8px 12px;
     }
     
 </style>
