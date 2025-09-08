@@ -98,7 +98,7 @@
         width: 100%;
         height: 100%;
         cursor: pointer;
-        transition: all 3s ease;
+        transition: opacity 0.3s ease;
         perspective: 1000px;
         
         /* Variables CSS para posicionamiento consistente */

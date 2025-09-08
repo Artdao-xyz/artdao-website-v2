@@ -51,7 +51,7 @@
                         // Rehabilitar después de un delay más corto
                         setTimeout(() => {
                             hoverBlocked = false;
-                        }, 100);
+                        }, 50);
                     }
                 });
             } catch (error) {
@@ -119,21 +119,8 @@
     // Función para determinar si mostrar el botón Enter the zine
     function shouldShowEnterButton(originalIndex: number) {
         const isActive = isProjectActive(originalIndex);
-        const isHovered = hoveredProjectIndexes.includes(originalIndex);
-        const shouldShow = isActive && isHovered;
-        
-        // Debug detallado para el primer proyecto
-        if (originalIndex === 0) {
-            console.log(`shouldShowEnterButton(${originalIndex}):`, {
-                isActive,
-                isHovered,
-                shouldShow,
-                expandedProjectIndex: $expandedProjectIndex,
-                hoveredProjectIndexes: [...hoveredProjectIndexes]
-            });
-        }
-        
-        return shouldShow;
+        // Mostrar el botón automáticamente cuando el proyecto está expandido
+        return isActive;
     }   
 </script>
 
@@ -170,7 +157,7 @@
                 <!-- Botón Enter the zine -->
                 <EnterZineButton 
                     href={project.pagePath}
-                    isVisible={$buttonVisibility[originalIndex] || false}
+                    isVisible={shouldShowEnterButton(originalIndex)}
                 />
         </div>
     {/each}
