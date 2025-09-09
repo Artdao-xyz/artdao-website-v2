@@ -69,12 +69,18 @@
 
 		const textureLoader = new THREE.TextureLoader();
 
-		// Preload the matcap texture
-		const textures = textureLoader.load(
+		// Preload the matcap texture and create metaball only when loaded
+		textureLoader.load(
 			'/metaball/matcap-black.png',
-			() => {
-				// console.log('Texture loaded!');
-				// Texture is now loaded and can be used
+			(texture) => {
+				// Texture is now loaded, create the metaball
+				metaSymbol = new MetaSymbol(texture);
+				scene.add(metaSymbol.getMesh());
+
+				// Activar fade-in después de que el Metaball esté listo
+				setTimeout(() => {
+					isLoaded = true;
+				}, 100);
 			},
 			undefined,
 			(error) => {
@@ -82,22 +88,16 @@
 			}
 		);
 
-		metaSymbol = new MetaSymbol(textures);
-		scene.add(metaSymbol.getMesh());
-
 		/* ANIMATION */
 		const animate = () => {
 			requestAnimationFrame(animate);
-			metaSymbol.update();
+			if (metaSymbol) {
+				metaSymbol.update();
+			}
 			composer.render();
 		};
 
 		animate();
-
-		// Activar fade-in después de que el Metaball esté listo
-		setTimeout(() => {
-			isLoaded = true;
-		}, 100);
 
 		// document.addEventListener('wheel', () => {
 		// 	console.log('wheel');
