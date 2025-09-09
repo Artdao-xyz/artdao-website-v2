@@ -14,14 +14,10 @@
     $: isMapRoute = $page.url.pathname === '/map';
     $: isHomeRoute = $page.url.pathname === '/';
     onMount(() => {
-        // Estado para controlar si ya se activó la transición
-        let hasTriggered = false;
-        
-        // Detectar interacciones del mouse
-        const handleMouseInteraction = () => {
+        // Función para mover la metabola al navbar
+        const moveMetaballToNavbar = () => {
             const metaball = $metaballRef;
-            if (metaball && !hasTriggered && !$isMetaballTransitioning) {
-                hasTriggered = true; // Marcar como activado para siempre
+            if (metaball && !$isMetaballTransitioning) {
                 isMetaballTransitioning.set(true);
                 
                 // Obtener la posición del span
@@ -59,14 +55,10 @@
             }
         };
         
-        // Eventos del mouse
-        document.addEventListener('wheel', handleMouseInteraction, { passive: true });
-        document.addEventListener('mousemove', handleMouseInteraction, { passive: true });
-        
-        return () => {
-            document.removeEventListener('wheel', handleMouseInteraction);
-            document.removeEventListener('mousemove', handleMouseInteraction);
-        };
+        // Mover la metabola automáticamente después de 2 segundos
+        setTimeout(() => {
+            moveMetaballToNavbar();
+        }, 2000);
     });
 </script>
 

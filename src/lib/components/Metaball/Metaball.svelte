@@ -13,6 +13,7 @@
 
 	let canvas: any = null;
 	let metaSymbol: any = null;
+	let isLoaded = false;
 
 	const scene = new THREE.Scene();
 
@@ -93,6 +94,11 @@
 
 		animate();
 
+		// Activar fade-in después de que el Metaball esté listo
+		setTimeout(() => {
+			isLoaded = true;
+		}, 100);
+
 		// document.addEventListener('wheel', () => {
 		// 	console.log('wheel');
 		// });
@@ -126,12 +132,23 @@
 
 {#if isHomePage}
 	<!-- En la página principal: Metaball fijo en el centro -->
-	<canvas bind:this={canvas} class="bg-transparent fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
+	<canvas 
+		bind:this={canvas} 
+		class="bg-transparent fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 transition-opacity duration-500 ease-in-out"
+		class:opacity-0={!isLoaded}
+		class:opacity-100={isLoaded}
+		style="transition-delay: {isLoaded ? '200ms' : '0ms'}"
+	>
 	</canvas>
 {:else}
 	<!-- En otras páginas: Metaball como enlace flotante -->
 	<a href={width <= 768 ? HOME : '#intro'}>
-		<canvas bind:this={canvas} class="bg-transparent relative">
+		<canvas 
+			bind:this={canvas} 
+			class="bg-transparent relative transition-opacity duration-600 ease-in-out"
+			class:opacity-0={!isLoaded}
+			class:opacity-100={isLoaded}
+		>
 		</canvas>
 	</a>
 {/if}

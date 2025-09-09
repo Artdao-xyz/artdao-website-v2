@@ -1,7 +1,6 @@
 <script lang="ts">
     import { projects as projectsData, type Project } from '../../../../constants/projects';
     import StackedCards3D from '../../../components/StackedCards3D/StackedCards3D.svelte';
-    import EnterZineButton from '../EnterZineButton/EnterZineButton.svelte';
     import { onMount } from 'svelte';
     import { expandedProjectIndex, toggleExpansion } from '../../../stores/expansionStore';
     import { buttonVisibility, updateButtonVisibility, clearAllButtons } from '../../../stores/buttonVisibilityStore';
@@ -151,15 +150,11 @@
                     hasHover={hoveredProjectIndexes.length > 0}
                     index={originalIndex}
                     isAnimating={isGridAnimating}
+                    showEnterButton={isProjectActive(originalIndex) && hoveredProjectIndexes.includes(originalIndex)}
                     onSelect={() => {}}
                     onHover={onImageHover}
                 />
 
-                <!-- Botón Enter the zine -->
-                <EnterZineButton 
-                    href={project.pagePath}
-                    isVisible={isProjectActive(originalIndex) && hoveredProjectIndexes.includes(originalIndex)}
-                />
         </div>
     {/each}
 

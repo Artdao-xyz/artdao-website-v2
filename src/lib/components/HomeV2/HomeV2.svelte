@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
+    import { fly } from 'svelte/transition';
     import { projects, type Project } from '../../../constants/projects';
     import ProjectsColumn from './ProjectsColumn/ProjectsColumn.svelte';
     import ImageGrid from './ImageGrid/ImageGrid.svelte';
@@ -35,6 +37,17 @@
     
     // Referencias a los botones de imagen para hacer scroll
     let imageButtons: HTMLAnchorElement[] = [];
+    
+    // Estado para controlar la aparición escalonada de las imágenes
+    let showImages = false;
+    
+    // Activar las imágenes después de que la metabola haya terminado su fade-in
+    onMount(() => {
+        // Delay para que aparezcan después de la metabola (500ms + 200ms delay = 700ms)
+        setTimeout(() => {
+            showImages = true;
+        }, 800);
+    });
     
     // Sincronizar selectedProjectIndexes con el store de expansión
     $: {
@@ -199,67 +212,75 @@
         </div>
         
         <!-- Columna 1: Projects (solo espacio necesario) -->
-        <div class="hidden lg:block flex-shrink-0">
-            <ProjectsColumn 
-                projects={projects}
-                selectedProjectIndexes={selectedProjectIndexes}
-                {hoveredProjectIndexes}
-                onProjectClick={scrollToProject}
-                onProjectHover={handleProjectHover}
-                variant="desktop"
-            />
-        </div>
+        {#if showImages}
+            <div class="hidden lg:block flex-shrink-0" transition:fly={{ y: 30, duration: 600, delay: 200 }}>
+                <ProjectsColumn 
+                    projects={projects}
+                    selectedProjectIndexes={selectedProjectIndexes}
+                    {hoveredProjectIndexes}
+                    onProjectClick={scrollToProject}
+                    onProjectHover={handleProjectHover}
+                    variant="desktop"
+                />
+            </div>
+        {/if}
         
         <!-- Columnas 2, 3, 4: Grilla única de 3xN con imágenes (ocupa todo el espacio) -->
-        <div class="hidden lg:block flex-1 min-w-0 overflow-visible">
-            <ImageGrid 
-                projects={projects}
-                selectedProjectIndexes={selectedProjectIndexes}
-                {hoveredProjectIndexes}
-                {imageButtons}
-                onImageHover={handleCardHover}
-                onImageSelect={scrollToProject}
-            />
-        </div>
+        {#if showImages}
+            <div class="hidden lg:block flex-1 min-w-0 overflow-visible" transition:fly={{ y: 30, duration: 600, delay: 300 }}>
+                <ImageGrid 
+                    projects={projects}
+                    selectedProjectIndexes={selectedProjectIndexes}
+                    {hoveredProjectIndexes}
+                    {imageButtons}
+                    onImageHover={handleCardHover}
+                    onImageSelect={scrollToProject}
+                />
+            </div>
+        {/if}
         
         <!-- Columna 5: Artists (solo espacio necesario) -->
-        <div class="hidden lg:block flex-shrink-0">
-            <ArtistsColumn 
-                {artists}
-                selectedProjectIndexes={selectedProjectIndexes}
-                {selectedArtists}
-                {highlightedArtists}
-                {hoveredProjectIndex}
-                onArtistClick={toggleArtist}
-                onArtistHover={handleArtistHover}
-                variant="desktop"
-            />
-        </div>
+        {#if showImages}
+            <div class="hidden lg:block flex-shrink-0" transition:fly={{ y: 30, duration: 600, delay: 400 }}>
+                <ArtistsColumn 
+                    {artists}
+                    selectedProjectIndexes={selectedProjectIndexes}
+                    {selectedArtists}
+                    {highlightedArtists}
+                    {hoveredProjectIndex}
+                    onArtistClick={toggleArtist}
+                    onArtistHover={handleArtistHover}
+                    variant="desktop"
+                />
+            </div>
+        {/if}
         
         <!-- Layout Mobile: Columnas de proyectos y artistas -->
-        <div class="lg:hidden flex-1 grid grid-cols-2 w-full h-full min-h-0">
-            <!-- Columna Izquierda: Proyectos -->
-            <ProjectsColumn 
-                projects={projects}
-                selectedProjectIndexes={selectedProjectIndexes}
-                {hoveredProjectIndexes}
-                onProjectClick={scrollToProject}
-                onProjectHover={handleProjectHover}
-                variant="mobile"
-            />
-            
-            <!-- Columna Derecha: Artistas -->
-            <ArtistsColumn 
-                {artists}
-                selectedProjectIndexes={selectedProjectIndexes}
-                {selectedArtists}
-                {highlightedArtists}
-                {hoveredProjectIndex}
-                onArtistClick={toggleArtist}
-                onArtistHover={handleArtistHover}
-                variant="mobile"
-            />
-        </div>
+        {#if showImages}
+            <div class="lg:hidden flex-1 grid grid-cols-2 w-full h-full min-h-0" transition:fly={{ y: 30, duration: 600, delay: 200 }}>
+                <!-- Columna Izquierda: Proyectos -->
+                <ProjectsColumn 
+                    projects={projects}
+                    selectedProjectIndexes={selectedProjectIndexes}
+                    {hoveredProjectIndexes}
+                    onProjectClick={scrollToProject}
+                    onProjectHover={handleProjectHover}
+                    variant="mobile"
+                />
+                
+                <!-- Columna Derecha: Artistas -->
+                <ArtistsColumn 
+                    {artists}
+                    selectedProjectIndexes={selectedProjectIndexes}
+                    {selectedArtists}
+                    {highlightedArtists}
+                    {hoveredProjectIndex}
+                    onArtistClick={toggleArtist}
+                    onArtistHover={handleArtistHover}
+                    variant="mobile"
+                />
+            </div>
+        {/if}
     </div>
 
 </div>
