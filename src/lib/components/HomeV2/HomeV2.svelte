@@ -13,8 +13,8 @@
     const projectTitles = projects.map((p: Project) => p.title);
     
     // Debug: ver qué está pasando con los datos
-    console.log('Projects data:', projects);
-    console.log('Project titles:', projectTitles);
+    // console.log('Projects data:', projects);
+    // console.log('Project titles:', projectTitles);
     
     // Extraer todos los artistas únicos de todos los proyectos
     const allArtists = [...new Set(projects.flatMap((p: Project) => p.artists))];
@@ -47,6 +47,35 @@
         setTimeout(() => {
             showImages = true;
         }, 800);
+        
+        // Agregar event listener para clicks fuera de proyectos y botones
+        function handleClickOutside(event: MouseEvent) {
+            const target = event.target as HTMLElement;
+            
+            // Verificar si el click fue en un proyecto, botón, o elemento relacionado
+            const isProjectClick = target.closest('.grid-item') || 
+                                 target.closest('.card-container') ||
+                                 target.closest('.project-item') ||
+                                 target.closest('.artist-item') ||
+                                 target.closest('a[href]') ||
+                                 target.closest('button');
+            
+            // Si no fue en un proyecto/botón y hay algo seleccionado, deseleccionar
+            if (!isProjectClick && selectedProjectIndexes.length > 0) {
+                selectedProjectIndexes = [];
+                selectedArtists = [];
+                highlightedArtists = [];
+                collapseAll();
+            }
+        }
+        
+        // Agregar el event listener al documento
+        document.addEventListener('click', handleClickOutside);
+        
+        // Cleanup function
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
     });
     
     // Sincronizar selectedProjectIndexes con el store de expansión
@@ -195,9 +224,7 @@
     }
 </script>
 
-<div class="relative w-full min-h-screen lg:h-screen text-white flex flex-col gap-10 lg:gap-0 items-center lg:justify-center bg-dot overflow-visible">
-    
-    <Navbar />
+<div class="relative w-full min-h-screen lg:h-screen text-white flex flex-col gap-10 lg:gap-0 items-center lg:justify-center overflow-visible">
     
     <!-- Layout Unificado -->
     <div class="w-full flex flex-col lg:flex-row lg:max-w-screen-2xl lg:h-screen overflow-visible">
@@ -285,8 +312,3 @@
 
 </div>
 
-<style>
-    .bg-dot {
-        background: #F7F5F2 url("/media/home/home-dot.svg") repeat;
-    }
-</style>

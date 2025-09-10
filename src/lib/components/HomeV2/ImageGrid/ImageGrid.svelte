@@ -38,14 +38,14 @@
                     duration: 300, // Animación más rápida para reducir desplazamiento
                     easing: 'easeIn',
                     onStart: (animatingElementList) => {
-                        console.log('Grid animation started', animatingElementList);
+                        // console.log('Grid animation started', animatingElementList);
                         isGridAnimating = true;
                         hoverBlocked = true;
                         // Limpiar hover actual inmediatamente
                         onImageHover(null);
                     },
                     onEnd: (animatingElementList) => {
-                        console.log('Grid animation ended', animatingElementList);
+                        // console.log('Grid animation ended', animatingElementList);
                         isGridAnimating = false;
                         // Rehabilitar después de un delay más corto
                         setTimeout(() => {

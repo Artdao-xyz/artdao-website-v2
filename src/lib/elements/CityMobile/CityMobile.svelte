@@ -6,46 +6,48 @@
 	export let mapLocationToShow: IMapLocation | undefined;
 	export let isSelected = false;
 
-	const toggleSelected = () => {
-		isSelected = !isSelected;
-	};
-
 	const handleOnClick = (event: IMapEvent) => {
 		eventToShow = event;
 	};
 
 	const handleMobileLocationClick = (mapLocation: IMapLocation) => {
-		mapLocationToShow = mapLocation;
+		if (mapLocationToShow === mapLocation) {
+			// Si es la misma ciudad, deseleccionar
+			mapLocationToShow = undefined;
+		} else {
+			// Si es una ciudad diferente, seleccionar
+			mapLocationToShow = mapLocation;
+		}
 	};
+
+	// Sincronizar isSelected con mapLocationToShow
+	$: isSelected = mapLocationToShow === mapLocation;
 </script>
 
 {#if mapLocation}
 	<div class="flex flex-col gap-[15px] justify-center items-center h-fit w-full">
 		<button
-			on:click={() => {
-				toggleSelected;
-				handleMobileLocationClick(mapLocation);
-			}}
-			class="relative flex flex-row items-center justify-center w-40 h-6 px-4 py-[5px] {isSelected ? 'bg-[#101010]' : 'bg-[#f7f5f2]'} rounded-[100px] outline outline-1 outline-black"
+			on:click={() => handleMobileLocationClick(mapLocation)}
+			class="relative flex flex-row items-center justify-center w-full h-10 px-4 py-[5px] {isSelected ? 'bg-[#101010]' : 'bg-[#f7f5f2]'} rounded-[100px] outline outline-1 outline-black"
 		>
 			<p
-				class="w-full {isSelected ? 'text-[#f7f5f2]' : 'text-[#101010]'} text-xs font-normal font-robotoMono leading-none tracking-wide capitalize flex items-center justify-center"
+				class="w-full {isSelected ? 'text-[#f7f5f2]' : 'text-[#101010]'} text-lg font-normal font-robotoMono leading-none tracking-wide capitalize flex items-center justify-center"
 			>
 				{mapLocation.location}
 			</p>
 
-			<div class="w-[0.75rem] h-[0.75rem] {isSelected ? 'bg-[#f7f5f2]' : 'bg-[#101010]'} rounded-[100px]" />
+			<div class="hidden sm:block w-[0.75rem] h-[0.75rem] {isSelected ? 'bg-[#f7f5f2]' : 'bg-[#101010]'} rounded-[100px]" />
 		</button>
 
 		{#if isSelected}
-			<div class="flex flex-col justify-center items-center gap-[20px] w-40 bg-[#101010] rounded-[20px] outline outline-1 outline-[#f7f5f2] py-[20px] px-[20px]">
+			<div class="flex flex-col justify-center items-center gap-[20px] w-full bg-[#101010] rounded-[20px] outline outline-1 outline-[#f7f5f2] py-[20px] px-[20px] transition-all duration-300 ease-in-out">
 				{#each mapLocation.events as event}
 					<button
 						on:click={() => handleOnClick(event)}
-						class="group w-full h-6 px-4 py-[5px] bg-[#101010] hover:bg-[#f7f5f2] rounded-[100px] outline outline-1 outline-[#f7f5f2] hover:outline-[#101010] flex justify-center items-center"
+						class="group w-full h-10 px-4 py-[5px] bg-[#101010] hover:bg-[#f7f5f2] rounded-[100px] outline outline-1 outline-[#f7f5f2] hover:outline-[#101010] flex justify-center items-center transition-all duration-200"
 					>
 						<p
-							class="text-[#f7f5f2] text-xs font-normal font-robotoMono leading-none tracking-wide group-hover:text-[#101010]"
+							class="text-[#f7f5f2] font-normal font-robotoMono leading-none tracking-wide group-hover:text-[#101010]"
 						>
 							{event.title}
 						</p>

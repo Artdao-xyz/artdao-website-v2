@@ -126,7 +126,7 @@ export const mapData: IMapLocation[] = [
 				watchMore: RAVE
 			},
 			{
-				title: 'ARTIFICE',
+				title: 'Artifice',
 				subtitle: 'Exhibition / Party',
 				date: 'May 28th-30th, 2024',
 				location: 'RNA Studio, Lisbon',

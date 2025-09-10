@@ -66,20 +66,6 @@
 		const styleStore = indexStyle.subscribe((value) => {
 			index = value;
 		});
-		onfocus = () => {
-			// console.log('focus');
-			if (input.value.trim().length > 0) {
-				submit.style.visibility = 'visible';
-			}
-		};
-
-		onkeyup = () => {
-			if (input.value.trim().length > 0) {
-				submit.style.visibility = 'visible';
-			} else {
-				submit.style.visibility = 'hidden';
-			}
-		};
 
 		return styleStore;
 	});
@@ -121,7 +107,7 @@
 						bind:this={input}
 						type="email"
 						name="EMAIL"
-						class="flex-1 text-color-white placeholder:text-color-white {!isFooter
+						class="flex-1 min-w-0 text-color-white placeholder:text-color-white {!isFooter
 							? 'text-[1rem]'
 							: 'text-[14px] md:text-[1rem]'} font-medium font-clash leading-5 bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] h-full"
 						required
@@ -131,9 +117,12 @@
 					<button
 						bind:this={submit}
 						type="submit"
-						class="text-color-white hover:bg-color-white hover:text-color-black transition-all duration-300 rounded-[6.25rem] shadow-custom invisible py-[0.125rem] px-4 font-clash leading-[0.875rem] text-[0.875rem] font-medium whitespace-nowrap h-full border border-color-white"
+						class="text-white bg-black hover:bg-gray-800 transition-all duration-300 rounded-[6.25rem] py-[0.125rem] px-4 font-clash leading-[0.875rem] text-[0.875rem] font-medium whitespace-nowrap h-full relative overflow-hidden"
+						style="background: linear-gradient(135deg, white 0%, white 1px, black 1px, black 100%); padding: 1px;"
 					>
-						Subscribe
+						<div class="bg-black rounded-[6.25rem] h-full flex items-center justify-center px-3 py-[0.125rem]">
+							Submit
+						</div>
 					</button>
 				</div>
 				<div aria-hidden="true" style="position: absolute; left: -5000px;">

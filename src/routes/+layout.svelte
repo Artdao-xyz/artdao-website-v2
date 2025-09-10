@@ -5,9 +5,11 @@
 	import { page } from '$app/stores';
 	import { metaballProgress } from '../utils/metaball/getMetaballProgress';
 	import { metaballRef } from '$lib/components/HomeV2/store';
-	
+	import Navbar from '$lib/components/HomeV2/Navbar/Navbar.svelte';
 	// Determinar si estamos en la página principal
 	$: isHomePage = $page?.route?.id === '/';
+	$: isMapPage = $page?.route?.id === '/map';
+	$: shouldShowNavbar = isHomePage || isMapPage;
 
 	// Reset metaballProgress when route changes
 	$: if ($page) {
@@ -51,11 +53,14 @@
 	<link rel="canonical" href="https://artdao.xyz" />
 </svelte:head>
 
+
 <!-- Metaball condicional según la ruta -->
 {#if isHomePage}
     <!-- En la página principal: Metaball extra-grande y fijo en el centro -->
-    <div bind:this={metaballContainer} class="hidden lg:block fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
-        <Metaball {isHomePage} size="extra-large" />
+    <div class="hidden lg:block fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
+        <div bind:this={metaballContainer}>
+            <Metaball {isHomePage} size="extra-large" />
+        </div>
     </div>
 {:else}
     <!-- En otras páginas: Metaball pequeño y flotante en la esquina -->
@@ -64,4 +69,16 @@
     </div>
 {/if}
 
-<slot />
+<div class="h-svh w-full flex flex-col bg-dot">	
+	{#if shouldShowNavbar}
+		<Navbar />
+	{/if}
+	<slot />
+</div>
+
+<style>
+	.bg-dot {
+		background: #F7F5F2 url("/media/home/home-dot.svg") repeat;
+		background-size: 20px 20px;
+	}
+</style>

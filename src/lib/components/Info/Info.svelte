@@ -32,12 +32,12 @@
 
 <button 
     type="button"
-    class="fixed w-dvw h-dvh z-50 backdrop-blur-2xl backdrop-brightness-50 flex flex-col items-center justify-center gap-4"
+    class="fixed w-dvw h-dvh z-50 bg-black/80 backdrop-blur-2xl backdrop-brightness-50 flex flex-col items-center justify-center gap-4"
     transition:fly={{ duration: 300 }}
     on:click={handleBackdropClick}
 >
     <img class="h-14" src={artDaoLogo} alt="ArtDao Logo">
-    <div class="font-clash text-md font-medium leading-tight">
+    <div class="font-clash text-md text-white font-medium leading-tight">
         <h3>{text1}</h3>
         <h3>{text2}</h3>
     </div>

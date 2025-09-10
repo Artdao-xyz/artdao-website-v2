@@ -3,6 +3,4 @@
 	import '../../style.css';
 </script>
 
-<NavBar isMap navItems={[]} />
-
 <slot />

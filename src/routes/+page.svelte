@@ -2,9 +2,8 @@
 	import HomeV2 from '$lib/components/HomeV2/HomeV2.svelte';
 </script>
 
-<div class="h-svh w-full">
-	<HomeV2/>
-</div>
+
+<HomeV2/>
 
 <style>
 	:global(html) {

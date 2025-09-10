@@ -13,7 +13,6 @@
 	import preloadImages from '../../utils/preloadImages';
 	import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
-	import Navbar from '$lib/components/HomeV2/Navbar/Navbar.svelte';
 	let eventToShow: IMapEvent | undefined = undefined;
 	let width: number;
 	let mapLocationToShow: IMapLocation | undefined;
@@ -21,57 +20,21 @@
 	$: index = 0;
 	$: imageToShow = eventToShow?.images[index];
 
-	$: isNextButtonDisabled = Boolean(eventToShow && eventToShow.images.length - 1 === index);
-
-	$: isPrevButtonDisabled = index === 0;
-
-	const handleNextButton = () => {
-		if (Boolean(eventToShow && eventToShow.images.length > index + 1)) {
-			index += 1;
-		}
-	};
-
-	const handlePrevButton = () => {
-		if (index !== 0) {
-			index -= 1;
-		}
-	};
-
-	let preloadedImages: Promise<string[][]>;
-	let preloadedEventImages: Promise<string[][]>;
-
-	onMount(() => {
-		preloadedImages = preloadImages([[mapBg]]);
-		preloadedEventImages = preloadImages([eventImages]);
-	});
 </script>
 
 <svelte:window bind:innerWidth={width} />
 
 <HomeMobileMenu section="drop" />
 
-{#await preloadedImages}
+{#await preloadImages([[mapBg]])}
 	<LoadingV2 />
 {:then images}
 	<div
 		transition:fly={{ duration: 300 }}
-		class="h-[100dvh] flex justify-center items-center relative w-full {width > 768
-			? 'pt-[3rem]'
-			: 'p-0'} sm:pt-0"
+		class="h-[calc(100vh-4rem)] flex justify-center items-center relative w-full"
+		style="background-color: #F7F5F2; background-image: url('/media/map/map-mobile.png'); background-repeat: no-repeat; background-size: cover; background-position: center;"
 	>
-		<!-- <div
-			class="w-dvw rounded-[6.25rem] h-[1rem] sm:flex flex-row items-center z-50 absolute top-[2.88%] left-[0%] mx-[1.625rem] gap-2.5 hidden"
-		>
-			<a href={'/'}>
-				<div
-					class="rounded-[100px] nav-gradient-unselected w-[24px] h-[24px] flex flex-row items-center justify-center"
-				>
-					<img src={buttonIcon} alt="Go to home" class="rotate-180 w-[10px]" />
-				</div>
-			</a>
-		</div> -->
 
-		<Navbar />
 		{#if width > 768}
 			{#if !eventToShow}
 				<SectionContainer hasPadding={false}>
@@ -91,10 +54,12 @@
 						isCenter={eventToShow.isCenter}
 					/>
 			{/if}
-		{:else if !mapLocationToShow}
+		{:else if !eventToShow}
 			<div
-				class="flex flex-col gap-[15px] w-full bg-color-gray py-[4.5rem] px-[20px] h-full self-start"
+				class="flex flex-col justify-center items-center gap-[15px] w-full bg-color-gray py-[4.5rem] px-[20px] h-full self-start relative"
 			>
+				<!-- Map background for mobile -->
+				
 				<CityMobile mapLocation={mapData[0]} bind:eventToShow bind:mapLocationToShow />
 				<CityMobile mapLocation={mapData[1]} bind:eventToShow bind:mapLocationToShow />
 				<!-- <CityMobile mapLocation={mapData[2]} bind:eventToShow bind:mapLocationToShow /> -->
@@ -102,31 +67,14 @@
 				<CityMobile mapLocation={mapData[4]} bind:eventToShow bind:mapLocationToShow />
 				<CityMobile mapLocation={mapData[5]} bind:eventToShow bind:mapLocationToShow />
 			</div>
-		{:else if !eventToShow}
-			<div
-				class="flex flex-col items-center justify-between gap-[15px] w-full bg-color-gray py-[4.5rem] px-[20px] h-full self-start"
-			>
-				<CityMobile
-					mapLocation={mapLocationToShow}
-					bind:eventToShow
-					bind:mapLocationToShow
-					isSelected
-				/>
-
-				<button
-					on:click={() => (mapLocationToShow = undefined)}
-					class="w-full h-[47px] py-[14px] px-[24px] sm:max-w-[400px] font-robotoMono text-[16px] leading-[1rem] tracking-[0.156px] rounded-[0.9375rem] gray-gradient sm:mx-auto"
-					>Go Back</button
-				>
-			</div>
 		{:else}
 			<div
-				class="flex flex-col items-center gap-[15px] w-full bg-color-gray py-[4.5rem] px-[20px] h-fit self-start"
+				class="flex flex-col justify-center items-center gap-[15px] w-full bg-color-gray py-[4.5rem] px-[20px] h-full self-start relative"
 			>
+				<!-- Map background for mobile -->
+				
 				<EventDataMobile bind:eventToShow />
 			</div>
 		{/if}
 	</div>
-
-	<HomeIcon />
 {/await}

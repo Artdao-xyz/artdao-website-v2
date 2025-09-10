@@ -11,7 +11,7 @@
     export let variant: 'mobile' | 'desktop' = 'desktop';
     
     // Debug: ver qué está recibiendo
-    console.log('ProjectsColumn received projects:', projects);
+    // console.log('ProjectsColumn received projects:', projects);
     
     // Ordenar proyectos: solo seleccionados primero, hover no cambia posición
     $: sortedProjects =  projects.map((project, index) => ({ project, index })); // Sin selección, orden original

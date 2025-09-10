@@ -23,7 +23,7 @@
     // Solo aplicar hover si no está animando
     $: shouldShowHover = isHovered && !isAnimating;
     
-    $: console.log('isHovered', isHovered, 'isSelected', isSelected, 'isAnimating', isAnimating, 'shouldShowHover', shouldShowHover);
+    // $: console.log('isHovered', isHovered, 'isSelected', isSelected, 'isAnimating', isAnimating, 'shouldShowHover', shouldShowHover);
     
     function handleClick(event: MouseEvent | KeyboardEvent) {
         if (!isSelected) {
@@ -95,15 +95,21 @@
         <a 
             href={projects.pagePath}
             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30
-                   h-32 w-32 px-5 py-11 bg-[#d9d9d9]/20 rounded-[999px] outline outline-2 outline-white backdrop-blur-[2px] inline-flex flex-col justify-center items-center gap-2.5
+                   h-44 w-44 inline-flex flex-col justify-center items-center gap
                    transition-all duration-200
                    hover:scale-110 hover:shadow-xl
-                   opacity-100 scale-100"
+                   opacity-100 scale-100 rounded-[9999px]"
             on:click={(e) => {
                 e.stopPropagation();
             }}
         >
-            <div class="justify-center text-white text-[10px] font-normal font-robotoMono leading-3 tracking-tight">Enter the Zine</div>
+            <!-- Glass effect button -->
+            <div class="w-full h-full bg-blend-screen bg-white/10 flex items-center justify-center rounded-[9999px] glass-button-shadow backdrop-blur-[4px] p-3">
+                <div class="w-full h-full bg-blend-screen bg-white/10 flex items-center justify-center rounded-[9999px] glass-button-shadow-inner">
+
+                    <span class="text-white text-xs font-normal tracking-wider font-robotoMono">Enter the Zine</span>
+                </div>
+            </div>
         </a>
     {/if}
     
@@ -281,4 +287,21 @@
         margin: 0;
     }
     
-</style>
+    .glass-button-shadow {
+        box-shadow: 
+            0px 0px 138.64151000976562px 0px rgba(0,0,0,0.50),
+            0px 0px 12.60377311706543px 0px rgba(0,0,0,0.1),
+            0px 0px 3.1509432792663574px 0px rgba(0,0,0,0.1),
+            inset 0px 0px 3px 0px rgba(255,255,255,0.10),
+            inset -5px -5px 3px -5px rgba(255,255,255,1.00),
+            inset 5px 5px 3px -5px rgba(255,255,255,1.00);
+    }
+    .glass-button-shadow-inner {
+        box-shadow: 
+            0px 0px 138.64151000976562px 0px rgba(0,0,0,0.10),
+            inset 0px 0px 3px 0px rgba(255,255,255,0.10),
+            inset 8px 8px 6px -3.0px rgba(255,255,255,1.0),
+            inset -8px -8px 6px -3.0px rgba(255,255,255,1.0);
+    }
+    
+</style>    
