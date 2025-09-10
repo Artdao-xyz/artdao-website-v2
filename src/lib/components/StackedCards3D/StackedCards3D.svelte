@@ -97,7 +97,7 @@
             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30
                    h-44 w-44 inline-flex flex-col justify-center items-center gap
                    transition-all duration-200
-                   hover:scale-110 hover:shadow-xl
+                   active:brightness-70
                    opacity-100 scale-100 rounded-[9999px]"
             on:click={(e) => {
                 e.stopPropagation();
