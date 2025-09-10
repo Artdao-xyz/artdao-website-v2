@@ -6,6 +6,7 @@
     export let projects: Project[];
     export let onProjectClick: (index: number) => void;
     export let onArtistClick: (artist: string) => void;
+    
 </script>
 
 <div class="w-full px-5 lg:p-10">
@@ -50,7 +51,7 @@
             <div class="w-full">
                 <a href={projects[selectedProjectIndex].pagePath} rel="noopener noreferrer">
                     <img 
-                        src={projects[selectedProjectIndex].thumbnailPath[0]} 
+                        src={projects[selectedProjectIndex].thumbnailPathMobile} 
                         alt={projects[selectedProjectIndex].title}
                         class="w-full h-auto object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity duration-300"
                     />

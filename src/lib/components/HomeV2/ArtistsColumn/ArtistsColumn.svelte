@@ -38,7 +38,7 @@
                     <div class="w-full max-w-2xl">
                         <a href={projectsData[selectedProjectIndexes[0]].pagePath} rel="noopener noreferrer">
                             <img 
-                                src={projectsData[selectedProjectIndexes[0]].thumbnailPath[0]} 
+                                src={projectsData[selectedProjectIndexes[0]].thumbnailPathMobile} 
                                 alt={`${projectsData[selectedProjectIndexes[0]].title} thumbnail`}
                                 class="w-full h-auto object-cover rounded-lg shadow-lg cursor-pointer hover:opacity-90 transition-opacity duration-300"
                             />

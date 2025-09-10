@@ -204,7 +204,7 @@
         <!-- Proyecto Seleccionado (solo mobile) -->
         <div class="lg:hidden">
             <SelectedProject 
-                selectedProjectIndex={selectedProjectIndexes[0] || null}
+                selectedProjectIndex={selectedProjectIndexes.length > 0 ? selectedProjectIndexes[0] : null}
                 projects={projects}
                 onProjectClick={scrollToProject}
                 onArtistClick={toggleArtist}
