@@ -53,6 +53,7 @@
 			class="w-full h-full object-cover"
 			controls
 			bind:this={videoPlayer}
+			preload="metadata"
 			playsinline
 			autoplay
 			muted

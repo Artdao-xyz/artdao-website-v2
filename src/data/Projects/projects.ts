@@ -28,14 +28,17 @@ import raveHover from '$lib/assets/images/projects/footer/projects_rave_hover-mi
 import { EProjects } from '../../constants/enums';
 import {
 	ARTIFICE,
+	DIGITAL_ARCHAEOLOGY,
 	DIGITAL_MATTER,
 	ECOLOGIES_OF_CODE,
 	IN_CONVERSATION,
 	INHERENT,
 	INTERTWINED,
+	MEMETIC_RUBBLE,
 	NON_PLACES,
 	ORB,
-	RAVE
+	RAVE,
+	SUBCONSCIOUS_MEDIA
 } from '../../constants/routes';
 
 export interface IProject {
@@ -47,6 +50,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.ARTIFICE,
 		refs: [EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE, EProjects.IN_CONVERSATION]
+	},
+	{
+		name: EProjects.DIGITAL_ARCHAEOLOGY,
+		refs: [EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE, EProjects.INHERENT_INSTABILITY]
 	},
 	{
 		name: EProjects.DIGITAL_MATTER,
@@ -69,6 +76,10 @@ export const projects: IProject[] = [
 		refs: [EProjects.ARTIFICE, EProjects.INHERENT_INSTABILITY, EProjects.DIGITAL_MATTER]
 	},
 	{
+		name: EProjects.MEMETIC_RUBBLE,
+		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.IN_CONVERSATION]
+	},
+	{
 		name: EProjects.NON_PLACES,
 		refs: [EProjects.ECOLOGIES_OF_CODE, EProjects.ORB, EProjects.IN_CONVERSATION]
 	},
@@ -79,6 +90,14 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.RAVE,
 		refs: [EProjects.IN_CONVERSATION, EProjects.INTERTWINED, EProjects.INHERENT_INSTABILITY]
+	},
+	{
+		name: EProjects.BODY_FRONTIER,
+		refs: [EProjects.ARTIFICE, EProjects.ORB, EProjects.RAVE]
+	},
+	{
+		name: EProjects.SUBCONSCIOUS_MEDIA,
+		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
 	}
 ];
 
@@ -90,6 +109,14 @@ export const projectsDetails = [
 		hover: artificeHover,
 		url: ARTIFICE,
 		mobileImage: artificeMobile
+	},
+	{
+		name: EProjects.DIGITAL_ARCHAEOLOGY,
+		nameToShow: 'digital archaeology',
+		image: '/media/thumbnails/14-home-digital-archaeology.webp',
+		hover: '/media/thumbnails/14-home-digital-archaeology.webp',
+		url: DIGITAL_ARCHAEOLOGY,
+		mobileImage: '/media/thumbnails/14-home-digital-archaeology.webp'
 	},
 	{
 		name: EProjects.DIGITAL_MATTER,
@@ -124,6 +151,14 @@ export const projectsDetails = [
 		mobileImage: intertwinedMobile
 	},
 	{
+		name: EProjects.MEMETIC_RUBBLE,
+		nameToShow: 'memetic rubble',
+		image: '/media/home/thumbnails/12-home-memetic-rubble.webp',
+		hover: '/media/home/thumbnails/12-home-memetic-rubble.webp',
+		url: MEMETIC_RUBBLE,
+		mobileImage: '/media/home/thumbnails/12-home-memetic-rubble.webp'
+	},
+	{
 		name: EProjects.IN_CONVERSATION,
 		nameToShow: 'in conversation',
 		image: conversation,
@@ -154,5 +189,21 @@ export const projectsDetails = [
 		hover: raveHover,
 		url: RAVE,
 		mobileImage: raveMobile
+	},
+	{
+		name: EProjects.BODY_FRONTIER,
+		nameToShow: 'body frontier',
+		image: 'media/home/thumbnails/10-home-body-frontier.webp',
+		hover: 'media/home/thumbnails/10-home-body-frontier.webp',
+		url: '/body-frontier',
+		mobileImage: 'media/home/thumbnails/10-home-body-frontier.webp'
+	},
+	{
+		name: EProjects.SUBCONSCIOUS_MEDIA,
+		nameToShow: 'subconscious media',
+		image: '/media/home/thumbnails/13-home-subconscious-media.webp',
+		hover: '/media/home/thumbnails/13-home-subconscious-media.webp',
+		url: SUBCONSCIOUS_MEDIA,
+		mobileImage: '/media/home/thumbnails/13-home-subconscious-media.webp'
 	}
 ];

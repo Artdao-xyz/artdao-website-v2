@@ -11,6 +11,8 @@
 	export let showButtons: boolean = true;
 	export let videoProjects: IVideoProject[];
 
+	let currentAspectRatio: number = 16/9; // Default aspect ratio
+
 	// Generate poster URL for video thumbnails
 	const getPosterUrl = (videoUrl: string) => {
 		return `${videoUrl}#t=0.1`;
@@ -34,25 +36,39 @@
 					? 'sm:w-[400px] sm:!h-[682px] !h-[420px] w-[250px]'
 					: 'w-full sm:max-h-[650px] sm:max-w-[450px] xlScreen:max-h-[800px]';
 
-	$: videoProjectIndex = videoProjects.findIndex((item) => item.name === videoProject.name);
-
 	let height: number;
 	let width: number;
 
-	$: aspectClass =
-		videoProject.size === 'rectangle'
-			? 'aspect-video'
-			: videoProject.size === 'square'
-				? 'aspect-square'
-				: videoProject.size === 'vertical'
-					? 'aspect-[9/16]'
-					: 'aspect-video';
+	// Helper function to detect if URL is GIF or image based on final extension
+	const isGifOrImage = (url: string) => {
+		const lastDotIndex = url.lastIndexOf('.');
+		if (lastDotIndex === -1) return false;
+		const extension = url.substring(lastDotIndex + 1).toLowerCase();
+		return extension === 'gif' || ['jpg', 'jpeg', 'png', 'webp'].includes(extension);
+	};
+
+	const handleVideoLoad = (aspectRatio: number) => {
+		currentAspectRatio = aspectRatio;
+	};
+
+	// Calculate dynamic classes based on aspect ratio
+	$: getAspectClass = () => {
+		if (currentAspectRatio > 1.5) {
+			return 'aspect-video'; // Landscape
+		} else if (currentAspectRatio < 0.8) {
+			return 'aspect-[9/16]'; // Portrait
+		} else {
+			return 'aspect-square'; // Square
+		}
+	};
+
+	$: videoProjectIndex = videoProjects.findIndex((item) => item.name === videoProject.name);
 </script>
 
 <svelte:window bind:innerHeight={height} bind:innerWidth={width} />
 <div class="flex flex-col h-full justify-between">
 	<div
-		class="max-h-[80vh] mx-auto {aspectClass} w-auto overflow-hidden video-gradient px-[0.9375rem] my-auto pb-[0.9375rem] sm:!p-[15px] rounded-20 flex flex-col gap-0 sm:gap-[0.9375rem]"
+		class="max-h-[80vh] mx-auto {getAspectClass()} w-auto overflow-hidden video-gradient px-[0.9375rem] my-auto pb-[0.9375rem] sm:!p-[15px] rounded-20 flex flex-col gap-0 sm:gap-[0.9375rem]"
 	>
 		<div
 			class="h-fit w-full sm:bg-color-dark rounded-20 py-3 sm:p-[1.25rem] flex items-center justify-between"
@@ -77,7 +93,7 @@
 			</div>
 		</div>
 		<div class="w-full h-full rounded-20 overflow-hidden">
-			<VideoPlayer videoUrl={videoProject.videoUrl} />
+			<VideoPlayer videoUrl={videoProject.videoUrl} onVideoLoad={handleVideoLoad} />
 		</div>
 	</div>
 
@@ -99,46 +115,83 @@
 
 			<div class="hidden sm:flex flex-row h-full items-center">
 				{#each videoProjects as video, i (video.name)}
-					<video
-						on:click={() => {
-							videoProject = video;
-						}}
-						on:loadedmetadata={handleThumbnailLoad}
-						src={video.videoUrl}
-						preload="metadata"
-						poster=""
-						muted
-						playsinline
-						class="cursor-pointer {videoProject.name === videoProjects[i].name
-							? 'h-[5.3125rem] w-[5.3125rem]'
-							: 'h-[3.4375rem] w-[3.4375rem]'} rounded-[3.0523rem] object-cover {i !== 0
-							? 'ml-[-1.125rem]'
-							: ''} transition-all duration-300 shadow-xl"
-						style={`z-index: ${videoProjects.length - i};`}
-					>
-					</video>
+					{#if isGifOrImage(video.videoUrl)}
+						<!-- For GIFs and images, use img tag -->
+						<img
+							on:click={() => {
+								videoProject = video;
+							}}
+							src={video.videoUrl}
+							class="cursor-pointer {videoProject.name === videoProjects[i].name
+								? 'h-[5.3125rem] w-[5.3125rem]'
+								: 'h-[3.4375rem] w-[3.4375rem]'} rounded-[3.0523rem] object-cover {i !== 0
+								? 'ml-[-1.125rem]'
+								: ''} transition-all duration-300 shadow-xl"
+							style={`z-index: ${videoProjects.length - i};`}
+							alt={video.name}
+						/>
+					{:else}
+						<!-- For videos, use video tag with handleThumbnailLoad -->
+						<!-- svelte-ignore a11y-media-has-caption -->
+						<video
+							on:click={() => {
+								videoProject = video;
+							}}
+							on:loadedmetadata={handleThumbnailLoad}
+							src={video.videoUrl}
+							preload="metadata"
+							poster=""
+							muted
+							playsinline
+							class="cursor-pointer {videoProject.name === videoProjects[i].name
+								? 'h-[5.3125rem] w-[5.3125rem]'
+								: 'h-[3.4375rem] w-[3.4375rem]'} rounded-[3.0523rem] object-cover {i !== 0
+								? 'ml-[-1.125rem]'
+								: ''} transition-all duration-300 shadow-xl"
+							style={`z-index: ${videoProjects.length - i};`}
+						>
+						</video>
+					{/if}
 				{/each}
 			</div>
 
 			<div class="flex sm:hidden flex-row h-full items-center w-[5rem] justify-center">
 				{#each videoProjects as video, i}
-					<video
-						on:loadedmetadata={handleThumbnailLoad}
-						src={video.videoUrl}
-						preload="metadata"
-						poster=""
-						muted
-						playsinline
-						class="{videoProject.name === videoProjects[i].name
-							? 'h-[50px] w-[50px]'
-							: 'h-[35px] w-[35px]'} rounded-[3.0523rem] object-cover {i === videoProjectIndex + 1
-							? 'ml-[-1.125rem]'
-							: ''} {video.name === videoProject.name || i === videoProjectIndex + 1
-							? 'visible'
-							: 'hidden'} transition-all duration-300 shadow-xl"
-						style={`z-index: ${videoProjects.length - i};`}
-					>
-					</video>
+					{#if isGifOrImage(video.videoUrl)}
+						<!-- For GIFs and images, use img tag -->
+						<img
+							src={video.videoUrl}
+							class="{videoProject.name === videoProjects[i].name
+								? 'h-[50px] w-[50px]'
+								: 'h-[35px] w-[35px]'} rounded-[3.0523rem] object-cover {i === videoProjectIndex + 1
+								? 'ml-[-1.125rem]'
+								: ''} {video.name === videoProject.name || i === videoProjectIndex + 1
+								? 'visible'
+								: 'hidden'} transition-all duration-300 shadow-xl"
+							style={`z-index: ${videoProjects.length - i};`}
+							alt={video.name}
+						/>
+					{:else}
+						<!-- For videos, use video tag with handleThumbnailLoad -->
+						<!-- svelte-ignore a11y-media-has-caption -->
+						<video
+							on:loadedmetadata={handleThumbnailLoad}
+							src={video.videoUrl}
+							preload="metadata"
+							poster=""
+							muted
+							playsinline
+							class="{videoProject.name === videoProjects[i].name
+								? 'h-[50px] w-[50px]'
+								: 'h-[35px] w-[35px]'} rounded-[3.0523rem] object-cover {i === videoProjectIndex + 1
+								? 'ml-[-1.125rem]'
+								: ''} {video.name === videoProject.name || i === videoProjectIndex + 1
+								? 'visible'
+								: 'hidden'} transition-all duration-300 shadow-xl"
+							style={`z-index: ${videoProjects.length - i};`}
+						>
+						</video>
+					{/if}
 				{/each}
 			</div>
 
