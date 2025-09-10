@@ -109,7 +109,7 @@
 						name="EMAIL"
 						class="flex-1 min-w-0 text-color-white placeholder:text-color-white {!isFooter
 							? 'text-[1rem]'
-							: 'text-[14px] md:text-[1rem]'} font-medium font-clash leading-5 bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] h-full"
+							: 'text-[16px] md:text-[1rem]'} font-medium font-clash leading-5 bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] h-full"
 						required
 						value=""
 						placeholder="Enter your email"

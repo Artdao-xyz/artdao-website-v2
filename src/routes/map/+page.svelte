@@ -31,7 +31,7 @@
 {:then images}
 	<div
 		transition:fly={{ duration: 300 }}
-		class="h-[calc(100vh-4rem)] flex justify-center items-center relative w-full"
+		class="h-full flex justify-center items-center relative w-full"
 		style="background-color: #F7F5F2; background-image: url('/media/map/map-mobile.png'); background-repeat: no-repeat; background-size: cover; background-position: center;"
 	>
 
