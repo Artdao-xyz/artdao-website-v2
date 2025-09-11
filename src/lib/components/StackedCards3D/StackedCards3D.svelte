@@ -5,9 +5,7 @@
     export let isSelected: boolean = false;
     export let hasSelection: boolean = false;
     export let isHovered: boolean = false;
-    export const hasHover: boolean = false;
     export let onSelect: (index: number) => void;
-    export const onHover: (index: number | null) => void = () => {};
     export let index: number;
     export let isAnimating: boolean = false; // Nueva prop para controlar animaciones
     export let showEnterButton: boolean = false; // Nueva prop para mostrar el botón
@@ -49,12 +47,12 @@
         <!-- Imagen trasera -->
         <div class="card-layer card-back flex flex-col items-center justify-center">
             <img src={projects.thumbnailPath[0]} alt="Capa trasera" class="card-image" />
-            {#if isSelected && projects.artworks && projects.artworks[0]}
+            <!-- {#if isSelected && projects.artworks && projects.artworks[0]}
                 <div class="artwork-name">
                     <div class="w-1.5 h-1.5 bg-black rounded-[100px]"></div>
                     {projects.artworks[0]}
                 </div>
-            {/if}
+            {/if} -->
         </div>
     {/if}
     
@@ -62,12 +60,12 @@
         <!-- Imagen principal -->
         <div class="card-layer card-main flex flex-col items-center justify-center">
             <img src={projects.thumbnailPath[1]} alt="Capa principal" class="card-image" />
-            {#if isSelected && projects.artworks && projects.artworks[1]}
+            <!-- {#if isSelected && projects.artworks && projects.artworks[1]}
                 <div class="artwork-name">
                     <div class="w-1.5 h-1.5 bg-black rounded-[100px]"></div>
                     {projects.artworks[1]}
                 </div>
-            {/if}
+            {/if} -->
             <!-- Quote dentro de la capa principal -->
             {#if isSelected && projects.quote}
                 <div class="quote-container">
@@ -81,12 +79,12 @@
         <!-- Imagen delantera -->
         <div class="card-layer card-front flex flex-col items-center justify-center">
             <img src={projects.thumbnailPath[2]} alt="Capa delantera" class="card-image" />
-            {#if isSelected && projects.artworks && projects.artworks[2]}
+            <!-- {#if isSelected && projects.artworks && projects.artworks[2]}
                 <div class="artwork-name">
                     <div class="w-1.5 h-1.5 bg-black rounded-[100px]"></div>
                     {projects.artworks[2]}
                 </div>
-            {/if}
+            {/if} -->
         </div>
     {/if}
     
@@ -258,22 +256,22 @@
     
     /* SELECTED: Layout SÚPER DRAMÁTICO con offset del centro */
     .card-container.selected .card-back {
-        transform: translate(-50%, -50%) scale(0.6) translateX(200px) translateY(-120px) translateZ(0px) rotateY(-15deg) !important;
+        transform: translate(-50%, -50%) scale(0.525) translateX(200px) translateY(-120px) translateZ(0px) rotateY(-15deg) !important;
         transform-style: flat !important;
     }
     
     .card-container.selected .card-main {
-        transform: translate(-50%, -50%) scale(0.6) translateX(0px) translateY(30%) translateZ(0px) rotateY(0deg) !important;
+        transform: translate(-50%, -50%) scale(0.525) translateX(0px) translateY(20%) translateZ(0px) rotateY(0deg) !important;
     }
     
     .card-container.selected .card-front {
-        transform: translate(-50%, -50%) scale(0.6) translateX(-200px) translateY(-120px) translateZ(0px) rotateY(15deg) !important;
+        transform: translate(-50%, -50%) scale(0.525) translateX(-200px) translateY(-120px) translateZ(0px) rotateY(15deg) !important;
     }
     
     /* Quote container - posicionamiento relativo dentro de la capa principal */
     .quote-container {
         position: relative;
-        width: 200%;
+        width: 250%;
         text-align: center;
         margin-top: 12px;
         z-index: 20;

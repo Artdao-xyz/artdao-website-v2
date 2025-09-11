@@ -11,8 +11,6 @@
 
     export let hoveredProjectIndexes: number[];
     export let onImageHover: (index: number | null) => void;
-    export const onImageSelect: (index: number) => void = () => {};
-    export const imageButtons: HTMLAnchorElement[] = [];
 
     // Mantener el orden original de los proyectos
     $: orderedProjects = projects.map((project, i) => ({ 
@@ -147,12 +145,10 @@
                     isSelected={isProjectActive(originalIndex)}
                     hasSelection={selectedProjectIndexes.length > 0}
                     isHovered={hoveredProjectIndexes.includes(originalIndex)}
-                    hasHover={hoveredProjectIndexes.length > 0}
                     index={originalIndex}
                     isAnimating={isGridAnimating}
                     showEnterButton={isProjectActive(originalIndex) && hoveredProjectIndexes.includes(originalIndex)}
                     onSelect={() => {}}
-                    onHover={onImageHover}
                 />
 
         </div>

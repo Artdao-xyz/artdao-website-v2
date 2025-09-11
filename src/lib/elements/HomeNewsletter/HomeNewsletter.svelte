@@ -82,7 +82,8 @@
 					bind:this={input}
 					type="email"
 					name="EMAIL"
-					class="w-full sm:text-center bg-transparent text-white sm:text-black text-xs font-normal font-robotoMono leading-none tracking-widest placeholder:text-white/40 sm:placeholder:text-black/40 !outline-none !border-none focus:outline-none"
+					class="w-full sm:text-center bg-transparent text-white sm:text-black text-xs font-normal font-robotoMono leading-none tracking-widest placeholder:text-white/40 sm:placeholder:text-black/40 !outline-none !border-none focus:outline-none focus:ring-0 focus:border-none"
+					style="outline: none !important; border: none !important; box-shadow: none !important;"
 					required
 					value=""
 					placeholder="Enter your email"

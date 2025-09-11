@@ -89,7 +89,6 @@
 						src={imageToShow}
 						alt="event"
 						class="w-full object-cover {isCenter ? 'object-center' : 'object-top'}"
-						style="aspect-ratio: 16/9;"
 					/>
 					{#if eventToShow.images.length > 1}
 						<div class="absolute bottom-2 left-2 flex gap-2">
@@ -124,9 +123,9 @@
 					{#each otherEvents as event}
 						<button
 							on:click={() => handleEventClick(event)}
-							class="w-40 h-6 px-4 py-[5px] {event.title === eventToShow.title ? 'bg-[#101010]' : 'bg-[#f7f5f2]'} hover:bg-[#101010] rounded-[100px] outline outline-1 outline-black flex justify-center items-center"
+							class="w-40 h-6 px-4 py-[5px] {event.title === eventToShow.title ? 'bg-[#101010]' : 'bg-[#f7f5f2]'} hover:bg-[#101010] rounded-[100px] outline outline-1 outline-black flex justify-center items-center group"
 						>
-							<p class="{event.title === eventToShow.title ? 'text-[#f7f5f2]' : 'text-[#101010]'} hover:text-[#f7f5f2] text-xs font-normal font-robotoMono leading-none tracking-wide">
+							<p class="{event.title === eventToShow.title ? 'text-[#f7f5f2]' : 'text-[#101010]'} text-xs font-normal font-robotoMono leading-none tracking-wide group-hover:text-[#f7f5f2]">
 								{event.title}
 							</p>
 						</button>

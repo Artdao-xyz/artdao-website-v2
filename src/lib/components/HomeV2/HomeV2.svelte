@@ -283,9 +283,8 @@
                     projects={projects}
                     selectedProjectIndexes={selectedProjectIndexes}
                     {hoveredProjectIndexes}
-                    {imageButtons}
                     onImageHover={handleCardHover}
-                    onImageSelect={scrollToProject}
+
                 />
             </div>
         {/if}
