@@ -96,7 +96,7 @@
 								<button
 									on:click={() => index = i}
 									on:click|stopPropagation
-									class="w-20 h-20 rounded-[100px] overflow-hidden border-2 {index === i ? 'border-white' : 'border-white/0'} hover:border-white/80 transition-colors"
+									class="w-16 h-16 rounded-[100px] overflow-hidden border-2 {index === i ? 'border-white' : 'border-white/0'} hover:border-white/80 transition-colors"
 								>
 									<img
 										src={image}

@@ -75,14 +75,15 @@
 		id="subscribeForm"
 		class="w-full"
 	>
-		<div data-status="Default" class="min-w-64 flex sm:flex-col sm:justify-start sm:items-start rounded-20 sm:rounded-[999px] backdrop-blur-[34px] p-2 sm:p-5 sm:outline-none sm:backdrop-blur-none" style="background: {width < 640 ? 'linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.8) 100%)' : 'transparent'};">
-			<div class="px-0 w-full flex justify-center sm:bg-[#F7F5F2] items-center gap-10 sm:px-5 sm:rounded-[999px] sm:outline-black sm:backdrop-blur-[34px]">
+		<div data-status="Default" class="min-w-64 flex sm:flex-col sm:justify-start sm:items-start rounded-20 sm:rounded-[999px] shadow-[2px_2px_10px_0px_rgba(0,0,0,0.20)] backdrop-blur-[34px] p-2 sm:p-5 sm:shadow-none sm:outline-none sm:backdrop-blur-none" style="background: {width < 640 ? 'linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.8) 100%)' : 'transparent'};">
+			<div class="px-0 w-full flex justify-center sm:bg-[#F7F5F2] items-center gap-10 sm:px-5 sm:rounded-[999px] sm:shadow-[2px_2px_10px_0px_rgba(0,0,0,0.20)] sm:outline sm:outline-1 sm:outline-black sm:backdrop-blur-[34px]">
 				<label for="email" class="hidden"></label>
 				<input
 					bind:this={input}
 					type="email"
 					name="EMAIL"
 					class="w-full sm:text-center bg-transparent text-white sm:text-black text-xs font-normal font-robotoMono leading-none tracking-widest placeholder:text-white/40 sm:placeholder:text-black/40 !outline-none !border-none focus:outline-none focus:ring-0 focus:border-none"
+					style="outline: none !important; border: none !important; box-shadow: none !important;"
 					required
 					value=""
 					placeholder="Enter your email"

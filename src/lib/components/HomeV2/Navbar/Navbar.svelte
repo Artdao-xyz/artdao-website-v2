@@ -151,7 +151,7 @@
         <!-- Menú hamburguesa con dropdown -->
         <div class="relative">
             <button bind:this={mobileMenuButton} on:click={() => showMobileMenu = !showMobileMenu}>
-                <img src="src/lib/assets/images/mobile-hamburguer.svg" alt="Menu" class="drop-shadow drop-shadow-black" />
+                <img src="media/home/icons/mobile-hamburguer.svg" alt="Menu" class="drop-shadow drop-shadow-black" />
             </button>
             
             <!-- Dropdown Menu -->
@@ -205,7 +205,7 @@
         <!-- Menú hamburguesa con dropdown -->
         <div class="relative">
             <button bind:this={mobileMenuButton} on:click={() => showMobileMenu = !showMobileMenu}>
-                <img src="src/lib/assets/images/mobile-hamburguer.svg" alt="Menu" class="drop-shadow drop-shadow-black" />
+                <img src="media/home/icons/mobile-hamburguer.svg" alt="Menu" class="drop-shadow drop-shadow-black" />
             </button>
             
             <!-- Dropdown Menu -->
