@@ -3,7 +3,10 @@
 </script>
 
 
-<div class="bg-dot">
+<div class="bg-dot hidden sm:block">
+	<HomeV2/>
+</div>
+<div class="sm:hidden">
 	<HomeV2/>
 </div>
 

@@ -287,9 +287,9 @@
     
     .glass-button-shadow {
         box-shadow: 
-            0px 0px 138.64151000976562px 0px rgba(0,0,0,0.50),
-            0px 0px 12.60377311706543px 0px rgba(0,0,0,0.1),
-            0px 0px 3.1509432792663574px 0px rgba(0,0,0,0.1),
+            0px 0px 138.64151000976562px 0px rgba(0,0,0,0.10),
+            0px 0px 12.60377311706543px 0px rgba(0,0,0,0.05),
+            0px 0px 3.1509432792663574px 0px rgba(0,0,0,0.05),
             inset 0px 0px 3px 0px rgba(255,255,255,0.10),
             inset -5px -5px 3px -5px rgba(255,255,255,1.00),
             inset 5px 5px 3px -5px rgba(255,255,255,1.00);

@@ -29,7 +29,6 @@
 	<div
 		transition:fly={{ duration: 300 }}
 		class="h-full flex justify-center items-center relative w-full"
-		style="background-color: #F7F5F2; background-image: url('/media/map/map-mobile.png'); background-repeat: no-repeat; background-size: cover; background-position: center;"
 	>
 
 		{#if width > 768}
@@ -53,7 +52,7 @@
 			{/if}
 		{:else if !eventToShow}
 			<div
-				class="flex flex-col justify-center items-center gap-[15px] w-full bg-color-gray py-[4.5rem] px-[20px] h-full self-start relative"
+				class="flex flex-col justify-start items-center gap-[15px] w-full py-[4.5rem] px-[20px] h-full self-start relative"
 			>
 				<!-- Map background for mobile -->
 				
@@ -66,7 +65,7 @@
 			</div>
 		{:else}
 			<div
-				class="flex flex-col justify-center items-center gap-[15px] w-full bg-color-gray py-[4.5rem] px-[20px] h-full self-start relative"
+				class="flex flex-col justify-center items-center gap-[15px] w-full py-[4.5rem] px-[20px] h-full self-start relative"
 			>
 				<!-- Map background for mobile -->
 				

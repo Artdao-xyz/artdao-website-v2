@@ -27,7 +27,7 @@
                 <div class="flex flex-col">
                     <!-- Título del proyecto -->
                     <button
-                        class="text-black text-xs font-clash leading-none tracking-tight hover:text-[#949391] cursor-pointer transition-all"
+                        class="text-black text-xs font-robotoMono leading-none tracking-tight hover:text-[#949391] cursor-pointer transition-all"
                         on:click={() => selectedProjectIndex !== null && onProjectClick(selectedProjectIndex)}
                     >
                         {projects[selectedProjectIndex].title}

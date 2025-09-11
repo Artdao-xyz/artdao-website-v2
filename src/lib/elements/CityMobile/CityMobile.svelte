@@ -31,7 +31,7 @@
 			class="relative flex flex-row items-center justify-center w-full h-10 px-4 py-[5px] {isSelected ? 'bg-[#101010]' : 'bg-[#f7f5f2]'} rounded-[100px] outline outline-1 outline-black"
 		>
 			<p
-				class="w-full {isSelected ? 'text-[#f7f5f2]' : 'text-[#101010]'} text-lg font-normal font-robotoMono leading-none tracking-wide capitalize flex items-center justify-center"
+				class="w-full {isSelected ? 'text-[#f7f5f2]' : 'text-[#101010]'} font-normal font-robotoMono leading-none tracking-wide capitalize flex items-center justify-center"
 			>
 				{mapLocation.location}
 			</p>

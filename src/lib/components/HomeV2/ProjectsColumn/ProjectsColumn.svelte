@@ -20,7 +20,7 @@
 {#if variant === 'desktop'}
     <!-- Layout Desktop -->
     <div class="hidden lg:flex flex-col h-full w-full overflow-y-auto p-5 lg:p-10 scrollbar-hide">
-        <h1 class="text-black text-sm font-medium font-clash leading-none tracking-wide mb-4">Welcome to the<br class="hidden lg:block">artdao zine</h1>
+        <h1 class="text-black text-sm font-medium font-clash leading-none tracking-wide mb-4">Welcome to the <br class="lg:hidden">Artdao zine</h1>
         {#each sortedProjects as { project, index }}
             <button
                 class="rounded-[100px] outline outline-[1.5px] text-left outline-offset-[-1.5px] flex justify-center items-center leading-none tracking-tight text-xs font-robotoMono font-normal px-2.5 py-1.5 w-fit transition-all text-[#949391] duration-300 {selectedProjectIndexes.includes(index) ? 'outline-none bg-black text-white' : hoveredProjectIndexes.includes(index) ? 'outline-black text-black' : 'outline-[#949391] hover:outline-black hover:text-black'}"
