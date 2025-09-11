@@ -3,7 +3,9 @@
 </script>
 
 
-<HomeV2/>
+<div class="bg-dot">
+	<HomeV2/>
+</div>
 
 <style>
 	:global(html) {
@@ -16,5 +18,10 @@
 		overflow-y: auto;
 		overscroll-behavior-y: none;
 		min-height: 100%;
+	}
+
+	.bg-dot {
+		background: #F7F5F2 url("/media/home/home-dot.svg") repeat;
+		background-size: 20px 20px;
 	}
 </style>

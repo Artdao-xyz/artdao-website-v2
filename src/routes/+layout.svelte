@@ -69,7 +69,7 @@
     </div>
 {/if}
 
-<div class="h-svh w-full flex flex-col bg-dot">	
+<div class="h-svh w-full flex flex-col">	
 	{#if shouldShowNavbar}
 		<Navbar />
 	{/if}
@@ -84,10 +84,3 @@
 		<HomeNewsletter isAbsolute={true} />
 	</div>
 {/if}
-
-<style>
-	.bg-dot {
-		background: #F7F5F2 url("/media/home/home-dot.svg") repeat;
-		background-size: 20px 20px;
-	}
-</style>

@@ -114,13 +114,13 @@
 				bgImage={images[0][0]}
 				bgImageMobile={images[0][1]}
 			/>
-		</div>
+		<!-- </div>
 
 				<div
 			id="chat"
 		>
 			<ChatInterview data={orbChatInterview} />
-		</div>
+		</div> -->
 
 		<div
 			id="curators"

@@ -65,7 +65,7 @@
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
-<div class="{isAbsolute ? 'fixed bottom-8 left-8 z-50' : ''}">
+<div class="{isAbsolute ? 'fixed bottom-8 left-8 z-10' : ''}">
 	<form
 		in:fade={{ delay: 50, duration: 150 }}
 		out:fade={{ delay: 50, duration: 50 }}
