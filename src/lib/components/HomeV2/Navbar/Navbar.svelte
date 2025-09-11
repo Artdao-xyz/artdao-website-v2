@@ -2,6 +2,7 @@
     import { Circle } from 'lucide-svelte';
     import { page } from '$app/stores';
     import { gsap } from 'gsap';
+    import { onDestroy } from 'svelte';
     import { metaballRef, isMetaballTransitioning } from '../store';
     import HomeNewsletter from '../../../elements/HomeNewsletter/HomeNewsletter.svelte';
 
@@ -11,6 +12,9 @@
     let width: number;
     let mobileMenuButton: HTMLButtonElement;
     
+    // Referencia para limpiar timeouts
+    let metaballTimeout: number | null = null;
+    
     // Detectar la ruta actual
     $: isMapRoute = $page.url.pathname === '/map';
     $: isHomeRoute = $page.url.pathname === '/';
@@ -18,18 +22,21 @@
     $: isHomeDesktop = isHomeRoute && width > 768;
     // Función para mover la metabola al navbar
     const moveMetaballToNavbar = () => {
-        console.log('moveMetaballToNavbar called');
         const metaball = $metaballRef;
-        console.log('metaball ref:', metaball);
-        if (metaball && !$isMetaballTransitioning) {
+        
+        if (metaball && metaballSpan && !$isMetaballTransitioning) {
             isMetaballTransitioning.set(true);
             
             // Obtener la posición del span
-            const rect = metaballSpan.getBoundingClientRect();
+            const rect = metaballSpan?.getBoundingClientRect();
+            if (!rect) {
+                isMetaballTransitioning.set(false);
+                return;
+            }
             
             // Calcular la escala basada en la altura del span vs el canvas del Metaball
             const spanHeight = rect.height;
-            const canvas = metaball.querySelector('canvas');
+            const canvas = metaball?.querySelector('canvas');
             const metaballHeight = canvas ? canvas.height : 700; // Fallback al tamaño original
             const targetScale = spanHeight / metaballHeight;
             
@@ -75,10 +82,13 @@
 
     // Reactive statement para ejecutar la animación cuando se cumplan las condiciones
     $: if (isHomeDesktop && metaballSpan) {
-        console.log('isHomeDesktop changed to true, setting timeout');
+        // Limpiar timeout anterior si existe
+        if (metaballTimeout) {
+            clearTimeout(metaballTimeout);
+        }
+        
         // Mover la metabola automáticamente después de 2 segundos
-        setTimeout(() => {
-            console.log('Timeout executed, calling moveMetaballToNavbar');
+        metaballTimeout = setTimeout(() => {
             moveMetaballToNavbar();
         }, 2000);
     }
@@ -89,6 +99,24 @@
             showMobileMenu = false;
         }
     }
+    
+    // Cleanup al desmontar el componente
+    onDestroy(() => {
+        // Limpiar timeout
+        if (metaballTimeout) {
+            clearTimeout(metaballTimeout);
+            metaballTimeout = null;
+        }
+        
+        // Limpiar animaciones GSAP específicas
+        const currentMetaball = $metaballRef;
+        if (currentMetaball) {
+            gsap.killTweensOf(currentMetaball);
+        }
+        
+        // Resetear estado de transición
+        isMetaballTransitioning.set(false);
+    });
 </script>
 
 <svelte:window bind:innerWidth={width} on:click={handleClickOutside} />

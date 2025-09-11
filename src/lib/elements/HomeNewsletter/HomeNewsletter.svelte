@@ -76,7 +76,7 @@
 		class="w-full"
 	>
 		<div data-status="Default" class="min-w-64 flex sm:flex-col sm:justify-start sm:items-start rounded-20 sm:rounded-[999px] shadow-[2px_2px_10px_0px_rgba(0,0,0,0.20)] outline outline-1 outline-white/40 backdrop-blur-[34px] p-2 sm:p-5 sm:shadow-none sm:outline-none sm:backdrop-blur-none" style="background: {width < 640 ? 'linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.8) 100%)' : 'transparent'};">
-			<div class="px-0 w-full flex justify-center items-center gap-10 sm:px-5 sm:rounded-[999px] sm:shadow-[2px_2px_10px_0px_rgba(0,0,0,0.20)] sm:outline sm:outline-1 sm:outline-black sm:backdrop-blur-[34px]">
+			<div class="px-0 w-full flex justify-center sm:bg-[#F7F5F2] items-center gap-10 sm:px-5 sm:rounded-[999px] sm:shadow-[2px_2px_10px_0px_rgba(0,0,0,0.20)] sm:outline sm:outline-1 sm:outline-black sm:backdrop-blur-[34px]">
 				<label for="email" class="hidden"></label>
 				<input
 					bind:this={input}

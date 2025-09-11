@@ -22,14 +22,18 @@
 			}
 		}
 
-		document.body.addEventListener('click', onClick);
+		if (typeof document !== 'undefined' && document.body) {
+			document.body.addEventListener('click', onClick);
+		}
 
 		return {
 			update(newCallbackFunction: any) {
 				callbackFunction = newCallbackFunction;
 			},
 			destroy() {
-				document.body.removeEventListener('click', onClick);
+				if (typeof document !== 'undefined' && document.body) {
+					document.body.removeEventListener('click', onClick);
+				}
 			}
 		};
 	}

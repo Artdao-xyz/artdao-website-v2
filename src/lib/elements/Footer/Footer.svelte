@@ -3,6 +3,7 @@
 
 	import footerLogo from '$lib/assets/images/artdao-logo.webp';
 	import { inview } from 'svelte-inview';
+	import { onDestroy } from 'svelte';
 	import { EProjects } from '../../../constants/enums';
 	import { projectsDetails } from '../../../data/Projects/projects';
 	import { getProjectRefs } from '../../../utils/projectsRefs/getProjectRefs';
@@ -24,11 +25,23 @@
 	];
 
 	let isVisible = false;
+	let textScrambleInstance = null;
 
 	$: if (subheader && isVisible) {
-		new TextScramble(subheader, content[0]);
+		// Limpiar instancia anterior si existe
+		if (textScrambleInstance) {
+			textScrambleInstance.destroy();
+		}
+		textScrambleInstance = new TextScramble(subheader, content[0]);
 		isVisible = false;
 	}
+	
+	// Cleanup al desmontar el componente
+	onDestroy(() => {
+		if (textScrambleInstance) {
+			textScrambleInstance.destroy();
+		}
+	});
 </script>
 
 <svelte:window bind:innerWidth={width} />

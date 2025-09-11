@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
+    import { onMount, onDestroy } from 'svelte';
     import { fly } from 'svelte/transition';
     import { projects, type Project } from '../../../constants/projects';
     import ProjectsColumn from './ProjectsColumn/ProjectsColumn.svelte';
@@ -36,10 +36,13 @@
     // Estado para controlar la aparición escalonada de las imágenes
     let showImages = false;
     
+    // Referencia para limpiar timeout
+    let showImagesTimeout: number | null = null;
+    
     // Activar las imágenes después de que la metabola haya terminado su fade-in
     onMount(() => {
         // Delay para que aparezcan después de la metabola (500ms + 200ms delay = 700ms)
-        setTimeout(() => {
+        showImagesTimeout = setTimeout(() => {
             showImages = true;
         }, 800);
         
@@ -69,6 +72,11 @@
         
         // Cleanup function
         return () => {
+            console.log('🧹 Limpiando HomeV2 onMount');
+            if (showImagesTimeout) {
+                clearTimeout(showImagesTimeout);
+                showImagesTimeout = null;
+            }
             document.removeEventListener('click', handleClickOutside);
         };
     });
@@ -217,6 +225,27 @@
         hoveredProjectIndex = index;
         hoveredProjectIndexes = index !== null ? [index] : [];
     }
+    
+    // Cleanup adicional al desmontar el componente
+    onDestroy(() => {
+        console.log('🧹 Limpiando HomeV2 onDestroy');
+        
+        // Limpiar timeout si existe
+        if (showImagesTimeout) {
+            clearTimeout(showImagesTimeout);
+            showImagesTimeout = null;
+        }
+        
+        // Limpiar estados
+        selectedProjectIndexes = [];
+        selectedArtists = [];
+        highlightedArtists = [];
+        hoveredProjectIndexes = [];
+        hoveredProjectIndex = null;
+        
+        // Colapsar expansiones
+        collapseAll();
+    });
 </script>
 
 <div class="relative w-full min-h-screen lg:h-screen text-white flex flex-col gap-10 lg:gap-0 items-center lg:justify-center overflow-visible">

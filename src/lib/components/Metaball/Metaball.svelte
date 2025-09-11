@@ -3,6 +3,7 @@
 	import * as THREE from 'three';
 	import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 	import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+	import { gsap } from 'gsap';
 	import { HOME } from '../../../constants/routes';
 	import MetaSymbol from '../../../lib/components/Metaball/MetaSymbol';
 	import { isMetaballTransitioning } from '../HomeV2/store';
@@ -84,13 +85,14 @@
 			},
 			undefined,
 			(error) => {
-				console.error('An error occurred while loading the texture:', error);
+				console.error('Error cargando textura de metabola:', error);
 			}
 		);
 
 		/* ANIMATION */
+		let animationId: number;
 		const animate = () => {
-			requestAnimationFrame(animate);
+			animationId = requestAnimationFrame(animate);
 			if (metaSymbol) {
 				metaSymbol.update();
 			}
@@ -109,9 +111,24 @@
 		};
 
 		return () => {
-			metaSymbol.dispose();
-			renderPass.dispose();
-			renderTarget.dispose();
+			// Cancelar requestAnimationFrame
+			if (animationId) {
+				cancelAnimationFrame(animationId);
+			}
+			
+			if (metaSymbol) {
+				metaSymbol.dispose();
+			}
+			if (renderPass) {
+				renderPass.dispose();
+			}
+			if (renderTarget) {
+				renderTarget.dispose();
+			}
+			// Limpiar animaciones GSAP si las hay
+			if (canvas) {
+				gsap.killTweensOf(canvas);
+			}
 		};
 	});
 

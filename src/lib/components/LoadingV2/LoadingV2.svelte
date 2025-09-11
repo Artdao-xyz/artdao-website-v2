@@ -11,8 +11,10 @@
 
 	const animationProgress = writable(0);
 	
+	
 	// Cuando isExiting cambia a true, iniciamos la animación
 	$: if ($isExiting) {
+		// console.log('🎬 Iniciando animación de salida en LoadingV2...');
 		let start = 0;
 		const duration = 700;
 		const animate = (timestamp: number) => {
@@ -23,6 +25,8 @@
 			
 			if (progress < duration) {
 				requestAnimationFrame(animate);
+			} else {
+				// console.log('✨ Animación de salida completada en LoadingV2');
 			}
 		};
 		requestAnimationFrame(animate);
@@ -93,11 +97,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- <progress class="invisible" value={$progress} max="100"></progress> -->
+	
 </div>
 
-<style>
-	.transition-opacity {
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	}
-</style>

@@ -42,9 +42,11 @@
 		const drag = (ev: any) =>
 			container.hasPointerCapture(ev.pointerId) && (container.scrollLeft -= ev.movementX * 100);
 
-		container.addEventListener('pointerdown', dragStart);
-		container.addEventListener('pointerup', dragEnd);
-		container.addEventListener('pointermove', drag);
+		if (container) {
+			container.addEventListener('pointerdown', dragStart);
+			container.addEventListener('pointerup', dragEnd);
+			container.addEventListener('pointermove', drag);
+		}
 	};
 </script>
 

@@ -3,6 +3,7 @@ export default class TextScramble {
 		this.el = el;
 		this.chars = '!<>-_\\/[]{}—=+*^?#________';
 		this.update = this.update.bind(this);
+		this.frameRequest = null;
 		this.setText(text);
 	}
 	setText(text) {
@@ -50,5 +51,13 @@ export default class TextScramble {
 	}
 	randomChar() {
 		return this.chars[Math.floor(Math.random() * this.chars.length)];
+	}
+	
+	// Método para limpiar recursos
+	destroy() {
+		if (this.frameRequest) {
+			cancelAnimationFrame(this.frameRequest);
+			this.frameRequest = null;
+		}
 	}
 }

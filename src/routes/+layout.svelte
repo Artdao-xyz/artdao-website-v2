@@ -3,7 +3,7 @@
 	import '../style.css';
 	import { page } from '$app/stores';
 	import { metaballProgress } from '../utils/metaball/getMetaballProgress';
-	import { metaballRef } from '$lib/components/HomeV2/store';
+	import { metaballRef, isMetaballTransitioning } from '$lib/components/HomeV2/store';
 	import Navbar from '$lib/components/HomeV2/Navbar/Navbar.svelte';
 	import HomeNewsletter from '$lib/elements/HomeNewsletter/HomeNewsletter.svelte';
 	// Determinar si estamos en la página principal
@@ -14,6 +14,9 @@
 	// Reset metaballProgress when route changes
 	$: if ($page) {
 		metaballProgress.set(0);
+		
+		// Resetear estado de transición de metabola cuando cambie la ruta
+		isMetaballTransitioning.set(false);
 	}
 	
 	// Referencia al contenedor del Metaball
