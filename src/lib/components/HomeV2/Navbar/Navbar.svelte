@@ -1,11 +1,8 @@
 <script lang="ts">
     import { Circle } from 'lucide-svelte';
-    import { onMount } from 'svelte';
     import { page } from '$app/stores';
     import { gsap } from 'gsap';
     import { metaballRef, isMetaballTransitioning } from '../store';
-    import TopBarMobile from '../../TopBarMobile/TopBarMobile.svelte';
-    import Metaball from '../../Metaball/Metaball.svelte';
     import HomeNewsletter from '../../../elements/HomeNewsletter/HomeNewsletter.svelte';
 
     // Referencias a los elementos

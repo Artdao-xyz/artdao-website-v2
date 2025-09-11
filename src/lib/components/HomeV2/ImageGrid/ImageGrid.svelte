@@ -3,7 +3,7 @@
     import StackedCards3D from '../../../components/StackedCards3D/StackedCards3D.svelte';
     import { onMount } from 'svelte';
     import { expandedProjectIndex, toggleExpansion } from '../../../stores/expansionStore';
-    import { buttonVisibility, updateButtonVisibility, clearAllButtons } from '../../../stores/buttonVisibilityStore';
+    import { clearAllButtons } from '../../../stores/buttonVisibilityStore';
 
     // Props
     export let projects: Project[];

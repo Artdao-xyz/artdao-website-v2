@@ -1,5 +1,4 @@
 <script lang="ts">
-	import buttonIcon from '$lib/assets/images/button-icon.webp';
 	import mapBg from '$lib/assets/images/map-background.webp';
 	import HomeMobileMenu from '$lib/components/HomeMobileMenu/HomeMobileMenu.svelte';
 	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
@@ -7,12 +6,10 @@
 	import CityMobile from '$lib/elements/CityMobile/CityMobile.svelte';
 	import EventData from '$lib/elements/EventData/EventData.svelte';
 	import EventDataMobile from '$lib/elements/EventDataMobile/EventDataMobile.svelte';
-	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
-	import { eventImages, mapData, type IMapEvent, type IMapLocation } from '../../data/Map/MapData';
+	import { mapData, type IMapEvent, type IMapLocation } from '../../data/Map/MapData';
 	import preloadImages from '../../utils/preloadImages';
 	import { fly } from 'svelte/transition';
-	import { onMount } from 'svelte';
 	let eventToShow: IMapEvent | undefined = undefined;
 	let width: number;
 	let mapLocationToShow: IMapLocation | undefined;
@@ -78,3 +75,4 @@
 		{/if}
 	</div>
 {/await}
+

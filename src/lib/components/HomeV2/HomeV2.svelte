@@ -6,15 +6,10 @@
     import ImageGrid from './ImageGrid/ImageGrid.svelte';
     import ArtistsColumn from './ArtistsColumn/ArtistsColumn.svelte';
     import SelectedProject from './SelectedProject/SelectedProject.svelte';
-    import Navbar from './Navbar/Navbar.svelte';
     import { expandProject, collapseAll, expandedProjectIndex } from '../../stores/expansionStore';
 
     // Extraer solo los títulos de los proyectos para la primera columna
     const projectTitles = projects.map((p: Project) => p.title);
-    
-    // Debug: ver qué está pasando con los datos
-    // console.log('Projects data:', projects);
-    // console.log('Project titles:', projectTitles);
     
     // Extraer todos los artistas únicos de todos los proyectos
     const allArtists = [...new Set(projects.flatMap((p: Project) => p.artists))];

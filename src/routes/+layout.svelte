@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Metaball from '$lib/components/Metaball/Metaball.svelte';
 	import '../style.css';
-	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { metaballProgress } from '../utils/metaball/getMetaballProgress';
 	import { metaballRef } from '$lib/components/HomeV2/store';
 	import Navbar from '$lib/components/HomeV2/Navbar/Navbar.svelte';
+	import HomeNewsletter from '$lib/elements/HomeNewsletter/HomeNewsletter.svelte';
 	// Determinar si estamos en la página principal
 	$: isHomePage = $page?.route?.id === '/';
 	$: isMapPage = $page?.route?.id === '/map';
@@ -77,6 +77,13 @@
 		<slot />
 	</div>
 </div>
+
+<!-- Newsletter - Only show on home or map pages, desktop only -->
+{#if (isHomePage || isMapPage)}
+	<div class="hidden sm:block">
+		<HomeNewsletter isAbsolute={true} />
+	</div>
+{/if}
 
 <style>
 	.bg-dot {

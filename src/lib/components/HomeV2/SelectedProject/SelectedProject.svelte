@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { projects as projectsData, type Project } from '../../../../constants/projects';
+    import { type Project } from '../../../../constants/projects';
 
     // Props
     export let selectedProjectIndex: number | null;
