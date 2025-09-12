@@ -3,7 +3,6 @@
 	import '../style.css';
 	import { page } from '$app/stores';
 	import { metaballProgress } from '../utils/metaball/getMetaballProgress';
-	import { metaballRef, isMetaballTransitioning } from '$lib/components/HomeV2/store';
 	import Navbar from '$lib/components/HomeV2/Navbar/Navbar.svelte';
 	import HomeNewsletter from '$lib/elements/HomeNewsletter/HomeNewsletter.svelte';
 	// Determinar si estamos en la página principal
@@ -14,17 +13,6 @@
 	// Reset metaballProgress when route changes
 	$: if ($page) {
 		metaballProgress.set(0);
-		
-		// Resetear estado de transición de metabola cuando cambie la ruta
-		isMetaballTransitioning.set(false);
-	}
-	
-	// Referencia al contenedor del Metaball
-	let metaballContainer: HTMLDivElement;
-	
-	// Pasar la referencia al store
-	$: if (metaballContainer) {
-		metaballRef.set(metaballContainer);
 	}
 </script>
 
@@ -60,11 +48,7 @@
 <!-- Metaball condicional según la ruta -->
 {#if isHomePage}
     <!-- En la página principal: Metaball extra-grande y fijo en el centro -->
-    <div class="hidden lg:block fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
-        <div bind:this={metaballContainer}>
-            <Metaball {isHomePage} size="extra-large" />
-        </div>
-    </div>
+	<Metaball {isHomePage} size="extra-large" />
 {:else}
     <!-- En otras páginas: Metaball pequeño y flotante en la esquina -->
     <div class="hidden sm:inline-flex fixed bottom-4 right-4 z-50">
