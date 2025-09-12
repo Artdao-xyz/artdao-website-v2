@@ -5,7 +5,7 @@
 	import { fly } from 'svelte/transition';
 	import { isExiting } from '../../../utils/preloadImages';
 	import { writable } from 'svelte/store';
-
+	import { onMount } from 'svelte';
 	const text1 = "Artists helping artists";
 	const text2 = "© 2025";
 
@@ -14,30 +14,38 @@
 	
 	// Cuando isExiting cambia a true, iniciamos la animación
 	$: if ($isExiting) {
-		// console.log('🎬 Iniciando animación de salida en LoadingV2...');
+		console.log('🎬 Iniciando animación de salida en LoadingV2...');
 		let start = 0;
 		const duration = 700;
 		const animate = (timestamp: number) => {
 			if (!start) start = timestamp;
 			const progress = timestamp - start;
+			
 			const percent = Math.min(progress / duration * 200, 200);
 			animationProgress.set(percent);
 			
 			if (progress < duration) {
 				requestAnimationFrame(animate);
 			} else {
-				// console.log('✨ Animación de salida completada en LoadingV2');
+				console.log('✨ Animación de salida completada en LoadingV2');
 			}
 		};
 		requestAnimationFrame(animate);
 	} else {
 		animationProgress.set(0);
 	}
+
+	let metaballRef: any;
+	onMount(() => {
+		metaballRef.classList.remove('opacity-0');
+		metaballRef.classList.add('opacity-100');
+	});
+
 </script>
 
 <div
 	transition:fly={{ duration: 300 }}
-	class="bg-black absolute left-0 top-0 w-full h-full flex justify-center items-center z-50"
+	class="bg-[#F7F5F2] absolute left-0 top-0 w-full h-full flex justify-center items-center z-50 bg-dot"
 >
 	<div class="flex flex-col sm:flex-row items-center gap-12 relative">
 		<div class="w-[200px] overflow-hidden hidden">
@@ -60,8 +68,14 @@
 			/>
 		</div>
 
+		
 		<div class="h-[150px] w-[150px]">
-			<img class="h-full" src="media/intro-metabola-1.gif" alt="Loading gif" />
+			<img bind:this={metaballRef} 
+				class="h-full opacity-0 transition-opacity duration-300 ease-in" 
+				src="media/intro-metabola-alpha.gif" 
+				alt="Loading gif"
+
+			/>
 		</div>
 
 		<div class="hidden text-white text-center sm:text-left font-clash font-xl leading-tight tracking-tight font-medium w-[200px] overflow-hidden">
@@ -100,3 +114,9 @@
 	
 </div>
 
+<style>
+	.bg-dot {
+		background: #F7F5F2 url("/media/home/home-dot.svg") repeat;
+		background-size: 20px 20px;
+	}
+</style>

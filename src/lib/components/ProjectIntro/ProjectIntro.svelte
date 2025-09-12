@@ -6,8 +6,8 @@
 	export let isContain = false;
 	export let isCenterImage = false;
 	export let isWiderTitle = false;
-	export let bgImage: string;
-	export let bgImageMobile: string;
+	export let bgImage: string = '';
+	export let bgImageMobile: string = '';
 	const { name, description, image } = project;
 
 	let width: number;
@@ -16,17 +16,17 @@
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
 
-<SectionContainer hasPadding={false} isOverflow={true}>
+<SectionContainer hasPadding={false} isOverflow={true} bgImage={bgImage}>
 	<div
 		class="w-full h-screen flex flex-row pt-[4.5rem] gap-28 {bgImage
-			? `${isContain && width > 1100 ? 'sm:bg-contain' : 'bg-cover'} bg-fit bg-no-repeat bg-color-black`
+			? `${isContain && width > 1100 ? 'sm:bg-cover' : 'bg-cover'} bg-fit bg-no-repeat bg-color-black`
 			: ''} {textColor === 'black'
 			? 'bg-color-white'
 			: 'bg-color-black'} pr-global-padding {isCenterImage ? 'bg-center' : 'bg-bottom'}"
 		id="intro"
 		style={width > 1100
-			? `background-image: url(${bgImage}); background-position: top;`
-			: `background-image: url(${bgImageMobile}); background-position: top;`}
+			? `background-image: url(${bgImage || ''}); background-position: top;`
+			: `background-image: url(${bgImageMobile || ''}); background-position: top;`}
 	>
 		<div
 			class="flex flex-col h-full w-full sm:w-full sm:max-w-[40rem] {isWiderTitle

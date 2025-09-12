@@ -7,6 +7,7 @@
 	import EventData from '$lib/elements/EventData/EventData.svelte';
 	import EventDataMobile from '$lib/elements/EventDataMobile/EventDataMobile.svelte';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
+	import { EColorVariant } from '../../constants/enums';
 	import { mapData, type IMapEvent, type IMapLocation } from '../../data/Map/MapData';
 	import preloadImages from '../../utils/preloadImages';
 	import { fly } from 'svelte/transition';
@@ -34,7 +35,7 @@
 
 		{#if width > 768}
 			{#if !eventToShow}
-				<SectionContainer hasPadding={false}>
+				<SectionContainer hasPadding={false} colorVariant="light">
 					<div 
 						class="w-full h-full relative "
 						style="background-image: url('{images[0][0]}'); background-repeat: no-repeat; background-size: contain; background-position: center;"
