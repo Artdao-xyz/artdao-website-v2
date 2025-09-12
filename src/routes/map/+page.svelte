@@ -10,6 +10,7 @@
 	import { mapData, type IMapEvent, type IMapLocation } from '../../data/Map/MapData';
 	import preloadImages from '../../utils/preloadImages';
 	import { fly } from 'svelte/transition';
+
 	let eventToShow: IMapEvent | undefined = undefined;
 	let width: number;
 	let mapLocationToShow: IMapLocation | undefined;
@@ -34,13 +35,21 @@
 		{#if width > 768}
 			{#if !eventToShow}
 				<SectionContainer hasPadding={false}>
-					<img src={images[0][0]} alt="map" class="w-full h-full object-contain" />
-					<City mapLocation={mapData[0]} top="27" left="44.5" dotOnLeft={false} bind:eventToShow />
-					<City mapLocation={mapData[1]} top="34.5" left="49" bind:eventToShow />
-					<!-- <City mapLocation={mapData[2]} top="40" left="24" bind:eventToShow /> -->
-					<City mapLocation={mapData[3]} top="56.5" left="30.2" bind:eventToShow />
-					<City mapLocation={mapData[4]} top="67" left="36" bind:eventToShow />
-					<City mapLocation={mapData[5]} top="73" left="34" bind:eventToShow />
+					<div 
+						class="w-full h-full relative "
+						style="background-image: url('{images[0][0]}'); background-repeat: no-repeat; background-size: contain; background-position: center;"
+					>
+						{#each mapData as city, index}
+							<City 
+								mapLocation={city} 
+								top={city.coordinates.top} 
+								left={city.coordinates.left} 
+								dotOnLeft={city.coordinates.dotOnLeft ?? true}
+								showOnTop={city.coordinates.showOnTop ?? false}
+								bind:eventToShow 
+							/>
+						{/each}
+					</div>
 				</SectionContainer>
 			{:else}
 	
@@ -52,23 +61,22 @@
 			{/if}
 		{:else if !eventToShow}
 			<div
-				class="flex flex-col justify-start items-center gap-[15px] w-full py-[4.5rem] px-[20px] h-full self-start relative"
+				class="flex flex-col justify-start items-center gap-[15px] w-full py-[4.5rem] px-[20px] h-full self-start relative bg-cover sm:bg-contain"
+				style="background-image: url('{images[0][0]}'); background-repeat: no-repeat; background-position: center;"
 			>
 				<!-- Map background for mobile -->
 				
-				<CityMobile mapLocation={mapData[0]} bind:eventToShow bind:mapLocationToShow />
-				<CityMobile mapLocation={mapData[1]} bind:eventToShow bind:mapLocationToShow />
-				<!-- <CityMobile mapLocation={mapData[2]} bind:eventToShow bind:mapLocationToShow /> -->
-				<CityMobile mapLocation={mapData[3]} bind:eventToShow bind:mapLocationToShow />
-				<CityMobile mapLocation={mapData[4]} bind:eventToShow bind:mapLocationToShow />
-				<CityMobile mapLocation={mapData[5]} bind:eventToShow bind:mapLocationToShow />
+				{#each mapData as city}
+					<CityMobile mapLocation={city} bind:eventToShow bind:mapLocationToShow />
+				{/each}
 			</div>
 		{:else}
 			<div
 				class="flex flex-col justify-center items-center gap-[15px] w-full py-[4.5rem] px-[20px] h-full self-start relative"
 			>
 				<!-- Map background for mobile -->
-				
+				<img src={images[0][0]} alt="map" class="absolute inset-0 w-full h-full object-cover" />
+
 				<EventDataMobile bind:eventToShow />
 			</div>
 		{/if}

@@ -12,8 +12,7 @@
 <div
 	class="!snap-start shrink-0 w-full {isCover ? 'bg-cover' : ''} {isOverflow
 		? 'h-screen'
-		: ''} sm:h-full-desktop-height {bgImage ? 'bg-center bg-no-repeat' : ''} {hasPadding ? 'p-global-padding' : ''} px-10"
-	style="background-color: {isMapRoute ? '#F7F5F2' : '#000000'}; bg-repeat: repeat; background-image: {isMapRoute ? "url('/media/home/home-dot.svg')" : 'none'};"
+		: ''} sm:h-full-desktop px-10"
 >
 	<slot />
 </div>

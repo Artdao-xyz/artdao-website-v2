@@ -93,11 +93,22 @@ export interface IMapEvent {
 export interface IMapLocation {
 	location: string;
 	events: IMapEvent[];
+	coordinates: {
+		top: string;
+		left: string;
+		dotOnLeft?: boolean;
+		showOnTop?: boolean;
+	};
 }
 
 export const mapData: IMapLocation[] = [
 	{
 		location: 'Lisbon',
+		coordinates: {
+			top: '42',
+			left: '35',
+			dotOnLeft: false
+		},
 		events: [
 			{
 				title: 'Intertwined',
@@ -139,6 +150,10 @@ export const mapData: IMapLocation[] = [
 	},
 	{
 		location: 'Paris',
+		coordinates: {
+			top: '38.5',
+			left: '40'
+		},
 		events: [
 			{
 				title: 'NFT Paris',
@@ -162,6 +177,10 @@ export const mapData: IMapLocation[] = [
 	},
 	{
 		location: 'Denver',
+		coordinates: {
+			top: '40',
+			left: '24'
+		},
 		events: [
 			{
 				title: 'ETH Denver',
@@ -175,6 +194,10 @@ export const mapData: IMapLocation[] = [
 	},
 	{
 		location: 'Bogotá',
+		coordinates: {
+			top: '60.5',
+			left: '30.2'
+		},
 		events: [
 			{
 				title: 'Devcon',
@@ -188,6 +211,10 @@ export const mapData: IMapLocation[] = [
 	},
 	{
 		location: 'São Paulo',
+		coordinates: {
+			top: '70',
+			left: '35'
+		},
 		events: [
 			{
 				title: 'O.R.B.',
@@ -203,6 +230,10 @@ export const mapData: IMapLocation[] = [
 	},
 	{
 		location: 'Buenos Aires',
+		coordinates: {
+			top: '82',
+			left: '30'
+		},
 		events: [
 			{
 				title: 'Cero Uno',

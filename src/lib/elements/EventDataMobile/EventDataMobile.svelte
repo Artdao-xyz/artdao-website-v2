@@ -11,7 +11,7 @@
 </script>
 
 {#if eventToShow}
-	<div class="w-full flex flex-col gap-[15px] items-center">
+	<div class="w-full flex flex-col gap-[15px] items-center z-10">
 		<!-- City name at the top -->
 		<div class="w-full h-10 px-4 py-[5px] bg-[#101010] rounded-[100px] outline outline-1 outline-black flex items-center justify-center">
 			<p class="text-[#f7f5f2] text-lg font-normal font-robotoMono leading-none tracking-wide capitalize">
