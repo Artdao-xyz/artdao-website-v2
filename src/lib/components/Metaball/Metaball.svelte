@@ -6,7 +6,6 @@
 	import { gsap } from 'gsap';
 	import { HOME } from '../../../constants/routes';
 	import MetaSymbol from '../../../lib/components/Metaball/MetaSymbol';
-	import { isMetaballTransitioning } from '../HomeV2/store';
 	
 	// Props para controlar el comportamiento
 	export let isHomePage: boolean = false;
@@ -15,8 +14,34 @@
 	let canvas: any = null;
 	let metaSymbol: any = null;
 	let isLoaded = false;
+	let isAnimated = false;
 
 	const scene = new THREE.Scene();
+
+	// Función para animar el canvas hacia la esquina inferior derecha
+	const animateToBottomRight = () => {
+		if (!canvas || isAnimated) return;
+		
+		isAnimated = true;
+		
+		// Remover las clases de centrado y establecer posición inicial
+		canvas.classList.remove('bottom-1/2', 'right-1/2', 'translate-x-1/2', 'translate-y-1/2');
+		canvas.style.bottom = '50%';
+		canvas.style.right = '50%';
+		canvas.style.transform = 'translate(50%, 50%)';
+		
+		gsap.to(canvas, {
+			duration: 1.5,
+			ease: "power2.inOut",
+			bottom: '10px',
+			right: '10px',
+			transform: 'translate(0, 0) scale(0.2)',
+			onComplete: () => {
+				// Mantener la posición final
+				// canvas.style.transform = 'scale(0.2)';
+			}
+		});
+	};
 
 	onMount(() => {
 		/* SETTINGS */
@@ -81,6 +106,13 @@
 				// Activar fade-in después de que el Metaball esté listo
 				setTimeout(() => {
 					isLoaded = true;
+					
+					// Iniciar animación después de 2 segundos
+					if (isHomePage) {
+						setTimeout(() => {
+							animateToBottomRight();
+						}, 2000);
+					}
 				}, 100);
 			},
 			undefined,
@@ -132,7 +164,7 @@
 		};
 	});
 
-	// $: {
+	// $: { 
 	//     if (metaSymbol)   {
 	//         metaSymbol.changeTexture(0);
 	//         document.body.className = themes[0];
@@ -151,10 +183,10 @@
 	<!-- En la página principal: Metaball fijo en el centro -->
 	<canvas 
 		bind:this={canvas} 
-		class="bg-transparent fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 transition-opacity duration-500 ease-in-out"
+		class="bg-transparent fixed bottom-1/2 right-1/2 transform translate-x-1/2 translate-y-1/2 z-40 transition-opacity duration-500 ease-in-out"
 		class:opacity-0={!isLoaded}
 		class:opacity-100={isLoaded}
-		style="transition-delay: {isLoaded ? '200ms' : '0ms'}"
+		style="transition-delay: {isLoaded ? '200ms' : '0ms'}; transform-origin: bottom right;"
 	>
 	</canvas>
 {:else}
