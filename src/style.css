@@ -181,10 +181,16 @@
 	display: none;
 }
 html {
-	background-color: #F7F5F2;
+	background-color: #000000;
 }
 
 body {
-	background-color: #F7F5F2;
+	background-color: #000000;
 	overflow-x: hidden;
+}
+
+/* Fondo específico para la ruta /map */
+.map-background {
+	background: #F7F5F2 url("/media/home/home-dot.svg") repeat;
+	background-size: 20px 20px;
 }

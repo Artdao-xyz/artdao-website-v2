@@ -56,7 +56,7 @@
     </div>
 {/if}
 
-<div class="h-svh w-full flex flex-col">	
+<div class="h-svh w-full flex flex-col {isMapPage ? 'map-background' : ''}">	
 	{#if shouldShowNavbar}
 		<Navbar />
 	{/if}

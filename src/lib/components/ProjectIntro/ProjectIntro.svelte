@@ -16,12 +16,10 @@
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
 
-<SectionContainer hasPadding={false} isOverflow={false}>
+<SectionContainer hasPadding={false} isOverflow={true}>
 	<div
-		class="w-full {height > 750 && width < 1100
-			? 'h-screen'
-			: 'pb-[10rem]'} flex flex-row pt-[4.5rem] gap-28 {bgImage
-			? `${isContain && width > 1100 ? 'sm:bg-contain' : 'bg-cover'} bg-fit bg-no-repeat sm:h-full bg-color-black`
+		class="w-full h-screen flex flex-row pt-[4.5rem] gap-28 {bgImage
+			? `${isContain && width > 1100 ? 'sm:bg-contain' : 'bg-cover'} bg-fit bg-no-repeat bg-color-black`
 			: ''} {textColor === 'black'
 			? 'bg-color-white'
 			: 'bg-color-black'} pr-global-padding {isCenterImage ? 'bg-center' : 'bg-bottom'}"
