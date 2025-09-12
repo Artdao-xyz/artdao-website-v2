@@ -21,6 +21,10 @@
     let hoveredProjectIndex: number | null = null;
     let hoveredProjectIndexes: number[] = [];
     
+    // Estado separado para el hover de las columnas (no afecta ImageGrid)
+    let columnHoveredProjectIndex: number | null = null;
+    let columnHoveredProjectIndexes: number[] = [];
+    
     // Estado para los proyectos seleccionados (array para múltiples selecciones)
     let selectedProjectIndexes: number[] = [];
     
@@ -197,22 +201,6 @@
         }
     }
 
-    // Función para manejar hover de artistas
-    function handleArtistHover(artist: string) {
-        if (artist) {
-            // Buscar todos los proyectos donde aparece este artista
-            const projectIndexes = projects
-                .map((project, index) => project.artists.includes(artist) ? index : -1)
-                .filter(index => index !== -1);
-            
-            hoveredProjectIndexes = projectIndexes;
-            // Para compatibilidad, mantener el primer proyecto como hoveredProjectIndex
-            hoveredProjectIndex = projectIndexes.length > 0 ? projectIndexes[0] : null;
-        } else {
-            hoveredProjectIndexes = [];
-            hoveredProjectIndex = null;
-        }
-    }
     
     // Función para manejar hover de cartas
     function handleCardHover(index: number | null) {
@@ -220,10 +208,51 @@
         hoveredProjectIndexes = index !== null ? [index] : [];
     }
     
-    // Función para manejar hover de proyectos (desde ProjectsColumn)
+    
+    // Función para manejar hover de proyectos (desde ProjectsColumn) - solo para columnas
     function handleProjectHover(index: number | null) {
-        hoveredProjectIndex = index;
-        hoveredProjectIndexes = index !== null ? [index] : [];
+        columnHoveredProjectIndex = index;
+        columnHoveredProjectIndexes = index !== null ? [index] : [];
+        
+        // Highlightear en ImageGrid solo si no es el mismo proyecto expandido
+        if (index !== null && index !== $expandedProjectIndex) {
+            hoveredProjectIndex = index;
+            hoveredProjectIndexes = [index];
+        } else if (index === null) {
+            // Limpiar hover del ImageGrid cuando se sale del hover de la columna
+            hoveredProjectIndex = null;
+            hoveredProjectIndexes = [];
+        }
+    }
+    
+    // Función para manejar hover de artistas (desde ArtistsColumn) - solo para columnas
+    function handleArtistHover(artist: string) {
+        if (artist) {
+            // Buscar todos los proyectos donde aparece este artista
+            const projectIndexes = projects
+                .map((project, index) => project.artists.includes(artist) ? index : -1)
+                .filter(index => index !== -1);
+            
+            columnHoveredProjectIndexes = projectIndexes;
+            // Para compatibilidad, mantener el primer proyecto como columnHoveredProjectIndex
+            columnHoveredProjectIndex = projectIndexes.length > 0 ? projectIndexes[0] : null;
+            
+            // Highlightear en ImageGrid solo los proyectos que no están expandidos
+            const nonExpandedProjects = projectIndexes.filter(index => index !== $expandedProjectIndex);
+            if (nonExpandedProjects.length > 0) {
+                hoveredProjectIndexes = nonExpandedProjects;
+                hoveredProjectIndex = nonExpandedProjects[0];
+            } else {
+                hoveredProjectIndexes = [];
+                hoveredProjectIndex = null;
+            }
+        } else {
+            columnHoveredProjectIndexes = [];
+            columnHoveredProjectIndex = null;
+            // Limpiar hover del ImageGrid cuando se sale del hover de la columna
+            hoveredProjectIndexes = [];
+            hoveredProjectIndex = null;
+        }
     }
     
     // Cleanup adicional al desmontar el componente
@@ -242,6 +271,8 @@
         highlightedArtists = [];
         hoveredProjectIndexes = [];
         hoveredProjectIndex = null;
+        columnHoveredProjectIndexes = [];
+        columnHoveredProjectIndex = null;
         
         // Colapsar expansiones
         collapseAll();
@@ -268,7 +299,7 @@
                 <ProjectsColumn 
                     projects={projects}
                     selectedProjectIndexes={selectedProjectIndexes}
-                    {hoveredProjectIndexes}
+                    hoveredProjectIndexes={columnHoveredProjectIndexes}
                     onProjectClick={scrollToProject}
                     onProjectHover={handleProjectHover}
                     variant="desktop"
@@ -284,7 +315,6 @@
                     selectedProjectIndexes={selectedProjectIndexes}
                     {hoveredProjectIndexes}
                     onImageHover={handleCardHover}
-
                 />
             </div>
         {/if}
@@ -297,7 +327,7 @@
                     selectedProjectIndexes={selectedProjectIndexes}
                     {selectedArtists}
                     {highlightedArtists}
-                    {hoveredProjectIndex}
+                    hoveredProjectIndex={columnHoveredProjectIndex}
                     onArtistClick={toggleArtist}
                     onArtistHover={handleArtistHover}
                     variant="desktop"
@@ -312,7 +342,7 @@
                 <ProjectsColumn 
                     projects={projects}
                     selectedProjectIndexes={selectedProjectIndexes}
-                    {hoveredProjectIndexes}
+                    hoveredProjectIndexes={columnHoveredProjectIndexes}
                     onProjectClick={scrollToProject}
                     onProjectHover={handleProjectHover}
                     variant="mobile"
@@ -324,7 +354,7 @@
                     selectedProjectIndexes={selectedProjectIndexes}
                     {selectedArtists}
                     {highlightedArtists}
-                    {hoveredProjectIndex}
+                    hoveredProjectIndex={columnHoveredProjectIndex}
                     onArtistClick={toggleArtist}
                     onArtistHover={handleArtistHover}
                     variant="mobile"

@@ -108,18 +108,12 @@
         }
     }
     
+    
     // Función para determinar si un proyecto está activo/expandido
     function isProjectActive(originalIndex: number) {
         return $expandedProjectIndex === originalIndex;
     }
     
-    // Función para determinar si mostrar el botón Enter the zine
-    function shouldShowEnterButton(originalIndex: number) {
-        const isActive = isProjectActive(originalIndex);
-        const isHovered = hoveredProjectIndexes.includes(originalIndex);
-        // Mostrar el botón cuando está expandido Y hovereado
-        return isActive && isHovered;
-    }   
 </script>
 
 <div 
