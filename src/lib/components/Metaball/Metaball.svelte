@@ -27,12 +27,12 @@
 
 	// Función para animar el canvas hacia la esquina inferior derecha
 	const animateToBottomRight = () => {
-		console.log('🎬 animateToBottomRight iniciada');
-		console.log('🎬 canvas:', !!canvas, 'isAnimated:', isAnimated);
-		console.log('🎬 metaballContainer:', !!metaballContainer);
+		// console.log('🎬 animateToBottomRight iniciada');
+		// console.log('🎬 canvas:', !!canvas, 'isAnimated:', isAnimated);
+		// console.log('🎬 metaballContainer:', !!metaballContainer);
 		
 		if (!canvas || isAnimated) {
-			console.log('❌ animateToBottomRight cancelada - canvas:', !!canvas, 'isAnimated:', isAnimated);
+			// console.log('❌ animateToBottomRight cancelada - canvas:', !!canvas, 'isAnimated:', isAnimated);
 			return;
 		}
 		
@@ -40,26 +40,26 @@
 		gsap.killTweensOf(canvas);
 		
 		isAnimated = true;
-		console.log('✅ animateToBottomRight ejecutándose');
+		// console.log('✅ animateToBottomRight ejecutándose');
 
 		// Hacer transparente el wrapper si existe
 		if (metaballContainer) {
-			console.log('🎯 Haciendo transparente metaballContainer');
+			// console.log('🎯 Haciendo transparente metaballContainer');
 			metaballContainer.classList.add('opacity-0');
 			metaballContainer.classList.remove('opacity-100');
 		}
 		
 		// Remover las clases de centrado y establecer posición inicial
-		console.log('🎬 Removiendo clases CSS');
-		console.log('🎬 Canvas antes:', canvas.style.transform, canvas.style.bottom, canvas.style.right);
+		// console.log('🎬 Removiendo clases CSS');
+		// console.log('🎬 Canvas antes:', canvas.style.transform, canvas.style.bottom, canvas.style.right);
 		canvas.classList.remove('bottom-1/2', 'right-1/2', 'translate-x-1/2', 'translate-y-1/2');
 		canvas.style.bottom = '50%';
 		canvas.style.right = '50%';
 		canvas.style.transform = 'translate(50%, 50%)';
-		console.log('🎬 Canvas después:', canvas.style.transform, canvas.style.bottom, canvas.style.right);
+		// console.log('🎬 Canvas después:', canvas.style.transform, canvas.style.bottom, canvas.style.right);
 		
-		console.log('🎬 Iniciando animación GSAP');
-		console.log('🎬 GSAP activo:', gsap.globalTimeline.getChildren().length, 'animaciones');
+		// console.log('🎬 Iniciando animación GSAP');
+		// console.log('🎬 GSAP activo:', gsap.globalTimeline.getChildren().length, 'animaciones');
 		const startTime = performance.now();
 		
 		gsap.to(canvas, {
@@ -69,17 +69,17 @@
 			right: '10px',
 			transform: 'translate(0, 0) scale(0.2)',
 			onStart: () => {
-				console.log('🚀 GSAP animación iniciada');
+				// console.log('🚀 GSAP animación iniciada');
 			},
 			onComplete: () => {
-				console.log('✅ GSAP animación completada');
+				// console.log('✅ GSAP animación completada');
 			}
 		});
 	};
 
 
 	onMount(() => {
-		console.log('🎯 Metaball onMount iniciado - isPreloader:', isPreloader, 'size:', size);
+		// console.log('🎯 Metaball onMount iniciado - isPreloader:', isPreloader, 'size:', size);
 		
 		// Reset del estado para evitar conflictos
 		isAnimated = false;
@@ -147,7 +147,7 @@
 				// Activar fade-in después de que el Metaball esté listo
 				setTimeout(() => {
 					isLoaded = true;
-					console.log('🎉 Metabola cargada, esperando 2 segundos para animar');
+					// console.log('🎉 Metabola cargada, esperando 2 segundos para animar');
 					
 					// Si es preloader, disparar evento metaballReady
 					if (isPreloader) {
@@ -155,7 +155,7 @@
 					}
 					
 					setTimeout(() => {
-						console.log('⏰ Ejecutando animateToBottomRight después de 2 segundos');
+						// console.log('⏰ Ejecutando animateToBottomRight después de 2 segundos');
 						animateToBottomRight();
 					}, 2000);
 				}, 100);
@@ -192,16 +192,16 @@
 
 		return () => {
 			// Cancelar requestAnimationFrame
-			console.log('🧹 Metaball cleanup iniciado');
+			// console.log('🧹 Metaball cleanup iniciado');
 			if (animationId) {
 				cancelAnimationFrame(animationId);
-				console.log('🧹 Animation frame cancelado');
+				// console.log('🧹 Animation frame cancelado');
 			}
 			
 			// Limpiar todas las animaciones GSAP del canvas
 			if (canvas) {
 				gsap.killTweensOf(canvas);
-				console.log('🧹 GSAP animations killed');
+				// console.log('🧹 GSAP animations killed');
 			}
 			
 			if (metaSymbol) {

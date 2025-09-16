@@ -8,12 +8,12 @@ export const preloadImages = async (urls: string[][]) => {
 	let errors = 0;
 
 	// Logging detallado de todos los archivos
-	console.log('🚀 Iniciando precarga de imágenes...');
-	console.log('📊 Total de archivos a precargar:', total);
-	console.log('📁 Archivos a precargar:');
-	flatUrls.forEach((url, index) => {
-		console.log(`  ${index + 1}. ${url}`);
-	});
+	// console.log('🚀 Iniciando precarga de imágenes...');
+	// console.log('📊 Total de archivos a precargar:', total);
+	// console.log('📁 Archivos a precargar:');
+	// flatUrls.forEach((url, index) => {
+	// 	console.log(`  ${index + 1}. ${url}`);
+	// });
 
 	const loadPromises = flatUrls.map(async (src, index) => {
 		if (src.endsWith('.svg') || src.endsWith('.jpg') || src.endsWith('.png') || src.endsWith('.webp')) {
@@ -25,10 +25,10 @@ export const preloadImages = async (urls: string[][]) => {
 					const progressPercent = (loaded / total) * 100;
 					progress.set(progressPercent);
 					
-					console.log(`✅ Imagen cargada (${loaded}/${total}): ${src}`);
+					// console.log(`✅ Imagen cargada (${loaded}/${total}): ${src}`);
 					
 					if (loaded + errors === total) {
-						console.log('🎉 ¡Todas las imágenes han sido precargadas!');
+						// console.log('🎉 ¡Todas las imágenes han sido precargadas!');
 						await startExit();
 					}
 					resolve(null);
@@ -39,10 +39,10 @@ export const preloadImages = async (urls: string[][]) => {
 					const progressPercent = ((loaded + errors) / total) * 100;
 					progress.set(progressPercent);
 					
-					console.log(`❌ Error cargando imagen (${loaded + errors}/${total}): ${src}`);
+					// console.log(`❌ Error cargando imagen (${loaded + errors}/${total}): ${src}`);
 					
 					if (loaded + errors === total) {
-						console.log('🎉 ¡Todas las imágenes han sido precargadas!');
+						// console.log('🎉 ¡Todas las imágenes han sido precargadas!');
 						await startExit();
 					}
 					resolve(null);
@@ -56,7 +56,7 @@ export const preloadImages = async (urls: string[][]) => {
 			const progressPercent = (loaded / total) * 100;
 			progress.set(progressPercent);
 			
-			console.log(`⚠️ Archivo no válido (${loaded}/${total}): ${src}`);
+			// console.log(`⚠️ Archivo no válido (${loaded}/${total}): ${src}`);
 			
 			if (loaded + errors === total) {
 				console.log('🎉 ¡Todas las imágenes han sido precargadas!');
@@ -68,10 +68,10 @@ export const preloadImages = async (urls: string[][]) => {
 
 	await Promise.all(loadPromises);
 	
-	console.log('📈 Resumen de precarga:');
-	console.log(`  ✅ Imágenes cargadas: ${loaded}`);
-	console.log(`  ❌ Errores: ${errors}`);
-	console.log(`  📊 Total procesado: ${loaded + errors}/${total}`);
+	// console.log('📈 Resumen de precarga:');
+	// console.log(`  ✅ Imágenes cargadas: ${loaded}`);
+	// console.log(`  ❌ Errores: ${errors}`);
+	// console.log(`  📊 Total procesado: ${loaded + errors}/${total}`);
 	
 	return urls; // Mantenemos el return original por compatibilidad
 };

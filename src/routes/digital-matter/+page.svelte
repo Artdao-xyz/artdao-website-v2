@@ -89,7 +89,7 @@
 
 	// Función para cargar las imágenes cuando el Metaball esté listo
 	const loadImages = async () => {
-		console.log('🖼️ Digital Matter: Iniciando carga de imágenes...');
+		// console.log('🖼️ Digital Matter: Iniciando carga de imágenes...');
 		const images = await preloadImages([
 			[digitalMatterProjectIntro.bgImage, digitalMatterProjectIntro.bgImageMobile],
 			marcusAboutImages,
@@ -102,20 +102,20 @@
 			parsaArtworkImages2.map((item) => item.src),
 			parsaPolaroidsImages.map((item) => item.image)
 		]);
-		console.log('🖼️ Digital Matter: Imágenes cargadas:', images);
+		// console.log('🖼️ Digital Matter: Imágenes cargadas:', images);
 		preloadedImagesStore.set(images);
 		imagesLoaded.set(true);
-		console.log('🖼️ Digital Matter: Store actualizado');
+		// console.log('🖼️ Digital Matter: Store actualizado');
 	};
 
 	// Cargar imágenes cuando el Metaball esté listo
 	$: if ($metaballReady) {
-		console.log('🎯 Digital Matter: Metaball listo, ejecutando loadImages');
+		// console.log('🎯 Digital Matter: Metaball listo, ejecutando loadImages');
 		loadImages();
 	}
 
 	// Debug: verificar estado del store
-	$: console.log('🔍 Digital Matter: metaballReady:', $metaballReady, 'preloadedImagesStore:', $preloadedImagesStore);
+	// $: console.log('🔍 Digital Matter: metaballReady:', $metaballReady, 'preloadedImagesStore:', $preloadedImagesStore);
 </script>
 
 <svelte:window bind:innerWidth={size} />
