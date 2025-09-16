@@ -57,14 +57,14 @@
 	{#if shouldShowNavbar}
 		<Navbar />
 	{/if}
-	<div class="flex-1">
+	<div class="flex-1 relative">
 		<slot />
 	</div>
+	
+	<!-- Newsletter - Only show on home or map pages, desktop only -->
+	{#if (isHomePage || isMapPage)}
+		<div class="hidden sm:block">
+			<HomeNewsletter isAbsolute={true} />
+		</div>
+	{/if}
 </div>
-
-<!-- Newsletter - Only show on home or map pages, desktop only -->
-{#if (isHomePage || isMapPage)}
-	<div class="hidden sm:block">
-		<HomeNewsletter isAbsolute={true} />
-	</div>
-{/if}

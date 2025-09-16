@@ -19,13 +19,14 @@
 	let isLoaded = false;
 	let isAnimated = false;	
 	let metaballContainer: any = null;
+	let isMobile = false;
 	
 	// Detectar si estamos en la página de inherent-instability
 	$: isInherentInstabilityPage = $page?.route?.id === '/inherent-instability';
 
 	const scene = new THREE.Scene();
 
-	// Función para animar el canvas hacia la esquina inferior derecha
+	// Función para animar el canvas hacia la esquina inferior derecha (desktop)
 	const animateToBottomRight = () => {
 		// console.log('🎬 animateToBottomRight iniciada');
 		// console.log('🎬 canvas:', !!canvas, 'isAnimated:', isAnimated);
@@ -52,9 +53,12 @@
 		// Remover las clases de centrado y establecer posición inicial
 		// console.log('🎬 Removiendo clases CSS');
 		// console.log('🎬 Canvas antes:', canvas.style.transform, canvas.style.bottom, canvas.style.right);
-		canvas.classList.remove('bottom-1/2', 'right-1/2', 'translate-x-1/2', 'translate-y-1/2');
+		canvas.classList.remove('bottom-1/2', 'right-1/2', 'top-1/2', 'left-1/2', 'translate-x-1/2', 'translate-y-1/2');
 		canvas.style.bottom = '50%';
 		canvas.style.right = '50%';
+		canvas.style.top = 'auto';
+		canvas.style.left = 'auto';
+		canvas.style.transformOrigin = 'bottom right';
 		canvas.style.transform = 'translate(50%, 50%)';
 		// console.log('🎬 Canvas después:', canvas.style.transform, canvas.style.bottom, canvas.style.right);
 		
@@ -77,13 +81,72 @@
 		});
 	};
 
+	// Función para animar el canvas hacia la esquina superior izquierda (mobile)
+	const animateToTopLeft = () => {
+		// console.log('🎬 animateToTopLeft iniciada');
+		// console.log('🎬 canvas:', !!canvas, 'isAnimated:', isAnimated);
+		// console.log('🎬 metaballContainer:', !!metaballContainer);
+		
+		if (!canvas || isAnimated) {
+			// console.log('❌ animateToTopLeft cancelada - canvas:', !!canvas, 'isAnimated:', isAnimated);
+			return;
+		}
+		
+		// Limpiar cualquier animación GSAP previa del canvas
+		gsap.killTweensOf(canvas);
+		
+		isAnimated = true;
+		// console.log('✅ animateToTopLeft ejecutándose');
+
+		// Hacer transparente el wrapper si existe
+		if (metaballContainer) {
+			// console.log('🎯 Haciendo transparente metaballContainer');
+			metaballContainer.classList.add('opacity-0');
+			metaballContainer.classList.remove('opacity-100');
+		}
+		
+		// Remover las clases de centrado y establecer posición inicial
+		// console.log('🎬 Removiendo clases CSS');
+		// console.log('🎬 Canvas antes:', canvas.style.transform, canvas.style.top, canvas.style.left);
+		canvas.classList.remove('bottom-1/2', 'right-1/2', 'top-1/2', 'left-1/2', 'translate-x-1/2', 'translate-y-1/2');
+		canvas.style.top = '50%';
+		canvas.style.left = '50%';
+		canvas.style.bottom = 'auto';
+		canvas.style.right = 'auto';
+		canvas.style.transformOrigin = 'top left';
+		canvas.style.transform = 'translate(-50%, -50%)';
+		// console.log('🎬 Canvas después:', canvas.style.transform, canvas.style.top, canvas.style.left);
+		
+		// console.log('🎬 Iniciando animación GSAP');
+		// console.log('🎬 GSAP activo:', gsap.globalTimeline.getChildren().length, 'animaciones');
+		const startTime = performance.now();
+		
+		gsap.to(canvas, {
+			duration: 1.5,
+			ease: "power2.inOut",
+			top: '10px',
+			left: '10px',
+			transform: 'translate(0, 0) scale(0.2)',
+			onStart: () => {
+				// console.log('🚀 GSAP animación iniciada');
+			},
+			onComplete: () => {
+				// console.log('✅ GSAP animación completada');
+			}
+		});
+	};
+
 
 	onMount(() => {
 		// console.log('🎯 Metaball onMount iniciado - isPreloader:', isPreloader, 'size:', size);
 		
 		// Reset del estado para evitar conflictos
+		console.log('🎯 Metaball onMount iniciado - isPreloader:', isPreloader, 'size:', size);
 		isAnimated = false;
 		isLoaded = false;
+		
+		// Detectar si estamos en mobile
+		isMobile = window.innerWidth <= 768;
 		
 		/* SETTINGS */
 		let baseSize: number;
@@ -155,8 +218,15 @@
 					}
 					
 					setTimeout(() => {
-						// console.log('⏰ Ejecutando animateToBottomRight después de 2 segundos');
-						animateToBottomRight();
+						// console.log('⏰ Ejecutando animación después de 2 segundos');
+						// Solo ir arriba-izquierda si es mobile Y home page
+						if (isMobile && isHomePage) {
+							console.log('🎬 Ejecutando animación hacia arriba-izquierda');
+							animateToTopLeft();
+						} else {
+							console.log('🎬 Ejecutando animación hacia abajo-derecha');
+							animateToBottomRight();
+						}
 					}, 2000);
 				}, 100);
 			},
@@ -246,7 +316,7 @@
 	class="bg-transparent fixed bottom-1/2 right-1/2 transform translate-x-1/2 translate-y-1/2 z-50 transition-opacity duration-500 ease-in-out"
 	class:opacity-0={!isLoaded}
 	class:opacity-100={isLoaded}
-	style="transition-delay: {isLoaded ? '200ms' : '0ms'}; transform-origin: bottom right;"
+	style="transition-delay: {isLoaded ? '200ms' : '0ms'};"
 >
 </canvas>
 
@@ -255,5 +325,13 @@
 	.bg-dot {
 		background: #F7F5F2 url('/media/home/home-dot.svg') repeat;
 		background-size: 20px 20px;
+	}
+	
+	.metaball-canvas {
+		transform-origin: bottom right;
+	}
+	
+	.metaball-canvas.metaball-mobile {
+		transform-origin: top left;
 	}
 </style>

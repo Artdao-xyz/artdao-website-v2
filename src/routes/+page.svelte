@@ -3,7 +3,7 @@
 </script>
 
 
-<div class="bg-dot">
+<div class="bg-dot h-full">
 	<HomeV2/>
 </div>
 

@@ -279,7 +279,7 @@
     });
 </script>
 
-<div class="relative w-full min-h-screen lg:h-screen text-white flex flex-col gap-10 lg:gap-0 items-center lg:justify-center overflow-visible">
+<div class="relative w-full h-full lg:min-h-screen lg:h-screen text-white flex flex-col gap-10 lg:gap-0 items-center lg:justify-center overflow-visible">
     
     <!-- Layout Unificado -->
     <div class="w-full flex flex-col lg:flex-row lg:max-w-screen-2xl lg:h-screen overflow-visible">
