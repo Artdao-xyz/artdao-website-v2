@@ -55,7 +55,6 @@
 			bind:this={videoPlayer}
 			preload="metadata"
 			playsinline
-
 			muted
 			loop
 			on:loadedmetadata={handleVideoLoad}

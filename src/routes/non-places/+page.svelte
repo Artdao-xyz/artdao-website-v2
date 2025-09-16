@@ -25,37 +25,34 @@
 
 	let size: number;
 
-	let introIsInView: boolean;
-	let venueIsInView: boolean;
-	let artworksIsInView: boolean;
-	let vernisaggeIsInView: boolean;
+	let videoIsInView: boolean;
+	let exhibitionIsInView: boolean;
+	let artistsAndArtworksIsInView: boolean;
 
 	let containerRef: any;
 
 	const handleOnScroll = () => {
 		getMetaballProgress(containerRef);
 
-		if (introIsInView) {
+		if (videoIsInView) {
 			updateNavBar(nonPlacesNavStoreItems, nonPlacesNavItems, nonPlacesNavItems[0].route);
 		}
 
-		if (venueIsInView) {
+		if (exhibitionIsInView) {
 			updateNavBar(nonPlacesNavStoreItems, nonPlacesNavItems, nonPlacesNavItems[1].route);
 		}
 
-		if (vernisaggeIsInView) {
+		if (artistsAndArtworksIsInView) {
 			updateNavBar(nonPlacesNavStoreItems, nonPlacesNavItems, nonPlacesNavItems[2].route);
-		}
-
-		if (artworksIsInView) {
-			updateNavBar(nonPlacesNavStoreItems, nonPlacesNavItems, nonPlacesNavItems[3].route);
 		}
 	};
 
 	// Función para cargar las imágenes cuando el Metaball esté listo
 	const loadImages = async () => {
 		const images = await preloadImages([
-			[nonPlacesProjectIntro.bgImage, nonPlacesProjectIntro.bgImageMobile]
+			[nonPlacesProjectIntro.bgImage, nonPlacesProjectIntro.bgImageMobile],
+			nonPlacesDropdownItems.map(item => item.image),
+			nonPlacesTwoDropdownItems.map(item => item.image)
 		]);
 		preloadedImagesStore.set(images);
 		imagesLoaded.set(true);
@@ -79,19 +76,19 @@
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<div
-			id="intro"
+			id="video"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
-				introIsInView = inView;
+				videoIsInView = inView;
 			}}
 			on:inview_enter={(event) => {
 				const { inView } = event.detail;
-				introIsInView = inView;
+				videoIsInView = inView;
 			}}
 			on:inview_leave={(event) => {
 				const { inView } = event.detail;
-				introIsInView = inView;
+				videoIsInView = inView;
 			}}
 		>
 			<ProjectIntro
@@ -102,40 +99,23 @@
 		</div>
 
 		<div
-			id="venue"
+			id="exhibition"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
-				venueIsInView = inView;
+				exhibitionIsInView = inView;
 			}}
 			on:inview_enter={(event) => {
 				const { inView } = event.detail;
-				venueIsInView = inView;
+				exhibitionIsInView = inView;
 			}}
 			on:inview_leave={(event) => {
 				const { inView } = event.detail;
-				venueIsInView = inView;
+				exhibitionIsInView = inView;
 			}}
 		>
 			<ProjectVideo videoProjects={nonPlacesVideo} route="venue-end" />
-		</div>
 
-		<div
-			id="vernisagge"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				vernisaggeIsInView = inView;
-			}}
-			on:inview_enter={(event) => {
-				const { inView } = event.detail;
-				vernisaggeIsInView = inView;
-			}}
-			on:inview_leave={(event) => {
-				const { inView } = event.detail;
-				vernisaggeIsInView = inView;
-			}}
-		>
 			<ProjectAboutDropdown
 				images={$preloadedImagesStore[2]}
 				aboutDropdownItems={nonPlacesTwoDropdownItems}
@@ -146,19 +126,19 @@
 		</div>
 
 		<div
-			id="artworks"
+			id="artists-and-artworks"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
-				artworksIsInView = inView;
+				artistsAndArtworksIsInView = inView;
 			}}
 			on:inview_enter={(event) => {
 				const { inView } = event.detail;
-				artworksIsInView = inView;
+				artistsAndArtworksIsInView = inView;
 			}}
 			on:inview_leave={(event) => {
 				const { inView } = event.detail;
-				artworksIsInView = inView;
+				artistsAndArtworksIsInView = inView;
 			}}
 		>
 			<ProjectAboutDropdown

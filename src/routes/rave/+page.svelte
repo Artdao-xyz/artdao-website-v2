@@ -39,7 +39,7 @@
 
 	const handleOnScroll = () => {
 		getMetaballProgress(containerRef);
-
+		
 		if (introIsInView) {
 			updateNavBar(raveNavStoreItems, raveNavItems, raveNavItems[0].route);
 		}
@@ -56,7 +56,10 @@
 	// Función para cargar las imágenes cuando el Metaball esté listo
 	const loadImages = async () => {
 		const images = await preloadImages([
-			[raveProject.bgImage, raveProject.bgImageMobile]
+			[raveProject.bgImage, raveProject.bgImageMobile],
+			findingNewLifeAboutImages,
+			raveAboutDropdopwnItems.map(item => item.image),
+			performanceDropdownItems.map(item => item.image)
 		]);
 		preloadedImagesStore.set(images);
 		imagesLoaded.set(true);

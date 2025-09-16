@@ -57,7 +57,7 @@
 	{#if shouldShowNavbar}
 		<Navbar />
 	{/if}
-	<div class="flex-1 relative">
+	<div class="flex-1">
 		<slot />
 	</div>
 	

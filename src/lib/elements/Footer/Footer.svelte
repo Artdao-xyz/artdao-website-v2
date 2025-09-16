@@ -27,6 +27,19 @@
 	let isVisible = false;
 	let textScrambleInstance = null;
 
+	// Computed properties for project data
+	$: projectsData = refs.map(ref => {
+		const project = projectsDetails.find((project) => project.name === ref);
+		return {
+			ref,
+			project,
+			projectUrl: project?.url,
+			projectImage: width > 768 ? project?.image : project?.mobileImage,
+			projectHover: project?.hover,
+			projectName: project?.nameToShow
+		};
+	});
+
 	$: if (subheader && isVisible) {
 		// Limpiar instancia anterior si existe
 		if (textScrambleInstance) {
@@ -74,39 +87,37 @@
 			? 'flex-row mt-[-166px]'
 			: 'flex-col mt-[-1rem]'} items-center justify-center gap-[1.1875rem] md:gap-[2.5rem]"
 	>
-		{#each refs as ref}
-			<button class="relative group w-[280px] lg:w-[14.1875rem] lg:h-[14.1875rem]">
-				<a href={projectsDetails.find((project) => project.name === ref)?.url}>
+	{#each projectsData as projectData}
+		<!-- <button class="relative group w-[280px] lg:w-[14.1875rem] lg:h-[14.1875rem]"> -->
+			<a class="relative group w-[280px] lg:w-[14.1875rem] lg:h-[14.1875rem]" href={projectData.projectUrl} data-sveltekit-reload>
+				<img
+					src={projectData.projectImage}
+					alt="project"
+					class="w-full h-full rounded-[0.9783rem] {width > 768
+						? 'group-hover:rounded-[7.5rem]'
+						: 'h-[100px]'} transition-all duration-300 object-cover"
+				/>
+
+				{#if width > 768}
 					<img
-						src={width > 768
-							? projectsDetails.find((project) => project.name === ref)?.image
-							: projectsDetails.find((project) => project.name === ref)?.mobileImage}
+						src={projectData.projectHover}
 						alt="project"
-						class="w-full h-full rounded-[0.9783rem] {width > 768
-							? 'group-hover:rounded-[7.5rem]'
-							: 'h-[100px]'} transition-all duration-300 object-cover"
+						class="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[7.5rem]"
 					/>
+				{/if}
 
-					{#if width > 768}
-						<img
-							src={projectsDetails.find((project) => project.name === ref)?.hover}
-							alt="project"
-							class="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[7.5rem]"
-						/>
-					{/if}
-
-					<!-- {#if width < 768}
-						<div class="w-full h-[1.6143rem] rounded-[3.9373rem] gray-gradient mt-[0.7087rem]">
-							<p
-								class="capitalize font-clash text-[0.875rem] leading-[1.5rem] text-left pl-[1.1875rem]"
-							>
-								{projectsDetails.find((project) => project.name === ref)?.nameToShow}
-							</p>
-						</div>
-					{/if} -->
-				</a>
-			</button>
-		{/each}
+				<!-- {#if width < 768}
+					<div class="w-full h-[1.6143rem] rounded-[3.9373rem] gray-gradient mt-[0.7087rem]">
+						<p
+							class="capitalize font-clash text-[0.875rem] leading-[1.5rem] text-left pl-[1.1875rem]"
+						>
+							{projectData.projectName}
+						</p>
+					</div>
+				{/if} -->
+			</a>
+		<!-- </button> -->
+	{/each}
 	</div>
 
 	<div

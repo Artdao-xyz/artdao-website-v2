@@ -48,6 +48,8 @@
 			// console.log('🎯 Haciendo transparente metaballContainer');
 			metaballContainer.classList.add('opacity-0');
 			metaballContainer.classList.remove('opacity-100');
+			// También ocultar completamente para evitar problemas de scroll
+			metaballContainer.style.display = 'none';
 		}
 		
 		// Remover las clases de centrado y establecer posición inicial
@@ -103,6 +105,8 @@
 			// console.log('🎯 Haciendo transparente metaballContainer');
 			metaballContainer.classList.add('opacity-0');
 			metaballContainer.classList.remove('opacity-100');
+			// También ocultar completamente para evitar problemas de scroll
+			metaballContainer.style.display = 'none';
 		}
 		
 		// Remover las clases de centrado y establecer posición inicial
@@ -308,7 +312,7 @@
 <div 
 	transition:fly={{ duration: 1000 }} 
 	bind:this={metaballContainer}
-	class="bg-dot h-screen w-screen fixed inset-0 z-50 transition-opacity duration-[2000ms] ease-in-out opacity-100 pointer-events-none"
+	class="bg-dot h-screen w-screen absolute inset-0 z-50 transition-opacity duration-[2000ms] ease-in-out opacity-100 pointer-events-none"
 >
 </div>
 <canvas 

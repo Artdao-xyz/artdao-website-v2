@@ -73,7 +73,14 @@
 	// Función para cargar las imágenes cuando el Metaball esté listo
 	const loadImages = async () => {
 		const images = await preloadImages([
-			[orbProject.bgImage, orbProject.bgImageMobile]
+			[orbProject.bgImage, orbProject.bgImageMobile],
+			[bgImage], // Para ProjectInterview
+			carocoAboutImages,
+			vernisaggeDropdownItems.map(item => item.image),
+			magmaAboutImages,
+			hivemindAboutImages,
+			daoDropdownItems.map(item => item.image),
+			orbArtworksDropdownItems.map(item => item.image)
 		]);
 		preloadedImagesStore.set(images);
 		imagesLoaded.set(true);
