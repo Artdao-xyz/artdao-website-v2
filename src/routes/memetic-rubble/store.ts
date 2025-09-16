@@ -1,4 +1,4 @@
 import { writable } from 'svelte/store';
-import type { INavBarItem } from '$lib/elements/NavBar/interfaces';
+import { memeticRubbleNavItems } from '../../data/Projects/MemeticRubble/NavItems';
 
-export const memeticRubbleNavStoreItems = writable<INavBarItem[]>([]); 
+export const memeticRubbleNavStoreItems = writable(memeticRubbleNavItems); 

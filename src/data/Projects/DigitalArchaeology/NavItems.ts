@@ -7,11 +7,6 @@ export const digitalArchaeologyNavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
-		text: 'nostalgia To critique',
-		route: 'nostalgia',
-		selected: false
-	},
-	{
 		text: 'PINKYBLUE',
 		route: 'pinkyblue',
 		selected: false
@@ -27,53 +22,13 @@ export const digitalArchaeologyNavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
-		text: 'Chat Interview',
-		route: 'chat-interview',
-		selected: false
-	},
-	{
 		text: 'ESTELLE FLORES',
 		route: 'estelle',
 		selected: false
 	},
 	{
-		text: 'Digital Artifacts',
-		route: 'artwork-grid',
-		selected: false
-	},
-	{
 		text: 'CYDR',
 		route: 'cydr',
-		selected: false
-	},
-	{
-		text: 'Chat Interview 2',
-		route: 'chat-interview-2',
-		selected: false
-	},
-	{
-		text: 'Polaroids',
-		route: 'polaroids',
-		selected: false
-	},
-	{
-		text: 'Video',
-		route: 'video',
-		selected: false
-	},
-	{
-		text: 'PinkyBlue Video',
-		route: 'pinkyblue-video',
-		selected: false
-	},
-	{
-		text: 'Sabato Video',
-		route: 'sabato-video',
-		selected: false
-	},
-	{
-		text: 'Stipin Video',
-		route: 'stipin-video',
 		selected: false
 	}
 ]; 

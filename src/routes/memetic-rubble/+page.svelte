@@ -28,13 +28,8 @@
 	let size: number;
 	let introIsInView: boolean;
 	let lowArtVsInternetIsInView: boolean;
-	let polaroidsIsInView: boolean;
 	let femzorIsInView: boolean;
-	let artworkGallery1IsInView: boolean;
 	let julianBrangoldIsInView: boolean;
-	let chatInterviewIsInView: boolean;
-	let artworkGallery2IsInView: boolean;
-	let videosIsInView: boolean;
 
 	let containerRef: any;
 
@@ -42,36 +37,24 @@
 		if (introIsInView) {
 			updateNavBar(memeticRubbleNavStoreItems, memeticRubbleNavItems, memeticRubbleNavItems[0].route);
 		}
-		if (lowArtVsInternetIsInView) {
+		if (femzorIsInView) {
 			updateNavBar(memeticRubbleNavStoreItems, memeticRubbleNavItems, memeticRubbleNavItems[1].route);
 		}
-		if (polaroidsIsInView) {
-			updateNavBar(memeticRubbleNavStoreItems, memeticRubbleNavItems, memeticRubbleNavItems[2].route);
-		}
-		if (femzorIsInView) {
-			updateNavBar(memeticRubbleNavStoreItems, memeticRubbleNavItems, memeticRubbleNavItems[3].route);
-		}
-		if (artworkGallery1IsInView) {
-			updateNavBar(memeticRubbleNavStoreItems, memeticRubbleNavItems, memeticRubbleNavItems[4].route);
-		}
 		if (julianBrangoldIsInView) {
-			updateNavBar(memeticRubbleNavStoreItems, memeticRubbleNavItems, memeticRubbleNavItems[5].route);
-		}
-		if (chatInterviewIsInView) {
-			updateNavBar(memeticRubbleNavStoreItems, memeticRubbleNavItems, memeticRubbleNavItems[6].route);
-		}
-		if (artworkGallery2IsInView) {
-			updateNavBar(memeticRubbleNavStoreItems, memeticRubbleNavItems, memeticRubbleNavItems[7].route);
-		}
-		if (videosIsInView) {
-			updateNavBar(memeticRubbleNavStoreItems, memeticRubbleNavItems, memeticRubbleNavItems[8].route);
+			updateNavBar(memeticRubbleNavStoreItems, memeticRubbleNavItems, memeticRubbleNavItems[2].route);
 		}
 	};
 
 	// Función para cargar las imágenes cuando el Metaball esté listo
 	const loadImages = async () => {
 		const images = await preloadImages([
-			[memeticRubbleIntro.bgImage, memeticRubbleIntro.bgImageMobile]
+			[memeticRubbleIntro.bgImage, memeticRubbleIntro.bgImageMobile],
+			memeticRubbleAbout1Images,
+			memeticRubblePolaroids.map(item => item.image),
+			memeticRubbleAbout2Images,
+			memeticRubbleArtworkGrid1.map(item => item.image),
+			memeticRubbleAbout3Images,
+			memeticRubbleArtworkGrid2.map(item => item.image)
 		]);
 		preloadedImagesStore.set(images);
 		imagesLoaded.set(true);
@@ -114,7 +97,7 @@
 	>
 		<!-- Intro Section -->
 		<div
-			id="intro"
+			id="about"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
@@ -127,60 +110,28 @@
 				bgImage={$preloadedImagesStore[0][0]}
 				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>
-		</div>
-		
-		<!-- Polaroids Section -->
-		<div
-			id="polaroids"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				polaroidsIsInView = inView;
-			}}
-		>
+
 			{#if size > 1100}
-				<ProjectPolaroids
-					images={memeticRubblePolaroids}
-					polaroidsTypes={[EPolaroidType.SQUARE, EPolaroidType.RECTANGLE, EPolaroidType.VERTICAL, EPolaroidType.SQUARE]}
-					viewImageFit="contain"
-					route=""
-				/>
+			<ProjectPolaroids
+				images={memeticRubblePolaroids}
+				polaroidsTypes={[EPolaroidType.SQUARE, EPolaroidType.RECTANGLE, EPolaroidType.VERTICAL, EPolaroidType.SQUARE]}
+				viewImageFit="contain"
+				route=""
+			/>
 			{:else}
 				<PolaroidsMobile polaroidImages={memeticRubblePolaroids} route="" />
 			{/if}
-		</div>
 
-		<!-- low ART VERSUS INTERNET highs Section -->
-		<div
-			id="low-art-vs-internet"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				lowArtVsInternetIsInView = inView;
-			}}
-		>
 			<ProjectAbout
-				aboutItem={memeticRubbleAbout1}
-				aboutImages={$preloadedImagesStore[1]}
-				route=""
-				colorVariant={EColorVariant.BLACK}
-			/>
-		</div>
-
-		<!-- Chat Interview Section -->
-		<div
-			id="chat-interview"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				chatInterviewIsInView = inView;
-			}}
-		>
+			aboutItem={memeticRubbleAbout1}
+			aboutImages={$preloadedImagesStore[1]}
+			route=""
+			colorVariant={EColorVariant.BLACK}
+		/>
 			<ChatInterview data={memeticRubbleChatInterview} />
 		</div>
 
-
-		<!-- Femzor Section -->
+		<!-- Chat Interview Section -->
 		<div
 			id="femzor"
 			use:inview={INVIEW_OPTIONS}
@@ -189,24 +140,15 @@
 				femzorIsInView = inView;
 			}}
 		>
-			<ProjectAbout
-				aboutItem={memeticRubbleAbout2}
-				aboutImages={$preloadedImagesStore[3]}
-				route=""
-				colorVariant={EColorVariant.BLACK}
-			/>
-		</div>
 
-		<!-- Artwork Gallery 1 Section -->
-		<div
-			id="artwork-gallery-1"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				artworkGallery1IsInView = inView;
-			}}
-		>
-			<div class="hidden sm:block">
+			<ProjectAbout
+			aboutItem={memeticRubbleAbout2}
+			aboutImages={$preloadedImagesStore[3]}
+			route=""
+			colorVariant={EColorVariant.BLACK}
+		/>
+
+		<div class="hidden sm:block">
 			<ProjectArtworkGrid
 				galleryImages={memeticRubbleArtworkGrid1}
 				showDetails={false}
@@ -236,46 +178,27 @@
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
-		</div>
 
-		<!-- Artwork Gallery 2 Section -->
-		<div
-			id="artwork-gallery-2"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				artworkGallery2IsInView = inView;
-			}}
-		>
 			<div class="hidden sm:block">
-			<ProjectArtworkGrid
-				galleryImages={memeticRubbleArtworkGrid2}
-				showDetails={false}
-			/>
-			</div>
-			<div class="block sm:hidden sm:snap-start">
-				<ProjectArtworkGridMobile
-					isOverflow={false}
-					imagesLeft={memeticRubbleArtworkGrid2MobileLeft}
-					imagesRight={memeticRubbleArtworkGrid2MobileRight}
+				<ProjectArtworkGrid
+					galleryImages={memeticRubbleArtworkGrid2}
+					showDetails={false}
 				/>
-			</div>
+				</div>
+				<div class="block sm:hidden sm:snap-start">
+					<ProjectArtworkGridMobile
+						isOverflow={false}
+						imagesLeft={memeticRubbleArtworkGrid2MobileLeft}
+						imagesRight={memeticRubbleArtworkGrid2MobileRight}
+					/>
+				</div>
+
+				<ProjectVideo videoProjects={psipsikokoVideos} route="psipsikoko-videos" />
+
 		</div>
 
-		<!-- Videos Section -->
-		<div
-			id="videos"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				videosIsInView = inView;
-			}}
-		>
-			<ProjectVideo videoProjects={psipsikokoVideos} route="psipsikoko-videos" />
-
-			<HomeIcon />
-			<Footer project={EProjects.MEMETIC_RUBBLE} />
-		</div>
+	<HomeIcon />
+	<Footer project={EProjects.MEMETIC_RUBBLE} />
 	</div>
 {/if}
 

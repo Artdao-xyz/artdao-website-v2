@@ -14,6 +14,7 @@
 	import { subconsciousMediaChatInterview, subconsciousMediaChatInterview2 } from '../../data/Projects/SubconsciousMedia/ProjectChatInterview';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
+	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import preloadImages from '../../utils/preloadImages';
 	import { subconsciousMediaNavStoreItems } from './store';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
@@ -26,6 +27,8 @@
 	let containerRef: any;
 
 	const handleOnScroll = () => {
+		getMetaballProgress(containerRef);
+		
 		if (introIsInView) updateNavBar(subconsciousMediaNavStoreItems, subconsciousMediaNavItems, subconsciousMediaNavItems[0].route);
 		if (vidalHerreraIsInView) updateNavBar(subconsciousMediaNavStoreItems, subconsciousMediaNavItems, subconsciousMediaNavItems[1].route);
 		if (gregorioNashIsInView) updateNavBar(subconsciousMediaNavStoreItems, subconsciousMediaNavItems, subconsciousMediaNavItems[2].route);
@@ -34,7 +37,11 @@
 	// Función para cargar las imágenes cuando el Metaball esté listo
 	const loadImages = async () => {
 		const images = await preloadImages([
-			[subconsciousMediaIntro.bgImage, subconsciousMediaIntro.bgImageMobile]
+			[subconsciousMediaIntro.bgImage, subconsciousMediaIntro.bgImageMobile],
+			subconsciousMediaAbout1Images,
+			subconsciousMediaAbout2Images,
+			subconsciousMediaDropdown1.map(item => item.image),
+			subconsciousMediaAbout3Images
 		]);
 		preloadedImagesStore.set(images);
 		imagesLoaded.set(true);
@@ -61,16 +68,16 @@
 
 		<!-- Vidal Herrera Section (agrupa about, chat, grid) -->
 		<div id="vidal-herrera" use:inview={INVIEW_OPTIONS} on:inview_change={(event) => { vidalHerreraIsInView = event.detail.inView; }}>
-			<ProjectAbout aboutItem={subconsciousMediaAbout2} aboutImages={$preloadedImagesStore[3]} route="" colorVariant={EColorVariant.BLACK} />
+			<ProjectAbout aboutItem={subconsciousMediaAbout2} aboutImages={$preloadedImagesStore[2]} route="" colorVariant={EColorVariant.BLACK} />
 			<ChatInterview data={subconsciousMediaChatInterview} />
 			<ProjectArtworkGrid galleryImages={subconsciousMediaArtworkGrid} showDetails={true} />
 		</div>
 
 		<!-- Gregorio Nash Section (agrupa about, chat, dropdown) -->
 		<div id="gregorio-nash" use:inview={INVIEW_OPTIONS} on:inview_change={(event) => { gregorioNashIsInView = event.detail.inView; }}>
-			<ProjectAbout aboutItem={subconsciousMediaAbout3} aboutImages={$preloadedImagesStore[5]} route="" colorVariant={EColorVariant.BLACK} />
+			<ProjectAbout aboutItem={subconsciousMediaAbout3} aboutImages={$preloadedImagesStore[4]} route="" colorVariant={EColorVariant.BLACK} />
 			<ChatInterview data={subconsciousMediaChatInterview2} />
-			<ProjectAboutDropdown images={$preloadedImagesStore[4]} aboutDropdownItems={subconsciousMediaDropdown2} route="" />
+			<ProjectAboutDropdown images={$preloadedImagesStore[3]} aboutDropdownItems={subconsciousMediaDropdown2} route="" />
 		</div>
 		<Footer project={EProjects.SUBCONSCIOUS_MEDIA} />
 	</div>

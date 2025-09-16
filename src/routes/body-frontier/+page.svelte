@@ -14,6 +14,7 @@ import { bodyFrontierDropdownItems, bodyFrontierDropdownImages } from '../../dat
 import { bodyFrontierChatInterview1, bodyFrontierChatInterview2 } from '../../data/Projects/BodyFrontier/ProjectChatInterview';
 import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 import preloadImages from '../../utils/preloadImages';
 import { bodyFrontierNavStoreItems } from './store';
 import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
@@ -26,6 +27,8 @@ let fashionIsInView: boolean;
 let containerRef: any;
 
 const handleOnScroll = () => {
+	getMetaballProgress(containerRef);
+	
 	if (aboutIsInView) updateNavBar(bodyFrontierNavStoreItems, bodyFrontierNavItems, bodyFrontierNavItems[0].route);
 	if (ai3dIsInView) updateNavBar(bodyFrontierNavStoreItems, bodyFrontierNavItems, bodyFrontierNavItems[1].route);
 	if (fashionIsInView) updateNavBar(bodyFrontierNavStoreItems, bodyFrontierNavItems, bodyFrontierNavItems[2].route);

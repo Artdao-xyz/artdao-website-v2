@@ -31,33 +31,24 @@
 	import { digitalArchaeologyChatInterview, digitalArchaeologyChatInterview2 } from '../../data/Projects/DigitalArchaeology/ProjectChatInterview';
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import preloadImages from '../../utils/preloadImages';
 	import { digitalArchaeologyNavStoreItems } from './store';
 
 	let introIsInView: boolean;
-	let nostalgiaIsInView: boolean;
 	let pinkyBlueIsInView: boolean;
 	let sabatoIsInView: boolean;
 	let stipinIsInView: boolean;
-	let chatInterviewIsInView: boolean;
 	let estelleIsInView: boolean;
-	let artworkGridIsInView: boolean;
 	let cydrIsInView: boolean;
-	let chatInterview2IsInView: boolean;
-	let polaroidsIsInView: boolean;
-	let videoIsInView: boolean;
-	let pinkyBlueVideoIsInView: boolean;
-	let sabatoVideoIsInView: boolean;
-	let stipinVideoIsInView: boolean;
 
 	let containerRef: any;
 
 	const handleOnScroll = () => {
+		getMetaballProgress(containerRef);
+		
 		if (introIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[0].route);
-		}
-		if (nostalgiaIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[1].route);
 		}
 		if (pinkyBlueIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[2].route);
@@ -68,32 +59,11 @@
 		if (stipinIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[4].route);
 		}
-		if (chatInterviewIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[5].route);
-		}
 		if (estelleIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[6].route);
 		}
-		if (artworkGridIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[7].route);
-		}
 		if (cydrIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[8].route);
-		}
-		if (chatInterview2IsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[9].route);
-		}
-		if (polaroidsIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[10].route);
-		}
-		if (videoIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[11].route);
-		}
-		if (sabatoVideoIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[13].route);
-		}
-		if (stipinVideoIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[14].route);
 		}
 	};
 
@@ -142,35 +112,12 @@
 				bgImage={$preloadedImagesStore[0][0]}
 				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>
-		</div>
-
-		<!-- Nostalgia Section -->
-		<div
-			id="nostalgia"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				nostalgiaIsInView = inView;
-			}}
-		>
 			<ProjectAbout
-				aboutItem={nostalgiaAbout}
-				aboutImages={$preloadedImagesStore[1]}
-				route=""
-				colorVariant={EColorVariant.BLACK}
-			/>
-		</div>
-
-		<!-- Chat Interview Section -->
-		<div
-		id="chat-interview"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			chatInterviewIsInView = inView;
-		}}
-	>
-			<ChatInterview data={digitalArchaeologyChatInterview} />
+			aboutItem={nostalgiaAbout}
+			aboutImages={$preloadedImagesStore[1]}
+			route=""
+			colorVariant={EColorVariant.BLACK}
+		/>
 		</div>
 
 		<!-- PinkyBlue Section -->
@@ -182,6 +129,8 @@
 				pinkyBlueIsInView = inView;
 			}}
 		>
+			<ChatInterview data={digitalArchaeologyChatInterview} />
+
 			<ProjectAbout
 				aboutItem={pinkyBlueAbout}
 				aboutImages={$preloadedImagesStore[2]}
@@ -189,21 +138,11 @@
 				colorVariant={EColorVariant.BLACK}
 				isImageLeft={false}
 			/>
-		</div>
 
-			<!-- Video Section -->
-			<div
-			id="video"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				videoIsInView = inView;
-			}}
-		>
 			<ProjectVideo videoProjects={pinkyBlueVideo} />
 		</div>
 
-		<!-- Sabato Section -->
+		<!-- Sabato Video Section -->
 		<div
 			id="sabato"
 			use:inview={INVIEW_OPTIONS}
@@ -213,22 +152,12 @@
 			}}
 		>
 			<ProjectAbout
-				aboutItem={sabatoAbout}
-				aboutImages={$preloadedImagesStore[3]}
-				route=""
-				colorVariant={EColorVariant.BLACK}
-			/>
-		</div>
+			aboutItem={sabatoAbout}
+			aboutImages={$preloadedImagesStore[3]}
+			route=""
+			colorVariant={EColorVariant.BLACK}
+		/>
 
-		<!-- Sabato Video Section -->
-		<div
-			id="sabato-video"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				sabatoVideoIsInView = inView;
-			}}
-		>
 			<ProjectVideo videoProjects={sabatoVideo} />
 		</div>
 
@@ -247,30 +176,11 @@
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
-		</div>
 
-		<!-- Stipin Video Section -->
-		<div
-		id="stipin-video"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			stipinVideoIsInView = inView;
-		}}
-	>
-		<ProjectVideo videoProjects={stipinVideo} />
-	</div>
+			<ProjectVideo videoProjects={stipinVideo} />
 
-			<!-- Chat Interview 2 Section -->
-		<div
-		id="chat-interview-2"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			chatInterview2IsInView = inView;
-		}}
-		>
 			<ChatInterview data={digitalArchaeologyChatInterview2} />
+
 		</div>
 
 		<!-- Estelle Section -->
@@ -288,18 +198,9 @@
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
-		</div>
 
-		<!-- Artwork Grid Section -->
-		<div
-			id="artwork-grid"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				artworkGridIsInView = inView;
-			}}
-		>
 			<ProjectArtworkGrid galleryImages={DigitalArchaeologyArtworkGrid.artworks} />
+
 		</div>
 
 		<!-- CYDR Section -->
@@ -317,18 +218,9 @@
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
-		</div>
 
-		<!-- Polaroids Section -->
-		<div
-			id="polaroids"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				polaroidsIsInView = inView;
-			}}
-		>
 			<ProjectPolaroids images={DigitalArchaeologyPolaroids} />
+
 		</div>
 
 		<HomeIcon />
