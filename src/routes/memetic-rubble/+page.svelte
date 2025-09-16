@@ -71,8 +71,7 @@
 	// Función para cargar las imágenes cuando el Metaball esté listo
 	const loadImages = async () => {
 		const images = await preloadImages([
-
-		[memeticRubbleIntro.bgImage, memeticRubbleIntro.bgImageMobile
+			[memeticRubbleIntro.bgImage, memeticRubbleIntro.bgImageMobile]
 		]);
 		preloadedImagesStore.set(images);
 		imagesLoaded.set(true);

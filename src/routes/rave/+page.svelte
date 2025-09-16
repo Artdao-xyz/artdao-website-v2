@@ -56,8 +56,7 @@
 	// Función para cargar las imágenes cuando el Metaball esté listo
 	const loadImages = async () => {
 		const images = await preloadImages([
-
-		[raveProject.bgImage, raveProject.bgImageMobile
+			[raveProject.bgImage, raveProject.bgImageMobile]
 		]);
 		preloadedImagesStore.set(images);
 		imagesLoaded.set(true);
