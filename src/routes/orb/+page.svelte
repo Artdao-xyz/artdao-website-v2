@@ -1,6 +1,5 @@
 <script lang="ts">
 	import bgImage from '$lib/assets/images/projects/orb/240326_caroco_035_1.webp';
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectAudioFiles from '$lib/components/ProjectAudioFiles/ProjectAudioFiles.svelte';
@@ -33,6 +32,7 @@
 	import { artworksVideo, orbVideo } from '../../data/Projects/Orb/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import preloadImages from '../../utils/preloadImages';
 	import { orbNavStoreItems } from './store';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
@@ -70,21 +70,23 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[orbProject.bgImage, orbProject.bgImageMobile],
-		[bgImage],
-		carocoAboutImages,
-		vernisaggeDropdownItems.map((item) => item.image),
-		magmaAboutImages,
-		hivemindAboutImages,
-		daoDropdownItems.map((item) => item.image),
-		orbArtworksDropdownItems.map((item) => item.image)
-	]);
+	// Función para cargar las imágenes cuando el Metaball esté listo
+	const loadImages = async () => {
+		const images = await preloadImages([
+
+		[orbProject.bgImage, orbProject.bgImageMobile
+		]);
+		preloadedImagesStore.set(images);
+		imagesLoaded.set(true);
+	};
+
+	// Cargar imágenes cuando el Metaball esté listo
+	$: if ($metaballReady) {
+		loadImages();
+	}
 </script>
 
-{#await preloadedImages}
-	<LoadingV2 />
-{:then images}
+{#if $preloadedImagesStore}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -111,8 +113,8 @@
 			<ProjectIntro
 				project={orbProject}
 				textColor="white"
-				bgImage={images[0][0]}
-				bgImageMobile={images[0][1]}
+				bgImage={$preloadedImagesStore[0][0]}
+				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>
 		</div>
 
@@ -138,9 +140,9 @@
 				curatorsIsInView = inView;
 			}}
 		>
-			<ProjectInterview filteredQuestions={orbQuestions} bgImage={images[1][0]} route="" />
+			<ProjectInterview filteredQuestions={orbQuestions} bgImage={$preloadedImagesStore[1][0]} route="" />
 
-			<ProjectAbout aboutImages={images[2]} aboutItem={carocoAbout} route="curators-end" />
+			<ProjectAbout aboutImages={$preloadedImagesStore[2]} aboutItem={carocoAbout} route="curators-end" />
 		</div>
 
 		<div
@@ -161,13 +163,13 @@
 		>
 			<ProjectAboutDropdown
 				aboutDropdownItems={orbArtworksDropdownItems}
-				images={images[7]}
+				images={$preloadedImagesStore[7]}
 				route=""
 			/>
 
 			<ProjectAboutDropdown
 				aboutDropdownItems={vernisaggeDropdownItems}
-				images={images[3]}
+				images={$preloadedImagesStore[3]}
 				route=""
 			/>
 
@@ -190,7 +192,7 @@
 				daosIsInView = inView;
 			}}
 		>
-			<ProjectAbout aboutImages={images[4]} aboutItem={magmaAbout} route="" />
+			<ProjectAbout aboutImages={$preloadedImagesStore[4]} aboutItem={magmaAbout} route="" />
 
 			<ProjectAbout
 				aboutImages={seedAboutImages}
@@ -200,7 +202,7 @@
 			/>
 
 			<div>
-				<ProjectAbout aboutImages={images[5]} aboutItem={hivemindAbout} route="daos-end" />
+				<ProjectAbout aboutImages={$preloadedImagesStore[5]} aboutItem={hivemindAbout} route="daos-end" />
 			</div>
 		</div>
 
@@ -220,7 +222,7 @@
 				artworksIsInView = inView;
 			}}
 		>
-			<ProjectAboutDropdown aboutDropdownItems={daoDropdownItems} images={images[6]} route="" />
+			<ProjectAboutDropdown aboutDropdownItems={daoDropdownItems} images={$preloadedImagesStore[6]} route="" />
 
 			<ProjectVideo videoProjects={artworksVideo} route="" />
 
@@ -230,7 +232,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.ORB} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

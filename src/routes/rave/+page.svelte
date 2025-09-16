@@ -1,5 +1,4 @@
 <script lang="ts">
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectAudioFiles from '$lib/components/ProjectAudioFiles/ProjectAudioFiles.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
@@ -25,6 +24,7 @@
 	} from '../../data/Projects/Rave/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import preloadImages from '../../utils/preloadImages';
 	import { raveNavStoreItems } from './store';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
@@ -53,18 +53,23 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[raveProject.bgImage, raveProject.bgImageMobile],
-		findingNewLifeAboutImages,
-		raveAboutDropdopwnItems.map((image) => image.image),
-		performanceDropdownItems.map((item) => item.image),
-		raveAboutDropdopwnItemsTwo.map((item) => item.image)
-	]);
+	// Función para cargar las imágenes cuando el Metaball esté listo
+	const loadImages = async () => {
+		const images = await preloadImages([
+
+		[raveProject.bgImage, raveProject.bgImageMobile
+		]);
+		preloadedImagesStore.set(images);
+		imagesLoaded.set(true);
+	};
+
+	// Cargar imágenes cuando el Metaball esté listo
+	$: if ($metaballReady) {
+		loadImages();
+	}
 </script>
 
-{#await preloadedImages}
-	<LoadingV2 />
-{:then images}
+{#if $preloadedImagesStore}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -90,12 +95,12 @@
 			<ProjectIntro
 				project={raveProject}
 				isCenterImage
-				bgImage={images[0][0]}
-				bgImageMobile={images[0][1]}
+				bgImage={$preloadedImagesStore[0][0]}
+				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>
 			<ProjectAbout
 				aboutItem={raveAbout}
-				aboutImage={images[1][0]}
+				aboutImage={$preloadedImagesStore[1][0]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 				isImageLeft={true}
@@ -146,7 +151,7 @@
 			}}
 		>
 			<ProjectAboutDropdown
-				images={images[2]}
+				images={$preloadedImagesStore[2]}
 				aboutDropdownItems={raveAboutDropdopwnItems}
 				route={raveNavItems[2].route}
 			/>
@@ -167,7 +172,7 @@
 			/>
 
 			<ProjectAboutDropdown
-				images={images[3]}
+				images={$preloadedImagesStore[3]}
 				aboutDropdownItems={performanceDropdownItems}
 				route={raveNavItems[2].route}
 			/>
@@ -176,7 +181,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.RAVE} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

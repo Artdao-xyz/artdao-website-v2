@@ -1,5 +1,4 @@
 <script lang="ts">
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
@@ -14,6 +13,7 @@
 	import { subconsciousMediaIntro } from '../../data/Projects/SubconsciousMedia/ProjectIntro';
 	import { subconsciousMediaChatInterview, subconsciousMediaChatInterview2 } from '../../data/Projects/SubconsciousMedia/ProjectChatInterview';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import preloadImages from '../../utils/preloadImages';
 	import { subconsciousMediaNavStoreItems } from './store';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
@@ -31,19 +31,23 @@
 		if (gregorioNashIsInView) updateNavBar(subconsciousMediaNavStoreItems, subconsciousMediaNavItems, subconsciousMediaNavItems[2].route);
 	};
 
-	const preloadedImages = preloadImages([
-		[subconsciousMediaIntro.bgImage, subconsciousMediaIntro.bgImageMobile],
-		subconsciousMediaAbout1Images,
-		subconsciousMediaDropdown1.map((item) => item.image),
-		subconsciousMediaAbout2Images,
-		subconsciousMediaDropdown2.map((item) => item.image),
-		subconsciousMediaAbout3Images
-	]);
+	// Función para cargar las imágenes cuando el Metaball esté listo
+	const loadImages = async () => {
+		const images = await preloadImages([
+
+		[subconsciousMediaIntro.bgImage, subconsciousMediaIntro.bgImageMobile
+		]);
+		preloadedImagesStore.set(images);
+		imagesLoaded.set(true);
+	};
+
+	// Cargar imágenes cuando el Metaball esté listo
+	$: if ($metaballReady) {
+		loadImages();
+	}
 </script>
 
-{#await preloadedImages}
-	<LoadingV2 />
-{:then images}
+{#if $preloadedImagesStore}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -52,26 +56,26 @@
 	>
 		<!-- Intro Section -->
 		<div id="intro" use:inview={INVIEW_OPTIONS} on:inview_change={(event) => { introIsInView = event.detail.inView; }}>
-			<ProjectIntro project={subconsciousMediaIntro} textColor="black" bgImage={images[0][0]} bgImageMobile={images[0][1]} />
-			<ProjectAbout aboutItem={subconsciousMediaAbout1} aboutImages={images[1]} route="" colorVariant={EColorVariant.BLACK} />
+			<ProjectIntro project={subconsciousMediaIntro} textColor="black" bgImage={$preloadedImagesStore[0][0]} bgImageMobile={$preloadedImagesStore[0][1]} />
+			<ProjectAbout aboutItem={subconsciousMediaAbout1} aboutImages={$preloadedImagesStore[1]} route="" colorVariant={EColorVariant.BLACK} />
 		</div>
 
 		<!-- Vidal Herrera Section (agrupa about, chat, grid) -->
 		<div id="vidal-herrera" use:inview={INVIEW_OPTIONS} on:inview_change={(event) => { vidalHerreraIsInView = event.detail.inView; }}>
-			<ProjectAbout aboutItem={subconsciousMediaAbout2} aboutImages={images[3]} route="" colorVariant={EColorVariant.BLACK} />
+			<ProjectAbout aboutItem={subconsciousMediaAbout2} aboutImages={$preloadedImagesStore[3]} route="" colorVariant={EColorVariant.BLACK} />
 			<ChatInterview data={subconsciousMediaChatInterview} />
 			<ProjectArtworkGrid galleryImages={subconsciousMediaArtworkGrid} showDetails={true} />
 		</div>
 
 		<!-- Gregorio Nash Section (agrupa about, chat, dropdown) -->
 		<div id="gregorio-nash" use:inview={INVIEW_OPTIONS} on:inview_change={(event) => { gregorioNashIsInView = event.detail.inView; }}>
-			<ProjectAbout aboutItem={subconsciousMediaAbout3} aboutImages={images[5]} route="" colorVariant={EColorVariant.BLACK} />
+			<ProjectAbout aboutItem={subconsciousMediaAbout3} aboutImages={$preloadedImagesStore[5]} route="" colorVariant={EColorVariant.BLACK} />
 			<ChatInterview data={subconsciousMediaChatInterview2} />
-			<ProjectAboutDropdown images={images[4]} aboutDropdownItems={subconsciousMediaDropdown2} route="" />
+			<ProjectAboutDropdown images={$preloadedImagesStore[4]} aboutDropdownItems={subconsciousMediaDropdown2} route="" />
 		</div>
 		<Footer project={EProjects.SUBCONSCIOUS_MEDIA} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

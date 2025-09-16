@@ -1,5 +1,4 @@
 <script lang="ts">
-import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
@@ -13,6 +12,7 @@ import { bodyFrontierIntro } from '../../data/Projects/BodyFrontier/ProjectIntro
 import { bodyFrontierAbout1, bodyFrontierAbout2, bodyFrontierAbout3, bodyFrontierAbout4, bodyFrontierAbout5, bodyFrontierAbout6 } from '../../data/Projects/BodyFrontier/ProjectAbout';
 import { bodyFrontierDropdownItems, bodyFrontierDropdownImages } from '../../data/Projects/BodyFrontier/ProjectDropdown';
 import { bodyFrontierChatInterview1, bodyFrontierChatInterview2 } from '../../data/Projects/BodyFrontier/ProjectChatInterview';
+import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 import preloadImages from '../../utils/preloadImages';
 import { bodyFrontierNavStoreItems } from './store';
@@ -31,21 +31,29 @@ const handleOnScroll = () => {
 	if (fashionIsInView) updateNavBar(bodyFrontierNavStoreItems, bodyFrontierNavItems, bodyFrontierNavItems[2].route);
 };
 
-const preloadedImages = preloadImages([
-	[bodyFrontierIntro.bgImage, bodyFrontierIntro.bgImageMobile],
-	bodyFrontierAbout1.images,
-	bodyFrontierAbout2.images,
-	bodyFrontierAbout3.images,
-	bodyFrontierAbout4.images,
-	bodyFrontierAbout5.images,
-	bodyFrontierAbout6.images,
-	bodyFrontierDropdownImages
-]);
+// Función para cargar las imágenes cuando el Metaball esté listo
+const loadImages = async () => {
+	const images = await preloadImages([
+		[bodyFrontierIntro.bgImage, bodyFrontierIntro.bgImageMobile],
+		bodyFrontierAbout1.images,
+		bodyFrontierAbout2.images,
+		bodyFrontierAbout3.images,
+		bodyFrontierAbout4.images,
+		bodyFrontierAbout5.images,
+		bodyFrontierAbout6.images,
+		bodyFrontierDropdownImages
+	]);
+	preloadedImagesStore.set(images);
+	imagesLoaded.set(true);
+};
+
+// Cargar imágenes cuando el Metaball esté listo
+$: if ($metaballReady) {
+	loadImages();
+}
 </script>
 
-{#await preloadedImages}
-	<LoadingV2 />
-{:then images}
+{#if $preloadedImagesStore}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -54,33 +62,33 @@ const preloadedImages = preloadImages([
 	>
 		<!-- About Section (intro) -->
 		<div id="intro" use:inview={INVIEW_OPTIONS} on:inview_change={(event) => { aboutIsInView = event.detail.inView; }}>
-			<ProjectIntro project={bodyFrontierIntro} textColor="black" bgImage={images[0][0]} bgImageMobile={images[0][1]} />
+			<ProjectIntro project={bodyFrontierIntro} textColor="black" bgImage={$preloadedImagesStore[0][0]} bgImageMobile={$preloadedImagesStore[0][1]} />
 		</div>
 
 		<!-- AI and 3D Section (about 1 hasta segundo video) -->
 		<div id="ai-3d" use:inview={INVIEW_OPTIONS} on:inview_change={(event) => { ai3dIsInView = event.detail.inView; }}>
-			<div id="about-1"><ProjectAbout aboutItem={bodyFrontierAbout1} aboutImages={images[1]} route="" colorVariant={EColorVariant.BLACK} /></div>
+			<div id="about-1"><ProjectAbout aboutItem={bodyFrontierAbout1} aboutImages={$preloadedImagesStore[1]} route="" colorVariant={EColorVariant.BLACK} /></div>
 			<div id="interview-1"><ChatInterview data={bodyFrontierChatInterview1} /></div>
-			<div id="about-2"><ProjectAbout aboutItem={bodyFrontierAbout2} aboutImages={images[2]} route="" colorVariant={EColorVariant.BLACK} /></div>
+			<div id="about-2"><ProjectAbout aboutItem={bodyFrontierAbout2} aboutImages={$preloadedImagesStore[2]} route="" colorVariant={EColorVariant.BLACK} /></div>
 			<ProjectVideo videoProjects={vixyVideos} route="vixy-videos" />
-			<div id="about-3"><ProjectAbout aboutItem={bodyFrontierAbout3} aboutImages={images[3]} route="" colorVariant={EColorVariant.BLACK} /></div>
+			<div id="about-3"><ProjectAbout aboutItem={bodyFrontierAbout3} aboutImages={$preloadedImagesStore[3]} route="" colorVariant={EColorVariant.BLACK} /></div>
 			<ProjectVideo videoProjects={cymoonvVideos} route="cymoonv-videos" />
 		</div>
 
 		<!-- Fashion Section (resto) -->
 		<div id="fashion" use:inview={INVIEW_OPTIONS} on:inview_change={(event) => { fashionIsInView = event.detail.inView; }}>
-			<div id="about-4"><ProjectAbout aboutItem={bodyFrontierAbout4} aboutImages={images[4]} route="" colorVariant={EColorVariant.BLACK} /></div>
+			<div id="about-4"><ProjectAbout aboutItem={bodyFrontierAbout4} aboutImages={$preloadedImagesStore[4]} route="" colorVariant={EColorVariant.BLACK} /></div>
 			<div id="interview-2"><ChatInterview data={bodyFrontierChatInterview2} /></div>
-			<div id="about-5"><ProjectAbout aboutItem={bodyFrontierAbout5} aboutImages={images[5]} route="" colorVariant={EColorVariant.BLACK} /></div>
-			<div id="project-dropdown"><ProjectAboutDropdown images={images[7]} aboutDropdownItems={bodyFrontierDropdownItems} route="" /></div>
-			<div id="about-6"><ProjectAbout aboutItem={bodyFrontierAbout6} aboutImages={images[6]} route="" colorVariant={EColorVariant.BLACK} /></div>
+			<div id="about-5"><ProjectAbout aboutItem={bodyFrontierAbout5} aboutImages={$preloadedImagesStore[5]} route="" colorVariant={EColorVariant.BLACK} /></div>
+			<div id="project-dropdown"><ProjectAboutDropdown images={$preloadedImagesStore[7]} aboutDropdownItems={bodyFrontierDropdownItems} route="" /></div>
+			<div id="about-6"><ProjectAbout aboutItem={bodyFrontierAbout6} aboutImages={$preloadedImagesStore[6]} route="" colorVariant={EColorVariant.BLACK} /></div>
 			<ProjectVideo videoProjects={brendyVideos} route="brendy-videos" />
 		</div>
 
 		<HomeIcon />
 		<Footer project={EProjects.BODY_FRONTIER} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

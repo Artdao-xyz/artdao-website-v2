@@ -1,5 +1,4 @@
 <script lang="ts">
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
@@ -21,6 +20,7 @@
 	import { memeticRubblePolaroids } from '../../data/Projects/MemeticRubble/ProjectPolaroids';
 	import { psipsikokoVideos } from '../../data/Projects/MemeticRubble/ProjectVideo';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import preloadImages from '../../utils/preloadImages';
 	import { memeticRubbleNavStoreItems } from './store';
 	import { EPolaroidType } from '$lib/elements/Polaroids/interface';
@@ -68,15 +68,20 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[memeticRubbleIntro.bgImage, memeticRubbleIntro.bgImageMobile],
-		memeticRubbleAbout1Images,
-		memeticRubblePolaroids.map((item) => item.image),
-		memeticRubbleAbout2Images,
-		memeticRubbleArtworkGrid1.map((item) => item.image),
-		memeticRubbleAbout3Images,
-		memeticRubbleArtworkGrid2.map((item) => item.image)
-	]);
+	// Función para cargar las imágenes cuando el Metaball esté listo
+	const loadImages = async () => {
+		const images = await preloadImages([
+
+		[memeticRubbleIntro.bgImage, memeticRubbleIntro.bgImageMobile
+		]);
+		preloadedImagesStore.set(images);
+		imagesLoaded.set(true);
+	};
+
+	// Cargar imágenes cuando el Metaball esté listo
+	$: if ($metaballReady) {
+		loadImages();
+	}
 
 	// Split mobile arrays into left/right halves for the grid
 	const splitMobileGrid = (arr: IGalleryImageMobile[]) => {
@@ -101,9 +106,7 @@
 
 <svelte:window bind:innerWidth={size} />
 
-{#await preloadedImages}
-	<LoadingV2 />
-{:then images}
+{#if $preloadedImagesStore}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -122,8 +125,8 @@
 			<ProjectIntro
 				project={memeticRubbleIntro}
 				textColor="black"
-				bgImage={images[0][0]}
-				bgImageMobile={images[0][1]}
+				bgImage={$preloadedImagesStore[0][0]}
+				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>
 		</div>
 		
@@ -159,7 +162,7 @@
 		>
 			<ProjectAbout
 				aboutItem={memeticRubbleAbout1}
-				aboutImages={images[1]}
+				aboutImages={$preloadedImagesStore[1]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -189,7 +192,7 @@
 		>
 			<ProjectAbout
 				aboutItem={memeticRubbleAbout2}
-				aboutImages={images[3]}
+				aboutImages={$preloadedImagesStore[3]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -230,7 +233,7 @@
 		>
 			<ProjectAbout
 				aboutItem={memeticRubbleAbout3}
-				aboutImages={images[5]}
+				aboutImages={$preloadedImagesStore[5]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -275,7 +278,7 @@
 			<Footer project={EProjects.MEMETIC_RUBBLE} />
 		</div>
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

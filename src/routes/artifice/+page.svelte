@@ -1,5 +1,5 @@
 <script lang="ts">
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
+	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
@@ -26,6 +26,7 @@
 	import { artificeProjectIntro } from '../../data/Projects/Artifice/ProjectIntro';
 	import { afterEventVideo, furnitureVideo } from '../../data/Projects/Artifice/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
+	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { artificeNavStoreItems } from './store';
@@ -58,24 +59,32 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[artificeProjectIntro.bgImage, artificeProjectIntro.bgImageMobile],
-		kokoAboutImahges,
-		furnitureAboutImages,
-		psipsikokoDropdownItems.map((item) => item.image),
-		panelsAboutImages,
-		vernisaggeDropdownItems.map((item) => item.image),
-		rnaAboutImages,
-		oceanicWhispersImages,
-		kokoExpoAboutImages
-	]);
+	// Función para cargar las imágenes cuando el Metaball esté listo
+	const loadImages = async () => {
+		const images = await preloadImages([
+			[artificeProjectIntro.bgImage, artificeProjectIntro.bgImageMobile],
+			kokoAboutImahges,
+			furnitureAboutImages,
+			psipsikokoDropdownItems.map((item) => item.image),
+			panelsAboutImages,
+			vernisaggeDropdownItems.map((item) => item.image),
+			rnaAboutImages,
+			oceanicWhispersImages,
+			kokoExpoAboutImages
+		]);
+		preloadedImagesStore.set(images);
+		imagesLoaded.set(true);
+	};
+	
+	// Cargar imágenes cuando el Metaball esté listo
+	$: if ($metaballReady) {
+		loadImages();
+	}
 </script>
 
 <svelte:window bind:innerWidth={size} />
 
-{#await preloadedImages}
-	<LoadingV2 />
-{:then images}
+{#if $preloadedImagesStore}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -102,8 +111,8 @@
 				project={artificeProjectIntro}
 				isCenterImage
 				textColor="white"
-				bgImage={images[0][0]}
-				bgImageMobile={images[0][1]}
+				bgImage={$preloadedImagesStore[0][0]}
+				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>
 			<ProjectVideo videoProjects={afterEventVideo} route="" />
 		</div>
@@ -124,7 +133,7 @@
 				kokoIsInView = inView;
 			}}
 		>
-			<ProjectAbout aboutItem={kokoAbout} aboutImages={images[1]} route="" isImageLeft />
+			<ProjectAbout aboutItem={kokoAbout} aboutImages={$preloadedImagesStore[1]} route="" isImageLeft />
 		</div>
 
 		<div>
@@ -156,7 +165,7 @@
 			<!-- <ProjectAbout aboutItem={panelsAbout} aboutImages={images[4]} route="" /> -->
 
 			<ProjectAboutDropdown
-				images={images[4]}
+				images={$preloadedImagesStore[4]}
 				aboutDropdownItems={vernisaggeDropdownItems}
 				route=""
 			/>
@@ -186,7 +195,7 @@
 			<Footer project={EProjects.ARTIFICE} />
 		</div>
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

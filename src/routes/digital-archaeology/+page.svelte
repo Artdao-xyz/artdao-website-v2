@@ -1,5 +1,4 @@
 <script lang="ts">
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
@@ -30,6 +29,7 @@
 	import { DigitalArchaeologyArtworkGrid } from '../../data/Projects/DigitalArchaeology/ProjectArtworkGrid';
 	import { DigitalArchaeologyPolaroids } from '../../data/Projects/DigitalArchaeology/ProjectPolaroids';
 	import { digitalArchaeologyChatInterview, digitalArchaeologyChatInterview2 } from '../../data/Projects/DigitalArchaeology/ProjectChatInterview';
+	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { digitalArchaeologyNavStoreItems } from './store';
@@ -97,22 +97,30 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[digitalArchaeologyIntro.bgImage, digitalArchaeologyIntro.bgImageMobile],
-		nostalgiaAboutImages,
-		pinkyBlueAboutImages,
-		sabatoAboutImages,
-		stipinAboutImages,
-		estelleAboutImages,
-		cydrAboutImages,
-		DigitalArchaeologyArtworkGrid.artworks.map((item) => item.image),
-		DigitalArchaeologyPolaroids.map((item) => item.image)
-	]);
+	// Función para cargar las imágenes cuando el Metaball esté listo
+	const loadImages = async () => {
+		const images = await preloadImages([
+			[digitalArchaeologyIntro.bgImage, digitalArchaeologyIntro.bgImageMobile],
+			nostalgiaAboutImages,
+			pinkyBlueAboutImages,
+			sabatoAboutImages,
+			stipinAboutImages,
+			estelleAboutImages,
+			cydrAboutImages,
+			DigitalArchaeologyArtworkGrid.artworks.map((item) => item.image),
+			DigitalArchaeologyPolaroids.map((item) => item.image)
+		]);
+		preloadedImagesStore.set(images);
+		imagesLoaded.set(true);
+	};
+	
+	// Cargar imágenes cuando el Metaball esté listo
+	$: if ($metaballReady) {
+		loadImages();
+	}
 </script>
 
-{#await preloadedImages}
-	<LoadingV2 />
-{:then images}
+{#if $preloadedImagesStore}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -131,8 +139,8 @@
 			<ProjectIntro
 				project={digitalArchaeologyIntro}
 				textColor="white"
-				bgImage={images[0][0]}
-				bgImageMobile={images[0][1]}
+				bgImage={$preloadedImagesStore[0][0]}
+				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>
 		</div>
 
@@ -147,7 +155,7 @@
 		>
 			<ProjectAbout
 				aboutItem={nostalgiaAbout}
-				aboutImages={images[1]}
+				aboutImages={$preloadedImagesStore[1]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -176,7 +184,7 @@
 		>
 			<ProjectAbout
 				aboutItem={pinkyBlueAbout}
-				aboutImages={images[2]}
+				aboutImages={$preloadedImagesStore[2]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 				isImageLeft={false}
@@ -206,7 +214,7 @@
 		>
 			<ProjectAbout
 				aboutItem={sabatoAbout}
-				aboutImages={images[3]}
+				aboutImages={$preloadedImagesStore[3]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -235,7 +243,7 @@
 		>
 			<ProjectAbout
 				aboutItem={stipinAbout}
-				aboutImages={images[4]}
+				aboutImages={$preloadedImagesStore[4]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -276,7 +284,7 @@
 		>
 			<ProjectAbout
 				aboutItem={estelleAbout}
-				aboutImages={images[5]}
+				aboutImages={$preloadedImagesStore[5]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -305,7 +313,7 @@
 		>
 			<ProjectAbout
 				aboutItem={cydrAbout}
-				aboutImages={images[6]}
+				aboutImages={$preloadedImagesStore[6]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -326,7 +334,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.DIGITAL_ARCHAEOLOGY} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

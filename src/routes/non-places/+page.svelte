@@ -1,5 +1,4 @@
 <script lang="ts">
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
@@ -19,6 +18,7 @@
 	} from '../../data/Projects/NonPlaces/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import preloadImages from '../../utils/preloadImages';
 	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { nonPlacesNavStoreItems } from './store';
@@ -52,20 +52,27 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[nonPlacesProjectIntro.bgImage, nonPlacesProjectIntro.bgImageMobile],
-		nonPlacesDropdownItems.map((item) => item.image),
-		nonPlacesTwoDropdownItems.map((item) => item.image)
-	]);
+	// Función para cargar las imágenes cuando el Metaball esté listo
+	const loadImages = async () => {
+		const images = await preloadImages([
+
+		[nonPlacesProjectIntro.bgImage, nonPlacesProjectIntro.bgImageMobile
+		]);
+		preloadedImagesStore.set(images);
+		imagesLoaded.set(true);
+	};
+
+	// Cargar imágenes cuando el Metaball esté listo
+	$: if ($metaballReady) {
+		loadImages();
+	}
 
 	let refs = getProjectRefs(EProjects.NON_PLACES);
 </script>
 
 <svelte:window bind:innerWidth={size} />
 
-{#await preloadedImages}
-	<LoadingV2 />
-{:then images}
+{#if $preloadedImagesStore}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -90,8 +97,8 @@
 		>
 			<ProjectIntro
 				project={nonPlacesProjectIntro}
-				bgImage={images[0][0]}
-				bgImageMobile={images[0][1]}
+				bgImage={$preloadedImagesStore[0][0]}
+				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>
 		</div>
 
@@ -131,7 +138,7 @@
 			}}
 		>
 			<ProjectAboutDropdown
-				images={images[2]}
+				images={$preloadedImagesStore[2]}
 				aboutDropdownItems={nonPlacesTwoDropdownItems}
 				route=""
 			/>
@@ -156,7 +163,7 @@
 			}}
 		>
 			<ProjectAboutDropdown
-				images={images[1]}
+				images={$preloadedImagesStore[1]}
 				aboutDropdownItems={nonPlacesDropdownItems}
 				route="artworks-end"
 			/>
@@ -165,7 +172,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.NON_PLACES} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

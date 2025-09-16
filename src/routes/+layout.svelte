@@ -45,16 +45,13 @@
 </svelte:head>
 
 
-<!-- Metaball condicional según la ruta -->
-{#if isHomePage}
-    <!-- En la página principal: Metaball extra-grande y fijo en el centro -->
-	<Metaball {isHomePage} size="extra-large" />
-{:else}
-    <!-- En otras páginas: Metaball pequeño y flotante en la esquina -->
-    <div class="hidden sm:inline-flex fixed bottom-4 right-4 z-50">
-        <Metaball {isHomePage} size="small" />
-    </div>
-{/if}
+<!-- Metaball global - una sola instancia -->
+<Metaball 
+    {isHomePage} 
+    isPreloader={true}
+    size={'extra-large'}
+/>
+
 
 <div class="h-svh w-full flex flex-col {isMapPage ? 'map-background' : ''}">	
 	{#if shouldShowNavbar}

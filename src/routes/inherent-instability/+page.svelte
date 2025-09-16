@@ -1,6 +1,6 @@
 <script lang="ts">
 	import inaInterviewBgImage from '$lib/assets/images/projects/inherentInstability/Background_Img.webp';
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
+	import Metaball from '$lib/components/Metaball/Metaball.svelte';
 	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectInterview from '$lib/components/ProjectInterview/ProjectInterview.svelte';
@@ -33,6 +33,7 @@
 		nicoVideo
 	} from '../../data/Projects/InherentInstability/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
+	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { inherentInstabilityNavStoreItems } from './store';
@@ -82,22 +83,38 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[inherentInstabilityProjectIntro.bgImage, inherentInstabilityProjectIntro.bgImageMobile],
-		[inaInterviewBgImage],
-		inaVareAboutImages,
-		inaVarePolaroidsImages.map((item) => item.image),
-		elbiAboutImages,
-		nicoAboutImages,
-		nicoPolaroidsImages.map((item) => item.image)
-	]);
+	// Función para cargar las imágenes cuando el Metaball esté listo
+	const loadImages = async () => {
+		console.log('🖼️ Iniciando carga de imágenes...');
+		const startTime = performance.now();
+		
+		const images = await preloadImages([
+			[inherentInstabilityProjectIntro.bgImage, inherentInstabilityProjectIntro.bgImageMobile],
+			[inaInterviewBgImage],
+			inaVareAboutImages,
+			inaVarePolaroidsImages.map((item) => item.image),
+			elbiAboutImages,
+			nicoAboutImages,
+			nicoPolaroidsImages.map((item) => item.image)
+		]);
+		
+		const endTime = performance.now();
+		console.log('🖼️ Imágenes cargadas en:', endTime - startTime, 'ms');
+		
+		preloadedImagesStore.set(images);
+		imagesLoaded.set(true);
+		console.log('🖼️ Store actualizado con imágenes');
+	};
+	
+	// Cargar imágenes cuando el Metaball esté listo
+	$: if ($metaballReady) {
+		loadImages();
+	}
 </script>
 
 <svelte:window bind:innerWidth={size} />
 
-{#await preloadedImages}
-	<LoadingV2 />
-{:then images}
+{#if $preloadedImagesStore}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
@@ -124,11 +141,11 @@
 				project={inherentInstabilityProjectIntro}
 				textColor="white"
 				isContain
-				bgImage={images[0][0]}
-				bgImageMobile={images[0][1]}
+				bgImage={$preloadedImagesStore[0][0]}
+				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>
 
-			<ProjectInterview bgImage={images[1][0]} filteredQuestions={inherentQuestions} />
+			<ProjectInterview bgImage={$preloadedImagesStore[1][0]} filteredQuestions={inherentQuestions} />
 		</div>
 
 		<div
@@ -147,7 +164,7 @@
 				inaIsInView = inView;
 			}}
 		>
-			<ProjectAbout aboutItem={inaVareAbout} aboutImages={images[2]} route="" />
+			<ProjectAbout aboutItem={inaVareAbout} aboutImages={$preloadedImagesStore[2]} route="" />
 
 			{#if size > 1100}
 				<ProjectPolaroids
@@ -183,7 +200,7 @@
 				elbiIsInView = inView;
 			}}
 		>
-			<ProjectAbout aboutItem={elbiAbout} aboutImages={images[4]} route="" />
+			<ProjectAbout aboutItem={elbiAbout} aboutImages={$preloadedImagesStore[4]} route="" />
 
 			<ProjectVideo videoProjects={elbiVideo} route="elbi-end" />
 		</div>
@@ -204,7 +221,7 @@
 				nicoIsInView = inView;
 			}}
 		>
-			<ProjectAbout aboutItem={nicoAbout} aboutImages={images[5]} route="" />
+			<ProjectAbout aboutItem={nicoAbout} aboutImages={$preloadedImagesStore[5]} route="" />
 
 			{#if size > 1100}
 				<ProjectPolaroids
@@ -226,7 +243,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.INHERENT_INSTABILITY} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {
