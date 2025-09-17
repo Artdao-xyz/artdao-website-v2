@@ -5,10 +5,22 @@
 	import { metaballProgress } from '../utils/metaball/getMetaballProgress';
 	import Navbar from '$lib/components/HomeV2/Navbar/Navbar.svelte';
 	import HomeNewsletter from '$lib/elements/HomeNewsletter/HomeNewsletter.svelte';
+	import { metaballReady } from '$lib/stores/metaballPreloader';
+	import { fly } from 'svelte/transition';
 	// Determinar si estamos en la página principal
 	$: isHomePage = $page?.route?.id === '/';
 	$: isMapPage = $page?.route?.id === '/map';
 	$: shouldShowNavbar = isHomePage || isMapPage;
+	
+	// Controlar la aparición de elementos después del metaball
+	let showUIElements = false;
+	
+	// Activar UI elements después de que el metaball esté listo
+	$: if ($metaballReady && !showUIElements) {
+		setTimeout(() => {
+			showUIElements = true;
+		}, 800); // Mismo timing que las imágenes del grid
+	}
 
 	// Reset metaballProgress when route changes
 	$: if ($page) {
@@ -54,16 +66,18 @@
 
 
 <div class="h-svh w-full flex flex-col {isMapPage ? 'map-background' : ''}">	
-	{#if shouldShowNavbar}
-		<Navbar />
+	{#if shouldShowNavbar && showUIElements}
+		<div transition:fly={{ y: 30, duration: 600, delay: 200 }}>
+			<Navbar />
+		</div>
 	{/if}
 	<div class="flex-1">
 		<slot />
 	</div>
 	
 	<!-- Newsletter - Only show on home or map pages, desktop only -->
-	{#if (isHomePage || isMapPage)}
-		<div class="hidden sm:block">
+	{#if (isHomePage || isMapPage) && showUIElements}
+		<div class="hidden sm:block" transition:fly={{ y: 30, duration: 600, delay: 400 }}>
 			<HomeNewsletter isAbsolute={true} />
 		</div>
 	{/if}

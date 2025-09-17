@@ -45,7 +45,7 @@
 
 		{#if width > 768}
 			{#if !eventToShow}
-				<SectionContainer hasPadding={false} colorVariant="light">
+				<SectionContainer hasPadding={true} colorVariant="light">
 					<div 
 						class="w-full h-full relative "
 						style="background-image: url('{$preloadedImagesStore[0][0]}'); background-repeat: no-repeat; background-size: contain; background-position: center;"

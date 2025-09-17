@@ -49,7 +49,7 @@
 
 <!-- Home Mobile Navbar -->
 {#if isHomeMobile}
-<nav class="sm:hidden relative z-40 flex items-center justify-between w-full py-6 px-4 bg-[#F7F5F2]">
+<nav class="sm:hidden relative z-40 flex items-center justify-between w-full py-6 px-4">
         <!-- Metabola PNG para mobile -->
         <!-- <a href="/" class="h-12 w-12 rounded-full flex-shrink-0">
             <img src="media/home/icons/metaball.png" alt="metabola" class="w-full h-full object-contain" />
@@ -103,11 +103,12 @@
 
 <!-- Other Pages Mobile Navbar -->
 {#if !isHomeRoute && width <= 768}
-<nav class="sm:hidden relative z-50 flex items-center justify-between w-full py-6 px-4 bg-white/90 backdrop-blur-sm">
+<nav class="sm:hidden relative z-50 flex items-center justify-between w-full py-6 px-4 backdrop-blur-sm">
         <!-- Metabola PNG para mobile -->
-        <a href="/" class="h-12 w-12 rounded-full flex-shrink-0">
+        <!-- <a href="/" class="h-12 w-12 rounded-full flex-shrink-0">
             <img src="media/home/icons/metaball.png" alt="metabola" class="w-full h-full object-contain" />
-        </a>
+        </a> -->
+        <span></span>
 
         <!-- Menú hamburguesa con dropdown -->
         <div class="relative">

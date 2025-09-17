@@ -3,7 +3,7 @@
 </script>
 
 
-<div class="bg-dot h-full">
+<div class="h-full">
 	<HomeV2/>
 </div>
 
@@ -22,6 +22,6 @@
 
 	.bg-dot {
 		background: #F7F5F2 url("/media/home/home-dot.svg") repeat;
-		background-size: 20px 20px;
+		background-size: 10px 10px;
 	}
 </style>
