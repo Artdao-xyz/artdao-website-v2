@@ -34,7 +34,9 @@
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import preloadImages from '../../utils/preloadImages';
 	import { digitalArchaeologyNavStoreItems } from './store';
-
+	import { fly } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
+	
 	let introIsInView: boolean;
 	let pinkyBlueIsInView: boolean;
 	let sabatoIsInView: boolean;
@@ -51,19 +53,19 @@
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[0].route);
 		}
 		if (pinkyBlueIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[2].route);
+			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[1].route);
 		}
 		if (sabatoIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[3].route);
+			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[2].route);
 		}
 		if (stipinIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[4].route);
+			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[3].route);
 		}
 		if (estelleIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[6].route);
+			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[4].route);
 		}
 		if (cydrIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[8].route);
+			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[5].route);
 		}
 	};
 
@@ -95,6 +97,7 @@
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
+		transition:fly={{ duration: 1000, delay: 750, y: 30, easing: cubicInOut }}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<!-- Intro Section -->
@@ -117,7 +120,9 @@
 			aboutImages={$preloadedImagesStore[1]}
 			route=""
 			colorVariant={EColorVariant.BLACK}
-		/>
+			/>
+			<ChatInterview data={digitalArchaeologyChatInterview} />
+
 		</div>
 
 		<!-- PinkyBlue Section -->
@@ -129,7 +134,6 @@
 				pinkyBlueIsInView = inView;
 			}}
 		>
-			<ChatInterview data={digitalArchaeologyChatInterview} />
 
 			<ProjectAbout
 				aboutItem={pinkyBlueAbout}
