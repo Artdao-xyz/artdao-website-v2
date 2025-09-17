@@ -51,7 +51,7 @@
 	<div
 		class="{hideNav
 			? 'justify-between'
-			: ''} w-100dvw rounded-[6.25rem] h-[1rem] flex flex-row items-center z-40 sticky top-[2.88%] mx-[1.625rem] gap-2.5"
+			: ''} w-100dvw rounded-[6.25rem] h-[1rem] flex flex-row items-center z-40 sticky top-[2.88%] mx-[1.625rem] gap-2.5 hidden sm:flex"
 	>
 		<a href={'/'}>
 			<div
