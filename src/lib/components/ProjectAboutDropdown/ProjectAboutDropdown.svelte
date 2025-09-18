@@ -11,7 +11,7 @@
 </script>
 
 <SectionContainer {colorVariant}>
-	<div id={route} class="w-full h-full">
+	<div id={route} class="relative w-full h-full">
 		<ImgNavigator {images} variant={ESizeVariant.BIG} {aboutDropdownItems} {isImageWhiteBg} />
 	</div>
 </SectionContainer>

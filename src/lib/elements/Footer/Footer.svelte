@@ -73,7 +73,7 @@
 		: 'h-fit'} md:h-screen bg-color-black flex flex-col justify-between py-[1.25rem] px-[2.5rem] !z-50"
 >
 	<div
-		class="font-clash text-color-white text-[24px] md:text-[2.5rem] leading-[2.8125rem] mx-auto mt-[2rem] md:mt-[4rem]"
+		class="font-clash text-color-white text-[24px] md:text-[2.5rem] leading-[2.8125rem] mx-auto mt-[2rem] md:mt-[4rem] invisible"
 	>
 		Discover more
 	</div>
@@ -99,11 +99,11 @@
 				/>
 
 				{#if width > 768}
-					<img
+					<!-- <img
 						src={projectData.projectHover}
 						alt="project"
 						class="absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[7.5rem]"
-					/>
+					/> -->
 				{/if}
 
 				<!-- {#if width < 768}
@@ -126,9 +126,9 @@
 			: 'w-full'} text-color-white flex flex-row justify-between relative font-robotoMono leading-snug tracking-tight font-normal text-[0.875rem] mb-[18px] w-full gap-2.5"
 	>
 		<div class="w-full">
-			{#if width < 768}
+			<!-- {#if width < 768}
 				<img src={footerLogo} alt="Footer Logo" class="absolute left-1/2 -translate-x-1/2 w-[79px] h-[18px] mb-[0.5456rem]" />
-			{/if}
+			{/if} -->
 <!-- 
 			<p class="truncate capitalize" bind:this={subheader}>
 				{content}
@@ -137,13 +137,13 @@
 			<p>© 2024</p> -->
 		</div>
 		{#if width > 768}
-			<div class="pb-4">
+			<!-- <div class="pb-4">
 				<img
 					src={footerLogo}
 					alt="Footer Logo"
 					class="w-[100px] absolute left-[50%] ml-[-1.4375rem] hoverTransition"
 				/>
-			</div>
+			</div> -->
 		{/if}
 	</div>
 </footer>
