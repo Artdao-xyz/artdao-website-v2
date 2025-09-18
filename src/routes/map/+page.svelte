@@ -72,7 +72,7 @@
 			{/if}
 		{:else if !eventToShow}
 			<div
-				class="flex flex-col justify-start items-center gap-[15px] w-full py-[4.5rem] px-[20px] h-full self-start relative bg-cover sm:bg-contain"
+				class="flex flex-col justify-start items-center gap-[15px] w-full py-[4.5rem] px-[20px] h-screen min-h-screen self-start relative bg-cover sm:bg-contain overflow-y-auto"
 				style="background-image: url('{$preloadedImagesStore[0][0]}'); background-repeat: no-repeat; background-position: center;"
 			>
 				<!-- Map background for mobile -->
@@ -83,7 +83,7 @@
 			</div>
 		{:else}
 			<div
-				class="flex flex-col justify-center items-center gap-[15px] w-full py-[4.5rem] px-[20px] h-full self-start relative"
+				class="flex flex-col justify-center items-center gap-[15px] w-full py-[4.5rem] px-[20px] h-screen min-h-screen self-start relative overflow-y-auto"
 			>
 				<!-- Map background for mobile -->
 				<img src={$preloadedImagesStore[0][0]} alt="map" class="absolute inset-0 w-full h-full object-cover" />

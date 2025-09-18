@@ -128,7 +128,7 @@
 	<!-- Classic Design (Original) -->
 	<div class="{isAbsolute ? 'fixed bottom-8 left-8 z-50' : ''}">
 		<button
-			class="w-full h-[3.875rem] sm:h-[2.625rem] gray-gradient rounded-20 px-10 py-2.5 flex items-center justify-center"
+			class="w-full h-[3.875rem] sm:h-[2.625rem] {width < 640 ? 'bg-gradient-to-br from-black/60 to-black/80' : 'gray-gradient'} rounded-20 px-2 py-2.5 flex items-center justify-center"
 			on:click={() => {}}
 		>
 			<div class="w-full h-full">

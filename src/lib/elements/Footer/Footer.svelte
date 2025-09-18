@@ -69,11 +69,11 @@
 		isVisible = false;
 	}}
 	class="snap-end w-full {width < 768
-		? 'h-screen'
+		? 'h-auto'
 		: 'h-fit'} md:h-screen bg-color-black flex flex-col justify-between py-[1.25rem] px-[2.5rem] !z-50"
 >
 	<div
-		class="font-clash text-[24px] md:text-[2.5rem] leading-[2.8125rem] mx-auto mt-[2rem] md:mt-[4rem]"
+		class="font-clash text-color-white text-[24px] md:text-[2.5rem] leading-[2.8125rem] mx-auto mt-[2rem] md:mt-[4rem]"
 	>
 		Discover more
 	</div>
@@ -89,7 +89,7 @@
 	>
 	{#each projectsData as projectData}
 		<!-- <button class="relative group w-[280px] lg:w-[14.1875rem] lg:h-[14.1875rem]"> -->
-			<a class="relative group w-[280px] lg:w-[14.1875rem] lg:h-[14.1875rem]" href={projectData.projectUrl} data-sveltekit-reload>
+			<a class="relative group w-full lg:w-[14.1875rem] lg:h-[14.1875rem]" href={projectData.projectUrl} data-sveltekit-reload>
 				<img
 					src={projectData.projectImage}
 					alt="project"

@@ -53,8 +53,8 @@
   }
 </style>
 
-<div class="snap-start relative font-clash h-screen max-h-screen flex flex-col justify-center items-center text-white">
-  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0">
+<div class="snap-start bg-black relative font-clash h-screen max-h-screen flex flex-col justify-center items-center text-white">
+  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 hidden lg:block">
       <img src={data.background} alt="Background" class="h-full w-full object-cover">
   </div>
   <div class="h-dvh lg:h-[85vh] w-full flex flex-col relative z-10">

@@ -18,6 +18,8 @@
 	import preloadImages from '../../utils/preloadImages';
 	import { subconsciousMediaNavStoreItems } from './store';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+	import ProjectArtworkGridMobile from '$lib/components/ProjectArtworkGridMobile/ProjectArtworkGridMobile.svelte';
+	import { subconsciousMediaGallery1, subconsciousMediaGallery2 } from '../../data/Projects/SubconsciousMedia/ProjectArtworkGalleryMobile';
 	import { subconsciousMediaArtworkGrid } from '../../data/Projects/SubconsciousMedia/ProjectArtworkGrid';
 	import { fly } from 'svelte/transition';
 	import { cubicInOut } from 'svelte/easing';
@@ -73,7 +75,18 @@
 		<div id="vidal-herrera" use:inview={INVIEW_OPTIONS} on:inview_change={(event) => { vidalHerreraIsInView = event.detail.inView; }}>
 			<ProjectAbout isImageLeft={false} aboutItem={subconsciousMediaAbout2} aboutImages={$preloadedImagesStore[2]} route="" colorVariant={EColorVariant.BLACK} />
 			<ChatInterview data={subconsciousMediaChatInterview} />
-			<ProjectArtworkGrid galleryImages={subconsciousMediaArtworkGrid} showDetails={true} />
+			
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid galleryImages={subconsciousMediaArtworkGrid} showDetails={true} />
+			</div>
+
+			<div class="block sm:hidden sm:snap-start">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={subconsciousMediaGallery1}
+					imagesRight={subconsciousMediaGallery2}
+				/>
+			</div>
 		</div>
 
 		<!-- Gregorio Nash Section (agrupa about, chat, dropdown) -->

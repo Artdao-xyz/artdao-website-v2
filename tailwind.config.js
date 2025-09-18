@@ -53,7 +53,7 @@ export default {
 			'color-gray-background': '#A6A6A6',
 			'color-dark': '#313431',
 			'color-img-bg': '#D9D9D9',
-			'color-white': '#FFFFFF',
+			'color-white': '#F7F5F2',
 			'color-black': '#000000',
 			'color-interview-card': 'rgba(255, 255, 255, 0.40)',
 			'color-progress-bar-bg': 'rgba(0, 0, 0, 0.20)',

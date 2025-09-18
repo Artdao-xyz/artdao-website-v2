@@ -49,7 +49,7 @@
             
             <!-- Imagen del proyecto en full width -->
             <div class="w-full">
-                <a href={projects[selectedProjectIndex].pagePath} rel="noopener noreferrer">
+                <a data-sveltekit-reload href={projects[selectedProjectIndex].pagePath} rel="noopener noreferrer">
                     <img 
                         src={projects[selectedProjectIndex].thumbnailPathMobile} 
                         alt={projects[selectedProjectIndex].title}

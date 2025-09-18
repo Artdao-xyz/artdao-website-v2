@@ -13,18 +13,24 @@
 {#if eventToShow}
 	<div class="w-full flex flex-col gap-[15px] items-center z-10">
 		<!-- City name at the top -->
-		<div class="w-full h-10 px-4 py-[5px] bg-[#101010] rounded-[100px] outline outline-1 outline-black flex items-center justify-center">
+		<button 
+			on:click={() => (eventToShow = undefined)}
+			class="w-full h-10 px-4 py-[5px] bg-[#101010] rounded-[100px] outline outline-1 outline-black flex items-center justify-center hover:bg-[#2a2a2a] transition-colors duration-200 cursor-pointer"
+		>
 			<p class="text-[#f7f5f2] text-lg font-normal font-robotoMono leading-none tracking-wide capitalize">
 				{eventToShow.city}
 			</p>
-		</div>
+		</button>
 
 		<!-- Event name -->
-		<div class="w-full h-10 px-4 py-[5px] bg-[#101010] rounded-[100px] outline outline-1 outline-black flex items-center justify-center">
+		<button 
+			on:click={() => (eventToShow = undefined)}
+			class="w-full h-10 px-4 py-[5px] bg-[#101010] rounded-[100px] outline outline-1 outline-black flex items-center justify-center hover:bg-[#2a2a2a] transition-colors duration-200 cursor-pointer"
+		>
 			<p class="text-[#f7f5f2] text-lg font-normal font-robotoMono leading-none tracking-wide">
 				{eventToShow.title}
 			</p>
-		</div>
+		</button>
 
 		<!-- Event card -->
 		<div class="w-full rounded-20 bg-[#101010] py-[20px] px-[16px] text-color-white gap-[20px] flex flex-col">

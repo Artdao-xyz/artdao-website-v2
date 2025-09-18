@@ -18,7 +18,7 @@
 
 <SectionContainer hasPadding={false} isOverflow={true} bgImage={bgImage}>
 	<div
-		class="w-full h-screen flex flex-row pt-[4.5rem] gap-28 {bgImage
+		class="w-full h-full lg:h-screen flex flex-row pt-[4.5rem] gap-28 {bgImage
 			? `${isContain && width > 1100 ? 'sm:bg-cover' : 'bg-cover'} bg-fit bg-no-repeat bg-color-black`
 			: ''} {textColor === 'black'
 			? 'bg-color-white'
@@ -26,7 +26,7 @@
 		id="intro"
 		style={width > 1100
 			? `background-image: url(${bgImage || ''}); background-position: top;`
-			: `background-image: url(${bgImageMobile || ''}); background-position: top;`}
+			: ``}
 	>
 		<div
 			class="flex flex-col h-full w-full sm:w-full sm:max-w-[40rem] {isWiderTitle

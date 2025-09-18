@@ -73,12 +73,12 @@
 
 	.menu-line {
 		stroke-width: 0.25rem;
-		stroke: #ffffff;
+		stroke: #F7F5F2;
 		opacity: 0.7;
 		filter: drop-shadow(0rem 0.125rem 0.25rem rgba(0, 0, 0, 0.2));
 		width: 8.25rem;
 		height: 0.25rem;
-		background-color: #ffffff;
+		background-color: #F7F5F2;
 	}
 
 	.nav-gradient-selected {

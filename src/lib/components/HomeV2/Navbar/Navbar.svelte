@@ -64,7 +64,7 @@
             
             <!-- Dropdown Menu -->
             {#if showMobileMenu}
-            <div class="absolute right-0 top-full mt-2 z-50 flex flex-col gap-2">
+            <div class="absolute  right-0 top-full mt-2 z-50 flex flex-col gap-2">
                 <a href="/" class="w-80 h-12 px-5 py-1.5 bg-gradient-to-br from-black/60 to-black/80 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
                     <Circle size={6} class="text-white {isHomeRoute ? 'fill-white' : ''}" />
                     <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Zine</span>
@@ -75,7 +75,7 @@
                 </a>
                 <!-- Newsletter Signup -->
                 <div class="w-80" on:click|stopPropagation>
-                    <HomeNewsletter isAbsolute={true} />
+                    <HomeNewsletter  />
                 </div>
             </div>
             {/if}
@@ -103,7 +103,7 @@
 
 <!-- Other Pages Mobile Navbar -->
 {#if !isHomeRoute && width <= 768}
-<nav class="sm:hidden relative z-50 flex items-center justify-between w-full py-6 px-4 backdrop-blur-sm">
+<nav class="sm:hidden relative z-50 flex items-center justify-between w-full py-6 px-4">
         <!-- Metabola PNG para mobile -->
         <!-- <a href="/" class="h-12 w-12 rounded-full flex-shrink-0">
             <img src="media/home/icons/metaball.png" alt="metabola" class="w-full h-full object-contain" />
@@ -111,14 +111,14 @@
         <span></span>
 
         <!-- Menú hamburguesa con dropdown -->
-        <div class="relative">
+        <div class="">
             <button bind:this={mobileMenuButton} on:click={() => showMobileMenu = !showMobileMenu}>
                 <img src="media/home/icons/mobile-hamburguer.svg" alt="Menu" class="drop-shadow drop-shadow-black" />
             </button>
             
             <!-- Dropdown Menu -->
             {#if showMobileMenu}
-            <div class="absolute right-0 top-full mt-2 z-50 flex flex-col gap-2">
+            <div class="absolute right-0 top-3/4 z-50 flex flex-col items-end gap-2 backdrop-blur-sm w-full p-4">
                 <a href="/" class="w-80 h-12 px-5 py-1.5 bg-gradient-to-br from-black/60 to-black/80 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
                     <Circle size={6} class="text-white {isHomeRoute ? 'fill-white' : ''}" />
                     <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Zine</span>
