@@ -37,7 +37,9 @@
 	import preloadImages from '../../utils/preloadImages';
 	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { intertwinedNavStoreItems } from './store';
-
+	import { fly } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
+	
 	let introIsInView: boolean;
 	let artdaoIsInView: boolean;
 	let cryptoIsInView: boolean;
@@ -105,6 +107,7 @@
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
+		transition:fly={{ duration: 1000, delay: 750, y: 30, easing: cubicInOut }}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<div

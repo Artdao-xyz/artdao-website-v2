@@ -35,11 +35,11 @@
         <!-- metaball goes here -->
 
          <div class="hidden lg:inline-flex h-14 py-6 px-8 bg-gradient-to-br from-black/60 to-black/80 rounded-[100px] shadow-[2px_2px_20px_0px_rgba(0,0,0,0.40)] outline outline-[1.40px] outline-offset-[-1.40px] outline-white/40 backdrop-blur-[34px] justify-center items-center gap-10">
-                <a href="/" class="flex justify-start items-center gap-2">
+                <a data-sveltekit-reload href="/" class="flex justify-start items-center gap-2">
                          <Circle size={8} class="text-white {isHomeRoute ? 'fill-white' : ''}" />
                          <span class="justify-center text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Zine</span>
                  </a>
-                 <a href="/map" class="flex justify-start items-center gap-2">
+                 <a data-sveltekit-reload href="/map" class="flex justify-start items-center gap-2">
                          <Circle size={8} class="text-white {isMapRoute ? 'fill-white' : ''}" />
                          <span class="justify-center text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Map</span>
                  </a>

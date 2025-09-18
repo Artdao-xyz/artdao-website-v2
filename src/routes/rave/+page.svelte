@@ -30,7 +30,9 @@
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import { raveAbout, findingNewLifeAboutImages, digitalRaveAbout, digitalRaveAboutImages, mixingWorldsAbout, mixingWorldsAboutImages } from '../../data/Projects/Rave/about';
 	import { EColorVariant } from '../../constants/enums';
-
+	import { fly } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
+	
 	let introIsInView: boolean;
 	let digitalRaveIsInView: boolean;
 	let artworksIsInView: boolean;
@@ -76,6 +78,7 @@
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
+		transition:fly={{ duration: 1000, delay: 750, y: 30, easing: cubicInOut }}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<div

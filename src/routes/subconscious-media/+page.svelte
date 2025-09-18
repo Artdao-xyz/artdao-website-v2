@@ -19,7 +19,9 @@
 	import { subconsciousMediaNavStoreItems } from './store';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
 	import { subconsciousMediaArtworkGrid } from '../../data/Projects/SubconsciousMedia/ProjectArtworkGrid';
-
+	import { fly } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
+	
 	let introIsInView: boolean;
 	let vidalHerreraIsInView: boolean;
 	let gregorioNashIsInView: boolean;
@@ -58,6 +60,7 @@
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
+		transition:fly={{ duration: 1000, delay: 750, y: 30, easing: cubicInOut }}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<!-- Intro Section -->
@@ -68,7 +71,7 @@
 
 		<!-- Vidal Herrera Section (agrupa about, chat, grid) -->
 		<div id="vidal-herrera" use:inview={INVIEW_OPTIONS} on:inview_change={(event) => { vidalHerreraIsInView = event.detail.inView; }}>
-			<ProjectAbout aboutItem={subconsciousMediaAbout2} aboutImages={$preloadedImagesStore[2]} route="" colorVariant={EColorVariant.BLACK} />
+			<ProjectAbout isImageLeft={false} aboutItem={subconsciousMediaAbout2} aboutImages={$preloadedImagesStore[2]} route="" colorVariant={EColorVariant.BLACK} />
 			<ChatInterview data={subconsciousMediaChatInterview} />
 			<ProjectArtworkGrid galleryImages={subconsciousMediaArtworkGrid} showDetails={true} />
 		</div>

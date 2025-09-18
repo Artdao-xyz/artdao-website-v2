@@ -313,8 +313,6 @@
 	transition:fly={{ duration: 1000 }} 
 	bind:this={metaballContainer}
 	class="bg-dot h-screen w-screen absolute inset-0 z-50 transition-opacity duration-[2000ms] ease-in-out pointer-events-none"
-	class:opacity-100={!$metaballReady}
-	class:opacity-0={$metaballReady}
 >
 </div>
 <canvas 

@@ -22,7 +22,9 @@
 	import preloadImages from '../../utils/preloadImages';
 	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { nonPlacesNavStoreItems } from './store';
-
+	import { fly } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
+	
 	let size: number;
 
 	let videoIsInView: boolean;
@@ -74,6 +76,7 @@
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
+		transition:fly={{ duration: 1000, delay: 750, y: 30, easing: cubicInOut }}
 	>
 		<div
 			id="video"

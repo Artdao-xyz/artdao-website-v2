@@ -111,10 +111,8 @@
 			</div>
 
 			{#if eventToShow.watchMore}
-				<button
-					class="px-5 py-2.5 bg-[#989898]/20 hover:bg-[#989898]/40 w-full font-robotoMono text-xs leading-none tracking-wide rounded-[40px] outline outline-1 outline-white/20"
-					><a href={eventToShow.watchMore}>View more</a></button
-				>
+				<a data-sveltekit-reload class="px-5 flex items-center justify-center py-2.5 bg-[#989898]/20 hover:bg-[#989898]/40 w-full font-robotoMono text-xs leading-none tracking-wide rounded-[40px] outline outline-1 outline-white/20" href={eventToShow.watchMore}>View more</a>
+				
 			{/if}
 		</div>
 

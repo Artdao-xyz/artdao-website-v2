@@ -6,7 +6,9 @@
 	import { isFooterVisible } from '../Footer/store';
 	import NewsletterPopup from '../Popups/components/NewsletterPopup.svelte';
 	import type { INavBarItem } from './interfaces';
-
+	import { fly } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
+	
 	export let navItems: INavBarItem[] | [];
 	export let isMap = false;
 	let index: number = 0;
@@ -49,9 +51,10 @@
 	<div></div>
 {:else}
 	<div
+		transition:fly={{ duration: 1000, delay: 1000, y: 30, easing: cubicInOut }}
 		class="{hideNav
 			? 'justify-between'
-			: ''} w-100dvw rounded-[6.25rem] h-[1rem] flex flex-row items-center z-40 sticky top-[2.88%] mx-[1.625rem] gap-2.5 hidden sm:flex"
+			: ''} w-100dvw rounded-[6.25rem] h-[1rem] flex-row items-center z-40 sticky top-[2.88%] mx-[1.625rem] gap-2.5 hidden sm:flex"
 	>
 		<a href={'/'}>
 			<div
@@ -64,6 +67,7 @@
 		{#if !hideNav}
 			{#each navItems as navItem, i}
 				<a
+					transition:fly={{ duration: 1000, delay: 1000, y: 30, easing: cubicInOut }}
 					data-sveltekit-noscroll
 					href={`#${navItem.route}`}
 					class="truncate rounded-[6.25rem] font-robotoMono text-[0.75rem] font-medium tracking-[0.075rem] !opacity-100 text-color-white {navItem.selected

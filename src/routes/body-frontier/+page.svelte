@@ -19,6 +19,8 @@ import preloadImages from '../../utils/preloadImages';
 import { bodyFrontierNavStoreItems } from './store';
 import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 import { vixyVideos, cymoonvVideos, brendyVideos } from '../../data/Projects/BodyFrontier/ProjectVideo';
+import { fly } from 'svelte/transition';
+import { cubicInOut } from 'svelte/easing';
 
 let aboutIsInView: boolean;
 let ai3dIsInView: boolean;
@@ -61,6 +63,7 @@ $: if ($metaballReady) {
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
+		transition:fly={{ duration: 1000, delay: 750, y: 30, easing: cubicInOut }}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<!-- About Section (intro) -->

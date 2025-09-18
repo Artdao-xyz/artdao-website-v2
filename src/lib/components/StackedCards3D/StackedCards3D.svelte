@@ -273,7 +273,7 @@
         position: relative;
         width: 250%;
         text-align: center;
-        margin-top: 12px;
+        margin-top: 28px;
         z-index: 20;
     }
     

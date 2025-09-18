@@ -35,8 +35,9 @@
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import preloadImages from '../../utils/preloadImages';
 	import { orbNavStoreItems } from './store';
-	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
-	import { orbChatInterview } from '../../data/Projects/Orb/ProjectChatInterview';
+	import { fly } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
+	
 	
 	let introIsInView: boolean;
 	let curatorsIsInView: boolean;
@@ -97,6 +98,7 @@
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
+		transition:fly={{ duration: 1000, delay: 750, y: 30, easing: cubicInOut }}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 				
