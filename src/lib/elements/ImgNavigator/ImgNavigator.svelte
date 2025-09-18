@@ -21,8 +21,31 @@
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
-<div class="{navigatorWidth} {height > 660 && height < 1000 ? '' : 'mb-[10rem]'} h-full relative">
-	<div class="w-full h-full {!isSmall ? 'flex justify-center items-center' : ''}">
+<div class="{navigatorWidth} {height > 660 && height < 1000 ? '' : 'mb-[10rem]'} h-full {width < 500 ? 'flex flex-col' : ''} relative">
+	<!-- Mobile: Info arriba -->
+	{#if width < 500 && aboutDropdownItems}
+		<div class="mb-4 w-full">
+			<div class="flex flex-col gap-2.5 w-full rounded-20 {!isImageWhiteBg ? 'gray-gradient' : 'gray-gradient-2'} p-5">
+				{#if aboutDropdownItems[index].artist}
+					<div class="flex flex-col items-start gap-[0.3125rem]">
+						<h1 class="font-clash text-[0.875rem] leading-[0.875rem] tracking-[1px] capitalize self-start font-medium text-color-white">
+							{aboutDropdownItems[index].name}
+						</h1>
+						<h1 class="font-robotoMono text-[12px] leading-[1rem] tracking-[0.0625rem] capitalize self-start text-color-white">
+							{aboutDropdownItems[index].artist ?? ''}
+						</h1>
+					</div>
+				{:else}
+					<h1 class="font-clash text-[0.875rem] leading-[0.875rem] tracking-[1.6px] capitalize self-start text-color-white">
+						{aboutDropdownItems[index].name}
+					</h1>
+				{/if}
+			</div>
+		</div>
+	{/if}
+
+	<!-- Imagen -->
+	<div class="w-full {!isSmall ? 'flex justify-center items-center' : ''} {width < 500 ? 'flex-1' : 'h-full'}">
 		<img
 			src={images[index]}
 			alt="Big view"
@@ -34,28 +57,30 @@
 		/>
 	</div>
 
-	<div
-		class="{isSmall
-			? 'left-[20px]'
-			: 'left-0'} flex flex-row gap-[0.625rem] sm:gap-[1.375rem] laptopM:left-10
-			 absolute {width < 500 ? 'scroll-panel' : ''} bottom-[4rem]"
-	>
-		{#if width < 500}
-			<div class="w-fit flex flex-row flex-nowrap gap-[0.625rem]">
-				{#each images as image, i}
-					<button
-						class="w-[2.5rem] h-[2.5rem] laptopM:w-[5.375rem] laptopM:h-[5.375rem] hover:scale-105"
-						on:click={() => handleOnClick(i)}
-					>
-						<img
-							src={image}
-							alt="Small view"
-							class="w-full h-full object-cover rounded-[6.25rem] shadow"
-						/>
-					</button>
-				{/each}
-			</div>
-		{:else}
+	<!-- Mobile: Botones debajo -->
+	{#if width < 500}
+		<div class="flex flex-row gap-[0.625rem] mt-4 justify-center overflow-x-auto scroll-panel">
+			{#each images as image, i}
+				<button
+					class="w-[2.5rem] h-[2.5rem] laptopM:w-[5.375rem] laptopM:h-[5.375rem] hover:scale-105 flex-shrink-0"
+					on:click={() => handleOnClick(i)}
+				>
+					<img
+						src={image}
+						alt="Small view"
+						class="w-full h-full object-cover rounded-[6.25rem] shadow"
+					/>
+				</button>
+			{/each}
+		</div>
+	{:else}
+		<!-- Desktop: Botones en posición absoluta -->
+		<div
+			class="{isSmall
+				? 'left-[20px]'
+				: 'left-0'} flex flex-row gap-[0.625rem] sm:gap-[1.375rem] laptopM:left-10
+				 absolute bottom-[4rem]"
+		>
 			{#each images as image, i}
 				<button
 					class="w-[2.5rem] h-[2.5rem] laptopM:w-[5.375rem] laptopM:h-[5.375rem] hover:scale-105"
@@ -68,11 +93,12 @@
 					/>
 				</button>
 			{/each}
-		{/if}
-	</div>
+		</div>
 
-	{#if aboutDropdownItems}
-		<AboutDropdown bind:aboutDropdown={aboutDropdownItems[index]} isWhite={isImageWhiteBg} />
+		<!-- Desktop: Info en posición absoluta -->
+		{#if aboutDropdownItems}
+			<AboutDropdown aboutDropdown={aboutDropdownItems[index]} isWhite={isImageWhiteBg} />
+		{/if}
 	{/if}
 </div>
 
