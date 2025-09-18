@@ -79,7 +79,7 @@
 	</div>
 
 	<div class="w-full md:w-[27.5625rem] mx-auto mt-[15px] mb-[44.75px]">
-		<HomeNewsletter isFooter />
+		<HomeNewsletter design="classic" />
 	</div>
 
 	<div

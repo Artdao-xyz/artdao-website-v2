@@ -9,6 +9,9 @@
 	let error = false;
 	let memberExists = false;
 	export let isAbsolute = false;
+	export let design: 'modern' | 'classic' = 'classic';
+
+	$: console.log('design', design);
 
 	const handleSubmit = async (event: any) => {
 		// console.log('submitting', submitting);
@@ -65,57 +68,128 @@
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
-<div class="{isAbsolute ? 'fixed bottom-4 left-4 z-10' : ''}">
-	<form
-		in:fade={{ delay: 50, duration: 150 }}
-		out:fade={{ delay: 50, duration: 50 }}
-		on:submit|preventDefault={handleSubmit}
-		method="POST"
-		action="/api/subscribe"
-		id="subscribeForm"
-		class="w-full"
-	>
-		<div data-status="Default" class="min-w-64 flex sm:flex-col sm:justify-start sm:items-start rounded-20 sm:rounded-[999px] shadow-[2px_2px_10px_0px_rgba(0,0,0,0.20)] backdrop-blur-[34px] p-2 sm:p-5 sm:shadow-none sm:outline-none sm:backdrop-blur-none" style="background: {width < 640 ? 'linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.8) 100%)' : 'transparent'};">
-			<div class="px-0 w-full flex justify-center sm:bg-[#F7F5F2] items-center gap-10 sm:px-5 sm:rounded-[999px] sm:shadow-[2px_2px_10px_0px_rgba(0,0,0,0.20)] sm:outline sm:outline-1 sm:outline-black sm:backdrop-blur-[34px]">
-				<label for="email" class="hidden"></label>
-				<input
-					bind:this={input}
-					type="email"
-					name="EMAIL"
-					class="w-full sm:text-center bg-transparent text-white sm:text-black text-xs font-normal font-robotoMono leading-none tracking-widest placeholder:text-white/40 sm:placeholder:text-black/40 !outline-none !border-none focus:outline-none focus:ring-0 focus:border-none"
-					style="outline: none !important; border: none !important; box-shadow: none !important;"
-					required
-					value=""
-					placeholder="Enter your email"
+{#if design === 'modern'}
+	<!-- Modern Design (Current) -->
+	<div class="{isAbsolute ? 'fixed bottom-4 left-4 z-10' : ''}">
+		<form
+			in:fade={{ delay: 50, duration: 150 }}
+			out:fade={{ delay: 50, duration: 50 }}
+			on:submit|preventDefault={handleSubmit}
+			method="POST"
+			action="/api/subscribe"
+			id="subscribeForm"
+			class="w-full"
+		>
+			<div data-status="Default" class="min-w-64 flex sm:flex-col sm:justify-start sm:items-start rounded-20 sm:rounded-[999px] shadow-[2px_2px_10px_0px_rgba(0,0,0,0.20)] backdrop-blur-[34px] p-2 sm:p-5 sm:shadow-none sm:outline-none sm:backdrop-blur-none" style="background: {width < 640 ? 'linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.8) 100%)' : 'transparent'};">
+				<div class="px-0 w-full flex justify-center sm:bg-[#F7F5F2] items-center gap-10 sm:px-5 sm:rounded-[999px] sm:shadow-[2px_2px_10px_0px_rgba(0,0,0,0.20)] sm:outline sm:outline-1 sm:outline-black sm:backdrop-blur-[34px]">
+					<label for="email" class="hidden"></label>
+					<input
+						bind:this={input}
+						type="email"
+						name="EMAIL"
+						class="w-full sm:text-center bg-transparent text-white sm:text-black text-xs font-normal font-robotoMono leading-none tracking-widest placeholder:text-white/40 sm:placeholder:text-black/40 !outline-none !border-none focus:outline-none focus:ring-0 focus:border-none"
+						style="outline: none !important; border: none !important; box-shadow: none !important;"
+						required
+						value=""
+						placeholder="Enter your email"
+						disabled={submitting}
+					/>
+				</div>
+				<button
+					bind:this={submit}
+					type="submit"
 					disabled={submitting}
-				/>
+					class="px-3 sm:px-7 sm:py-3 flex justify-center items-center text-xs font-robotoMono font-bold leading-none tracking-wide sm:rounded-[999px] sm:shadow-[2px_2px_10px_0px_rgba(0,0,0,0.20)] sm:backdrop-blur-[34px] rounded-[999px] {submitting 
+						? 'bg-black text-white' 
+						: success 
+							? 'bg-transparent text-black border border-black' 
+							: error || memberExists 
+								? 'bg-transparent text-red-500 border border-red-500' 
+								: 'bg-gradient-to-br from-black/60 to-black/80 text-white'}"
+				>
+					{#if submitting}
+						Submitting
+					{:else if success}
+						Sent
+					{:else if error || memberExists}
+						Error
+					{:else}
+						Submit
+					{/if}
+				</button>
 			</div>
-			<button
-				bind:this={submit}
-				type="submit"
-				disabled={submitting}
-				class="px-3 sm:px-7 sm:py-3 flex justify-center items-center text-xs fontRobotoMono font-bold font-robotoMono leading-none tracking-wide sm:rounded-[999px] sm:shadow-[2px_2px_10px_0px_rgba(0,0,0,0.20)] sm:backdrop-blur-[34px] rounded-[999px] {submitting 
-					? 'bg-gray-400 text-gray-600' 
-					: success 
-						? 'bg-transparent text-black' 
-						: error || memberExists 
-							? 'bg-transparent text-red-500' 
-							: 'bg-black sm:bg-gradient-to-br sm:from-black/60 sm:to-black/80 text-white'}"
-			>
-				{#if submitting}
-					Submitting...
-				{:else if success}
-					Sent
-				{:else if error || memberExists}
-					Error
-				{:else}
-					Submit
+			<div aria-hidden="true" style="position: absolute; left: -5000px;">
+				<!-- /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */ -->
+				<input type="text" name="b_d150dd71762335c56d7e5811c_6f099dd01d" tabindex="-1" value="" />
+			</div>
+		</form>
+	</div>
+{:else}
+	<!-- Classic Design (Original) -->
+	<div class="{isAbsolute ? 'fixed bottom-8 left-8 z-50' : ''}">
+		<button
+			class="w-full h-[3.875rem] sm:h-[2.625rem] gray-gradient rounded-20 px-10 py-2.5 flex items-center justify-center"
+			on:click={() => {}}
+		>
+			<div class="w-full h-full">
+				{#if !submitting && !success && !error && !memberExists}
+					<form
+						in:fade={{ delay: 50, duration: 150 }}
+						out:fade={{ delay: 50, duration: 50 }}
+						on:submit|preventDefault={handleSubmit}
+						method="POST"
+						action="/api/subscribe"
+						id="subscribeForm"
+						class="w-full h-full flex-row items-center"
+					>
+						<div class="flex items-center gap-4 h-full w-full">
+							<label for="email" class="hidden"></label>
+							<input
+								bind:this={input}
+								type="email"
+								name="EMAIL"
+								class="flex-1 min-w-0 text-color-white placeholder:text-color-white text-[1rem] font-medium font-clash leading-5 bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] h-full"
+								required
+								value=""
+								placeholder="Enter your email"
+								disabled={submitting}
+							/>
+							<button
+								bind:this={submit}
+								type="submit"
+								class="text-white bg-black hover:bg-gray-800 transition-all duration-300 rounded-[6.25rem] py-[0.125rem] px-4 font-clash leading-[0.875rem] text-[0.875rem] font-medium whitespace-nowrap h-full relative overflow-hidden"
+								style="background: linear-gradient(135deg, white 0%, white 1px, black 1px, black 100%); padding: 1px;"
+							>
+								<div class="bg-black rounded-[6.25rem] h-full flex items-center justify-center px-3 py-[0.125rem]">
+									Submit
+								</div>
+							</button>
+						</div>
+						<div aria-hidden="true" style="position: absolute; left: -5000px;">
+							<!-- /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */ -->
+							<input type="text" name="b_d150dd71762335c56d7e5811c_6f099dd01d" tabindex="-1" value="" />
+						</div>
+					</form>
 				{/if}
-			</button>
-		</div>
-		<div aria-hidden="true" style="position: absolute; left: -5000px;">
-			<!-- /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */ -->
-			<input type="text" name="b_d150dd71762335c56d7e5811c_6f099dd01d" tabindex="-1" value="" />
-		</div>
-	</form>
-</div>
+
+				{#if submitting || success || memberExists || error}
+					<div
+						in:fade={{ delay: 50, duration: 150 }}
+						out:fade={{ delay: 50, duration: 50 }}
+						class="font-robotoMono font-medium italic flex items-center justify-center w-full h-full"
+					>
+						{#if submitting}
+							Submitting...
+						{:else if success}
+							Sent
+						{:else if memberExists}
+							Error
+						{:else if error}
+							Error
+						{/if}
+					</div>
+				{/if}
+			</div>
+		</button>
+	</div>
+{/if}

@@ -78,7 +78,7 @@
 	<!-- Newsletter - Only show on home or map pages, desktop only -->
 	{#if (isHomePage || isMapPage) && showUIElements}
 		<div class="hidden sm:block" transition:fly={{ y: 30, duration: 600, delay: 400 }}>
-			<HomeNewsletter isAbsolute={true} />
+			<HomeNewsletter isAbsolute={true} design="modern" />
 		</div>
 	{/if}
 </div>
