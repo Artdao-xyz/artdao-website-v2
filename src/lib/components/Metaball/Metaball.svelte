@@ -145,7 +145,7 @@
 		// console.log('🎯 Metaball onMount iniciado - isPreloader:', isPreloader, 'size:', size);
 		
 		// Reset del estado para evitar conflictos
-		console.log('🎯 Metaball onMount iniciado - isPreloader:', isPreloader, 'size:', size);
+		// console.log('🎯 Metaball onMount iniciado - isPreloader:', isPreloader, 'size:', size);
 		isAnimated = false;
 		isLoaded = false;
 		
@@ -225,10 +225,10 @@
 						// console.log('⏰ Ejecutando animación después de 2 segundos');
 						// Solo ir arriba-izquierda si es mobile Y home page
 						if (isMobile && isHomePage) {
-							console.log('🎬 Ejecutando animación hacia arriba-izquierda');
+							// console.log('🎬 Ejecutando animación hacia arriba-izquierda');
 							animateToTopLeft();
 						} else {
-							console.log('🎬 Ejecutando animación hacia abajo-derecha');
+							// console.log('🎬 Ejecutando animación hacia abajo-derecha');
 							animateToBottomRight();
 						}
 					}, 2000);

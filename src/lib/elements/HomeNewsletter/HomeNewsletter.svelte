@@ -11,7 +11,7 @@
 	export let isAbsolute = false;
 	export let design: 'modern' | 'classic' = 'classic';
 
-	$: console.log('design', design);
+	// $: console.log('design', design);
 
 	const handleSubmit = async (event: any) => {
 		// console.log('submitting', submitting);
