@@ -34,7 +34,15 @@
 
 	if (browser) {
 		beforeNavigate(() => posthog.capture('$pageleave'));
-		afterNavigate(() => posthog.capture('$pageview'));
+		afterNavigate(() => {
+			// Capture pageview with additional context
+			posthog.capture('$pageview', {
+				$current_url: window.location.href,
+				$referrer: document.referrer,
+				$referring_domain: document.referrer ? new URL(document.referrer).hostname : null,
+				// UTM parameters are automatically captured by PostHog
+			});
+		});
 	}
 </script>
 
