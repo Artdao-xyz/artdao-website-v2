@@ -32,7 +32,7 @@
         <!-- Center content area -->
         <div class="absolute inset-3 rounded-full bg-gradient-to-br from-gray-200/30 via-gray-300/20 to-gray-400/10 backdrop-blur-[1px] flex items-center justify-center">
             <div class="text-gray-600 text-[10px] font-normal font-robotoMono leading-3 tracking-tight text-center px-2">
-                Enter the Zine
+                Enter
             </div>
         </div>
         

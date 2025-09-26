@@ -105,7 +105,7 @@
             <div class="w-full h-full bg-blend-screen bg-white/10 flex items-center justify-center rounded-[9999px] glass-button-shadow backdrop-blur-[4px] p-3">
                 <div class="w-full h-full bg-blend-screen bg-white/10 flex items-center justify-center rounded-[9999px] glass-button-shadow-inner">
 
-                    <span class="text-white text-xs font-normal tracking-wider font-robotoMono">Enter the Zine</span>
+                    <span class="text-white text-xs font-normal tracking-wider font-robotoMono">Enter</span>
                 </div>
             </div>
         </a>
