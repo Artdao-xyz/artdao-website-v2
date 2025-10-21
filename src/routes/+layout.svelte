@@ -15,7 +15,8 @@
 	// Determinar si estamos en la página principal
 	$: isHomePage = $page?.route?.id === '/';
 	$: isMapPage = $page?.route?.id === '/map';
-	$: shouldShowNavbar = isHomePage || isMapPage;
+	$: isStudioPage = $page?.route?.id === '/studio';
+	$: shouldShowNavbar = isHomePage || isMapPage || isStudioPage;
 
 	// Controlar la aparición de elementos después del metaball
 	let showUIElements = false;
@@ -87,7 +88,7 @@
 		<slot />
 	</div>
 
-	<!-- Newsletter - Only show on home or map pages, desktop only -->
+	<!-- Newsletter - Only show on home, map or studio pages, desktop only -->
 	{#if (isHomePage || isMapPage) && showUIElements}
 		<div class="hidden sm:block" transition:fly={{ y: 30, duration: 600, delay: 400 }}>
 			<HomeNewsletter isAbsolute={true} design="modern" />

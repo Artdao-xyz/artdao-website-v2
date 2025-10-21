@@ -13,6 +13,7 @@
     // Detectar la ruta actual
     $: isMapRoute = $page.url.pathname === '/map';
     $: isHomeRoute = $page.url.pathname === '/';
+    $: isStudioRoute = $page.url.pathname === '/studio';
     $: isHomeMobile = isHomeRoute && width <= 768;
     $: isHomeDesktop = isHomeRoute && width > 768;
     // Función para mover la metabola al navbar
@@ -42,6 +43,10 @@
                  <a data-sveltekit-reload href="/map" class="flex justify-start items-center gap-2">
                          <Circle size={8} class="text-white {isMapRoute ? 'fill-white' : ''}" />
                          <span class="justify-center text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Map</span>
+                 </a>
+                 <a data-sveltekit-reload href="/studio" class="flex justify-start items-center gap-2">
+                         <Circle size={8} class="text-white {isStudioRoute ? 'fill-white' : ''}" />
+                         <span class="justify-center text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Studio</span>
                  </a>
         </div>
 </nav>
@@ -73,6 +78,10 @@
                     <Circle size={6} class="text-white {isMapRoute ? 'fill-white' : ''}" />
                     <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Map</span>
                 </a>
+                <a href="/studio" class="w-80 h-12 px-5 py-1.5 bg-gradient-to-br from-black/60 to-black/80 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
+                    <Circle size={6} class="text-white {isStudioRoute ? 'fill-white' : ''}" />
+                    <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Studio</span>
+                </a>
                 <!-- Newsletter Signup -->
                 <div class="w-80" on:click|stopPropagation>
                     <HomeNewsletter  />
@@ -96,6 +105,10 @@
                  <a href="/map" class="flex justify-start items-center gap-2">
                          <Circle size={8} class="text-white {isMapRoute ? 'fill-white' : ''}" />
                          <span class="justify-center text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Map</span>
+                 </a>
+                 <a href="/studio" class="flex justify-start items-center gap-2">
+                         <Circle size={8} class="text-white {isStudioRoute ? 'fill-white' : ''}" />
+                         <span class="justify-center text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Studio</span>
                  </a>
         </div>
 </nav>
@@ -126,6 +139,10 @@
                 <a href="/map" class="w-80 h-12 px-5 py-1.5 bg-gradient-to-br from-black/60 to-black/80 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
                     <Circle size={6} class="text-white {isMapRoute ? 'fill-white' : ''}" />
                     <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Map</span>
+                </a>
+                <a href="/studio" class="w-80 h-12 px-5 py-1.5 bg-gradient-to-br from-black/60 to-black/80 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
+                    <Circle size={6} class="text-white {isStudioRoute ? 'fill-white' : ''}" />
+                    <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Studio</span>
                 </a>
                 <!-- Newsletter Signup -->
                 <div class="w-80" on:click|stopPropagation>

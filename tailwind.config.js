@@ -68,7 +68,9 @@ export default {
 			roboto: ['Roboto-Regular'],
 			robotoMono: ['Roboto-Mono'],
 			clash: ['ClashDisplay'],
-			neue: ['NeuePower-Variable']
+			neue: ['NeuePower-Variable'],
+			geist: ['Geist'],
+			geistMono: ['GeistMono']
 		},
 		borderRadius: {
 			0: '0rem',
