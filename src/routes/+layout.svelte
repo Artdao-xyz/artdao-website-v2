@@ -18,6 +18,11 @@
 	$: isStudioPage = $page?.route?.id === '/studio';
 	$: shouldShowNavbar = isHomePage || isMapPage || isStudioPage;
 
+	// Toggle class on <html> to control studio background
+	$: if (browser) {
+		document.documentElement.classList.toggle('studio-background', isStudioPage);
+	}
+
 	// Controlar la aparición de elementos después del metaball
 	let showUIElements = false;
 
@@ -78,7 +83,7 @@
 <!-- Metaball global - una sola instancia -->
 <Metaball {isHomePage} isPreloader={true} size={'extra-large'} />
 
-<div class="h-svh w-full flex flex-col {isMapPage ? 'map-background' : ''}">
+<div class="h-svh w-full flex flex-col {isMapPage ? 'map-background' : ''} {isStudioPage ? 'studio-background' : ''}">
 	{#if shouldShowNavbar && showUIElements}
 		<div transition:fly={{ y: 30, duration: 600, delay: 200 }}>
 			<Navbar />
@@ -88,8 +93,8 @@
 		<slot />
 	</div>
 
-	<!-- Newsletter - Only show on home, map or studio pages, desktop only -->
-	{#if (isHomePage || isMapPage) && showUIElements}
+    <!-- Newsletter - Only show on home, map or studio pages, desktop only -->
+    {#if (isHomePage || isMapPage) && showUIElements}
 		<div class="hidden sm:block" transition:fly={{ y: 30, duration: 600, delay: 400 }}>
 			<HomeNewsletter isAbsolute={true} design="modern" />
 		</div>

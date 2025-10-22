@@ -213,3 +213,14 @@ body {
 	background: #F7F5F2 url("/media/home/home-dot.svg") repeat;
 	background-size: 10px 10px;
 }
+
+/* Fondo específico para la ruta /studio */
+.studio-background {
+    background: #000000;
+}
+
+/* Fondo negro para html cuando estamos en /studio */
+html.studio-background {
+    background-color: #000000 !important;
+    background: #000000 !important;
+}

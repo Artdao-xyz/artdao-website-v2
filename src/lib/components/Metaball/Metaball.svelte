@@ -312,12 +312,12 @@
 <div 
 	transition:fly={{ duration: 1000 }} 
 	bind:this={metaballContainer}
-	class="bg-dot h-screen w-screen absolute inset-0 z-50 transition-opacity duration-[2000ms] ease-in-out pointer-events-none"
+	class="bg-dot h-[120%] overflow-hidden lg:h-screen w-screen absolute inset-0 z-50 transition-opacity duration-[2000ms] ease-in-out pointer-events-none"
 >
 </div>
 <canvas 
 	bind:this={canvas} 
-	class="bg-transparent fixed bottom-1/2 right-1/2 transform translate-x-1/2 translate-y-1/2 z-50 transition-opacity duration-500 ease-in-out"
+	class="bg-transparent overflow-hidden lg:overflow-visible fixed bottom-1/2 right-1/2 transform translate-x-1/2 translate-y-1/2 z-50 transition-opacity duration-500 ease-in-out"
 	class:opacity-0={!isLoaded}
 	class:opacity-100={isLoaded}
 	style="transition-delay: {isLoaded ? '200ms' : '0ms'};"
