@@ -19,7 +19,7 @@
 </script>
 
 <!-- Desktop version -->
-<div class="hidden md:flex items-center justify-center flex-nowrap px-10">
+<div class="hidden md:flex items-center justify-center flex-nowrap md:-space-x-16 w-full max-w-screen-2xl mx-auto">
 	{#each studioProjects as project}
 		{#if $activeFilters.length === 0 || shouldShowProject(project, $activeFilters)}
 			<a 
@@ -73,8 +73,8 @@
 				</div>
 				<!-- Info -->
 				<div class="flex-1 text-white">
-					<h3 class="font-geist text-lg font-semibold mb-2">{project.title}</h3>
-					<p class="text-xs font-geistMono text-gray-300 mb-2">{project.description}</p>
+					<h3 class="font-robotoMono text-lg font-semibold mb-2">{project.title}</h3>
+					<p class="text-[10px] md:text-xs font-robotoMono text-gray-300 mb-2">{project.description}</p>
 				</div>
 			</a>
 		{/if}
