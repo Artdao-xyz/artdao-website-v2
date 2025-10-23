@@ -64,18 +64,20 @@
 				href={project.route}
 				class="flex flex-row gap-4 items-center">
 				<!-- Image -->
-				<div class="flex-shrink-0">
-					<img 
-						src={project.imageHover} 
-						alt={project.title}
-						class="h-36 object-cover"
-					/>
-				</div>
-				<!-- Info -->
+				 				<!-- Info -->
 				<div class="flex-1 text-white">
 					<h3 class="font-robotoMono text-lg font-semibold mb-2">{project.title}</h3>
 					<p class="text-[10px] md:text-xs font-robotoMono text-gray-300 mb-2">{project.description}</p>
 				</div>
+
+				<div class="flex-shrink-0">
+					<img 
+						src={project.imageHover} 
+						alt={project.title}
+						class="h-28 object-cover"
+					/>
+				</div>
+
 			</a>
 		{/if}
 	{/each}
