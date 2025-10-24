@@ -21,8 +21,8 @@
 	}
 </script>
 
-<div class="relative -mt-20 mx-auto w-full max-w-screen-md backdrop-blur-sm p-[1px] rounded-[999px] bg-gradient-to-br from-white/20 via-transparent to-white/20 hidden md:block">
-        <div class="relative flex flex-wrap items-center justify-center gap-6 p-6 rounded-[999px] bg-black/50">
+<div class="relative -mt-16 mx-auto w-full max-w-screen-md backdrop-blur-sm p-[1px] rounded-[999px] outline outline-1 outline-white/50 hidden md:block">
+        <div class="relative flex flex-wrap items-center justify-center gap-6 p-6 rounded-[999px] bg-black">
                 <div class="flex flex-wrap items-center justify-between w-full px-16">
                         {#each categories as category}
                                 <Toggle 

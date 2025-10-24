@@ -19,28 +19,52 @@
 </script>
 
 <!-- Desktop version -->
-<div class="hidden md:flex items-center justify-center flex-nowrap md:-space-x-16 w-full max-w-screen-2xl mx-auto">
+<div class="hidden md:flex items-center justify-center flex-nowrap md:-space-x-14 w-full max-w-screen-xl mx-auto">
 	{#each studioProjects as project}
 		{#if $activeFilters.length === 0 || shouldShowProject(project, $activeFilters)}
-			<a 
-				href={project.route}
-				class="group relative hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl flex-shrink-0 flex-1 max-w-xs opacity-100"
-				on:mouseenter={() => handleMouseEnter(project.title)}
-				on:mouseleave={handleMouseLeave}
-			>
-				<!-- Imagen OFF (base) -->
-				<img 
-					src={project.image} 
-					alt={project.title}
-					class="w-full h-auto object-contain transition-opacity duration-500 {($activeFilters.length > 0 && shouldShowProject(project, $activeFilters)) || $hoveredProject === project.title ? 'opacity-0' : 'opacity-100'}"
-				/>
-				<!-- Imagen ON (overlay) -->
-				<img 
-					src={project.imageHover} 
-					alt={project.title}
-					class="w-full h-auto object-contain absolute inset-0 transition-opacity duration-500 {($activeFilters.length > 0 && shouldShowProject(project, $activeFilters)) || $hoveredProject === project.title ? 'opacity-100' : 'opacity-0'}"
-				/>
-			</a>
+			{#if project.title === 'Future Art Ecosystems'}
+				<div 
+					class="group relative flex-shrink-0 flex-1 max-w-xs opacity-100 cursor-default"
+					role="button"
+					aria-label={project.title}
+					tabindex="0"
+					on:mouseenter={() => handleMouseEnter(project.title)}
+					on:mouseleave={handleMouseLeave}
+				>
+					<!-- Imagen OFF (base) -->
+					<img 
+						src={project.image} 
+						alt={project.title}
+						class="w-full h-auto object-contain transition-opacity duration-500 {($activeFilters.length > 0 && shouldShowProject(project, $activeFilters)) || $hoveredProject === project.title ? 'opacity-0' : 'opacity-100'}"
+					/>
+					<!-- Imagen ON (overlay) -->
+					<img 
+						src={project.imageHover} 
+						alt={project.title}
+						class="w-full h-auto object-contain absolute inset-0 transition-opacity duration-500 {($activeFilters.length > 0 && shouldShowProject(project, $activeFilters)) || $hoveredProject === project.title ? 'opacity-100' : 'opacity-0'}"
+					/>
+				</div>
+			{:else}
+				<a 
+					href={project.route}
+					class="group relative hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl flex-shrink-0 flex-1 max-w-xs opacity-100"
+					on:mouseenter={() => handleMouseEnter(project.title)}
+					on:mouseleave={handleMouseLeave}
+				>
+					<!-- Imagen OFF (base) -->
+					<img 
+						src={project.image} 
+						alt={project.title}
+						class="w-full h-auto object-contain transition-opacity duration-500 {($activeFilters.length > 0 && shouldShowProject(project, $activeFilters)) || $hoveredProject === project.title ? 'opacity-0' : 'opacity-100'}"
+					/>
+					<!-- Imagen ON (overlay) -->
+					<img 
+						src={project.imageHover} 
+						alt={project.title}
+						class="w-full h-auto object-contain absolute inset-0 transition-opacity duration-500 {($activeFilters.length > 0 && shouldShowProject(project, $activeFilters)) || $hoveredProject === project.title ? 'opacity-100' : 'opacity-0'}"
+					/>
+				</a>
+			{/if}
 		{:else}
 			<a 
 				href={project.route}
@@ -57,28 +81,63 @@
 </div>
 
 <!-- Mobile version -->
-<div class="flex md:hidden flex-col gap-2 px-4">
+<div class="flex md:hidden flex-col gap-10 px-4">
 	{#each studioProjects as project}
 		{#if $activeFilters.length === 0 || shouldShowProject(project, $activeFilters)}
-			<a 
-				href={project.route}
-				class="flex flex-row gap-4 items-center">
-				<!-- Image -->
-				 				<!-- Info -->
-				<div class="flex-1 text-white">
-					<h3 class="font-robotoMono text-lg font-semibold mb-2">{project.title}</h3>
-					<p class="text-[10px] md:text-xs font-robotoMono text-gray-300 mb-2">{project.description}</p>
-				</div>
+			{#if project.title === 'Future Art Ecosystems'}
+				<div class="flex flex-row gap-4 items-center cursor-default">
+					<!-- Image -->
+					<!-- Info -->
+					<div class="flex-1 text-white">
+						<h3 class="font-robotoMono text-lg font-semibold mb-2">{project.title}</h3>
+						{#if project.year}
+							<p class="text-[10px] font-robotoMono text-gray-400 mb-1">{project.year}</p>
+						{/if}
+						<p class="text-[10px] md:text-xs font-robotoMono text-gray-300 mb-2">{project.description}</p>
+					</div>
 
-				<div class="flex-shrink-0">
-					<img 
-						src={project.imageHover} 
-						alt={project.title}
-						class="h-28 object-cover"
-					/>
+					<div class="flex-shrink-0">
+						<img 
+							src={project.imageHover} 
+							alt={project.title}
+							class="h-28 object-cover"
+						/>
+					</div>
 				</div>
+			{:else}
+				<a 
+					href={project.route}
+					class="flex flex-row gap-4 items-center">
+					<!-- Image -->
+					<!-- Info -->
+					<div class="flex-1 text-white space-y-1">
+						<h3 class="font-robotoMono text-lg font-semibold">{project.title}</h3>
+						{#if project.year}
+							<p class="text-[10px] font-robotoMono text-gray-400">{project.year}</p>
+						{/if}
+						{#if project.link}
+							<a 
+								href={project.link} 
+								target="_blank" 
+								rel="noopener noreferrer"
+								class="text-[10px] font-robotoMono underline"
+								on:click|stopPropagation
+							>
+								{project.link}
+							</a>
+						{/if}
+						<p class="text-[10px] md:text-xs font-robotoMono text-gray-300">{project.description}</p>
+					</div>
 
-			</a>
+					<div class="flex-shrink-0">
+						<img 
+							src={project.imageHover} 
+							alt={project.title}
+							class="h-28 object-cover"
+						/>
+					</div>
+				</a>
+			{/if}
 		{/if}
 	{/each}
 </div>
