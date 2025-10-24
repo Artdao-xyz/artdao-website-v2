@@ -49,12 +49,12 @@
 		: 'h-full'} laptopM:h-full flex flex-col gap-5 sm:gap-[0.625rem] p-5 rounded-20 border border-color-black gray-gradient"
 >
 	<video
-		style={size > 1100 ? 'height: calc(100% - 1.75rem)' : ''}
-		src={audioItems[index].songFile}
-		controls
-		bind:this={videoPlayer}
-		preload="metadata"
-		class={size > 1100 ? 'w-auto' : 'h-full'}
+			style={size > 1100 ? 'height: calc(100% - 1.75rem)' : ''}
+			src={audioItems[index].songFile}
+			controls
+			bind:this={videoPlayer}
+			preload="metadata"
+			class={size > 1100 ? 'w-auto' : 'h-full'}
 	>
 		<track kind="captions" />
 	</video>
