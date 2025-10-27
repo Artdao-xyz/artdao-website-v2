@@ -74,15 +74,15 @@
           {@const character = getCharacter(message.characterId)}
           {#if character}
             <div class="flex items-end gap-4 mb-5 {character.type === 'answer' ? 'flex-row-reverse' : ''}">
-            <div class="w-12 h-12 flex-shrink-0">
-              <div class="w-full h-full rounded-[50%] overflow-hidden">
-                <img 
+              <div class="w-12 h-12 flex-shrink-0">
+                <div class="w-full h-full rounded-[50%] overflow-hidden">
+                  <img 
                     src={character.avatar} 
-                  alt="Avatar" 
-                  class="w-full h-full object-cover ring-2 ring-gray-200/50"
-                />
+                    alt="Avatar" 
+                    class="w-full h-full object-cover ring-2 ring-gray-200/50"
+                  />
+                </div>
               </div>
-            </div>
               <div class="max-w-[90%] {
                 character.type === 'answer' ? 'flex flex-col items-end' : ''
               }">
@@ -90,15 +90,15 @@
                   character.type === 'question' 
                     ? 'bg-[#989898]/20 rounded-[24px] rounded-bl-[0px]' 
                     : 'bg-transparent rounded-[24px] rounded-br-[0px] border-[1px] border-white/10'
-            }">
+                }">
                   {#if character.type === 'answer' && showAuthorNames}
                     <div class="text-[10px] font-roboto font-normal text-white mb-2 uppercase">{character.name}</div>
                   {/if}
                   <div class="text-sm sm:text-base">{@html processText(message.content)}</div>
                 </div>
               </div>
-                </div>
-              {/if}
+            </div>
+          {/if}
           
           <!-- Imagen centrada después de cada mensaje -->
           {#if data.images[index]}
