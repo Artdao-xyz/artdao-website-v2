@@ -20,8 +20,8 @@ export interface ChatInterviewData {
 export const bodyFrontierChatInterview1: ChatInterviewData = {
   characters: [
     {
-      id: 'alice-scope',
-      name: 'Alice Scope',
+      id: 'laura',
+      name: 'Laura Butallo',
       avatar: '/media/artdao-question.webp',
       type: 'question'
     },
@@ -62,8 +62,8 @@ export const bodyFrontierChatInterview1: ChatInterviewData = {
 export const bodyFrontierChatInterview2: ChatInterviewData = {
   characters: [
     {
-      id: 'interviewer',
-      name: 'Interviewer',
+      id: 'tomas',
+      name: 'Tomas Jones',
       avatar: '/media/artdao-question.webp',
       type: 'question'
     },

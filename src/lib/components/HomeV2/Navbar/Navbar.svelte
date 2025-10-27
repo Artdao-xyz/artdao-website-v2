@@ -44,10 +44,11 @@
                          <Circle size={8} class="text-white {isMapRoute ? 'fill-white' : ''}" />
                          <span class="justify-center text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Map</span>
                  </a>
+                 <!-- Studio link hidden
                  <a data-sveltekit-reload href="/studio" class="flex justify-start items-center gap-2">
                          <Circle size={8} class="text-white {isStudioRoute ? 'fill-white' : ''}" />
                          <span class="justify-center text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Studio</span>
-                 </a>
+                 </a> -->
         </div>
 </nav>
 {/if}
@@ -78,10 +79,11 @@
                     <Circle size={6} class="text-white {isMapRoute ? 'fill-white' : ''}" />
                     <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Map</span>
                 </a>
+                <!-- Studio link hidden
                 <a href="/studio" class="w-80 h-12 px-5 py-1.5 bg-gradient-to-br from-black/60 to-black/80 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
                     <Circle size={6} class="text-white {isStudioRoute ? 'fill-white' : ''}" />
                     <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Studio</span>
-                </a>
+                </a> -->
                 <!-- Newsletter Signup -->
                 <div class="w-80" on:click|stopPropagation>
                     <HomeNewsletter  />
@@ -106,10 +108,11 @@
                          <Circle size={8} class="text-white {isMapRoute ? 'fill-white' : ''}" />
                          <span class="justify-center text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Map</span>
                  </a>
+                 <!-- Studio link hidden
                  <a href="/studio" class="flex justify-start items-center gap-2">
                          <Circle size={8} class="text-white {isStudioRoute ? 'fill-white' : ''}" />
                          <span class="justify-center text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Studio</span>
-                 </a>
+                 </a> -->
         </div>
 </nav>
 {/if}
@@ -140,10 +143,11 @@
                     <Circle size={6} class="text-white {isMapRoute ? 'fill-white' : ''}" />
                     <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Map</span>
                 </a>
+                <!-- Studio link hidden
                 <a data-sveltekit-reload href="/studio" class="w-80 h-12 px-5 py-1.5 bg-gradient-to-br from-black/60 to-black/80 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
                     <Circle size={6} class="text-white {isStudioRoute ? 'fill-white' : ''}" />
                     <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Studio</span>
-                </a>
+                </a> -->
                 <!-- Newsletter Signup -->
                 <div class="w-80" on:click|stopPropagation>
                     <HomeNewsletter isFooter={true} />
