@@ -126,12 +126,6 @@
 			/>
 		</div>
 
-				<!-- <div
-			id="chat"
-		>
-			<ChatInterview data={orbChatInterview} />
-		</div> -->
-
 		<div
 			id="curators"
 			use:inview={INVIEW_OPTIONS}
