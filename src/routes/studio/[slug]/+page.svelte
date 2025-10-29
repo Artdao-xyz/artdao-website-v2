@@ -5,7 +5,7 @@
 	import { cubicInOut } from 'svelte/easing';
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
 	import type { EmblaCarouselType } from 'embla-carousel';        
-	import { MoveUpRightIcon } from 'lucide-svelte';
+	import { MoveUpRightIcon, ArrowLeft, ArrowRight } from 'lucide-svelte';
 	// Obtener el proyecto actual basado en el slug
 	$: currentProject = studioProjects.find(project => 
 		project.route === `/studio/${$page.params.slug}`
@@ -30,6 +30,20 @@
 	function scrollTo(index: number) {
 		if (emblaApi) {
 			emblaApi.scrollTo(index);
+		}
+	}
+
+	// Función para ir a la diapositiva anterior
+	function scrollPrev() {
+		if (emblaApi) {
+			emblaApi.scrollPrev();
+		}
+	}
+
+	// Función para ir a la siguiente diapositiva
+	function scrollNext() {
+		if (emblaApi) {
+			emblaApi.scrollNext();
 		}
 	}
 
@@ -104,15 +118,22 @@
 				</div>
 			</div>
 
-			<!-- Indicadores de puntos -->
-			<div class="flex justify-center mt-6 space-x-2">
-				{#each currentProject.carouselImages as _, index}
-					<button
-						class="w-2 h-2 rounded-[999px] transition-colors duration-300 {selectedIndex === index ? 'bg-white' : 'bg-gray-500'}"
-						on:click={() => scrollTo(index)}
-						aria-label="Go to slide {index + 1}"
-					></button>
-				{/each}
+			<!-- Controles de navegación con flechas -->
+			<div class="flex justify-between items-center mt-6 gap-4">
+				<button
+					class="text-white hover:text-gray-300 transition-colors duration-300 p-2"
+					on:click={scrollPrev}
+					aria-label="Previous slide"
+				>
+					<ArrowLeft class="w-6 h-6" />
+				</button>
+				<button
+					class="text-white hover:text-gray-300 transition-colors duration-300 p-2"
+					on:click={scrollNext}
+					aria-label="Next slide"
+				>
+					<ArrowRight class="w-6 h-6" />
+				</button>
 			</div>
 		</div>
 

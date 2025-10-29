@@ -1,6 +1,14 @@
 <script lang="ts">
+	import { onMount, tick } from 'svelte';
 	import { studioProjects } from '../../../data/Studio/studioProjects';
 	import { activeFilters, hoveredProject } from '../../stores/studio';
+	
+	// Estado para la animación secuencial
+	let animatedProjectIndex: number | null = null;
+	let animatedProjectIndices: number[] = []; // Para animación de todos juntos
+	let animationInterval: ReturnType<typeof setInterval> | null = null;
+	let animationTimeouts: ReturnType<typeof setTimeout>[] = [];
+	let animationMode: 'sequential' | 'all-together' = 'sequential'; // Alterna entre secuencial y todos juntos
 	
 	// Función para verificar si un proyecto debe mostrarse
 	function shouldShowProject(project: typeof studioProjects[0], filters: string[]): boolean {
@@ -22,6 +30,106 @@
 		// Siempre resetear cuando no hay hover sobre ningún proyecto
 		hoveredProject.set(null);
 	}
+	
+	// Reactive: verificar si un proyecto está animado (sin función, acceso directo en template)
+	
+	// Función para limpiar los timeouts de animación
+	function clearAnimationTimeouts() {
+		animationTimeouts.forEach(timeout => clearTimeout(timeout));
+		animationTimeouts = [];
+	}
+	
+	// Función para ejecutar la secuencia de animación
+	function runAnimationSequence() {
+		console.log(`🔄 Ejecutando secuencia de animación: ${animationMode}`);
+		
+		// Limpiar cualquier animación anterior
+		clearAnimationTimeouts();
+		animatedProjectIndex = null;
+		animatedProjectIndices = [];
+		
+		// Calcular los índices reales de los proyectos visibles
+		const visibleIndices: number[] = [];
+		studioProjects.forEach((project, index) => {
+			if ($activeFilters.length === 0 || shouldShowProject(project, $activeFilters)) {
+				visibleIndices.push(index);
+			}
+		});
+		
+		console.log('📋 Índices visibles:', visibleIndices);
+		
+		if (animationMode === 'all-together') {
+			// Modo: Todos juntos (sin delay)
+			const allTogetherDelay = 0;
+			
+			// Encender todos al mismo tiempo
+			const turnOnTimeout = setTimeout(async () => {
+				await tick();
+				if ($hoveredProject === null) {
+					console.log('✨ Encendiendo todos los proyectos juntos');
+					animatedProjectIndices = [...visibleIndices]; // Asignar nuevo array para reactividad
+				}
+			}, allTogetherDelay);
+			animationTimeouts.push(turnOnTimeout);
+			
+			// Apagar todos después de 600ms
+			const turnOffTimeout = setTimeout(async () => {
+				await tick();
+				if ($hoveredProject === null) {
+					console.log('💤 Apagando todos los proyectos');
+					animatedProjectIndices = []; // Asignar nuevo array vacío para reactividad
+				}
+			}, allTogetherDelay + 600);
+			animationTimeouts.push(turnOffTimeout);
+		} else {
+			// Modo: Secuencial (uno por uno con delay)
+			visibleIndices.forEach((realIndex, sequenceIndex) => {
+				const delay = sequenceIndex * 500; // 300ms entre cada proyecto
+				
+				// Encender
+				const turnOnTimeout = setTimeout(async () => {
+					await tick();
+					if ($hoveredProject === null) {
+						console.log(`✨ Encendiendo proyecto ${realIndex}`);
+						animatedProjectIndex = realIndex;
+					} else {
+						console.log('⏸️ Hover activo, saltando animación');
+					}
+				}, delay);
+				animationTimeouts.push(turnOnTimeout);
+				
+				// Apagar después de 600ms
+				const turnOffTimeout = setTimeout(async () => {
+					await tick();
+					if (animatedProjectIndex === realIndex && $hoveredProject === null) {
+						console.log(`💤 Apagando proyecto ${realIndex}`);
+						animatedProjectIndex = null;
+					}
+				}, delay + 600);
+				animationTimeouts.push(turnOffTimeout);
+			});
+		}
+		
+		// Alternar el modo para la próxima vez
+		animationMode = animationMode === 'sequential' ? 'all-together' : 'sequential';
+	}
+	
+	onMount(() => {
+		// Iniciar la animación inmediatamente
+		runAnimationSequence();
+		
+		// Configurar el intervalo para repetir cada 5 segundos
+		animationInterval = setInterval(() => {
+			runAnimationSequence();
+		}, 5000);
+
+		return () => {
+			if (animationInterval) {
+				clearInterval(animationInterval);
+			}
+			clearAnimationTimeouts();
+		};
+	});
 </script>
 
 <!-- Desktop version -->
@@ -30,11 +138,11 @@
 	on:mouseleave={handleContainerMouseLeave}
 	role="group"
 >
-	{#each studioProjects as project}
+	{#each studioProjects as project, index}
 		{#if $activeFilters.length === 0 || shouldShowProject(project, $activeFilters)}
 			{#if project.title === 'Future Art Ecosystems'}
 				<div 
-					class="group relative flex-shrink-0 flex-1 max-w-xs opacity-100 cursor-default"
+					class="group relative flex-shrink-0 flex-1 max-w-xs opacity-100 cursor-default transition-transform duration-700 {($hoveredProject === null && (animatedProjectIndex === index || animatedProjectIndices.includes(index))) ? 'scale-105' : 'scale-100'}"
 					role="button"
 					aria-label={project.title}
 					tabindex="0"
@@ -45,19 +153,19 @@
 					<img 
 						src={project.image} 
 						alt={project.title}
-						class="w-full h-auto object-contain transition-opacity duration-500 {($activeFilters.length > 0 && shouldShowProject(project, $activeFilters)) || $hoveredProject === project.title ? 'opacity-0' : 'opacity-100'}"
+						class="w-full h-auto object-contain transition-opacity duration-700 {($activeFilters.length > 0 && shouldShowProject(project, $activeFilters)) || $hoveredProject === project.title || ($hoveredProject === null && (animatedProjectIndex === index || animatedProjectIndices.includes(index))) ? 'opacity-0' : 'opacity-100'}"
 					/>
 					<!-- Imagen ON (overlay) -->
 					<img 
 						src={project.imageHover} 
 						alt={project.title}
-						class="w-full h-auto object-contain absolute inset-0 transition-opacity duration-500 {($activeFilters.length > 0 && shouldShowProject(project, $activeFilters)) || $hoveredProject === project.title ? 'opacity-100' : 'opacity-0'}"
+						class="w-full h-auto object-contain absolute inset-0 transition-opacity duration-700 {($activeFilters.length > 0 && shouldShowProject(project, $activeFilters)) || $hoveredProject === project.title || ($hoveredProject === null && (animatedProjectIndex === index || animatedProjectIndices.includes(index))) ? 'opacity-100' : 'opacity-0'}"
 					/>
 				</div>
 			{:else}
 				<a 
 					href={project.route}
-					class="group relative hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl flex-shrink-0 flex-1 max-w-xs opacity-100"
+					class="group relative hover:-translate-y-2 transition-all duration-700 hover:shadow-2xl flex-shrink-0 flex-1 max-w-xs opacity-100 {($hoveredProject === null && (animatedProjectIndex === index || animatedProjectIndices.includes(index))) ? 'scale-105' : 'scale-100'}"
 					on:mouseenter={() => handleMouseEnter(project.title)}
 					on:mouseleave={handleMouseLeave}
 				>
@@ -65,20 +173,20 @@
 					<img 
 						src={project.image} 
 						alt={project.title}
-						class="w-full h-auto object-contain transition-opacity duration-500 {($activeFilters.length > 0 && shouldShowProject(project, $activeFilters)) || $hoveredProject === project.title ? 'opacity-0' : 'opacity-100'}"
+						class="w-full h-auto object-contain transition-opacity duration-700 {($activeFilters.length > 0 && shouldShowProject(project, $activeFilters)) || $hoveredProject === project.title || ($hoveredProject === null && (animatedProjectIndex === index || animatedProjectIndices.includes(index))) ? 'opacity-0' : 'opacity-100'}"
 					/>
 					<!-- Imagen ON (overlay) -->
 					<img 
 						src={project.imageHover} 
 						alt={project.title}
-						class="w-full h-auto object-contain absolute inset-0 transition-opacity duration-500 {($activeFilters.length > 0 && shouldShowProject(project, $activeFilters)) || $hoveredProject === project.title ? 'opacity-100' : 'opacity-0'}"
+						class="w-full h-auto object-contain absolute inset-0 transition-opacity duration-700 {($activeFilters.length > 0 && shouldShowProject(project, $activeFilters)) || $hoveredProject === project.title || ($hoveredProject === null && (animatedProjectIndex === index || animatedProjectIndices.includes(index))) ? 'opacity-100' : 'opacity-0'}"
 					/>
 				</a>
 			{/if}
 		{:else}
 			<a 
 				href={project.route}
-				class="group flex flex-col bg-gray-900 rounded-lg overflow-hidden transition-all duration-300 flex-shrink-0 flex-1 max-w-xs opacity-30 pointer-events-none"
+				class="group flex flex-col bg-gray-900 rounded-lg overflow-hidden transition-all duration-300 flex-shrink-0 flex-1 max-w-xs opacity-100 pointer-events-none"
 			>
 				<img 
 					src={project.image} 
