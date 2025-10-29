@@ -37,17 +37,20 @@
 
 			<p class="text-xs font-robotoMono w-full max-w-80 tracking-wider">{activeProject.description}</p>
 
-			<div class="flex justify-between items-center group">
-				{#if activeProject.link === undefined}
-					<span class="text-xs font-robotoMono  leading-none">under construction</span>
-				{:else if activeProject.link !== null}
-					<a href={activeProject.link} target="_blank" class="hover:text-white/50 transition-all duration-300 justify-start text-xs font-bold font-robotoMono underline leading-none">{activeProject.link.replace('https://', '')}</a>
-				{/if}
+			<div class="flex items-center group">
+				<div class="flex-1">
+					{#if activeProject.link === undefined}
+						<span class="text-xs font-robotoMono leading-none">under construction</span>
+					{:else if activeProject.link !== null}
+						<a href={activeProject.link} target="_blank" class="hover:text-white/50 transition-all duration-300 justify-start text-xs font-bold font-robotoMono underline leading-none">{activeProject.link.replace('https://', '')}</a>
+					{/if}
+				</div>
 				<a 
 					href={activeProject.route}
+					target="_blank"
 					class="flex items-center gap-2 transition-all duration-300 text-xs font-bold font-robotoMono leading-none"
 				>
-					<a href={activeProject.route} target="_blank" class="group-hover:-translate-x-1 transition-all duration-300">see more</a>
+					<span class="group-hover:-translate-x-1 transition-all duration-300">see more</span>
 					<ArrowRightIcon class="group-hover:translate-x-1 transition-all duration-300 w-4 h-4" />
 				</a>
 			</div>
