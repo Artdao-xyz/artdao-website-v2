@@ -34,6 +34,7 @@ export const studioProjects: IStudioProject[] = [
 		imageHover: '/media/studio/FUEL_ON.png',
 		route: '/studio/fuel',
 		categories: ['R&D', 'UX/UI', 'Web'],
+		link: null,
 		carouselImages: [
 			'/media/studio/studio-carusel/fuel-1.webp',
 			'/media/studio/studio-carusel/fuel-2.webp',

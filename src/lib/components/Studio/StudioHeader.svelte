@@ -31,15 +31,15 @@
 	{#if activeProject}
 		<div in:fly={{ duration: 1000 }} class="text-white w-full max-w-96 mx-auto space-y-4">
 			<div class="flex justify-between items-center">
-				<h1 class="font-clash text-2xl font-medium">{activeProject.title}</h1>
-				<div class="justify-start text-xs font-normal font-robotoMono leading-none">{activeProject.year}</div>
+				<h1 class="font-clash font-medium text-2xl">{activeProject.title}</h1>
+				<div class="justify-start text-xs font-robotoMono leading-none">{activeProject.year}</div>
 			</div>
 
-			<p class="text-xs font-robotoMono w-full max-w-80">{activeProject.description}</p>
+			<p class="text-xs font-robotoMono w-full max-w-80 tracking-wider">{activeProject.description}</p>
 
 			<div class="flex justify-between items-center group">
 				{#if activeProject.link === undefined}
-					<span class="text-xs font-bold font-robotoMono underline leading-none">under construction</span>
+					<span class="text-xs font-robotoMono  leading-none">under construction</span>
 				{:else if activeProject.link !== null}
 					<a href={activeProject.link} target="_blank" class="hover:text-white/50 transition-all duration-300 justify-start text-xs font-bold font-robotoMono underline leading-none">{activeProject.link.replace('https://', '')}</a>
 				{/if}
