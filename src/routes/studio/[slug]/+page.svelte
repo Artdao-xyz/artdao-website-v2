@@ -65,7 +65,7 @@
 
 {#if currentProject}
 	<div 
-		class="min-h-screen flex flex-col justify-between md:block bg-black text-white p-8"
+		class="min-h-screen flex flex-col justify-between md:block bg-black text-white p-8 md:pt-28 lg:pt-32"
 		transition:fly={{ duration: 1000, delay: 200, y: 30, easing: cubicInOut }}
 	>
 		<!-- Header del proyecto -->

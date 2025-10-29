@@ -2,7 +2,8 @@
 	import { onMount, tick } from 'svelte';
 	import { studioProjects } from '../../../data/Studio/studioProjects';
 	import { activeFilters, hoveredProject } from '../../stores/studio';
-	
+	import { ArrowRightIcon } from 'lucide-svelte';
+	import { fly } from 'svelte/transition';
 	// Estado para la animación secuencial
 	let animatedProjectIndex: number | null = null;
 	let animatedProjectIndices: number[] = []; // Para animación de todos juntos
@@ -134,10 +135,17 @@
 
 <!-- Desktop version -->
 <div 
-	class="hidden md:flex items-center justify-center flex-nowrap md:-space-x-2 w-full max-w-screen-xl mx-auto"
+	class="hidden md:flex md:absolute md:left-1/2 md:-translate-x-1/2 bottom-1/3 translate-y-1/3 items-center justify-center flex-nowrap md:-space-x-2 w-full max-w-screen-xl 2xl:max-w-screen-2xl mx-auto"
 	on:mouseleave={handleContainerMouseLeave}
 	role="group"
 >
+	{#if $hoveredProject === null && $activeFilters.length === 0}
+		<div transition:fly={{ duration: 500 }} class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-[150%] w-full max-w-lg z-10 ">
+			<h1 class="text-white px-4 lg:px-0 text-xl lg:text-2xl font-light leading-snug font-clash text-center tracking-wide max-w-xl">
+				Excavating the architectures of<br/>technology in search of spaces<br/> where topologies of potential take<br/> affective form
+			</h1>
+		</div>
+	{/if}
 	{#each studioProjects as project, index}
 		{#if $activeFilters.length === 0 || shouldShowProject(project, $activeFilters)}
 			{#if project.title === 'Future Art Ecosystems'}
@@ -149,6 +157,34 @@
 					on:mouseenter={() => handleMouseEnter(project.title)}
 					on:mouseleave={handleMouseLeave}
 				>
+					<!-- Header overlay (desktop only, visible on hover) -->
+					<div class="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-[120%] w-[24rem] z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+						<div class="text-white w-full space-y-3">
+							<div class="flex justify-between items-center">
+								<h3 class="font-clash font-medium text-2xl tracking-tight">{project.title}</h3>
+								{#if project.year}
+									<div class="text-xs font-robotoMono leading-none">{project.year}</div>
+								{/if}
+							</div>
+
+							<p class="text-xs font-robotoMono tracking-wider max-w-80">{project.description}</p>
+
+							<div class="flex items-center group/cta">
+								<div class="flex-1">
+									{#if project.link === undefined}
+										<span class="text-xs font-robotoMono leading-none">under construction</span>
+									{:else if project.link !== null}
+										<a href={project.link} target="_blank" rel="noopener noreferrer" class="text-xs font-bold font-robotoMono underline pointer-events-auto">{project.link.replace('https://', '')}</a>
+									{/if}
+								</div>
+								<a href={project.route} target="_blank" class="flex items-center gap-2 transition-all duration-300 text-xs font-bold font-robotoMono leading-none pointer-events-auto">
+									<span class="group-hover/cta:-translate-x-1 transition-all duration-300">see more</span>
+									<ArrowRightIcon class="group-hover/cta:translate-x-1 transition-all duration-300 w-4 h-4" />
+								</a>
+							</div>
+						</div>
+					</div>
+					
 					<!-- Imagen OFF (base) -->
 					<img 
 						src={project.image} 
@@ -169,6 +205,33 @@
 					on:mouseenter={() => handleMouseEnter(project.title)}
 					on:mouseleave={handleMouseLeave}
 				>
+					<!-- Header overlay (desktop only, visible on hover) -->
+					<div class="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-[120%] w-[26rem] z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+						<div class="text-white w-full space-y-3">
+							<div class="flex justify-between items-center">
+								<h3 class="font-clash font-medium text-2xl">{project.title}</h3>
+								{#if project.year}
+									<div class="text-xs font-robotoMono leading-none">{project.year}</div>
+								{/if}
+							</div>
+
+							<p class="text-xs font-robotoMono tracking-wider max-w-80">{project.description}</p>
+
+							<div class="flex items-center group/cta">
+								<div class="flex-1">
+									{#if project.link === undefined}
+										<span class="text-xs font-robotoMono leading-none">under construction</span>
+									{:else if project.link !== null}
+										<a href={project.link} target="_blank" rel="noopener noreferrer" class="text-xs font-bold font-robotoMono underline pointer-events-auto" on:click|stopPropagation>{project.link.replace('https://', '')}</a>
+									{/if}
+								</div>
+								<a href={project.route} target="_blank" class="flex items-center gap-2 transition-all duration-300 text-xs font-bold font-robotoMono leading-none pointer-events-auto">
+									<span class="group-hover/cta:-translate-x-1 transition-all duration-300">see more</span>
+									<ArrowRightIcon class="group-hover/cta:translate-x-1 transition-all duration-300 w-4 h-4" />
+								</a>
+							</div>
+						</div>
+					</div>
 					<!-- Imagen OFF (base) -->
 					<img 
 						src={project.image} 

@@ -8,7 +8,7 @@
     const projects : IStudioProject[] = studioProjects;
 </script>
 
-<StudioHeader/>
+<!-- <StudioHeader/> -->
 
 <StudioProjects/>
 <!-- <StudioController/> -->
