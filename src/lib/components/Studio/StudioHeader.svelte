@@ -29,7 +29,7 @@
 <!-- Fixed height container to prevent layout shifts -->
 <div class="md:h-48 flex items-center justify-center">
 	{#if activeProject}
-		<div in:fly={{ duration: 1000 }} class="text-white w-full max-w-96 mx-auto space-y-4">
+		<div in:fly={{ duration: 1000 }} class="text-white w-full h-full max-w-md mx-auto space-y-6">
 			<div class="flex justify-between items-center">
 				<h1 class="font-clash font-medium text-2xl">{activeProject.title}</h1>
 				<div class="justify-start text-xs font-robotoMono leading-none">{activeProject.year}</div>

@@ -26,7 +26,7 @@
 
 <!-- Desktop version -->
 <div 
-	class="hidden md:flex items-center justify-center flex-nowrap md:-space-x-14 w-full max-w-screen-xl mx-auto"
+	class="hidden md:flex items-center justify-center flex-nowrap md:-space-x-2 w-full max-w-screen-xl mx-auto"
 	on:mouseleave={handleContainerMouseLeave}
 	role="group"
 >

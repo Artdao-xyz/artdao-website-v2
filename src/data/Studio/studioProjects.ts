@@ -12,18 +12,18 @@ export interface IStudioProject {
 
 export const studioProjects: IStudioProject[] = [
 	{
-		title: 'Turtle',
-		description: 'A contemporary fashion brand developing the nascent possibilities between environmental scans, digital modelling and 3d printing as wearable forms of art.',
-		year: '2024 - Present',
-		image: '/media/studio/Turtle_OFF.png',
-		imageHover: '/media/studio/Turtle_ON.png',
-		route: '/studio/turtle',
-		link: 'https://turtle.xyz',
-		categories: ['UX/UI', 'Web'],
+		title: 'Hyperescapismo',
+		description: 'Investigating the possibilites of three.js based worlds as multidimensional spaces through which to create ephemeral digital experiences that prioritise the exploration of information against the immediacy of display.',
+		year: '2024',
+		image: '/media/studio/Hyperescapismo_OFF.png',
+		imageHover: '/media/studio/Hyperescapismo_ON.png',
+		route: '/studio/hyperescapismo',
+		link: null,
+		categories: ['R&D', '3D', 'Web', 'Art'],
 		carouselImages: [
-			'/media/studio/studio-carusel/turtle-1.webp',
-			'/media/studio/studio-carusel/turtle-2.webp',
-			'/media/studio/studio-carusel/turtle-3.webp'
+			'/media/studio/studio-carusel/hyperescapismo-1.webp',
+			'/media/studio/studio-carusel/hyperescapismo-2.webp',
+			'/media/studio/studio-carusel/hyperescapismo-3.webp'
 		]
 	},
 	{
@@ -57,33 +57,18 @@ export const studioProjects: IStudioProject[] = [
 		]
 	},
 	{
-		title: 'Hyperescapismo',
-		description: 'Investigating the possibilites of three.js based worlds as multidimensional spaces through which to create ephemeral digital experiences that prioritise the exploration of information against the immediacy of display.',
-		year: '2024',
-		image: '/media/studio/Hyperescapismo_OFF.png',
-		imageHover: '/media/studio/Hyperescapismo_ON.png',
-		route: '/studio/hyperescapismo',
-		link: null,
-		categories: ['R&D', '3D', 'Web', 'Art'],
+		title: 'Turtle',
+		description: 'A contemporary fashion brand developing the nascent possibilities between environmental scans, digital modelling and 3d printing as wearable forms of art.',
+		year: '2024 - Present',
+		image: '/media/studio/Turtle_OFF.png',
+		imageHover: '/media/studio/Turtle_ON.png',
+		route: '/studio/turtle',
+		link: 'https://turtle.xyz',
+		categories: ['UX/UI', 'Web'],
 		carouselImages: [
-			'/media/studio/studio-carusel/hyperescapismo-1.webp',
-			'/media/studio/studio-carusel/hyperescapismo-2.webp',
-			'/media/studio/studio-carusel/hyperescapismo-3.webp'
-		]
-	},
-	{
-		title: 'Chimerica',
-		description: 'Creative direction, graphic, web, UI/UX and marketing assets.',
-		image: '/media/studio/Chimerica_OFF.png',
-		imageHover: '/media/studio/Chimerica_ON.png',
-		route: '/studio/chimerica',
-		year: '2024',
-		link: null,
-		categories: ['R&D', '3D', 'Art'],
-		carouselImages: [
-			'/media/studio/studio-carusel/chimerica-1.webp',
-			'/media/studio/studio-carusel/chimerica-2.webp',
-			'/media/studio/studio-carusel/chimerica-3.webp'
+			'/media/studio/studio-carusel/turtle-1.webp',
+			'/media/studio/studio-carusel/turtle-2.webp',
+			'/media/studio/studio-carusel/turtle-3.webp'
 		]
 	},
 	{
@@ -99,6 +84,21 @@ export const studioProjects: IStudioProject[] = [
 			'/media/studio/FAE_OFF.png',
 			'/media/studio/FAE_ON.png',
 			'/media/studio/FAE_OFF.png'
+		]
+	},
+	{
+		title: 'Chimerica',
+		description: 'Creative direction, graphic, web, UI/UX and marketing assets.',
+		image: '/media/studio/Chimerica_OFF.png',
+		imageHover: '/media/studio/Chimerica_ON.png',
+		route: '/studio/chimerica',
+		year: '2024',
+		link: null,
+		categories: ['R&D', '3D', 'Art'],
+		carouselImages: [
+			'/media/studio/studio-carusel/chimerica-1.webp',
+			'/media/studio/studio-carusel/chimerica-2.webp',
+			'/media/studio/studio-carusel/chimerica-3.webp'
 		]
 	}
 ];
