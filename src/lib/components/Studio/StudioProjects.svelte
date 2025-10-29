@@ -14,12 +14,22 @@
 	}
 	
 	function handleMouseLeave() {
-		// No hacemos nada, mantenemos el hover persistente
+		// No hacemos nada, mantenemos el hover persistente cuando pasas entre proyectos
+	}
+	
+	// Función para resetear el hover cuando el mouse sale del contenedor completo
+	function handleContainerMouseLeave() {
+		// Siempre resetear cuando no hay hover sobre ningún proyecto
+		hoveredProject.set(null);
 	}
 </script>
 
 <!-- Desktop version -->
-<div class="hidden md:flex items-center justify-center flex-nowrap md:-space-x-14 w-full max-w-screen-xl mx-auto">
+<div 
+	class="hidden md:flex items-center justify-center flex-nowrap md:-space-x-14 w-full max-w-screen-xl mx-auto"
+	on:mouseleave={handleContainerMouseLeave}
+	role="group"
+>
 	{#each studioProjects as project}
 		{#if $activeFilters.length === 0 || shouldShowProject(project, $activeFilters)}
 			{#if project.title === 'Future Art Ecosystems'}
@@ -81,7 +91,11 @@
 </div>
 
 <!-- Mobile version -->
-<div class="flex md:hidden flex-col gap-10 px-4">
+<div 
+	class="flex md:hidden flex-col gap-10 px-4"
+	on:mouseleave={handleContainerMouseLeave}
+	role="group"
+>
 	{#each studioProjects as project}
 		{#if $activeFilters.length === 0 || shouldShowProject(project, $activeFilters)}
 			{#if project.title === 'Future Art Ecosystems'}
