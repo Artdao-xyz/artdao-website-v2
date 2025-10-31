@@ -65,52 +65,40 @@
 
 {#if currentProject}
 	<div 
-		class="min-h-screen flex flex-col justify-between md:block bg-black text-white p-8 md:pt-28 lg:pt-32"
+		class="h-screen max-h-screen flex flex-col bg-black text-white p-8 md:pt-28 lg:pt-20 max-w-4xl mx-auto overflow-hidden"
 		transition:fly={{ duration: 1000, delay: 200, y: 30, easing: cubicInOut }}
 	>
-		<!-- Header del proyecto -->
-		<div class="max-w-4xl mx-auto mb-12">
-			<div class="flex items-start md:items-center justify-between mb-8">
-				<a href="/studio" class="flex-1 text-white hover:text-gray-300 font-bold text-xs font-geistMono transition-colors duration-300">← return</a>
-							<!-- Título e imagen principal -->
-                                <div class="flex flex-col md:flex-row items-center gap-4">
-                                        <img 
-                                                src={currentProject.imageHover} 
-                                                alt={currentProject.title}
-                                                class="h-10 object-cover rounded-lg flex-shrink-0"
-                                        />
-                                        <h1 class="text-2xl font-medium font-clash">
-                                                {currentProject.title}
-                                        </h1>
-                                </div>
-                                 <div class="flex-1 flex justify-end">
- 					<button 
-						class="text-white hover:text-gray-300 font-bold text-xs font-geistMono transition-colors duration-300"
-						on:click={goToNextProject}
-					>
- 						next project →
- 					</button>
- 				</div>
+		<div class="flex-shrink-0 flex flex-col md:flex-row items-center w-full justify-between gap-4 my-4">
+			<div class="flex items-center justify-center gap-3">
+				<img 
+					src={currentProject.imageHover} 
+					alt={currentProject.title}
+					class="h-10 object-cover rounded-lg flex-shrink-0"
+				/>
+				<h1 class="text-2xl font-medium font-clash">
+					{currentProject.title}
+				</h1>
 			</div>
-			
+
+			<a href="/studio" class="text-white hover:text-gray-300 font-bold text-xs underline font-geistMono transition-colors duration-300">return</a>
 
 		</div>
 
-		<!-- Carrusel de imágenes del proyecto -->
-		<div class="max-w-[1000px] mx-auto mb-12">
+		<!-- Carrusel de imágenes del proyecto - Flexible -->
+		<div class="flex-1 min-h-0 flex flex-col max-w-[1000px] mx-auto w-full">
 			<div 
-				class="embla overflow-hidden"
+				class="embla overflow-hidden flex-1 min-h-0"
 				use:emblaCarouselSvelte={{ options: { loop: true, align: 'center' }, plugins: [] }}
 				on:emblaInit={onInit}
 			>
-				<div class="embla__container flex">
+				<div class="embla__container flex h-full">
 					{#each currentProject.carouselImages as image, index}
-						<div class="embla__slide flex-[0_0_100%] min-w-0 pl-4">
-							<div class="aspect-square md:aspect-[1.56] overflow-hidden rounded-lg">
+						<div class="embla__slide flex-[0_0_100%] min-w-0 pl-4 flex items-center justify-center">
+							<div class="w-full h-full flex items-center justify-center overflow-hidden rounded-lg">
 								<img 
 									src={image} 
 									alt="{currentProject.title} - Image {index + 1}"
-									class="w-full h-full object-cover"
+									class="max-w-full max-h-full w-auto h-auto object-contain"
 								/>
 							</div>
 						</div>
@@ -119,16 +107,20 @@
 			</div>
 
 			<!-- Controles de navegación con flechas -->
-			<div class="flex justify-between items-center mt-6 gap-4">
+			<div class="flex-shrink-0 flex justify-between items-center gap-4 mt-4">
 				<button
-					class="text-white hover:text-gray-300 transition-colors duration-300 p-2"
+					class="text-white hover:text-gray-300 transition-colors duration-300 py-2"
 					on:click={scrollPrev}
 					aria-label="Previous slide"
 				>
 					<ArrowLeft class="w-6 h-6" />
 				</button>
+
+				<div class="text-center justify-start text-white text-xs font-normal font-geistMono leading-4">
+					Web and App development <br/> Ux Strategy, Wireframes, UX/UI
+				</div>
 				<button
-					class="text-white hover:text-gray-300 transition-colors duration-300 p-2"
+					class="text-white hover:text-gray-300 transition-colors duration-300 py-2"
 					on:click={scrollNext}
 					aria-label="Next slide"
 				>
@@ -137,25 +129,17 @@
 			</div>
 		</div>
 
-		<!-- Descripción del proyecto -->
-		<div class="max-w-4xl mx-auto mb-8">
-			<p class="text-xs font-geistMono text-center max-w-md mx-auto leading-relaxed">
-				{currentProject.description}
-			</p>
-		</div>
-
 		<!-- Fecha del proyecto -->
 		{#if currentProject.year}
-			<div class="max-w-4xl mx-auto mb-8 flex items-center gap-2">
-				<p class="text-xs font-geistMono text-center max-w-md mx-auto leading-relaxed">
+			<div class="flex-shrink-0 flex justify-between items-center mt-4">
+				<p class="font-geistMono text-xs leading-relaxed">
 					{currentProject.year}
 				</p>
-                                {#if currentProject.link}
-                                        <a href={currentProject.link} target="_blank" class="underline text-xs font-geistMono text-center max-w-md mx-auto leading-relaxed hover:text-gray-300 transition-colors duration-300">
-                                                <span>{currentProject.link?.replace('https://', '')}</span>
-                                                <MoveUpRightIcon class="w-3 h-3 inline-block" />
-                                        </a>
-                                {/if}
+				{#if currentProject.link}
+					<a href={currentProject.link} target="_blank" class="underline text-xs font-geistMono leading-relaxed hover:text-gray-300 transition-colors duration-300">
+						{currentProject.link?.replace('https://', '')}
+					</a>
+				{/if}
 			</div>
 		{/if}
 

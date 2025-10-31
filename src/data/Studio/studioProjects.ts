@@ -13,7 +13,7 @@ export interface IStudioProject {
 export const studioProjects: IStudioProject[] = [
 	{
 		title: 'Hyperescapismo',
-		description: 'Investigating the possibilites of three.js based worlds as multidimensional spaces through which to create ephemeral digital experiences that prioritise the exploration of information against the immediacy of display.',
+		description: 'Investigating the possibilites of Three.js based worlds as multidimensional spaces through which to create ephemeral digital experiences that prioritise the exploration of information against the immediacy of display.',
 		year: '2024',
 		image: '/media/studio/Hyperescapismo_OFF.png',
 		imageHover: '/media/studio/Hyperescapismo_ON.png',

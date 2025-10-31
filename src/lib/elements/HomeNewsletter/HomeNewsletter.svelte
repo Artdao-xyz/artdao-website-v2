@@ -80,7 +80,7 @@
 			id="subscribeForm"
 			class="w-full"
 		>
-			<div data-status="Default" class="min-w-64 flex sm:flex-col sm:justify-start sm:items-start rounded-20 sm:rounded-[999px] shadow-[2px_2px_10px_0px_rgba(0,0,0,0.20)] backdrop-blur-[34px] p-2 sm:p-5 sm:shadow-none sm:outline-none sm:backdrop-blur-none" style="background: {width < 640 ? 'linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.8) 100%)' : 'transparent'};">
+			<div data-status="Default" class="mobile-nav-button min-w-64 flex sm:flex-col sm:justify-start sm:items-start rounded-20 sm:rounded-[999px] shadow-[2px_2px_10px_0px_rgba(0,0,0,0.20)] backdrop-blur-[34px] p-2 sm:p-5 sm:shadow-none sm:outline-none sm:backdrop-blur-none" style="background: {width < 640 ? 'rgba(0, 0, 0, 0.9)' : 'transparent'};">
 				<div class="px-0 w-full flex justify-center sm:bg-[#F7F5F2] items-center gap-10 sm:px-5 sm:rounded-[999px] sm:shadow-[2px_2px_10px_0px_rgba(0,0,0,0.20)] sm:outline sm:outline-1 sm:outline-black sm:backdrop-blur-[34px]">
 					<label for="email" class="hidden"></label>
 					<input
@@ -114,7 +114,7 @@
 					{:else if error || memberExists}
 						Error
 					{:else}
-						Submit
+						Subscribe
 					{/if}
 				</button>
 			</div>
@@ -128,7 +128,7 @@
 	<!-- Classic Design (Original) -->
 	<div class="{isAbsolute ? 'fixed bottom-8 left-8 z-50' : ''}">
 		<button
-			class="w-full h-[3.875rem] sm:h-[2.625rem] {width < 640 ? 'bg-gradient-to-br from-black/60 to-black/80' : 'bg-color-white'} rounded-20 px-2 py-2.5 flex items-center justify-center"
+			class="w-full sm:h-[2.625rem] {width < 640 ? 'mobile-nav-button bg-black/90' : 'bg-color-white'} rounded-20 px-2 py-2.5 flex items-center justify-center"
 			on:click={() => {}}
 		>
 			<div class="w-full h-full">
@@ -148,7 +148,8 @@
 								bind:this={input}
 								type="email"
 								name="EMAIL"
-								class="flex-1 min-w-0 text-color-black placeholder:text-color-black text-[1rem] font-medium font-robotoMono leading-5 bg-transparent !outline-none !border-none !ring-color-white rounded-[6.25rem] h-full"
+								class="flex-1 min-w-0 {width < 640 ? 'text-white placeholder:text-white/40' : 'text-color-black placeholder:text-color-black'} text-xs font-medium font-robotoMono leading-5 bg-transparent !outline-none !border-none !ring-0 focus:!outline-none focus:!border-none focus:!ring-0 rounded-[6.25rem] h-full"
+								style="outline: none !important; border: none !important; box-shadow: none !important;"
 								required
 								value=""
 								placeholder="Enter your email"
@@ -161,7 +162,7 @@
 								style="background: linear-gradient(135deg, white 0%, white 1px, black 1px, black 100%); padding: 1px;"
 							>
 								<div class="bg-black rounded-[6.25rem] h-full flex items-center justify-center px-3 py-[0.125rem]">
-									Submit
+									Subscribe
 								</div>
 							</button>
 						</div>
@@ -193,3 +194,31 @@
 		</button>
 	</div>
 {/if}
+
+<style>
+	:global(.mobile-nav-button) {
+		position: relative;
+		background-clip: padding-box;
+	}
+	
+	:global(.mobile-nav-button::before) {
+		content: '';
+		position: absolute;
+		inset: -1px;
+		border-radius: 21px;
+		background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(128, 128, 128, 1));
+		z-index: -1;
+		pointer-events: none;
+		clip-path: inset(0 round 20px);
+	}
+	
+	:global(.mobile-nav-button::after) {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: 20px;
+		background: inherit;
+		z-index: -1;
+		pointer-events: none;
+	}
+</style>
