@@ -117,7 +117,7 @@
 				</button>
 
 				<div class="text-center justify-start text-white text-xs font-normal font-geistMono leading-4">
-					Web and App development <br/> Ux Strategy, Wireframes, UX/UI
+					{currentProject.categories.join(', ')}
 				</div>
 				<button
 					class="text-white hover:text-gray-300 transition-colors duration-300 py-2"

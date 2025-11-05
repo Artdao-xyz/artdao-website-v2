@@ -206,7 +206,7 @@
 		position: absolute;
 		inset: -1px;
 		border-radius: 21px;
-		background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(128, 128, 128, 1));
+		background: transparent;
 		z-index: -1;
 		pointer-events: none;
 		clip-path: inset(0 round 20px);
