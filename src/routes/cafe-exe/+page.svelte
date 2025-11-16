@@ -1,4 +1,5 @@
 <script lang="ts">
+	import CafeExeAbout from '$lib/components/CafeExeAbout/CafeExeAbout.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
@@ -17,6 +18,22 @@
 		yuehaoJiangDropdownItems
 	} from '../../data/Projects/CafeExe/ProjectAboutDropdown';
 	import { cafeExeAbout } from '../../data/Projects/CafeExe/ProjectAbout';
+	import {
+		aliceBucknellAbout,
+		aliceBucknellAboutImage,
+		frenetikVoidAbout,
+		frenetikVoidAboutImage,
+		kevinPeterHeAbout,
+		kevinPeterHeAboutImage,
+		kimLaughtonAbout,
+		kimLaughtonAboutImage,
+		theoTriantafyllidisAbout,
+		theoTriantafyllidisAboutImage,
+		wendiYanAbout,
+		wendiYanAboutImage,
+		yuehaoJiangAbout,
+		yuehaoJiangAboutImage
+	} from '../../data/Projects/CafeExe/ProjectArtistAbout';
 	import { cafeExeChatInterview } from '../../data/Projects/CafeExe/ProjectChatInterview';
 	import { cafeExeIntro } from '../../data/Projects/CafeExe/ProjectIntro';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
@@ -69,12 +86,19 @@
 		const images = await preloadImages([
 			[cafeExeIntro.bgImage],
 			[cafeExeChatInterview.background],
+			[aliceBucknellAboutImage],
 			aliceBucknellDropdownItems.map(item => item.image),
+			[frenetikVoidAboutImage],
 			frenetikVoidDropdownItems.map(item => item.image),
+			[kevinPeterHeAboutImage],
 			kevinPeterHeDropdownItems.map(item => item.image),
+			[kimLaughtonAboutImage],
 			kimLaughtonDropdownItems.map(item => item.image),
+			[theoTriantafyllidisAboutImage],
 			theoTriantafyllidisDropdownItems.map(item => item.image),
+			[wendiYanAboutImage],
 			wendiYanDropdownItems.map(item => item.image),
+			[yuehaoJiangAboutImage],
 			yuehaoJiangDropdownItems.map(item => item.image)
 		]);
 		preloadedImagesStore.set(images);
@@ -124,9 +148,16 @@
 				earthEngineIsInView = inView;
 			}}
 		>
+			<CafeExeAbout
+				aboutItem={aliceBucknellAbout}
+				aboutImage={$preloadedImagesStore[2][0]}
+				route="alice-bucknell"
+				isImageLeft={true}
+				colorVariant="#EEEEEE"
+			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={aliceBucknellDropdownItems}
-				images={$preloadedImagesStore[2]}
+				images={$preloadedImagesStore[3]}
 				route="earth-engine"
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -141,9 +172,16 @@
 				serenoDeMiMenteIsInView = inView;
 			}}
 		>
+			<CafeExeAbout
+				aboutItem={frenetikVoidAbout}
+				aboutImage={$preloadedImagesStore[4][0]}
+				route="frenetik-void"
+				isImageLeft={false}
+				colorVariant="#EEEEEE"
+			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={frenetikVoidDropdownItems}
-				images={$preloadedImagesStore[3]}
+				images={$preloadedImagesStore[5]}
 				route="sereno-de-mi-mente"
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -158,9 +196,16 @@
 				passageIsInView = inView;
 			}}
 		>
+			<CafeExeAbout
+				aboutItem={kevinPeterHeAbout}
+				aboutImage={$preloadedImagesStore[6][0]}
+				route="kevin-peter-he"
+				isImageLeft={true}
+				colorVariant="#EEEEEE"
+			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={kevinPeterHeDropdownItems}
-				images={$preloadedImagesStore[4]}
+				images={$preloadedImagesStore[7]}
 				route="passage"
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -175,9 +220,16 @@
 				defectiveHolidayIsInView = inView;
 			}}
 		>
+			<CafeExeAbout
+				aboutItem={kimLaughtonAbout}
+				aboutImage={$preloadedImagesStore[8][0]}
+				route="kim-laughton"
+				isImageLeft={false}
+				colorVariant="#EEEEEE"
+			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={kimLaughtonDropdownItems}
-				images={$preloadedImagesStore[5]}
+				images={$preloadedImagesStore[9]}
 				route="defective-holiday"
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -192,9 +244,16 @@
 				feralMetaverseIsInView = inView;
 			}}
 		>
+			<CafeExeAbout
+				aboutItem={theoTriantafyllidisAbout}
+				aboutImage={$preloadedImagesStore[10][0]}
+				route="theo-triantafyllidis"
+				isImageLeft={true}
+				colorVariant="#EEEEEE"
+			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={theoTriantafyllidisDropdownItems}
-				images={$preloadedImagesStore[6]}
+				images={$preloadedImagesStore[11]}
 				route="feral-metaverse"
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -209,9 +268,16 @@
 				innerCarbonClassicIsInView = inView;
 			}}
 		>
+			<CafeExeAbout
+				aboutItem={wendiYanAbout}
+				aboutImage={$preloadedImagesStore[12][0]}
+				route="wendi-yan"
+				isImageLeft={false}
+				colorVariant="#EEEEEE"
+			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={wendiYanDropdownItems}
-				images={$preloadedImagesStore[7]}
+				images={$preloadedImagesStore[13]}
 				route="inner-carbon-classic"
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -226,9 +292,16 @@
 				spiderlilyIsInView = inView;
 			}}
 		>
+			<CafeExeAbout
+				aboutItem={yuehaoJiangAbout}
+				aboutImage={$preloadedImagesStore[14][0]}
+				route="yuehao-jiang"
+				isImageLeft={true}
+				colorVariant="#EEEEEE"
+			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={yuehaoJiangDropdownItems}
-				images={$preloadedImagesStore[8]}
+				images={$preloadedImagesStore[15]}
 				route="spiderlily"
 				colorVariant={EColorVariant.BLACK}
 			/>
