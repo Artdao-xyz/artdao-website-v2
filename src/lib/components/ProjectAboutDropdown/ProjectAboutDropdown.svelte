@@ -6,7 +6,7 @@
 	export let images: string[];
 	export let aboutDropdownItems: IAboutDropdown[] | undefined;
 	export let route: string;
-	export let colorVariant: EColorVariant = EColorVariant.BLACK;
+	export let colorVariant: EColorVariant | string = EColorVariant.BLACK;
 	export let isImageWhiteBg = false;
 </script>
 
