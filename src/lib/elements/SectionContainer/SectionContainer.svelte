@@ -9,7 +9,11 @@
 	export let colorVariant: EColorVariant | string = EColorVariant.BLACK;
 
 	$: isMapRoute = $page.route.id === '/map';
-	$: backgroundColor = (colorVariant === EColorVariant.LIGHT || colorVariant === 'light') ? '#F7F5F2' : '#000000';
+	$: backgroundColor = (colorVariant === EColorVariant.LIGHT || colorVariant === 'light') 
+		? '#F7F5F2' 
+		: (typeof colorVariant === 'string' && colorVariant.startsWith('#'))
+			? colorVariant
+			: '#000000';
 	$: shouldShowDots = isMapRoute && (colorVariant === EColorVariant.LIGHT || colorVariant === 'light');
 </script>
 

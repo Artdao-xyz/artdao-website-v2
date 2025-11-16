@@ -5,15 +5,22 @@
 	export let aboutItem: IAboutItem;
 	export let colorVariant;
 	const { title, subtitle, text } = aboutItem;
+	
+	$: isBlack = colorVariant === EColorVariant.BLACK;
+	$: isCustomColor = typeof colorVariant === 'string' && colorVariant.startsWith('#');
+	$: backgroundColor = isBlack 
+		? 'bg-color-black' 
+		: isCustomColor 
+			? '' 
+			: 'bg-color-white';
+	$: backgroundColorStyle = isCustomColor ? `background-color: ${colorVariant};` : '';
 </script>
 
 <div
-	class="flex flex-col justify-start items-start sm:items-center sm:justify-center gap-5 {colorVariant ===
-	EColorVariant.BLACK
+	class="flex flex-col justify-start items-start sm:items-center sm:justify-center gap-5 {isBlack
 		? 'text-color-white'
-		: 'text-color-black'} {colorVariant === EColorVariant.BLACK
-		? 'bg-color-black'
-		: 'bg-color-white'} w-full max-w-[31.9375rem] mx-[2rem] min-h-screen sm:max-h-[82%] pt-[4rem] sm:pt-0 pb-[4rem] sm:pb-0"
+		: 'text-color-black'} {backgroundColor} w-full max-w-[31.9375rem] mx-[2rem] min-h-screen sm:max-h-[82%] pt-[4rem] sm:pt-0 pb-[4rem] sm:pb-0"
+	style={backgroundColorStyle}
 >
 	<!-- <div
 		class="h-9 px-5 border {colorVariant === EColorVariant.BLACK
