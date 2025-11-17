@@ -5,13 +5,14 @@
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
 	import { EColorVariant, ESizeVariant } from '../../../constants/enums';
 
-	export let aboutItem: IAboutItem;
-	export let aboutImage: string | undefined = undefined;
-	export let aboutImages: string[] | undefined = undefined;
-	export let route: string;
-	export let isImageLeft = true;
-	export let colorVariant: EColorVariant | string = EColorVariant.BLACK;
-	export let isImageContain = false;
+export let aboutItem: IAboutItem;
+export let aboutImage: string | undefined = undefined;
+export let aboutImages: string[] | undefined = undefined;
+export let route: string;
+export let isImageLeft = true;
+export let colorVariant: EColorVariant | string = EColorVariant.BLACK;
+export let isImageContain = true;
+export let showTitle = true;
 </script>
 
 <div class="hidden sm:block">
@@ -22,18 +23,22 @@
 		>
 			{#if !isImageLeft}
 				<div class="w-full sm:w-1/2 h-screen sm:h-full flex items-center justify-center">
-					<About {aboutItem} {colorVariant} />
+					<About {aboutItem} {colorVariant} {showTitle} />
 				</div>
 			{/if}
 			{#if aboutImage}
-				<img src={aboutImage} alt="About Section" class="w-full sm:w-1/2 h-100dvh object-contain" />
+				<img
+					src={aboutImage}
+					alt="About Section"
+					class="w-full sm:w-1/2 h-100dvh {isImageContain ? 'object-contain' : 'object-cover'}"
+				/>
 			{/if}
 			{#if aboutImages}
 				<ImgNavigator images={aboutImages} variant={ESizeVariant.SMALL} />
 			{/if}
 			{#if isImageLeft}
 				<div class="w-full sm:w-1/2 h-screen sm:h-full flex items-center justify-center">
-					<About {aboutItem} {colorVariant} />
+					<About {aboutItem} {colorVariant} {showTitle} />
 				</div>
 			{/if}
 		</div>
@@ -42,12 +47,16 @@
 <div class="block sm:hidden" id={route}>
 	<SectionContainer {colorVariant} hasPadding={false} isOverflow={false}>
 		<div class="w-full flex justify-center">
-			<About {aboutItem} {colorVariant} />
+			<About {aboutItem} {colorVariant} {showTitle} />
 		</div>
 	</SectionContainer>
 	<SectionContainer {colorVariant} hasPadding={false}>
 		{#if aboutImage}
-			<img src={aboutImage} alt="About Section" class="w-full sm:w-1/2 h-100dvh object-contain" />
+			<img
+				src={aboutImage}
+				alt="About Section"
+				class="w-full sm:w-1/2 h-100dvh {isImageContain ? 'object-contain' : 'object-cover'}"
+			/>
 		{/if}
 		{#if aboutImages}
 			<ImgNavigator images={aboutImages} variant={ESizeVariant.SMALL} />

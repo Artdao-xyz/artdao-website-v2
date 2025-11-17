@@ -2,8 +2,9 @@
 	import { EColorVariant } from '../../../constants/enums';
 	import type { IAboutItem } from '../AboutCard/interfaces';
 
-	export let aboutItem: IAboutItem;
-	export let colorVariant;
+export let aboutItem: IAboutItem;
+export let colorVariant;
+export let showTitle = true;
 	const { title, subtitle, text } = aboutItem;
 	
 	$: isBlack = colorVariant === EColorVariant.BLACK;
@@ -37,16 +38,18 @@
 			{subtitle}
 		</p>
 	</div> -->
-	<div class="flex items-center gap-2.5 justify-start w-full">
-		{#if isLightGray}
-			<svg class="inline-block" width="15" height="19" viewBox="0 0 15 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M15 9.09326L-8.56449e-07 18.1865L-6.14903e-08 -5.42404e-06L15 9.09326Z" fill="#2600FF"/>
-			</svg>
-		{/if}
-		<h2 class={titleClasses}>
-			{title}
-		</h2>
-	</div>
+	{#if showTitle}
+		<div class="flex items-center gap-2.5 justify-start w-full">
+			{#if isLightGray}
+				<svg class="inline-block" width="15" height="19" viewBox="0 0 15 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M15 9.09326L-8.56449e-07 18.1865L-6.14903e-08 -5.42404e-06L15 9.09326Z" fill="#2600FF"/>
+				</svg>
+			{/if}
+			<h2 class={titleClasses}>
+				{title}
+			</h2>
+		</div>
+	{/if}
 	<div class="w-full h-full overflow-y-visible sm:overflow-y-auto pr-[0.4375rem]">
 		<p
 			class="font-clash font-medium leading-[1.5rem] sm:leading-[1.5625rem] text-base"

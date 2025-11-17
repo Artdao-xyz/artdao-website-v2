@@ -1,6 +1,5 @@
 <script lang="ts">
 	import CafeExeAbout from '$lib/components/CafeExeAbout/CafeExeAbout.svelte';
-	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
@@ -128,13 +127,14 @@
 				introIsInView = inView;
 			}}
 		>
-			<ProjectAbout
+			<CafeExeAbout
 				aboutItem={cafeExeAbout}
 				aboutImage={$preloadedImagesStore[0][0]}
 				route="intro"
 				isImageContain={true}
 				isImageLeft={true}
 				colorVariant="#D9D9D9"
+				showTitle={false}
 			/>
 			<ChatInterview data={cafeExeChatInterview} />
 		</div>
