@@ -45,11 +45,6 @@ export let showTitle = true;
 	</SectionContainer>
 </div>
 <div class="block sm:hidden" id={route}>
-	<SectionContainer {colorVariant} hasPadding={false} isOverflow={false}>
-		<div class="w-full flex justify-center">
-			<About {aboutItem} {colorVariant} {showTitle} />
-		</div>
-	</SectionContainer>
 	<SectionContainer {colorVariant} hasPadding={false}>
 		{#if aboutImage}
 			<img
@@ -61,6 +56,11 @@ export let showTitle = true;
 		{#if aboutImages}
 			<ImgNavigator images={aboutImages} variant={ESizeVariant.SMALL} />
 		{/if}
+	</SectionContainer>
+	<SectionContainer {colorVariant} hasPadding={false} isOverflow={false}>
+		<div class="w-full flex justify-center">
+			<About {aboutItem} {colorVariant} {showTitle} />
+		</div>
 	</SectionContainer>
 </div>
 
