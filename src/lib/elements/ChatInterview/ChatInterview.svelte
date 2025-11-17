@@ -53,12 +53,12 @@
   }
 </style>
 
-<div class="snap-start bg-black relative font-clash h-screen max-h-screen flex flex-col justify-center items-center text-white">
+<div class="snap-start bg-black relative font-clash min-h-screen lg:h-screen flex flex-col justify-center items-center text-white px-4 py-12 sm:px-6">
   <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 hidden lg:block">
       <img src={data.background} alt="Background" class="h-full w-full object-cover">
   </div>
-  <div class="h-dvh lg:h-[85vh] w-full flex flex-col relative z-10">
-    <div class="flex-1 max-w-2xl mx-auto bg-color-black p-0 overflow-hidden lg:rounded-[20px] lg:shadow-[0px_4px_40px_0px_rgba(0,0,0,1.00)] relative">
+  <div class="w-full flex flex-col relative z-10 h-auto lg:h-[85vh]">
+    <div class="flex-1 max-w-2xl mx-auto bg-color-black p-0 sm:p-6 lg:p-0 overflow-hidden rounded-[20px] lg:rounded-[20px] lg:shadow-[0px_4px_40px_0px_rgba(0,0,0,1.00)] relative">
       <div class="font-roboto font-bold text-xs tracking-widest text-center w-full absolute top-0 left-0 flex items-center justify-center h-10 z-10 bg-color-black">
         <p>
           In conversation with {getInterviewerName()}
@@ -69,7 +69,7 @@
       <div class="fade-overlay fade-top"></div>
       <div class="fade-overlay fade-bottom"></div>
       
-      <div class="overflow-y-auto h-full pt-14 px-5">
+      <div class="overflow-y-auto h-full pt-6 px-2.5">
         {#each data.messages as message, index}
           {@const character = getCharacter(message.characterId)}
           {#if character}
