@@ -185,23 +185,23 @@ export const theoTriantafyllidisDropdownItems: IAboutDropdown[] = [
 
 export const wendiYanDropdownItems: IAboutDropdown[] = [
 	{
-		name: 'The Inner Carbon Classic',
+		name: 'Inner Carbon',
 		artist: 'Wendi Yan',
 		image: wendiImages[0],
 		about: 'The Inner Carbon Classic (ICC) is a series of 3D games that explore the alignment of human breath with the planetary circulation of carbon. Inspired by the Daoist Inner Alchemy "Chart of the Inner Landscape," ICC presents a rite of passage within an alternative science-fiction universe. Through a series of simulated somatic tunings via the game controller, the player-adept—embodied as a bundle of Daoist qi—enters into a dynamic exchange of energy with a metaphysical landscape rendered from the human body\'s inner rhythms. Using system worldbuilding and philosophical mechanics derived from Daoist cosmotechnics, ICC stages a porous self, situated between the human and the planetary, the material and the spiritual.'
 	},
 	{
-		name: 'The Inner Carbon Classic',
+		name: 'Inner Carbon',
 		artist: 'Wendi Yan',
 		image: wendiImages[1]
 	},
 	{
-		name: 'The Inner Carbon Classic',
+		name: 'Inner Carbon',
 		artist: 'Wendi Yan',
 		image: wendiImages[2]
 	},
 	{
-		name: 'The Inner Carbon Classic',
+		name: 'Inner Carbon',
 		artist: 'Wendi Yan',
 		image: wendiImages[3]
 	}
