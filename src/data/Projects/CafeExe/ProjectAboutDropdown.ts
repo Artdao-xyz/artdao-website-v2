@@ -209,23 +209,23 @@ export const wendiYanDropdownItems: IAboutDropdown[] = [
 
 export const yuehaoJiangDropdownItems: IAboutDropdown[] = [
 	{
-		name: 'Spiderlily',
+		name: 'Spider Lily',
 		artist: 'Yuehao Jiang',
 		image: yuehaoImages[0],
 		about: 'Spider Lily is a cinematic platformer game that explores emotional attachment through the language of play. The player inhabits the perspective of the Lost Soul, a twelve-year-old girl who awakens on the desolate shores of purgatory with no memory of her past life. She encounters a blind fish whose eyes have been taken by ravens. The girl and the fish form a faithful bond that becomes the emotional and mechanical heart of the game. What begins as a narrative of rescue becomes an allegory of letting go.\n\nSpider Lily is produced by Falsework, a studio based in Los Angeles founded by Yuehao Jiang and Matthew J.X. Doyle.'
 	},
 	{
-		name: 'Spiderlily',
+		name: 'Spider Lily',
 		artist: 'Yuehao Jiang',
 		image: yuehaoImages[1]
 	},
 	{
-		name: 'Spiderlily',
+		name: 'Spider Lily',
 		artist: 'Yuehao Jiang',
 		image: yuehaoImages[2]
 	},
 	{
-		name: 'Spiderlily',
+		name: 'Spider Lily',
 		artist: 'Yuehao Jiang',
 		image: yuehaoImages[3]
 	}
