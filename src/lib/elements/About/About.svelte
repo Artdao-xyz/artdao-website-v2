@@ -9,7 +9,7 @@ export let showTitle = true;
 	
 	$: isBlack = colorVariant === EColorVariant.BLACK;
 	$: isCustomColor = typeof colorVariant === 'string' && colorVariant.startsWith('#');
-	$: isLightGray = colorVariant === '#D9D9D9';
+	$: isLightGray = colorVariant === '#EAEAEA';
 	$: backgroundColor = isBlack 
 		? 'bg-color-black' 
 		: isCustomColor 
@@ -17,7 +17,7 @@ export let showTitle = true;
 			: 'bg-color-white';
 	$: backgroundColorStyle = isCustomColor ? `background-color: ${colorVariant};` : '';
 	$: titleClasses = isLightGray 
-		? 'px-2.5 py-[5px] bg-[#2600ff] inline-flex justify-start items-center gap-2.5 text-[#D9D9D9] font-semibold tracking-[0.065rem] uppercase font-neue text-base'
+		? 'px-2.5 py-[5px] bg-[#2600ff] inline-flex justify-start items-center gap-2.5 text-[#EAEAEA] font-semibold tracking-[0.065rem] uppercase font-neue text-base'
 		: 'w-full sm:mb-[20px] mb-0 font-semibold leading-[55px] tracking-[0.065rem] uppercase font-neue text-[40px] sm:text-[3.125rem]';
 </script>
 

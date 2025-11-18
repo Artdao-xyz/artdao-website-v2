@@ -133,7 +133,7 @@
 				route="intro"
 				isImageContain={true}
 				isImageLeft={true}
-				colorVariant="#D9D9D9"
+				colorVariant="#EAEAEA"
 				showTitle={false}
 			/>
 			<ChatInterview data={cafeExeChatInterview} />
@@ -153,13 +153,13 @@
 				aboutImage={$preloadedImagesStore[2][0]}
 				route="alice-bucknell"
 				isImageLeft={true}
-				colorVariant="#D9D9D9"
+				colorVariant="#EAEAEA"
 			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={aliceBucknellDropdownItems}
 				images={$preloadedImagesStore[3]}
 				route="earth-engine"
-				colorVariant="#D9D9D9"
+				colorVariant="#EAEAEA"
 			/>
 		</div>
 
@@ -177,13 +177,13 @@
 				aboutImage={$preloadedImagesStore[4][0]}
 				route="frenetik-void"
 				isImageLeft={false}
-				colorVariant="#D9D9D9"
+				colorVariant="#EAEAEA"
 			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={frenetikVoidDropdownItems}
 				images={$preloadedImagesStore[5]}
 				route="sereno-de-mi-mente"
-				colorVariant="#D9D9D9"
+				colorVariant="#EAEAEA"
 			/>
 		</div>
 
@@ -201,13 +201,13 @@
 				aboutImage={$preloadedImagesStore[6][0]}
 				route="kevin-peter-he"
 				isImageLeft={true}
-				colorVariant="#D9D9D9"
+				colorVariant="#EAEAEA"
 			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={kevinPeterHeDropdownItems}
 				images={$preloadedImagesStore[7]}
 				route="passage"
-				colorVariant="#D9D9D9"
+				colorVariant="#EAEAEA"
 			/>
 		</div>
 
@@ -225,13 +225,13 @@
 				aboutImage={$preloadedImagesStore[8][0]}
 				route="kim-laughton"
 				isImageLeft={false}
-				colorVariant="#D9D9D9"
+				colorVariant="#EAEAEA"
 			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={kimLaughtonDropdownItems}
 				images={$preloadedImagesStore[9]}
 				route="defective-holiday"
-				colorVariant="#D9D9D9"
+				colorVariant="#EAEAEA"
 			/>
 		</div>
 
@@ -249,13 +249,13 @@
 				aboutImage={$preloadedImagesStore[10][0]}
 				route="theo-triantafyllidis"
 				isImageLeft={true}
-				colorVariant="#D9D9D9"
+				colorVariant="#EAEAEA"
 			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={theoTriantafyllidisDropdownItems}
 				images={$preloadedImagesStore[11]}
 				route="feral-metaverse"
-				colorVariant="#D9D9D9"
+				colorVariant="#EAEAEA"
 			/>
 		</div>
 
@@ -273,13 +273,13 @@
 				aboutImage={$preloadedImagesStore[12][0]}
 				route="wendi-yan"
 				isImageLeft={false}
-				colorVariant="#D9D9D9"
+				colorVariant="#EAEAEA"
 			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={wendiYanDropdownItems}
 				images={$preloadedImagesStore[13]}
 				route="inner-carbon-classic"
-				colorVariant="#D9D9D9"
+				colorVariant="#EAEAEA"
 			/>
 		</div>
 
@@ -297,13 +297,13 @@
 				aboutImage={$preloadedImagesStore[14][0]}
 				route="yuehao-jiang"
 				isImageLeft={true}
-				colorVariant="#D9D9D9"
+				colorVariant="#EAEAEA"
 			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={yuehaoJiangDropdownItems}
 				images={$preloadedImagesStore[15]}
 				route="spiderlily"
-				colorVariant="#D9D9D9"
+				colorVariant="#EAEAEA"
 			/>
 		</div>
 
