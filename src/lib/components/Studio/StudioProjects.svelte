@@ -41,7 +41,7 @@
 {#if $hoveredProject === null && $activeFilters.length === 0}
 <div transition:fly={{ duration: 500 }} class="hidden md:block fixed left-1/2 top-40 -translate-x-1/2 w-full max-w-4xl z-10 h-fit">
 	<h1 class="relative text-white px-4 lg:px-0 w-full text-xl font-medium leading-6 font-clash text-center tracking-wide">
-		Excavating the architectures of technology in search of spaces<br/> where topologies of potential take affective form
+		Excavating architectures of contemporary technology at the <br/> pivot point where innovation takes affective form
 	</h1>
 </div>
 {/if}
@@ -202,7 +202,7 @@
 	role="group"
 >
 	<h1 class="relative text-white px-4 lg:px-0 w-full text-lg font-medium leading-6 font-clash text-center tracking-wide">
-		Excavating the architectures of technology in search of spaces where topologies of potential take affective form
+		Excavating architectures of contemporary technology at the pivot point where innovation takes affective form
 	</h1>
 
 	{#each studioProjects as project}

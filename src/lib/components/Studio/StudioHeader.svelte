@@ -56,6 +56,6 @@
 			</div>
 		</div>
 	{:else}
-		<h1 in:fly={{ duration: 1000 }} class="text-white p-4 lg:p-0 text-xl lg:text-2xl font-light leading-snug font-clash text-center tracking-wide">Excavating the architectures of<br/>technology in search of spaces<br/> where topologies of potential take<br/> affective form</h1>
+		<h1 in:fly={{ duration: 1000 }} class="text-white p-4 lg:p-0 text-xl lg:text-2xl font-light leading-snug font-clash text-center tracking-wide">Excavating architectures of contemporary technology at the <br/> pivot point where innovation takes affective form</h1>
 	{/if}
 </div>
