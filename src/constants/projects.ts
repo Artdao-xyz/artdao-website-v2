@@ -123,5 +123,21 @@ export const projects: Project[] = [
                 artists: ["Pinky Blue", "Sabato", "Estella Flores", "Stipin Pixel"],
                 artworks: ["Pinky Blue", "Artifact", "Sabato"],
                 quote: "\"We engage with these elements critically, subverting their original functions and assigning subjective meanings.\"",
+        },
+        {
+                title: "Projected Emotional Technologies",
+                subtitle: "Arvida Byström & Harmony",
+                description: "Projected Emotional Technologies studies outsourced affection: AI dolls, deepfake labor, and the economic exhaustion that makes synthetic intimacy feel pragmatic instead of dystopian.",
+                thumbnailPath: [
+                        "media/pet/project/project-1.webp",
+                        "media/pet/project/project-2.webp",
+                        "media/pet/project/project-3.webp"
+                ],
+                thumbnailPathMobile: "media/pet/project/project-1.webp",
+                buttonPath: "media/home/buttons/14-button-digital-archaeology.png",
+                pagePath: "/pet",
+                artists: ["Arvida Byström", "Harmony"],
+                artworks: ["Harmony Diagnostics", "Deepfake Batch #17", "Quiet Logistics"],
+                quote: "\"AI girlfriends don’t cause loneliness; they arrive when the workload makes human care feel impossible.\"",
         }
 ];

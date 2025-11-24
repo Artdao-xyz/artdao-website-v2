@@ -14,3 +14,4 @@ export const IN_CONVERSATION = '/in-conversation';
 export const BODY_FRONTIER = '/body-frontier';
 export const SUBCONSCIOUS_MEDIA = '/subconscious-media';
 export const CAFE_EXE = '/cafe-exe';
+export const PET = '/pet';

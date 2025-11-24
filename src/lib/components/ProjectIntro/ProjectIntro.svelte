@@ -8,10 +8,15 @@
 	export let isWiderTitle = false;
 	export let bgImage: string = '';
 	export let bgImageMobile: string = '';
+	export let backgroundPosition: 'top' | 'center' | 'bottom' | undefined = undefined;
 	const { name, description, image } = project;
 
 	let width: number;
 	let height: number;
+
+	$: effectiveBackgroundPosition = backgroundPosition ?? (isCenterImage ? 'center' : 'bottom');
+	$: backgroundPositionClass = `bg-${effectiveBackgroundPosition}`;
+	$: backgroundPositionStyle = `background-position: ${effectiveBackgroundPosition};`;
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
@@ -22,10 +27,10 @@
 			? `${isContain && width > 1100 ? 'sm:bg-cover' : 'bg-cover'} bg-fit bg-no-repeat bg-color-black`
 			: ''} {textColor === 'black'
 			? 'bg-color-white'
-			: 'bg-color-black'} pr-global-padding {isCenterImage ? 'bg-center' : 'bg-bottom'}"
+			: 'bg-color-black'} pr-global-padding {backgroundPositionClass}"
 		id="intro"
 		style={width > 1100
-			? `background-image: url(${bgImage || ''}); background-position: top;`
+			? `background-image: url(${bgImage || ''}); ${backgroundPositionStyle}`
 			: ``}
 	>
 		<div

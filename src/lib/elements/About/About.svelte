@@ -24,7 +24,7 @@ export let showTitle = true;
 <div
 	class="flex flex-col justify-start items-start sm:items-center sm:justify-center gap-5 {isBlack
 		? 'text-color-white'
-		: 'text-color-black'} {backgroundColor} w-full max-w-[31.9375rem] mx-[2rem] sm:max-h-[82%] pt-2 sm:pt-0 pb-2 sm:pb-0"
+		: 'text-color-black'} {backgroundColor} w-full max-w-2xl mx-[2rem] sm:max-h-[82%] pt-2 sm:pt-0 pb-2 sm:pb-0"
 	style={backgroundColorStyle}
 >
 	<!-- <div

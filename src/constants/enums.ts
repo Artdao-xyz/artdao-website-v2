@@ -29,6 +29,7 @@ export enum EProjects {
 	RAVE = 'Rave',
 	BODY_FRONTIER = 'BodyFrontier',
 	SUBCONSCIOUS_MEDIA = 'SubconsciousMedia',
-	CAFE_EXE = 'CafeExe'
+	CAFE_EXE = 'CafeExe',
+	PET = 'ProjectedEmotionalTechnologies'
 }
 
