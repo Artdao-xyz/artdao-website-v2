@@ -31,11 +31,8 @@ import { petDropdownImages } from '../../data/Projects/Pet/ProjectAboutDropdown'
 		imagesLoaded
 	} from '$lib/stores/metaballPreloader';
 
-	let introIsInView: boolean;
 	let laborIsInView: boolean;
-	let chatIsInView: boolean;
 	let companionIsInView: boolean;
-	let archiveIsInView: boolean;
 	let economyIsInView: boolean;
 
 	let containerRef: HTMLElement;
@@ -43,28 +40,16 @@ import { petDropdownImages } from '../../data/Projects/Pet/ProjectAboutDropdown'
 	const handleOnScroll = () => {
 		getMetaballProgress(containerRef);
 
-		if (introIsInView) {
+		if (laborIsInView) {
 			updateNavBar(petNavStoreItems, petNavItems, petNavItems[0].route);
 		}
 
-		if (laborIsInView) {
+		if (companionIsInView) {
 			updateNavBar(petNavStoreItems, petNavItems, petNavItems[1].route);
 		}
 
-		if (chatIsInView) {
-			updateNavBar(petNavStoreItems, petNavItems, petNavItems[2].route);
-		}
-
-		if (companionIsInView) {
-			updateNavBar(petNavStoreItems, petNavItems, petNavItems[3].route);
-		}
-
-		if (archiveIsInView) {
-			updateNavBar(petNavStoreItems, petNavItems, petNavItems[4].route);
-		}
-
 		if (economyIsInView) {
-			updateNavBar(petNavStoreItems, petNavItems, petNavItems[5].route);
+			updateNavBar(petNavStoreItems, petNavItems, petNavItems[2].route);
 		}
 	};
 
@@ -100,13 +85,7 @@ import { petDropdownImages } from '../../data/Projects/Pet/ProjectAboutDropdown'
 		transition:fly={{ duration: 1000, delay: 750, y: 30, easing: cubicInOut }}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
-		<div
-			id="intro"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => (introIsInView = event.detail.inView)}
-			on:inview_enter={(event) => (introIsInView = event.detail.inView)}
-			on:inview_leave={(event) => (introIsInView = event.detail.inView)}
-		>
+		<div id="intro" use:inview={INVIEW_OPTIONS}>
 			<ProjectIntro
 				project={petIntro}
 				textColor="white"
@@ -130,13 +109,7 @@ import { petDropdownImages } from '../../data/Projects/Pet/ProjectAboutDropdown'
                         />
                 </div>
 
-                <div
-                        id="chat-interview"
-                        use:inview={INVIEW_OPTIONS}
-                        on:inview_change={(event) => (chatIsInView = event.detail.inView)}
-                        on:inview_enter={(event) => (chatIsInView = event.detail.inView)}
-                        on:inview_leave={(event) => (chatIsInView = event.detail.inView)}
-                >
+		<div id="chat-interview" use:inview={INVIEW_OPTIONS}>
                         <ChatInterview data={chatInterviewData} />
                 </div>
 
@@ -154,13 +127,7 @@ import { petDropdownImages } from '../../data/Projects/Pet/ProjectAboutDropdown'
 			/>
 		</div>
 
-		<div
-			id="archive"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => (archiveIsInView = event.detail.inView)}
-			on:inview_enter={(event) => (archiveIsInView = event.detail.inView)}
-			on:inview_leave={(event) => (archiveIsInView = event.detail.inView)}
-		>
+		<div id="archive" use:inview={INVIEW_OPTIONS}>
 			<ProjectAboutDropdown
 				images={$preloadedImagesStore[4]}
 				route="archive"

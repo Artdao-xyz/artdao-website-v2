@@ -2,32 +2,17 @@ import type { INavBarItem } from '$lib/elements/NavBar/interfaces';
 
 export const petNavItems: INavBarItem[] = [
 	{
-		text: 'Intro',
-		route: 'intro',
-		selected: false
-	},
-	{
-		text: 'Labor',
+		text: 'The Labor of Artificial Intimacy',
 		route: 'labor',
 		selected: false
 	},
 	{
-		text: 'Chat Interview',
-		route: 'chat-interview',
-		selected: false
-	},
-	{
-		text: 'Companion',
+		text: 'Companion Species Without Bread',
 		route: 'companion',
 		selected: false
 	},
 	{
-		text: 'Dropdown',
-		route: 'archive',
-		selected: false
-	},
-	{
-		text: 'Economy',
+		text: 'The Political Economy of Loneliness',
 		route: 'economy',
 		selected: false
 	}
