@@ -1,7 +1,8 @@
 <script lang="ts">
-	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
-	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
-	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
+import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
+import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+import ProjectArtworkGridMobile from '$lib/components/ProjectArtworkGridMobile/ProjectArtworkGridMobile.svelte';
 import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
@@ -28,12 +29,12 @@ import { whatsOnYourMindChatInterview } from '../../data/Projects/WhatsOnYourMin
 	import preloadImages from '../../utils/preloadImages';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
-	import {
-		metaballReady,
-		preloadedImages as preloadedImagesStore,
-		imagesLoaded
-	} from '$lib/stores/metaballPreloader';
-
+import {
+	metaballReady,
+	preloadedImages as preloadedImagesStore,
+	imagesLoaded
+} from '$lib/stores/metaballPreloader';
+import type { IGalleryImageMobile } from '$lib/elements/ArtworkContainer/interfaces';
 	let platformsIsInView: boolean;
 	let danielIsInView: boolean;
 	let h4wneeIsInView: boolean;
@@ -74,6 +75,26 @@ import { whatsOnYourMindChatInterview } from '../../data/Projects/WhatsOnYourMin
 	$: if ($metaballReady) {
 		loadImages();
 	}
+
+	const splitMobileGrid = (arr: IGalleryImageMobile[]) => {
+		const half = Math.ceil(arr.length / 2);
+		return [arr.slice(0, half), arr.slice(half)];
+	};
+
+	const convertAndSplitGrid = (desktopArray: typeof whatsOnYourMindCarouselDaniel) => {
+		const mobileArray = desktopArray.map((item) => ({
+			src: item.image,
+			name: item.name,
+			description: item.description,
+			alt: item.name || 'Artwork'
+		}));
+		return splitMobileGrid(mobileArray);
+	};
+
+	const [whatsOnYourMindCarouselDanielMobileLeft, whatsOnYourMindCarouselDanielMobileRight] =
+		convertAndSplitGrid(whatsOnYourMindCarouselDaniel);
+	const [whatsOnYourMindCarouselH4wneeMobileLeft, whatsOnYourMindCarouselH4wneeMobileRight] =
+		convertAndSplitGrid(whatsOnYourMindCarouselH4wnee);
 </script>
 
 {#if $preloadedImagesStore}
@@ -87,7 +108,7 @@ import { whatsOnYourMindChatInterview } from '../../data/Projects/WhatsOnYourMin
 		<div id="intro" use:inview={INVIEW_OPTIONS}>
 			<ProjectIntro
 				project={whatsOnYourMindIntro}
-				textColor="white"
+				textColor="black"
 				bgImage={$preloadedImagesStore[0][0]}
 				bgImageMobile={$preloadedImagesStore[0][1]}
 				backgroundPosition="center"
@@ -124,7 +145,16 @@ import { whatsOnYourMindChatInterview } from '../../data/Projects/WhatsOnYourMin
 				route="daniel"
 				isImageLeft={false}
 			/>
-			<ProjectArtworkGrid galleryImages={whatsOnYourMindCarouselDaniel} />
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid galleryImages={whatsOnYourMindCarouselDaniel} />
+			</div>
+			<div class="block sm:hidden">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={whatsOnYourMindCarouselDanielMobileLeft}
+					imagesRight={whatsOnYourMindCarouselDanielMobileRight}
+				/>
+			</div>
 		</div>
 
 		<div
@@ -139,7 +169,16 @@ import { whatsOnYourMindChatInterview } from '../../data/Projects/WhatsOnYourMin
 				aboutImages={$preloadedImagesStore[3]}
 				route="h4wnee"
 			/>
-			<ProjectArtworkGrid galleryImages={whatsOnYourMindCarouselH4wnee} />
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid galleryImages={whatsOnYourMindCarouselH4wnee} />
+			</div>
+			<div class="block sm:hidden">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={whatsOnYourMindCarouselH4wneeMobileLeft}
+					imagesRight={whatsOnYourMindCarouselH4wneeMobileRight}
+				/>
+			</div>
 		</div>
 
 		<HomeIcon />
