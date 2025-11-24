@@ -30,6 +30,7 @@ export enum EProjects {
 	BODY_FRONTIER = 'BodyFrontier',
 	SUBCONSCIOUS_MEDIA = 'SubconsciousMedia',
 	CAFE_EXE = 'CafeExe',
-	PET = 'ProjectedEmotionalTechnologies'
+	PET = 'ProjectedEmotionalTechnologies',
+	WHATS_ON_YOUR_MIND = 'WhatsOnYourMind'
 }
 

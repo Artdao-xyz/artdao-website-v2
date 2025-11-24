@@ -15,3 +15,4 @@ export const BODY_FRONTIER = '/body-frontier';
 export const SUBCONSCIOUS_MEDIA = '/subconscious-media';
 export const CAFE_EXE = '/cafe-exe';
 export const PET = '/pet';
+export const WHATS_ON_YOUR_MIND = '/whats-on-your-mind';

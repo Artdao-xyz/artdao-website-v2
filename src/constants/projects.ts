@@ -139,5 +139,21 @@ export const projects: Project[] = [
                 artists: ["Arvida Byström", "Harmony"],
                 artworks: ["Harmony Diagnostics", "Deepfake Batch #17", "Quiet Logistics"],
                 quote: "\"AI girlfriends don’t cause loneliness; they arrive when the workload makes human care feel impossible.\"",
+        },
+        {
+                title: "What's on your mind",
+                subtitle: "Daniel Vasconcelos & H4wnee",
+                description: "Artists weaponize platform mechanics—treating feeds, personas, and algorithms as mutable material—until the social web becomes a living studio where identity, attention, and resistance blur.",
+                thumbnailPath: [
+                        "media/home/thumbnails-v2/02-whatsonyourmind-4x.webp",
+                        "media/home/thumbnails-v2/02-whatsonyourmind-4x.webp",
+                        "media/home/thumbnails-v2/02-whatsonyourmind-4x.webp"
+                ],
+                thumbnailPathMobile: "media/home/thumbnails-v2/02-whatsonyourmind-4x.webp",
+                buttonPath: "media/home/buttons/11-button-whats-on-your-mind.png",
+                pagePath: "/whats-on-your-mind",
+                artists: ["Daniel Vasconcelos", "H4wnee"],
+                artworks: ["Platforms Limitations", "Daniel Vasconcelos", "H4wnee"],
+                quote: "\"A new digital self emerges—distributed, reactive, endlessly iterated.\"",
         }
 ];
