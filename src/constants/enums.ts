@@ -28,6 +28,7 @@ export enum EProjects {
 	ORB = 'Orb',
 	RAVE = 'Rave',
 	BODY_FRONTIER = 'BodyFrontier',
-	SUBCONSCIOUS_MEDIA = 'SubconsciousMedia'
+	SUBCONSCIOUS_MEDIA = 'SubconsciousMedia',
+	CAFE_EXE = 'CafeExe'
 }
 

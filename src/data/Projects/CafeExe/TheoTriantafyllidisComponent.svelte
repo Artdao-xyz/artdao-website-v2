@@ -1,0 +1,2 @@
+<p>Theo Triantafyllidis is an artist who works with digital and physical media to explore the experience of space and the mechanics of embodiment in hybrid realities. Utilizing algorithms and game engines, virtual reality headsets and experimental performance processes, he creates interactions within immersive environments. In Triantafyllidis's worlds awkward interactions and precarious physics mingle with uncanny, absurd and poetic situations, inviting the viewer to engage with new realities.</p>
+

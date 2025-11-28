@@ -51,9 +51,9 @@
 			alt="Big view"
 			class="laptopM:h-full {variant === ESizeVariant.SMALL
 				? 'w-full object-cover h-full object-top'
-				: 'rounded-20 max-h-[80%] sm:h-full sm:max-h-full object-top'} {isImageWhiteBg
+				: 'rounded-20 max-h-full sm:h-full sm:max-h-full object-contain'} {isImageWhiteBg
 				? 'bg-color-white'
-				: ''} object-contain"
+				: ''}"
 		/>
 	</div>
 
