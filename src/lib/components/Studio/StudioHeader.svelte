@@ -29,30 +29,33 @@
 <!-- Fixed height container to prevent layout shifts -->
 <div class="md:h-48 flex items-center justify-center">
 	{#if activeProject}
-		<div in:fly={{ duration: 1000 }} class="text-white w-full max-w-96 mx-auto space-y-4">
+		<div in:fly={{ duration: 1000 }} class="text-white w-full h-full max-w-md mx-auto space-y-6">
 			<div class="flex justify-between items-center">
-				<h1 class="font-clash text-2xl font-medium">{activeProject.title}</h1>
-				<div class="justify-start text-xs font-normal font-robotoMono leading-none">{activeProject.year}</div>
+				<h1 class="font-clash font-medium text-2xl">{activeProject.title}</h1>
+				<div class="justify-start text-xs font-robotoMono leading-none">{activeProject.year}</div>
 			</div>
 
-			<p class="text-xs font-robotoMono w-full max-w-80">{activeProject.description}</p>
+			<p class="text-xs font-robotoMono w-full max-w-80 tracking-wider">{activeProject.description}</p>
 
-			<div class="flex justify-between items-center group">
-				{#if activeProject.link === undefined}
-					<span class="text-xs font-bold font-robotoMono underline leading-none">under construction</span>
-				{:else if activeProject.link !== null}
-					<a href={activeProject.link} target="_blank" class="hover:text-white/50 transition-all duration-300 justify-start text-xs font-bold font-robotoMono underline leading-none">{activeProject.link.replace('https://', '')}</a>
-				{/if}
+			<div class="flex items-center group">
+				<div class="flex-1">
+					{#if activeProject.link === undefined}
+						<span class="text-xs font-robotoMono leading-none">under construction</span>
+					{:else if activeProject.link !== null}
+						<a href={activeProject.link} target="_blank" class="hover:text-white/50 transition-all duration-300 justify-start text-xs font-bold font-robotoMono underline leading-none">{activeProject.link.replace('https://', '')}</a>
+					{/if}
+				</div>
 				<a 
 					href={activeProject.route}
+					target="_blank"
 					class="flex items-center gap-2 transition-all duration-300 text-xs font-bold font-robotoMono leading-none"
 				>
-					<a href={activeProject.route} target="_blank" class="group-hover:-translate-x-1 transition-all duration-300">see more</a>
+					<span class="group-hover:-translate-x-1 transition-all duration-300">see more</span>
 					<ArrowRightIcon class="group-hover:translate-x-1 transition-all duration-300 w-4 h-4" />
 				</a>
 			</div>
 		</div>
 	{:else}
-		<h1 in:fly={{ duration: 1000 }} class="text-white p-4 lg:p-0 text-xl lg:text-2xl font-light leading-snug font-clash text-center tracking-wide">Excavating the architectures of<br/>technology in search of spaces<br/> where topologies of potential take<br/> affective form</h1>
+		<h1 in:fly={{ duration: 1000 }} class="text-white p-4 lg:p-0 text-xl lg:text-2xl font-light leading-snug font-clash text-center tracking-wide">Excavating architectures of contemporary technology at the <br/> pivot point where innovation takes affective form</h1>
 	{/if}
 </div>
