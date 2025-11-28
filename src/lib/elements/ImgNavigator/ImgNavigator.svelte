@@ -18,6 +18,15 @@
 	const navigatorWidth = isSmall ? 'w-full sm:w-1/2' : 'w-full h-full pt-0 sm:pt-[2.4375rem]';
 	let width: number;
 	let height: number;
+	
+	// Ajustar tamaño y gap cuando hay más de 10 imágenes
+	$: hasManyImages = images.length > 10;
+	$: thumbnailSize = hasManyImages 
+		? 'w-[1.75rem] h-[1.75rem] laptopM:w-[3.5rem] laptopM:h-[3.5rem]' 
+		: 'w-[2.5rem] h-[2.5rem] laptopM:w-[5.375rem] laptopM:h-[5.375rem]';
+	$: thumbnailGapMobile = hasManyImages ? 'gap-[0.375rem]' : 'gap-[0.625rem]';
+	$: thumbnailGapDesktop = hasManyImages ? 'gap-[0.375rem] sm:gap-[0.625rem]' : 'gap-[0.625rem] sm:gap-[1.375rem]';
+	$: thumbnailBottom = hasManyImages ? 'bottom-[3rem]' : 'bottom-[4rem]';
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
@@ -59,10 +68,10 @@
 
 	<!-- Mobile: Botones debajo -->
 	{#if width < 500}
-		<div class="flex flex-row gap-[0.625rem] mt-4 justify-center overflow-x-auto scroll-panel">
+		<div class="flex flex-row {thumbnailGapMobile} mt-4 justify-center overflow-x-auto scroll-panel">
 			{#each images as image, i}
 				<button
-					class="w-[2.5rem] h-[2.5rem] laptopM:w-[5.375rem] laptopM:h-[5.375rem] hover:scale-105 flex-shrink-0"
+					class="{thumbnailSize} hover:scale-105 flex-shrink-0"
 					on:click={() => handleOnClick(i)}
 				>
 					<img
@@ -78,12 +87,12 @@
 		<div
 			class="{isSmall
 				? 'left-[20px]'
-				: 'left-0'} flex flex-row gap-[0.625rem] sm:gap-[1.375rem] laptopM:left-10
-				 absolute bottom-[4rem]"
+				: 'left-0'} flex flex-row {thumbnailGapDesktop} laptopM:left-10
+				 absolute {thumbnailBottom}"
 		>
 			{#each images as image, i}
 				<button
-					class="w-[2.5rem] h-[2.5rem] laptopM:w-[5.375rem] laptopM:h-[5.375rem] hover:scale-105"
+					class="{thumbnailSize} hover:scale-105"
 					on:click={() => handleOnClick(i)}
 				>
 					<img
