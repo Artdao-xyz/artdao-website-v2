@@ -2,6 +2,11 @@ import type { INavBarItem } from '$lib/elements/NavBar/interfaces';
 
 export const cafeExeNavItems: INavBarItem[] = [
 	{
+		text: 'Intro',
+		route: 'intro',
+		selected: false
+	},
+	{
 		text: 'Alice Bucknell',
 		route: 'earth-engine',
 		selected: false

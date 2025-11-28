@@ -44,12 +44,12 @@
   
   .fade-top {
     top: 40px; /* Below the header */
-    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
   }
   
   .fade-bottom {
     bottom: 0;
-    background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
   }
 </style>
 
@@ -69,7 +69,7 @@
       <div class="fade-overlay fade-top"></div>
       <div class="fade-overlay fade-bottom"></div>
       
-      <div class="overflow-y-auto h-full pt-6 px-2.5">
+      <div class="overflow-y-auto h-full pt-12 px-2.5">
         {#each data.messages as message, index}
           {@const character = getCharacter(message.characterId)}
           {#if character}

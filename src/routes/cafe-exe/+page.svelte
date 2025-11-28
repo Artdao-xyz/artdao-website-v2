@@ -63,25 +63,25 @@
 			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[0].route);
 		}
 		if (earthEngineIsInView) {
-			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[0].route);
-		}
-		if (serenoDeMiMenteIsInView) {
 			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[1].route);
 		}
-		if (passageIsInView) {
+		if (serenoDeMiMenteIsInView) {
 			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[2].route);
 		}
-		if (defectiveHolidayIsInView) {
+		if (passageIsInView) {
 			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[3].route);
 		}
-		if (feralMetaverseIsInView) {
+		if (defectiveHolidayIsInView) {
 			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[4].route);
 		}
-		if (innerCarbonClassicIsInView) {
+		if (feralMetaverseIsInView) {
 			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[5].route);
 		}
-		if (spiderlilyIsInView) {
+		if (innerCarbonClassicIsInView) {
 			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[6].route);
+		}
+		if (spiderlilyIsInView) {
+			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[7].route);
 		}
 	};
 
