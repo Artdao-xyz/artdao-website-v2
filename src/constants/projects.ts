@@ -145,11 +145,11 @@ export const projects: Project[] = [
                 subtitle: "Daniel Vasconcelos & H4wnee",
                 description: "Artists weaponize platform mechanics—treating feeds, personas, and algorithms as mutable material—until the social web becomes a living studio where identity, attention, and resistance blur.",
                 thumbnailPath: [
-                        "media/home/thumbnails-v2/02-whatsonyourmind-4x.webp",
-                        "media/home/thumbnails-v2/02-whatsonyourmind-4x.webp",
-                        "media/home/thumbnails-v2/02-whatsonyourmind-4x.webp"
+                        "media/whats-on-your-mind/carusel-1/daniel-gallery-2-1x.webp",
+                        "media/whats-on-your-mind/carusel-1/daniel-gallery-3-1x.webp",
+                        "media/whats-on-your-mind/carusel-2/h4wnee-gallery-1x.webp"
                 ],
-                thumbnailPathMobile: "media/home/thumbnails-v2/02-whatsonyourmind-4x.webp",
+                thumbnailPathMobile: "media/whats-on-your-mind/carusel-1/daniel-gallery-2-1x.webp",
                 buttonPath: "media/home/buttons/11-button-whats-on-your-mind.png",
                 pagePath: "/whats-on-your-mind",
                 artists: ["Daniel Vasconcelos", "H4wnee"],
