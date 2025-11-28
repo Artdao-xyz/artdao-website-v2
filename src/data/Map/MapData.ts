@@ -36,7 +36,7 @@ import underworld01 from '$lib/assets/images/events/underworld-1.webp';
 import underworld02 from '$lib/assets/images/events/underworld-2.webp';
 import underworld03 from '$lib/assets/images/events/underworld-3.webp';
 import underworld04 from '$lib/assets/images/events/underworld-4.webp';
-import { ARTIFICE, INTERTWINED, NON_PLACES, ORB, RAVE } from '../../constants/routes';
+import { ARTIFICE, CAFE_EXE, INTERTWINED, NON_PLACES, ORB, RAVE } from '../../constants/routes';
 
 export const eventImages = [
 	intertwined01,
@@ -232,7 +232,8 @@ export const mapData: IMapLocation[] = [
 		location: 'Buenos Aires',
 		coordinates: {
 			top: '82',
-			left: '30'
+			left: '30',
+			showOnTop: true
 		},
 		events: [
 			{
@@ -250,6 +251,20 @@ export const mapData: IMapLocation[] = [
 				location: 'Aura Fabrica, Buenos Aires',
 				images: [psispikoko01, psispikoko02, psispikoko03, psispikoko04],
 				city: 'Buenos Aires'
+			},
+			{
+				title: 'Café Exe',
+				subtitle: 'Exhibition',
+				date: 'November 18th-22nd, 2025',
+				location: 'Buenos Aires, Argentina',
+				images: [
+					'/media/cafe-exe/cafe-exe-carusel/carusel-1.webp',
+					'/media/cafe-exe/cafe-exe-carusel/carusel-2.webp',
+					'/media/cafe-exe/cafe-exe-carusel/carusel-3.webp',
+					'/media/cafe-exe/cafe-exe-carusel/carusel-4.webp'
+				],
+				city: 'Buenos Aires',
+				watchMore: CAFE_EXE
 			}
 		]
 	}
