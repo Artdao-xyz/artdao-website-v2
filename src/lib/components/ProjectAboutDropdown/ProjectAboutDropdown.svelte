@@ -2,9 +2,9 @@
 	import type { IAboutDropdown } from '$lib/elements/AboutDropdown/interfaces';
 	import ImgNavigator from '$lib/elements/ImgNavigator/ImgNavigator.svelte';
 	import SectionContainer from '$lib/elements/SectionContainer/SectionContainer.svelte';
-	import { EColorVariant, ESizeVariant } from '../../../constants/enums';
+import { EColorVariant, ESizeVariant } from '../../../constants/enums';
 	export let images: string[];
-	export let aboutDropdownItems: IAboutDropdown[] | undefined;
+export let aboutDropdownItems: IAboutDropdown[] | undefined = undefined;
 	export let route: string;
 	export let colorVariant: EColorVariant | string = EColorVariant.BLACK;
 	export let isImageWhiteBg = false;

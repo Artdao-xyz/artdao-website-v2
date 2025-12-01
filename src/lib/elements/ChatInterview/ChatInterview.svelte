@@ -37,7 +37,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    height: 60px;
+    height: 32px;
     pointer-events: none;
     z-index: 20;
   }

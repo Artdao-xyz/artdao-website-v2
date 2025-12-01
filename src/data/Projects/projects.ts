@@ -38,7 +38,8 @@ import {
 	NON_PLACES,
 	ORB,
 	RAVE,
-	SUBCONSCIOUS_MEDIA
+	SUBCONSCIOUS_MEDIA,
+	PET
 } from '../../constants/routes';
 
 export interface IProject {
@@ -98,6 +99,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.SUBCONSCIOUS_MEDIA,
 		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
+	},
+	{
+		name: EProjects.PET,
+		refs: [EProjects.BODY_FRONTIER, EProjects.SUBCONSCIOUS_MEDIA, EProjects.DIGITAL_MATTER]
 	}
 ];
 
@@ -205,5 +210,13 @@ export const projectsDetails = [
 		hover: '/media/home/thumbnails/13-home-subconscious-media.webp',
 		url: SUBCONSCIOUS_MEDIA,
 		mobileImage: '/media/home/thumbnails/13-home-subconscious-media.webp'
+	},
+	{
+		name: EProjects.PET,
+		nameToShow: 'projected emotional technologies',
+		image: '/media/pet/project/project-5.webp',
+		hover: '/media/pet/project/project-5.webp',
+		url: PET,
+		mobileImage: '/media/pet/project/project-5.webp'
 	}
 ];
