@@ -16,6 +16,7 @@
 		wendiYanDropdownItems,
 		yuehaoJiangDropdownItems
 	} from '../../data/Projects/CafeExe/ProjectAboutDropdown';
+	import { carouselImages } from '../../data/Projects/CafeExe/CarouselDropdown';
 	import { cafeExeAbout } from '../../data/Projects/CafeExe/ProjectAbout';
 	import {
 		aliceBucknellAbout,
@@ -43,6 +44,7 @@
 	import { cubicInOut } from 'svelte/easing';
 
 	let introIsInView: boolean;
+	let carouselIsInView: boolean;
 	let earthEngineIsInView: boolean;
 	let serenoDeMiMenteIsInView: boolean;
 	let passageIsInView: boolean;
@@ -57,26 +59,29 @@
 		if (introIsInView) {
 			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[0].route);
 		}
-		if (earthEngineIsInView) {
+		if (carouselIsInView) {
 			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[0].route);
 		}
-		if (serenoDeMiMenteIsInView) {
+		if (earthEngineIsInView) {
 			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[1].route);
 		}
-		if (passageIsInView) {
+		if (serenoDeMiMenteIsInView) {
 			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[2].route);
 		}
-		if (defectiveHolidayIsInView) {
+		if (passageIsInView) {
 			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[3].route);
 		}
-		if (feralMetaverseIsInView) {
+		if (defectiveHolidayIsInView) {
 			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[4].route);
 		}
-		if (innerCarbonClassicIsInView) {
+		if (feralMetaverseIsInView) {
 			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[5].route);
 		}
-		if (spiderlilyIsInView) {
+		if (innerCarbonClassicIsInView) {
 			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[6].route);
+		}
+		if (spiderlilyIsInView) {
+			updateNavBar(cafeExeNavStoreItems, cafeExeNavItems, cafeExeNavItems[7].route);
 		}
 	};
 
@@ -85,6 +90,7 @@
 		const images = await preloadImages([
 			[cafeExeIntro.bgImage],
 			[cafeExeChatInterview.background],
+			carouselImages,
 			[aliceBucknellAboutImage],
 			aliceBucknellDropdownItems.map(item => item.image),
 			[frenetikVoidAboutImage],
@@ -139,6 +145,23 @@
 			<ChatInterview data={cafeExeChatInterview} />
 		</div>
 
+		<!-- Carousel Section -->
+		<div
+			id="carousel"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				carouselIsInView = inView;
+			}}
+		>
+			<ProjectAboutDropdown
+				aboutDropdownItems={undefined}
+				images={$preloadedImagesStore[2]}
+				route="carousel"
+				colorVariant="#EAEAEA"
+			/>
+		</div>
+
 		<!-- Earth Engine - Alice Bucknell -->
 		<div
 			id="earth-engine"
@@ -150,14 +173,14 @@
 		>
 			<CafeExeAbout
 				aboutItem={aliceBucknellAbout}
-				aboutImage={$preloadedImagesStore[2][0]}
+				aboutImage={$preloadedImagesStore[3][0]}
 				route="alice-bucknell"
 				isImageLeft={true}
 				colorVariant="#EAEAEA"
 			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={aliceBucknellDropdownItems}
-				images={$preloadedImagesStore[3]}
+				images={$preloadedImagesStore[4]}
 				route="earth-engine"
 				colorVariant="#EAEAEA"
 			/>
@@ -174,14 +197,14 @@
 		>
 			<CafeExeAbout
 				aboutItem={frenetikVoidAbout}
-				aboutImage={$preloadedImagesStore[4][0]}
+				aboutImage={$preloadedImagesStore[5][0]}
 				route="frenetik-void"
 				isImageLeft={false}
 				colorVariant="#EAEAEA"
 			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={frenetikVoidDropdownItems}
-				images={$preloadedImagesStore[5]}
+				images={$preloadedImagesStore[6]}
 				route="sereno-de-mi-mente"
 				colorVariant="#EAEAEA"
 			/>
@@ -198,14 +221,14 @@
 		>
 			<CafeExeAbout
 				aboutItem={kevinPeterHeAbout}
-				aboutImage={$preloadedImagesStore[6][0]}
+				aboutImage={$preloadedImagesStore[7][0]}
 				route="kevin-peter-he"
 				isImageLeft={true}
 				colorVariant="#EAEAEA"
 			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={kevinPeterHeDropdownItems}
-				images={$preloadedImagesStore[7]}
+				images={$preloadedImagesStore[8]}
 				route="passage"
 				colorVariant="#EAEAEA"
 			/>
@@ -222,14 +245,14 @@
 		>
 			<CafeExeAbout
 				aboutItem={kimLaughtonAbout}
-				aboutImage={$preloadedImagesStore[8][0]}
+				aboutImage={$preloadedImagesStore[9][0]}
 				route="kim-laughton"
 				isImageLeft={false}
 				colorVariant="#EAEAEA"
 			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={kimLaughtonDropdownItems}
-				images={$preloadedImagesStore[9]}
+				images={$preloadedImagesStore[10]}
 				route="defective-holiday"
 				colorVariant="#EAEAEA"
 			/>
@@ -246,14 +269,14 @@
 		>
 			<CafeExeAbout
 				aboutItem={theoTriantafyllidisAbout}
-				aboutImage={$preloadedImagesStore[10][0]}
+				aboutImage={$preloadedImagesStore[11][0]}
 				route="theo-triantafyllidis"
 				isImageLeft={true}
 				colorVariant="#EAEAEA"
 			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={theoTriantafyllidisDropdownItems}
-				images={$preloadedImagesStore[11]}
+				images={$preloadedImagesStore[12]}
 				route="feral-metaverse"
 				colorVariant="#EAEAEA"
 			/>
@@ -270,14 +293,14 @@
 		>
 			<CafeExeAbout
 				aboutItem={wendiYanAbout}
-				aboutImage={$preloadedImagesStore[12][0]}
+				aboutImage={$preloadedImagesStore[13][0]}
 				route="wendi-yan"
 				isImageLeft={false}
 				colorVariant="#EAEAEA"
 			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={wendiYanDropdownItems}
-				images={$preloadedImagesStore[13]}
+				images={$preloadedImagesStore[14]}
 				route="inner-carbon-classic"
 				colorVariant="#EAEAEA"
 			/>
@@ -294,14 +317,14 @@
 		>
 			<CafeExeAbout
 				aboutItem={yuehaoJiangAbout}
-				aboutImage={$preloadedImagesStore[14][0]}
+				aboutImage={$preloadedImagesStore[15][0]}
 				route="yuehao-jiang"
 				isImageLeft={true}
 				colorVariant="#EAEAEA"
 			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={yuehaoJiangDropdownItems}
-				images={$preloadedImagesStore[15]}
+				images={$preloadedImagesStore[16]}
 				route="spiderlily"
 				colorVariant="#EAEAEA"
 			/>

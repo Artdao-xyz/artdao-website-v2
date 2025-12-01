@@ -23,6 +23,14 @@
 	
 	// Detectar si estamos en la página de inherent-instability
 	$: isInherentInstabilityPage = $page?.route?.id === '/inherent-instability';
+	
+	// Detectar si estamos en una ruta de studio
+	$: isStudioPage = $page?.route?.id === '/studio';
+	$: isStudioDetailPage = $page?.route?.id?.startsWith('/studio/') || false;
+	$: isStudioAny = isStudioPage || isStudioDetailPage;
+	
+	// Detectar si estamos en la página de map
+	$: isMapPage = $page?.route?.id === '/map';
 
 	const scene = new THREE.Scene();
 
@@ -223,8 +231,8 @@
 					
 					setTimeout(() => {
 						// console.log('⏰ Ejecutando animación después de 2 segundos');
-						// Solo ir arriba-izquierda si es mobile Y home page
-						if (isMobile && isHomePage) {
+						// Ir arriba-izquierda si es mobile Y (home, studio o map)
+						if (isMobile && (isHomePage || isStudioAny || isMapPage)) {
 							// console.log('🎬 Ejecutando animación hacia arriba-izquierda');
 							animateToTopLeft();
 						} else {
@@ -312,7 +320,7 @@
 <div 
 	transition:fly={{ duration: 1000 }} 
 	bind:this={metaballContainer}
-	class="bg-dot h-[120%] overflow-hidden lg:h-screen w-screen absolute inset-0 z-50 transition-opacity duration-[2000ms] ease-in-out pointer-events-none"
+	class="h-[120%] overflow-hidden lg:h-screen w-screen absolute inset-0 z-50 transition-opacity duration-[2000ms] ease-in-out pointer-events-none {isStudioAny ? 'bg-black' : 'bg-dot'}"
 >
 </div>
 <canvas 
