@@ -44,11 +44,11 @@
                          <Circle size={8} class="text-white {isMapRoute ? 'fill-white' : ''}" />
                          <span class="justify-center text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Map</span>
                  </a>
-                 <!-- Studio link hidden
+                 
                  <a data-sveltekit-reload href="/studio" class="flex justify-start items-center gap-2">
                          <Circle size={8} class="text-white {isStudioRoute ? 'fill-white' : ''}" />
                          <span class="justify-center text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Studio</span>
-                 </a> -->
+                 </a>
         </div>
 </nav>
 {/if}
@@ -71,19 +71,19 @@
             <!-- Dropdown Menu -->
             {#if showMobileMenu}
             <div class="absolute  right-0 top-full mt-2 z-50 flex flex-col gap-2">
-                <a href="/" class="w-80 h-12 px-5 py-1.5 bg-gradient-to-br from-black/60 to-black/80 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
+                <a href="/" class="mobile-nav-button w-80 h-12 px-5 py-1.5 bg-black/90 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
                     <Circle size={6} class="text-white {isHomeRoute ? 'fill-white' : ''}" />
                     <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Zine</span>
                 </a>
-                <a href="/map" class="w-80 h-12 px-5 py-1.5 bg-gradient-to-br from-black/60 to-black/80 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
+                <a href="/map" class="mobile-nav-button w-80 h-12 px-5 py-1.5 bg-black/90 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
                     <Circle size={6} class="text-white {isMapRoute ? 'fill-white' : ''}" />
                     <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Map</span>
                 </a>
-                <!-- Studio link hidden
-                <a href="/studio" class="w-80 h-12 px-5 py-1.5 bg-gradient-to-br from-black/60 to-black/80 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
+
+                <a href="/studio" class="mobile-nav-button w-80 h-12 px-5 py-1.5 bg-black/90 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
                     <Circle size={6} class="text-white {isStudioRoute ? 'fill-white' : ''}" />
                     <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Studio</span>
-                </a> -->
+                </a>
                 <!-- Newsletter Signup -->
                 <div class="w-80" on:click|stopPropagation>
                     <HomeNewsletter  />
@@ -108,11 +108,11 @@
                          <Circle size={8} class="text-white {isMapRoute ? 'fill-white' : ''}" />
                          <span class="justify-center text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Map</span>
                  </a>
-                 <!-- Studio link hidden
+
                  <a href="/studio" class="flex justify-start items-center gap-2">
                          <Circle size={8} class="text-white {isStudioRoute ? 'fill-white' : ''}" />
                          <span class="justify-center text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Studio</span>
-                 </a> -->
+                 </a>
         </div>
 </nav>
 {/if}
@@ -135,19 +135,18 @@
             <!-- Dropdown Menu -->
             {#if showMobileMenu}
             <div class="absolute right-0 top-3/4 z-50 flex flex-col items-end gap-2 backdrop-blur-sm w-full p-4">
-                <a data-sveltekit-reload href="/" class="w-80 h-12 px-5 py-1.5 bg-gradient-to-br from-black/60 to-black/80 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
+                <a data-sveltekit-reload href="/" class="mobile-nav-button w-80 h-12 px-5 py-1.5 bg-black/90 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
                     <Circle size={6} class="text-white {isHomeRoute ? 'fill-white' : ''}" />
                     <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Zine</span>
                 </a>
-                <a data-sveltekit-reload href="/map" class="w-80 h-12 px-5 py-1.5 bg-gradient-to-br from-black/60 to-black/80 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
+                <a data-sveltekit-reload href="/map" class="mobile-nav-button w-80 h-12 px-5 py-1.5 bg-black/90 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
                     <Circle size={6} class="text-white {isMapRoute ? 'fill-white' : ''}" />
                     <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Map</span>
                 </a>
-                <!-- Studio link hidden
-                <a data-sveltekit-reload href="/studio" class="w-80 h-12 px-5 py-1.5 bg-gradient-to-br from-black/60 to-black/80 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
+                <a data-sveltekit-reload href="/studio" class="mobile-nav-button w-80 h-12 px-5 py-1.5 bg-black/90 rounded-20 backdrop-blur-[5px] inline-flex justify-start items-center gap-2.5" on:click={() => showMobileMenu = false}>
                     <Circle size={6} class="text-white {isStudioRoute ? 'fill-white' : ''}" />
                     <span class="text-white text-xs font-bold font-robotoMono leading-none tracking-wide">Studio</span>
-                </a> -->
+                </a>
                 <!-- Newsletter Signup -->
                 <div class="w-80" on:click|stopPropagation>
                     <HomeNewsletter isFooter={true} />
@@ -158,4 +157,30 @@
 </nav>
 {/if}
 
-
+<style>
+    :global(.mobile-nav-button) {
+        position: relative;
+        background-clip: padding-box;
+    }
+    
+    :global(.mobile-nav-button::before) {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        border-radius: 21px;
+        background: transparent;
+        z-index: -1;
+        pointer-events: none;
+        clip-path: inset(0 round 20px);
+    }
+    
+    :global(.mobile-nav-button::after) {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 20px;
+        background: inherit;
+        z-index: -1;
+        pointer-events: none;
+    }
+</style>

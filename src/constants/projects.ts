@@ -138,7 +138,7 @@ export const projects: Project[] = [
                 pagePath: "/pet",
                 artists: ["Arvida Byström", "Harmony"],
                 artworks: ["Harmony Diagnostics", "Deepfake Batch #17", "Quiet Logistics"],
-                quote: "\"AI girlfriends don’t cause loneliness; they arrive when the workload makes human care feel impossible.\"",
+                quote: "\"AI girlfriends don't cause loneliness; they arrive when the workload makes human care feel impossible.\"",
         },
         {
                 title: "What's on your mind",

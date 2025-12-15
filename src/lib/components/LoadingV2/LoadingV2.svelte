@@ -6,10 +6,16 @@
 	import { isExiting } from '../../../utils/preloadImages';
 	import { writable } from 'svelte/store';
 	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 	const text1 = "Artists helping artists";
 	const text2 = "© 2025";
 
 	const animationProgress = writable(0);
+	
+	// Detectar si estamos en una ruta de studio
+	$: isStudioPage = $page?.route?.id === '/studio';
+	$: isStudioDetailPage = $page?.route?.id?.startsWith('/studio/') || false;
+	$: isStudioAny = isStudioPage || isStudioDetailPage;
 	
 	
 	// Cuando isExiting cambia a true, iniciamos la animación
@@ -45,7 +51,7 @@
 
 <div
 	transition:fly={{ duration: 300 }}
-	class="bg-[#F7F5F2] absolute left-0 top-0 w-full h-full flex justify-center items-center z-50 bg-dot"
+	class="absolute left-0 top-0 w-full h-full flex justify-center items-center z-50 {isStudioAny ? 'bg-black' : 'bg-[#F7F5F2] bg-dot'}"
 >
 	<div class="flex flex-col sm:flex-row items-center gap-12 relative">
 		<div class="w-[200px] overflow-hidden hidden">
