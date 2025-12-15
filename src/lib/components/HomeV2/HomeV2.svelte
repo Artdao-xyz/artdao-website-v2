@@ -1,12 +1,15 @@
 <script lang="ts">
     import { onMount, onDestroy } from 'svelte';
     import { fly } from 'svelte/transition';
-    import { projects, type Project } from '../../../constants/projects';
+    import { projects as projectsOriginal, type Project } from '../../../constants/projects';
     import ProjectsColumn from './ProjectsColumn/ProjectsColumn.svelte';
     import ImageGrid from './ImageGrid/ImageGrid.svelte';
     import ArtistsColumn from './ArtistsColumn/ArtistsColumn.svelte';
     import SelectedProject from './SelectedProject/SelectedProject.svelte';
     import { expandProject, collapseAll, expandedProjectIndex } from '../../stores/expansionStore';
+
+    // Invertir el orden de los proyectos: de más nuevo a más viejo
+    const projects = [...projectsOriginal].reverse();
 
     // Extraer solo los títulos de los proyectos para la primera columna
     const projectTitles = projects.map((p: Project) => p.title);
@@ -206,6 +209,10 @@
     function handleCardHover(index: number | null) {
         hoveredProjectIndex = index;
         hoveredProjectIndexes = index !== null ? [index] : [];
+        
+        // También highlightear las columnas cuando se hace hover en el ImageGrid
+        columnHoveredProjectIndex = index;
+        columnHoveredProjectIndexes = index !== null ? [index] : [];
     }
     
     
@@ -323,6 +330,7 @@
         {#if showImages}
             <div class="hidden lg:block flex-shrink-0" transition:fly={{ y: 30, duration: 600, delay: 400 }}>
                 <ArtistsColumn 
+                    {projects}
                     {artists}
                     selectedProjectIndexes={selectedProjectIndexes}
                     {selectedArtists}
@@ -350,6 +358,7 @@
                 
                 <!-- Columna Derecha: Artistas -->
                 <ArtistsColumn 
+                    {projects}
                     {artists}
                     selectedProjectIndexes={selectedProjectIndexes}
                     {selectedArtists}
