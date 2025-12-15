@@ -126,7 +126,7 @@ export const projects: Project[] = [
         },
         {
                 title: "Projected Emotional Technologies",
-                subtitle: "Arvida Byström & Harmony",
+                subtitle: "Arvida Byström",
                 description: "Projected Emotional Technologies studies outsourced affection: AI dolls, deepfake labor, and the economic exhaustion that makes synthetic intimacy feel pragmatic instead of dystopian.",
                 thumbnailPath: [
                         "media/pet/project/project-1.webp",
@@ -136,8 +136,8 @@ export const projects: Project[] = [
                 thumbnailPathMobile: "media/pet/project/project-1.webp",
                 buttonPath: "media/home/buttons/14-button-digital-archaeology.png",
                 pagePath: "/pet",
-                artists: ["Arvida Byström", "Harmony"],
+                artists: ["Arvida Byström"],
                 artworks: ["Harmony Diagnostics", "Deepfake Batch #17", "Quiet Logistics"],
-                quote: "\"AI girlfriends don’t cause loneliness; they arrive when the workload makes human care feel impossible.\"",
+                quote: "\"AI girlfriends don't cause loneliness; they arrive when the workload makes human care feel impossible.\"",
         }
 ];
