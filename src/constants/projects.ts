@@ -138,6 +138,6 @@ export const projects: Project[] = [
                 pagePath: "/pet",
                 artists: ["Arvida Byström"],
                 artworks: ["Harmony Diagnostics", "Deepfake Batch #17", "Quiet Logistics"],
-                quote: "\"AI girlfriends don't cause loneliness; they arrive when the workload makes human care feel impossible.\"",
+                quote: "\"Arvida Byström's project PET arrives at a precise cultural moment: five million users subscribed to a single AI girlfriend app in its first month of operation.\"",
         }
 ];
