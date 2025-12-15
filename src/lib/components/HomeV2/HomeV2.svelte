@@ -1,12 +1,15 @@
 <script lang="ts">
     import { onMount, onDestroy } from 'svelte';
     import { fly } from 'svelte/transition';
-    import { projects, type Project } from '../../../constants/projects';
+    import { projects as projectsOriginal, type Project } from '../../../constants/projects';
     import ProjectsColumn from './ProjectsColumn/ProjectsColumn.svelte';
     import ImageGrid from './ImageGrid/ImageGrid.svelte';
     import ArtistsColumn from './ArtistsColumn/ArtistsColumn.svelte';
     import SelectedProject from './SelectedProject/SelectedProject.svelte';
     import { expandProject, collapseAll, expandedProjectIndex } from '../../stores/expansionStore';
+
+    // Invertir el orden de los proyectos: de más nuevo a más viejo
+    const projects = [...projectsOriginal].reverse();
 
     // Extraer solo los títulos de los proyectos para la primera columna
     const projectTitles = projects.map((p: Project) => p.title);
