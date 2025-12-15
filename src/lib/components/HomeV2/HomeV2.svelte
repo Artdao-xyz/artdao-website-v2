@@ -209,6 +209,10 @@
     function handleCardHover(index: number | null) {
         hoveredProjectIndex = index;
         hoveredProjectIndexes = index !== null ? [index] : [];
+        
+        // También highlightear las columnas cuando se hace hover en el ImageGrid
+        columnHoveredProjectIndex = index;
+        columnHoveredProjectIndexes = index !== null ? [index] : [];
     }
     
     
@@ -326,6 +330,7 @@
         {#if showImages}
             <div class="hidden lg:block flex-shrink-0" transition:fly={{ y: 30, duration: 600, delay: 400 }}>
                 <ArtistsColumn 
+                    {projects}
                     {artists}
                     selectedProjectIndexes={selectedProjectIndexes}
                     {selectedArtists}
@@ -353,6 +358,7 @@
                 
                 <!-- Columna Derecha: Artistas -->
                 <ArtistsColumn 
+                    {projects}
                     {artists}
                     selectedProjectIndexes={selectedProjectIndexes}
                     {selectedArtists}
