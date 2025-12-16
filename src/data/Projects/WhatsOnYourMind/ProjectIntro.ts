@@ -1,5 +1,5 @@
 export const whatsOnYourMindIntro = {
-	name: "What's on your mind",
+	name: "What's on your mind?",
 	description: [
 		'The relentless sirens of social media, and the ecosystems of attention they engender, force digital artists to confront existential questions of creativity, audience, and algorithmic control. For some, these pressures become generative prompts, materializing across a wide range of digital mediums.',
 		'In response, artists are remixing the very architecture of social platforms, crafting narratives where engagement and profit become both the medium and the message.',
