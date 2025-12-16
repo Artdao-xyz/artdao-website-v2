@@ -58,9 +58,9 @@
 		<img
 			src={images[index]}
 			alt="Big view"
-			class="laptopM:h-full {variant === ESizeVariant.SMALL
+			class="laptopM:h-full rounded-20 {variant === ESizeVariant.SMALL
 				? 'w-full object-cover h-full object-top'
-				: 'rounded-20 max-h-full sm:h-full sm:max-h-full object-contain'} {isImageWhiteBg
+				: 'max-h-full sm:h-full sm:max-h-full object-contain'} {isImageWhiteBg
 				? 'bg-color-white'
 				: ''}"
 		/>

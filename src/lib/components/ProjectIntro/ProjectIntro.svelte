@@ -38,7 +38,7 @@
 				? 'bigScreen:max-w-[67rem]'
 				: 'bigScreen:max-w-[45rem]'} xlScreen:max-w-[55rem] {textColor === 'black'
 				? 'text-color-black'
-				: 'text-color-white'} pl-global-padding gap-5 bigScreen:gap-10"
+				: 'text-color-white'} pl-global-padding gap-5 bigScreen:gap-10 p-4"
 		>
 			<h1
 				class="font-neue text-[2.5rem] sm:text-[4.375rem] macBook:text-[6.25rem] xlScreen:text-[10rem] xlScreen:leading-[10rem] font-semibold leading-[3rem] sm:leading-[5rem] laptopM:leading-[6.5625rem] tracking-[0.0975rem] uppercase"

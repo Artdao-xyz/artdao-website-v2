@@ -22,7 +22,7 @@ export let showTitle = true;
 </script>
 
 <div
-	class="flex flex-col justify-start items-start sm:items-center sm:justify-center gap-5 {isBlack
+	class="flex flex-col justify-center items-start sm:items-center gap-5 {isBlack
 		? 'text-color-white'
 		: 'text-color-black'} {backgroundColor} w-full max-w-2xl mx-[2rem] sm:max-h-[82%] pt-2 sm:pt-0 pb-2 sm:pb-0"
 	style={backgroundColorStyle}
@@ -50,7 +50,7 @@ export let showTitle = true;
 			</h2>
 		</div>
 	{/if}
-	<div class="w-full h-full overflow-y-visible sm:overflow-y-auto pr-[0.4375rem]">
+	<div class="w-full sm:h-full overflow-y-visible sm:overflow-y-auto pr-[0.4375rem]">
 		<p
 			class="font-clash leading-[1.5rem] sm:leading-[1.5625rem] text-base"
 		>
