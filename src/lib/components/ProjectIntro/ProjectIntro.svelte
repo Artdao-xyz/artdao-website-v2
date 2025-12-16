@@ -23,7 +23,7 @@
 
 <SectionContainer hasPadding={false} isOverflow={true} bgImage={bgImage}>
 	<div
-		class="w-full h-full lg:h-screen flex flex-row pt-[4.5rem] gap-28 {bgImage
+		class="w-full min-h-dvh lg:h-screen flex flex-row pt-[4.5rem] gap-28 {bgImage
 			? `${isContain && width > 1100 ? 'sm:bg-cover' : 'bg-cover'} bg-fit bg-no-repeat bg-color-black`
 			: ''} {textColor === 'black'
 			? 'bg-color-white'
