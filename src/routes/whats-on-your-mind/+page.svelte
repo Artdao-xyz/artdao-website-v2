@@ -18,7 +18,9 @@ import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 		whatsOnYourMindDanielAbout,
 		whatsOnYourMindDanielImages,
 		whatsOnYourMindH4wneeAbout,
-		whatsOnYourMindH4wneeImages
+		whatsOnYourMindH4wneeImages,
+		whatsOnYourMindFeedAsASiteOfPerformanceAbout,
+		whatsOnYourMindFeedAsASiteOfPerformanceImages
 	} from '../../data/Projects/WhatsOnYourMind/ProjectAbout';
 import {
 	whatsOnYourMindCarouselDaniel,
@@ -38,6 +40,7 @@ import type { IGalleryImageMobile } from '$lib/elements/ArtworkContainer/interfa
 	let platformsIsInView: boolean;
 	let danielIsInView: boolean;
 	let h4wneeIsInView: boolean;
+	let feedAsASiteOfPerformanceIsInView: boolean;
 
 	let containerRef: HTMLElement;
 
@@ -55,6 +58,10 @@ import type { IGalleryImageMobile } from '$lib/elements/ArtworkContainer/interfa
 		if (h4wneeIsInView) {
 			updateNavBar(whatsOnYourMindNavStoreItems, whatsOnYourMindNavItems, whatsOnYourMindNavItems[2].route);
 		}
+
+		if (feedAsASiteOfPerformanceIsInView) {
+			updateNavBar(whatsOnYourMindNavStoreItems, whatsOnYourMindNavItems, whatsOnYourMindNavItems[3].route);
+		}
 	};
 
 	const loadImages = async () => {
@@ -63,6 +70,7 @@ import type { IGalleryImageMobile } from '$lib/elements/ArtworkContainer/interfa
 			whatsOnYourMindPlatformsImages,
 			whatsOnYourMindDanielImages,
 			whatsOnYourMindH4wneeImages,
+			whatsOnYourMindFeedAsASiteOfPerformanceImages,
 			whatsOnYourMindCarouselDaniel.map((item) => item.image),
 			whatsOnYourMindCarouselH4wnee.map((item) => item.image),
 			[whatsOnYourMindChatInterview.background]
@@ -179,6 +187,20 @@ import type { IGalleryImageMobile } from '$lib/elements/ArtworkContainer/interfa
 					imagesRight={whatsOnYourMindCarouselH4wneeMobileRight}
 				/>
 			</div>
+		</div>
+
+		<div
+			id="feed-as-a-site-of-performance"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => (feedAsASiteOfPerformanceIsInView = event.detail.inView)}
+			on:inview_enter={(event) => (feedAsASiteOfPerformanceIsInView = event.detail.inView)}
+			on:inview_leave={(event) => (feedAsASiteOfPerformanceIsInView = event.detail.inView)}
+		>
+			<ProjectAbout
+				aboutItem={whatsOnYourMindFeedAsASiteOfPerformanceAbout}
+				aboutImages={$preloadedImagesStore[4]}
+				route="feed-as-a-site-of-performance"
+			/>
 		</div>
 
 		<HomeIcon />

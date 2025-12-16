@@ -1,6 +1,7 @@
 import PlatformsAbout from './PlatformsAbout.svelte';
 import DanielAbout from './DanielAbout.svelte';
 import H4wneeAbout from './H4wneeAbout.svelte';
+import FeedAsASiteOfPerformanceAbout from './FeedAsASiteOfPerformanceAbout.svelte';
 
 export const whatsOnYourMindPlatformsAbout = {
 	title: 'platforms limitations',
@@ -30,5 +31,15 @@ export const whatsOnYourMindH4wneeAbout = {
 export const whatsOnYourMindH4wneeImages = [
 	'/media/whats-on-your-mind/about-31.webp',
 	'/media/whats-on-your-mind/about-32.webp'
+];
+
+export const whatsOnYourMindFeedAsASiteOfPerformanceAbout = {
+	title: 'Feed as a Site of Performance',
+	subtitle: '',
+	text: FeedAsASiteOfPerformanceAbout
+};
+
+export const whatsOnYourMindFeedAsASiteOfPerformanceImages = [
+	'/media/whats-on-your-mind/about-4.webp'
 ];
 
