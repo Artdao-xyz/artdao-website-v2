@@ -52,7 +52,7 @@ export let showTitle = true;
 	{/if}
 	<div class="w-full h-full overflow-y-visible sm:overflow-y-auto pr-[0.4375rem]">
 		<p
-			class="font-clash font-medium leading-[1.5rem] sm:leading-[1.5625rem] text-base"
+			class="font-clash leading-[1.5rem] sm:leading-[1.5625rem] text-base"
 		>
 			<svelte:component this={text}></svelte:component>
 		</p>
