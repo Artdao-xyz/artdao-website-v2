@@ -18,7 +18,7 @@
 </script>
 
 <div
-	class="!snap-start  shrink-0 w-full {isCover ? 'bg-cover' : ''} h-full lg:h-screen {bgImage ? 'bg-center bg-no-repeat' : ''} {hasPadding ? 'p-global-padding' : ''}"
+	class="!snap-start shrink-0 w-full {isCover ? 'bg-cover' : ''} h-full lg:h-screen {bgImage ? 'bg-center bg-no-repeat' : ''} {hasPadding ? 'p-global-padding' : ''}"
 	style="background-color: {backgroundColor}; {shouldShowDots ? 'background-repeat: repeat; background-image: url(\'/media/home/home-dot.svg\');' : ''} {bgImage ? `background-image: url(${bgImage})${shouldShowDots ? ', url(\'/media/home/home-dot.svg\')' : ''};` : ''}"
 >
 	<slot />

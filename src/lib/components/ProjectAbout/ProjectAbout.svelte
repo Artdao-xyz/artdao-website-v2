@@ -41,16 +41,20 @@
 </div>
 <div class="block sm:hidden" id={route}>
 	<SectionContainer {colorVariant} hasPadding={false} isOverflow={false}>
-		<div class="w-full flex justify-center">
+		<div class="w-full min-h-dvh flex items-center justify-center py-6">
 			<About {aboutItem} {colorVariant} />
 		</div>
 	</SectionContainer>
 	<SectionContainer {colorVariant} hasPadding={false}>
 		{#if aboutImage}
-			<img src={aboutImage} alt="About Section" class="w-full sm:w-1/2 h-100dvh {isImageContain ? 'object-contain' : 'object-cover'}" />
+			<div class="w-full min-h-dvh flex items-center justify-center p-4">
+				<img src={aboutImage} alt="About Section" class="w-full sm:w-1/2 {isImageContain ? 'object-contain' : 'object-cover'}" />
+			</div>
 		{/if}
 		{#if aboutImages}
-			<ImgNavigator images={aboutImages} variant={ESizeVariant.SMALL} />
+			<div class="min-h-dvh flex items-center justify-center p-4">
+				<ImgNavigator images={aboutImages} variant={ESizeVariant.SMALL} />
+			</div>
 		{/if}
 	</SectionContainer>
 </div>

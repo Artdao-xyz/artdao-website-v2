@@ -39,7 +39,8 @@ import {
 	ORB,
 	RAVE,
 	SUBCONSCIOUS_MEDIA,
-	PET
+	PET,
+	WHATS_ON_YOUR_MIND
 } from '../../constants/routes';
 
 export interface IProject {
@@ -103,6 +104,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.PET,
 		refs: [EProjects.BODY_FRONTIER, EProjects.SUBCONSCIOUS_MEDIA, EProjects.DIGITAL_MATTER]
+	},
+	{
+		name: EProjects.WHATS_ON_YOUR_MIND,
+		refs: [EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA, EProjects.DIGITAL_MATTER]
 	}
 ];
 
@@ -218,5 +223,13 @@ export const projectsDetails = [
 		hover: '/media/pet/project/project-5.webp',
 		url: PET,
 		mobileImage: '/media/pet/project/project-5.webp'
+	},
+	{
+		name: EProjects.WHATS_ON_YOUR_MIND,
+		nameToShow: "what's on your mind",
+		image: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp',
+		hover: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp',
+		url: WHATS_ON_YOUR_MIND,
+		mobileImage: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp'
 	}
 ];

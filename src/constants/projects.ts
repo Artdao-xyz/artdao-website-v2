@@ -139,5 +139,21 @@ export const projects: Project[] = [
                 artists: ["Arvida Byström"],
                 artworks: ["Harmony Diagnostics", "Deepfake Batch #17", "Quiet Logistics"],
                 quote: "\"Arvida Byström's project PET arrives at a precise cultural moment: five million users subscribed to a single AI girlfriend app in its first month of operation.\"",
+        },
+        {
+                title: "What's on your mind",
+                subtitle: "Daniel Vasconcelos & H4wnee",
+                description: "Artists weaponize platform mechanics—treating feeds, personas, and algorithms as mutable material—until the social web becomes a living studio where identity, attention, and resistance blur.",
+                thumbnailPath: [
+                        "media/whats-on-your-mind/carusel-1/daniel-gallery-2-1x.webp",
+                        "media/whats-on-your-mind/carusel-1/daniel-gallery-3-1x.webp",
+                        "media/whats-on-your-mind/carusel-2/h4wnee-gallery-1x.webp"
+                ],
+                thumbnailPathMobile: "media/whats-on-your-mind/carusel-1/daniel-gallery-2-1x.webp",
+                buttonPath: "media/home/buttons/11-button-whats-on-your-mind.png",
+                pagePath: "/whats-on-your-mind",
+                artists: ["Daniel Vasconcelos", "H4wnee"],
+                artworks: ["Platforms Limitations", "Daniel Vasconcelos", "H4wnee"],
+                quote: "\"A new digital self emerges—distributed, reactive, endlessly iterated.\"",
         }
 ];
