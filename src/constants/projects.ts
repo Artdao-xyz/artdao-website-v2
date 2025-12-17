@@ -113,18 +113,6 @@ export const projects: Project[] = [
                 quote: "\"It's as if the machine represents a divine archetype, something akin to God.\"",
         },
         {
-                title: "Digital Archaeology",
-                subtitle: "Pinky Blue, Sabato, Estella Flores & Stipin Pixel",
-                description: "We are constantly bombarded by new media — Yet, I remain influenced by the aesthetics of the past. Limitations offer a form of comfort when creating art.",
-                thumbnailPath: ["media/home/thumbnails-v2/digital-archaeology/3.webp", "media/home/thumbnails-v2/digital-archaeology/1.webp", "media/home/thumbnails-v2/digital-archaeology/2.webp"],
-                thumbnailPathMobile: "media/home/thumbnails-v2-mobile/digital-archaeology.webp",
-                buttonPath: "media/home/buttons/14-button-digital-archaeology.png",
-                pagePath: "/digital-archaeology",
-                artists: ["Pinky Blue", "Sabato", "Estella Flores", "Stipin Pixel"],
-                artworks: ["Pinky Blue", "Artifact", "Sabato"],
-                quote: "\"We engage with these elements critically, subverting their original functions and assigning subjective meanings.\"",
-        },
-        {
                 title: "Projected Emotional Technologies",
                 subtitle: "Arvida Byström",
                 description: "Projected Emotional Technologies studies outsourced affection: AI dolls, deepfake labor, and the economic exhaustion that makes synthetic intimacy feel pragmatic instead of dystopian.",
@@ -155,5 +143,17 @@ export const projects: Project[] = [
                 artists: ["Daniel Vasconcelos", "H4wnee"],
                 artworks: ["Platforms Limitations", "Daniel Vasconcelos", "H4wnee"],
                 quote: "\"A new digital self emerges—distributed, reactive, endlessly iterated.\"",
-        }
+        },
+        {
+                title: "Digital Archaeology",
+                subtitle: "Pinky Blue, Sabato, Estella Flores & Stipin Pixel",
+                description: "We are constantly bombarded by new media — Yet, I remain influenced by the aesthetics of the past. Limitations offer a form of comfort when creating art.",
+                thumbnailPath: ["media/home/thumbnails-v2/digital-archaeology/3.webp", "media/home/thumbnails-v2/digital-archaeology/1.webp", "media/home/thumbnails-v2/digital-archaeology/2.webp"],
+                thumbnailPathMobile: "media/home/thumbnails-v2-mobile/digital-archaeology.webp",
+                buttonPath: "media/home/buttons/14-button-digital-archaeology.png",
+                pagePath: "/digital-archaeology",
+                artists: ["Pinky Blue", "Sabato", "Estella Flores", "Stipin Pixel"],
+                artworks: ["Pinky Blue", "Artifact", "Sabato"],
+                quote: "\"We engage with these elements critically, subverting their original functions and assigning subjective meanings.\"",
+        },
 ];

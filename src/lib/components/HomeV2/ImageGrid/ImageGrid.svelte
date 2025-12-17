@@ -118,7 +118,8 @@
 
 <div 
     bind:this={gridContainer}
-    class="hidden lg:grid grid-cols-3 flex-1 w-full h-full overflow-visible gap-6 py-20 scrollbar-hide relative"
+    class="hidden lg:grid grid-cols-3 flex-1 w-full overflow-y-auto overflow-x-hidden gap-6 py-20 scrollbar-hide relative"
+    style="max-height: calc(100dvh); grid-auto-rows: minmax(0, calc((100dvh - 10rem - 3rem) / 3));"
 >
     
     <!-- Proyectos reorganizados: seleccionados primero -->
