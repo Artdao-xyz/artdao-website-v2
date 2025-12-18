@@ -121,7 +121,7 @@ export const projects: Project[] = [
                         "media/pet/project/project-2.webp",
                         "media/pet/project/project-3.webp"
                 ],
-                thumbnailPathMobile: "media/pet/project/project-1.webp",
+                thumbnailPathMobile: "media/home/thumbnails-v2-mobile/pet.webp",
                 buttonPath: "media/home/buttons/14-button-digital-archaeology.png",
                 pagePath: "/pet",
                 artists: ["Arvida Byström"],
@@ -137,7 +137,7 @@ export const projects: Project[] = [
                         "media/whats-on-your-mind/carusel-1/daniel-gallery-3-1x.webp",
                         "media/whats-on-your-mind/carusel-2/h4wnee-gallery-1x.webp"
                 ],
-                thumbnailPathMobile: "media/whats-on-your-mind/carusel-1/daniel-gallery-2-1x.webp",
+                thumbnailPathMobile: "media/home/thumbnails-v2-mobile/whats-on-your-mind.webp",
                 buttonPath: "media/home/buttons/11-button-whats-on-your-mind.png",
                 pagePath: "/whats-on-your-mind",
                 artists: ["Daniel Vasconcelos", "H4wnee"],
