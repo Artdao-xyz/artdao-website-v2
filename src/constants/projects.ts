@@ -146,7 +146,7 @@ export const projects: Project[] = [
         },
         {
                 title: "Subconscious Media",
-                subtitle: "Vidal Herrera & Gregorio Nash",
+                subtitle: "Cyberspace has evolved into a realization platform where individual creative expressions reveal emergent patterns of collective thinking.",
                 description: "\"More tools gives the possibility to better express what you don't quite know what it is. Even if you are unsure of the path, the important thing is not to lose what guides you, the essential, what really matters.\"",
                 thumbnailPath: ["media/home/thumbnails-v2/subconscious-media/3.webp", "media/home/thumbnails-v2/subconscious-media/2.webp", "media/home/thumbnails-v2/subconscious-media/1.webp"],
                 thumbnailPathMobile: "media/home/thumbnails-v2-mobile/subconscious-media.webp",
@@ -154,6 +154,6 @@ export const projects: Project[] = [
                 pagePath: "/subconscious-media",
                 artists: ["Vidal Herrera", "Gregorio Nash"],
                 artworks: ["Untitled", "Observable Halo of a Comet Impact", "Influencer"],
-                quote: "\"It's as if the machine represents a divine archetype, something akin to God.\"",
+                quote: "\"Cyberspace has evolved into a realization platform where individual creative expressions reveal emergent patterns of collective thinking.\"",
         }
 ];
