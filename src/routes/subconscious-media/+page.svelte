@@ -8,7 +8,7 @@
 	import { inview } from 'svelte-inview';
 	import { EColorVariant, EProjects } from '../../constants/enums';
 	import { subconsciousMediaNavItems } from '../../data/Projects/SubconsciousMedia/NavItems';
-	import { subconsciousMediaAbout1, subconsciousMediaAbout1Images, subconsciousMediaAbout2, subconsciousMediaAbout2Images, subconsciousMediaAbout3, subconsciousMediaAbout3Images } from '../../data/Projects/SubconsciousMedia/ProjectAbout';
+	import { subconsciousMediaAbout1, subconsciousMediaAbout1Images, subconsciousMediaAbout2, subconsciousMediaAbout2Images, subconsciousMediaAbout3, subconsciousMediaAbout3Images, subconsciousMediaAbout4, subconsciousMediaAbout4Images } from '../../data/Projects/SubconsciousMedia/ProjectAbout';
 	import { subconsciousMediaDropdown1, subconsciousMediaDropdown2 } from '../../data/Projects/SubconsciousMedia/ProjectAboutDropdown';
 	import { subconsciousMediaIntro } from '../../data/Projects/SubconsciousMedia/ProjectIntro';
 	import { subconsciousMediaChatInterview, subconsciousMediaChatInterview2 } from '../../data/Projects/SubconsciousMedia/ProjectChatInterview';
@@ -27,6 +27,7 @@
 	let introIsInView: boolean;
 	let vidalHerreraIsInView: boolean;
 	let gregorioNashIsInView: boolean;
+	let technologyAsABindingForceIsInView: boolean;
 
 	let containerRef: any;
 
@@ -36,6 +37,7 @@
 		if (introIsInView) updateNavBar(subconsciousMediaNavStoreItems, subconsciousMediaNavItems, subconsciousMediaNavItems[0].route);
 		if (vidalHerreraIsInView) updateNavBar(subconsciousMediaNavStoreItems, subconsciousMediaNavItems, subconsciousMediaNavItems[1].route);
 		if (gregorioNashIsInView) updateNavBar(subconsciousMediaNavStoreItems, subconsciousMediaNavItems, subconsciousMediaNavItems[2].route);
+		if (technologyAsABindingForceIsInView) updateNavBar(subconsciousMediaNavStoreItems, subconsciousMediaNavItems, subconsciousMediaNavItems[3].route);
 	};
 
 	// Función para cargar las imágenes cuando el Metaball esté listo
@@ -45,7 +47,8 @@
 			subconsciousMediaAbout1Images,
 			subconsciousMediaAbout2Images,
 			subconsciousMediaDropdown1.map(item => item.image),
-			subconsciousMediaAbout3Images
+			subconsciousMediaAbout3Images,
+			subconsciousMediaAbout4Images
 		]);
 		preloadedImagesStore.set(images);
 		imagesLoaded.set(true);
@@ -95,6 +98,12 @@
 			<ChatInterview data={subconsciousMediaChatInterview2} />
 			<ProjectAboutDropdown images={$preloadedImagesStore[3]} aboutDropdownItems={subconsciousMediaDropdown2} route="" />
 		</div>
+
+		<!-- Technology as a Binding Force Section -->
+		<div id="technology-as-a-binding-force" use:inview={INVIEW_OPTIONS} on:inview_change={(event) => { technologyAsABindingForceIsInView = event.detail.inView; }}>
+			<ProjectAbout aboutItem={subconsciousMediaAbout4} aboutImages={$preloadedImagesStore[5]} route="" colorVariant={EColorVariant.BLACK} />
+		</div>
+
 		<Footer project={EProjects.SUBCONSCIOUS_MEDIA} />
 	</div>
 {/if}

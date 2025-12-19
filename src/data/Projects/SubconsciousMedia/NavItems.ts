@@ -5,5 +5,6 @@ export type INavBarItem = INavBarItemType;
 export const subconsciousMediaNavItems: INavBarItem[] = [
 	{ text: 'Intro', route: 'intro', selected: false },
 	{ text: 'Vidal Herrera', route: 'vidal-herrera', selected: false },
-	{ text: 'Gregorio Nash', route: 'gregorio-nash', selected: false }
+	{ text: 'Gregorio Nash', route: 'gregorio-nash', selected: false },
+	{ text: 'Technology as a Binding Force', route: 'technology-as-a-binding-force', selected: false }
 ]; 
