@@ -1,5 +1,4 @@
 <script lang="ts">
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
@@ -30,9 +29,13 @@
 		queeringTheWeb3ArtworkGrid2MobileRight
 	} from '../../data/Projects/QueeringTheWeb3/ProjectArtworkGrid2';
 	import { queeringTheWeb3ChatInterview } from '../../data/Projects/QueeringTheWeb3/ProjectChatInterview';
+	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import preloadImages from '../../utils/preloadImages';
 	import { queeringTheWeb3NavStoreItems } from './store';
+	import { fly } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
 
 	let size: number;
 	let introIsInView: boolean;
@@ -40,54 +43,55 @@
 	let artworkGridIsInView: boolean;
 	let about2IsInView: boolean;
 	let artworkGrid2IsInView: boolean;
-	let interviewIsInView: boolean;
 	let about3IsInView: boolean;
 
 	let containerRef: any;
 
 	const handleOnScroll = () => {
+		getMetaballProgress(containerRef);
+		
 		if (introIsInView) {
 			updateNavBar(queeringTheWeb3NavStoreItems, queeringTheWeb3NavItems, queeringTheWeb3NavItems[0].route);
 		}
 		if (about1IsInView) {
 			updateNavBar(queeringTheWeb3NavStoreItems, queeringTheWeb3NavItems, queeringTheWeb3NavItems[1].route);
 		}
-		if (artworkGridIsInView) {
+		if (about2IsInView) {
 			updateNavBar(queeringTheWeb3NavStoreItems, queeringTheWeb3NavItems, queeringTheWeb3NavItems[2].route);
 		}
-		if (about2IsInView) {
-			updateNavBar(queeringTheWeb3NavStoreItems, queeringTheWeb3NavItems, queeringTheWeb3NavItems[3].route);
-		}
-		if (artworkGrid2IsInView) {
-			updateNavBar(queeringTheWeb3NavStoreItems, queeringTheWeb3NavItems, queeringTheWeb3NavItems[4].route);
-		}
-		if (interviewIsInView) {
-			updateNavBar(queeringTheWeb3NavStoreItems, queeringTheWeb3NavItems, queeringTheWeb3NavItems[5].route);
-		}
 		if (about3IsInView) {
-			updateNavBar(queeringTheWeb3NavStoreItems, queeringTheWeb3NavItems, queeringTheWeb3NavItems[6].route);
+			updateNavBar(queeringTheWeb3NavStoreItems, queeringTheWeb3NavItems, queeringTheWeb3NavItems[3].route);
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[queeringTheWeb3Intro.bgImage, queeringTheWeb3Intro.bgImageMobile],
-		queeringTheWeb3About1Images,
-		queeringTheWeb3About2Images,
-		queeringTheWeb3About3Images,
-		QueeringTheWeb3ArtworkGrid.artworks.map((item) => item.image),
-		QueeringTheWeb3ArtworkGrid2.artworks.map((item) => item.image)
-	]);
+	// Función para cargar las imágenes cuando el Metaball esté listo
+	const loadImages = async () => {
+		const images = await preloadImages([
+			[queeringTheWeb3Intro.bgImage, queeringTheWeb3Intro.bgImageMobile],
+			queeringTheWeb3About1Images,
+			queeringTheWeb3About2Images,
+			queeringTheWeb3About3Images,
+			QueeringTheWeb3ArtworkGrid.artworks.map((item) => item.image),
+			QueeringTheWeb3ArtworkGrid2.artworks.map((item) => item.image)
+		]);
+		preloadedImagesStore.set(images);
+		imagesLoaded.set(true);
+	};
+
+	// Cargar imágenes cuando el Metaball esté listo
+	$: if ($metaballReady) {
+		loadImages();
+	}
 </script>
 
 <svelte:window bind:innerWidth={size} />
 
-{#await preloadedImages}
-	<LoadingV2 />
-{:then images}
+{#if $preloadedImagesStore}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
+		transition:fly={{ duration: 1000, delay: 750, y: 30, easing: cubicInOut }}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<!-- Intro Section -->
@@ -102,8 +106,8 @@
 			<ProjectIntro
 				project={queeringTheWeb3Intro}
 				textColor="white"
-				bgImage={images[0][0]}
-				bgImageMobile={images[0][1]}
+				bgImage={$preloadedImagesStore[0][0]}
+				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>
 		</div>
 
@@ -118,13 +122,20 @@
 		>
 			<ProjectAbout
 				aboutItem={queeringTheWeb3About1}
-				aboutImages={images[1]}
+				aboutImages={$preloadedImagesStore[1]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
 		</div>
 
-                		<!-- About 2 Section -->
+		<!-- Interview Section -->
+		<div
+		id="interview"
+	>
+			<ChatInterview data={queeringTheWeb3ChatInterview} />
+		</div>
+				
+		<!-- About 2 Section -->
 		<div
                 id="about2"
                 use:inview={INVIEW_OPTIONS}
@@ -135,7 +146,7 @@
         >
                 <ProjectAbout
                         aboutItem={queeringTheWeb3About2}
-                        aboutImages={images[2]}
+                        aboutImages={$preloadedImagesStore[2]}
                         route=""
                         colorVariant={EColorVariant.BLACK}
                 />
@@ -163,18 +174,6 @@
 			</div>
 		</div>
 
-		<!-- Interview Section -->
-		<div
-		id="interview"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			interviewIsInView = inView;
-		}}
-	>
-			<ChatInterview data={queeringTheWeb3ChatInterview} />
-		</div>
-
 		<!-- About 3 Section -->
 		<div
 		id="about3"
@@ -186,7 +185,7 @@
 	>
 			<ProjectAbout
 				aboutItem={queeringTheWeb3About3}
-				aboutImages={images[3]}
+				aboutImages={$preloadedImagesStore[3]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -217,7 +216,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.QUEERING_THE_WEB3} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

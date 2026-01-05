@@ -7,32 +7,17 @@ export const queeringTheWeb3NavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
-		text: 'Queering the Web3',
+		text: 'Immutability vs. Erasure',
 		route: 'about1',
 		selected: false
 	},
 	{
-		text: 'Digital Artifacts',
-		route: 'artwork-grid',
-		selected: false
-	},
-	{
-		text: 'Digital Kinship',
+		text: 'Zak Krevitt',
 		route: 'about2',
 		selected: false
 	},
 	{
-		text: 'Artwork Collection',
-		route: 'artwork-grid-2',
-		selected: false
-	},
-	{
-		text: 'Interview',
-		route: 'interview',
-		selected: false
-	},
-	{
-		text: 'Future Possibilities',
+		text: 'SKY GOODMAN',
 		route: 'about3',
 		selected: false
 	}
