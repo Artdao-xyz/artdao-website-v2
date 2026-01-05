@@ -77,7 +77,7 @@
 					style="width: {percentage}%; z-index: -{i};"
 					on:click={() => handleOnClick(i)}
 				>
-					{navItem.text}
+					{navItem.shortText || navItem.text}
 				</a>
 			{/each}
 		{/if}
@@ -131,7 +131,7 @@
 	flex flex-row items-center py-[0.75rem] pr-[2.5rem] transition delay-75 duration-700 ease-in-out transform"
 							on:click={() => handleOnClick(i)}
 						>
-							{navItem.text}
+							{navItem.shortText || navItem.text}
 						</a>
 					{/each}
 				{/if}

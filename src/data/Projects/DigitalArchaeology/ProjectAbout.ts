@@ -4,6 +4,7 @@ import SabatoAbout from './SabatoAbout.svelte';
 import StipinAbout from './StipinAbout.svelte';
 import EstelleAbout from './EstelleAbout.svelte';
 import CydrAbout from './CydrAbout.svelte';
+import ConstraintsAbout from './ConstraintsAbout.svelte';
 
 export const nostalgiaAbout = {
 	title: 'nostalgia To cRITIQUE',
@@ -41,6 +42,12 @@ export const cydrAbout = {
 	text: CydrAbout
 };
 
+export const constraintsAbout = {
+	title: 'constraints as tools of liberation',
+	subtitle: '',
+	text: ConstraintsAbout
+};
+
 export const nostalgiaAboutImages = [
 	'/media/digital-archaeology/about-nostalgia/about-1.webp',
 	'/media/digital-archaeology/about-nostalgia/about-2.webp'
@@ -69,4 +76,8 @@ export const estelleAboutImages = [
 export const cydrAboutImages = [
 	'/media/digital-archaeology/about-cydr/about-1.webp',
 	'/media/digital-archaeology/about-cydr/about-2.webp'
+];
+
+export const constraintsAboutImages = [
+	'/media/digital-archaeology/about-end.webp'
 ]; 

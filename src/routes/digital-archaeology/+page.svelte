@@ -22,7 +22,9 @@
 		estelleAbout,
 		estelleAboutImages,
 		cydrAbout,
-		cydrAboutImages
+		cydrAboutImages,
+		constraintsAbout,
+		constraintsAboutImages
 	} from '../../data/Projects/DigitalArchaeology/ProjectAbout';
 	import { digitalArchaeologyIntro } from '../../data/Projects/DigitalArchaeology/ProjectIntro';
 	import { pinkyBlueVideo, sabatoVideo, stipinVideo } from '../../data/Projects/DigitalArchaeology/ProjectVideo';
@@ -43,6 +45,7 @@
 	let stipinIsInView: boolean;
 	let estelleIsInView: boolean;
 	let cydrIsInView: boolean;
+	let constraintsIsInView: boolean;
 
 	let containerRef: any;
 
@@ -67,6 +70,9 @@
 		if (cydrIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[5].route);
 		}
+		if (constraintsIsInView) {
+			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[6].route);
+		}
 	};
 
 	// Función para cargar las imágenes cuando el Metaball esté listo
@@ -79,6 +85,7 @@
 			stipinAboutImages,
 			estelleAboutImages,
 			cydrAboutImages,
+			constraintsAboutImages,
 			DigitalArchaeologyArtworkGrid.artworks.map((item) => item.image),
 			DigitalArchaeologyPolaroids.map((item) => item.image)
 		]);
@@ -225,6 +232,23 @@
 
 			<ProjectPolaroids images={DigitalArchaeologyPolaroids} />
 
+		</div>
+
+		<!-- Constraints as Tools of Liberation Section -->
+		<div
+			id="constraints"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				constraintsIsInView = inView;
+			}}
+		>
+			<ProjectAbout
+				aboutItem={constraintsAbout}
+				aboutImages={$preloadedImagesStore[7]}
+				route=""
+				colorVariant={EColorVariant.BLACK}
+			/>
 		</div>
 
 		<HomeIcon />
