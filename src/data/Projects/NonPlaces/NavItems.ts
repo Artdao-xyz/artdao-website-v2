@@ -2,23 +2,18 @@ import type { INavBarItem } from '$lib/elements/NavBar/interfaces';
 
 export const nonPlacesNavItems: INavBarItem[] = [
 	{
-		text: 'About',
-		route: 'intro',
+		text: 'Video',
+		route: 'video',
 		selected: false
 	},
 	{
-		text: 'The Venue',
-		route: 'venue',
+		text: 'Exhibition',
+		route: 'exhibition',
 		selected: false
 	},
 	{
-		text: 'Vernisagge',
-		route: 'vernisagge',
-		selected: false
-	},
-	{
-		text: 'Artworks',
-		route: 'artworks',
+		text: 'Artists and Artworks',
+		route: 'artists-and-artworks',
 		selected: false
 	}
 ];

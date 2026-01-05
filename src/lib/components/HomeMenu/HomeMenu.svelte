@@ -54,7 +54,7 @@
 			<!-- <HomeDrop dropNumber={'000'} dropName={'psipsikoko'} dropLogo={hammer} /> -->
 			<HomeMap title={'bridging the global & hyperlocal'} logo={mapLogo} />
 		</div>
-		<HomeNewsletter />
+		<HomeNewsletter design="classic" />
 		<div class="flex gap-[2.375rem] h-full w-full">
 			<HomeSocial icon={discordIcon} />
 			<HomeSocial icon={instagramIcon} />
@@ -130,7 +130,7 @@
 							</button>
 
 							<HomeMap title={'bridging the global & hyperlocal'} logo={mapLogo} />
-							<HomeNewsletter />
+							<HomeNewsletter design="classic" />
 							<div class="flex gap-[2.375rem] h-full w-full">
 								<HomeSocial icon={discordIcon} />
 								<HomeSocial icon={instagramIcon} />

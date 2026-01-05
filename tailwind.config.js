@@ -52,8 +52,8 @@ export default {
 			'color-gray-secondary': 'rgba(255, 255, 255, 0.60)',
 			'color-gray-background': '#A6A6A6',
 			'color-dark': '#313431',
-			'color-img-bg': '#D9D9D9',
-			'color-white': '#FFFFFF',
+			'color-img-bg': '#EAEAEA',
+			'color-white': '#F7F5F2',
 			'color-black': '#000000',
 			'color-interview-card': 'rgba(255, 255, 255, 0.40)',
 			'color-progress-bar-bg': 'rgba(0, 0, 0, 0.20)',
@@ -62,13 +62,15 @@ export default {
 			'color-red': 'red',
 			'color-green': 'green',
 			'color-blue': 'blue',
-			'color-gray-mobile': '#D9D9D9'
+			'color-gray-mobile': '#EAEAEA'
 		},
 		fontFamily: {
 			roboto: ['Roboto-Regular'],
 			robotoMono: ['Roboto-Mono'],
 			clash: ['ClashDisplay'],
-			neue: ['NeuePower-Variable']
+			neue: ['NeuePower-Variable'],
+			geist: ['Geist'],
+			geistMono: ['GeistMono']
 		},
 		borderRadius: {
 			0: '0rem',

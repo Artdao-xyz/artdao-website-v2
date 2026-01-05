@@ -34,10 +34,13 @@ import {
 	IN_CONVERSATION,
 	INHERENT,
 	INTERTWINED,
+	MEMETIC_RUBBLE,
 	NON_PLACES,
 	ORB,
 	RAVE,
-	SUBCONSCIOUS_MEDIA
+	SUBCONSCIOUS_MEDIA,
+	PET,
+	WHATS_ON_YOUR_MIND
 } from '../../constants/routes';
 
 export interface IProject {
@@ -75,6 +78,10 @@ export const projects: IProject[] = [
 		refs: [EProjects.ARTIFICE, EProjects.INHERENT_INSTABILITY, EProjects.DIGITAL_MATTER]
 	},
 	{
+		name: EProjects.MEMETIC_RUBBLE,
+		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.IN_CONVERSATION]
+	},
+	{
 		name: EProjects.NON_PLACES,
 		refs: [EProjects.ECOLOGIES_OF_CODE, EProjects.ORB, EProjects.IN_CONVERSATION]
 	},
@@ -87,8 +94,20 @@ export const projects: IProject[] = [
 		refs: [EProjects.IN_CONVERSATION, EProjects.INTERTWINED, EProjects.INHERENT_INSTABILITY]
 	},
 	{
+		name: EProjects.BODY_FRONTIER,
+		refs: [EProjects.ARTIFICE, EProjects.ORB, EProjects.RAVE]
+	},
+	{
 		name: EProjects.SUBCONSCIOUS_MEDIA,
 		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
+	},
+	{
+		name: EProjects.PET,
+		refs: [EProjects.BODY_FRONTIER, EProjects.SUBCONSCIOUS_MEDIA, EProjects.DIGITAL_MATTER]
+	},
+	{
+		name: EProjects.WHATS_ON_YOUR_MIND,
+		refs: [EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA, EProjects.DIGITAL_MATTER]
 	}
 ];
 
@@ -142,6 +161,14 @@ export const projectsDetails = [
 		mobileImage: intertwinedMobile
 	},
 	{
+		name: EProjects.MEMETIC_RUBBLE,
+		nameToShow: 'memetic rubble',
+		image: '/media/home/thumbnails/12-home-memetic-rubble.webp',
+		hover: '/media/home/thumbnails/12-home-memetic-rubble.webp',
+		url: MEMETIC_RUBBLE,
+		mobileImage: '/media/home/thumbnails/12-home-memetic-rubble.webp'
+	},
+	{
 		name: EProjects.IN_CONVERSATION,
 		nameToShow: 'in conversation',
 		image: conversation,
@@ -174,11 +201,35 @@ export const projectsDetails = [
 		mobileImage: raveMobile
 	},
 	{
+		name: EProjects.BODY_FRONTIER,
+		nameToShow: 'body frontier',
+		image: 'media/home/thumbnails/10-home-body-frontier.webp',
+		hover: 'media/home/thumbnails/10-home-body-frontier.webp',
+		url: '/body-frontier',
+		mobileImage: 'media/home/thumbnails/10-home-body-frontier.webp'
+	},
+	{
 		name: EProjects.SUBCONSCIOUS_MEDIA,
 		nameToShow: 'subconscious media',
 		image: '/media/home/thumbnails/13-home-subconscious-media.webp',
 		hover: '/media/home/thumbnails/13-home-subconscious-media.webp',
 		url: SUBCONSCIOUS_MEDIA,
 		mobileImage: '/media/home/thumbnails/13-home-subconscious-media.webp'
+	},
+	{
+		name: EProjects.PET,
+		nameToShow: 'projected emotional technologies',
+		image: '/media/pet/project/project-5.webp',
+		hover: '/media/pet/project/project-5.webp',
+		url: PET,
+		mobileImage: '/media/pet/project/project-5.webp'
+	},
+	{
+		name: EProjects.WHATS_ON_YOUR_MIND,
+		nameToShow: "what's on your mind",
+		image: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp',
+		hover: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp',
+		url: WHATS_ON_YOUR_MIND,
+		mobileImage: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp'
 	}
 ];

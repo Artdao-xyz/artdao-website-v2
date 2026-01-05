@@ -1,4 +1,4 @@
 import { writable } from 'svelte/store';
-import type { INavBarItem } from '$lib/elements/NavBar/interfaces';
+import { subconsciousMediaNavItems } from '../../data/Projects/SubconsciousMedia/NavItems';
 
-export const subconsciousMediaNavStoreItems = writable<INavBarItem[]>([]); 
+export const subconsciousMediaNavStoreItems = writable(subconsciousMediaNavItems); 

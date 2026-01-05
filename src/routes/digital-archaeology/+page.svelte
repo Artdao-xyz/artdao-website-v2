@@ -1,5 +1,4 @@
 <script lang="ts">
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
@@ -30,93 +29,75 @@
 	import { DigitalArchaeologyArtworkGrid } from '../../data/Projects/DigitalArchaeology/ProjectArtworkGrid';
 	import { DigitalArchaeologyPolaroids } from '../../data/Projects/DigitalArchaeology/ProjectPolaroids';
 	import { digitalArchaeologyChatInterview, digitalArchaeologyChatInterview2 } from '../../data/Projects/DigitalArchaeology/ProjectChatInterview';
+	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import preloadImages from '../../utils/preloadImages';
 	import { digitalArchaeologyNavStoreItems } from './store';
-
+	import { fly } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
+	
 	let introIsInView: boolean;
-	let nostalgiaIsInView: boolean;
 	let pinkyBlueIsInView: boolean;
 	let sabatoIsInView: boolean;
 	let stipinIsInView: boolean;
-	let chatInterviewIsInView: boolean;
 	let estelleIsInView: boolean;
-	let artworkGridIsInView: boolean;
 	let cydrIsInView: boolean;
-	let chatInterview2IsInView: boolean;
-	let polaroidsIsInView: boolean;
-	let videoIsInView: boolean;
-	let pinkyBlueVideoIsInView: boolean;
-	let sabatoVideoIsInView: boolean;
-	let stipinVideoIsInView: boolean;
 
 	let containerRef: any;
 
 	const handleOnScroll = () => {
+		getMetaballProgress(containerRef);
+		
 		if (introIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[0].route);
 		}
-		if (nostalgiaIsInView) {
+		if (pinkyBlueIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[1].route);
 		}
-		if (pinkyBlueIsInView) {
+		if (sabatoIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[2].route);
 		}
-		if (sabatoIsInView) {
+		if (stipinIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[3].route);
 		}
-		if (stipinIsInView) {
+		if (estelleIsInView) {
 			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[4].route);
 		}
-		if (chatInterviewIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[5].route);
-		}
-		if (estelleIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[6].route);
-		}
-		if (artworkGridIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[7].route);
-		}
 		if (cydrIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[8].route);
-		}
-		if (chatInterview2IsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[9].route);
-		}
-		if (polaroidsIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[10].route);
-		}
-		if (videoIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[11].route);
-		}
-		if (sabatoVideoIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[13].route);
-		}
-		if (stipinVideoIsInView) {
-			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[14].route);
+			updateNavBar(digitalArchaeologyNavStoreItems, digitalArchaeologyNavItems, digitalArchaeologyNavItems[5].route);
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[digitalArchaeologyIntro.bgImage, digitalArchaeologyIntro.bgImageMobile],
-		nostalgiaAboutImages,
-		pinkyBlueAboutImages,
-		sabatoAboutImages,
-		stipinAboutImages,
-		estelleAboutImages,
-		cydrAboutImages,
-		DigitalArchaeologyArtworkGrid.artworks.map((item) => item.image),
-		DigitalArchaeologyPolaroids.map((item) => item.image)
-	]);
+	// Función para cargar las imágenes cuando el Metaball esté listo
+	const loadImages = async () => {
+		const images = await preloadImages([
+			[digitalArchaeologyIntro.bgImage, digitalArchaeologyIntro.bgImageMobile],
+			nostalgiaAboutImages,
+			pinkyBlueAboutImages,
+			sabatoAboutImages,
+			stipinAboutImages,
+			estelleAboutImages,
+			cydrAboutImages,
+			DigitalArchaeologyArtworkGrid.artworks.map((item) => item.image),
+			DigitalArchaeologyPolaroids.map((item) => item.image)
+		]);
+		preloadedImagesStore.set(images);
+		imagesLoaded.set(true);
+	};
+	
+	// Cargar imágenes cuando el Metaball esté listo
+	$: if ($metaballReady) {
+		loadImages();
+	}
 </script>
 
-{#await preloadedImages}
-	<LoadingV2 />
-{:then images}
+{#if $preloadedImagesStore}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
+		transition:fly={{ duration: 1000, delay: 750, y: 30, easing: cubicInOut }}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<!-- Intro Section -->
@@ -131,38 +112,17 @@
 			<ProjectIntro
 				project={digitalArchaeologyIntro}
 				textColor="white"
-				bgImage={images[0][0]}
-				bgImageMobile={images[0][1]}
+				bgImage={$preloadedImagesStore[0][0]}
+				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>
-		</div>
-
-		<!-- Nostalgia Section -->
-		<div
-			id="nostalgia"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				nostalgiaIsInView = inView;
-			}}
-		>
 			<ProjectAbout
-				aboutItem={nostalgiaAbout}
-				aboutImages={images[1]}
-				route=""
-				colorVariant={EColorVariant.BLACK}
+			aboutItem={nostalgiaAbout}
+			aboutImages={$preloadedImagesStore[1]}
+			route=""
+			colorVariant={EColorVariant.BLACK}
 			/>
-		</div>
-
-		<!-- Chat Interview Section -->
-		<div
-		id="chat-interview"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			chatInterviewIsInView = inView;
-		}}
-	>
 			<ChatInterview data={digitalArchaeologyChatInterview} />
+
 		</div>
 
 		<!-- PinkyBlue Section -->
@@ -174,28 +134,19 @@
 				pinkyBlueIsInView = inView;
 			}}
 		>
+
 			<ProjectAbout
 				aboutItem={pinkyBlueAbout}
-				aboutImages={images[2]}
+				aboutImages={$preloadedImagesStore[2]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 				isImageLeft={false}
 			/>
-		</div>
 
-			<!-- Video Section -->
-			<div
-			id="video"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				videoIsInView = inView;
-			}}
-		>
 			<ProjectVideo videoProjects={pinkyBlueVideo} />
 		</div>
 
-		<!-- Sabato Section -->
+		<!-- Sabato Video Section -->
 		<div
 			id="sabato"
 			use:inview={INVIEW_OPTIONS}
@@ -205,22 +156,12 @@
 			}}
 		>
 			<ProjectAbout
-				aboutItem={sabatoAbout}
-				aboutImages={images[3]}
-				route=""
-				colorVariant={EColorVariant.BLACK}
-			/>
-		</div>
+			aboutItem={sabatoAbout}
+			aboutImages={$preloadedImagesStore[3]}
+			route=""
+			colorVariant={EColorVariant.BLACK}
+		/>
 
-		<!-- Sabato Video Section -->
-		<div
-			id="sabato-video"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				sabatoVideoIsInView = inView;
-			}}
-		>
 			<ProjectVideo videoProjects={sabatoVideo} />
 		</div>
 
@@ -235,34 +176,15 @@
 		>
 			<ProjectAbout
 				aboutItem={stipinAbout}
-				aboutImages={images[4]}
+				aboutImages={$preloadedImagesStore[4]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
-		</div>
 
-		<!-- Stipin Video Section -->
-		<div
-		id="stipin-video"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			stipinVideoIsInView = inView;
-		}}
-	>
-		<ProjectVideo videoProjects={stipinVideo} />
-	</div>
+			<ProjectVideo videoProjects={stipinVideo} />
 
-			<!-- Chat Interview 2 Section -->
-		<div
-		id="chat-interview-2"
-		use:inview={INVIEW_OPTIONS}
-		on:inview_change={(event) => {
-			const { inView } = event.detail;
-			chatInterview2IsInView = inView;
-		}}
-		>
 			<ChatInterview data={digitalArchaeologyChatInterview2} />
+
 		</div>
 
 		<!-- Estelle Section -->
@@ -276,22 +198,13 @@
 		>
 			<ProjectAbout
 				aboutItem={estelleAbout}
-				aboutImages={images[5]}
+				aboutImages={$preloadedImagesStore[5]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
-		</div>
 
-		<!-- Artwork Grid Section -->
-		<div
-			id="artwork-grid"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				artworkGridIsInView = inView;
-			}}
-		>
 			<ProjectArtworkGrid galleryImages={DigitalArchaeologyArtworkGrid.artworks} />
+
 		</div>
 
 		<!-- CYDR Section -->
@@ -305,28 +218,19 @@
 		>
 			<ProjectAbout
 				aboutItem={cydrAbout}
-				aboutImages={images[6]}
+				aboutImages={$preloadedImagesStore[6]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
-		</div>
 
-		<!-- Polaroids Section -->
-		<div
-			id="polaroids"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				polaroidsIsInView = inView;
-			}}
-		>
 			<ProjectPolaroids images={DigitalArchaeologyPolaroids} />
+
 		</div>
 
 		<HomeIcon />
 		<Footer project={EProjects.DIGITAL_ARCHAEOLOGY} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

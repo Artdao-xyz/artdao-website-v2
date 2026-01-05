@@ -23,8 +23,14 @@ export enum EProjects {
 	IN_CONVERSATION = 'InCoversation',
 	INHERENT_INSTABILITY = 'InherentInstability',
 	INTERTWINED = 'Intertwined',
+	MEMETIC_RUBBLE = 'MemeticRubble',
 	NON_PLACES = 'NonPlaces',
 	ORB = 'Orb',
 	RAVE = 'Rave',
-	SUBCONSCIOUS_MEDIA = 'SubconsciousMedia'
+	BODY_FRONTIER = 'BodyFrontier',
+	SUBCONSCIOUS_MEDIA = 'SubconsciousMedia',
+	CAFE_EXE = 'CafeExe',
+	PET = 'ProjectedEmotionalTechnologies',
+	WHATS_ON_YOUR_MIND = 'WhatsOnYourMind'
 }
+

@@ -49,7 +49,7 @@
 				on:click={() => toggleVisibility(i)}
 			>
 				<p
-					class="w-full max-w-[15rem] sm:max-w-[35rem] h-fit text-color-black text-left text-[1.125rem] font-semibold font-clash capitalize"
+					class="w-full max-w-[15rem] sm:max-w-[35rem] h-fit text-color-black text-left text-[1.125rem] font-normal font-clash capitalize"
 				>
 					{question.question}
 				</p>

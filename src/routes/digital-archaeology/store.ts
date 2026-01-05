@@ -1,4 +1,4 @@
 import { writable } from 'svelte/store';
-import type { INavBarItem } from '$lib/elements/NavBar/interfaces';
+import { digitalArchaeologyNavItems } from '../../data/Projects/DigitalArchaeology/NavItems';
 
-export const digitalArchaeologyNavStoreItems = writable<INavBarItem[]>([]); 
+export const digitalArchaeologyNavStoreItems = writable(digitalArchaeologyNavItems); 

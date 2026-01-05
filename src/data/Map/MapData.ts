@@ -36,7 +36,7 @@ import underworld01 from '$lib/assets/images/events/underworld-1.webp';
 import underworld02 from '$lib/assets/images/events/underworld-2.webp';
 import underworld03 from '$lib/assets/images/events/underworld-3.webp';
 import underworld04 from '$lib/assets/images/events/underworld-4.webp';
-import { ARTIFICE, INTERTWINED, NON_PLACES, ORB, RAVE } from '../../constants/routes';
+import { ARTIFICE, CAFE_EXE, INTERTWINED, NON_PLACES, ORB, RAVE } from '../../constants/routes';
 
 export const eventImages = [
 	intertwined01,
@@ -93,14 +93,25 @@ export interface IMapEvent {
 export interface IMapLocation {
 	location: string;
 	events: IMapEvent[];
+	coordinates: {
+		top: string;
+		left: string;
+		dotOnLeft?: boolean;
+		showOnTop?: boolean;
+	};
 }
 
 export const mapData: IMapLocation[] = [
 	{
 		location: 'Lisbon',
+		coordinates: {
+			top: '42',
+			left: '35',
+			dotOnLeft: false
+		},
 		events: [
 			{
-				title: 'INTERTWINED',
+				title: 'Intertwined',
 				subtitle: 'Exhibition / Party',
 				date: 'Nov 10th-16th, 2023',
 				location: 'Arroz Estudios, Lisbon',
@@ -109,7 +120,7 @@ export const mapData: IMapLocation[] = [
 				watchMore: INTERTWINED
 			},
 			{
-				title: 'UNDERWORLD',
+				title: 'Underworld',
 				subtitle: 'Exhibition / Party',
 				date: 'July 18th-20th, 2023',
 				location: '31 Rue HEnri Chevreu, Paris',
@@ -117,7 +128,7 @@ export const mapData: IMapLocation[] = [
 				city: 'Lisbon'
 			},
 			{
-				title: 'RAVE',
+				title: 'Rave',
 				subtitle: 'Exhibition / Party',
 				date: 'May 5th, 2024',
 				location: 'Higher Ground, Lisbon',
@@ -126,7 +137,7 @@ export const mapData: IMapLocation[] = [
 				watchMore: RAVE
 			},
 			{
-				title: 'ARTIFICE',
+				title: 'Artifice',
 				subtitle: 'Exhibition / Party',
 				date: 'May 28th-30th, 2024',
 				location: 'RNA Studio, Lisbon',
@@ -139,18 +150,22 @@ export const mapData: IMapLocation[] = [
 	},
 	{
 		location: 'Paris',
+		coordinates: {
+			top: '38.5',
+			left: '40'
+		},
 		events: [
 			{
-				title: 'NFT PARIS',
+				title: 'NFT Paris',
 				subtitle: 'Lukas Truniger Showcase',
 				date: 'February 23rd, 2023',
-				location: '101 Rue Réaumur, PARIS',
+				location: '101 Rue Réaumur, Paris',
 				images: [nftParis01, nftParis02],
 				city: 'Paris'
 			},
 			{
-				title: 'NON PLACES',
-				subtitle: 'EExhibition / Party',
+				title: 'Non Places',
+				subtitle: 'Exhibition / Party',
 				date: 'July 18th-20th, 2023',
 				location: '31 Rue HEnri Chevreu, Paris',
 				images: [nonPlaces01, nonPlaces02, nonPlaces03],
@@ -162,9 +177,13 @@ export const mapData: IMapLocation[] = [
 	},
 	{
 		location: 'Denver',
+		coordinates: {
+			top: '40',
+			left: '24'
+		},
 		events: [
 			{
-				title: 'ETH DENVER',
+				title: 'ETH Denver',
 				subtitle: 'Exhibition',
 				date: 'March 2th-6th, 2023',
 				location: 'Denver, Colorado',
@@ -175,9 +194,13 @@ export const mapData: IMapLocation[] = [
 	},
 	{
 		location: 'Bogotá',
+		coordinates: {
+			top: '60.5',
+			left: '30.2'
+		},
 		events: [
 			{
-				title: 'DEVCON',
+				title: 'Devcon',
 				subtitle: 'Exhibition / mural / talk',
 				date: 'October 11th-14th, 2022',
 				location: 'Bogotá, Colombia',
@@ -188,6 +211,10 @@ export const mapData: IMapLocation[] = [
 	},
 	{
 		location: 'São Paulo',
+		coordinates: {
+			top: '70',
+			left: '35'
+		},
 		events: [
 			{
 				title: 'O.R.B.',
@@ -203,9 +230,14 @@ export const mapData: IMapLocation[] = [
 	},
 	{
 		location: 'Buenos Aires',
+		coordinates: {
+			top: '82',
+			left: '30',
+			showOnTop: true
+		},
 		events: [
 			{
-				title: 'CERO UNO',
+				title: 'Cero Uno',
 				subtitle: 'Exhibition / Talks / After Party',
 				date: 'March 31th, 2023',
 				location: 'Artlab, Buenos Aires',
@@ -213,12 +245,26 @@ export const mapData: IMapLocation[] = [
 				city: 'Buenos Aires'
 			},
 			{
-				title: 'PSIPSIKOKO',
+				title: 'Psipsikoko',
 				subtitle: 'Exhibition',
 				date: 'October 26th-27th, 2023',
 				location: 'Aura Fabrica, Buenos Aires',
 				images: [psispikoko01, psispikoko02, psispikoko03, psispikoko04],
 				city: 'Buenos Aires'
+			},
+			{
+				title: 'Café Exe',
+				subtitle: 'Exhibition',
+				date: 'November 18th-22nd, 2025',
+				location: 'Buenos Aires, Argentina',
+				images: [
+					'/media/cafe-exe/cafe-exe-carusel/carusel-1.webp',
+					'/media/cafe-exe/cafe-exe-carusel/carusel-2.webp',
+					'/media/cafe-exe/cafe-exe-carusel/carusel-3.webp',
+					'/media/cafe-exe/cafe-exe-carusel/carusel-4.webp'
+				],
+				city: 'Buenos Aires',
+				watchMore: CAFE_EXE
 			}
 		]
 	}

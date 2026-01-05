@@ -9,9 +9,11 @@
     let isReady = false;
 
     onMount(() => {
-        homeThumbnails.addEventListener('scroll', () => {
-            getMetaballProgress(homeThumbnails);
-        });
+        if (homeThumbnails) {
+            homeThumbnails.addEventListener('scroll', () => {
+                getMetaballProgress(homeThumbnails);
+            });
+        }
         
         setTimeout(() => {
             isReady = true;
