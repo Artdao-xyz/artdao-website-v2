@@ -40,11 +40,13 @@
 		const dragStart = (ev: any) => container.setPointerCapture(ev.pointerId);
 		const dragEnd = (ev: any) => container.releasePointerCapture(ev.pointerId);
 		const drag = (ev: any) =>
-			container.hasPointerCapture(ev.pointerId) && (container.scrollLeft -= ev.movementX * 100);
+			container.hasPointerCapture(ev.pointerId) && (container.scrollLeft -= ev.movementX * 1000);
 
-		container.addEventListener('pointerdown', dragStart);
-		container.addEventListener('pointerup', dragEnd);
-		container.addEventListener('pointermove', drag);
+		if (container) {
+			container.addEventListener('pointerdown', dragStart);
+			container.addEventListener('pointerup', dragEnd);
+			container.addEventListener('pointermove', drag);
+		}
 	};
 </script>
 
@@ -67,15 +69,15 @@
 			{/each}
 		</div>
 	</div>
-	<div class="flex flex-row gap-10 h-[2rem] justify-center w-full">
+	<div class="flex flex-row gap-10 h-[1rem] justify-center w-full">
 		<button
-			class="text-color-black p-3"
+			class="text-color-black"
 			bind:this={prevButton}
 			on:click={() => sideScroll(container, 'left', 200, 10, 700)}
 			><img src={buttonIcon} alt="left" class="h-[10px] hover:scale-125" /></button
 		>
 		<button
-			class="text-color-black p-3"
+			class="text-color-black"
 			bind:this={nextButton}
 			on:click={() => sideScroll(container, 'right', 200, 10, 700)}
 			><img src={buttonIcon} alt="right" class="h-[10px] rotate-180 hover:scale-125" /></button

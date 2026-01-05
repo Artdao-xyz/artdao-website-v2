@@ -1,6 +1,5 @@
 <script lang="ts">
 	import ecoInterviewBg from '$lib/assets/images/projects/ecologiesOfCode/ecologies-interview-bg.webp';
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
@@ -40,9 +39,12 @@
 	} from '../../data/Projects/EcologiesOfCode/ProjectVIdeo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import preloadImages from '../../utils/preloadImages';
 	import { ecologiesNavStoreItems } from './store';
-
+	import { fly } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
+	
 	let size: number;
 
 	let introIsInView: boolean;
@@ -72,29 +74,38 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[ecologiesOfCodeProject.bgImage, ecologiesOfCodeProject.bgImageMobile],
-		joaquinaAboutImages,
-		[ecoInterviewBg],
-		ecologiesPolaroidImages.map((item) => item.image),
-		okytomoAboutImages,
-		ecologiesPolaroidImagesTwo.map((item) => item.image),
-		hypereikonAboutImages,
-		ecologiesArtworkImages.map((item) => item.image),
-		ecologiesGallery1.map((item) => item.src),
-		ecologiesGallery2.map((item) => item.src)
-	]);
+	// Función para cargar las imágenes cuando el Metaball esté listo
+	const loadImages = async () => {
+		const images = await preloadImages([
+			[ecologiesOfCodeProject.bgImage, ecologiesOfCodeProject.bgImageMobile],
+			joaquinaAboutImages,
+			[ecoInterviewBg],
+			ecologiesPolaroidImages.map((item) => item.image),
+			okytomoAboutImages,
+			ecologiesPolaroidImagesTwo.map((item) => item.image),
+			hypereikonAboutImages,
+			ecologiesArtworkImages.map((item) => item.image),
+			ecologiesGallery1.map((item) => item.src),
+			ecologiesGallery2.map((item) => item.src)
+		]);
+		preloadedImagesStore.set(images);
+		imagesLoaded.set(true);
+	};
+
+	// Cargar imágenes cuando el Metaball esté listo
+	$: if ($metaballReady) {
+		loadImages();
+	}
 </script>
 
 <svelte:window bind:innerWidth={size} />
 
-{#await preloadedImages}
-	<LoadingV2 />
-{:then images}
+{#if $preloadedImagesStore}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
+		transition:fly={{ duration: 1000, delay: 750, y: 30, easing: cubicInOut }}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<div
@@ -116,11 +127,11 @@
 			<ProjectIntro
 				project={ecologiesOfCodeProject}
 				textColor="white"
-				bgImage={images[0][0]}
-				bgImageMobile={images[0][1]}
+				bgImage={$preloadedImagesStore[0][0]}
+				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>
 
-			<ProjectInterview bgImage={images[2][0]} filteredQuestions={ecologiesQuestions} isCover />
+			<ProjectInterview bgImage={$preloadedImagesStore[2][0]} filteredQuestions={ecologiesQuestions} isCover />
 		</div>
 
 		<div
@@ -139,7 +150,7 @@
 				joaquinaIsInView = inView;
 			}}
 		>
-			<ProjectAbout aboutItem={joaquinaAbout} aboutImages={images[1]} route="" />
+			<ProjectAbout aboutItem={joaquinaAbout} aboutImages={$preloadedImagesStore[1]} route="" />
 
 			<ProjectVideo videoProjects={[ecologiesVideoProjectOne]} />
 
@@ -176,7 +187,7 @@
 				okiIsInView = inView;
 			}}
 		>
-			<ProjectAbout aboutItem={okytomoAbout} aboutImages={images[4]} route="" />
+			<ProjectAbout aboutItem={okytomoAbout} aboutImages={$preloadedImagesStore[4]} route="" />
 
 			<ProjectVideo videoProjects={okyVideos} />
 
@@ -213,7 +224,7 @@
 				hyperIsInView = inView;
 			}}
 		>
-			<ProjectAbout aboutItem={hypereikonAbout} aboutImages={images[6]} route="" />
+			<ProjectAbout aboutItem={hypereikonAbout} aboutImages={$preloadedImagesStore[6]} route="" />
 
 			<div class="hidden sm:block">
 				<ProjectArtworkGrid galleryImages={ecologiesArtworkImages} />
@@ -231,7 +242,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.ECOLOGIES_OF_CODE} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

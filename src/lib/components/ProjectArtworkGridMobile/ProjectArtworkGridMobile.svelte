@@ -8,8 +8,8 @@
 
 	let showModal = false;
 	export let isOverflow = true;
-	export let imagesLeft: IGalleryImageMobile[];
-	export let imagesRight: IGalleryImageMobile[];
+	export let imagesLeft: IGalleryImageMobile[] = [];
+	export let imagesRight: IGalleryImageMobile[] = [];
 
 	$: imageToShow = {
 		alt: '',
@@ -19,7 +19,9 @@
 	};
 
 	const handleOnClick = (item: IGalleryImageMobile) => {
-		imageToShow = item;
+		if (item && item.src) {
+			imageToShow = item;
+		}
 	};
 </script>
 
@@ -29,16 +31,24 @@
 		on:click={() => (showModal = true)}
 	>
 		<Gallery class="grid-cols-2 gap-2">
-			<Gallery items={imagesLeft} let:item class="h-fit">
-				<button on:click={() => handleOnClick(item)} class="h-fit">
-					<img src={item.src} alt={item.alt} class="rounded-20" />
-				</button>
-			</Gallery>
-			<Gallery items={imagesRight} let:item class="h-fit">
-				<button on:click={() => handleOnClick(item)} class="h-fit">
-					<img src={item.src} alt={item.alt} class="rounded-20" />
-				</button>
-			</Gallery>
+			{#if imagesLeft && imagesLeft.length > 0}
+				<Gallery items={imagesLeft} let:item class="h-fit">
+					{#if item && item.src}
+						<button on:click={() => handleOnClick(item)} class="h-fit">
+							<img src={item.src} alt={item.alt || ''} class="rounded-20" />
+						</button>
+					{/if}
+				</Gallery>
+			{/if}
+			{#if imagesRight && imagesRight.length > 0}
+				<Gallery items={imagesRight} let:item class="h-fit">
+					{#if item && item.src}
+						<button on:click={() => handleOnClick(item)} class="h-fit">
+							<img src={item.src} alt={item.alt || ''} class="rounded-20" />
+						</button>
+					{/if}
+				</Gallery>
+			{/if}
 		</Gallery>
 		<Modal bind:open={showModal} outsideclose autoclose class="h-full !bg-transparent modal">
 			<div

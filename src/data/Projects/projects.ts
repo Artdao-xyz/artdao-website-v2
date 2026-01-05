@@ -28,15 +28,20 @@ import raveHover from '$lib/assets/images/projects/footer/projects_rave_hover-mi
 import { EProjects } from '../../constants/enums';
 import {
 	ARTIFICE,
+	DIGITAL_ARCHAEOLOGY,
 	DIGITAL_MATTER,
 	ECOLOGIES_OF_CODE,
 	IN_CONVERSATION,
 	INHERENT,
 	INTERTWINED,
+	MEMETIC_RUBBLE,
 	NON_PLACES,
 	ORB,
 	RAVE,
-	QUEERING_THE_WEB3
+	QUEERING_THE_WEB3,
+	SUBCONSCIOUS_MEDIA,
+	PET,
+	WHATS_ON_YOUR_MIND
 } from '../../constants/routes';
 
 export interface IProject {
@@ -48,6 +53,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.ARTIFICE,
 		refs: [EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE, EProjects.IN_CONVERSATION]
+	},
+	{
+		name: EProjects.DIGITAL_ARCHAEOLOGY,
+		refs: [EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE, EProjects.INHERENT_INSTABILITY]
 	},
 	{
 		name: EProjects.DIGITAL_MATTER,
@@ -70,6 +79,10 @@ export const projects: IProject[] = [
 		refs: [EProjects.ARTIFICE, EProjects.INHERENT_INSTABILITY, EProjects.DIGITAL_MATTER]
 	},
 	{
+		name: EProjects.MEMETIC_RUBBLE,
+		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.IN_CONVERSATION]
+	},
+	{
 		name: EProjects.NON_PLACES,
 		refs: [EProjects.ECOLOGIES_OF_CODE, EProjects.ORB, EProjects.IN_CONVERSATION]
 	},
@@ -84,6 +97,22 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.QUEERING_THE_WEB3,
 		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
+	},
+	{
+		name: EProjects.BODY_FRONTIER,
+		refs: [EProjects.ARTIFICE, EProjects.ORB, EProjects.RAVE]
+	},
+	{
+		name: EProjects.SUBCONSCIOUS_MEDIA,
+		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
+	},
+	{
+		name: EProjects.PET,
+		refs: [EProjects.BODY_FRONTIER, EProjects.SUBCONSCIOUS_MEDIA, EProjects.DIGITAL_MATTER]
+	},
+	{
+		name: EProjects.WHATS_ON_YOUR_MIND,
+		refs: [EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA, EProjects.DIGITAL_MATTER]
 	}
 ];
 
@@ -95,6 +124,14 @@ export const projectsDetails = [
 		hover: artificeHover,
 		url: ARTIFICE,
 		mobileImage: artificeMobile
+	},
+	{
+		name: EProjects.DIGITAL_ARCHAEOLOGY,
+		nameToShow: 'digital archaeology',
+		image: '/media/thumbnails/14-home-digital-archaeology.webp',
+		hover: '/media/thumbnails/14-home-digital-archaeology.webp',
+		url: DIGITAL_ARCHAEOLOGY,
+		mobileImage: '/media/thumbnails/14-home-digital-archaeology.webp'
 	},
 	{
 		name: EProjects.DIGITAL_MATTER,
@@ -127,6 +164,14 @@ export const projectsDetails = [
 		hover: intertwinedHover,
 		url: INTERTWINED,
 		mobileImage: intertwinedMobile
+	},
+	{
+		name: EProjects.MEMETIC_RUBBLE,
+		nameToShow: 'memetic rubble',
+		image: '/media/home/thumbnails/12-home-memetic-rubble.webp',
+		hover: '/media/home/thumbnails/12-home-memetic-rubble.webp',
+		url: MEMETIC_RUBBLE,
+		mobileImage: '/media/home/thumbnails/12-home-memetic-rubble.webp'
 	},
 	{
 		name: EProjects.IN_CONVERSATION,
@@ -167,5 +212,37 @@ export const projectsDetails = [
 		hover: artificeHover, // Using placeholder image for now
 		url: QUEERING_THE_WEB3,
 		mobileImage: artificeMobile // Using placeholder image for now
+	},
+	{
+		name: EProjects.BODY_FRONTIER,
+		nameToShow: 'body frontier',
+		image: 'media/home/thumbnails/10-home-body-frontier.webp',
+		hover: 'media/home/thumbnails/10-home-body-frontier.webp',
+		url: '/body-frontier',
+		mobileImage: 'media/home/thumbnails/10-home-body-frontier.webp'
+	},
+	{
+		name: EProjects.SUBCONSCIOUS_MEDIA,
+		nameToShow: 'subconscious media',
+		image: '/media/home/thumbnails/13-home-subconscious-media.webp',
+		hover: '/media/home/thumbnails/13-home-subconscious-media.webp',
+		url: SUBCONSCIOUS_MEDIA,
+		mobileImage: '/media/home/thumbnails/13-home-subconscious-media.webp'
+	},
+	{
+		name: EProjects.PET,
+		nameToShow: 'projected emotional technologies',
+		image: '/media/pet/project/project-5.webp',
+		hover: '/media/pet/project/project-5.webp',
+		url: PET,
+		mobileImage: '/media/pet/project/project-5.webp'
+	},
+	{
+		name: EProjects.WHATS_ON_YOUR_MIND,
+		nameToShow: "what's on your mind",
+		image: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp',
+		hover: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp',
+		url: WHATS_ON_YOUR_MIND,
+		mobileImage: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp'
 	}
 ];

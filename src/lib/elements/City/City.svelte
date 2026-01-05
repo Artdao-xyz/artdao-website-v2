@@ -9,86 +9,66 @@
 	export let mapLocation: IMapLocation;
 	export let showOnTop = false;
 
-	let isSelected = false;
+	let isHovered = false;
+	let containerElement: HTMLDivElement;
 
-	const toggleSelected = () => {
-		isSelected = !isSelected;
+	const handleMouseEnter = () => {
+		isHovered = true;
+		console.log('isHovered', isHovered);
 	};
 
-	function clickOutside(element: any, callbackFunction: any) {
-		function onClick(event: any) {
-			if (!element.contains(event.target)) {
-				callbackFunction();
-			}
-		}
-
-		document.body.addEventListener('click', onClick);
-
-		return {
-			update(newCallbackFunction: any) {
-				callbackFunction = newCallbackFunction;
-			},
-			destroy() {
-				document.body.removeEventListener('click', onClick);
-			}
-		};
-	}
+	const handleMouseLeave = () => {
+		isHovered = false;
+		console.log('isHovered', isHovered);
+	};
 
 	const handleOnClick = (event: IMapEvent) => {
 		eventToShow = event;
 	};
 </script>
 
-<button
-	on:click={toggleSelected}
-	use:clickOutside={() => {
-		isSelected = false;
-	}}
+<div
+	bind:this={containerElement}
+	on:mouseenter={handleMouseEnter}
+	on:mouseleave={handleMouseLeave}
 	style="position: absolute; left: {left}%; top: {top}%;"
-	class="relative flex flex-row items-center justify-center rounded-40 py-[13px] px-[17px] w-full max-w-[160px] h-[2.9375rem] {!isSelected
-		? 'unselected'
-		: 'selected'}"
+	class="relative"
+	role="button"
+	tabindex="0"
 >
-	{#if dotOnLeft}
-		<div class="w-[0.75rem] h-[0.75rem] bg-color-white rounded-[100px]" />
-	{/if}
-	<p
-		class="w-full h-[21px] text-color-white font-robotoMono text-[12px] font-medium tracking-[0.156px] capitalize"
+	<!-- Zona invisible de hover para cubrir el espacio entre botón y dropdown -->
+	<div class="absolute inset-0 {!showOnTop ? 'pb-8' : 'pt-8'}"></div>
+	<button
+		class="flex flex-row items-center justify-center w-40 h-6 px-4 py-[5px] {isHovered ? 'bg-[#101010]' : 'bg-[#f7f5f2]'} rounded-[100px] outline outline-1 outline-black transition-all duration-200"
 	>
-		{mapLocation.location}
-	</p>
-	{#if !dotOnLeft}
-		<div class="w-[0.75rem] h-[0.75rem] bg-color-white rounded-[100px]" />
-	{/if}
-
-	{#if isSelected}
-		<div
-			class="z-50 w-[32.3125rem] h-fit menu py-[30px] px-[19px] rounded-20 {!showOnTop
-				? 'top-[120%]'
-				: 'top-[-400%]'} left-0 absolute flex flex-col justify-center items-center gap-[5px]"
+		<p
+			class="w-full {isHovered ? 'text-[#f7f5f2]' : 'text-[#101010]'} text-xs font-normal font-robotoMono leading-none tracking-wide capitalize"
 		>
-			<img src={menuLine} alt="line" class="w-[449px]" />
+			{mapLocation.location}
+		</p>
+	</button>
+
+	{#if isHovered}
+		<div
+			class="z-50 w-40 h-fit bg-[#101010] rounded-[20px] outline outline-1 outline-[#f7f5f2] py-[20px] px-[20px] {!showOnTop
+				? 'top-[120%]'
+				: 'top-[-400%]'} left-0 absolute flex flex-col justify-center items-center gap-[20px] transition-all duration-200"
+		>
 			{#each mapLocation.events as event}
 				<button
 					on:click={() => handleOnClick(event)}
-					class="group w-full h-[2.9375rem] hover:bg-color-dark rounded-[100px] flex justify-between items-center pl-[15px] pr-[8px]"
+					class="group w-full h-6 px-4 py-[5px] bg-[#101010] hover:bg-[#f7f5f2] rounded-[100px] outline outline-1 outline-[#f7f5f2] hover:outline-[#101010] flex justify-center items-center"
 				>
 					<p
-						class="font-neue text-[20px] tracking-[0.0163rem] font-semibold uppercase text-color-black group-hover:text-color-white"
+						class="text-[#f7f5f2] text-xs font-normal font-robotoMono leading-none tracking-wide group-hover:text-[#101010]"
 					>
 						{event.title}
 					</p>
-					<button
-						class="w-[30px] h-[30px] rounded-[6.25rem] border-color-black border group-hover:border-color-white flex items-center justify-center"
-					>
-						<img src={buttonIcon} alt="Button" class="rotate-180 w-[10px] group-hover:invert" />
-					</button>
 				</button>
-				<img src={menuLine} alt="line" class="w-[449px]" />
 			{/each}
 		</div>
 	{/if}
-</button>
+</div>
 
 <style>
 	.unselected {

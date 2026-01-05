@@ -6,120 +6,89 @@
 	export let eventToShow: IMapEvent | undefined;
 
 	let imagesToShow = eventToShow?.images.map((image) => false) ?? [false];
+	let index = 0;
+
 </script>
 
 {#if eventToShow}
-	<div class="flex flex-col gap-[15px] items-center w-full">
-		<button
-			class="relative flex flex-row dark-gradient items-center justify-center rounded-[0.9375rem] py-[15px] pl-[17px] pr-[40px] w-full h-[5.4375rem] sm:max-w-[400px] selected"
+	<div class="w-full flex flex-col gap-[15px] items-center z-10">
+		<!-- City name at the top -->
+		<button 
+			on:click={() => (eventToShow = undefined)}
+			class="w-full h-10 px-4 py-[5px] bg-[#101010] rounded-[100px] outline outline-1 outline-black flex items-center justify-center hover:bg-[#2a2a2a] transition-colors duration-200 cursor-pointer"
 		>
-			<p
-				class="w-full h-full text-color-white font-robotoMono text-[18px] font-medium tracking-[0.234px] capitalize flex items-center justify-center"
-			>
+			<p class="text-[#f7f5f2] text-lg font-normal font-robotoMono leading-none tracking-wide capitalize">
 				{eventToShow.city}
 			</p>
-
-			<div class="w-[0.75rem] h-[0.75rem] bg-color-white rounded-[100px]" />
 		</button>
 
-		<button
-			class="flex flex-rowitems-center justify-center rounded-[0.9375rem] w-full h-[47px] gray-gradient sm:max-w-[400px]"
+		<!-- Event name -->
+		<button 
+			on:click={() => (eventToShow = undefined)}
+			class="w-full h-10 px-4 py-[5px] bg-[#101010] rounded-[100px] outline outline-1 outline-black flex items-center justify-center hover:bg-[#2a2a2a] transition-colors duration-200 cursor-pointer"
 		>
-			<p
-				class="font-neue text-[20px] tracking-[0.0163rem] font-medium uppercase flex justify-center items-center leading-[47px]"
-			>
+			<p class="text-[#f7f5f2] text-lg font-normal font-robotoMono leading-none tracking-wide">
 				{eventToShow.title}
 			</p>
 		</button>
 
-		<div
-			class="scroll-panel flex flex-row flex-grow overflow-x-auto items-center gap-[20px] w-full min-w-full"
-		>
-			{#each eventToShow.images as image, i}
-				<img
-					use:inview={INVIEW_OPTIONS}
-					on:inview_change={(event) => {
-						const { inView } = event.detail;
-						imagesToShow[i] = inView;
-					}}
-					on:inview_enter={(event) => {
-						const { inView } = event.detail;
-						imagesToShow[i] = inView;
-					}}
-					on:inview_leave={(event) => {
-						const { inView } = event.detail;
-						imagesToShow[i] = inView;
-					}}
-					src={image}
-					alt="event"
-					class="h-[163px] sm:h-[326px] min-w-full w-full object-cover object-top rounded-20 snap-center"
-					id={image}
-				/>
-			{/each}
-		</div>
+		<!-- Event card -->
+		<div class="w-full rounded-20 bg-[#101010] py-[20px] px-[16px] text-color-white gap-[20px] flex flex-col">
+			<!-- Header with location and date -->
+			<div class="flex flex-col items-start gap-2.5 font-robotoMono text-sm font-bold leading-none tracking-widest">
+				<p class="py-3 text-center bg-[#989898]/20 h-full rounded-20 px-4 w-full">{eventToShow.location}</p>
+				<p class="py-3 text-center bg-[#989898]/20 h-full rounded-20 px-4 w-full">{eventToShow.date}</p>
+			</div>
 
-		<div class="flex flex-row gap-[8px] justify-center items center">
-			{#each eventToShow.images as image, i}
-				<button
-					class="rounded-[100px] w-[5px] h-[5px] border border-color-white {imagesToShow[i]
-						? 'bg-color-white'
-						: ''}"
-					id={image}
-					on:click={() =>
-						document.getElementById(`${image}`)?.scrollIntoView({
-							behavior: 'smooth',
-							block: 'nearest',
-							inline: 'start'
-						})}
-				/>
-			{/each}
-		</div>
-
-		<div class="flex flex-col items-start gap-[10px] dark-gradient rounded-20 p-[24px] w-full">
-			<p class="text-[18px] capitalize font-neue font-medium leading-[30px]">
-				{eventToShow.subtitle}
-			</p>
-			<div class="flex flex-col h-[31px]">
-				<p class="font-robotoMono text-[14px] leading-[1rem] tracking-[0.156px]">
-					{eventToShow.date}
-				</p>
-				<p class="font-robotoMono text-[14px] leading-[1rem] tracking-[0.156px]">
-					{eventToShow.location}
-				</p>
+			<!-- Main image display -->
+			<div class="w-full flex-1 min-h-0 overflow-hidden flex flex-col items-center justify-center">
+				<div class="w-full" style="max-width: min(100%, calc(16 * (60vh - 200px) / 9));">
+					<img
+						src={eventToShow.images[index]}
+						alt="event"
+						class="w-full object-cover object-top"
+						style="aspect-ratio: 16/9;"
+					/>
+				</div>
+				{#if eventToShow.images.length > 1}
+					<div class="flex gap-2 justify-center mt-4">
+						{#each eventToShow.images as image, i}
+							<button
+								on:click={() => index = i}
+								class="w-16 h-16 rounded-[100px] overflow-hidden border-2 {index === i ? 'border-white' : 'border-white/0'} hover:border-white/80 transition-colors"
+							>
+								<img
+									src={image}
+									alt="event preview"
+									class="w-full h-full object-cover"
+								/>
+							</button>
+						{/each}
+					</div>
+				{/if}
 			</div>
 		</div>
-	</div>
 
-	<div class="flex flex-col gap-[15px] w-full">
+		<!-- Watch More button (outside the card) -->
 		{#if eventToShow.watchMore}
 			<button
-				class="sm:max-w-[400px] sm:mx-auto px-[20px] py-[12px] rounded-[0.9375rem] gray-gradient w-full h-[47px] leading-[16px] text-[16px] font-robotoMono text-color-white"
-				><a href={eventToShow.watchMore}>Watch more</a></button
+				class="w-full h-10 px-4 py-[5px] bg-[#101010] rounded-[100px] outline outline-1 outline-black flex items-center justify-center hover:bg-[#2a2a2a] transition-colors duration-200"
 			>
+				<a href={eventToShow.watchMore} class="text-[#f7f5f2] text-lg font-normal font-robotoMono leading-none tracking-wide">
+					View more
+				</a>
+			</button>
 		{/if}
 
+		<!-- Go Back button -->
 		<button
 			on:click={() => (eventToShow = undefined)}
-			class="sm:max-w-[400px] sm:mx-auto w-full py-[14px] px-[24px] font-robotoMono text-[16px] leading-[1rem] tracking-[0.156px] rounded-[0.9375rem] gray-gradient"
-			>Go Back</button
+			class="w-full h-10 px-4 py-[5px] bg-[#f7f5f2] rounded-[100px] outline outline-1 outline-black flex items-center justify-center hover:bg-[#e0e0e0] transition-colors duration-200"
 		>
+			<p class="text-[#101010] text-lg font-normal font-robotoMono leading-none tracking-wide">
+				Go Back
+			</p>
+		</button>
 	</div>
 {/if}
 
-<style>
-	.scroll-panel {
-		width: 100%;
-		overflow: auto;
-		outline: none;
-		overflow-y: hidden;
-		-ms-overflow-style: scroll;
-		scrollbar-width: none;
-		overflow-x: scroll;
-		overscroll-behavior-x: contain;
-		scroll-snap-type: x mandatory;
-	}
-
-	.scroll-panel::-webkit-scrollbar {
-		display: none;
-	}
-</style>

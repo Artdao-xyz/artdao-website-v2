@@ -1,0 +1,2 @@
+<p>Yuehao Jiang is an artist whose practice unfolds from the meeting of Chinese artistic tradition and contemporary digital culture. Jiang translates the spiritual vitality of brushwork and ink into computational space, interpreting traditions of Chinese landscape painting as precursors to digital worldmaking. Through 3D scanning, animation, and projection, she creates frameworks that link landscape, body, and technology.</p>
+

@@ -49,12 +49,12 @@
 		: 'h-full'} laptopM:h-full flex flex-col gap-5 sm:gap-[0.625rem] p-5 rounded-20 border border-color-black gray-gradient"
 >
 	<video
-		style={size > 1100 ? 'height: calc(100% - 1.75rem)' : ''}
-		src={audioItems[index].songFile}
-		controls
-		bind:this={videoPlayer}
-		preload="metadata"
-		class={size > 1100 ? 'w-auto' : 'h-full'}
+			style={size > 1100 ? 'height: calc(100% - 1.75rem)' : ''}
+			src={audioItems[index].songFile}
+			controls
+			bind:this={videoPlayer}
+			preload="metadata"
+			class={size > 1100 ? 'w-auto' : 'h-full'}
 	>
 		<track kind="captions" />
 	</video>
@@ -69,7 +69,7 @@
 			<button
 				on:click={() => handlePreviousTrack(index)}
 				class="{index === 0
-					? 'pointer-events-none bg-[#D9D9D9] border-color-gray-secondary'
+					? 'pointer-events-none bg-[#EAEAEA] border-color-gray-secondary'
 					: ''} w-[1.75rem] h-[1.75rem] rounded-[6.25rem] flex flex-row py-[8px] pl-[6px] pr-[8px] border border-color-black hover:scale-105"
 			>
 				<img
@@ -87,7 +87,7 @@
 			<button
 				on:click={() => handleNextTrack(index)}
 				class="{isLastTrack
-					? 'pointer-events-none bg-[#D9D9D9] border-color-gray-secondary'
+					? 'pointer-events-none bg-[#EAEAEA] border-color-gray-secondary'
 					: ''} w-[1.75rem] h-[1.75rem] rounded-[6.25rem] flex flex-row py-[8px] pr-[6px] pl-[8px] border hover:scale-105 border-color-black"
 			>
 				<img src={isLastTrack ? nextDisabled : nextIcon} alt="next" class="h-full w-full" />

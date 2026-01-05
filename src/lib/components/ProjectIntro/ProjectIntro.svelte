@@ -6,36 +6,39 @@
 	export let isContain = false;
 	export let isCenterImage = false;
 	export let isWiderTitle = false;
-	export let bgImage: string;
-	export let bgImageMobile: string;
+	export let bgImage: string = '';
+	export let bgImageMobile: string = '';
+	export let backgroundPosition: 'top' | 'center' | 'bottom' | undefined = undefined;
 	const { name, description, image } = project;
 
 	let width: number;
 	let height: number;
+
+	$: effectiveBackgroundPosition = backgroundPosition ?? (isCenterImage ? 'center' : 'bottom');
+	$: backgroundPositionClass = `bg-${effectiveBackgroundPosition}`;
+	$: backgroundPositionStyle = `background-position: ${effectiveBackgroundPosition};`;
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
 
-<SectionContainer hasPadding={false} isOverflow={false}>
+<SectionContainer hasPadding={false} isOverflow={true} bgImage={bgImage}>
 	<div
-		class="w-full {height > 750 && width < 1100
-			? 'h-screen'
-			: 'pb-[10rem]'} flex flex-row pt-[4.5rem] gap-28 {bgImage
-			? `${isContain && width > 1100 ? 'sm:bg-contain' : 'bg-cover'} bg-fit bg-no-repeat sm:h-full bg-color-black`
+		class="w-full min-h-dvh lg:h-screen flex flex-row pt-[4.5rem] gap-28 {bgImage
+			? `${isContain && width > 1100 ? 'sm:bg-cover' : 'bg-cover'} bg-fit bg-no-repeat bg-color-black`
 			: ''} {textColor === 'black'
 			? 'bg-color-white'
-			: 'bg-color-black'} pr-global-padding {isCenterImage ? 'bg-center' : 'bg-bottom'}"
+			: 'bg-color-black'} pr-global-padding {backgroundPositionClass}"
 		id="intro"
 		style={width > 1100
-			? `background-image: url(${bgImage});`
-			: `background-image: url(${bgImageMobile});`}
+			? `background-image: url(${bgImage || ''}); ${backgroundPositionStyle}`
+			: ``}
 	>
 		<div
 			class="flex flex-col h-full w-full sm:w-full sm:max-w-[40rem] {isWiderTitle
 				? 'bigScreen:max-w-[67rem]'
 				: 'bigScreen:max-w-[45rem]'} xlScreen:max-w-[55rem] {textColor === 'black'
 				? 'text-color-black'
-				: 'text-color-white'} pl-global-padding gap-5 bigScreen:gap-10"
+				: 'text-color-white'} pl-global-padding gap-5 bigScreen:gap-10 p-4"
 		>
 			<h1
 				class="font-neue text-[2.5rem] sm:text-[4.375rem] macBook:text-[6.25rem] xlScreen:text-[10rem] xlScreen:leading-[10rem] font-semibold leading-[3rem] sm:leading-[5rem] laptopM:leading-[6.5625rem] tracking-[0.0975rem] uppercase"

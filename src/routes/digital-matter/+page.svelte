@@ -1,5 +1,4 @@
 <script lang="ts">
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import PolaroidsMobile from '$lib/components/PolaroidsMobile/PolaroidsMobile.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
@@ -39,10 +38,13 @@
 	} from '../../data/Projects/DigitalMatter/ProjectPolaroids';
 	import { aeroVideo, parsaVideo } from '../../data/Projects/DigitalMatter/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
+	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';
 	import { digitalMatterNavStoreItems } from './store';
-
+	import { fly } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
+	
 	let size: number;
 	let introIsInView: boolean;
 	let marcusIsInView: boolean;
@@ -87,29 +89,45 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[digitalMatterProjectIntro.bgImage, digitalMatterProjectIntro.bgImageMobile],
-		marcusAboutImages,
-		marcusDropdownItems.map((item) => item.image),
-		marcusPolaroidsImages.map((item) => item.image),
-		sulkianAboutImages,
-		parsaAboutImages,
-		parsaArtworkImages.map((item) => item.image),
-		parsaArtworkImages1.map((item) => item.src),
-		parsaArtworkImages2.map((item) => item.src),
-		parsaPolaroidsImages.map((item) => item.image)
-	]);
+	// Función para cargar las imágenes cuando el Metaball esté listo
+	const loadImages = async () => {
+		// console.log('🖼️ Digital Matter: Iniciando carga de imágenes...');
+		const images = await preloadImages([
+			[digitalMatterProjectIntro.bgImage, digitalMatterProjectIntro.bgImageMobile],
+			marcusAboutImages,
+			marcusDropdownItems.map((item) => item.image),
+			marcusPolaroidsImages.map((item) => item.image),
+			sulkianAboutImages,
+			parsaAboutImages,
+			parsaArtworkImages.map((item) => item.image),
+			parsaArtworkImages1.map((item) => item.src),
+			parsaArtworkImages2.map((item) => item.src),
+			parsaPolaroidsImages.map((item) => item.image)
+		]);
+		// console.log('🖼️ Digital Matter: Imágenes cargadas:', images);
+		preloadedImagesStore.set(images);
+		imagesLoaded.set(true);
+		// console.log('🖼️ Digital Matter: Store actualizado');
+	};
+
+	// Cargar imágenes cuando el Metaball esté listo
+	$: if ($metaballReady) {
+		// console.log('🎯 Digital Matter: Metaball listo, ejecutando loadImages');
+		loadImages();
+	}
+
+	// Debug: verificar estado del store
+	// $: console.log('🔍 Digital Matter: metaballReady:', $metaballReady, 'preloadedImagesStore:', $preloadedImagesStore);
 </script>
 
 <svelte:window bind:innerWidth={size} />
 
-{#await preloadedImages}
-	<LoadingV2 />
-{:then images}
+{#if $preloadedImagesStore}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
+		transition:fly={{ duration: 1000, delay: 750, y: 30, easing: cubicInOut }}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<div
@@ -129,8 +147,8 @@
 		>
 			<ProjectIntro
 				project={digitalMatterProjectIntro}
-				bgImage={images[0][0]}
-				bgImageMobile={images[0][1]}
+				bgImage={$preloadedImagesStore[0][0]}
+				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>
 		</div>
 
@@ -150,9 +168,9 @@
 				marcusIsInView = inView;
 			}}
 		>
-			<ProjectAbout aboutItem={marcusAbout} aboutImages={images[1]} route="" />
+			<ProjectAbout aboutItem={marcusAbout} aboutImages={$preloadedImagesStore[1]} route="" />
 
-			<ProjectAboutDropdown images={images[2]} aboutDropdownItems={marcusDropdownItems} route="" />
+			<ProjectAboutDropdown images={$preloadedImagesStore[2]} aboutDropdownItems={marcusDropdownItems} route="" />
 
 			{#if size > 1100}
 				<ProjectPolaroids images={marcusPolaroidsImages} />
@@ -177,7 +195,7 @@
 				sulkianIsInView = inView;
 			}}
 		>
-			<ProjectAbout aboutItem={sulkianAbout} aboutImages={images[4]} route="" />
+			<ProjectAbout aboutItem={sulkianAbout} aboutImages={$preloadedImagesStore[4]} route="" />
 
 			<ProjectAboutDropdown
 				images={sulkianImages}
@@ -206,7 +224,7 @@
 				parsaIsInView = inView;
 			}}
 		>
-			<ProjectAbout aboutItem={parsaAbout} aboutImages={images[5]} route="" />
+			<ProjectAbout aboutItem={parsaAbout} aboutImages={$preloadedImagesStore[5]} route="" />
 
 			<ProjectVideo videoProjects={parsaVideo} route="" />
 
@@ -240,7 +258,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.DIGITAL_MATTER} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {
