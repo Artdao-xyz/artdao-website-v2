@@ -30,5 +30,11 @@ export const digitalArchaeologyNavItems: INavBarItem[] = [
 		text: 'CYDR',
 		route: 'cydr',
 		selected: false
+	},
+	{
+		text: 'constraints as tools of liberation',
+		route: 'constraints',
+		selected: false,
+		shortText: 'constraints'
 	}
 ]; 
