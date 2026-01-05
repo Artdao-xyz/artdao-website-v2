@@ -1,11 +1,11 @@
 <div class="flex flex-col gap-5">
 	<p>
-		Embracing retro digital aesthetics is not simply an expression of nostalgia, but an active resistance to the technical excesses of contemporary digital life. Reclaiming historical digital languages reveals how constraints can be liberating—offering an escape from the paralysis of infinite choice and seamless optimization.
+		In the post–Web 2.0 attention economy, some artists turn deliberately backward. Retro digital aesthetics become a way to resist technical excess, reframing constraint as a generative condition rather than a failure to update.
 	</p>
 	<p>
-		This practice introduces productive disruptions, where outdated technologies intersect with present-day concerns. The resulting works question our relationship to technology while speculating on its possible futures. In her hypermedia manifesto Glitch Feminism, theorist Legacy Russell argues that digital errors and interruptions function as acts of refusal.
+		By working with outdated tools and formats, artists introduce productive disruptions that intervene in the logic of techno-solutionism and connect historical technologies to contemporary concerns.
 	</p>
 	<p>
-		Glitches carve out space for alternative narratives within dominant systems—creative, social, and technological. The tension between past aesthetics and current capabilities exposes the ideological assumptions embedded in our tools. Innovation, in this view, may not reside in transcending limitations, but in deliberately engaging with them as a creative strategy.
+		These works question how we live with technology while imagining futures built on intentional use.
 	</p>
 </div> 
