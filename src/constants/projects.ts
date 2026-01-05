@@ -158,13 +158,13 @@ export const projects: Project[] = [
         },
         {
                 title: "Queering the Web3",
-                subtitle: "Zak Krevitt & SKY GOODMAN",
+                subtitle: "Zak Krevitt & Sky Goodman",
                 description: "The foretold utopia of Web3 reveals itself as a contentious landscape—one where queer expression both flourishes and falls victim to praticable patterns of erasure.",
                 thumbnailPath: ["media/home/thumbnails-v2/queering-the-web3/3.webp", "media/home/thumbnails-v2/queering-the-web3/1.webp", "media/home/thumbnails-v2/queering-the-web3/2.webp"],
                 thumbnailPathMobile: "media/home/thumbnails-v2-mobile/queering-web3.webp",
                 buttonPath: "media/home/buttons/15-button-queering-the-web3.png",
                 pagePath: "/queering-the-web3",
-                artists: ["Zak Krevitt", "SKY GOODMAN"],
+                artists: ["Zak Krevitt", "Sky Goodman"],
                 artworks: ["Digital Artifacts", "Digital Kinship", "Future Possibilities"],
                 quote: "\"The foretold utopia of Web3 reveals itself as a contentious landscape—one where queer expression both flourishes and falls victim to praticable patterns of erasure.\"",
         }

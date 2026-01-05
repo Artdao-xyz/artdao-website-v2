@@ -17,7 +17,7 @@ export const queeringTheWeb3NavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
-		text: 'SKY GOODMAN',
+		text: 'Sky Goodman',
 		route: 'about3',
 		selected: false
 	}

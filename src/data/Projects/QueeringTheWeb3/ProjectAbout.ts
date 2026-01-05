@@ -24,7 +24,7 @@ export const queeringTheWeb3About2Images = [
 ];
 
 export const queeringTheWeb3About3 = {
-    title: 'SKY GOODMAN',
+    title: 'Sky Goodman',
     subtitle: '',
     text: QueeringTheWeb3About3
 };
