@@ -1,4 +1,4 @@
 import { writable } from 'svelte/store';
-import type { INavBarItem } from '$lib/elements/NavBar/interfaces';
+import { queeringTheWeb3NavItems } from '../../data/Projects/QueeringTheWeb3/NavItems';
 
-export const queeringTheWeb3NavStoreItems = writable<INavBarItem[]>([]); 
+export const queeringTheWeb3NavStoreItems = writable(queeringTheWeb3NavItems); 
