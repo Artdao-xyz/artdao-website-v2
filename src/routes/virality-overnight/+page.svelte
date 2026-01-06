@@ -2,6 +2,7 @@
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
+	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { inview } from 'svelte-inview';
@@ -16,6 +17,7 @@
 		wocAboutImages
 	} from '../../data/Projects/ViralityOvernight/ProjectAbout';
 	import { viralityOvernightIntro } from '../../data/Projects/ViralityOvernight/ProjectIntro';
+	import { viralityOvernightChatInterview } from '../../data/Projects/ViralityOvernight/ProjectChatInterview';
 	import { ViralityOvernightArtworkGrid } from '../../data/Projects/ViralityOvernight/ProjectArtworkGrid';
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
@@ -54,6 +56,7 @@
 		const images = await preloadImages([
 			[viralityOvernightIntro.bgImage, viralityOvernightIntro.bgImageMobile],
 			ephemeralityAboutImages,
+			[viralityOvernightChatInterview.background],
 			riniifishAboutImages,
 			wocAboutImages,
 			ViralityOvernightArtworkGrid.artworks.map((item) => item.image)
@@ -66,6 +69,11 @@
 	$: if ($metaballReady) {
 		loadImages();
 	}
+
+	$: chatInterviewData = {
+		...viralityOvernightChatInterview,
+		background: $preloadedImagesStore ? $preloadedImagesStore[2][0] : viralityOvernightChatInterview.background
+	};
 </script>
 
 {#if $preloadedImagesStore}
@@ -110,6 +118,11 @@
 			/>
 		</div>
 
+		<!-- Chat Interview Section -->
+		<div>
+			<ChatInterview data={chatInterviewData} />
+		</div>
+
 		<!-- About 2 Section - riniifish -->
 		<div
 			id="about2"
@@ -121,7 +134,7 @@
 		>
 			<ProjectAbout
 				aboutItem={riniifishAbout}
-				aboutImages={$preloadedImagesStore[2]}
+				aboutImages={$preloadedImagesStore[3]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -138,7 +151,7 @@
 		>
 			<ProjectAbout
 				aboutItem={wocAbout}
-				aboutImages={$preloadedImagesStore[3]}
+				aboutImages={$preloadedImagesStore[4]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
