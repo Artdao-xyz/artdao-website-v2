@@ -41,9 +41,11 @@
             threshold: 0.5
         });
 
-        document.querySelectorAll('section').forEach((section) => {
-            observer.observe(section);
-        });
+        if (typeof document !== 'undefined') {
+            document.querySelectorAll('section').forEach((section) => {
+                observer.observe(section);
+            });
+        }
 
         return () => observer.disconnect();
     });

@@ -39,6 +39,7 @@ src/
 ### `/src/routes/`
 Contiene las páginas de SvelteKit. Cada proyecto tiene su propia carpeta con:
 Contains SvelteKit pages. Each project has its own folder with:
+- `+layout.svelte` - Layout del proyecto, incluye la barra de navegación específica del proyecto / Project layout, includes the project-specific navigation bar
 - `+page.svelte` - Página principal del proyecto / Project main page
 - `store.ts` - Store local para navegación del proyecto / Local store for project navigation
 
@@ -84,7 +85,7 @@ Main components used in project pages:
 - **Archivos / Files:** `ProjectArtworkGrid.svelte`
 - **Props:**
   - `galleryImages: IGalleryImage[]` - Array de imágenes de la galería / Gallery image array
-  - `showDetails: boolean` - Mostrar detalles de las obras / Show artwork details
+  - `showDetails: boolean` - Mostrar detalles de las obras (por defecto: false) / Show artwork details (default: false)
 
 #### **ProjectPolaroids**
 - **Propósito / Purpose:** Sección de polaroids con citas / Polaroid section with quotes
@@ -285,6 +286,92 @@ Smaller reusable elements:
 ### `/src/data/Projects/[ProjectName]/`
 Datos específicos de cada proyecto:
 Project-specific data:
+
+#### **Estructura Consolidada de Datos / Consolidated Data Structure**
+
+**Importante:** Para mantener el código limpio y mantenible, cuando un proyecto tiene múltiples secciones del mismo tipo, estas deben consolidarse en un solo archivo por tipo de dato.
+
+**Important:** To keep the code clean and maintainable, when a project has multiple sections of the same type, these should be consolidated into a single file per data type.
+
+**Ejemplo / Example:**
+- ✅ **Correcto / Correct:** `ProjectAbout.ts` con múltiples secciones / with multiple sections
+- ❌ **Incorrecto / Incorrect:** `ProjectAbout1.ts`, `ProjectAbout2.ts`, `ProjectAbout3.ts`
+
+**Estructura recomendada / Recommended structure:**
+
+```typescript
+// ProjectAbout.ts - Múltiples secciones en un archivo / Multiple sections in one file
+import AboutComponent1 from './AboutComponent1.svelte';
+import AboutComponent2 from './AboutComponent2.svelte';
+import AboutComponent3 from './AboutComponent3.svelte';
+
+// First About Section
+export const projectAbout1 = {
+    title: 'Section 1 Title',
+    subtitle: '',
+    text: AboutComponent1
+};
+
+export const projectAbout1Images = [
+    '/media/project/section1/image1.webp',
+    '/media/project/section1/image2.webp'
+];
+
+// Second About Section
+export const projectAbout2 = {
+    title: 'Section 2 Title',
+    subtitle: '',
+    text: AboutComponent2
+};
+
+export const projectAbout2Images = [
+    '/media/project/section2/image1.webp',
+    '/media/project/section2/image2.webp'
+];
+
+// Third About Section
+export const projectAbout3 = {
+    title: 'Section 3 Title',
+    subtitle: '',
+    text: AboutComponent3
+};
+
+export const projectAbout3Images = [
+    '/media/project/section3/image1.webp',
+    '/media/project/section3/image2.webp'
+];
+```
+
+```typescript
+// ProjectArtworkGrid.ts - Múltiples grillas en un archivo / Multiple grids in one file
+import type { IGalleryImage } from '$lib/elements/ArtworkContainer/interfaces';
+
+// First Artwork Grid
+export const projectArtworkGrid1: IGalleryImage[] = [
+    {
+        image: '/media/project/grid1/artwork1.webp',
+        name: '',
+        description: ''
+    },
+    // ... more images
+];
+
+// Second Artwork Grid
+export const projectArtworkGrid2: IGalleryImage[] = [
+    {
+        image: '/media/project/grid2/artwork1.webp',
+        name: '',
+        description: ''
+    },
+    // ... more images
+];
+```
+
+**Beneficios / Benefits:**
+- ✅ **Mantenibilidad / Maintainability:** Un archivo por tipo de dato / One file per data type
+- ✅ **Organización / Organization:** Fácil de encontrar y editar / Easy to find and edit
+- ✅ **Consistencia / Consistency:** Estructura uniforme en todos los proyectos / Uniform structure across all projects
+- ✅ **Escalabilidad / Scalability:** Fácil agregar nuevas secciones / Easy to add new sections
 
 #### **ProjectIntro.ts**
 ```typescript
@@ -501,105 +588,26 @@ export const newProjectNavItems: INavBarItem[] = [
 ];
 ```
 
-### Paso 4: Crear la página del proyecto / Step 4: Create project page
-En `/src/routes/[project-name]/+page.svelte` / In `/src/routes/[project-name]/+page.svelte`:
+### Paso 4: Crear la página y layout del proyecto / Step 4: Create project page and layout
+En `/src/routes/[project-name]/+layout.svelte` agrega el NavBar del proyecto:
 
 ```svelte
 <script lang="ts">
-    import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
-    import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
-    import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
-    import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
-    import Footer from '$lib/elements/Footer/Footer.svelte';
-    import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
-    import { inview } from 'svelte-inview';
-    import { EColorVariant, EProjects } from '../../constants/enums';
-    import { newProjectNavItems } from '../../data/Projects/[ProjectName]/NavItems';
-    import { newProjectIntro } from '../../data/Projects/[ProjectName]/ProjectIntro';
-    import { newProjectAbout, newProjectAboutImages } from '../../data/Projects/[ProjectName]/ProjectAbout';
-    import { newProjectDropdownItems } from '../../data/Projects/[ProjectName]/ProjectAboutDropdown';
-    import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
-    import preloadImages from '../../utils/preloadImages';
-    import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
-    import { newProjectNavStoreItems } from './store';
+	import NavBar from '$lib/elements/NavBar/NavBar.svelte';
+	import '../../style.css';
+	import { [projectNavStoreItems] } from './store';
 
-    let introIsInView: boolean;
-    let section1IsInView: boolean;
-
-    let containerRef: any;
-
-    const handleOnScroll = () => {
-        if (introIsInView) {
-            updateNavBar(newProjectNavStoreItems, newProjectNavItems, newProjectNavItems[0].route);
-        }
-        if (section1IsInView) {
-            updateNavBar(newProjectNavStoreItems, newProjectNavItems, newProjectNavItems[1].route);
-        }
-    };
-
-    const preloadedImages = preloadImages([
-        [newProjectIntro.bgImage, newProjectIntro.bgImageMobile],
-        newProjectAboutImages,
-        newProjectDropdownItems.map((item) => item.image)
-    ]);
-
-    let refs = getProjectRefs(EProjects.NEW_PROJECT);
+	let navItems: any;
+	[projectNavStoreItems].subscribe((item) => {
+		navItems = item;
+	});
 </script>
 
-{#await preloadedImages}
-    <LoadingV2 />
-{:then images}
-    <div
-        bind:this={containerRef}
-        on:scroll={handleOnScroll}
-        on:touchmove={handleOnScroll}
-        class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
-    >
-        <!-- Intro Section -->
-        <div
-            id="intro"
-            use:inview={INVIEW_OPTIONS}
-            on:inview_change={(event) => {
-                const { inView } = event.detail;
-                introIsInView = inView;
-            }}
-        >
-            <ProjectIntro
-                project={newProjectIntro}
-                textColor="black"
-                bgImage={images[0][0]}
-                bgImageMobile={images[0][1]}
-            />
-        </div>
-
-        <!-- Section 1 -->
-        <div
-            id="section1"
-            use:inview={INVIEW_OPTIONS}
-            on:inview_change={(event) => {
-                const { inView } = event.detail;
-                section1IsInView = inView;
-            }}
-        >
-            <ProjectAbout
-                aboutItem={newProjectAbout}
-                aboutImages={images[1]}
-                route=""
-                colorVariant={EColorVariant.BLACK}
-            />
-
-            <ProjectAboutDropdown 
-                images={images[2]} 
-                aboutDropdownItems={newProjectDropdownItems}
-                route="" 
-            />
-        </div>
-
-        <HomeIcon />
-        <Footer project={EProjects.NEW_PROJECT} />
-    </div>
-{/await}
+<NavBar {navItems} />
+<slot />
 ```
+
+En `/src/routes/[project-name]/+page.svelte` incluye las secciones del proyecto como se explicó antes.
 
 ### Paso 5: Crear el store del proyecto / Step 5: Create project store
 En `/src/routes/[project-name]/store.ts` / In `/src/routes/[project-name]/store.ts`:
@@ -789,6 +797,29 @@ export interface INavBarItem {
 
 ## 🌿 Flujo de Trabajo con Ramas / Branch Workflow
 
+### Convenciones de nombres de ramas / Branch naming conventions
+```bash
+# Para agregar un nuevo proyecto / For adding a new project
+git checkout -b feat/add-[project-name]
+git checkout -b feat/add-memetic-rubble
+
+# Para actualizar un proyecto existente / For updating an existing project
+git checkout -b feat/update-[project-name]
+git checkout -b feat/update-artifice
+
+# Para nuevas funcionalidades / For new features
+git checkout -b feat/[feature-name]
+git checkout -b feat/new-conversation-component
+
+# Para correcciones / For fixes
+git checkout -b fix/[fix-description]
+git checkout -b fix/mobile-scroll-and-images
+
+# Para documentación / For documentation
+git checkout -b docs/[description]
+git checkout -b docs/add-complete-project-documentation
+```
+
 ### Crear una nueva feature / Create a new feature
 ```bash
 # Asegurarse de estar en main y actualizado / Make sure you're on main and updated
@@ -796,8 +827,8 @@ git checkout main
 git pull origin main
 
 # Crear nueva rama / Create new branch
-git checkout -b feature/nombre-de-la-feature
-git checkout -b feature/feature-name
+git checkout -b feat/nombre-de-la-feature
+git checkout -b feat/feature-name
 ```
 
 ### Trabajar en la feature / Work on the feature

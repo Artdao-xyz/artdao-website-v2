@@ -32,17 +32,17 @@
 
 <button 
     type="button"
-    class="fixed w-dvw h-dvh z-50 backdrop-blur-2xl backdrop-brightness-50 flex flex-col items-center justify-center gap-4"
+    class="fixed w-dvw h-dvh z-50 bg-black/80 backdrop-blur-2xl backdrop-brightness-50 flex flex-col items-center justify-center gap-4"
     transition:fly={{ duration: 300 }}
     on:click={handleBackdropClick}
 >
     <img class="h-14" src={artDaoLogo} alt="ArtDao Logo">
-    <div class="font-clash text-md font-medium leading-tight">
+    <div class="font-clash text-md text-white font-medium leading-tight">
         <h3>{text1}</h3>
         <h3>{text2}</h3>
     </div>
     <div class="flex gap-2">
-        <a target="_blank" href="https://discord.gg/NTUZRU3ZNE"><img class="h-10" src="media/home/icons/discord.png" alt="discord"></a>
+        <!-- <a target="_blank" href="https://discord.gg/NTUZRU3ZNE"><img class="h-10" src="media/home/icons/discord.png" alt="discord"></a> -->
         <a target="_blank" href="https://www.instagram.com/artdao.xyz"><img class="h-10" src="media/home/icons/instagram.png" alt="instagram"></a>
         <a target="_blank" href="https://x.com/Artdao_xyz"><img class="h-10" src="media/home/icons/twitter.png" alt="twitter"></a>
     </div>

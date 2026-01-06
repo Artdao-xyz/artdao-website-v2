@@ -1,0 +1,2 @@
+<p>Alice Bucknell is a North American artist, writer and educator based in Los Angeles. Their work explores the affective dimensions of video games as interfaces for understanding complex systems, relationships, and forms of knowledge. Bucknell is generally interested in the limits of scientific knowledge and systems thinking, the weird possibilities of play, and the ecological dimensions of games that can dissolve binaries like humans vs environment, natural vs synthetic intelligence, and self vs world.</p>
+

@@ -6,7 +6,7 @@ export const inConversationVideo: IVideoProject[] = [
 		artist: 'Intertwined',
 		year: '2024',
 		videoUrl:
-			'https://storage.googleapis.com/videoszine/Jeff%20David%20with%20Operator/Interview%20Operator/Operatorr.mp4',
+			'https://storage.googleapis.com/videoszine/Jeff%20David%20with%20Operator/Interview%20Operator/Operatorr_1.mp4',
 		size: 'rectangle'
 	}
 ];

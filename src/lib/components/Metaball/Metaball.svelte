@@ -1,21 +1,186 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 	import * as THREE from 'three';
 	import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 	import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+	import { gsap } from 'gsap';
 	import { HOME } from '../../../constants/routes';
 	import MetaSymbol from '../../../lib/components/Metaball/MetaSymbol';
+	import { fly } from 'svelte/transition';
+	import { metaballReady, imagesLoaded } from '$lib/stores/metaballPreloader';
+	// Props para controlar el comportamiento
+	export let isHomePage: boolean = false;
+	export let isPreloader: boolean = false;
+	export let size: 'small' | 'medium' | 'large' | 'extra-large' = 'small';
 
 	let canvas: any = null;
 	let metaSymbol: any = null;
+	let isLoaded = false;
+	let isAnimated = false;	
+	let metaballContainer: any = null;
+	let isMobile = false;
+	
+	// Detectar si estamos en la página de inherent-instability
+	$: isInherentInstabilityPage = $page?.route?.id === '/inherent-instability';
+	
+	// Detectar si estamos en una ruta de studio
+	$: isStudioPage = $page?.route?.id === '/studio';
+	$: isStudioDetailPage = $page?.route?.id?.startsWith('/studio/') || false;
+	$: isStudioAny = isStudioPage || isStudioDetailPage;
+	
+	// Detectar si estamos en la página de map
+	$: isMapPage = $page?.route?.id === '/map';
 
 	const scene = new THREE.Scene();
 
+	// Función para animar el canvas hacia la esquina inferior derecha (desktop)
+	const animateToBottomRight = () => {
+		// console.log('🎬 animateToBottomRight iniciada');
+		// console.log('🎬 canvas:', !!canvas, 'isAnimated:', isAnimated);
+		// console.log('🎬 metaballContainer:', !!metaballContainer);
+		
+		if (!canvas || isAnimated) {
+			// console.log('❌ animateToBottomRight cancelada - canvas:', !!canvas, 'isAnimated:', isAnimated);
+			return;
+		}
+		
+		// Limpiar cualquier animación GSAP previa del canvas
+		gsap.killTweensOf(canvas);
+		
+		isAnimated = true;
+		// console.log('✅ animateToBottomRight ejecutándose');
+
+		// Hacer transparente el wrapper si existe
+		if (metaballContainer) {
+			// console.log('🎯 Haciendo transparente metaballContainer');
+			metaballContainer.classList.add('opacity-0');
+			metaballContainer.classList.remove('opacity-100');
+			// También ocultar completamente para evitar problemas de scroll
+			metaballContainer.style.display = 'none';
+		}
+		
+		// Remover las clases de centrado y establecer posición inicial
+		// console.log('🎬 Removiendo clases CSS');
+		// console.log('🎬 Canvas antes:', canvas.style.transform, canvas.style.bottom, canvas.style.right);
+		canvas.classList.remove('bottom-1/2', 'right-1/2', 'top-1/2', 'left-1/2', 'translate-x-1/2', 'translate-y-1/2');
+		canvas.style.bottom = '50%';
+		canvas.style.right = '50%';
+		canvas.style.top = 'auto';
+		canvas.style.left = 'auto';
+		canvas.style.transformOrigin = 'bottom right';
+		canvas.style.transform = 'translate(50%, 50%)';
+		// console.log('🎬 Canvas después:', canvas.style.transform, canvas.style.bottom, canvas.style.right);
+		
+		// console.log('🎬 Iniciando animación GSAP');
+		// console.log('🎬 GSAP activo:', gsap.globalTimeline.getChildren().length, 'animaciones');
+		const startTime = performance.now();
+		
+		gsap.to(canvas, {
+			duration: 1.5,
+			ease: "power2.inOut",
+			bottom: '10px',
+			right: '10px',
+			transform: 'translate(0, 0) scale(0.2)',
+			onStart: () => {
+				// console.log('🚀 GSAP animación iniciada');
+			},
+			onComplete: () => {
+				// console.log('✅ GSAP animación completada');
+			}
+		});
+	};
+
+	// Función para animar el canvas hacia la esquina superior izquierda (mobile)
+	const animateToTopLeft = () => {
+		// console.log('🎬 animateToTopLeft iniciada');
+		// console.log('🎬 canvas:', !!canvas, 'isAnimated:', isAnimated);
+		// console.log('🎬 metaballContainer:', !!metaballContainer);
+		
+		if (!canvas || isAnimated) {
+			// console.log('❌ animateToTopLeft cancelada - canvas:', !!canvas, 'isAnimated:', isAnimated);
+			return;
+		}
+		
+		// Limpiar cualquier animación GSAP previa del canvas
+		gsap.killTweensOf(canvas);
+		
+		isAnimated = true;
+		// console.log('✅ animateToTopLeft ejecutándose');
+
+		// Hacer transparente el wrapper si existe
+		if (metaballContainer) {
+			// console.log('🎯 Haciendo transparente metaballContainer');
+			metaballContainer.classList.add('opacity-0');
+			metaballContainer.classList.remove('opacity-100');
+			// También ocultar completamente para evitar problemas de scroll
+			metaballContainer.style.display = 'none';
+		}
+		
+		// Remover las clases de centrado y establecer posición inicial
+		// console.log('🎬 Removiendo clases CSS');
+		// console.log('🎬 Canvas antes:', canvas.style.transform, canvas.style.top, canvas.style.left);
+		canvas.classList.remove('bottom-1/2', 'right-1/2', 'top-1/2', 'left-1/2', 'translate-x-1/2', 'translate-y-1/2');
+		canvas.style.top = '50%';
+		canvas.style.left = '50%';
+		canvas.style.bottom = 'auto';
+		canvas.style.right = 'auto';
+		canvas.style.transformOrigin = 'top left';
+		canvas.style.transform = 'translate(-50%, -50%)';
+		// console.log('🎬 Canvas después:', canvas.style.transform, canvas.style.top, canvas.style.left);
+		
+		// console.log('🎬 Iniciando animación GSAP');
+		// console.log('🎬 GSAP activo:', gsap.globalTimeline.getChildren().length, 'animaciones');
+		const startTime = performance.now();
+		
+		gsap.to(canvas, {
+			duration: 1.5,
+			ease: "power2.inOut",
+			top: '10px',
+			left: '10px',
+			transform: 'translate(0, 0) scale(0.2)',
+			onStart: () => {
+				// console.log('🚀 GSAP animación iniciada');
+			},
+			onComplete: () => {
+				// console.log('✅ GSAP animación completada');
+			}
+		});
+	};
+
+
 	onMount(() => {
+		// console.log('🎯 Metaball onMount iniciado - isPreloader:', isPreloader, 'size:', size);
+		
+		// Reset del estado para evitar conflictos
+		// console.log('🎯 Metaball onMount iniciado - isPreloader:', isPreloader, 'size:', size);
+		isAnimated = false;
+		isLoaded = false;
+		
+		// Detectar si estamos en mobile
+		isMobile = window.innerWidth <= 768;
+		
 		/* SETTINGS */
+		let baseSize: number;
+		switch (size) {
+					case 'extra-large':
+			baseSize = window.innerWidth <= 768 ? 350 : 700;
+			break;
+			case 'large':
+				baseSize = window.innerWidth <= 768 ? 150 : 300;
+				break;
+			case 'medium':
+				baseSize = window.innerWidth <= 768 ? 80 : 150;
+				break;
+			case 'small':
+			default:
+				baseSize = window.innerWidth <= 768 ? 60 : 100;
+				break;
+		}
+		
 		const sizes = {
-			width: window.innerWidth <= 768 ? 60 : 100,
-			height: window.innerWidth <= 768 ? 60 : 100
+			width: baseSize,
+			height: baseSize
 		};
 
 		/* SCENE */
@@ -46,27 +211,54 @@
 
 		const textureLoader = new THREE.TextureLoader();
 
-		// Preload the matcap texture
-		const textures = textureLoader.load(
+		// Preload the matcap texture and create metaball only when loaded
+		textureLoader.load(
 			'/metaball/matcap-black.png',
-			() => {
-				// console.log('Texture loaded!');
-				// Texture is now loaded and can be used
+			(texture) => {
+				// Texture is now loaded, create the metaball
+				metaSymbol = new MetaSymbol(texture);
+				scene.add(metaSymbol.getMesh());
+
+				// Activar fade-in después de que el Metaball esté listo
+				setTimeout(() => {
+					isLoaded = true;
+					// console.log('🎉 Metabola cargada, esperando 2 segundos para animar');
+					
+					// Si es preloader, disparar evento metaballReady
+					if (isPreloader) {
+						metaballReady.set(true);
+					}
+					
+					setTimeout(() => {
+						// console.log('⏰ Ejecutando animación después de 2 segundos');
+						// Ir arriba-izquierda si es mobile Y (home, studio o map)
+						if (isMobile && (isHomePage || isStudioAny || isMapPage)) {
+							// console.log('🎬 Ejecutando animación hacia arriba-izquierda');
+							animateToTopLeft();
+						} else {
+							// console.log('🎬 Ejecutando animación hacia abajo-derecha');
+							animateToBottomRight();
+						}
+					}, 2000);
+				}, 100);
 			},
 			undefined,
 			(error) => {
-				console.error('An error occurred while loading the texture:', error);
+				console.error('Error cargando textura de metabola:', error);
 			}
 		);
 
-		metaSymbol = new MetaSymbol(textures);
-		scene.add(metaSymbol.getMesh());
-
 		/* ANIMATION */
+		let animationId: number;
+		let frameCount = 0;
 		const animate = () => {
-			requestAnimationFrame(animate);
-			metaSymbol.update();
+			animationId = requestAnimationFrame(animate);
+			if (metaSymbol) {
+				metaSymbol.update();
+			}
 			composer.render();
+			
+			// Log cada 300 frames (aproximadamente 5 segundos)
 		};
 
 		animate();
@@ -77,38 +269,40 @@
 
 		/* RESIZE */
 		onresize = (e) => {
-			// Update sizes
-			if (window.innerWidth !== sizes.width) {
-				(sizes.width = window.innerWidth <= 768 ? 60 : 100),
-					(sizes.height = window.innerWidth <= 768 ? 60 : 100);
-
-				// Adjust camera position based on viewport size
-				if (sizes.width < 1025) {
-					camera.position.y = 0;
-					camera.position.z = 300;
-				} else {
-					camera.position.y = 0;
-					camera.position.z = 200;
-				}
-
-				// Update camera
-				camera.aspect = sizes.width / sizes.height;
-				camera.updateProjectionMatrix();
-
-				// Update renderer
-				renderer.setSize(sizes.width, sizes.height);
-				renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-			}
+			
 		};
 
 		return () => {
-			metaSymbol.dispose();
-			renderPass.dispose();
-			renderTarget.dispose();
+			// Cancelar requestAnimationFrame
+			// console.log('🧹 Metaball cleanup iniciado');
+			if (animationId) {
+				cancelAnimationFrame(animationId);
+				// console.log('🧹 Animation frame cancelado');
+			}
+			
+			// Limpiar todas las animaciones GSAP del canvas
+			if (canvas) {
+				gsap.killTweensOf(canvas);
+				// console.log('🧹 GSAP animations killed');
+			}
+			
+			if (metaSymbol) {
+				metaSymbol.dispose();
+			}
+			if (renderPass) {
+				renderPass.dispose();
+			}
+			if (renderTarget) {
+				renderTarget.dispose();
+			}
+			// Limpiar animaciones GSAP si las hay
+			if (canvas) {
+				gsap.killTweensOf(canvas);
+			}
 		};
 	});
 
-	// $: {
+	// $: { 
 	//     if (metaSymbol)   {
 	//         metaSymbol.changeTexture(0);
 	//         document.body.className = themes[0];
@@ -122,7 +316,34 @@
 </script>
 
 <svelte:window bind:innerWidth={width} />
-<a href={width <= 768 ? HOME : '#intro'}>
-	<canvas bind:this={canvas} class="bg-transparent relative">
-	</canvas>
-</a>
+
+<div 
+	transition:fly={{ duration: 1000 }} 
+	bind:this={metaballContainer}
+	class="h-[120%] overflow-hidden lg:h-screen w-screen absolute inset-0 z-50 transition-opacity duration-[2000ms] ease-in-out pointer-events-none {isStudioAny ? 'bg-black' : 'bg-dot'}"
+>
+</div>
+<canvas 
+	bind:this={canvas} 
+	class="bg-transparent overflow-hidden lg:overflow-visible fixed bottom-1/2 right-1/2 transform translate-x-1/2 translate-y-1/2 z-50 transition-opacity duration-500 ease-in-out"
+	class:opacity-0={!isLoaded}
+	class:opacity-100={isLoaded}
+	style="transition-delay: {isLoaded ? '200ms' : '0ms'};"
+>
+</canvas>
+
+
+<style>
+	.bg-dot {
+		background: #F7F5F2 url('/media/home/home-dot.svg') repeat;
+		background-size: 10px 10px;
+	}
+	
+	.metaball-canvas {
+		transform-origin: bottom right;
+	}
+	
+	.metaball-canvas.metaball-mobile {
+		transform-origin: top left;
+	}
+</style>

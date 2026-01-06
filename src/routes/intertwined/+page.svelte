@@ -1,5 +1,4 @@
 <script lang="ts">
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
@@ -34,10 +33,13 @@
 	} from '../../data/Projects/Intertwined/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import preloadImages from '../../utils/preloadImages';
 	import { getProjectRefs } from '../../utils/projectsRefs/getProjectRefs';
 	import { intertwinedNavStoreItems } from './store';
-
+	import { fly } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
+	
 	let introIsInView: boolean;
 	let artdaoIsInView: boolean;
 	let cryptoIsInView: boolean;
@@ -75,28 +77,37 @@
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[intertwinedProjectIntro.bgImage, intertwinedProjectIntro.bgImageMobile],
-		curationAboutImages,
-		artdaoDropdownItems.map((item) => item.image),
-		cryptoargAboutImages,
-		cryptoargDropdownItems.map((item) => item.image),
-		artBlocksAboutImages,
-		artBlocksDropdownItems.map((item) => item.image),
-		mocaAboutImages,
-		intertwinedVernisaggeDropdownItems.map((item) => item.image)
-	]);
+	// Función para cargar las imágenes cuando el Metaball esté listo
+	const loadImages = async () => {
+		const images = await preloadImages([
+			[intertwinedProjectIntro.bgImage, intertwinedProjectIntro.bgImageMobile],
+			curationAboutImages,
+			artdaoDropdownItems.map((item) => item.image),
+			cryptoargAboutImages,
+			cryptoargDropdownItems.map((item) => item.image),
+			artBlocksAboutImages,
+			artBlocksDropdownItems.map((item) => item.image),
+			mocaAboutImages,
+			intertwinedVernisaggeDropdownItems.map((item) => item.image)
+		]);
+		preloadedImagesStore.set(images);
+		imagesLoaded.set(true);
+	};
+
+	// Cargar imágenes cuando el Metaball esté listo
+	$: if ($metaballReady) {
+		loadImages();
+	}
 
 	let refs = getProjectRefs(EProjects.INTERTWINED);
 </script>
 
-{#await preloadedImages}
-	<LoadingV2 />
-{:then images}
+{#if $preloadedImagesStore}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
+		transition:fly={{ duration: 1000, delay: 750, y: 30, easing: cubicInOut }}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<div
@@ -119,8 +130,8 @@
 				project={intertwinedProjectIntro}
 				textColor="black"
 				isCenterImage
-				bgImage={images[0][0]}
-				bgImageMobile={images[0][1]}
+				bgImage={$preloadedImagesStore[0][0]}
+				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>
 
 			<ProjectVideo videoProjects={introVideo} />
@@ -144,12 +155,12 @@
 		>
 			<ProjectAbout
 				aboutItem={curationAbout}
-				aboutImages={images[1]}
+				aboutImages={$preloadedImagesStore[1]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
 
-			<ProjectAboutDropdown images={images[2]} aboutDropdownItems={artdaoDropdownItems} route="" />
+			<ProjectAboutDropdown images={$preloadedImagesStore[2]} aboutDropdownItems={artdaoDropdownItems} route="" />
 
 			<ProjectVideo videoProjects={artdaoVideo} route="artdao-end" />
 		</div>
@@ -172,13 +183,13 @@
 		>
 			<ProjectAbout
 				aboutItem={cryptoargAbout}
-				aboutImages={images[3]}
+				aboutImages={$preloadedImagesStore[3]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
 
 			<ProjectAboutDropdown
-				images={images[4]}
+				images={$preloadedImagesStore[4]}
 				aboutDropdownItems={cryptoargDropdownItems}
 				route=""
 			/>
@@ -204,13 +215,13 @@
 		>
 			<ProjectAbout
 				aboutItem={artBlocksAbout}
-				aboutImages={images[5]}
+				aboutImages={$preloadedImagesStore[5]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
 
 			<ProjectAboutDropdown
-				images={images[6]}
+				images={$preloadedImagesStore[6]}
 				aboutDropdownItems={artBlocksDropdownItems}
 				route="artBlocks-end"
 			/>
@@ -234,7 +245,7 @@
 		>
 			<ProjectAbout
 				aboutItem={mocaAbout}
-				aboutImages={images[7]}
+				aboutImages={$preloadedImagesStore[7]}
 				route="moca-end"
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -257,7 +268,7 @@
 			}}
 		>
 			<ProjectAboutDropdown
-				images={images[8]}
+				images={$preloadedImagesStore[8]}
 				aboutDropdownItems={intertwinedVernisaggeDropdownItems}
 				route=""
 			/>
@@ -268,7 +279,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.INTERTWINED} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {

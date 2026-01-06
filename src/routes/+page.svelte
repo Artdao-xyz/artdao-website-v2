@@ -1,22 +1,11 @@
 <script lang="ts">
-	import Home from '$lib/components/Home/Home.svelte';
-	import { homeImages } from '../data/HomeImgLayout';
-	import preloadImages, { isExiting } from '../utils/preloadImages';
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
-
-	const preloadedImages = preloadImages([
-		homeImages.map((project) => project.imageUrl),
-	]);
+	import HomeV2 from '$lib/components/HomeV2/HomeV2.svelte';
 </script>
 
-{#await preloadedImages}
-	<!-- <LoadingV2 /> -->
-	<LoadingV2/>
-{:then images}
-	<div class="h-svh w-full">
-		<Home/>
-	</div>
-{/await}
+
+<div class="h-full">
+	<HomeV2/>
+</div>
 
 <style>
 	:global(html) {
@@ -29,5 +18,10 @@
 		overflow-y: auto;
 		overscroll-behavior-y: none;
 		min-height: 100%;
+	}
+
+	.bg-dot {
+		background: #F7F5F2 url("/media/home/home-dot.svg") repeat;
+		background-size: 10px 10px;
 	}
 </style>
