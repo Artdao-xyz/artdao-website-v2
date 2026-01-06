@@ -155,5 +155,17 @@ export const projects: Project[] = [
                 artists: ["Pinky Blue", "Sabato", "Stipin Pixel", "Estelle Flores", "CYDR"],
                 artworks: ["Pinky Blue", "Artifact", "Sabato"],
                 quote: "\"We engage with these elements critically, subverting their original functions and assigning subjective meanings.\"",
+        },
+        {
+                title: "Virality Overnight",
+                subtitle: "Placeholder subtitle",
+                description: "Placeholder description for Virality Overnight project.",
+                thumbnailPath: ["media/home/thumbnails-v2/virality-overnight/3.webp", "media/home/thumbnails-v2/virality-overnight/1.webp", "media/home/thumbnails-v2/virality-overnight/2.webp"],
+                thumbnailPathMobile: "media/home/thumbnails-v2-mobile/virality-overnight.webp",
+                buttonPath: "media/home/buttons/16-button-virality-overnight.png",
+                pagePath: "/virality-overnight",
+                artists: [],
+                artworks: [],
+                quote: "Placeholder quote for Virality Overnight project.",
         }
 ];
