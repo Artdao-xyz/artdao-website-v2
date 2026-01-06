@@ -40,7 +40,8 @@ import {
 	RAVE,
 	SUBCONSCIOUS_MEDIA,
 	PET,
-	WHATS_ON_YOUR_MIND
+	WHATS_ON_YOUR_MIND,
+	EVERY_CREATION_IS_LOSS
 } from '../../constants/routes';
 
 export interface IProject {
@@ -108,6 +109,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.WHATS_ON_YOUR_MIND,
 		refs: [EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA, EProjects.DIGITAL_MATTER]
+	},
+	{
+		name: EProjects.EVERY_CREATION_IS_LOSS,
+		refs: [EProjects.WHATS_ON_YOUR_MIND, EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA]
 	}
 ];
 
@@ -231,5 +236,13 @@ export const projectsDetails = [
 		hover: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp',
 		url: WHATS_ON_YOUR_MIND,
 		mobileImage: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp'
+	},
+	{
+		name: EProjects.EVERY_CREATION_IS_LOSS,
+		nameToShow: 'every creation is loss',
+		image: '/media/every-creation-is-loss/main-cover.webp',
+		hover: '/media/every-creation-is-loss/main-cover.webp',
+		url: EVERY_CREATION_IS_LOSS,
+		mobileImage: '/media/every-creation-is-loss/main-cover.webp'
 	}
 ];

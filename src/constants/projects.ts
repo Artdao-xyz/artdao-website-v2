@@ -155,5 +155,17 @@ export const projects: Project[] = [
                 artists: ["Pinky Blue", "Sabato", "Stipin Pixel", "Estelle Flores", "CYDR"],
                 artworks: ["Pinky Blue", "Artifact", "Sabato"],
                 quote: "\"We engage with these elements critically, subverting their original functions and assigning subjective meanings.\"",
+        },
+        {
+                title: "Every Creation is Loss",
+                subtitle: "Placeholder subtitle",
+                description: "Placeholder description for Every Creation is Loss project.",
+                thumbnailPath: ["media/home/thumbnails-v2/every-creation-is-loss/3.webp", "media/home/thumbnails-v2/every-creation-is-loss/1.webp", "media/home/thumbnails-v2/every-creation-is-loss/2.webp"],
+                thumbnailPathMobile: "media/home/thumbnails-v2-mobile/every-creation-is-loss.webp",
+                buttonPath: "media/home/buttons/17-button-every-creation-is-loss.png",
+                pagePath: "/every-creation-is-loss",
+                artists: [],
+                artworks: [],
+                quote: "Placeholder quote for Every Creation is Loss project.",
         }
 ];
