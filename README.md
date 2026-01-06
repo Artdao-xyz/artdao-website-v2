@@ -121,6 +121,11 @@ Para secciones de chat/entrevista con múltiples personajes, avatares y fondo pe
 - **Archivos / Files:** `ChatInterview.svelte`
 - **Props:**
   - `data: ChatInterviewData` - Objeto con personajes, mensajes y fondo / Object with characters, messages, and background
+- **Notas / Notes:**
+  - Se puede usar múltiples veces en una misma página / Can be used multiple times on the same page
+  - El campo `background` es obligatorio / The `background` field is required
+  - El campo `images` es opcional (usar array vacío si no hay imágenes) / The `images` field is optional (use empty array if no images)
+  - Cada proyecto puede tener múltiples objetos `ChatInterviewData` en el mismo archivo (ej: `chatInterviewData`, `chatInterviewData2`) / Each project can have multiple `ChatInterviewData` objects in the same file (e.g., `chatInterviewData`, `chatInterviewData2`)
 
 ---
 
@@ -145,42 +150,80 @@ export interface ChatInterviewData {
   background: string; // imagen de fondo
 }
 
-export const orbChatInterview: ChatInterviewData = {
+export const chatInterviewData: ChatInterviewData = {
   characters: [
     {
-      id: 'interviewer',
-      name: 'Interviewer',
-      avatar: 'https://i.pravatar.cc/150?img=1',
+      id: 'tomas-jones',
+      name: 'Tomas Jones',
+      avatar: '/media/artdao-question.webp',
       type: 'question'
     },
     {
-      id: 'vixy',
-      name: 'VIXY',
-      avatar: 'https://i.pravatar.cc/150?img=2',
-      type: 'answer'
-    },
-    {
-      id: 'cymoon',
-      name: 'CYMOON',
-      avatar: 'https://i.pravatar.cc/150?img=3',
+      id: 'artist1',
+      name: 'Artist Name',
+      avatar: '/media/project/interview/pfp1.webp',
       type: 'answer'
     }
   ],
   messages: [
     {
-      characterId: 'interviewer',
+      characterId: 'tomas-jones',
       content: 'What themes drive your creative process?'
     },
     {
-      characterId: 'vixy',
-      content: 'In this particular series of works everything is centered on the connection between body and technology, what I call flesh and metal...'
-    },
-    // ...
+      characterId: 'artist1',
+      content: 'In this particular series of works everything is centered on the connection between body and technology...'
+    }
+    // ... more messages
   ],
-  images: [],
-  background: 'https://picsum.photos/1920/1080?random=10'
+  images: [], // Opcional: array vacío si no hay imágenes / Optional: empty array if no images
+  background: '/media/project/interview/interview-bg.webp' // Obligatorio / Required
+};
+
+// Múltiples entrevistas en el mismo archivo / Multiple interviews in the same file
+export const chatInterviewData2: ChatInterviewData = {
+  // ... segunda entrevista / second interview
 };
 ```
+
+**Uso en +page.svelte / Usage in +page.svelte:**
+```svelte
+<!-- Primera entrevista / First interview -->
+<div>
+  <ChatInterview data={chatInterviewData} />
+</div>
+
+<!-- Segunda entrevista / Second interview -->
+<div>
+  <ChatInterview data={chatInterviewData2} />
+</div>
+```
+
+#### **HomeThumbnails**
+- **Propósito / Purpose:** Muestra las miniaturas de proyectos en la página de inicio con scroll vertical / Displays project thumbnails on the home page with vertical scroll
+- **Archivos / Files:** `HomeThumbnails.svelte`
+- **Props:**
+  - `projects: Project[]` - Array de proyectos desde `constants/projects.ts` / Array of projects from `constants/projects.ts`
+- **Notas / Notes:**
+  - Usa `thumbnailPath` que es un array, pero muestra solo el primer elemento / Uses `thumbnailPath` which is an array, but displays only the first element
+  - Implementa scroll con snap para navegación fluida / Implements snap scroll for smooth navigation
+
+#### **HomeButtons**
+- **Propósito / Purpose:** Botones laterales que muestran miniaturas de proyectos y permiten navegación rápida / Side buttons that display project thumbnails and allow quick navigation
+- **Archivos / Files:** `HomeButtons.svelte`
+- **Props:**
+  - `projects: Project[]` - Array de proyectos / Array of projects
+  - `selectedIndex: number` - Índice del proyecto seleccionado / Selected project index
+- **Notas / Notes:**
+  - Sincronizado con `HomeThumbnails` mediante `IntersectionObserver` / Synchronized with `HomeThumbnails` via `IntersectionObserver`
+  - Usa `thumbnailPath[0]` para mostrar la primera imagen / Uses `thumbnailPath[0]` to display the first image
+
+#### **Home**
+- **Propósito / Purpose:** Componente principal de la página de inicio / Main home page component
+- **Archivos / Files:** `Home.svelte`
+- **Estructura / Structure:**
+  - Integra `HomeThumbnails`, `HomeButtons`, `TopBarDesktop`, `TopBarMobile`, `Metaball`, `Info`
+  - Usa `IntersectionObserver` para sincronizar scroll entre componentes / Uses `IntersectionObserver` to synchronize scroll between components
 
 #### **Componentes de Navegación / Navigation Components**
 - **TopBarDesktop** - Barra superior para desktop / Top bar for desktop
@@ -240,6 +283,9 @@ Smaller reusable elements:
 #### **NavBar**
 - **Propósito / Purpose:** Barra de navegación / Navigation bar
 - **Props:** `navItems: INavBarItem[]`
+- **Notas / Notes:**
+  - Soporta la propiedad `shortText` para títulos largos que se cortan en el navbar / Supports `shortText` property for long titles that get cut off in the navbar
+  - Si `shortText` está definido, se muestra en lugar de `text` / If `shortText` is defined, it's displayed instead of `text`
 
 #### **Footer**
 - **Propósito / Purpose:** Pie de página con referencias a otros proyectos / Footer with references to other projects
@@ -349,22 +395,45 @@ import type { IGalleryImage } from '$lib/elements/ArtworkContainer/interfaces';
 // First Artwork Grid
 export const projectArtworkGrid1: IGalleryImage[] = [
     {
-        image: '/media/project/grid1/artwork1.webp',
+        image: '/media/project/artwork-grid-1/artwork-grid-1.webp',
         name: '',
         description: ''
     },
+    {
+        image: '/media/project/artwork-grid-1/artwork-grid-2.webp',
+        name: '',
+        description: ''
+    }
     // ... more images
 ];
 
 // Second Artwork Grid
 export const projectArtworkGrid2: IGalleryImage[] = [
     {
-        image: '/media/project/grid2/artwork1.webp',
+        image: '/media/project/artwork-grid-2/artwork-grid-1.webp',
         name: '',
         description: ''
     },
+    {
+        image: '/media/project/artwork-grid-2/artwork-grid-2.webp',
+        name: '',
+        description: ''
+    }
     // ... more images
 ];
+```
+
+**Uso en +page.svelte / Usage in +page.svelte:**
+```svelte
+<!-- Primera grilla / First grid -->
+<div>
+    <ProjectArtworkGrid galleryImages={projectArtworkGrid1} />
+</div>
+
+<!-- Segunda grilla / Second grid -->
+<div>
+    <ProjectArtworkGrid galleryImages={projectArtworkGrid2} />
+</div>
 ```
 
 **Beneficios / Benefits:**
@@ -382,10 +451,14 @@ export const projectIntro = {
         'Description paragraph 2',
         'Description paragraph 3'
     ],
-    bgImage: 'path/desktop-image.webp',
-    bgImageMobile: 'path/mobile-image.webp'
+    bgImage: '/media/project-name/main-cover.webp', // Ruta con /media/ / Path with /media/
+    bgImageMobile: '/media/project-name/main-cover.webp' // Ruta con /media/ / Path with /media/
 };
 ```
+
+**Nota importante / Important note:**
+- Las rutas de imágenes deben usar `/media/...` (con `/` al inicio) / Image paths must use `/media/...` (with `/` at the start)
+- Las imágenes están en `static/media/[project-name]/` / Images are located in `static/media/[project-name]/`
 
 #### **ProjectAbout.ts**
 ```typescript
@@ -483,19 +556,32 @@ export const questions: IQuestion[] = [
 
 #### **NavItems.ts**
 ```typescript
+import type { INavBarItem } from '$lib/elements/NavBar/interfaces';
+
 export const navItems: INavBarItem[] = [
     {
-        text: 'About',
+        text: 'Intro',
         route: 'intro',
         selected: false
     },
     {
-        text: 'Section 1',
+        text: 'Very Long Section Title That Gets Cut Off',
         route: 'section1',
+        selected: false,
+        shortText: 'Long Title' // Texto corto para el navbar / Short text for navbar
+    },
+    {
+        text: 'Section 2',
+        route: 'section2',
         selected: false
     }
 ];
 ```
+
+**Nota sobre `shortText` / Note about `shortText`:**
+- Usar cuando el título es muy largo y se corta en el navbar / Use when the title is too long and gets cut off in the navbar
+- Si `shortText` está definido, se muestra en lugar de `text` / If `shortText` is defined, it's displayed instead of `text`
+- Opcional: solo agregar cuando sea necesario / Optional: only add when necessary
 
 ## 🔧 Cómo Agregar un Nuevo Proyecto / How to Add a New Project
 
@@ -524,24 +610,24 @@ Crear archivos en `/src/data/Projects/[ProjectName]/` / Create files in `/src/da
 
 #### **ProjectIntro.ts**
 ```typescript
-import bgImage from '$lib/assets/images/projects/[project]/intro-desktop.webp';
-import bgImageMobile from '$lib/assets/images/projects/mobile-intro/[project]-mobile.webp';
-
 export const newProjectIntro = {
     name: 'new project',
     description: [
         'Project description paragraph 1',
         'Project description paragraph 2'
     ],
-    bgImage,
-    bgImageMobile
+    bgImage: '/media/new-project/main-cover.webp', // Ruta con /media/ / Path with /media/
+    bgImageMobile: '/media/new-project/main-cover.webp' // Ruta con /media/ / Path with /media/
 };
 ```
+
+**Nota importante / Important note:**
+- Usar rutas con `/media/...` (con `/` al inicio) / Use paths with `/media/...` (with `/` at the start)
+- Las imágenes deben estar en `static/media/[project-name]/` / Images must be in `static/media/[project-name]/`
 
 #### **ProjectAbout.ts**
 ```typescript
 import AboutComponent from './AboutComponent.svelte';
-import aboutImage1 from '$lib/assets/images/projects/[project]/about1.webp';
 
 export const newProjectAbout = {
     title: 'Section title',
@@ -550,14 +636,13 @@ export const newProjectAbout = {
 };
 
 export const newProjectAboutImages = [
-    aboutImage1,
-    // more images...
+    '/media/new-project/about-1/about-1.webp', // Ruta con /media/ / Path with /media/
+    '/media/new-project/about-1/about-2.webp'
 ];
 ```
 
 #### **ProjectAboutDropdown.ts**
 ```typescript
-import itemImage1 from '$lib/assets/images/projects/[project]/item1.webp';
 import type { IAboutDropdown } from '$lib/elements/AboutDropdown/interfaces';
 
 export const newProjectDropdownItems: IAboutDropdown[] = [
@@ -565,7 +650,7 @@ export const newProjectDropdownItems: IAboutDropdown[] = [
         name: 'Element name',
         artist: 'Artist',
         about: 'Element description',
-        image: itemImage1
+        image: '/media/new-project/dropdown/item1.webp' // Ruta con /media/ / Path with /media/
     }
 ];
 ```
@@ -607,19 +692,68 @@ En `/src/routes/[project-name]/+layout.svelte` agrega el NavBar del proyecto:
 <slot />
 ```
 
-En `/src/routes/[project-name]/+page.svelte` incluye las secciones del proyecto como se explicó antes.
+En `/src/routes/[project-name]/+page.svelte` incluye las secciones del proyecto. Ver sección "Patrón Estándar de +page.svelte" más abajo para la estructura completa. / In `/src/routes/[project-name]/+page.svelte` include the project sections. See "Standard +page.svelte Pattern" section below for the complete structure.
 
 ### Paso 5: Crear el store del proyecto / Step 5: Create project store
 En `/src/routes/[project-name]/store.ts` / In `/src/routes/[project-name]/store.ts`:
 
 ```typescript
 import { writable } from 'svelte/store';
-import type { INavBarItem } from '../../data/Projects/[ProjectName]/NavItems';
+import type { INavBarItem } from '$lib/elements/NavBar/interfaces';
+import { newProjectNavItems } from '../../data/Projects/NewProject/NavItems';
 
-export const newProjectNavStoreItems = writable<INavBarItem[]>([]);
+// IMPORTANTE: Inicializar con los navItems del proyecto / IMPORTANT: Initialize with project navItems
+export const newProjectNavStoreItems = writable<INavBarItem[]>(newProjectNavItems);
 ```
 
-### Paso 6: Actualizar el proyecto principal / Step 6: Update main project
+**⚠️ Importante / Important:**
+- El store debe inicializarse con los `navItems` del proyecto, NO como array vacío / The store must be initialized with the project's `navItems`, NOT as an empty array
+- Esto asegura que el navbar aparezca inmediatamente al cargar la página / This ensures the navbar appears immediately when the page loads
+
+### Paso 6: Agregar proyecto al Home / Step 6: Add project to Home
+En `/src/constants/projects.ts` / In `/src/constants/projects.ts`:
+
+```typescript
+export interface Project {
+    title: string;
+    subtitle: string;
+    description: string;
+    thumbnailPath: string[]; // Array de imágenes para el carrusel / Array of images for carousel
+    thumbnailPathMobile: string;
+    buttonPath: string;
+    pagePath: string;
+    artists: string[];
+    artworks: string[];
+    quote: string;
+}
+
+export const projects: Project[] = [
+    // ... otros proyectos / other projects
+    {
+        title: "New Project",
+        subtitle: "Artist 1 & Artist 2",
+        description: "Project description for home page.",
+        thumbnailPath: [
+            "media/new-project/thumbnail-1.webp",
+            "media/new-project/thumbnail-2.webp",
+            "media/new-project/thumbnail-3.webp"
+        ],
+        thumbnailPathMobile: "media/home/thumbnails-v2-mobile/new-project.webp",
+        buttonPath: "media/home/buttons/XX-button-new-project.png",
+        pagePath: "/new-project",
+        artists: ["Artist 1", "Artist 2"],
+        artworks: ["Artwork 1", "Artwork 2"],
+        quote: "Project quote for home page."
+    }
+];
+```
+
+**Notas / Notes:**
+- `thumbnailPath` es un array de strings (rutas sin `/` al inicio) / `thumbnailPath` is an array of strings (paths without `/` at the start)
+- `HomeThumbnails` y `HomeButtons` usan automáticamente el primer elemento del array / `HomeThumbnails` and `HomeButtons` automatically use the first element of the array
+- Las rutas son relativas a `static/` / Paths are relative to `static/`
+
+### Paso 7: Actualizar el proyecto principal / Step 7: Update main project
 En `/src/data/Projects/projects.ts` / In `/src/data/Projects/projects.ts`:
 
 ```typescript
@@ -633,18 +767,182 @@ En `/src/data/Projects/projects.ts` / In `/src/data/Projects/projects.ts`:
 {
     name: EProjects.NEW_PROJECT,
     nameToShow: 'new project',
-    image: newProjectImage,
-    hover: newProjectHover,
+    image: '/media/home/thumbnails/new-project.webp', // Ruta con /media/ / Path with /media/
+    hover: '/media/home/thumbnails/new-project.webp',
     url: NEW_PROJECT,
-    mobileImage: newProjectMobileImage
+    mobileImage: '/media/home/thumbnails-v2-mobile/new-project.webp'
 }
 ```
 
-### Paso 7: Agregar imágenes / Step 7: Add images
-Colocar las imágenes en `/src/lib/assets/images/projects/[project]/` / Place images in `/src/lib/assets/images/projects/[project]/`:
-- Introduction images (desktop and mobile)
-- Section images
-- Dropdown element images
+### Paso 8: Agregar imágenes / Step 8: Add images
+Colocar las imágenes en `/static/media/[project-name]/` / Place images in `/static/media/[project-name]/`:
+- Introduction images (desktop and mobile): `/static/media/[project-name]/main-cover.webp`
+- Section images: `/static/media/[project-name]/about-1/`, `/static/media/[project-name]/about-2/`, etc.
+- Interview images: `/static/media/[project-name]/interview/`
+- Artwork grid images: `/static/media/[project-name]/artwork-grid-1/`, etc.
+
+**Nota importante / Important note:**
+- Todas las imágenes deben estar en `static/media/` / All images must be in `static/media/`
+- Las rutas en el código deben usar `/media/...` (con `/` al inicio) / Paths in code must use `/media/...` (with `/` at the start)
+
+## 🎨 Patrón Estándar de +page.svelte / Standard +page.svelte Pattern
+
+Todas las páginas de proyecto siguen un patrón estándar para la carga de imágenes y navegación. / All project pages follow a standard pattern for image loading and navigation.
+
+### Estructura Base / Base Structure
+
+```svelte
+<script lang="ts">
+    import { onMount } from 'svelte';
+    import { inview } from 'svelte-inview';
+    import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
+    import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
+    import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
+    import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+    import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
+    import Footer from '$lib/elements/Footer/Footer.svelte';
+    
+    // Imports de datos del proyecto / Project data imports
+    import { projectIntro, projectAbout1, projectAbout1Images } from '../../data/Projects/ProjectName/ProjectAbout';
+    import { chatInterviewData } from '../../data/Projects/ProjectName/ProjectChatInterview';
+    import { projectArtworkGrid } from '../../data/Projects/ProjectName/ProjectArtworkGrid';
+    
+    // Imports de navegación y utilidades / Navigation and utilities imports
+    import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+    import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
+    import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
+    import preloadImages from '../../utils/preloadImages';
+    import { projectNavStoreItems } from './store';
+    import { projectNavItems } from '../../data/Projects/ProjectName/NavItems';
+    import { EProjects } from '../../constants/enums';
+    import { EColorVariant } from '$lib/elements/SectionContainer/interface';
+    import { fly } from 'svelte/transition';
+    import { cubicInOut } from 'svelte/easing';
+    
+    // Variables de estado para in-view detection / State variables for in-view detection
+    let introIsInView: boolean;
+    let about1IsInView: boolean;
+    let about2IsInView: boolean;
+    
+    let containerRef: any;
+    
+    // Función para manejar scroll y actualizar navbar / Function to handle scroll and update navbar
+    const handleOnScroll = () => {
+        getMetaballProgress(containerRef);
+        
+        if (introIsInView) {
+            updateNavBar(projectNavStoreItems, projectNavItems, projectNavItems[0].route);
+        }
+        if (about1IsInView) {
+            updateNavBar(projectNavStoreItems, projectNavItems, projectNavItems[1].route);
+        }
+        if (about2IsInView) {
+            updateNavBar(projectNavStoreItems, projectNavItems, projectNavItems[2].route);
+        }
+    };
+    
+    // Función para cargar las imágenes cuando el Metaball esté listo / Function to load images when Metaball is ready
+    const loadImages = async () => {
+        const images = await preloadImages([
+            [projectIntro.bgImage, projectIntro.bgImageMobile],
+            projectAbout1Images,
+            [chatInterviewData.background], // Si hay ChatInterview / If there's ChatInterview
+            projectArtworkGrid.map((item) => item.image) // Si hay ArtworkGrid / If there's ArtworkGrid
+        ]);
+        preloadedImagesStore.set(images);
+        imagesLoaded.set(true);
+    };
+    
+    // Cargar imágenes cuando el Metaball esté listo / Load images when Metaball is ready
+    $: if ($metaballReady) {
+        loadImages();
+    }
+</script>
+
+{#if $preloadedImagesStore}
+    <div
+        bind:this={containerRef}
+        on:scroll={handleOnScroll}
+        on:touchmove={handleOnScroll}
+        transition:fly={{ duration: 1000, delay: 750, y: 30, easing: cubicInOut }}
+        class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
+    >
+        <!-- Intro Section -->
+        <div
+            id="intro"
+            use:inview={INVIEW_OPTIONS}
+            on:inview_change={(event) => {
+                const { inView } = event.detail;
+                introIsInView = inView;
+            }}
+        >
+            <ProjectIntro
+                project={projectIntro}
+                textColor="white"
+                bgImage={$preloadedImagesStore[0][0]}
+                bgImageMobile={$preloadedImagesStore[0][1]}
+            />
+        </div>
+        
+        <!-- About 1 Section -->
+        <div
+            id="about1"
+            use:inview={INVIEW_OPTIONS}
+            on:inview_change={(event) => {
+                const { inView } = event.detail;
+                about1IsInView = inView;
+            }}
+        >
+            <ProjectAbout
+                aboutItem={projectAbout1}
+                aboutImages={$preloadedImagesStore[1]}
+                route=""
+                colorVariant={EColorVariant.BLACK}
+            />
+        </div>
+        
+        <!-- Chat Interview Section (opcional) / Optional -->
+        <div>
+            <ChatInterview data={chatInterviewData} />
+        </div>
+        
+        <!-- Artwork Grid Section (opcional) / Optional -->
+        <div>
+            <ProjectArtworkGrid galleryImages={projectArtworkGrid} />
+        </div>
+        
+        <HomeIcon />
+        <Footer project={EProjects.PROJECT_NAME} />
+    </div>
+{/if}
+```
+
+### Elementos Clave del Patrón / Key Pattern Elements
+
+1. **Stores de carga / Loading stores:**
+   - `metaballReady` - Indica cuando el Metaball está listo / Indicates when Metaball is ready
+   - `preloadedImagesStore` - Almacena las imágenes precargadas / Stores preloaded images
+   - `imagesLoaded` - Indica cuando todas las imágenes están cargadas / Indicates when all images are loaded
+
+2. **Función `loadImages`:**
+   - Recibe un array 2D de rutas de imágenes / Receives a 2D array of image paths
+   - Usa `preloadImages()` para cargar todas las imágenes / Uses `preloadImages()` to load all images
+   - Actualiza el store cuando termina / Updates the store when finished
+
+3. **Reactivo de carga / Loading reactive:**
+   - `$: if ($metaballReady) { loadImages(); }` - Carga imágenes cuando el Metaball está listo / Loads images when Metaball is ready
+
+4. **Renderizado condicional / Conditional rendering:**
+   - `{#if $preloadedImagesStore}` - Solo renderiza cuando las imágenes están cargadas / Only renders when images are loaded
+
+5. **In-view detection:**
+   - Usa `svelte-inview` para detectar cuando las secciones están visibles / Uses `svelte-inview` to detect when sections are visible
+   - Actualiza el navbar automáticamente / Updates navbar automatically
+
+6. **Índices de imágenes / Image indices:**
+   - `$preloadedImagesStore[0][0]` - Primera imagen del primer grupo (bgImage desktop) / First image of first group (desktop bgImage)
+   - `$preloadedImagesStore[0][1]` - Segunda imagen del primer grupo (bgImage mobile) / Second image of first group (mobile bgImage)
+   - `$preloadedImagesStore[1]` - Array completo del segundo grupo (about images) / Complete array of second group (about images)
 
 ## 🎯 Componentes Disponibles / Available Components
 
@@ -778,8 +1076,34 @@ export interface INavBarItem {
     text: string;
     route: string;
     selected: boolean;
+    shortText?: string; // Opcional: texto corto para títulos largos / Optional: short text for long titles
 }
 ```
+
+**Nota sobre `shortText` / Note about `shortText`:**
+- Usar cuando el título es muy largo y se corta en el navbar / Use when the title is too long and gets cut off in the navbar
+- Si está definido, se muestra en lugar de `text` / If defined, it's displayed instead of `text`
+- Ejemplo: `text: 'Very Long Section Title'` con `shortText: 'Long Title'` / Example: `text: 'Very Long Section Title'` with `shortText: 'Long Title'`
+
+### **Project** (para Home / for Home)
+```typescript
+export interface Project {
+    title: string;
+    subtitle: string;
+    description: string;
+    thumbnailPath: string[]; // Array de imágenes para el carrusel / Array of images for carousel
+    thumbnailPathMobile: string;
+    buttonPath: string;
+    pagePath: string;
+    artists: string[];
+    artworks: string[];
+    quote: string;
+}
+```
+
+**Notas / Notes:**
+- `thumbnailPath` es un array, pero `HomeThumbnails` y `HomeButtons` usan automáticamente el primer elemento / `thumbnailPath` is an array, but `HomeThumbnails` and `HomeButtons` automatically use the first element
+- Las rutas son relativas a `static/` (sin `/` al inicio) / Paths are relative to `static/` (without `/` at the start)
 
 ## 📋 Checklist para Nuevo Proyecto / New Project Checklist
 
@@ -788,12 +1112,24 @@ export interface INavBarItem {
 - [ ] Agregar enum en `/src/constants/enums.ts` / Add enum in `/src/constants/enums.ts`
 - [ ] Agregar ruta en `/src/constants/routes.ts` / Add route in `/src/constants/routes.ts`
 - [ ] Crear archivos de datos del proyecto / Create project data files
-- [ ] Crear página `+page.svelte` / Create `+page.svelte` page
-- [ ] Crear `store.ts` / Create `store.ts`
-- [ ] Actualizar `projects.ts` / Update `projects.ts`
-- [ ] Agregar imágenes en assets / Add images in assets
+  - [ ] `ProjectIntro.ts` con rutas `/media/...` / with paths `/media/...`
+  - [ ] `ProjectAbout.ts` con componentes Svelte / with Svelte components
+  - [ ] `NavItems.ts` con `shortText` si es necesario / with `shortText` if needed
+  - [ ] `ProjectChatInterview.ts` si hay entrevistas / if there are interviews
+  - [ ] `ProjectArtworkGrid.ts` si hay grids / if there are grids
+- [ ] Crear `+layout.svelte` con NavBar / Create `+layout.svelte` with NavBar
+- [ ] Crear `+page.svelte` con patrón estándar / Create `+page.svelte` with standard pattern
+  - [ ] Implementar patrón de carga con `metaballReady` / Implement loading pattern with `metaballReady`
+  - [ ] Configurar `handleOnScroll` con `updateNavBar` / Configure `handleOnScroll` with `updateNavBar`
+  - [ ] Agregar `inview` detection para todas las secciones / Add `inview` detection for all sections
+- [ ] Crear `store.ts` inicializado con `navItems` / Create `store.ts` initialized with `navItems`
+- [ ] Agregar proyecto a `constants/projects.ts` para el home / Add project to `constants/projects.ts` for home
+- [ ] Actualizar `data/Projects/projects.ts` / Update `data/Projects/projects.ts`
+- [ ] Agregar imágenes en `static/media/[project-name]/` / Add images in `static/media/[project-name]/`
+- [ ] Verificar que todas las rutas usen `/media/...` / Verify all paths use `/media/...`
 - [ ] Probar navegación y scroll / Test navigation and scroll
 - [ ] Verificar responsive design / Verify responsive design
+- [ ] Verificar que el navbar aparezca al cargar / Verify navbar appears on load
 
 ## 🌿 Flujo de Trabajo con Ramas / Branch Workflow
 
@@ -875,38 +1211,52 @@ git branch -d feature/nombre-de-la-feature
 
 ## 📁 Ubicación de Imágenes / Image Location
 
-### Imágenes en `/public/` / Images in `/public/`
-A partir de ahora, todas las imágenes se almacenan en la carpeta `/public/` para mejor rendimiento y acceso directo.
+### Imágenes en `/static/media/` / Images in `/static/media/`
+Todas las imágenes se almacenan en la carpeta `/static/media/` para mejor rendimiento y acceso directo.
 
-**From now on, all images are stored in the `/public/` folder for better performance and direct access.**
+**All images are stored in the `/static/media/` folder for better performance and direct access.**
 
 ### Estructura de imágenes / Image structure
 ```
-public/
-├── images/
-│   ├── projects/
-│   │   ├── [project-name]/
-│   │   │   ├── intro-desktop.webp
-│   │   │   ├── intro-mobile.webp
-│   │   │   ├── about1.webp
-│   │   │   └── gallery/
-│   │   │       ├── item1.webp
-│   │   │       └── item2.webp
-│   │   └── mobile-intro/
-│   │       └── [project-name]-mobile.webp
-│   └── global/
-│       ├── logo.webp
-│       └── icons/
+static/
 └── media/
-    ├── videos/
-    └── audio/
+    ├── [project-name]/
+    │   ├── main-cover.webp
+    │   ├── about-1/
+    │   │   ├── about-1.webp
+    │   │   └── about-2.webp
+    │   ├── about-2/
+    │   │   └── about-1.webp
+    │   ├── interview/
+    │   │   ├── interview-bg.webp
+    │   │   ├── pfp1.webp
+    │   │   └── pfp2.webp
+    │   └── artwork-grid-1/
+    │       ├── artwork-grid-1.webp
+    │       └── artwork-grid-2.webp
+    └── home/
+        ├── thumbnails-v2/
+        │   └── [project-name]/
+        │       ├── 1.webp
+        │       ├── 2.webp
+        │       └── 3.webp
+        ├── thumbnails-v2-mobile/
+        │   └── [project-name].webp
+        └── buttons/
+            └── XX-button-[project-name].png
 ```
 
 ### Referenciar imágenes / Reference images
 ```typescript
-// Instead of:
-import image from '$lib/assets/images/projects/project/image.webp';
+// ✅ Correcto / Correct: Usar rutas con /media/ / Use paths with /media/
+const bgImage = '/media/project-name/main-cover.webp';
+const aboutImage = '/media/project-name/about-1/about-1.webp';
 
-// Use:
-const image = '/images/projects/project/image.webp';
+// ❌ Incorrecto / Incorrect: No usar imports / Don't use imports
+import image from '$lib/assets/images/projects/project/image.webp';
 ```
+
+**Reglas importantes / Important rules:**
+- Todas las imágenes deben estar en `static/media/` / All images must be in `static/media/`
+- Las rutas en el código deben usar `/media/...` (con `/` al inicio) / Paths in code must use `/media/...` (with `/` at the start)
+- En `constants/projects.ts`, las rutas son relativas a `static/` (sin `/` al inicio) / In `constants/projects.ts`, paths are relative to `static/` (without `/` at the start)
