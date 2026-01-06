@@ -158,14 +158,18 @@ export const projects: Project[] = [
         },
         {
                 title: "Every Creation is Loss",
-                subtitle: "Placeholder subtitle",
-                description: "Placeholder description for Every Creation is Loss project.",
-                thumbnailPath: ["media/home/thumbnails-v2/every-creation-is-loss/3.webp", "media/home/thumbnails-v2/every-creation-is-loss/1.webp", "media/home/thumbnails-v2/every-creation-is-loss/2.webp"],
+                subtitle: "Chepertom & Asdrúbal Gomez",
+                description: "Cloud storage, blockchain immutability, and promises of data immortality all reflect digital culture's obsession with permanence. This mindset faces a direct challenge from artists who deliberately embrace entropy and digital erosion.",
+                thumbnailPath: [
+                        "media/every-creation-is-loss/artwork-grid-1/artwork-grid-1.webp",
+                        "media/every-creation-is-loss/artwork-grid-1/artwork-grid-2.webp",
+                        "media/every-creation-is-loss/artwork-grid-1/artwork-grid-3.webp"
+                ],
                 thumbnailPathMobile: "media/home/thumbnails-v2-mobile/every-creation-is-loss.webp",
                 buttonPath: "media/home/buttons/17-button-every-creation-is-loss.png",
                 pagePath: "/every-creation-is-loss",
-                artists: [],
-                artworks: [],
-                quote: "Placeholder quote for Every Creation is Loss project.",
+                artists: ["Chepertom", "Asdrúbal Gomez"],
+                artworks: ["Artwork 1", "Artwork 2", "Artwork 3"],
+                quote: "Cloud storage, blockchain immutability, and promises of data immortality all reflect digital culture's obsession with permanence.",
         }
 ];
