@@ -125,6 +125,12 @@
 			/>
 		</div>
 
+
+		<!-- Chat Interview Section 1 - Chepertom -->
+		<div>
+			<ChatInterview data={chatInterviewData} />
+		</div>
+
 		<!-- About 2 Section -->
 		<div
 			id="about2"
@@ -140,6 +146,11 @@
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
+		</div>
+
+                		<!-- Artwork Grid Section 1 -->
+		<div>
+			<ProjectArtworkGrid galleryImages={EveryCreationIsLossArtworkGrid.artworks} />
 		</div>
 
 		<!-- About 3 Section -->
@@ -159,19 +170,10 @@
 			/>
 		</div>
 
-		<!-- Chat Interview Section 1 - Chepertom -->
-		<div>
-			<ChatInterview data={chatInterviewData} />
-		</div>
 
 		<!-- Chat Interview Section 2 - Asdrúbal Gomez -->
 		<div>
 			<ChatInterview data={chatInterviewData2} />
-		</div>
-
-		<!-- Artwork Grid Section 1 -->
-		<div>
-			<ProjectArtworkGrid galleryImages={EveryCreationIsLossArtworkGrid.artworks} />
 		</div>
 
 		<!-- Artwork Grid Section 2 -->
