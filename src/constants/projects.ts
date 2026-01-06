@@ -155,5 +155,17 @@ export const projects: Project[] = [
                 artists: ["Pinky Blue", "Sabato", "Stipin Pixel", "Estelle Flores", "CYDR"],
                 artworks: ["Pinky Blue", "Artifact", "Sabato"],
                 quote: "\"We engage with these elements critically, subverting their original functions and assigning subjective meanings.\"",
+        },
+        {
+                title: "Chaos Agents",
+                subtitle: "Rocco Gallo & Perfect Loop",
+                description: "Digital art has long served as a crucible for conceptual experimentation, where computation, probability, and algorithmic logic combine to generate aesthetic forms grounded in chance and indeterminacy.",
+                thumbnailPath: ["media/chaos-agents/about-1/about-1.webp", "media/chaos-agents/about-2/about-1.webp", "media/chaos-agents/about-3/about-1.webp"],
+                thumbnailPathMobile: "media/chaos-agents/main-cover.webp",
+                buttonPath: "media/home/buttons/15-button-chaos-agents.png",
+                pagePath: "/chaos-agents",
+                artists: ["Rocco Gallo", "Perfect Loop"],
+                artworks: ["Nano", "Floppy Drive", "Mushroom nightmare"],
+                quote: "Generative art offers a quiet form of resistance. It disrupts visual predictability by reintroducing randomness—not as chaotic noise, but as a creative force.",
         }
 ];

@@ -63,10 +63,6 @@
 	};
 
 	$: videoProjectIndex = videoProjects.findIndex((item) => item.name === videoProject.name);
-
-	const handleVideoLoad = (aspectRatio: number) => {
-		currentAspectRatio = aspectRatio;
-	};
 </script>
 
 <svelte:window bind:innerHeight={height} bind:innerWidth={width} />

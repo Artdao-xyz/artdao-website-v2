@@ -1,4 +1,4 @@
 import { writable } from 'svelte/store';
-import type { INavBarItem } from '$lib/elements/NavBar/interfaces';
+import { chaosAgentsNavItems } from '../../data/Projects/ChaosAgents/NavItems';
 
-export const chaosAgentsNavStoreItems = writable<INavBarItem[]>([]); 
+export const chaosAgentsNavStoreItems = writable(chaosAgentsNavItems); 

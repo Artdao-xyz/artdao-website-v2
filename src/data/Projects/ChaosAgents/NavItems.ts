@@ -9,31 +9,17 @@ export const chaosAgentsNavItems: INavBarItem[] = [
 	{
 		text: 'revitalization in the unexpected',
 		route: 'about1',
-		selected: false
+		selected: false,
+		shortText: 'revitalization'
 	},
 	{
-		text: 'ROCCO GALLO',
+		text: 'Rocco Gallo',
 		route: 'about2',
 		selected: false
 	},
 	{
-		text: 'Interview',
-		route: 'interview',
-		selected: false
-	},
-	{
-		text: 'perfect loop',
+		text: 'Perfect Loop',
 		route: 'about3',
-		selected: false
-	},
-	{
-		text: 'Video',
-		route: 'video',
-		selected: false
-	},
-	{
-		text: 'Perfect Loop Video',
-		route: 'perfect-loop-video',
 		selected: false
 	}
 ]; 

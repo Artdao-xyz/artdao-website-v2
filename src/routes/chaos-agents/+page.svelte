@@ -1,5 +1,4 @@
 <script lang="ts">
-	import LoadingV2 from '$lib/components/LoadingV2/LoadingV2.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
@@ -20,9 +19,13 @@
 	import { chaosAgentsIntro } from '../../data/Projects/ChaosAgents/ProjectIntro';
 	import { roccoGalloVideo, perfectLoopVideo } from '../../data/Projects/ChaosAgents/ProjectVideo';
 	import { chaosAgentsChatInterview } from '../../data/Projects/ChaosAgents/ProjectChatInterview';
+	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import preloadImages from '../../utils/preloadImages';
 	import { chaosAgentsNavStoreItems } from './store';
+	import { fly } from 'svelte/transition';
+	import { cubicInOut } from 'svelte/easing';
 
 	let introIsInView: boolean;
 	let about1IsInView: boolean;
@@ -35,6 +38,8 @@
 	let containerRef: any;
 
 	const handleOnScroll = () => {
+		getMetaballProgress(containerRef);
+		
 		if (introIsInView) {
 			updateNavBar(chaosAgentsNavStoreItems, chaosAgentsNavItems, chaosAgentsNavItems[0].route);
 		}
@@ -44,35 +49,35 @@
 		if (about2IsInView) {
 			updateNavBar(chaosAgentsNavStoreItems, chaosAgentsNavItems, chaosAgentsNavItems[2].route);
 		}
-		if (interviewIsInView) {
-			updateNavBar(chaosAgentsNavStoreItems, chaosAgentsNavItems, chaosAgentsNavItems[3].route);
-		}
 		if (about3IsInView) {
-			updateNavBar(chaosAgentsNavStoreItems, chaosAgentsNavItems, chaosAgentsNavItems[4].route);
-		}
-		if (videoIsInView) {
-			updateNavBar(chaosAgentsNavStoreItems, chaosAgentsNavItems, chaosAgentsNavItems[5].route);
-		}
-		if (perfectLoopVideoIsInView) {
-			updateNavBar(chaosAgentsNavStoreItems, chaosAgentsNavItems, chaosAgentsNavItems[6].route);
+			updateNavBar(chaosAgentsNavStoreItems, chaosAgentsNavItems, chaosAgentsNavItems[3].route);
 		}
 	};
 
-	const preloadedImages = preloadImages([
-		[chaosAgentsIntro.bgImage, chaosAgentsIntro.bgImageMobile],
-		chaosAgentsAbout1Images,
-		chaosAgentsAbout2Images,
-		chaosAgentsAbout3Images
-	]);
+	// Función para cargar las imágenes cuando el Metaball esté listo
+	const loadImages = async () => {
+		const images = await preloadImages([
+			[chaosAgentsIntro.bgImage, chaosAgentsIntro.bgImageMobile],
+			chaosAgentsAbout1Images,
+			chaosAgentsAbout2Images,
+			chaosAgentsAbout3Images
+		]);
+		preloadedImagesStore.set(images);
+		imagesLoaded.set(true);
+	};
+	
+	// Cargar imágenes cuando el Metaball esté listo
+	$: if ($metaballReady) {
+		loadImages();
+	}
 </script>
 
-{#await preloadedImages}
-	<LoadingV2 />
-{:then images}
+{#if $preloadedImagesStore}
 	<div
 		bind:this={containerRef}
 		on:scroll={handleOnScroll}
 		on:touchmove={handleOnScroll}
+		transition:fly={{ duration: 1000, delay: 750, y: 30, easing: cubicInOut }}
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<!-- Intro Section -->
@@ -87,8 +92,8 @@
 			<ProjectIntro
 				project={chaosAgentsIntro}
 				textColor="white"
-				bgImage={images[0][0]}
-				bgImageMobile={images[0][1]}
+				bgImage={$preloadedImagesStore[0][0]}
+				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>
 		</div>
 
@@ -103,7 +108,7 @@
 		>
 			<ProjectAbout
 				aboutItem={chaosAgentsAbout1}
-				aboutImages={images[1]}
+				aboutImages={$preloadedImagesStore[1]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -118,8 +123,8 @@
 			interviewIsInView = inView;
 		}}
 	>
-			<ChatInterview data={chaosAgentsChatInterview} />
-		</div>
+		<ChatInterview data={chaosAgentsChatInterview} />
+	</div>
 
 		<!-- About 2 Section -->
 		<div
@@ -132,7 +137,7 @@
 		>
 			<ProjectAbout
 				aboutItem={chaosAgentsAbout2}
-				aboutImages={images[2]}
+				aboutImages={$preloadedImagesStore[2]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -146,9 +151,9 @@
 			const { inView } = event.detail;
 			videoIsInView = inView;
 		}}
-		>
-			<ProjectVideo videoProjects={roccoGalloVideo} />
-		</div>
+	>
+		<ProjectVideo videoProjects={roccoGalloVideo} />
+	</div>
 
 		<!-- About 3 Section -->
 		<div
@@ -161,7 +166,7 @@
 		>
 			<ProjectAbout
 				aboutItem={chaosAgentsAbout3}
-				aboutImages={images[3]}
+				aboutImages={$preloadedImagesStore[3]}
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
@@ -182,7 +187,7 @@
 		<HomeIcon />
 		<Footer project={EProjects.CHAOS_AGENTS} />
 	</div>
-{/await}
+{/if}
 
 <style>
 	.mobile-scroll {
