@@ -565,9 +565,26 @@ See files in `src/lib/elements/*/interfaces.ts` for complete interfaces.
 
 ## 🌿 Branch Workflow
 
+### ⚠️ IMPORTANT: Always Create a Branch First
+
+**Before starting any new project, you MUST create a new branch:**
+
+```bash
+# For new projects (ALWAYS do this first)
+git checkout main
+git pull origin main
+git checkout -b feat/add-[project-name]
+```
+
+**Workflow for new projects:**
+1. User requests to add a new project
+2. Get project name (if not provided)
+3. **Create branch:** `git checkout -b feat/add-[project-name]`
+4. Then proceed with project creation
+
 ### Naming conventions
 ```bash
-# New project
+# New project (ALWAYS create branch first)
 git checkout -b feat/add-[project-name]
 
 # Update project

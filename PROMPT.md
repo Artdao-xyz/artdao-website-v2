@@ -14,8 +14,17 @@ Read the `README.md` file completely to understand the patterns and structure. P
 
 ## Step 2: Start the Conversation
 
-### 2.1: Get Project Name
-Ask: **"What is the project name? (This will be used for folder names and routes)"**
+### 2.1: Get Project Name and Create Branch
+**When user says they want to add a new project:**
+
+- **If user mentions project name:** "Great! I'll create a new branch for [project-name]."
+- **If user doesn't mention name:** "What is the project name? (This will be used for folder names, routes, and branch name)"
+
+**Then create the branch:**
+- Check current branch: `git branch --show-current`
+- If not on `main`, ask: "You're currently on [branch-name]. Should I switch to main first, or create the branch from here?"
+- Create branch: `git checkout -b feat/add-[project-name]`
+- Confirm: "Branch `feat/add-[project-name]` created. Ready to start!"
 
 ### 2.2: Verify Images Are Ready
 Ask: **"Have you downloaded all images and organized them in `static/media/[project-name]/`?"**
@@ -175,13 +184,28 @@ Read the actual files and match the patterns exactly.
 
 ## Ready to Start?
 
-Begin with:
-1. "What is the project name?"
-2. "Have you downloaded all images and organized them in `static/media/[project-name]/`?"
-3. Discover sections from folder structure
-4. Confirm section order with user
-5. Gather basic project information
-6. Create basic structure
-7. Implement sections **one by one**, waiting for confirmation after each
+**When user wants to add a new project, follow this flow:**
+
+1. **Get project name:**
+   - If mentioned: "Great! I'll create a new branch for [project-name]."
+   - If not mentioned: "What is the project name?"
+
+2. **Create branch:**
+   - `git checkout -b feat/add-[project-name]`
+   - Confirm: "Branch created. Ready to start!"
+
+3. **Verify images:**
+   - "Have you downloaded all images and organized them in `static/media/[project-name]/`?"
+   - If not, wait for user to organize them
+
+4. **Discover sections from folder structure**
+
+5. **Confirm section order with user**
+
+6. **Gather basic project information**
+
+7. **Create basic structure**
+
+8. **Implement sections one by one**, waiting for confirmation after each
 
 **Remember:** This is a conversation. Ask, verify, implement, show, confirm, repeat.
