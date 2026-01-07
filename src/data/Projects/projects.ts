@@ -40,7 +40,8 @@ import {
 	RAVE,
 	SUBCONSCIOUS_MEDIA,
 	PET,
-	WHATS_ON_YOUR_MIND
+	WHATS_ON_YOUR_MIND,
+	ONE_BODY_A_THOUSAND_WORLDS
 } from '../../constants/routes';
 
 export interface IProject {
@@ -108,6 +109,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.WHATS_ON_YOUR_MIND,
 		refs: [EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA, EProjects.DIGITAL_MATTER]
+	},
+	{
+		name: EProjects.ONE_BODY_A_THOUSAND_WORLDS,
+		refs: [EProjects.WHATS_ON_YOUR_MIND, EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA]
 	}
 ];
 
@@ -231,5 +236,13 @@ export const projectsDetails = [
 		hover: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp',
 		url: WHATS_ON_YOUR_MIND,
 		mobileImage: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp'
+	},
+	{
+		name: EProjects.ONE_BODY_A_THOUSAND_WORLDS,
+		nameToShow: 'one body, a thousand worlds',
+		image: '/media/one-body-a-thousand-worlds/artworks-grid/artworks-grid-1.webp',
+		hover: '/media/one-body-a-thousand-worlds/artworks-grid/artworks-grid-1.webp',
+		url: ONE_BODY_A_THOUSAND_WORLDS,
+		mobileImage: '/media/one-body-a-thousand-worlds/main-cover.webp'
 	}
 ];

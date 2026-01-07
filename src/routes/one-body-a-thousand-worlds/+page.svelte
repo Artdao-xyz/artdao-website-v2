@@ -5,7 +5,8 @@
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
-	import { EColorVariant } from '../../constants/enums';
+	import Footer from '$lib/elements/Footer/Footer.svelte';
+	import { EColorVariant, EProjects } from '../../constants/enums';
 	
 	// Project data
 	import { oneBodyAThousandWorldsIntro } from '../../data/Projects/OneBodyAThousandWorlds/ProjectIntro';
@@ -168,6 +169,7 @@
 		</div>
 		
 		<HomeIcon />
+		<Footer project={EProjects.ONE_BODY_A_THOUSAND_WORLDS} />
 	</div>
 {/if}
 

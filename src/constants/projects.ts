@@ -155,5 +155,21 @@ export const projects: Project[] = [
                 artists: ["Pinky Blue", "Sabato", "Stipin Pixel", "Estelle Flores", "CYDR"],
                 artworks: ["Pinky Blue", "Artifact", "Sabato"],
                 quote: "\"We engage with these elements critically, subverting their original functions and assigning subjective meanings.\"",
+        },
+        {
+                title: "One body, a thousand worlds",
+                subtitle: "",
+                description: "What does it mean to build an entire creative practice around a single character? In the hands of certain artists, such figures are far more than illustrated avatars—they operate as symbolic nodes, anchoring entire ecosystems of meaning.",
+                thumbnailPath: [
+                        "media/one-body-a-thousand-worlds/artworks-grid/artworks-grid-1.webp",
+                        "media/one-body-a-thousand-worlds/artworks-grid/artworks-grid-2.webp",
+                        "media/one-body-a-thousand-worlds/artworks-grid/artworks-grid-3.webp"
+                ],
+                thumbnailPathMobile: "media/one-body-a-thousand-worlds/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-one-body-a-thousand-worlds.png",
+                pagePath: "/one-body-a-thousand-worlds",
+                artists: ["Turro", "Salawaki"],
+                artworks: [],
+                quote: "",
         }
 ];
