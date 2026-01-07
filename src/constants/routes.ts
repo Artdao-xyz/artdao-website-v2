@@ -16,3 +16,4 @@ export const SUBCONSCIOUS_MEDIA = '/subconscious-media';
 export const CAFE_EXE = '/cafe-exe';
 export const PET = '/pet';
 export const WHATS_ON_YOUR_MIND = '/whats-on-your-mind';
+export const THE_END_OF_THE_MUSE = '/the-end-of-the-muse';

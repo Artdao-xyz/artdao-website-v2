@@ -155,5 +155,21 @@ export const projects: Project[] = [
                 artists: ["Pinky Blue", "Sabato", "Stipin Pixel", "Estelle Flores", "CYDR"],
                 artworks: ["Pinky Blue", "Artifact", "Sabato"],
                 quote: "\"We engage with these elements critically, subverting their original functions and assigning subjective meanings.\"",
+        },
+        {
+                title: "The End of the Muse",
+                subtitle: "",
+                description: "Artists no longer depict idealized sitters with flawless features. Instead, their subjects have disproportionate eyes, melting skin, and limbs elongated at impossible angles. Ugliness and disturbance have become artistic languages, echoing Umberto Eco's argument in History of Ugliness that beauty has always been a cultural convention and that the grotesque carries symbolic value capable of redefining art.",
+                thumbnailPath: [
+                        "media/the-end-of-the-muse/artworks-grid/artworks-grid-1.webp",
+                        "media/the-end-of-the-muse/artworks-grid/artworks-grid-2.webp",
+                        "media/the-end-of-the-muse/artworks-grid/artworks-grid-3.webp"
+                ],
+                thumbnailPathMobile: "media/the-end-of-the-muse/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-the-end-of-the-muse.png",
+                pagePath: "/the-end-of-the-muse",
+                artists: ["RAM", "lorenipsum"],
+                artworks: [],
+                quote: ""
         }
 ];
