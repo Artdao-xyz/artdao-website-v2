@@ -155,5 +155,21 @@ export const projects: Project[] = [
                 artists: ["Pinky Blue", "Sabato", "Stipin Pixel", "Estelle Flores", "CYDR"],
                 artworks: ["Pinky Blue", "Artifact", "Sabato"],
                 quote: "\"We engage with these elements critically, subverting their original functions and assigning subjective meanings.\"",
+        },
+        {
+                title: "post catastrophe imagination",
+                subtitle: "",
+                description: "Contemporary artists are using virtual environments to radically reimagine what worlds can be and how they function. Moving beyond natural limits and conventional digital logic, they create immersive spaces that challenge our assumptions about reality, nature, and interaction.",
+                thumbnailPath: [
+                        "media/post-catastrophe-imagination/about-1/about-1.webp",
+                        "media/post-catastrophe-imagination/about-2/about-1.webp",
+                        "media/post-catastrophe-imagination/about-3/about-1.webp"
+                ],
+                thumbnailPathMobile: "media/post-catastrophe-imagination/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-post-catastrophe-imagination.png",
+                pagePath: "/post-catastrophe-imagination",
+                artists: ["Alfacenttauri", "Linus Åberg"],
+                artworks: [],
+                quote: ""
         }
 ];

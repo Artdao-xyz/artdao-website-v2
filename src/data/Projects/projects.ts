@@ -40,7 +40,8 @@ import {
 	RAVE,
 	SUBCONSCIOUS_MEDIA,
 	PET,
-	WHATS_ON_YOUR_MIND
+	WHATS_ON_YOUR_MIND,
+	POST_CATASTROPHE_IMAGINATION
 } from '../../constants/routes';
 
 export interface IProject {
@@ -108,6 +109,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.WHATS_ON_YOUR_MIND,
 		refs: [EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA, EProjects.DIGITAL_MATTER]
+	},
+	{
+		name: EProjects.POST_CATASTROPHE_IMAGINATION,
+		refs: [EProjects.BODY_FRONTIER, EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA]
 	}
 ];
 
@@ -231,5 +236,13 @@ export const projectsDetails = [
 		hover: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp',
 		url: WHATS_ON_YOUR_MIND,
 		mobileImage: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp'
+	},
+	{
+		name: EProjects.POST_CATASTROPHE_IMAGINATION,
+		nameToShow: 'post catastrophe imagination',
+		image: '/media/post-catastrophe-imagination/about-1/about-1.webp',
+		hover: '/media/post-catastrophe-imagination/about-1/about-1.webp',
+		url: POST_CATASTROPHE_IMAGINATION,
+		mobileImage: '/media/post-catastrophe-imagination/main-cover.webp'
 	}
 ];
