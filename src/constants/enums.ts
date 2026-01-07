@@ -31,6 +31,7 @@ export enum EProjects {
 	SUBCONSCIOUS_MEDIA = 'SubconsciousMedia',
 	CAFE_EXE = 'CafeExe',
 	PET = 'ProjectedEmotionalTechnologies',
-	WHATS_ON_YOUR_MIND = 'WhatsOnYourMind'
+	WHATS_ON_YOUR_MIND = 'WhatsOnYourMind',
+	CORRUPTED_FLESH = 'CorruptedFlesh'
 }
 

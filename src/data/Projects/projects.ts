@@ -40,7 +40,8 @@ import {
 	RAVE,
 	SUBCONSCIOUS_MEDIA,
 	PET,
-	WHATS_ON_YOUR_MIND
+	WHATS_ON_YOUR_MIND,
+	CORRUPTED_FLESH
 } from '../../constants/routes';
 
 export interface IProject {
@@ -108,6 +109,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.WHATS_ON_YOUR_MIND,
 		refs: [EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA, EProjects.DIGITAL_MATTER]
+	},
+	{
+		name: EProjects.CORRUPTED_FLESH,
+		refs: [EProjects.BODY_FRONTIER, EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA]
 	}
 ];
 
@@ -231,5 +236,13 @@ export const projectsDetails = [
 		hover: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp',
 		url: WHATS_ON_YOUR_MIND,
 		mobileImage: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp'
+	},
+	{
+		name: EProjects.CORRUPTED_FLESH,
+		nameToShow: 'corrupted flesh',
+		image: '/media/corrupted-flesh/artworks-grid/artworks-grid-1.webp',
+		hover: '/media/corrupted-flesh/artworks-grid/artworks-grid-1.webp',
+		url: CORRUPTED_FLESH,
+		mobileImage: '/media/corrupted-flesh/main-cover.webp'
 	}
 ];

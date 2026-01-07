@@ -155,5 +155,21 @@ export const projects: Project[] = [
                 artists: ["Pinky Blue", "Sabato", "Stipin Pixel", "Estelle Flores", "CYDR"],
                 artworks: ["Pinky Blue", "Artifact", "Sabato"],
                 quote: "\"We engage with these elements critically, subverting their original functions and assigning subjective meanings.\"",
+        },
+        {
+                title: "corrupted flesh",
+                subtitle: "",
+                description: "The compromised digital body stands as witness to our technological condition, disrupting sanitized myths of seamless integration between flesh and interface. These artworks reveal sites of conflict where human vulnerability meets machine logic.",
+                thumbnailPath: [
+                        "media/corrupted-flesh/artworks-grid/artworks-grid-1.webp",
+                        "media/corrupted-flesh/artworks-grid/artworks-grid-2.webp",
+                        "media/corrupted-flesh/artworks-grid/artworks-grid-3.webp"
+                ],
+                thumbnailPathMobile: "media/corrupted-flesh/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-corrupted-flesh.png",
+                pagePath: "/corrupted-flesh",
+                artists: ["Veronika Peshekhonova", "Tim Høibjerg", "Matheus Carvalho"],
+                artworks: [],
+                quote: ""
         }
 ];
