@@ -98,7 +98,10 @@ Create:
 2. Constants: Add enum and route
 3. Basic files: `store.ts`, `+layout.svelte`, `NavItems.ts` (with just Intro), skeleton `+page.svelte`
 
-**Confirm:** "Basic structure created. Ready to implement sections one by one?"
+**After creating the structure, explicitly tell the user how to view the page:**
+"Basic structure created. To view the page, run `npm run dev` (or your dev server command) and navigate to `/[project-name]` in your browser. For example, if the project name is 'my-project', go to `http://localhost:5173/my-project` (or your dev server URL)."
+
+**Then confirm:** "Ready to implement sections one by one?"
 
 ## Step 5: Implement Sections Iteratively
 
@@ -122,20 +125,18 @@ Create:
 - **Only proceed when user confirms:** "Perfect! I'll implement this section now."
 
 #### 5.3: Implement the Section
-Create/update the necessary files following the README template exactly. Reference `inherent-instability` or `pet` projects if uncertain.
+**CRITICAL: Always implement first, then verify visually.**
+- Create/update the necessary files following the README template exactly. Reference `inherent-instability` or `pet` projects if uncertain.
+- **DO NOT** check content by reading code files. Always implement and then verify by viewing the actual rendered page in the browser.
+- After implementing, **explicitly tell the user how to view the page:**
+  - "I've implemented [Section Name]. To view it, make sure your dev server is running (`npm run dev`) and navigate to `/[project-name]` in your browser. For example: `http://localhost:5173/[project-name]` (or your dev server URL). Please check the page to verify the content is correct."
 
-#### 5.4: Show What Was Created
-**Present to user:**
-"I've implemented [Section Name]. Here's what I created/updated:
-- [List files created/updated]
-- [Show key content/configuration]
-
-**Please verify this is correct. Should I make any changes?**"
-
-#### 5.5: Wait for Confirmation
+#### 5.4: Wait for Visual Confirmation
+**The user will verify by viewing the page directly, not by code review.**
+- Wait for user to check the rendered page in their browser
 - **If user says it's correct:** "Great! Moving to the next section."
-- **If user requests changes:** Make changes, then ask: "Updated. Is this correct now?"
-- **Only proceed to next section when current section is confirmed correct**
+- **If user requests changes:** Make changes, then ask: "Updated. Please check the page again to confirm."
+- **Only proceed to next section when current section is confirmed correct by visual inspection**
 
 #### 5.6: Move to Next Section
 "Now let's work on [Next Section Name]..."
@@ -157,12 +158,16 @@ Once all sections are implemented and confirmed:
 
 ## Critical Rules (Verify After Each Section)
 
+**Remember:** Verification happens by viewing the rendered page, not by reading code files.
+
 - ✅ Image paths use `/media/...` (with `/` at start)
 - ✅ Store is initialized with navItems (not empty array)
 - ✅ `loadImages()` array order matches section order
 - ✅ Image indices in template match `loadImages()` order
 - ✅ Routes in NavItems match section `id` values
 - ✅ `shortText` used for long NavBar titles
+
+**After implementing each section, ask the user to check the page visually to confirm everything is correct.**
 
 ## When Uncertain
 
@@ -176,9 +181,10 @@ Read the actual files and match the patterns exactly.
 
 1. **Conversational:** Talk to the user naturally, ask questions, verify understanding
 2. **Iterative:** One section at a time, complete it before moving on
-3. **Confirm everything:** Never assume, always verify
-4. **Show your work:** Tell the user what you're creating and why
-5. **Wait for approval:** Don't proceed until user confirms each step
+3. **Implement first, verify visually:** Always implement the code first, then have the user verify by viewing the rendered page in the browser. Do NOT check content by reading code files.
+4. **Confirm everything:** Never assume, always verify through visual inspection of the actual page
+5. **Show your work:** Tell the user what you're creating and why
+6. **Wait for approval:** Don't proceed until user confirms each step after viewing the page
 
 ---
 
@@ -205,7 +211,9 @@ Read the actual files and match the patterns exactly.
 6. **Gather basic project information**
 
 7. **Create basic structure**
+   - After creating structure, explicitly tell user: "To view the page, run `npm run dev` and navigate to `/[project-name]` (e.g., `http://localhost:5173/[project-name]`)"
 
 8. **Implement sections one by one**, waiting for confirmation after each
+   - After each section implementation, remind user: "Check the page at `/[project-name]` to verify"
 
-**Remember:** This is a conversation. Ask, verify, implement, show, confirm, repeat.
+**Remember:** This is a conversation. Ask, verify, implement, then explicitly tell the user how to view the page (run dev server + route URL), have them verify visually (not by code review), confirm, repeat.
