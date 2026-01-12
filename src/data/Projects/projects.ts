@@ -38,6 +38,7 @@ import {
 	NON_PLACES,
 	ORB,
 	RAVE,
+	QUEERING_THE_WEB3,
 	SUBCONSCIOUS_MEDIA,
 	PET,
 	WHATS_ON_YOUR_MIND
@@ -92,6 +93,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.RAVE,
 		refs: [EProjects.IN_CONVERSATION, EProjects.INTERTWINED, EProjects.INHERENT_INSTABILITY]
+	},
+	{
+		name: EProjects.QUEERING_THE_WEB3,
+		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
 	},
 	{
 		name: EProjects.BODY_FRONTIER,
@@ -199,6 +204,14 @@ export const projectsDetails = [
 		hover: raveHover,
 		url: RAVE,
 		mobileImage: raveMobile
+	},
+	{
+		name: EProjects.QUEERING_THE_WEB3,
+		nameToShow: 'queering the web3',
+		image: artifice, // Using placeholder image for now
+		hover: artificeHover, // Using placeholder image for now
+		url: QUEERING_THE_WEB3,
+		mobileImage: artificeMobile // Using placeholder image for now
 	},
 	{
 		name: EProjects.BODY_FRONTIER,

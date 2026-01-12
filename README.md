@@ -28,7 +28,21 @@
    - `+page.svelte` - Main page (use standard pattern)
    - `store.ts` - Store initialized with navItems
 
-5. **Add to Home:**
+5. **Add page metadata (SEO):**
+   - In `+page.svelte`, import and use `usePageMetadata`:
+   ```typescript
+   import { usePageMetadata } from '$lib/utils/metadata';
+   import { projectIntro } from '../../data/Projects/ProjectName/ProjectIntro';
+   
+   usePageMetadata({
+     title: 'Project Name | Artdao',
+     description: projectIntro.description[0] || 'Project description',
+     ogImage: `https://artdao.xyz${projectIntro.bgImage}`,
+     canonical: 'https://artdao.xyz/project-name'
+   });
+   ```
+
+6. **Add to Home:**
    - `src/constants/projects.ts` - Add project to array
 
 6. **Add images:**
@@ -261,6 +275,15 @@ export const projectNavStoreItems = writable<INavBarItem[]>(projectNavItems);
     import { about1, about1Images, about2, about2Images } from '../../data/Projects/ProjectName/ProjectAbout';
     import { chatInterviewData } from '../../data/Projects/ProjectName/ProjectChatInterview';
     import { projectArtworkGrid } from '../../data/Projects/ProjectName/ProjectArtworkGrid';
+    
+    // Page metadata (SEO)
+    import { usePageMetadata } from '$lib/utils/metadata';
+    usePageMetadata({
+        title: 'Project Name | Artdao',
+        description: projectIntro.description[0] || 'Project description',
+        ogImage: `https://artdao.xyz${projectIntro.bgImage}`,
+        canonical: 'https://artdao.xyz/project-name'
+    });
     
     // Navigation and utilities
     import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';

@@ -36,7 +36,16 @@
 	} from '../../data/Projects/CafeExe/ProjectArtistAbout';
 	import { cafeExeChatInterview } from '../../data/Projects/CafeExe/ProjectChatInterview';
 	import { cafeExeIntro } from '../../data/Projects/CafeExe/ProjectIntro';
+	import { usePageMetadata } from '$lib/utils/metadata';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'Café.exe | Artdao',
+		description: cafeExeIntro.description[0] || 'Exploring the intersection of technology and creativity.',
+		ogImage: `https://artdao.xyz${cafeExeIntro.bgImage}`,
+		canonical: 'https://artdao.xyz/cafe-exe'
+	});
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import preloadImages from '../../utils/preloadImages';
 	import { cafeExeNavStoreItems } from './store';
