@@ -97,6 +97,7 @@ Create:
 1. Folders: `src/routes/[project-name]/` and `src/data/Projects/[ProjectName]/`
 2. Constants: Add enum and route
 3. Basic files: `store.ts`, `+layout.svelte`, `NavItems.ts` (with just Intro), skeleton `+page.svelte`
+4. Add page metadata in `+page.svelte` using `usePageMetadata()` helper
 
 **After creating the structure, explicitly tell the user how to view the page:**
 "Basic structure created. To view the page, run `npm run dev` (or your dev server command) and navigate to `/[project-name]` in your browser. For example, if the project name is 'my-project', go to `http://localhost:5173/my-project` (or your dev server URL)."
@@ -150,11 +151,15 @@ Once all sections are implemented and confirmed:
    - Verify routes match section IDs
    - Check for `shortText` on long titles
 
-2. **"Now I'll add this project to the home page."**
+2. **"Now I'll add page metadata for SEO."**
+   - Add `usePageMetadata()` in `+page.svelte` with title, description, ogImage, and canonical URL
+   - Use data from `ProjectIntro` when possible
+
+3. **"Now I'll add this project to the home page."**
    - Add to `src/constants/projects.ts`
    - Update `src/data/Projects/projects.ts` for footer
 
-3. **"Final verification complete. The project page is ready!"**
+4. **"Final verification complete. The project page is ready!"**
 
 ## Critical Rules (Verify After Each Section)
 

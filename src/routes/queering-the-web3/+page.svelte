@@ -36,6 +36,15 @@
 	import { queeringTheWeb3NavStoreItems } from './store';
 	import { fly } from 'svelte/transition';
 	import { cubicInOut } from 'svelte/easing';
+	import { usePageMetadata } from '$lib/utils/metadata';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'Queering the Web3 | Artdao',
+		description: queeringTheWeb3Intro.description[0] || 'Exploring queerness in Web3 and digital spaces.',
+		ogImage: `https://artdao.xyz${queeringTheWeb3Intro.bgImage}`,
+		canonical: 'https://artdao.xyz/queering-the-web3'
+	});
 
 	let size: number;
 	let introIsInView: boolean;

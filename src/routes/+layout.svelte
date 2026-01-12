@@ -6,6 +6,7 @@
 	import Navbar from '$lib/components/HomeV2/Navbar/Navbar.svelte';
 	import HomeNewsletter from '$lib/elements/HomeNewsletter/HomeNewsletter.svelte';
 	import { metaballReady } from '$lib/stores/metaballPreloader';
+	import { pageMetadata } from '$lib/stores/pageMetadata';
 	import { fly } from 'svelte/transition';
 
 	import { browser } from '$app/environment';
@@ -40,6 +41,9 @@
 		metaballProgress.set(0);
 	}
 
+	// Get current URL for canonical and og:url
+	$: currentUrl = browser ? window.location.origin + $page.url.pathname : 'https://artdao.xyz';
+
 	if (browser) {
 		beforeNavigate(() => posthog.capture('$pageleave'));
 		afterNavigate(() => {
@@ -56,30 +60,30 @@
 
 <svelte:head>
 	<!-- Essential Meta Tags -->
-	<title>Artdao</title>
-	<meta name="description" content="Artists helping artists" />
+	<title>{$pageMetadata.title || 'Artdao'}</title>
+	<meta name="description" content={$pageMetadata.description || 'Artists helping artists'} />
 
 	<!-- Viewport -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://artdao.xyz" />
-	<meta property="og:title" content="Artdao" />
-	<meta property="og:description" content="Artists helping artists" />
-	<meta property="og:image" content="https://artdao.xyz/banner.png" />
+	<meta property="og:url" content={currentUrl} />
+	<meta property="og:title" content={$pageMetadata.title || 'Artdao'} />
+	<meta property="og:description" content={$pageMetadata.description || 'Artists helping artists'} />
+	<meta property="og:image" content={$pageMetadata.ogImage || 'https://artdao.xyz/banner.png'} />
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:url" content="https://artdao.xyz" />
-	<meta name="twitter:title" content="Artdao" />
-	<meta name="twitter:description" content="Artists helping artists" />
-	<meta name="twitter:image" content="https://artdao.xyz/banner.png" />
+	<meta name="twitter:url" content={currentUrl} />
+	<meta name="twitter:title" content={$pageMetadata.title || 'Artdao'} />
+	<meta name="twitter:description" content={$pageMetadata.description || 'Artists helping artists'} />
+	<meta name="twitter:image" content={$pageMetadata.ogImage || 'https://artdao.xyz/banner.png'} />
 
 	<!-- Additional SEO Tags -->
 	<meta name="robots" content="index, follow" />
 	<meta name="language" content="English" />
-	<link rel="canonical" href="https://artdao.xyz" />
+	<link rel="canonical" href={$pageMetadata.canonical || currentUrl} />
 </svelte:head>
 
 <!-- Metaball global - una sola instancia -->

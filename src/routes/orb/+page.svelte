@@ -29,6 +29,16 @@
 	import { orbAudioFiles } from '../../data/Projects/Orb/ProjectAudioFiles';
 	import { orbQuestions } from '../../data/Projects/Orb/ProjectInterview';
 	import { orbProject } from '../../data/Projects/Orb/ProjectIntro';
+	import { usePageMetadata } from '$lib/utils/metadata';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'O.R.B. | Artdao',
+		description: orbProject.description[0] || 'The Official Reunion Of Brazilians in digital art.',
+		ogImage: 'https://artdao.xyz/banner.png', // Using default since bgImage is an import
+		canonical: 'https://artdao.xyz/orb'
+	});
+	import { orbProject } from '../../data/Projects/Orb/ProjectIntro';
 	import { artworksVideo, orbVideo } from '../../data/Projects/Orb/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
