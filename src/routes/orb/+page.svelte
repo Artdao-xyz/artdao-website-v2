@@ -38,7 +38,6 @@
 		ogImage: 'https://artdao.xyz/banner.png', // Using default since bgImage is an import
 		canonical: 'https://artdao.xyz/orb'
 	});
-	import { orbProject } from '../../data/Projects/Orb/ProjectIntro';
 	import { artworksVideo, orbVideo } from '../../data/Projects/Orb/ProjectVideo';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
