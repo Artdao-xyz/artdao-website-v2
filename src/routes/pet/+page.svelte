@@ -30,6 +30,15 @@ import { petDropdownImages } from '../../data/Projects/Pet/ProjectAboutDropdown'
 		preloadedImages as preloadedImagesStore,
 		imagesLoaded
 	} from '$lib/stores/metaballPreloader';
+	import { usePageMetadata } from '$lib/utils/metadata';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'PET: Projected Emotional Technologies | Artdao',
+		description: petIntro.description[0] || 'Exploring emotional outsourcing between humans and digital companions.',
+		ogImage: `https://artdao.xyz${petIntro.bgImage}`,
+		canonical: 'https://artdao.xyz/pet'
+	});
 
 	let laborIsInView: boolean;
 	let companionIsInView: boolean;

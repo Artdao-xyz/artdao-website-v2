@@ -12,6 +12,7 @@ import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import { EProjects } from '../../constants/enums';
 	import { whatsOnYourMindNavItems } from '../../data/Projects/WhatsOnYourMind/NavItems';
 	import { whatsOnYourMindIntro } from '../../data/Projects/WhatsOnYourMind/ProjectIntro';
+	import { usePageMetadata } from '$lib/utils/metadata';
 	import {
 		whatsOnYourMindPlatformsAbout,
 		whatsOnYourMindPlatformsImages,
@@ -37,6 +38,15 @@ import {
 	imagesLoaded
 } from '$lib/stores/metaballPreloader';
 import type { IGalleryImageMobile } from '$lib/elements/ArtworkContainer/interfaces';
+
+	// Set page metadata
+	usePageMetadata({
+		title: "What's on your mind? | Artdao",
+		description: whatsOnYourMindIntro.description[0] || 'Exploring social media and digital ecosystems.',
+		ogImage: `https://artdao.xyz${whatsOnYourMindIntro.bgImage}`,
+		canonical: 'https://artdao.xyz/whats-on-your-mind'
+	});
+
 	let platformsIsInView: boolean;
 	let danielIsInView: boolean;
 	let h4wneeIsInView: boolean;

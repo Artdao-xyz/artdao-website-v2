@@ -12,7 +12,16 @@
 	import { subconsciousMediaDropdown1, subconsciousMediaDropdown2 } from '../../data/Projects/SubconsciousMedia/ProjectAboutDropdown';
 	import { subconsciousMediaIntro } from '../../data/Projects/SubconsciousMedia/ProjectIntro';
 	import { subconsciousMediaChatInterview, subconsciousMediaChatInterview2 } from '../../data/Projects/SubconsciousMedia/ProjectChatInterview';
+	import { usePageMetadata } from '$lib/utils/metadata';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'Subconscious Media | Artdao',
+		description: subconsciousMediaIntro.description[0] || 'Exploring digital technology and artistic practice.',
+		ogImage: `https://artdao.xyz${subconsciousMediaIntro.bgImage}`,
+		canonical: 'https://artdao.xyz/subconscious-media'
+	});
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
 	import preloadImages from '../../utils/preloadImages';

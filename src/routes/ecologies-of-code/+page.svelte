@@ -33,6 +33,15 @@
 		ecologiesPolaroidImages,
 		ecologiesPolaroidImagesTwo
 	} from '../../data/Projects/EcologiesOfCode/ProjectPolaroids';
+	import { usePageMetadata } from '$lib/utils/metadata';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'Ecologies of Code | Artdao',
+		description: ecologiesOfCodeProject.description[0] || 'Exploring digital landscapes as symbiotic environments.',
+		ogImage: 'https://artdao.xyz/banner.png', // Using default since bgImage is an import
+		canonical: 'https://artdao.xyz/ecologies-of-code'
+	});
 	import {
 		ecologiesVideoProjectOne,
 		okyVideos

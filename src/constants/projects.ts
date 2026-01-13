@@ -154,6 +154,19 @@ export const projects: Project[] = [
                 pagePath: "/digital-archaeology",
                 artists: ["Pinky Blue", "Sabato", "Stipin Pixel", "Estelle Flores", "CYDR"],
                 artworks: ["Pinky Blue", "Artifact", "Sabato"],
-                quote: "\"We engage with these elements critically, subverting their original functions and assigning subjective meanings.\"",
+<<<<<<< HEAD
+                quote: "\"Transforming retro aesthetics into critique unearthing how even our interfaces carry ideology, and how friction can liberate artists from the polish of the present.\"",
+        },
+        {
+                title: "Queering the Web3",
+                subtitle: "Zak Krevitt & Sky Goodman",
+                description: "The foretold utopia of Web3 reveals itself as a contentious landscape—one where queer expression both flourishes and falls victim to praticable patterns of erasure.",
+                thumbnailPath: ["media/home/thumbnails-v2/queering-the-web3/3.webp", "media/home/thumbnails-v2/queering-the-web3/1.webp", "media/home/thumbnails-v2/queering-the-web3/2.webp"],
+                thumbnailPathMobile: "media/home/thumbnails-v2-mobile/queering-web3.webp",
+                buttonPath: "media/home/buttons/15-button-queering-the-web3.png",
+                pagePath: "/queering-the-web3",
+                artists: ["Zak Krevitt", "Sky Goodman"],
+                artworks: ["Digital Artifacts", "Digital Kinship", "Future Possibilities"],
+                quote: "\"The foretold utopia of Web3 reveals itself as a contentious landscape—one where queer expression both flourishes and falls victim to praticable patterns of erasure.\"",
         }
 ];
