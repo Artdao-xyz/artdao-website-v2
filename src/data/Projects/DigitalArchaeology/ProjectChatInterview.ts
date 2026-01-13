@@ -28,7 +28,7 @@ export const digitalArchaeologyChatInterview: ChatInterviewData = {
     },
     {
       id: 'pinkyblue',
-      name: 'Pinkyblue',
+      name: 'PinkyBlu',
       avatar: '/media/digital-archaeology/interview/pfp1.webp',
       type: 'answer'
     },
