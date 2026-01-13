@@ -141,7 +141,7 @@
 
 		</div>
 
-		<!-- PinkyBlue Section -->
+		<!-- PinkyBlu Section -->
 		<div
 			id="pinkyblue"
 			use:inview={INVIEW_OPTIONS}

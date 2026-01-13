@@ -146,15 +146,14 @@ export const projects: Project[] = [
         },
         {
                 title: "Digital Archaeology",
-                subtitle: "Pinky Blue, Sabato, Stipin Pixel, Estelle Flores & CYDR",
+                subtitle: "PinkyBlu, Sabato, Stipin Pixel, Estelle Flores & CYDR",
                 description: "We are constantly bombarded by new media — Yet, I remain influenced by the aesthetics of the past. Limitations offer a form of comfort when creating art.",
                 thumbnailPath: ["media/home/thumbnails-v2/digital-archaeology/3.webp", "media/home/thumbnails-v2/digital-archaeology/1.webp", "media/home/thumbnails-v2/digital-archaeology/2.webp"],
                 thumbnailPathMobile: "media/home/thumbnails-v2-mobile/digital-archaeology.webp",
                 buttonPath: "media/home/buttons/14-button-digital-archaeology.png",
                 pagePath: "/digital-archaeology",
-                artists: ["Pinky Blue", "Sabato", "Stipin Pixel", "Estelle Flores", "CYDR"],
-                artworks: ["Pinky Blue", "Artifact", "Sabato"],
-<<<<<<< HEAD
+                artists: ["PinkyBlu", "Sabato", "Stipin Pixel", "Estelle Flores", "CYDR"],
+                artworks: ["PinkyBlu", "Artifact", "Sabato"],
                 quote: "\"Transforming retro aesthetics into critique unearthing how even our interfaces carry ideology, and how friction can liberate artists from the polish of the present.\"",
         },
         {

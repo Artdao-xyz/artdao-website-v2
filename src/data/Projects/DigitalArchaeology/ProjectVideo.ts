@@ -3,25 +3,25 @@ import type { IVideoProject } from '$lib/elements/VideoCard/interfaces';
 export const pinkyBlueVideo: IVideoProject[] = [
 	{
 		name: 'Worldview',
-		artist: 'PinkyBlue',
+		artist: 'PinkyBlu',
 		year: '2022',
 		videoUrl: 'https://storage.googleapis.com/videoszine/Digital%20Archeology/Pinkyblue/PINKY%20BLUE/Espejo%20roto.gif'
 	},
 	{
 		name: 'Incubator',
-		artist: 'PinkyBlue',
+		artist: 'PinkyBlu',
 		year: '2022',
 		videoUrl: 'https://storage.googleapis.com/videoszine/Digital%20Archeology/Pinkyblue/PINKY%20BLUE/Barril.gif'
 	},
 	{
 		name: 'Fly High',
-		artist: 'PinkyBlue',
+		artist: 'PinkyBlu',
 		year: '2022',
 		videoUrl: 'https://storage.googleapis.com/videoszine/Digital%20Archeology/Pinkyblue/PINKY%20BLUE/cruz.gif'
 	},
 	{
 		name: 'Hit or Miss',
-		artist: 'PinkyBlue',
+		artist: 'PinkyBlu',
 		year: '2022',
 		videoUrl: 'https://storage.googleapis.com/videoszine/Digital%20Archeology/Pinkyblue/PINKY%20BLUE/cybor%20femme%20fatale%20800x800.gif.mp4'
 	}
