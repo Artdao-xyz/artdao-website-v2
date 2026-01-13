@@ -2,27 +2,27 @@ import type { IVideoProject } from '$lib/elements/VideoCard/interfaces';
 
 export const pinkyBlueVideo: IVideoProject[] = [
 	{
-		name: 'Espejo Roto',
+		name: 'Worldview',
 		artist: 'PinkyBlue',
-		year: '2024',
+		year: '2022',
 		videoUrl: 'https://storage.googleapis.com/videoszine/Digital%20Archeology/Pinkyblue/PINKY%20BLUE/Espejo%20roto.gif'
 	},
 	{
-		name: 'Barril',
+		name: 'Incubator',
 		artist: 'PinkyBlue',
-		year: '2024',
+		year: '2022',
 		videoUrl: 'https://storage.googleapis.com/videoszine/Digital%20Archeology/Pinkyblue/PINKY%20BLUE/Barril.gif'
 	},
 	{
-		name: 'Cruz',
+		name: 'Fly High',
 		artist: 'PinkyBlue',
-		year: '2024',
+		year: '2022',
 		videoUrl: 'https://storage.googleapis.com/videoszine/Digital%20Archeology/Pinkyblue/PINKY%20BLUE/cruz.gif'
 	},
 	{
-		name: 'Cybor Femme Fatale',
+		name: 'Hit or Miss',
 		artist: 'PinkyBlue',
-		year: '2024',
+		year: '2022',
 		videoUrl: 'https://storage.googleapis.com/videoszine/Digital%20Archeology/Pinkyblue/PINKY%20BLUE/cybor%20femme%20fatale%20800x800.gif.mp4'
 	}
 ];
