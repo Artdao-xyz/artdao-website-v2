@@ -78,7 +78,7 @@ We need spaces that aren't just about monetary exchange but about cultural suste
 			content: 'How do you see the preservation of queer art?'
 		},
 		{
-			characterId: 'sky-goodman',
+			characterId: 'zak-krevitt',
 			content: `Looking at queerness as a generative force behind cultural creation makes archiving an act of historical recovery rather than mere representation. Erasure, from the AIDS crisis to market-driven self-censorship, has systematically stripped foundational queer contributions from cultural memory.
 
 The immutability and decentralization of blockchain could theoretically protect our cultural artifacts from censorship, but this exists alongside a market-driven ecosystem that reproduces the same hierarchies found in traditional art markets.
@@ -86,7 +86,7 @@ The immutability and decentralization of blockchain could theoretically protect 
 True preservation isn't bound to any platform but exists in the people who remember, support, and sustain each other—ensuring survival beyond the rise and fall of digital infrastructures.`
 		},
 		{
-			characterId: 'zak-krevitt',
+			characterId: 'sky-goodman',
 			content: `It's strange, because as a queer person, you come into the world knowing you're already a bit outside of society. There's a kind of beauty in accepting that ephemerality.
 
 There's resilience in fighting for more visibility and rights, but there's also something beautiful about embracing the margins and saying, well, fck it—this is my life and I'm going to live it.
