@@ -77,9 +77,9 @@ I try to follow the thread and see where it leads. Even if the result isn't visu
 		},
 		{
 			characterId: 'rocco-gallo',
-			content: `Some of my strongest pieces have come out of accidents or digital glitches. One of the most powerful discoveries has been how randomness can create emotional depth. When colors collide in unexpected ways, or when a generative script produces something I couldn't have planned, it often resonates more deeply than something I meticulously constructed.
+			content: `Absolutely. We live in a world shaped by personalization systems that feed us what's familiar, comfortable, and expected. Randomness is one way to push back against that.
 
-It's also led me to unexpected narratives. A strange visual structure might shift the meaning of a piece entirely, opening up interpretations I never would've arrived at through control alone.`
+Embracing unpredictability becomes a way to reclaim mystery, serendipity, and true discovery—things that are increasingly rare in our algorithm-driven culture. My work aims to disrupt those patterns and offer something that doesn't conform. It invites people to experience what they didn't know to look for.`
 		},
 		{
 			characterId: 'perfect-loop',
