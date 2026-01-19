@@ -14,7 +14,9 @@
 		chaosAgentsAbout2,
 		chaosAgentsAbout2Images,
 		chaosAgentsAbout3,
-		chaosAgentsAbout3Images
+		chaosAgentsAbout3Images,
+		chaosAgentsAbout4,
+		chaosAgentsAbout4Images
 	} from '../../data/Projects/ChaosAgents/ProjectAbout';
 	import { chaosAgentsIntro } from '../../data/Projects/ChaosAgents/ProjectIntro';
 	import { roccoGalloVideo, perfectLoopVideo } from '../../data/Projects/ChaosAgents/ProjectVideo';
@@ -32,6 +34,7 @@
 	let about2IsInView: boolean;
 	let interviewIsInView: boolean;
 	let about3IsInView: boolean;
+	let about4IsInView: boolean;
 	let videoIsInView: boolean;
 	let perfectLoopVideoIsInView: boolean;
 
@@ -60,7 +63,8 @@
 			[chaosAgentsIntro.bgImage, chaosAgentsIntro.bgImageMobile],
 			chaosAgentsAbout1Images,
 			chaosAgentsAbout2Images,
-			chaosAgentsAbout3Images
+			chaosAgentsAbout3Images,
+			chaosAgentsAbout4Images
 		]);
 		preloadedImagesStore.set(images);
 		imagesLoaded.set(true);
@@ -182,6 +186,23 @@
 			}}
 		>
 			<ProjectVideo videoProjects={perfectLoopVideo} />
+		</div>
+
+		<!-- About 4 Section -->
+		<div
+			id="about4"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				const { inView } = event.detail;
+				about4IsInView = inView;
+			}}
+		>
+			<ProjectAbout
+				aboutItem={chaosAgentsAbout4}
+				aboutImages={$preloadedImagesStore[4]}
+				route=""
+				colorVariant={EColorVariant.BLACK}
+			/>
 		</div>
 
 		<HomeIcon />

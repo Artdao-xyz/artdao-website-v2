@@ -1,6 +1,7 @@
 import ChaosAgentsAbout1 from './ChaosAgentsAbout1.svelte';
 import ChaosAgentsAbout2 from './ChaosAgentsAbout2.svelte';
 import ChaosAgentsAbout3 from './ChaosAgentsAbout3.svelte';
+import ChaosAgentsAbout4 from './ChaosAgentsAbout4.svelte';
 
 export const chaosAgentsAbout1 = {
     title: 'revitalization in the unexpected',
@@ -31,4 +32,14 @@ export const chaosAgentsAbout3 = {
 
 export const chaosAgentsAbout3Images = [
     '/media/chaos-agents/about-3/about-1.webp'
+];
+
+export const chaosAgentsAbout4 = {
+    title: 'digital space as a site for friction',
+    subtitle: '',
+    text: ChaosAgentsAbout4
+};
+
+export const chaosAgentsAbout4Images = [
+    '/media/chaos-agents/about-4/about-4.webp'
 ]; 
