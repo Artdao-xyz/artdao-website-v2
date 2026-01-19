@@ -100,10 +100,6 @@ export const projects: IProject[] = [
 		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
 	},
 	{
-		name: EProjects.CHAOS_AGENTS,
-		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
-	},
-	{
 		name: EProjects.BODY_FRONTIER,
 		refs: [EProjects.ARTIFICE, EProjects.ORB, EProjects.RAVE]
 	},
@@ -118,6 +114,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.WHATS_ON_YOUR_MIND,
 		refs: [EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA, EProjects.DIGITAL_MATTER]
+	},
+	{
+		name: EProjects.CHAOS_AGENTS,
+		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
 	}
 ];
 
@@ -219,14 +219,6 @@ export const projectsDetails = [
 		mobileImage: artificeMobile // Using placeholder image for now
 	},
 	{
-		name: EProjects.CHAOS_AGENTS,
-		nameToShow: 'chaos agents',
-		image: artifice, // Using placeholder image for now
-		hover: artificeHover, // Using placeholder image for now
-		url: CHAOS_AGENTS,
-		mobileImage: artificeMobile // Using placeholder image for now
-	},
-	{
 		name: EProjects.BODY_FRONTIER,
 		nameToShow: 'body frontier',
 		image: 'media/home/thumbnails/10-home-body-frontier.webp',
@@ -257,5 +249,13 @@ export const projectsDetails = [
 		hover: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp',
 		url: WHATS_ON_YOUR_MIND,
 		mobileImage: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp'
+	},
+	{
+		name: EProjects.CHAOS_AGENTS,
+		nameToShow: 'chaos agents',
+		image: artifice, // Using placeholder image for now
+		hover: artificeHover, // Using placeholder image for now
+		url: CHAOS_AGENTS,
+		mobileImage: artificeMobile // Using placeholder image for now
 	}
 ];

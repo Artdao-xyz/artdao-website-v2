@@ -38,6 +38,15 @@
 	import { digitalArchaeologyNavStoreItems } from './store';
 	import { fly } from 'svelte/transition';
 	import { cubicInOut } from 'svelte/easing';
+	import { usePageMetadata } from '$lib/utils/metadata';
+	
+	// Set page metadata
+	usePageMetadata({
+		title: 'Digital Archaeology | Artdao',
+		description: 'The return to retro digital aesthetics operates as a form of resistance—pushing back against the sleek refinement and visual excess of contemporary digital culture.',
+		ogImage: 'https://artdao.xyz/media/digital-archaeology/main-cover.webp',
+		canonical: 'https://artdao.xyz/digital-archaeology'
+	});
 	
 	let introIsInView: boolean;
 	let pinkyBlueIsInView: boolean;
@@ -132,7 +141,7 @@
 
 		</div>
 
-		<!-- PinkyBlue Section -->
+		<!-- PinkyBlu Section -->
 		<div
 			id="pinkyblue"
 			use:inview={INVIEW_OPTIONS}
