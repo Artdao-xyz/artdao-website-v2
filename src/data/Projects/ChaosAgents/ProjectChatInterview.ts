@@ -15,6 +15,7 @@ export interface ChatInterviewData {
   messages: ChatMessage[];
   images: string[];
   background: string;
+  interviewerText?: string;
 }
 
 export const chaosAgentsChatInterview: ChatInterviewData = {
@@ -121,5 +122,6 @@ Sometimes I'll come up with a chaotic process and fold those ideas in. Whether i
 		}
 	],
 	images: [],
-	background: '/media/chaos-agents/interview/interview-bg.webp'
+	background: '/media/chaos-agents/interview/interview-bg.webp',
+	interviewerText: 'Laura Butallo and Tomas Jones'
 }; 
