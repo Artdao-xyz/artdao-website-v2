@@ -39,6 +39,7 @@ import {
 	ORB,
 	RAVE,
 	QUEERING_THE_WEB3,
+	CHAOS_AGENTS,
 	SUBCONSCIOUS_MEDIA,
 	PET,
 	WHATS_ON_YOUR_MIND
@@ -113,6 +114,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.WHATS_ON_YOUR_MIND,
 		refs: [EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA, EProjects.DIGITAL_MATTER]
+	},
+	{
+		name: EProjects.CHAOS_AGENTS,
+		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
 	}
 ];
 
@@ -244,5 +249,13 @@ export const projectsDetails = [
 		hover: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp',
 		url: WHATS_ON_YOUR_MIND,
 		mobileImage: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp'
+	},
+	{
+		name: EProjects.CHAOS_AGENTS,
+		nameToShow: 'chaos agents',
+		image: artifice, // Using placeholder image for now
+		hover: artificeHover, // Using placeholder image for now
+		url: CHAOS_AGENTS,
+		mobileImage: artificeMobile // Using placeholder image for now
 	}
 ];

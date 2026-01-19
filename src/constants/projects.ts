@@ -167,5 +167,17 @@ export const projects: Project[] = [
                 artists: ["Zak Krevitt", "Sky Goodman"],
                 artworks: ["Digital Artifacts", "Digital Kinship", "Future Possibilities"],
                 quote: "\"The foretold utopia of Web3 reveals itself as a contentious landscape—one where queer expression both flourishes and falls victim to praticable patterns of erasure.\"",
+        },
+        {
+                title: "Chaos Agents",
+                subtitle: "Rocco Gallo & Perfect Loop",
+                description: "Digital art has long served as a crucible for conceptual experimentation, where computation, probability, and algorithmic logic combine to generate aesthetic forms grounded in chance and indeterminacy.",
+                thumbnailPath: ["media/chaos-agents/about-1/about-1.webp", "media/chaos-agents/about-2/about-1.webp", "media/chaos-agents/about-3/about-1.webp"],
+                thumbnailPathMobile: "media/chaos-agents/main-cover.webp",
+                buttonPath: "media/home/buttons/15-button-chaos-agents.png",
+                pagePath: "/chaos-agents",
+                artists: ["Rocco Gallo", "Perfect Loop"],
+                artworks: ["Nano", "Floppy Drive", "Mushroom nightmare"],
+                quote: "Generative art offers a quiet form of resistance. It disrupts visual predictability by reintroducing randomness—not as chaotic noise, but as a creative force.",
         }
 ];
