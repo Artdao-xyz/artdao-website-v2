@@ -4,59 +4,59 @@ export const ViralityOvernightArtworkGrid = {
 	artworks: [
 		{
 			id: "artwork1",
-			name: "",
+			name: "Old Woman",
 			description: "",
 			image: "/media/virality-overnight/artwork-grid/artwork-grid-1.webp",
-			alt: "Artwork 1"
+			alt: "Old Woman"
 		},
 		{
 			id: "artwork2",
-			name: "",
+			name: "ASTRONAUT",
 			description: "",
 			image: "/media/virality-overnight/artwork-grid/artwork-grid-2.webp",
-			alt: "Artwork 2"
+			alt: "ASTRONAUT"
 		},
 		{
 			id: "artwork3",
-			name: "",
+			name: "Shrek",
 			description: "",
 			image: "/media/virality-overnight/artwork-grid/artwork-grid-3.webp",
-			alt: "Artwork 3"
+			alt: "Shrek"
 		},
 		{
 			id: "artwork4",
-			name: "",
+			name: "Self Portrait",
 			description: "",
 			image: "/media/virality-overnight/artwork-grid/artwork-grid-4.webp",
-			alt: "Artwork 4"
+			alt: "Self Portrait"
 		},
 		{
 			id: "artwork5",
-			name: "",
+			name: "DIRT BIKE",
 			description: "",
 			image: "/media/virality-overnight/artwork-grid/artwork-grid-5.webp",
-			alt: "Artwork 5"
+			alt: "DIRT BIKE"
 		},
 		{
 			id: "artwork6",
-			name: "",
+			name: "SNOOPY",
 			description: "",
 			image: "/media/virality-overnight/artwork-grid/artwork-grid-6.webp",
-			alt: "Artwork 6"
+			alt: "SNOOPY"
 		},
 		{
 			id: "artwork7",
-			name: "",
+			name: "FERRARI",
 			description: "",
 			image: "/media/virality-overnight/artwork-grid/artwork-grid-7.webp",
-			alt: "Artwork 7"
+			alt: "FERRARI"
 		},
 		{
 			id: "artwork8",
-			name: "",
+			name: "MONEY",
 			description: "",
 			image: "/media/virality-overnight/artwork-grid/artwork-grid-8.webp",
-			alt: "Artwork 8"
+			alt: "MONEY"
 		}
 	]
 };

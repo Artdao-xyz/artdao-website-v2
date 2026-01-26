@@ -158,14 +158,14 @@ export const projects: Project[] = [
         },
         {
                 title: "Virality Overnight",
-                subtitle: "Placeholder subtitle",
-                description: "Placeholder description for Virality Overnight project.",
-                thumbnailPath: ["media/home/thumbnails-v2/virality-overnight/3.webp", "media/home/thumbnails-v2/virality-overnight/1.webp", "media/home/thumbnails-v2/virality-overnight/2.webp"],
+                subtitle: "Riniifish & Woc",
+                description: "In the web3 ecosystem, digital artists navigate a fundamental paradox between permanence and vitality. With one hand, they engage a blockchain that derives its authority from immutable, decentralized records; with the other, they respond to an attention economy driven by novelty and hype.",
+                thumbnailPath: ["media/virality-overnight/about-3/about-1.webp", "media/virality-overnight/about-1/about-1.webp", "media/virality-overnight/about-2/about-1.webp"],
                 thumbnailPathMobile: "media/home/thumbnails-v2-mobile/virality-overnight.webp",
                 buttonPath: "media/home/buttons/16-button-virality-overnight.png",
                 pagePath: "/virality-overnight",
-                artists: [],
+                artists: ["Riniifish", "Woc"],
                 artworks: [],
-                quote: "Placeholder quote for Virality Overnight project.",
+                quote: "Is virality constructing a new system of artistic validation, or does it merely offer a mirage of recognition?",
         }
 ];

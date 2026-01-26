@@ -2,6 +2,7 @@
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
+	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
@@ -19,6 +20,7 @@
 	import { viralityOvernightIntro } from '../../data/Projects/ViralityOvernight/ProjectIntro';
 	import { viralityOvernightChatInterview } from '../../data/Projects/ViralityOvernight/ProjectChatInterview';
 	import { ViralityOvernightArtworkGrid } from '../../data/Projects/ViralityOvernight/ProjectArtworkGrid';
+	import { viralityOvernightVideos } from '../../data/Projects/ViralityOvernight/ProjectVideo';
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
@@ -138,6 +140,7 @@
 				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
+			<ProjectVideo videoProjects={viralityOvernightVideos} />
 		</div>
 
 		<!-- About 3 Section - woc -->
