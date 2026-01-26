@@ -179,5 +179,17 @@ export const projects: Project[] = [
                 artists: ["Rocco Gallo", "Perfect Loop"],
                 artworks: ["Nano", "Floppy Drive", "Mushroom nightmare"],
                 quote: "Generative art offers a quiet form of resistance. It disrupts visual predictability by reintroducing randomness—not as chaotic noise, but as a creative force.",
+        },
+        {
+                title: "Virality Overnight",
+                subtitle: "Riniifish & Woc",
+                description: "In the web3 ecosystem, digital artists navigate a fundamental paradox between permanence and vitality. With one hand, they engage a blockchain that derives its authority from immutable, decentralized records; with the other, they respond to an attention economy driven by novelty and hype.",
+                thumbnailPath: ["media/virality-overnight/about-3/about-1.webp", "media/virality-overnight/about-1/about-1.webp", "media/virality-overnight/about-2/about-1.webp"],
+                thumbnailPathMobile: "media/home/thumbnails-v2-mobile/virality-overnight.webp",
+                buttonPath: "media/home/buttons/16-button-virality-overnight.png",
+                pagePath: "/virality-overnight",
+                artists: ["Riniifish", "Woc"],
+                artworks: [],
+                quote: "Is virality constructing a new system of artistic validation, or does it merely offer a mirage of recognition?",
         }
 ];
