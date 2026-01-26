@@ -27,6 +27,8 @@ export enum EProjects {
 	NON_PLACES = 'NonPlaces',
 	ORB = 'Orb',
 	RAVE = 'Rave',
+	QUEERING_THE_WEB3 = 'QueeringTheWeb3',
+	CHAOS_AGENTS = 'ChaosAgents',
 	BODY_FRONTIER = 'BodyFrontier',
 	SUBCONSCIOUS_MEDIA = 'SubconsciousMedia',
 	CAFE_EXE = 'CafeExe',

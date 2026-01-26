@@ -2,27 +2,27 @@ import type { IVideoProject } from '$lib/elements/VideoCard/interfaces';
 
 export const pinkyBlueVideo: IVideoProject[] = [
 	{
-		name: 'Espejo Roto',
-		artist: 'PinkyBlue',
-		year: '2024',
+		name: 'Worldview',
+		artist: 'PinkyBlu',
+		year: '2022',
 		videoUrl: 'https://storage.googleapis.com/videoszine/Digital%20Archeology/Pinkyblue/PINKY%20BLUE/Espejo%20roto.gif'
 	},
 	{
-		name: 'Barril',
-		artist: 'PinkyBlue',
-		year: '2024',
+		name: 'Incubator',
+		artist: 'PinkyBlu',
+		year: '2022',
 		videoUrl: 'https://storage.googleapis.com/videoszine/Digital%20Archeology/Pinkyblue/PINKY%20BLUE/Barril.gif'
 	},
 	{
-		name: 'Cruz',
-		artist: 'PinkyBlue',
-		year: '2024',
+		name: 'Fly High',
+		artist: 'PinkyBlu',
+		year: '2022',
 		videoUrl: 'https://storage.googleapis.com/videoszine/Digital%20Archeology/Pinkyblue/PINKY%20BLUE/cruz.gif'
 	},
 	{
-		name: 'Cybor Femme Fatale',
-		artist: 'PinkyBlue',
-		year: '2024',
+		name: 'Hit or Miss',
+		artist: 'PinkyBlu',
+		year: '2022',
 		videoUrl: 'https://storage.googleapis.com/videoszine/Digital%20Archeology/Pinkyblue/PINKY%20BLUE/cybor%20femme%20fatale%20800x800.gif.mp4'
 	}
 ];
