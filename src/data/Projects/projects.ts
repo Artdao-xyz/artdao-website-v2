@@ -38,10 +38,13 @@ import {
 	NON_PLACES,
 	ORB,
 	RAVE,
+	QUEERING_THE_WEB3,
+	CHAOS_AGENTS,
 	SUBCONSCIOUS_MEDIA,
 	PET,
 	WHATS_ON_YOUR_MIND,
-	EVERY_CREATION_IS_LOSS
+	EVERY_CREATION_IS_LOSS,
+	VIRALITY_OVERNIGHT
 } from '../../constants/routes';
 
 export interface IProject {
@@ -95,6 +98,10 @@ export const projects: IProject[] = [
 		refs: [EProjects.IN_CONVERSATION, EProjects.INTERTWINED, EProjects.INHERENT_INSTABILITY]
 	},
 	{
+		name: EProjects.QUEERING_THE_WEB3,
+		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
+	},
+	{
 		name: EProjects.BODY_FRONTIER,
 		refs: [EProjects.ARTIFICE, EProjects.ORB, EProjects.RAVE]
 	},
@@ -113,6 +120,14 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.EVERY_CREATION_IS_LOSS,
 		refs: [EProjects.WHATS_ON_YOUR_MIND, EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA]
+	},
+	{
+		name: EProjects.CHAOS_AGENTS,
+		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
+	},
+	{
+		name: EProjects.VIRALITY_OVERNIGHT,
+		refs: [EProjects.CHAOS_AGENTS, EProjects.EVERY_CREATION_IS_LOSS, EProjects.WHATS_ON_YOUR_MIND]
 	}
 ];
 
@@ -206,6 +221,14 @@ export const projectsDetails = [
 		mobileImage: raveMobile
 	},
 	{
+		name: EProjects.QUEERING_THE_WEB3,
+		nameToShow: 'queering the web3',
+		image: artifice, // Using placeholder image for now
+		hover: artificeHover, // Using placeholder image for now
+		url: QUEERING_THE_WEB3,
+		mobileImage: artificeMobile // Using placeholder image for now
+	},
+	{
 		name: EProjects.BODY_FRONTIER,
 		nameToShow: 'body frontier',
 		image: 'media/home/thumbnails/10-home-body-frontier.webp',
@@ -244,5 +267,21 @@ export const projectsDetails = [
 		hover: '/media/every-creation-is-loss/main-cover.webp',
 		url: EVERY_CREATION_IS_LOSS,
 		mobileImage: '/media/every-creation-is-loss/main-cover.webp'
+	},
+	{
+		name: EProjects.CHAOS_AGENTS,
+		nameToShow: 'chaos agents',
+		image: artifice, // Using placeholder image for now
+		hover: artificeHover, // Using placeholder image for now
+		url: CHAOS_AGENTS,
+		mobileImage: artificeMobile // Using placeholder image for now
+	},
+	{
+		name: EProjects.VIRALITY_OVERNIGHT,
+		nameToShow: 'virality overnight',
+		image: '/media/virality-overnight/about-1/about-1.webp',
+		hover: '/media/virality-overnight/about-1/about-1.webp',
+		url: VIRALITY_OVERNIGHT,
+		mobileImage: '/media/home/thumbnails-v2-mobile/virality-overnight.webp'
 	}
 ];

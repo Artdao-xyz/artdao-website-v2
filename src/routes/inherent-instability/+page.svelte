@@ -32,7 +32,16 @@
 		inaVideo,
 		nicoVideo
 	} from '../../data/Projects/InherentInstability/ProjectVideo';
+	import { usePageMetadata } from '$lib/utils/metadata';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'Inherent Instability | Artdao',
+		description: inherentInstabilityProjectIntro.description[0] || 'Exploring obsolete technology in artistic practice.',
+		ogImage: 'https://artdao.xyz/banner.png', // Using default since bgImage is an import
+		canonical: 'https://artdao.xyz/inherent-instability'
+	});
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';

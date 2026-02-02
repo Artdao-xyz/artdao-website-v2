@@ -32,7 +32,7 @@ export const projectsV2: ProjectV2[] = [
     },
     {
         title: "Digital Archaeology",
-        artists: ["Pinky Blue", "Sabato", "Estelle Flores", "Stipin Pixel"],
+        artists: ["PinkyBlu", "Sabato", "Estelle Flores", "Stipin Pixel"],
         thumbnailPath: "media/home/thumbnails-v2/05-digitalarcheology-4x.webp",
         route: "/digital-archaeology"
     },
