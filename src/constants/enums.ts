@@ -34,6 +34,7 @@ export enum EProjects {
 	CAFE_EXE = 'CafeExe',
 	PET = 'ProjectedEmotionalTechnologies',
 	WHATS_ON_YOUR_MIND = 'WhatsOnYourMind',
-	VIRALITY_OVERNIGHT = 'ViralityOvernight'
+	VIRALITY_OVERNIGHT = 'ViralityOvernight',
+	EVERY_CREATION_IS_LOSS = 'EveryCreationIsLoss'
 }
 

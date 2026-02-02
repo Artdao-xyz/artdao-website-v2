@@ -42,7 +42,9 @@ import {
 	CHAOS_AGENTS,
 	SUBCONSCIOUS_MEDIA,
 	PET,
-	WHATS_ON_YOUR_MIND
+	WHATS_ON_YOUR_MIND,
+	EVERY_CREATION_IS_LOSS,
+	VIRALITY_OVERNIGHT
 } from '../../constants/routes';
 
 export interface IProject {
@@ -118,6 +120,14 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.CHAOS_AGENTS,
 		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
+	},
+	{
+		name: EProjects.VIRALITY_OVERNIGHT,
+		refs: [EProjects.CHAOS_AGENTS, EProjects.WHATS_ON_YOUR_MIND, EProjects.SUBCONSCIOUS_MEDIA]
+	},
+	{
+		name: EProjects.EVERY_CREATION_IS_LOSS,
+		refs: [EProjects.VIRALITY_OVERNIGHT, EProjects.CHAOS_AGENTS, EProjects.WHATS_ON_YOUR_MIND]
 	}
 ];
 
@@ -257,5 +267,21 @@ export const projectsDetails = [
 		hover: artificeHover, // Using placeholder image for now
 		url: CHAOS_AGENTS,
 		mobileImage: artificeMobile // Using placeholder image for now
+	},
+	{
+		name: EProjects.VIRALITY_OVERNIGHT,
+		nameToShow: 'virality overnight',
+		image: '/media/virality-overnight/about-1/about-1.webp',
+		hover: '/media/virality-overnight/about-1/about-1.webp',
+		url: VIRALITY_OVERNIGHT,
+		mobileImage: '/media/home/thumbnails-v2-mobile/virality-overnight.webp'
+	},
+	{
+		name: EProjects.EVERY_CREATION_IS_LOSS,
+		nameToShow: 'every creation is loss',
+		image: '/media/every-creation-is-loss/main-cover.webp',
+		hover: '/media/every-creation-is-loss/main-cover.webp',
+		url: EVERY_CREATION_IS_LOSS,
+		mobileImage: '/media/every-creation-is-loss/main-cover.webp'
 	}
 ];

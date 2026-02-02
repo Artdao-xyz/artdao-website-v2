@@ -18,4 +18,5 @@ export const SUBCONSCIOUS_MEDIA = '/subconscious-media';
 export const CAFE_EXE = '/cafe-exe';
 export const PET = '/pet';
 export const WHATS_ON_YOUR_MIND = '/whats-on-your-mind';
+export const EVERY_CREATION_IS_LOSS = '/every-creation-is-loss';
 export const VIRALITY_OVERNIGHT = '/virality-overnight';

@@ -151,7 +151,7 @@ export const projects: Project[] = [
                 thumbnailPath: ["media/home/thumbnails-v2/digital-archaeology/3.webp", "media/home/thumbnails-v2/digital-archaeology/1.webp", "media/home/thumbnails-v2/digital-archaeology/2.webp"],
                 thumbnailPathMobile: "media/home/thumbnails-v2-mobile/digital-archaeology.webp",
                 buttonPath: "media/home/buttons/14-button-digital-archaeology.png",
-                pagePath: "/digital-archaeology",
+		pagePath: "/digital-archaeology",
                 artists: ["PinkyBlu", "Sabato", "Stipin Pixel", "Estelle Flores", "CYDR"],
                 artworks: ["PinkyBlu", "Artifact", "Sabato"],
                 quote: "\"Transforming retro aesthetics into critique unearthing how even our interfaces carry ideology, and how friction can liberate artists from the polish of the present.\"",
@@ -191,5 +191,21 @@ export const projects: Project[] = [
                 artists: ["Riniifish", "Woc"],
                 artworks: [],
                 quote: "Is virality constructing a new system of artistic validation, or does it merely offer a mirage of recognition?",
+        },
+        {
+                title: "Every Creation is Loss",
+                subtitle: "Chepertom & Asdrúbal Gomez",
+                description: "Cloud storage, blockchain immutability, and promises of data immortality all reflect digital culture's obsession with permanence. This mindset faces a direct challenge from artists who deliberately embrace entropy and digital erosion.",
+                thumbnailPath: [
+                        "media/every-creation-is-loss/artwork-grid-1/artwork-grid-1.webp",
+                        "media/every-creation-is-loss/artwork-grid-1/artwork-grid-2.webp",
+                        "media/every-creation-is-loss/artwork-grid-1/artwork-grid-3.webp"
+                ],
+                thumbnailPathMobile: "media/home/thumbnails-v2-mobile/every-creation-is-loss.webp",
+                buttonPath: "media/home/buttons/17-button-every-creation-is-loss.png",
+                pagePath: "/every-creation-is-loss",
+                artists: ["Chepertom", "Asdrúbal Gomez"],
+                artworks: ["Artwork 1", "Artwork 2", "Artwork 3"],
+                quote: "\"Digital erosion is not merely an aesthetic choice, but a calculated resistance to imposed permanence\"",
         }
 ];
