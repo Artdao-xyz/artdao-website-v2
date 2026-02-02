@@ -35,6 +35,6 @@ export enum EProjects {
 	PET = 'ProjectedEmotionalTechnologies',
 	WHATS_ON_YOUR_MIND = 'WhatsOnYourMind',
 	VIRALITY_OVERNIGHT = 'ViralityOvernight',
-	EVERY_CREATION_IS_LOSS = 'EveryCreationIsLoss',
+	EVERY_CREATION_IS_LOSS = 'EveryCreationIsLoss'
 }
 

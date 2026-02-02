@@ -118,16 +118,16 @@ export const projects: IProject[] = [
 		refs: [EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA, EProjects.DIGITAL_MATTER]
 	},
 	{
-		name: EProjects.EVERY_CREATION_IS_LOSS,
-		refs: [EProjects.WHATS_ON_YOUR_MIND, EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA]
-	},
-	{
 		name: EProjects.CHAOS_AGENTS,
 		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
 	},
 	{
 		name: EProjects.VIRALITY_OVERNIGHT,
-		refs: [EProjects.CHAOS_AGENTS, EProjects.EVERY_CREATION_IS_LOSS, EProjects.WHATS_ON_YOUR_MIND]
+		refs: [EProjects.CHAOS_AGENTS, EProjects.WHATS_ON_YOUR_MIND, EProjects.SUBCONSCIOUS_MEDIA]
+	},
+	{
+		name: EProjects.EVERY_CREATION_IS_LOSS,
+		refs: [EProjects.VIRALITY_OVERNIGHT, EProjects.CHAOS_AGENTS, EProjects.WHATS_ON_YOUR_MIND]
 	}
 ];
 
@@ -261,14 +261,6 @@ export const projectsDetails = [
 		mobileImage: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp'
 	},
 	{
-		name: EProjects.EVERY_CREATION_IS_LOSS,
-		nameToShow: 'every creation is loss',
-		image: '/media/every-creation-is-loss/main-cover.webp',
-		hover: '/media/every-creation-is-loss/main-cover.webp',
-		url: EVERY_CREATION_IS_LOSS,
-		mobileImage: '/media/every-creation-is-loss/main-cover.webp'
-	},
-	{
 		name: EProjects.CHAOS_AGENTS,
 		nameToShow: 'chaos agents',
 		image: artifice, // Using placeholder image for now
@@ -283,5 +275,13 @@ export const projectsDetails = [
 		hover: '/media/virality-overnight/about-1/about-1.webp',
 		url: VIRALITY_OVERNIGHT,
 		mobileImage: '/media/home/thumbnails-v2-mobile/virality-overnight.webp'
+	},
+	{
+		name: EProjects.EVERY_CREATION_IS_LOSS,
+		nameToShow: 'every creation is loss',
+		image: '/media/every-creation-is-loss/main-cover.webp',
+		hover: '/media/every-creation-is-loss/main-cover.webp',
+		url: EVERY_CREATION_IS_LOSS,
+		mobileImage: '/media/every-creation-is-loss/main-cover.webp'
 	}
 ];

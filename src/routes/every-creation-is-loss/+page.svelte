@@ -2,6 +2,7 @@
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
+	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
@@ -19,6 +20,7 @@
 	import { everyCreationIsLossIntro } from '../../data/Projects/EveryCreationIsLoss/ProjectIntro';
 	import { everyCreationIsLossChatInterview, everyCreationIsLossChatInterview2 } from '../../data/Projects/EveryCreationIsLoss/ProjectChatInterview';
 	import { EveryCreationIsLossArtworkGrid, EveryCreationIsLossArtworkGrid2 } from '../../data/Projects/EveryCreationIsLoss/ProjectArtworkGrid';
+	import { chepertomVideos } from '../../data/Projects/EveryCreationIsLoss/ProjectVideo';
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
@@ -151,6 +153,11 @@
                 		<!-- Artwork Grid Section 1 -->
 		<div>
 			<ProjectArtworkGrid galleryImages={EveryCreationIsLossArtworkGrid.artworks} />
+		</div>
+
+		<!-- Video Section - Chepertom -->
+		<div>
+			<ProjectVideo videoProjects={chepertomVideos} />
 		</div>
 
 		<!-- About 3 Section -->
