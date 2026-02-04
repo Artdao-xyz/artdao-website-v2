@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+	import ProjectArtworkGridMobile from '$lib/components/ProjectArtworkGridMobile/ProjectArtworkGridMobile.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
@@ -19,7 +20,7 @@
 	} from '../../data/Projects/ViralityOvernight/ProjectAbout';
 	import { viralityOvernightIntro } from '../../data/Projects/ViralityOvernight/ProjectIntro';
 	import { viralityOvernightChatInterview } from '../../data/Projects/ViralityOvernight/ProjectChatInterview';
-	import { ViralityOvernightArtworkGrid } from '../../data/Projects/ViralityOvernight/ProjectArtworkGrid';
+	import { ViralityOvernightArtworkGrid, viralityOvernightArtworkGridMobileLeft, viralityOvernightArtworkGridMobileRight } from '../../data/Projects/ViralityOvernight/ProjectArtworkGrid';
 	import { viralityOvernightVideos } from '../../data/Projects/ViralityOvernight/ProjectVideo';
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
@@ -162,7 +163,17 @@
 
 		<!-- Artwork Grid Section -->
 		<div>
-			<ProjectArtworkGrid galleryImages={ViralityOvernightArtworkGrid.artworks} />
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid galleryImages={ViralityOvernightArtworkGrid.artworks} />
+			</div>
+
+			<div class="block sm:hidden sm:snap-start">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={viralityOvernightArtworkGridMobileLeft}
+					imagesRight={viralityOvernightArtworkGridMobileRight}
+				/>
+			</div>
 		</div>
 
 		<HomeIcon />
