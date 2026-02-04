@@ -3,6 +3,7 @@
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+	import ProjectArtworkGridMobile from '$lib/components/ProjectArtworkGridMobile/ProjectArtworkGridMobile.svelte';
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
@@ -28,7 +29,7 @@
 	} from '../../data/Projects/DigitalArchaeology/ProjectAbout';
 	import { digitalArchaeologyIntro } from '../../data/Projects/DigitalArchaeology/ProjectIntro';
 	import { pinkyBlueVideo, sabatoVideo, stipinVideo } from '../../data/Projects/DigitalArchaeology/ProjectVideo';
-	import { DigitalArchaeologyArtworkGrid } from '../../data/Projects/DigitalArchaeology/ProjectArtworkGrid';
+	import { DigitalArchaeologyArtworkGrid, digitalArchaeologyArtworkGridMobileLeft, digitalArchaeologyArtworkGridMobileRight } from '../../data/Projects/DigitalArchaeology/ProjectArtworkGrid';
 	import { DigitalArchaeologyPolaroids } from '../../data/Projects/DigitalArchaeology/ProjectPolaroids';
 	import { digitalArchaeologyChatInterview, digitalArchaeologyChatInterview2 } from '../../data/Projects/DigitalArchaeology/ProjectChatInterview';
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
@@ -219,7 +220,17 @@
 				colorVariant={EColorVariant.BLACK}
 			/>
 
-			<ProjectArtworkGrid galleryImages={DigitalArchaeologyArtworkGrid.artworks} />
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid galleryImages={DigitalArchaeologyArtworkGrid.artworks} />
+			</div>
+
+			<div class="block sm:hidden sm:snap-start">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={digitalArchaeologyArtworkGridMobileLeft}
+					imagesRight={digitalArchaeologyArtworkGridMobileRight}
+				/>
+			</div>
 
 		</div>
 

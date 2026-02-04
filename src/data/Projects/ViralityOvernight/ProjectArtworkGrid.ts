@@ -1,3 +1,5 @@
+import type { IGalleryImageMobile } from '$lib/elements/ArtworkContainer/interfaces';
+
 export const ViralityOvernightArtworkGrid = {
 	title: "Artworks",
 	description: "A collection of artworks from Virality Overnight.",
@@ -61,3 +63,57 @@ export const ViralityOvernightArtworkGrid = {
 	]
 };
 
+// Mobile artwork arrays - split evenly between left and right columns
+export const viralityOvernightArtworkGridMobileLeft: IGalleryImageMobile[] = [
+	{
+		src: '/media/virality-overnight/artwork-grid/artwork-grid-1.webp',
+		alt: 'Old Woman',
+		name: 'Old Woman',
+		description: ''
+	},
+	{
+		src: '/media/virality-overnight/artwork-grid/artwork-grid-3.webp',
+		alt: 'Shrek',
+		name: 'Shrek',
+		description: ''
+	},
+	{
+		src: '/media/virality-overnight/artwork-grid/artwork-grid-5.webp',
+		alt: 'DIRT BIKE',
+		name: 'DIRT BIKE',
+		description: ''
+	},
+	{
+		src: '/media/virality-overnight/artwork-grid/artwork-grid-7.webp',
+		alt: 'FERRARI',
+		name: 'FERRARI',
+		description: ''
+	}
+];
+
+export const viralityOvernightArtworkGridMobileRight: IGalleryImageMobile[] = [
+	{
+		src: '/media/virality-overnight/artwork-grid/artwork-grid-2.webp',
+		alt: 'ASTRONAUT',
+		name: 'ASTRONAUT',
+		description: ''
+	},
+	{
+		src: '/media/virality-overnight/artwork-grid/artwork-grid-4.webp',
+		alt: 'Self Portrait',
+		name: 'Self Portrait',
+		description: ''
+	},
+	{
+		src: '/media/virality-overnight/artwork-grid/artwork-grid-6.webp',
+		alt: 'SNOOPY',
+		name: 'SNOOPY',
+		description: ''
+	},
+	{
+		src: '/media/virality-overnight/artwork-grid/artwork-grid-8.webp',
+		alt: 'MONEY',
+		name: 'MONEY',
+		description: ''
+	}
+];

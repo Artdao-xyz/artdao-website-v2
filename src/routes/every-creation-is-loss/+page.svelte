@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+	import ProjectArtworkGridMobile from '$lib/components/ProjectArtworkGridMobile/ProjectArtworkGridMobile.svelte';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
@@ -19,7 +20,7 @@
 	} from '../../data/Projects/EveryCreationIsLoss/ProjectAbout';
 	import { everyCreationIsLossIntro } from '../../data/Projects/EveryCreationIsLoss/ProjectIntro';
 	import { everyCreationIsLossChatInterview, everyCreationIsLossChatInterview2 } from '../../data/Projects/EveryCreationIsLoss/ProjectChatInterview';
-	import { EveryCreationIsLossArtworkGrid, EveryCreationIsLossArtworkGrid2 } from '../../data/Projects/EveryCreationIsLoss/ProjectArtworkGrid';
+	import { EveryCreationIsLossArtworkGrid, everyCreationIsLossArtworkGridMobileLeft, everyCreationIsLossArtworkGridMobileRight, EveryCreationIsLossArtworkGrid2, everyCreationIsLossArtworkGrid2MobileLeft, everyCreationIsLossArtworkGrid2MobileRight } from '../../data/Projects/EveryCreationIsLoss/ProjectArtworkGrid';
 	import { chepertomVideos } from '../../data/Projects/EveryCreationIsLoss/ProjectVideo';
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
@@ -152,7 +153,17 @@
 
                 		<!-- Artwork Grid Section 1 -->
 		<div>
-			<ProjectArtworkGrid galleryImages={EveryCreationIsLossArtworkGrid.artworks} />
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid galleryImages={EveryCreationIsLossArtworkGrid.artworks} />
+			</div>
+
+			<div class="block sm:hidden sm:snap-start">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={everyCreationIsLossArtworkGridMobileLeft}
+					imagesRight={everyCreationIsLossArtworkGridMobileRight}
+				/>
+			</div>
 		</div>
 
 		<!-- Video Section - Chepertom -->
@@ -185,7 +196,17 @@
 
 		<!-- Artwork Grid Section 2 -->
 		<div>
-			<ProjectArtworkGrid galleryImages={EveryCreationIsLossArtworkGrid2.artworks} />
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid galleryImages={EveryCreationIsLossArtworkGrid2.artworks} />
+			</div>
+
+			<div class="block sm:hidden sm:snap-start">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={everyCreationIsLossArtworkGrid2MobileLeft}
+					imagesRight={everyCreationIsLossArtworkGrid2MobileRight}
+				/>
+			</div>
 		</div>
 
 		<HomeIcon />
