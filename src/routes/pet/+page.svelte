@@ -95,13 +95,13 @@ import { petDropdownImages } from '../../data/Projects/Pet/ProjectAboutDropdown'
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<div id="intro" use:inview={INVIEW_OPTIONS}>
-			<ProjectIntro
-				project={petIntro}
-				textColor="white"
-				bgImage={$preloadedImagesStore[0][0]}
-				bgImageMobile={$preloadedImagesStore[0][1]}
-				backgroundPosition="center"
-			/>
+		<ProjectIntro
+			project={petIntro}
+			textColor="white"
+			bgImage={$preloadedImagesStore[0][0]}
+			bgImageMobile={$preloadedImagesStore[0][1]}
+			backgroundPosition="center"
+		/>
 		</div>
 
                 <div

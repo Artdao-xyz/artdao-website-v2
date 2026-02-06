@@ -103,12 +103,12 @@
 				introIsInView = inView;
 			}}
 		>
-			<ProjectIntro
-				project={everyCreationIsLossIntro}
-				textColor="white"
-				bgImage={$preloadedImagesStore[0][0]}
-				bgImageMobile={$preloadedImagesStore[0][1]}
-			/>
+		<ProjectIntro
+			project={everyCreationIsLossIntro}
+			textColor="white"
+			bgImage={$preloadedImagesStore[0][0]}
+			bgImageMobile={$preloadedImagesStore[0][1]}
+		/>
 		</div>
 
 		<!-- About 1 Section -->
@@ -154,7 +154,7 @@
                 		<!-- Artwork Grid Section 1 -->
 		<div>
 			<div class="hidden sm:block">
-				<ProjectArtworkGrid galleryImages={EveryCreationIsLossArtworkGrid.artworks} />
+			<ProjectArtworkGrid galleryImages={EveryCreationIsLossArtworkGrid.artworks} />
 			</div>
 
 			<div class="block sm:hidden sm:snap-start">
@@ -197,7 +197,7 @@
 		<!-- Artwork Grid Section 2 -->
 		<div>
 			<div class="hidden sm:block">
-				<ProjectArtworkGrid galleryImages={EveryCreationIsLossArtworkGrid2.artworks} />
+			<ProjectArtworkGrid galleryImages={EveryCreationIsLossArtworkGrid2.artworks} />
 			</div>
 
 			<div class="block sm:hidden sm:snap-start">

@@ -96,12 +96,12 @@
 				introIsInView = inView;
 			}}
 		>
-			<ProjectIntro
-				project={viralityOvernightIntro}
-				textColor="black"
-				bgImage={$preloadedImagesStore[0][0]}
-				bgImageMobile={$preloadedImagesStore[0][1]}
-			/>
+		<ProjectIntro
+			project={viralityOvernightIntro}
+			textColor="black"
+			bgImage={$preloadedImagesStore[0][0]}
+			bgImageMobile={$preloadedImagesStore[0][1]}
+		/>
 		</div>
 
 		<!-- About 1 Section - Ephemerality -->
@@ -164,7 +164,7 @@
 		<!-- Artwork Grid Section -->
 		<div>
 			<div class="hidden sm:block">
-				<ProjectArtworkGrid galleryImages={ViralityOvernightArtworkGrid.artworks} />
+			<ProjectArtworkGrid galleryImages={ViralityOvernightArtworkGrid.artworks} />
 			</div>
 
 			<div class="block sm:hidden sm:snap-start">

@@ -112,12 +112,12 @@
 				introIsInView = inView;
 			}}
 		>
-			<ProjectIntro
-				project={queeringTheWeb3Intro}
-				textColor="white"
-				bgImage={$preloadedImagesStore[0][0]}
-				bgImageMobile={$preloadedImagesStore[0][1]}
-			/>
+		<ProjectIntro
+			project={queeringTheWeb3Intro}
+			textColor="white"
+			bgImage={$preloadedImagesStore[0][0]}
+			bgImageMobile={$preloadedImagesStore[0][1]}
+		/>
 		</div>
 
 		<!-- About 1 Section -->
