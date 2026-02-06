@@ -40,11 +40,11 @@
 				? 'text-color-black'
 				: 'text-color-white'} pl-global-padding gap-5 bigScreen:gap-10 p-4"
 		>
-			<h1
-				class="font-neue text-[2.5rem] sm:text-[4.375rem] macBook:text-[6.25rem] xlScreen:text-[10rem] xlScreen:leading-[10rem] font-semibold leading-[3rem] sm:leading-[5rem] laptopM:leading-[6.5625rem] tracking-[0.0975rem] uppercase"
-			>
-				{name}
-			</h1>
+		<h1
+			class="font-neue text-[2.5rem] sm:text-[4.375rem] macBook:text-[6.25rem] xlScreen:text-[10rem] xlScreen:leading-[10rem] font-semibold leading-[3rem] sm:leading-[5rem] laptopM:leading-[6.5625rem] tracking-[0.0975rem] uppercase"
+		>
+			{@html name}
+		</h1>
 			<div
 				class="w-full sm:w-[36.25rem] flex flex-col gap-5 font-clash text-base macBook:text-base laptopL:text-sm bigScreen:text-base xlScreen:text-2xl leading-[1.5625rem]"
 			>
