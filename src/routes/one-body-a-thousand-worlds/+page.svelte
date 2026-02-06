@@ -139,14 +139,14 @@
 			/>
 		</div>
 		
-		<!-- Video - Salawaki -->
-		<div>
-			<ProjectVideo videoProjects={salawakiVideos} />
-		</div>
-		
 		<!-- Chat Interview -->
 		<div>
 			<ChatInterview data={chatInterviewData} />
+		</div>
+		
+		<!-- Video - Salawaki -->
+		<div>
+			<ProjectVideo videoProjects={salawakiVideos} />
 		</div>
 		
 		<!-- About 3 -->
