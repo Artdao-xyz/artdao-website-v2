@@ -99,7 +99,6 @@
 		<ProjectIntro
 			project={viralityOvernightIntro}
 			textColor="black"
-			isWiderTitle
 			bgImage={$preloadedImagesStore[0][0]}
 			bgImageMobile={$preloadedImagesStore[0][1]}
 		/>

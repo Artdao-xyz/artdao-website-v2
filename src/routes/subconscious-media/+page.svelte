@@ -79,7 +79,7 @@
 	>
 		<!-- Intro Section -->
 		<div id="intro" use:inview={INVIEW_OPTIONS} on:inview_change={(event) => { introIsInView = event.detail.inView; }}>
-			<ProjectIntro project={subconsciousMediaIntro} textColor="black" isWiderTitle bgImage={$preloadedImagesStore[0][0]} bgImageMobile={$preloadedImagesStore[0][1]} />
+			<ProjectIntro project={subconsciousMediaIntro} textColor="black" bgImage={$preloadedImagesStore[0][0]} bgImageMobile={$preloadedImagesStore[0][1]} />
 			<ProjectAbout aboutItem={subconsciousMediaAbout1} aboutImages={$preloadedImagesStore[1]} route="" colorVariant={EColorVariant.BLACK} />
 		</div>
 
