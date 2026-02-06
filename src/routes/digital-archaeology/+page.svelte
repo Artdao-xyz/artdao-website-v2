@@ -3,6 +3,7 @@
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+	import ProjectArtworkGridMobile from '$lib/components/ProjectArtworkGridMobile/ProjectArtworkGridMobile.svelte';
 	import ProjectPolaroids from '$lib/components/ProjectPolaroids/ProjectPolaroids.svelte';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
@@ -28,7 +29,7 @@
 	} from '../../data/Projects/DigitalArchaeology/ProjectAbout';
 	import { digitalArchaeologyIntro } from '../../data/Projects/DigitalArchaeology/ProjectIntro';
 	import { pinkyBlueVideo, sabatoVideo, stipinVideo } from '../../data/Projects/DigitalArchaeology/ProjectVideo';
-	import { DigitalArchaeologyArtworkGrid } from '../../data/Projects/DigitalArchaeology/ProjectArtworkGrid';
+	import { DigitalArchaeologyArtworkGrid, digitalArchaeologyArtworkGridMobileLeft, digitalArchaeologyArtworkGridMobileRight } from '../../data/Projects/DigitalArchaeology/ProjectArtworkGrid';
 	import { DigitalArchaeologyPolaroids } from '../../data/Projects/DigitalArchaeology/ProjectPolaroids';
 	import { digitalArchaeologyChatInterview, digitalArchaeologyChatInterview2 } from '../../data/Projects/DigitalArchaeology/ProjectChatInterview';
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
@@ -38,6 +39,15 @@
 	import { digitalArchaeologyNavStoreItems } from './store';
 	import { fly } from 'svelte/transition';
 	import { cubicInOut } from 'svelte/easing';
+	import { usePageMetadata } from '$lib/utils/metadata';
+	
+	// Set page metadata
+	usePageMetadata({
+		title: 'Digital Archaeology | Artdao',
+		description: 'The return to retro digital aesthetics operates as a form of resistance—pushing back against the sleek refinement and visual excess of contemporary digital culture.',
+		ogImage: 'https://artdao.xyz/media/digital-archaeology/main-cover.webp',
+		canonical: 'https://artdao.xyz/digital-archaeology'
+	});
 	
 	let introIsInView: boolean;
 	let pinkyBlueIsInView: boolean;
@@ -132,7 +142,7 @@
 
 		</div>
 
-		<!-- PinkyBlue Section -->
+		<!-- PinkyBlu Section -->
 		<div
 			id="pinkyblue"
 			use:inview={INVIEW_OPTIONS}
@@ -210,7 +220,17 @@
 				colorVariant={EColorVariant.BLACK}
 			/>
 
-			<ProjectArtworkGrid galleryImages={DigitalArchaeologyArtworkGrid.artworks} />
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid galleryImages={DigitalArchaeologyArtworkGrid.artworks} />
+			</div>
+
+			<div class="block sm:hidden sm:snap-start">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={digitalArchaeologyArtworkGridMobileLeft}
+					imagesRight={digitalArchaeologyArtworkGridMobileRight}
+				/>
+			</div>
 
 		</div>
 

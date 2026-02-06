@@ -29,7 +29,7 @@
             style="--slide-delay: {index * 100}ms"
         >
             <a href={pagePath} class="relative w-full h-full flex flex-col justify-between flex-shrink-0 p-2 sm:p-8">
-                <img draggable="false" id={(index + 1).toString()} class="absolute top-0 left-0 w-full h-full object-cover rounded-20" src={thumbnailPath} alt="">
+                <img draggable="false" id={(index + 1).toString()} class="absolute top-0 left-0 w-full h-full object-cover rounded-20" src={Array.isArray(thumbnailPath) ? thumbnailPath[0] : thumbnailPath} alt="">
                 
                 <div class="relative space-y-2 w-full sm:w-fit glass-gradient p-5 sm:p-8 rounded-20">
                     <h1 class="text-2xl sm:text-4xl font-semibold">{title}</h1>

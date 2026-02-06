@@ -70,7 +70,7 @@
                 <img 
                     draggable="false"
                     class="w-full h-full object-cover" 
-                    src={thumbnailPath} 
+                    src={Array.isArray(thumbnailPath) ? thumbnailPath[0] : thumbnailPath} 
                     alt=""
                 >
             </button>

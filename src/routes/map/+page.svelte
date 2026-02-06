@@ -10,7 +10,15 @@
 	import { mapData, type IMapEvent, type IMapLocation } from '../../data/Map/MapData';
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import preloadImages from '../../utils/preloadImages';
+	import { usePageMetadata } from '$lib/utils/metadata';
 	import { fly } from 'svelte/transition';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'Map | Artdao',
+		description: 'Explore events and locations around the world.',
+		canonical: 'https://artdao.xyz/map'
+	});
 
 	let eventToShow: IMapEvent | undefined = undefined;
 	let width: number;
