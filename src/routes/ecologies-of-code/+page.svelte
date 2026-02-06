@@ -133,12 +133,13 @@
 				introIsInView = inView;
 			}}
 		>
-			<ProjectIntro
-				project={ecologiesOfCodeProject}
-				textColor="white"
-				bgImage={$preloadedImagesStore[0][0]}
-				bgImageMobile={$preloadedImagesStore[0][1]}
-			/>
+		<ProjectIntro
+			project={ecologiesOfCodeProject}
+			textColor="white"
+			isWiderTitle
+			bgImage={$preloadedImagesStore[0][0]}
+			bgImageMobile={$preloadedImagesStore[0][1]}
+		/>
 
 			<ProjectInterview bgImage={$preloadedImagesStore[2][0]} filteredQuestions={ecologiesQuestions} isCover />
 		</div>

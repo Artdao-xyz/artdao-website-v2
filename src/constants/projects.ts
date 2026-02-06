@@ -222,6 +222,6 @@ export const projects: Project[] = [
                 pagePath: "/one-body-a-thousand-worlds",
                 artists: ["Turro", "Salawaki"],
                 artworks: [],
-                quote: "",
+                quote: "What does it mean to build an entire creative practice around a single character?",
         }
 ];
