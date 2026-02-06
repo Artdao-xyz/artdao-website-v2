@@ -34,7 +34,7 @@
 			: ``}
 	>
 	<div
-		class="flex flex-col h-full w-full {textColor === 'black'
+		class="flex flex-col h-full w-full max-w-[90vw] sm:max-w-none {textColor === 'black'
 			? 'text-color-black'
 			: 'text-color-white'} pl-global-padding gap-5 bigScreen:gap-10 p-4"
 	>
