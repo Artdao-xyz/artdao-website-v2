@@ -2,6 +2,7 @@
 	import { inview } from 'svelte-inview';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
+	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
@@ -13,6 +14,7 @@
 	import { about1, about1Images, about2, about2Images, about3, about3Images } from '../../data/Projects/OneBodyAThousandWorlds/ProjectAbout';
 	import { oneBodyAThousandWorldsChatInterview, oneBodyAThousandWorldsChatInterviewTurro } from '../../data/Projects/OneBodyAThousandWorlds/ProjectChatInterview';
 	import { oneBodyAThousandWorldsArtworkGrid } from '../../data/Projects/OneBodyAThousandWorlds/ProjectArtworkGrid';
+	import { salawakiVideos } from '../../data/Projects/OneBodyAThousandWorlds/ProjectVideo';
 	
 	// Navigation and utilities
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
@@ -135,6 +137,11 @@
 				isImageLeft={false}
 				colorVariant={EColorVariant.BLACK}
 			/>
+		</div>
+		
+		<!-- Video - Salawaki -->
+		<div>
+			<ProjectVideo videoProjects={salawakiVideos} />
 		</div>
 		
 		<!-- Chat Interview -->
