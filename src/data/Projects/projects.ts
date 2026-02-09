@@ -43,6 +43,7 @@ import {
 	SUBCONSCIOUS_MEDIA,
 	PET,
 	WHATS_ON_YOUR_MIND,
+	ONE_BODY_A_THOUSAND_WORLDS,
 	EVERY_CREATION_IS_LOSS,
 	VIRALITY_OVERNIGHT
 } from '../../constants/routes';
@@ -128,6 +129,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.EVERY_CREATION_IS_LOSS,
 		refs: [EProjects.VIRALITY_OVERNIGHT, EProjects.CHAOS_AGENTS, EProjects.WHATS_ON_YOUR_MIND]
+	},
+	{
+		name: EProjects.ONE_BODY_A_THOUSAND_WORLDS,
+		refs: [EProjects.EVERY_CREATION_IS_LOSS, EProjects.VIRALITY_OVERNIGHT, EProjects.CHAOS_AGENTS]
 	}
 ];
 
@@ -283,5 +288,13 @@ export const projectsDetails = [
 		hover: '/media/every-creation-is-loss/main-cover.webp',
 		url: EVERY_CREATION_IS_LOSS,
 		mobileImage: '/media/every-creation-is-loss/main-cover.webp'
+	},
+	{
+		name: EProjects.ONE_BODY_A_THOUSAND_WORLDS,
+		nameToShow: 'one body, a thousand worlds',
+		image: '/media/one-body-a-thousand-worlds/artworks-grid/artworks-grid-1.webp',
+		hover: '/media/one-body-a-thousand-worlds/artworks-grid/artworks-grid-1.webp',
+		url: ONE_BODY_A_THOUSAND_WORLDS,
+		mobileImage: '/media/one-body-a-thousand-worlds/main-cover.webp'
 	}
 ];

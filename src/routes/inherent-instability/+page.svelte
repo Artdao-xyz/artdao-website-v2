@@ -148,13 +148,13 @@
 				introIsInView = inView;
 			}}
 		>
-			<ProjectIntro
-				project={inherentInstabilityProjectIntro}
-				textColor="white"
-				isContain
-				bgImage={$preloadedImagesStore[0][0]}
-				bgImageMobile={$preloadedImagesStore[0][1]}
-			/>
+		<ProjectIntro
+			project={inherentInstabilityProjectIntro}
+			textColor="white"
+			isContain
+			bgImage={$preloadedImagesStore[0][0]}
+			bgImageMobile={$preloadedImagesStore[0][1]}
+		/>
 
 			<ProjectInterview bgImage={$preloadedImagesStore[1][0]} filteredQuestions={inherentQuestions} />
 		</div>

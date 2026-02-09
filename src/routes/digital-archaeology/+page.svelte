@@ -126,12 +126,12 @@
 				introIsInView = inView;
 			}}
 		>
-			<ProjectIntro
-				project={digitalArchaeologyIntro}
-				textColor="white"
-				bgImage={$preloadedImagesStore[0][0]}
-				bgImageMobile={$preloadedImagesStore[0][1]}
-			/>
+		<ProjectIntro
+			project={digitalArchaeologyIntro}
+			textColor="white"
+			bgImage={$preloadedImagesStore[0][0]}
+			bgImageMobile={$preloadedImagesStore[0][1]}
+		/>
 			<ProjectAbout
 			aboutItem={nostalgiaAbout}
 			aboutImages={$preloadedImagesStore[1]}
@@ -221,7 +221,7 @@
 			/>
 
 			<div class="hidden sm:block">
-				<ProjectArtworkGrid galleryImages={DigitalArchaeologyArtworkGrid.artworks} />
+			<ProjectArtworkGrid galleryImages={DigitalArchaeologyArtworkGrid.artworks} />
 			</div>
 
 			<div class="block sm:hidden sm:snap-start">

@@ -61,7 +61,7 @@ export const DigitalArchaeologyArtworkGrid = {
       alt: "Digital artifact 8"
     }
   ]
-};
+}; 
 
 // Mobile artwork arrays - split evenly between left and right columns
 export const digitalArchaeologyArtworkGridMobileLeft: IGalleryImageMobile[] = [

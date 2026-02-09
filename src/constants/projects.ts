@@ -151,7 +151,7 @@ export const projects: Project[] = [
                 thumbnailPath: ["media/home/thumbnails-v2/digital-archaeology/3.webp", "media/home/thumbnails-v2/digital-archaeology/1.webp", "media/home/thumbnails-v2/digital-archaeology/2.webp"],
                 thumbnailPathMobile: "media/home/thumbnails-v2-mobile/digital-archaeology.webp",
                 buttonPath: "media/home/buttons/14-button-digital-archaeology.png",
-		pagePath: "/digital-archaeology",
+                pagePath: "/digital-archaeology",
                 artists: ["PinkyBlu", "Sabato", "Stipin Pixel", "Estelle Flores", "CYDR"],
                 artworks: ["PinkyBlu", "Artifact", "Sabato"],
                 quote: "\"Transforming retro aesthetics into critique unearthing how even our interfaces carry ideology, and how friction can liberate artists from the polish of the present.\"",
@@ -207,5 +207,21 @@ export const projects: Project[] = [
                 artists: ["Chepertom", "Asdrúbal Gomez"],
                 artworks: ["Artwork 1", "Artwork 2", "Artwork 3"],
                 quote: "\"Digital erosion is not merely an aesthetic choice, but a calculated resistance to imposed permanence\"",
+        },
+        {
+                title: "One body, a thousand worlds",
+                subtitle: "",
+                description: "What does it mean to build an entire creative practice around a single character? In the hands of certain artists, such figures are far more than illustrated avatars—they operate as symbolic nodes, anchoring entire ecosystems of meaning.",
+                thumbnailPath: [
+                        "media/one-body-a-thousand-worlds/artworks-grid/artworks-grid-1.webp",
+                        "media/one-body-a-thousand-worlds/artworks-grid/artworks-grid-2.webp",
+                        "media/one-body-a-thousand-worlds/artworks-grid/artworks-grid-3.webp"
+                ],
+                thumbnailPathMobile: "media/one-body-a-thousand-worlds/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-one-body-a-thousand-worlds.png",
+                pagePath: "/one-body-a-thousand-worlds",
+                artists: ["Turro", "Salawaki"],
+                artworks: [],
+                quote: "What does it mean to build an entire creative practice around a single character?",
         }
 ];
