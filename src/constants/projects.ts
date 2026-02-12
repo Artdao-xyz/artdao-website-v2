@@ -225,7 +225,7 @@ export const projects: Project[] = [
                 quote: "What does it mean to build an entire creative practice around a single character?",
         },
         {
-                title: "corrupted flesh",
+                title: "Corrupted Flesh",
                 subtitle: "",
                 description: "The compromised digital body stands as witness to our technological condition, disrupting sanitized myths of seamless integration between flesh and interface. These artworks reveal sites of conflict where human vulnerability meets machine logic.",
                 thumbnailPath: [
@@ -238,6 +238,6 @@ export const projects: Project[] = [
                 pagePath: "/corrupted-flesh",
                 artists: ["Veronika Peshekhonova", "Tim Høibjerg", "Matheus Carvalho"],
                 artworks: [],
-                quote: ""
+                quote: "The compromised digital body stands as witness to our technological condition."
         },
 ];

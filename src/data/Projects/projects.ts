@@ -280,7 +280,7 @@ export const projectsDetails = [
 	},
 	{
 		name: EProjects.CORRUPTED_FLESH,
-		nameToShow: 'corrupted flesh',
+		nameToShow: 'Corrupted Flesh',
 		image: '/media/corrupted-flesh/artworks-grid/artworks-grid-1.webp',
 		hover: '/media/corrupted-flesh/artworks-grid/artworks-grid-1.webp',
 		url: CORRUPTED_FLESH,
