@@ -38,10 +38,15 @@ import {
 	NON_PLACES,
 	ORB,
 	RAVE,
+	QUEERING_THE_WEB3,
+	CHAOS_AGENTS,
 	SUBCONSCIOUS_MEDIA,
 	PET,
 	WHATS_ON_YOUR_MIND,
-	CORRUPTED_FLESH
+	CORRUPTED_FLESH,
+	ONE_BODY_A_THOUSAND_WORLDS,
+	EVERY_CREATION_IS_LOSS,
+	VIRALITY_OVERNIGHT
 } from '../../constants/routes';
 
 export interface IProject {
@@ -95,6 +100,10 @@ export const projects: IProject[] = [
 		refs: [EProjects.IN_CONVERSATION, EProjects.INTERTWINED, EProjects.INHERENT_INSTABILITY]
 	},
 	{
+		name: EProjects.QUEERING_THE_WEB3,
+		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
+	},
+	{
 		name: EProjects.BODY_FRONTIER,
 		refs: [EProjects.ARTIFICE, EProjects.ORB, EProjects.RAVE]
 	},
@@ -111,8 +120,24 @@ export const projects: IProject[] = [
 		refs: [EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA, EProjects.DIGITAL_MATTER]
 	},
 	{
+		name: EProjects.CHAOS_AGENTS,
+		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
+	},
+	{
 		name: EProjects.CORRUPTED_FLESH,
 		refs: [EProjects.BODY_FRONTIER, EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA]
+	},
+	{
+		name: EProjects.VIRALITY_OVERNIGHT,
+		refs: [EProjects.CHAOS_AGENTS, EProjects.WHATS_ON_YOUR_MIND, EProjects.SUBCONSCIOUS_MEDIA]
+	},
+	{
+		name: EProjects.EVERY_CREATION_IS_LOSS,
+		refs: [EProjects.VIRALITY_OVERNIGHT, EProjects.CHAOS_AGENTS, EProjects.WHATS_ON_YOUR_MIND]
+	},
+	{
+		name: EProjects.ONE_BODY_A_THOUSAND_WORLDS,
+		refs: [EProjects.EVERY_CREATION_IS_LOSS, EProjects.VIRALITY_OVERNIGHT, EProjects.CHAOS_AGENTS]
 	}
 ];
 
@@ -206,6 +231,14 @@ export const projectsDetails = [
 		mobileImage: raveMobile
 	},
 	{
+		name: EProjects.QUEERING_THE_WEB3,
+		nameToShow: 'queering the web3',
+		image: artifice, // Using placeholder image for now
+		hover: artificeHover, // Using placeholder image for now
+		url: QUEERING_THE_WEB3,
+		mobileImage: artificeMobile // Using placeholder image for now
+	},
+	{
 		name: EProjects.BODY_FRONTIER,
 		nameToShow: 'body frontier',
 		image: 'media/home/thumbnails/10-home-body-frontier.webp',
@@ -238,11 +271,43 @@ export const projectsDetails = [
 		mobileImage: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp'
 	},
 	{
+		name: EProjects.CHAOS_AGENTS,
+		nameToShow: 'chaos agents',
+		image: artifice, // Using placeholder image for now
+		hover: artificeHover, // Using placeholder image for now
+		url: CHAOS_AGENTS,
+		mobileImage: artificeMobile // Using placeholder image for now
+	},
+	{
 		name: EProjects.CORRUPTED_FLESH,
 		nameToShow: 'corrupted flesh',
 		image: '/media/corrupted-flesh/artworks-grid/artworks-grid-1.webp',
 		hover: '/media/corrupted-flesh/artworks-grid/artworks-grid-1.webp',
 		url: CORRUPTED_FLESH,
 		mobileImage: '/media/corrupted-flesh/main-cover.webp'
+	},
+	{
+		name: EProjects.VIRALITY_OVERNIGHT,
+		nameToShow: 'virality overnight',
+		image: '/media/virality-overnight/about-1/about-1.webp',
+		hover: '/media/virality-overnight/about-1/about-1.webp',
+		url: VIRALITY_OVERNIGHT,
+		mobileImage: '/media/home/thumbnails-v2-mobile/virality-overnight.webp'
+	},
+	{
+		name: EProjects.EVERY_CREATION_IS_LOSS,
+		nameToShow: 'every creation is loss',
+		image: '/media/every-creation-is-loss/main-cover.webp',
+		hover: '/media/every-creation-is-loss/main-cover.webp',
+		url: EVERY_CREATION_IS_LOSS,
+		mobileImage: '/media/every-creation-is-loss/main-cover.webp'
+	},
+	{
+		name: EProjects.ONE_BODY_A_THOUSAND_WORLDS,
+		nameToShow: 'one body, a thousand worlds',
+		image: '/media/one-body-a-thousand-worlds/artworks-grid/artworks-grid-1.webp',
+		hover: '/media/one-body-a-thousand-worlds/artworks-grid/artworks-grid-1.webp',
+		url: ONE_BODY_A_THOUSAND_WORLDS,
+		mobileImage: '/media/one-body-a-thousand-worlds/main-cover.webp'
 	}
 ];

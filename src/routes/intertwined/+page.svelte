@@ -31,7 +31,16 @@
 		intertwinedLastVideo,
 		introVideo
 	} from '../../data/Projects/Intertwined/ProjectVideo';
+	import { usePageMetadata } from '$lib/utils/metadata';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'Intertwined | Artdao',
+		description: intertwinedProjectIntro.description[0] || 'Exploring digital art and new forms of sense-making.',
+		ogImage: 'https://artdao.xyz/banner.png', // Using default since bgImage is an import
+		canonical: 'https://artdao.xyz/intertwined'
+	});
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import preloadImages from '../../utils/preloadImages';

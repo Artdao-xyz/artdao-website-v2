@@ -10,6 +10,11 @@
 
   // Función para obtener el nombre del entrevistador
   function getInterviewerName(): string {
+    // Si hay un texto personalizado, usarlo
+    if (data.interviewerText) {
+      return data.interviewerText;
+    }
+    // Si no, usar el nombre del personaje entrevistador
     const interviewer = data.characters.find(char => char.type === 'question');
     return interviewer?.name || 'Interviewer';
   }

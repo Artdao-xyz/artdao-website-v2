@@ -30,6 +30,15 @@ import { petDropdownImages } from '../../data/Projects/Pet/ProjectAboutDropdown'
 		preloadedImages as preloadedImagesStore,
 		imagesLoaded
 	} from '$lib/stores/metaballPreloader';
+	import { usePageMetadata } from '$lib/utils/metadata';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'PET: Projected Emotional Technologies | Artdao',
+		description: petIntro.description[0] || 'Exploring emotional outsourcing between humans and digital companions.',
+		ogImage: `https://artdao.xyz${petIntro.bgImage}`,
+		canonical: 'https://artdao.xyz/pet'
+	});
 
 	let laborIsInView: boolean;
 	let companionIsInView: boolean;
@@ -86,13 +95,13 @@ import { petDropdownImages } from '../../data/Projects/Pet/ProjectAboutDropdown'
 		class="mx-auto sm:mt-[-1rem] w-full overflow-x-hidden snap-y snap-proximity sm:snap-mandatory overflow-y-auto h-screen mobile-scroll"
 	>
 		<div id="intro" use:inview={INVIEW_OPTIONS}>
-			<ProjectIntro
-				project={petIntro}
-				textColor="white"
-				bgImage={$preloadedImagesStore[0][0]}
-				bgImageMobile={$preloadedImagesStore[0][1]}
-				backgroundPosition="center"
-			/>
+		<ProjectIntro
+			project={petIntro}
+			textColor="white"
+			bgImage={$preloadedImagesStore[0][0]}
+			bgImageMobile={$preloadedImagesStore[0][1]}
+			backgroundPosition="center"
+		/>
 		</div>
 
                 <div

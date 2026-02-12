@@ -27,11 +27,16 @@ export enum EProjects {
 	NON_PLACES = 'NonPlaces',
 	ORB = 'Orb',
 	RAVE = 'Rave',
+	QUEERING_THE_WEB3 = 'QueeringTheWeb3',
+	CHAOS_AGENTS = 'ChaosAgents',
 	BODY_FRONTIER = 'BodyFrontier',
 	SUBCONSCIOUS_MEDIA = 'SubconsciousMedia',
 	CAFE_EXE = 'CafeExe',
 	PET = 'ProjectedEmotionalTechnologies',
 	WHATS_ON_YOUR_MIND = 'WhatsOnYourMind',
-	CORRUPTED_FLESH = 'CorruptedFlesh'
+	ONE_BODY_A_THOUSAND_WORLDS = 'OneBodyAThousandWorlds',
+	VIRALITY_OVERNIGHT = 'ViralityOvernight',
+	EVERY_CREATION_IS_LOSS = 'EveryCreationIsLoss',
+	CORRUPTED_FLESH = 'CorruptedFlesh',
 }
 
