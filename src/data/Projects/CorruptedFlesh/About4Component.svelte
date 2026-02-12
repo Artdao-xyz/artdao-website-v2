@@ -1,9 +1,9 @@
 <div class="flex flex-col gap-5">
 	<p>
-		Excavates the grotesque underbelly of contemporary life through deliberately unsettling corporeal transformations. He creates an incomplete universe where deformed characters in fashionable accessories confront survival's trauma head-on.
+		Carvalho operates in the grotesque interstice of trauma, survival, and everyday absurdity. His deformed figures, often draped in familiar props or attire, expose the pressures that warp and shape bodies.
 	</p>
 	<p>
-		Combining comic and horror elements, his work forms a satirical language that exposes how social rituals and consumer culture mask everyday violence. These striking mutations force viewers to confront discomfort with the unfamiliar and damaged, serving as both dark comedy and critical fable about the prosthetic adaptations needed to survive in a world that simultaneously celebrates and mutilates bodies.
+		By blending horror, satire, and incompleteness, he demonstrates how adaptation is both necessary and uncanny. Mutation, rupture, and persistence become methodological: his work charts the endurance of bodies negotiating the friction between expectation and reality.
 	</p>
 </div>
 
