@@ -223,5 +223,21 @@ export const projects: Project[] = [
                 artists: ["Turro", "Salawaki"],
                 artworks: [],
                 quote: "What does it mean to build an entire creative practice around a single character?",
-        }
+        },
+        {
+                title: "Corrupted Flesh",
+                subtitle: "",
+                description: "The compromised digital body stands as witness to our technological condition, disrupting sanitized myths of seamless integration between flesh and interface. These artworks reveal sites of conflict where human vulnerability meets machine logic.",
+                thumbnailPath: [
+                        "media/corrupted-flesh/artworks-grid/artworks-grid-1.webp",
+                        "media/corrupted-flesh/artworks-grid/artworks-grid-2.webp",
+                        "media/corrupted-flesh/artworks-grid/artworks-grid-3.webp"
+                ],
+                thumbnailPathMobile: "media/corrupted-flesh/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-corrupted-flesh.png",
+                pagePath: "/corrupted-flesh",
+                artists: ["Veronika Peshekhonova", "Tim Høibjerg", "Matheus Carvalho"],
+                artworks: [],
+                quote: "The compromised digital body stands as witness to our technological condition."
+        },
 ];

@@ -43,6 +43,7 @@ import {
 	SUBCONSCIOUS_MEDIA,
 	PET,
 	WHATS_ON_YOUR_MIND,
+	CORRUPTED_FLESH,
 	ONE_BODY_A_THOUSAND_WORLDS,
 	EVERY_CREATION_IS_LOSS,
 	VIRALITY_OVERNIGHT
@@ -121,6 +122,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.CHAOS_AGENTS,
 		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
+	},
+	{
+		name: EProjects.CORRUPTED_FLESH,
+		refs: [EProjects.BODY_FRONTIER, EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA]
 	},
 	{
 		name: EProjects.VIRALITY_OVERNIGHT,
@@ -272,6 +277,14 @@ export const projectsDetails = [
 		hover: artificeHover, // Using placeholder image for now
 		url: CHAOS_AGENTS,
 		mobileImage: artificeMobile // Using placeholder image for now
+	},
+	{
+		name: EProjects.CORRUPTED_FLESH,
+		nameToShow: 'Corrupted Flesh',
+		image: '/media/corrupted-flesh/artworks-grid/artworks-grid-1.webp',
+		hover: '/media/corrupted-flesh/artworks-grid/artworks-grid-1.webp',
+		url: CORRUPTED_FLESH,
+		mobileImage: '/media/corrupted-flesh/main-cover.webp'
 	},
 	{
 		name: EProjects.VIRALITY_OVERNIGHT,

@@ -36,6 +36,7 @@ export enum EProjects {
 	WHATS_ON_YOUR_MIND = 'WhatsOnYourMind',
 	ONE_BODY_A_THOUSAND_WORLDS = 'OneBodyAThousandWorlds',
 	VIRALITY_OVERNIGHT = 'ViralityOvernight',
-	EVERY_CREATION_IS_LOSS = 'EveryCreationIsLoss'
+	EVERY_CREATION_IS_LOSS = 'EveryCreationIsLoss',
+	CORRUPTED_FLESH = 'CorruptedFlesh',
 }
 
