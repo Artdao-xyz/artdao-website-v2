@@ -4,15 +4,24 @@
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
+	import ProjectArtworkGridMobile from '$lib/components/ProjectArtworkGridMobile/ProjectArtworkGridMobile.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import { EColorVariant, EProjects } from '../../constants/enums';
+	import type { IGalleryImageMobile } from '$lib/elements/ArtworkContainer/interfaces';
 	
 	// Project data
 	import { corruptedFleshIntro } from '../../data/Projects/CorruptedFlesh/ProjectIntro';
 	import { about1, about1Images, about2, about2Images, about3, about3Images, about4, about4Images } from '../../data/Projects/CorruptedFlesh/ProjectAbout';
 	import { corruptedFleshChatInterview } from '../../data/Projects/CorruptedFlesh/ProjectChatInterview';
-	import { corruptedFleshArtworkGrid1, corruptedFleshArtworkGrid2, corruptedFleshArtworkGrid3 } from '../../data/Projects/CorruptedFlesh/ProjectArtworkGrid';
+	import { 
+		corruptedFleshArtworkGrid1, 
+		corruptedFleshArtworkGrid1Mobile,
+		corruptedFleshArtworkGrid2, 
+		corruptedFleshArtworkGrid2Mobile,
+		corruptedFleshArtworkGrid3,
+		corruptedFleshArtworkGrid3Mobile
+	} from '../../data/Projects/CorruptedFlesh/ProjectArtworkGrid';
 	
 	// Navigation and utilities
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
@@ -23,6 +32,16 @@
 	import { corruptedFleshNavItems } from '../../data/Projects/CorruptedFlesh/NavItems';
 	import { fly } from 'svelte/transition';
 	import { cubicInOut } from 'svelte/easing';
+	
+	// Split mobile arrays into left/right halves for the grid
+	const splitMobileGrid = (arr: IGalleryImageMobile[]) => {
+		const half = Math.ceil(arr.length / 2);
+		return [arr.slice(0, half), arr.slice(half)];
+	};
+
+	const [corruptedFleshArtworkGrid1MobileLeft, corruptedFleshArtworkGrid1MobileRight] = splitMobileGrid(corruptedFleshArtworkGrid1Mobile);
+	const [corruptedFleshArtworkGrid2MobileLeft, corruptedFleshArtworkGrid2MobileRight] = splitMobileGrid(corruptedFleshArtworkGrid2Mobile);
+	const [corruptedFleshArtworkGrid3MobileLeft, corruptedFleshArtworkGrid3MobileRight] = splitMobileGrid(corruptedFleshArtworkGrid3Mobile);
 	
 	// State variables
 	let introIsInView: boolean;
@@ -149,7 +168,17 @@
 		
 		<!-- Artwork Grid 1 -->
 		<div>
-			<ProjectArtworkGrid galleryImages={corruptedFleshArtworkGrid1} showDetails={false} />
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid galleryImages={corruptedFleshArtworkGrid1} showDetails={false} />
+			</div>
+
+			<div class="block sm:hidden sm:snap-start">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={corruptedFleshArtworkGrid1MobileLeft}
+					imagesRight={corruptedFleshArtworkGrid1MobileRight}
+				/>
+			</div>
 		</div>
 		
 		<!-- About 3 -->
@@ -170,7 +199,17 @@
 		
 		<!-- Artwork Grid 2 -->
 		<div>
-			<ProjectArtworkGrid galleryImages={corruptedFleshArtworkGrid2} showDetails={false} />
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid galleryImages={corruptedFleshArtworkGrid2} showDetails={false} />
+			</div>
+
+			<div class="block sm:hidden sm:snap-start">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={corruptedFleshArtworkGrid2MobileLeft}
+					imagesRight={corruptedFleshArtworkGrid2MobileRight}
+				/>
+			</div>
 		</div>
 		
 		<!-- About 4 -->
@@ -191,7 +230,17 @@
 		
 		<!-- Artwork Grid 3 -->
 		<div>
-			<ProjectArtworkGrid galleryImages={corruptedFleshArtworkGrid3} showDetails={false} />
+			<div class="hidden sm:block">
+				<ProjectArtworkGrid galleryImages={corruptedFleshArtworkGrid3} showDetails={false} />
+			</div>
+
+			<div class="block sm:hidden sm:snap-start">
+				<ProjectArtworkGridMobile
+					isOverflow={false}
+					imagesLeft={corruptedFleshArtworkGrid3MobileLeft}
+					imagesRight={corruptedFleshArtworkGrid3MobileRight}
+				/>
+			</div>
 		</div>
 		
 		<HomeIcon />
