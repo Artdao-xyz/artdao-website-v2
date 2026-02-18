@@ -13,7 +13,7 @@ export const nostalgiaAbout = {
 };
 
 export const pinkyBlueAbout = {
-	title: 'PINKYBLUE',
+	title: 'PINKYBLU',
 	subtitle: 'Limited color palette aesthetics',
 	text: PinkyBlueAbout
 };

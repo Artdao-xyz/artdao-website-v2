@@ -21,6 +21,15 @@ import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 import { vixyVideos, cymoonvVideos, brendyVideos } from '../../data/Projects/BodyFrontier/ProjectVideo';
 import { fly } from 'svelte/transition';
 import { cubicInOut } from 'svelte/easing';
+import { usePageMetadata } from '$lib/utils/metadata';
+
+// Set page metadata
+usePageMetadata({
+	title: 'Body Frontier | Artdao',
+	description: bodyFrontierIntro.description[0] || 'Exploring the boundaries between physical and digital bodies.',
+	ogImage: `https://artdao.xyz${bodyFrontierIntro.bgImage}`,
+	canonical: 'https://artdao.xyz/body-frontier'
+});
 
 let aboutIsInView: boolean;
 let ai3dIsInView: boolean;

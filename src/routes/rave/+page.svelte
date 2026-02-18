@@ -22,7 +22,16 @@
 		fwvnVideo,
 		petroVideo
 	} from '../../data/Projects/Rave/ProjectVideo';
+	import { usePageMetadata } from '$lib/utils/metadata';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'RAVE | Artdao',
+		description: raveProject.description[0] || 'Exploring the intersection of rave culture and digital art.',
+		ogImage: 'https://artdao.xyz/banner.png', // Using default since bgImage is an import
+		canonical: 'https://artdao.xyz/rave'
+	});
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import preloadImages from '../../utils/preloadImages';

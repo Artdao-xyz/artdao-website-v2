@@ -7,6 +7,14 @@
 	import HomeMobileMenu from '$lib/components/HomeMobileMenu/HomeMobileMenu.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import { homeDropMenuNames, homeDropMenuText } from '../../data/HomeDropMenu';
+	import { usePageMetadata } from '$lib/utils/metadata';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'Drops | Artdao',
+		description: 'Discover exclusive drops and releases.',
+		canonical: 'https://artdao.xyz/drops'
+	});
 </script>
 
 <div

@@ -9,7 +9,16 @@
 	import { inConversationDropdownItems } from '../../data/Projects/InConversation/ProjectAboutDropdown';
 	import { inConversationProjectIntro } from '../../data/Projects/InConversation/ProjectIntro';
 	import { inConversationVideo } from '../../data/Projects/InConversation/ProjectVideo';
+	import { usePageMetadata } from '$lib/utils/metadata';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'In Conversation with Operator | Artdao',
+		description: inConversationProjectIntro.description[0] || 'An intimate conversation with the artistic duo Operator.',
+		ogImage: 'https://artdao.xyz/banner.png', // Using default since bgImage is an import
+		canonical: 'https://artdao.xyz/in-conversation'
+	});
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import preloadImages from '../../utils/preloadImages';

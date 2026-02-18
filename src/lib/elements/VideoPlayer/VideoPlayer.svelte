@@ -18,7 +18,7 @@
 	$: isImage = ['jpg', 'jpeg', 'png', 'webp'].includes(fileExtension);
 	$: isVideo = !isGif && !isImage;
 
-	const handleVideoLoad = () => {
+	const handleVideoLoadMetadata = () => {
 		if (videoPlayer && isVideo && onVideoLoad) {
 			const aspectRatio = videoPlayer.videoWidth / videoPlayer.videoHeight;
 			onVideoLoad(aspectRatio);
@@ -57,7 +57,7 @@
 			playsinline
 			muted
 			loop
-			on:loadedmetadata={handleVideoLoad}
+			on:loadedmetadata={handleVideoLoadMetadata}
 		>
 			<track kind="captions" />
 		</video>

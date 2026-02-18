@@ -1,5 +1,13 @@
 <script lang="ts">
 	import HomeV2 from '$lib/components/HomeV2/HomeV2.svelte';
+	import { usePageMetadata } from '$lib/utils/metadata';
+
+	// Set page metadata for home page
+	usePageMetadata({
+		title: 'Artdao',
+		description: 'Artists helping artists',
+		canonical: 'https://artdao.xyz'
+	});
 </script>
 
 

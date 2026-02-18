@@ -15,6 +15,7 @@ export interface ChatInterviewData {
   messages: ChatMessage[];
   images: string[];
   background: string;
+  interviewerText?: string;
 }
 
 export const orbChatInterview: ChatInterviewData = {
