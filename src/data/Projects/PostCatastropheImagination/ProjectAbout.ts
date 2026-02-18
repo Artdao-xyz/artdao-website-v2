@@ -3,7 +3,7 @@ import About2Component from './About2Component.svelte';
 import About3Component from './About3Component.svelte';
 
 export const about1 = {
-	title: 'landscape Possibilities',
+	title: 'WORLDS IN THE MAKING',
 	subtitle: '',
 	text: About1Component
 };

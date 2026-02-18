@@ -181,22 +181,6 @@ export const projects: Project[] = [
                 quote: "Generative art offers a quiet form of resistance. It disrupts visual predictability by reintroducing randomness—not as chaotic noise, but as a creative force.",
         },
         {
-                title: "post catastrophe imagination",
-                subtitle: "",
-                description: "Contemporary artists are using virtual environments to radically reimagine what worlds can be and how they function. Moving beyond natural limits and conventional digital logic, they create immersive spaces that challenge our assumptions about reality, nature, and interaction.",
-                thumbnailPath: [
-                        "media/post-catastrophe-imagination/about-1/about-1.webp",
-                        "media/post-catastrophe-imagination/about-2/about-1.webp",
-                        "media/post-catastrophe-imagination/about-3/about-1.webp"
-                ],
-                thumbnailPathMobile: "media/post-catastrophe-imagination/main-cover.webp",
-                buttonPath: "media/home/buttons/XX-button-post-catastrophe-imagination.png",
-                pagePath: "/post-catastrophe-imagination",
-                artists: ["Alfacenttauri", "Linus Åberg"],
-                artworks: [],
-                quote: ""
-        },
-        {
                 title: "Virality Overnight",
                 subtitle: "Riniifish & Woc",
                 description: "In the web3 ecosystem, digital artists navigate a fundamental paradox between permanence and vitality. With one hand, they engage a blockchain that derives its authority from immutable, decentralized records; with the other, they respond to an attention economy driven by novelty and hype.",
@@ -255,5 +239,21 @@ export const projects: Project[] = [
                 artists: ["Veronika Peshekhonova", "Tim Høibjerg", "Matheus Carvalho"],
                 artworks: [],
                 quote: "The compromised digital body stands as witness to our technological condition."
+        },
+        {
+                title: "Post Catastrophe Imagination",
+                subtitle: "",
+                description: "Contemporary artists are using virtual environments to radically reimagine what worlds can be and how they function. Moving beyond natural limits and conventional digital logic, they create immersive spaces that challenge our assumptions about reality, nature, and interaction.",
+                thumbnailPath: [
+                        "media/post-catastrophe-imagination/about-1/about-1.webp",
+                        "media/post-catastrophe-imagination/about-2/about-1.webp",
+                        "media/post-catastrophe-imagination/about-3/about-1.webp"
+                ],
+                thumbnailPathMobile: "media/post-catastrophe-imagination/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-post-catastrophe-imagination.png",
+                pagePath: "/post-catastrophe-imagination",
+                artists: ["Alfacenttauri", "Linus Åberg"],
+                artworks: [],
+                quote: "Contemporary artists are using virtual environments to radically reimagine what worlds can be and how they function."
         }
 ];
