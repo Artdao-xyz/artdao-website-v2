@@ -3,6 +3,7 @@
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
+	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
@@ -20,6 +21,7 @@
 		postCatastropheImaginationDropdown2Images,
 		postCatastropheImaginationDropdown2Items
 	} from '../../data/Projects/PostCatastropheImagination/ProjectAboutDropdown';
+	import { postCatastropheImaginationVideos } from '../../data/Projects/PostCatastropheImagination/ProjectVideo';
 	
 	// Navigation and utilities
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
@@ -194,6 +196,11 @@
 				aboutDropdownItems={postCatastropheImaginationDropdown2Items} 
 				route="" 
 			/>
+		</div>
+		
+		<!-- Video -->
+		<div>
+			<ProjectVideo videoProjects={postCatastropheImaginationVideos} />
 		</div>
 		
 		<HomeIcon />
