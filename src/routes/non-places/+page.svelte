@@ -16,7 +16,16 @@
 		nonPlacesVernissageVideo,
 		nonPlacesVideo
 	} from '../../data/Projects/NonPlaces/ProjectVideo';
+	import { usePageMetadata } from '$lib/utils/metadata';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'Non Places | Artdao',
+		description: nonPlacesProjectIntro.description[0] || 'Exploring digital code and systems of demarcation.',
+		ogImage: 'https://artdao.xyz/banner.png', // Using default since bgImage is an import
+		canonical: 'https://artdao.xyz/non-places'
+	});
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import preloadImages from '../../utils/preloadImages';

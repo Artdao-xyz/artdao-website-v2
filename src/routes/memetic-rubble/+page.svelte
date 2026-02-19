@@ -19,7 +19,16 @@
 	import { memeticRubbleIntro } from '../../data/Projects/MemeticRubble/ProjectIntro';
 	import { memeticRubblePolaroids } from '../../data/Projects/MemeticRubble/ProjectPolaroids';
 	import { psipsikokoVideos } from '../../data/Projects/MemeticRubble/ProjectVideo';
+	import { usePageMetadata } from '$lib/utils/metadata';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'Memetic Rubble | Artdao',
+		description: memeticRubbleIntro.description[0] || 'Exploring memes as core building blocks of digital culture.',
+		ogImage: `https://artdao.xyz${memeticRubbleIntro.bgImage}`,
+		canonical: 'https://artdao.xyz/memetic-rubble'
+	});
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import preloadImages from '../../utils/preloadImages';
 	import { memeticRubbleNavStoreItems } from './store';

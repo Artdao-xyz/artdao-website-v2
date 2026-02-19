@@ -7,7 +7,7 @@ export const digitalArchaeologyNavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
-		text: 'PINKYBLUE',
+		text: 'PINKYBLU',
 		route: 'pinkyblue',
 		selected: false
 	},

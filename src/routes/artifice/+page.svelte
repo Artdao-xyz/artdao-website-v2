@@ -25,7 +25,16 @@
 	} from '../../data/Projects/Artifice/ProjectAboutDropdown';
 	import { artificeProjectIntro } from '../../data/Projects/Artifice/ProjectIntro';
 	import { afterEventVideo, furnitureVideo } from '../../data/Projects/Artifice/ProjectVideo';
+	import { usePageMetadata } from '$lib/utils/metadata';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
+
+	// Set page metadata
+	usePageMetadata({
+		title: 'Artifice | Artdao',
+		description: artificeProjectIntro.description[0] || 'Exploring technology, artifice, and humanity.',
+		ogImage: 'https://artdao.xyz/banner.png', // Using default since bgImage is an import
+		canonical: 'https://artdao.xyz/artifice'
+	});
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';

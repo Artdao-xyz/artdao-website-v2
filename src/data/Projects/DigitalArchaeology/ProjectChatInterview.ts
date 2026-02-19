@@ -15,6 +15,7 @@ export interface ChatInterviewData {
   messages: ChatMessage[];
   images: string[];
   background: string;
+  interviewerText?: string;
 }
 
 export const digitalArchaeologyChatInterview: ChatInterviewData = {
@@ -27,7 +28,7 @@ export const digitalArchaeologyChatInterview: ChatInterviewData = {
     },
     {
       id: 'pinkyblue',
-      name: 'Pinkyblue',
+      name: 'PinkyBlu',
       avatar: '/media/digital-archaeology/interview/pfp1.webp',
       type: 'answer'
     },
@@ -95,7 +96,8 @@ export const digitalArchaeologyChatInterview: ChatInterviewData = {
     }
   ],
   images: [],
-  background: '/media/digital-archaeology/interview/interview-bg.webp'
+  background: '/media/digital-archaeology/interview/interview-bg.webp',
+  interviewerText: 'Laura Butallo and Tomas Jones'
 };
 
 export const digitalArchaeologyChatInterview2: ChatInterviewData = {
@@ -158,5 +160,6 @@ export const digitalArchaeologyChatInterview2: ChatInterviewData = {
     }
   ],
   images: [],
-  background: '/media/digital-archaeology/interview/interview-bg2.webp'
+  background: '/media/digital-archaeology/interview/interview-bg2.webp',
+  interviewerText: 'Laura Butallo and Tomas Jones'
 }; 

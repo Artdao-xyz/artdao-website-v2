@@ -5,6 +5,15 @@
     import type { IStudioProject } from '../../data/Studio/studioProjects';
     import StudioHeader from '$lib/components/Studio/StudioHeader.svelte';
     import { ArrowUpRightIcon } from 'lucide-svelte';
+    import { usePageMetadata } from '$lib/utils/metadata';
+
+    // Set page metadata
+    usePageMetadata({
+        title: 'Studio | Artdao',
+        description: 'Explore our studio projects and collaborations.',
+        canonical: 'https://artdao.xyz/studio'
+    });
+
     const projects : IStudioProject[] = studioProjects;
 </script>
 

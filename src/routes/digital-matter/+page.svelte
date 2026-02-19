@@ -37,7 +37,17 @@
 		parsaPolaroidsImages
 	} from '../../data/Projects/DigitalMatter/ProjectPolaroids';
 	import { aeroVideo, parsaVideo } from '../../data/Projects/DigitalMatter/ProjectVideo';
+	import { usePageMetadata } from '$lib/utils/metadata';
 	import { getMetaballProgress } from '../../utils/metaball/getMetaballProgress';
+
+	// Set page metadata
+	// Note: digitalMatter uses imported assets, so we use a static path for ogImage
+	usePageMetadata({
+		title: 'Digital Matter | Artdao',
+		description: digitalMatterProjectIntro.description[0] || 'Exploring the fluid boundary between physical and virtual realms.',
+		ogImage: 'https://artdao.xyz/banner.png', // Using default since bgImage is an import
+		canonical: 'https://artdao.xyz/digital-matter'
+	});
 	import { metaballReady, imagesLoaded, preloadedImages as preloadedImagesStore } from '$lib/stores/metaballPreloader';
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
 	import preloadImages from '../../utils/preloadImages';

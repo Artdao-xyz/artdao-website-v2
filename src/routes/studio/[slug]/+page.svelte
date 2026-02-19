@@ -6,10 +6,22 @@
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
 	import type { EmblaCarouselType } from 'embla-carousel';        
 	import { MoveUpRightIcon, ArrowLeft, ArrowRight } from 'lucide-svelte';
+	import { setPageMetadata } from '$lib/stores/pageMetadata';
+	
 	// Obtener el proyecto actual basado en el slug
 	$: currentProject = studioProjects.find(project => 
 		project.route === `/studio/${$page.params.slug}`
 	);
+
+	// Set page metadata reactively
+	$: if (currentProject) {
+		setPageMetadata({
+			title: `${currentProject.title} | Studio | Artdao`,
+			description: currentProject.description || 'Studio project at Artdao',
+			ogImage: currentProject.imageHover ? `https://artdao.xyz${currentProject.imageHover}` : 'https://artdao.xyz/banner.png',
+			canonical: `https://artdao.xyz${currentProject.route}`
+		});
+	}
 
 	// Variables para el carrusel
 	let emblaApi: EmblaCarouselType | null = null;
