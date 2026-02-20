@@ -15,6 +15,11 @@ export const theEndOfTheMuseNavItems: INavBarItem[] = [
 		text: 'RAM',
 		route: 'about3',
 		selected: false
+	},
+	{
+		text: 'vanished ideals',
+		route: 'about4',
+		selected: false
 	}
 ];
 

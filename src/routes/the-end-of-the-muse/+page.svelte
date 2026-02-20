@@ -12,7 +12,7 @@
 	
 	// Project data
 	import { theEndOfTheMuseIntro } from '../../data/Projects/TheEndOfTheMuse/ProjectIntro';
-	import { about1, about1Images, about2, about2Images, about3, about3Images } from '../../data/Projects/TheEndOfTheMuse/ProjectAbout';
+	import { about1, about1Images, about2, about2Images, about3, about3Images, about4, about4Images } from '../../data/Projects/TheEndOfTheMuse/ProjectAbout';
 	import { theEndOfTheMuseChatInterview } from '../../data/Projects/TheEndOfTheMuse/ProjectChatInterview';
 	import { theEndOfTheMuseArtworkGrid } from '../../data/Projects/TheEndOfTheMuse/ProjectArtworkGrid';
 	
@@ -29,6 +29,7 @@
 	let about1IsInView: boolean;
 	let about2IsInView: boolean;
 	let about3IsInView: boolean;
+	let about4IsInView: boolean;
 	let containerRef: any;
 	
 	// Scroll function
@@ -44,6 +45,9 @@
 		if (about3IsInView) {
 			updateNavBar(theEndOfTheMuseNavStoreItems, theEndOfTheMuseNavItems, theEndOfTheMuseNavItems[2].route);
 		}
+		if (about4IsInView) {
+			updateNavBar(theEndOfTheMuseNavStoreItems, theEndOfTheMuseNavItems, theEndOfTheMuseNavItems[3].route);
+		}
 	};
 	
 	// Load images
@@ -54,7 +58,8 @@
 			[theEndOfTheMuseChatInterview.background],
 			about2Images,
 			about3Images,
-			theEndOfTheMuseArtworkGrid.map((item) => item.image)
+			theEndOfTheMuseArtworkGrid.map((item) => item.image),
+			about4Images
 		]);
 		preloadedImagesStore.set(images);
 		imagesLoaded.set(true);
@@ -164,6 +169,22 @@
 			}}
 		>
 			<ProjectArtworkGrid galleryImages={theEndOfTheMuseArtworkGrid} />
+		</div>
+		
+		<!-- About 4 -->
+		<div
+			id="about4"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				about4IsInView = event.detail.inView;
+			}}
+		>
+			<ProjectAbout
+				aboutItem={about4}
+				aboutImages={$preloadedImagesStore[6]}
+				route=""
+				colorVariant={EColorVariant.BLACK}
+			/>
 		</div>
 		
 		<HomeIcon />

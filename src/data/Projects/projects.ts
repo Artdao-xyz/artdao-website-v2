@@ -126,11 +126,11 @@ export const projects: IProject[] = [
 		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
 	},
 	{
-		name: EProjects.THE_END_OF_THE_MUSE,
+		name: EProjects.POST_CATASTROPHE_IMAGINATION,
 		refs: [EProjects.BODY_FRONTIER, EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA]
 	},
 	{
-		name: EProjects.POST_CATASTROPHE_IMAGINATION,
+		name: EProjects.THE_END_OF_THE_MUSE,
 		refs: [EProjects.BODY_FRONTIER, EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA]
 	},
 	{
@@ -289,22 +289,6 @@ export const projectsDetails = [
 		mobileImage: artificeMobile // Using placeholder image for now
 	},
 	{
-		name: EProjects.THE_END_OF_THE_MUSE,
-		nameToShow: 'the end of the muse',
-		image: '/media/the-end-of-the-muse/artworks-grid/artworks-grid-1.webp',
-		hover: '/media/the-end-of-the-muse/artworks-grid/artworks-grid-1.webp',
-		url: THE_END_OF_THE_MUSE,
-		mobileImage: '/media/the-end-of-the-muse/main-cover.webp'
-	},
-	{
-		name: EProjects.POST_CATASTROPHE_IMAGINATION,
-		nameToShow: 'post catastrophe imagination',
-		image: '/media/post-catastrophe-imagination/about-1/about-1.webp',
-		hover: '/media/post-catastrophe-imagination/about-1/about-1.webp',
-		url: POST_CATASTROPHE_IMAGINATION,
-		mobileImage: '/media/post-catastrophe-imagination/main-cover.webp'
-	},
-	{
 		name: EProjects.CORRUPTED_FLESH,
 		nameToShow: 'Corrupted Flesh',
 		image: '/media/corrupted-flesh/artworks-grid/artworks-grid-1.webp',
@@ -335,5 +319,21 @@ export const projectsDetails = [
 		hover: '/media/one-body-a-thousand-worlds/artworks-grid/artworks-grid-1.webp',
 		url: ONE_BODY_A_THOUSAND_WORLDS,
 		mobileImage: '/media/one-body-a-thousand-worlds/main-cover.webp'
+	},
+	{
+		name: EProjects.POST_CATASTROPHE_IMAGINATION,
+		nameToShow: 'post catastrophe imagination',
+		image: '/media/post-catastrophe-imagination/about-1/about-1.webp',
+		hover: '/media/post-catastrophe-imagination/about-1/about-1.webp',
+		url: POST_CATASTROPHE_IMAGINATION,
+		mobileImage: '/media/post-catastrophe-imagination/main-cover.webp'
+	},
+	{
+		name: EProjects.THE_END_OF_THE_MUSE,
+		nameToShow: 'the end of the muse',
+		image: '/media/the-end-of-the-muse/artworks-grid/artworks-grid-1.webp',
+		hover: '/media/the-end-of-the-muse/artworks-grid/artworks-grid-1.webp',
+		url: THE_END_OF_THE_MUSE,
+		mobileImage: '/media/the-end-of-the-muse/main-cover.webp'
 	}
 ];
