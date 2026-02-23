@@ -43,6 +43,7 @@ import {
 	SUBCONSCIOUS_MEDIA,
 	PET,
 	WHATS_ON_YOUR_MIND,
+	POST_CATASTROPHE_IMAGINATION,
 	CORRUPTED_FLESH,
 	ONE_BODY_A_THOUSAND_WORLDS,
 	EVERY_CREATION_IS_LOSS,
@@ -122,6 +123,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.CHAOS_AGENTS,
 		refs: [EProjects.ARTIFICE, EProjects.DIGITAL_MATTER, EProjects.ECOLOGIES_OF_CODE]
+	},
+	{
+		name: EProjects.POST_CATASTROPHE_IMAGINATION,
+		refs: [EProjects.BODY_FRONTIER, EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA]
 	},
 	{
 		name: EProjects.CORRUPTED_FLESH,
@@ -277,6 +282,14 @@ export const projectsDetails = [
 		hover: artificeHover, // Using placeholder image for now
 		url: CHAOS_AGENTS,
 		mobileImage: artificeMobile // Using placeholder image for now
+	},
+	{
+		name: EProjects.POST_CATASTROPHE_IMAGINATION,
+		nameToShow: 'post catastrophe imagination',
+		image: '/media/post-catastrophe-imagination/about-1/about-1.webp',
+		hover: '/media/post-catastrophe-imagination/about-1/about-1.webp',
+		url: POST_CATASTROPHE_IMAGINATION,
+		mobileImage: '/media/post-catastrophe-imagination/main-cover.webp'
 	},
 	{
 		name: EProjects.CORRUPTED_FLESH,
