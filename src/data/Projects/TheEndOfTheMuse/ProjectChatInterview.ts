@@ -73,7 +73,8 @@ export const theEndOfTheMuseChatInterview: ChatInterviewData = {
 		},
 		{
 			characterId: 'lorenipsum',
-			content: 'For me, deformation is not disfigurement. It\'s emphasis. It becomes a language through which my characters speak. I use it to guide the viewer\'s gaze across the figure, compressing them into spaces so tight they feel almost claustrophobic. By stretching or scaling features to near-absurd proportions, I highlight what matters most: the tension, the emotion, the essence buried beneath the form.'
+			content:
+				'Since I first started creating, I\'ve always masked, hidden, or collaged a character\'s face. (I can actually draw faces).\n\nAt the beginning, I made collages from old images and masked the faces to hide who they were. Later, when I was doing digital painting, I continued this idea of not showing a face. Over time, I started to see it as a visual metaphor for my artist name, which was inspired by a placeholder with no real meaning. In my work, it doesn\'t matter who the story or character is.\n\nWhat matters is what they feel. Our identities separate us, but having the same feelings underneath brings us together. That\'s why I like to distort identities and faces.'
 		},
 		{
 			characterId: 'laura-butallo',
