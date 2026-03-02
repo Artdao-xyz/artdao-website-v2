@@ -34,6 +34,7 @@ export enum EProjects {
 	CAFE_EXE = 'CafeExe',
 	PET = 'ProjectedEmotionalTechnologies',
 	WHATS_ON_YOUR_MIND = 'WhatsOnYourMind',
+	THE_END_OF_THE_MUSE = 'TheEndOfTheMuse',
 	POST_CATASTROPHE_IMAGINATION = 'PostCatastropheImagination',
 	ONE_BODY_A_THOUSAND_WORLDS = 'OneBodyAThousandWorlds',
 	VIRALITY_OVERNIGHT = 'ViralityOvernight',

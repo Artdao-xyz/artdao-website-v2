@@ -43,6 +43,7 @@ import {
 	SUBCONSCIOUS_MEDIA,
 	PET,
 	WHATS_ON_YOUR_MIND,
+	THE_END_OF_THE_MUSE,
 	POST_CATASTROPHE_IMAGINATION,
 	CORRUPTED_FLESH,
 	ONE_BODY_A_THOUSAND_WORLDS,
@@ -126,6 +127,10 @@ export const projects: IProject[] = [
 	},
 	{
 		name: EProjects.POST_CATASTROPHE_IMAGINATION,
+		refs: [EProjects.BODY_FRONTIER, EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA]
+	},
+	{
+		name: EProjects.THE_END_OF_THE_MUSE,
 		refs: [EProjects.BODY_FRONTIER, EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA]
 	},
 	{
@@ -322,5 +327,21 @@ export const projectsDetails = [
 		hover: '/media/one-body-a-thousand-worlds/artworks-grid/artworks-grid-1.webp',
 		url: ONE_BODY_A_THOUSAND_WORLDS,
 		mobileImage: '/media/one-body-a-thousand-worlds/main-cover.webp'
+	},
+	{
+		name: EProjects.POST_CATASTROPHE_IMAGINATION,
+		nameToShow: 'post catastrophe imagination',
+		image: '/media/post-catastrophe-imagination/about-1/about-1.webp',
+		hover: '/media/post-catastrophe-imagination/about-1/about-1.webp',
+		url: POST_CATASTROPHE_IMAGINATION,
+		mobileImage: '/media/post-catastrophe-imagination/main-cover.webp'
+	},
+	{
+		name: EProjects.THE_END_OF_THE_MUSE,
+		nameToShow: 'the end of the muse',
+		image: '/media/the-end-of-the-muse/artworks-grid/artworks-grid-1.webp',
+		hover: '/media/the-end-of-the-muse/artworks-grid/artworks-grid-1.webp',
+		url: THE_END_OF_THE_MUSE,
+		mobileImage: '/media/the-end-of-the-muse/main-cover.webp'
 	}
 ];
