@@ -225,38 +225,6 @@ export const projects: Project[] = [
                 quote: "What does it mean to build an entire creative practice around a single character?",
         },
         {
-                title: "Corrupted Flesh",
-                subtitle: "",
-                description: "The compromised digital body stands as witness to our technological condition, disrupting sanitized myths of seamless integration between flesh and interface. These artworks reveal sites of conflict where human vulnerability meets machine logic.",
-                thumbnailPath: [
-                        "media/corrupted-flesh/artworks-grid/artworks-grid-1.webp",
-                        "media/corrupted-flesh/artworks-grid/artworks-grid-2.webp",
-                        "media/corrupted-flesh/artworks-grid/artworks-grid-3.webp"
-                ],
-                thumbnailPathMobile: "media/corrupted-flesh/main-cover.webp",
-                buttonPath: "media/home/buttons/XX-button-corrupted-flesh.png",
-                pagePath: "/corrupted-flesh",
-                artists: ["Veronika Peshekhonova", "Tim Høibjerg", "Matheus Carvalho"],
-                artworks: [],
-                quote: "The compromised digital body stands as witness to our technological condition."
-        },
-        {
-                title: "Post Catastrophe Imagination",
-                subtitle: "",
-                description: "Contemporary artists are using virtual environments to radically reimagine what worlds can be and how they function. Moving beyond natural limits and conventional digital logic, they create immersive spaces that challenge our assumptions about reality, nature, and interaction.",
-                thumbnailPath: [
-                        "media/post-catastrophe-imagination/about-1/about-1.webp",
-                        "media/post-catastrophe-imagination/about-2/about-1.webp",
-                        "media/post-catastrophe-imagination/about-3/about-1.webp"
-                ],
-                thumbnailPathMobile: "media/post-catastrophe-imagination/main-cover.webp",
-                buttonPath: "media/home/buttons/XX-button-post-catastrophe-imagination.png",
-                pagePath: "/post-catastrophe-imagination",
-                artists: ["Alfacenttauri", "Linus Åberg"],
-                artworks: [],
-                quote: "Contemporary artists are using virtual environments to radically reimagine what worlds can be and how they function."
-        },
-        {
                 title: "The End of the Muse",
                 subtitle: "",
                 description: "Artists no longer depict idealized sitters with flawless features. Instead, their subjects have disproportionate eyes, melting skin, and limbs elongated at impossible angles. Ugliness and disturbance have become artistic languages, echoing Umberto Eco's argument in History of Ugliness that beauty has always been a cultural convention and that the grotesque carries symbolic value capable of redefining art.",
@@ -271,5 +239,5 @@ export const projects: Project[] = [
                 artists: ["RAM", "lorenipsum"],
                 artworks: [],
                 quote: "Artists no longer depict idealized sitters with flawless features. These new muses are no longer bound to narrow ideals of beauty."
-        },
+        }
 ];

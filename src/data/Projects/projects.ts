@@ -289,6 +289,14 @@ export const projectsDetails = [
 		mobileImage: artificeMobile // Using placeholder image for now
 	},
 	{
+		name: EProjects.POST_CATASTROPHE_IMAGINATION,
+		nameToShow: 'post catastrophe imagination',
+		image: '/media/post-catastrophe-imagination/about-1/about-1.webp',
+		hover: '/media/post-catastrophe-imagination/about-1/about-1.webp',
+		url: POST_CATASTROPHE_IMAGINATION,
+		mobileImage: '/media/post-catastrophe-imagination/main-cover.webp'
+	},
+	{
 		name: EProjects.CORRUPTED_FLESH,
 		nameToShow: 'Corrupted Flesh',
 		image: '/media/corrupted-flesh/artworks-grid/artworks-grid-1.webp',
