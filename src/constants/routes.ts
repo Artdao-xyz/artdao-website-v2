@@ -24,3 +24,4 @@ export const ONE_BODY_A_THOUSAND_WORLDS = '/one-body-a-thousand-worlds';
 export const EVERY_CREATION_IS_LOSS = '/every-creation-is-loss';
 export const VIRALITY_OVERNIGHT = '/virality-overnight';
 export const CORRUPTED_FLESH = '/corrupted-flesh';
+export const THE_FASHION_PARADOX = '/the-fashion-paradox';
