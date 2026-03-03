@@ -1,44 +1,38 @@
 import type { IAboutDropdown } from '$lib/elements/AboutDropdown/interfaces';
 
 export const theFashionParadoxDropdownImages = [
-	'/media/the-fashion-paradox/artwork-grid-1/1.webp',
-	'/media/the-fashion-paradox/artwork-grid-1/2.webp',
-	'/media/the-fashion-paradox/artwork-grid-1/3.webp',
-	'/media/the-fashion-paradox/artwork-grid-1/4.webp',
-	'/media/the-fashion-paradox/artwork-grid-1/5.webp',
-	'/media/the-fashion-paradox/artwork-grid-1/6.webp'
+	'/media/the-fashion-paradox/dropdown/dropdown-1.webp',
+	'/media/the-fashion-paradox/dropdown/dropdown-2.webp',
+	'/media/the-fashion-paradox/dropdown/dropdown-3.webp',
+	'/media/the-fashion-paradox/dropdown/dropdown-4.webp',
+	'/media/the-fashion-paradox/dropdown/dropdown-5.webp'
 ];
 
 export const theFashionParadoxDropdownItems: IAboutDropdown[] = [
 	{
-		name: '',
+		name: 'Volumetric Fashion, Costas Kazantzis, FIA x KWK x CCIXR, 2023',
 		about: '',
 		image: theFashionParadoxDropdownImages[0]
 	},
 	{
-		name: '',
+		name: "'Fortnite in Fashion', Costas Kazantzis with Isabella Smith, Luca Asta, Yao Yao, 2024",
 		about: '',
 		image: theFashionParadoxDropdownImages[1]
 	},
 	{
-		name: '',
+		name: 'Volumetric Fashion, Costas Kazantzis, FIA x Chet Lo x CCIXR, 2023',
 		about: '',
 		image: theFashionParadoxDropdownImages[2]
 	},
 	{
-		name: '',
+		name: 'Volumetric Fashion, Costas Kazantzis, FIA x KWK x CCIXR, 2023',
 		about: '',
 		image: theFashionParadoxDropdownImages[3]
 	},
 	{
-		name: '',
+		name: 'Volumetric Fashion, Costas Kazantzis, FIA x Othilie Romberg x CCIXR, 2023',
 		about: '',
 		image: theFashionParadoxDropdownImages[4]
-	},
-	{
-		name: '',
-		about: '',
-		image: theFashionParadoxDropdownImages[5]
 	}
 ];
 
