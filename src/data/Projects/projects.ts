@@ -49,7 +49,8 @@ import {
 	ONE_BODY_A_THOUSAND_WORLDS,
 	EVERY_CREATION_IS_LOSS,
 	VIRALITY_OVERNIGHT,
-	ONLINE_FEMINITY
+	ONLINE_FEMINITY,
+	CARE_BOTS_BROWSER_BEASTS
 } from '../../constants/routes';
 
 export interface IProject {
@@ -157,6 +158,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.ONLINE_FEMINITY,
 		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.QUEERING_THE_WEB3, EProjects.WHATS_ON_YOUR_MIND]
+	},
+	{
+		name: EProjects.CARE_BOTS_BROWSER_BEASTS,
+		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.ONLINE_FEMINITY, EProjects.QUEERING_THE_WEB3]
 	}
 ];
 
@@ -360,5 +365,13 @@ export const projectsDetails = [
 		hover: '/media/home/thumbnails-v2/07-chaosagents-02-4x.webp',
 		url: ONLINE_FEMINITY,
 		mobileImage: '/media/home/thumbnails-v2/07-chaosagents-02-4x.webp'
+	},
+	{
+		name: EProjects.CARE_BOTS_BROWSER_BEASTS,
+		nameToShow: 'care bots/browser beasts',
+		image: '/media/care-bots-browser-beasts/main-cover.webp',
+		hover: '/media/care-bots-browser-beasts/main-cover.webp',
+		url: CARE_BOTS_BROWSER_BEASTS,
+		mobileImage: '/media/care-bots-browser-beasts/main-cover.webp'
 	}
 ];

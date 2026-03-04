@@ -26,3 +26,4 @@ export const VIRALITY_OVERNIGHT = '/virality-overnight';
 export const CORRUPTED_FLESH = '/corrupted-flesh';
 export const THE_FASHION_PARADOX = '/the-fashion-paradox';
 export const ONLINE_FEMINITY = '/online-feminity';
+export const CARE_BOTS_BROWSER_BEASTS = '/care-bots-browser-beasts';

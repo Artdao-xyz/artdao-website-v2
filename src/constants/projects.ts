@@ -271,5 +271,21 @@ export const projects: Project[] = [
                 artists: ["MINATI", "Virk", "Stulka"],
                 artworks: [],
                 quote: "Cyberfeminism is no longer about leaving the body behind. It’s about reclaiming how the body moves, appears, and circulates online."
+        },
+        {
+                title: "Care Bots / Browser Beasts",
+                subtitle: "Bora & Jonathan Monaghan",
+                description: "Care Bots/Browser Beasts examines how digital companions, AI bots, and virtual pets turn care into currency, while artists reimagine relationships with digital beings beyond gamification and extraction.",
+                thumbnailPath: [
+                        "media/care-bots-browser-beasts/artwork-grid/3.webp",
+                        "media/care-bots-browser-beasts/artwork-grid/2.webp",
+                        "media/care-bots-browser-beasts/artwork-grid/1.webp"
+                ],
+                thumbnailPathMobile: "media/care-bots-browser-beasts/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-care-bots-browser-beasts.png",
+                pagePath: "/care-bots-browser-beasts",
+                artists: ["Bora", "Jonathan Monaghan"],
+                artworks: [],
+                quote: "Browser pets and AI companions that populate our screens promise emotional connection while harvesting the very attention they claim to nurture."
         }
 ];
