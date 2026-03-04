@@ -118,6 +118,6 @@ export const projectsV2: ProjectV2[] = [
         title: "Online Femininity",
         artists: ["Estelle Flores", "Cydr"],
         thumbnailPath: "media/home/thumbnails-v2/07-chaosagents-02-4x.webp",
-        route: "/online-femininity"
+        route: "/online-feminity"
     }
 ];
