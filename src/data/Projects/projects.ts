@@ -148,6 +148,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.ONE_BODY_A_THOUSAND_WORLDS,
 		refs: [EProjects.EVERY_CREATION_IS_LOSS, EProjects.VIRALITY_OVERNIGHT, EProjects.CHAOS_AGENTS]
+	},
+	{
+		name: EProjects.THE_FASHION_PARADOX,
+		refs: [EProjects.BODY_FRONTIER, EProjects.POST_CATASTROPHE_IMAGINATION, EProjects.CHAOS_AGENTS]
 	}
 ];
 

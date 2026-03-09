@@ -39,6 +39,7 @@ export enum EProjects {
 	ONE_BODY_A_THOUSAND_WORLDS = 'OneBodyAThousandWorlds',
 	VIRALITY_OVERNIGHT = 'ViralityOvernight',
 	EVERY_CREATION_IS_LOSS = 'EveryCreationIsLoss',
-	CORRUPTED_FLESH = 'CorruptedFlesh'
+	CORRUPTED_FLESH = 'CorruptedFlesh',
+	THE_FASHION_PARADOX = 'TheFashionParadox'
 }
 

@@ -239,5 +239,21 @@ export const projects: Project[] = [
                 artists: ["RAM", "lorenipsum"],
                 artworks: [],
                 quote: "Artists no longer depict idealized sitters with flawless features. These new muses are no longer bound to narrow ideals of beauty."
+        },
+        {
+                title: "The Fashion Paradox",
+                subtitle: "Matheus Araújo & Costas Kazantzis",
+                description: "Fashion splits between garments that escape the body entirely into digital matter and those that bring digital aesthetics back into physical clothing, questioning whether digital tools should free us from material limits or radically transform them.",
+                thumbnailPath: [
+                        "media/the-fashion-paradox/artwork-grid-1/3.webp",
+                        "media/the-fashion-paradox/artwork-grid-1/2.webp",
+                        "media/the-fashion-paradox/artwork-grid-1/1.webp"
+                ],
+                thumbnailPathMobile: "media/the-fashion-paradox/intro.webp",
+                buttonPath: "media/home/buttons/XX-button-the-fashion-paradox.png",
+                pagePath: "/the-fashion-paradox",
+                artists: ["Matheus Araújo", "Costas Kazantzis"],
+                artworks: [],
+                quote: "Fashion is shifting from mere decoration to something deeper—a bridge between who we are individually and how technology shapes us collectively."
         }
 ];
