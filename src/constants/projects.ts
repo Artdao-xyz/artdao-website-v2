@@ -271,5 +271,21 @@ export const projects: Project[] = [
                 artists: ["MINATI", "Virk", "Stulka"],
                 artworks: [],
                 quote: "Cyberfeminism is no longer about leaving the body behind. It’s about reclaiming how the body moves, appears, and circulates online."
+        },
+        {
+                title: "Digital Homesteading",
+                subtitle: "Resonant Love & Huntrezz",
+                description: "Digital Homesteading explores how artists cultivate sustainable relationships with technology, building independent infrastructures that foreground maintenance, interdependence, and environmental limits.",
+                thumbnailPath: [
+                        "media/digital-homesteading/artwork-grid/3.webp",
+                        "media/digital-homesteading/artwork-grid/2.webp",
+                        "media/digital-homesteading/artwork-grid/1.webp"
+                ],
+                thumbnailPathMobile: "media/digital-homesteading/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-digital-homesteading.png",
+                pagePath: "/digital-homesteading",
+                artists: ["Resonant Love", "Huntrezz"],
+                artworks: [],
+                quote: "Digital homesteading is less about escaping into the virtual than about cultivating sustainable relationships with technology."
         }
 ];

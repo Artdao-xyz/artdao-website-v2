@@ -41,6 +41,7 @@ export enum EProjects {
 	EVERY_CREATION_IS_LOSS = 'EveryCreationIsLoss',
 	CORRUPTED_FLESH = 'CorruptedFlesh',
 	THE_FASHION_PARADOX = 'TheFashionParadox',
-	ONLINE_FEMINITY = 'OnlineFeminity'
+	ONLINE_FEMINITY = 'OnlineFeminity',
+	DIGITAL_HOMESTEADING = 'DigitalHomesteading'
 }
 
