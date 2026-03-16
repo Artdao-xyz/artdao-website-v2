@@ -8,7 +8,7 @@ export const about1 = {
 	text: About1Component
 };
 
-export const about1Images = ['/media/online-feminity/about-1.webp'];
+export const about1Images = ['/media/online-femininity/about-1.webp'];
 
 export const about2 = {
 	title: 'Virk',
@@ -16,7 +16,7 @@ export const about2 = {
 	text: About2Component
 };
 
-export const about2Images = ['/media/online-feminity/about-2.webp'];
+export const about2Images = ['/media/online-femininity/about-2.webp'];
 
 export const about3 = {
 	title: 'Stulka',
@@ -24,5 +24,5 @@ export const about3 = {
 	text: About3Component
 };
 
-export const about3Images = ['/media/online-feminity/about-3.webp'];
+export const about3Images = ['/media/online-femininity/about-3.webp'];
 

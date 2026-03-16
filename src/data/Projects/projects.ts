@@ -49,7 +49,7 @@ import {
 	ONE_BODY_A_THOUSAND_WORLDS,
 	EVERY_CREATION_IS_LOSS,
 	VIRALITY_OVERNIGHT,
-	ONLINE_FEMINITY
+	ONLINE_FEMININITY
 } from '../../constants/routes';
 
 export interface IProject {
@@ -155,7 +155,7 @@ export const projects: IProject[] = [
 		refs: [EProjects.BODY_FRONTIER, EProjects.POST_CATASTROPHE_IMAGINATION, EProjects.CHAOS_AGENTS]
 	},
 	{
-		name: EProjects.ONLINE_FEMINITY,
+		name: EProjects.ONLINE_FEMININITY,
 		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.QUEERING_THE_WEB3, EProjects.WHATS_ON_YOUR_MIND]
 	}
 ];
@@ -354,11 +354,11 @@ export const projectsDetails = [
 		mobileImage: '/media/the-end-of-the-muse/main-cover.webp'
 	},
 	{
-		name: EProjects.ONLINE_FEMINITY,
-		nameToShow: 'online feminity',
+		name: EProjects.ONLINE_FEMININITY,
+		nameToShow: 'online femininity',
 		image: '/media/home/thumbnails-v2/07-chaosagents-02-4x.webp',
 		hover: '/media/home/thumbnails-v2/07-chaosagents-02-4x.webp',
-		url: ONLINE_FEMINITY,
+		url: ONLINE_FEMININITY,
 		mobileImage: '/media/home/thumbnails-v2/07-chaosagents-02-4x.webp'
 	}
 ];
