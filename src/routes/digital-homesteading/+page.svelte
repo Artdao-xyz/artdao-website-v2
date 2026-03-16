@@ -2,6 +2,7 @@
 	import { inview } from 'svelte-inview';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
+	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import ProjectArtworkGrid from '$lib/components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
 	import ProjectArtworkGridMobile from '$lib/components/ProjectArtworkGridMobile/ProjectArtworkGridMobile.svelte';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
@@ -28,6 +29,7 @@
 		digitalHomesteadingArtworkGridMobileLeft,
 		digitalHomesteadingArtworkGridMobileRight
 	} from '../../data/Projects/DigitalHomesteading/ProjectArtworkGrid';
+	import { digitalHomesteadingDropdownImages } from '../../data/Projects/DigitalHomesteading/ProjectAboutDropdown';
 
 	// Navigation and utilities
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
@@ -93,7 +95,8 @@
 			about2Images,
 			about3Images,
 			[digitalHomesteadingChatInterview.background],
-			digitalHomesteadingArtworkGrid.artworks.map((item) => item.image)
+			digitalHomesteadingArtworkGrid.artworks.map((item) => item.image),
+			digitalHomesteadingDropdownImages
 		]);
 		preloadedImagesStore.set(images);
 		imagesLoaded.set(true);
@@ -154,6 +157,18 @@
 			/>
 		</div>
 
+
+		<!-- Interview -->
+		<div
+			id="interview"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				// optional: hook into nav if needed
+			}}
+		>
+			<ChatInterview data={chatInterviewData} />
+		</div>
+
 		<!-- About 2 -->
 		<div
 			id="about2"
@@ -167,6 +182,22 @@
 				aboutImages={$preloadedImagesStore[2]}
 				route=""
 				isImageLeft={false}
+				colorVariant={EColorVariant.BLACK}
+			/>
+		</div>
+
+		<!-- About 3 -->
+		<div
+			id="about3"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				about3IsInView = event.detail.inView;
+			}}
+		>
+			<ProjectAbout
+				aboutItem={about3}
+				aboutImages={$preloadedImagesStore[3]}
+				route=""
 				colorVariant={EColorVariant.BLACK}
 			/>
 		</div>
@@ -186,31 +217,13 @@
 			</div>
 		</div>
 
-		<!-- About 3 -->
-		<div
-			id="about3"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				about3IsInView = event.detail.inView;
-			}}
-		>
-			<ProjectAbout
-				aboutItem={about3}
-				aboutImages={$preloadedImagesStore[3]}
+		<!-- Dropdown -->
+		<div id="artwork-dropdown">
+			<ProjectAboutDropdown
+				images={$preloadedImagesStore[6]}
+				aboutDropdownItems={undefined}
 				route=""
-				colorVariant={EColorVariant.BLACK}
 			/>
-		</div>
-
-		<!-- Interview -->
-		<div
-			id="interview"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				// optional: hook into nav if needed
-			}}
-		>
-			<ChatInterview data={chatInterviewData} />
 		</div>
 
 		<HomeIcon />
