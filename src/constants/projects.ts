@@ -261,13 +261,13 @@ export const projects: Project[] = [
                 subtitle: "MINATI, Virk & Stulka",
                 description: "Online Femininity examines how femme and women artists navigate Web3’s promise of liberation while contending with persistent hierarchies of visibility, exploitation, and control in digital space.",
                 thumbnailPath: [
-                        "media/online-feminity/about-1.webp",
-                        "media/online-feminity/about-2.webp",
-                        "media/online-feminity/about-3.webp"
+                        "media/online-femininity/about-1.webp",
+                        "media/online-femininity/about-2.webp",
+                        "media/online-femininity/about-3.webp"
                 ],
-                thumbnailPathMobile: "media/online-feminity/main-cover.webp",
-                buttonPath: "media/home/buttons/XX-button-online-feminity.png",
-                pagePath: "/online-feminity",
+                thumbnailPathMobile: "media/online-femininity/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-online-femininity.png",
+                pagePath: "/online-femininity",
                 artists: ["MINATI", "Virk", "Stulka"],
                 artworks: [],
                 quote: "Cyberfeminism is no longer about leaving the body behind. It’s about reclaiming how the body moves, appears, and circulates online."

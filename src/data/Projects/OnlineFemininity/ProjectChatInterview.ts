@@ -29,13 +29,13 @@ export const onlineFemininityChatInterview: ChatInterviewData = {
 		{
 			id: 'minati',
 			name: 'MINATI',
-			avatar: '/media/online-feminity/interview-bg.webp',
+			avatar: '/media/online-femininity/interview-bg.webp',
 			type: 'answer'
 		},
 		{
 			id: 'virk',
 			name: 'Virk',
-			avatar: '/media/online-feminity/interview-bg.webp',
+			avatar: '/media/online-femininity/interview-bg.webp',
 			type: 'answer'
 		}
 	],
@@ -58,7 +58,7 @@ export const onlineFemininityChatInterview: ChatInterviewData = {
 		{
 			characterId: 'laura-butallo',
 			content:
-				'How do you decide which aspects of your feminity to show or hide online? Is there a difference between who you are offline and your digital persona?'
+				'How do you decide which aspects of your femininity to show or hide online? Is there a difference between who you are offline and your digital persona?'
 		},
 		{
 			characterId: 'minati',
@@ -93,7 +93,7 @@ export const onlineFemininityChatInterview: ChatInterviewData = {
 		{
 			characterId: 'minati',
 			content:
-				'I used to draw lots of NSFW art, trying to express my feminity. But over time, I realized there are many ways to express that in a way that isn’t exploitative. Femininity is a spectrum, and there’s so much more to it.'
+				'I used to draw lots of NSFW art, trying to express my femininity. But over time, I realized there are many ways to express that in a way that isn’t exploitative. Femininity is a spectrum, and there’s so much more to it.'
 		},
 		{
 			characterId: 'virk',
@@ -116,7 +116,7 @@ export const onlineFemininityChatInterview: ChatInterviewData = {
 		}
 	],
 	images: [],
-	background: '/media/online-feminity/interview-bg.webp',
+	background: '/media/online-femininity/interview-bg.webp',
 	interviewerText: 'Laura Butallo'
 };
 
