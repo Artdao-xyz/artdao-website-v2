@@ -48,7 +48,8 @@ import {
 	CORRUPTED_FLESH,
 	ONE_BODY_A_THOUSAND_WORLDS,
 	EVERY_CREATION_IS_LOSS,
-	VIRALITY_OVERNIGHT
+	VIRALITY_OVERNIGHT,
+	ONLINE_FEMINITY
 } from '../../constants/routes';
 
 export interface IProject {
@@ -152,6 +153,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.THE_FASHION_PARADOX,
 		refs: [EProjects.BODY_FRONTIER, EProjects.POST_CATASTROPHE_IMAGINATION, EProjects.CHAOS_AGENTS]
+	},
+	{
+		name: EProjects.ONLINE_FEMINITY,
+		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.QUEERING_THE_WEB3, EProjects.WHATS_ON_YOUR_MIND]
 	}
 ];
 
@@ -347,5 +352,13 @@ export const projectsDetails = [
 		hover: '/media/the-end-of-the-muse/artworks-grid/artworks-grid-1.webp',
 		url: THE_END_OF_THE_MUSE,
 		mobileImage: '/media/the-end-of-the-muse/main-cover.webp'
+	},
+	{
+		name: EProjects.ONLINE_FEMINITY,
+		nameToShow: 'online feminity',
+		image: '/media/home/thumbnails-v2/07-chaosagents-02-4x.webp',
+		hover: '/media/home/thumbnails-v2/07-chaosagents-02-4x.webp',
+		url: ONLINE_FEMINITY,
+		mobileImage: '/media/home/thumbnails-v2/07-chaosagents-02-4x.webp'
 	}
 ];

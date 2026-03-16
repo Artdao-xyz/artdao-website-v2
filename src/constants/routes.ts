@@ -25,3 +25,4 @@ export const EVERY_CREATION_IS_LOSS = '/every-creation-is-loss';
 export const VIRALITY_OVERNIGHT = '/virality-overnight';
 export const CORRUPTED_FLESH = '/corrupted-flesh';
 export const THE_FASHION_PARADOX = '/the-fashion-paradox';
+export const ONLINE_FEMINITY = '/online-feminity';
