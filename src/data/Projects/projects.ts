@@ -49,7 +49,8 @@ import {
 	ONE_BODY_A_THOUSAND_WORLDS,
 	EVERY_CREATION_IS_LOSS,
 	VIRALITY_OVERNIGHT,
-	ONLINE_FEMININITY
+	ONLINE_FEMININITY,
+	DIGITAL_HOMESTEADING
 } from '../../constants/routes';
 
 export interface IProject {
@@ -157,6 +158,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.ONLINE_FEMININITY,
 		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.QUEERING_THE_WEB3, EProjects.WHATS_ON_YOUR_MIND]
+	},
+	{
+		name: EProjects.DIGITAL_HOMESTEADING,
+		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.PET, EProjects.WHATS_ON_YOUR_MIND]
 	}
 ];
 
@@ -360,5 +365,13 @@ export const projectsDetails = [
 		hover: '/media/home/thumbnails-v2/07-chaosagents-02-4x.webp',
 		url: ONLINE_FEMININITY,
 		mobileImage: '/media/home/thumbnails-v2/07-chaosagents-02-4x.webp'
+	},
+	{
+		name: EProjects.DIGITAL_HOMESTEADING,
+		nameToShow: 'digital homesteading',
+		image: '/media/digital-homesteading/main-cover.webp',
+		hover: '/media/digital-homesteading/main-cover.webp',
+		url: DIGITAL_HOMESTEADING,
+		mobileImage: '/media/digital-homesteading/main-cover.webp'
 	}
 ];
