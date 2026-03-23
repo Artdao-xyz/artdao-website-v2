@@ -186,21 +186,6 @@
 			/>
 		</div>
 
-		<!-- About 3 -->
-		<div
-			id="about3"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				about3IsInView = event.detail.inView;
-			}}
-		>
-			<ProjectAbout
-				aboutItem={about3}
-				aboutImages={$preloadedImagesStore[3]}
-				route=""
-				colorVariant={EColorVariant.BLACK}
-			/>
-		</div>
 
 		<!-- Artwork Grid -->
 		<div id="artwork-grid">
@@ -215,6 +200,22 @@
 					imagesRight={digitalHomesteadingArtworkGridMobileRight}
 				/>
 			</div>
+		</div>
+
+		<!-- About 3 -->
+		<div
+			id="about3"
+			use:inview={INVIEW_OPTIONS}
+			on:inview_change={(event) => {
+				about3IsInView = event.detail.inView;
+			}}
+		>
+			<ProjectAbout
+				aboutItem={about3}
+				aboutImages={$preloadedImagesStore[3]}
+				route=""
+				colorVariant={EColorVariant.BLACK}
+			/>
 		</div>
 
 		<!-- Dropdown -->
