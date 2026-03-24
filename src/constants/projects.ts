@@ -274,7 +274,7 @@ export const projects: Project[] = [
         },
         {
                 title: "Digital Homesteading",
-                subtitle: "Resonant Love & Huntrezz",
+                subtitle: "Resonant.Love & Huntrezz",
                 description: "Digital Homesteading explores how artists cultivate sustainable relationships with technology, building independent infrastructures that foreground maintenance, interdependence, and environmental limits.",
                 thumbnailPath: [
                         "media/digital-homesteading/artwork-grid/3.webp",
@@ -284,7 +284,7 @@ export const projects: Project[] = [
                 thumbnailPathMobile: "media/digital-homesteading/main-cover.webp",
                 buttonPath: "media/home/buttons/XX-button-digital-homesteading.png",
                 pagePath: "/digital-homesteading",
-                artists: ["Resonant Love", "Huntrezz"],
+                artists: ["Resonant.Love", "Huntrezz"],
                 artworks: [],
                 quote: "Digital homesteading is less about escaping into the virtual than about cultivating sustainable relationships with technology."
         }

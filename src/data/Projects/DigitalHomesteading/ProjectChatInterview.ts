@@ -21,27 +21,27 @@ export interface ChatInterviewData {
 export const digitalHomesteadingChatInterview: ChatInterviewData = {
 	characters: [
 		{
-			id: 'laura-butallo',
-			name: 'Laura Butallo',
+			id: 'tomas-jones',
+			name: 'Tomás Jones',
 			avatar: '/media/artdao-question.webp',
 			type: 'question'
 		},
 		{
 			id: 'resonant-love',
-			name: 'Resonant Love',
-			avatar: '/media/digital-homesteading/interview-bg.webp',
+			name: 'Resonant.Love',
+			avatar: '/media/digital-homesteading/pfp-2.webp',
 			type: 'answer'
 		},
 		{
 			id: 'huntrezz',
 			name: 'Huntrezz',
-			avatar: '/media/digital-homesteading/interview-bg.webp',
+			avatar: '/media/digital-homesteading/pfp-1.webp',
 			type: 'answer'
 		}
 	],
 	messages: [
 		{
-			characterId: 'laura-butallo',
+			characterId: 'tomas-jones',
 			content:
 				'How do you view digital spaces in terms of building sustainable, long-term creative practices? Do they offer genuine autonomy or just different forms of dependency?'
 		},
@@ -56,7 +56,7 @@ export const digitalHomesteadingChatInterview: ChatInterviewData = {
 				'"I am still seduced by the \'escape\' promise; AI, 3D printing, and VR/AR have opened doors for me in wild ways, even as I ration watt-hours on a solar rig and watch my face-filter artwork get removed by Instagram and Facebook. The way through is to live with limits and understand their reasons."'
 		},
 		{
-			characterId: 'laura-butallo',
+			characterId: 'tomas-jones',
 			content:
 				'How do you balance the desire for visibility and connection with the need for technological independence?'
 		},
@@ -71,14 +71,14 @@ export const digitalHomesteadingChatInterview: ChatInterviewData = {
 				'"People assume I want to be maximally visible because I am an artist, but I do not. A safe system connects the right people in the right ways. Privacy has value, and it is fragile. It can also be an illusion, so yes, stay safe out there, folkz."'
 		},
 		{
-			characterId: 'laura-butallo',
+			characterId: 'tomas-jones',
 			content:
 				'What role do material constraints—energy, hardware, geography—play in shaping your digital practice?'
 		},
 		{
 			characterId: 'resonant-love',
 			content:
-				'"We must make useful software and take that with us, and figure out how to build a system as cheaply as possible that can run code generation LLMs locally. They want you to become dependent. Do not let them win."'
+				'“The computer of the future is made of trash. Our machines are mostly free, whether that’s through ripping institutional resources and taking a device that is presumably funded for aesthetic purposes and making it a computer that’s used daily, or picking up a computer on the street and using it as a webserver.”'
 		},
 		{
 			characterId: 'huntrezz',
@@ -86,7 +86,7 @@ export const digitalHomesteadingChatInterview: ChatInterviewData = {
 				'"I count electricity, batch heavy jobs for sunny hours, compress and cache instead of brute-forcing, and keep projects portable because I consider the impacts of my choices. Capitalism trains us not to feel environmental costs: the consumer is separated from the consumed."'
 		},
 		{
-			characterId: 'laura-butallo',
+			characterId: 'tomas-jones',
 			content:
 				'How do you approach the maintenance and inevitable breakdown of the systems you build?'
 		},
@@ -101,7 +101,7 @@ export const digitalHomesteadingChatInterview: ChatInterviewData = {
 				'"Decay is quick in tech, fr. Nothing is safe. Consider it all temporary, like a garden you tend: prune, mulch, reseed. The best you can do is enjoy it while it lasts and document it along the way."'
 		},
 		{
-			characterId: 'laura-butallo',
+			characterId: 'tomas-jones',
 			content:
 				'Do you see your work as preparation for a different kind of future, or as a response to present conditions?'
 		},
@@ -118,6 +118,6 @@ export const digitalHomesteadingChatInterview: ChatInterviewData = {
 	],
 	images: [],
 	background: '/media/digital-homesteading/interview-bg.webp',
-	interviewerText: 'Laura Butallo'
+	interviewerText: 'Tomás Jones'
 };
 

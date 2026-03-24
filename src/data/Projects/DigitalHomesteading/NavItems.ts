@@ -8,7 +8,7 @@ export const digitalHomesteadingNavItems: INavBarItem[] = [
 		shortText: 'infrastructure'
 	},
 	{
-		text: 'resonant love',
+		text: 'Resonant.Love',
 		route: 'about2',
 		selected: false
 	},

@@ -11,7 +11,7 @@ export const about1 = {
 export const about1Images = ['/media/digital-homesteading/about-1.webp'];
 
 export const about2 = {
-	title: 'Resonant Love',
+	title: 'Resonant.Love',
 	subtitle: '',
 	text: About2Component
 };
