@@ -3,25 +3,26 @@ import About2Component from './About2Component.svelte';
 import About3Component from './About3Component.svelte';
 
 export const about1 = {
-	title: 'Power Structures',
+	title: 'Infrastructure and Interdependence',
 	subtitle: '',
 	text: About1Component
 };
 
-export const about1Images = ['/media/online-femininity/about-1.webp'];
+export const about1Images = ['/media/digital-homesteading/about-1.webp'];
 
 export const about2 = {
-	title: 'Virk',
+	title: 'Resonant.Love',
 	subtitle: '',
 	text: About2Component
 };
 
-export const about2Images = ['/media/online-femininity/about-2.webp'];
+export const about2Images = ['/media/digital-homesteading/about-2.webp'];
 
 export const about3 = {
-	title: 'Stulka',
+	title: 'Huntrezz',
 	subtitle: '',
 	text: About3Component
 };
 
-export const about3Images = ['/media/online-femininity/about-3.webp'];
+export const about3Images = ['/media/digital-homesteading/about-3.webp'];
+

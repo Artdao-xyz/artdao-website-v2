@@ -51,7 +51,7 @@ import {
 			onlineFemininityIntro.description[0] ||
 			'Femme and women artists navigating Web3’s power structures.',
 		ogImage: `https://artdao.xyz${onlineFemininityIntro.bgImage}`,
-		canonical: 'https://artdao.xyz/online-feminity'
+		canonical: 'https://artdao.xyz/online-femininity'
 	});
 
 	// State variables
@@ -234,7 +234,7 @@ import {
 		</div>
 
 		<HomeIcon />
-		<Footer project={EProjects.ONLINE_FEMINITY} />
+		<Footer project={EProjects.ONLINE_FEMININITY} />
 	</div>
 {/if}
 

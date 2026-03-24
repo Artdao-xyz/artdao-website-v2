@@ -261,16 +261,32 @@ export const projects: Project[] = [
                 subtitle: "MINATI, Virk & Stulka",
                 description: "Online Femininity examines how femme and women artists navigate Web3’s promise of liberation while contending with persistent hierarchies of visibility, exploitation, and control in digital space.",
                 thumbnailPath: [
-                        "media/online-feminity/about-1.webp",
-                        "media/online-feminity/about-2.webp",
-                        "media/online-feminity/about-3.webp"
+                        "media/online-femininity/about-1.webp",
+                        "media/online-femininity/about-2.webp",
+                        "media/online-femininity/about-3.webp"
                 ],
-                thumbnailPathMobile: "media/online-feminity/main-cover.webp",
-                buttonPath: "media/home/buttons/XX-button-online-feminity.png",
-                pagePath: "/online-feminity",
+                thumbnailPathMobile: "media/online-femininity/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-online-femininity.png",
+                pagePath: "/online-femininity",
                 artists: ["MINATI", "Virk", "Stulka"],
                 artworks: [],
                 quote: "Cyberfeminism is no longer about leaving the body behind. It’s about reclaiming how the body moves, appears, and circulates online."
+        },
+        {
+                title: "Digital Homesteading",
+                subtitle: "Resonant.Love & Huntrezz",
+                description: "Digital Homesteading explores how artists cultivate sustainable relationships with technology, building independent infrastructures that foreground maintenance, interdependence, and environmental limits.",
+                thumbnailPath: [
+                        "media/digital-homesteading/artwork-grid/3.webp",
+                        "media/digital-homesteading/artwork-grid/2.webp",
+                        "media/digital-homesteading/artwork-grid/1.webp"
+                ],
+                thumbnailPathMobile: "media/digital-homesteading/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-digital-homesteading.png",
+                pagePath: "/digital-homesteading",
+                artists: ["Resonant.Love", "Huntrezz"],
+                artworks: [],
+                quote: "Digital homesteading is less about escaping into the virtual than about cultivating sustainable relationships with technology."
         },
         {
                 title: "Care Bots / Browser Beasts",
