@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { inview } from 'svelte-inview';
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
-	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
+	import QuoteComponent from '$lib/components/QuoteComponent/QuoteComponent.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
@@ -11,14 +11,7 @@
 	import { usePageMetadata } from '$lib/utils/metadata';
 
 	import { weLikeBeingDataIntro } from '../../data/Projects/WeLikeBeingData/ProjectIntro';
-	import {
-		about1,
-		about1Images,
-		about2,
-		about2Images,
-		about3,
-		about3Images
-	} from '../../data/Projects/WeLikeBeingData/ProjectAbout';
+	import { quoteMitchellSections, quoteMitchellImages } from '../../data/Projects/WeLikeBeingData/ProjectAbout';
 	import { weLikeBeingDataDropdownImages } from '../../data/Projects/WeLikeBeingData/ProjectAboutDropdown';
 
 	import { INVIEW_OPTIONS, updateNavBar } from '../../utils/nav/updateNavBar';
@@ -42,33 +35,25 @@
 	});
 
 	let introIsInView: boolean;
-	let about1IsInView: boolean;
-	let about2IsInView: boolean;
-	let about3IsInView: boolean;
+	let quoteMitchellIsInView: boolean;
+	let dropdownIsInView: boolean;
 	let containerRef: any;
 
 	const handleOnScroll = () => {
 		getMetaballProgress(containerRef);
 
-		if (about1IsInView) {
+		if (quoteMitchellIsInView) {
 			updateNavBar(
 				weLikeBeingDataNavStoreItems,
 				weLikeBeingDataNavItems,
 				weLikeBeingDataNavItems[0].route
 			);
 		}
-		if (about2IsInView) {
+		if (dropdownIsInView) {
 			updateNavBar(
 				weLikeBeingDataNavStoreItems,
 				weLikeBeingDataNavItems,
 				weLikeBeingDataNavItems[1].route
-			);
-		}
-		if (about3IsInView) {
-			updateNavBar(
-				weLikeBeingDataNavStoreItems,
-				weLikeBeingDataNavItems,
-				weLikeBeingDataNavItems[2].route
 			);
 		}
 	};
@@ -76,9 +61,7 @@
 	const loadImages = async () => {
 		const images = await preloadImages([
 			[weLikeBeingDataIntro.bgImage, weLikeBeingDataIntro.bgImageMobile],
-			about1Images,
-			about2Images,
-			about3Images,
+			quoteMitchellImages,
 			weLikeBeingDataDropdownImages
 		]);
 		preloadedImagesStore.set(images);
@@ -115,54 +98,32 @@
 		</div>
 
 		<div
-			id="about1"
+			id="quote-mitchell"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
-				about1IsInView = event.detail.inView;
+				quoteMitchellIsInView = event.detail.inView;
 			}}
 		>
-			<ProjectAbout
-				aboutItem={about1}
-				aboutImages={$preloadedImagesStore[1]}
-				route=""
-				colorVariant={EColorVariant.BLACK}
-			/>
+			{#each quoteMitchellSections as quoteItem, i (i)}
+				<QuoteComponent
+					{quoteItem}
+					aboutImage={$preloadedImagesStore[1][i]}
+					route={`quote-mitchell-${i}`}
+					colorVariant={EColorVariant.BLACK}
+					isImageLeft={i % 2 === 0}
+				/>
+			{/each}
 		</div>
 
 		<div
-			id="about2"
+			id="artwork-dropdown"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
-				about2IsInView = event.detail.inView;
+				dropdownIsInView = event.detail.inView;
 			}}
 		>
-			<ProjectAbout
-				aboutItem={about2}
-				aboutImages={$preloadedImagesStore[2]}
-				route=""
-				isImageLeft={false}
-				colorVariant={EColorVariant.BLACK}
-			/>
-		</div>
-
-		<div
-			id="about3"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				about3IsInView = event.detail.inView;
-			}}
-		>
-			<ProjectAbout
-				aboutItem={about3}
-				aboutImages={$preloadedImagesStore[3]}
-				route=""
-				colorVariant={EColorVariant.BLACK}
-			/>
-		</div>
-
-		<div id="artwork-dropdown">
 			<ProjectAboutDropdown
-				images={$preloadedImagesStore[4]}
+				images={$preloadedImagesStore[2]}
 				aboutDropdownItems={undefined}
 				route=""
 			/>
