@@ -25,4 +25,3 @@ export const about3 = {
 };
 
 export const about3Images = ['/media/online-femininity/about-3.webp'];
-

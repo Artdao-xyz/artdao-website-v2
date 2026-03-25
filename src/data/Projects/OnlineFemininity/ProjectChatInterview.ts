@@ -119,4 +119,3 @@ export const onlineFemininityChatInterview: ChatInterviewData = {
 	background: '/media/online-femininity/interview-bg.webp',
 	interviewerText: 'Laura Butallo'
 };
-

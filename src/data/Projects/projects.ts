@@ -50,7 +50,8 @@ import {
 	EVERY_CREATION_IS_LOSS,
 	VIRALITY_OVERNIGHT,
 	ONLINE_FEMININITY,
-	DIGITAL_HOMESTEADING
+	DIGITAL_HOMESTEADING,
+	CARE_BOTS_BROWSER_BEASTS
 } from '../../constants/routes';
 
 export interface IProject {
@@ -162,6 +163,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.DIGITAL_HOMESTEADING,
 		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.PET, EProjects.WHATS_ON_YOUR_MIND]
+	},
+	{
+		name: EProjects.CARE_BOTS_BROWSER_BEASTS,
+		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.ONLINE_FEMININITY, EProjects.QUEERING_THE_WEB3]
 	}
 ];
 
@@ -373,5 +378,13 @@ export const projectsDetails = [
 		hover: '/media/digital-homesteading/main-cover.webp',
 		url: DIGITAL_HOMESTEADING,
 		mobileImage: '/media/digital-homesteading/main-cover.webp'
+	},
+	{
+		name: EProjects.CARE_BOTS_BROWSER_BEASTS,
+		nameToShow: 'care bots/browser beasts',
+		image: '/media/care-bots-browser-beasts/main-cover.webp',
+		hover: '/media/care-bots-browser-beasts/main-cover.webp',
+		url: CARE_BOTS_BROWSER_BEASTS,
+		mobileImage: '/media/care-bots-browser-beasts/main-cover.webp'
 	}
 ];

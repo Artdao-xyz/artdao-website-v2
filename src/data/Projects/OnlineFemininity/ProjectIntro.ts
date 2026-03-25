@@ -9,4 +9,3 @@ export const onlineFemininityIntro: IProject = {
 	bgImage: '/media/online-femininity/main-cover.webp',
 	bgImageMobile: '/media/online-femininity/main-cover.webp'
 };
-

@@ -184,4 +184,3 @@ export const onlineFemininityArtworkGrid2MobileRight: IGalleryImageMobile[] = [
 	}
 ];
 
-

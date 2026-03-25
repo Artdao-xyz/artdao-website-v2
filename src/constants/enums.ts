@@ -42,6 +42,7 @@ export enum EProjects {
 	CORRUPTED_FLESH = 'CorruptedFlesh',
 	THE_FASHION_PARADOX = 'TheFashionParadox',
 	ONLINE_FEMININITY = 'OnlineFemininity',
-	DIGITAL_HOMESTEADING = 'DigitalHomesteading'
+	DIGITAL_HOMESTEADING = 'DigitalHomesteading',
+	CARE_BOTS_BROWSER_BEASTS = 'CareBotsBrowserBeasts'
 }
 
