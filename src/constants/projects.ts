@@ -303,5 +303,22 @@ export const projects: Project[] = [
                 artists: ["Bora", "Jonathan Monaghan"],
                 artworks: [],
                 quote: "Browser pets and AI companions that populate our screens promise emotional connection while harvesting the very attention they claim to nurture."
+        },
+        {
+                title: "New Nature",
+                subtitle: "Mark Dorf & Sara Ludy",
+                description:
+                        "New Nature examines how technology is rewriting our relationships to nature—from AI ecosystem mapping and climate simulations to nature cams and bio-hacked organisms—where the natural and the technological dissolve into one another.",
+                thumbnailPath: [
+                        "media/new-nature/artwork-grid/1.webp",
+                        "media/new-nature/artwork-grid-2/1.webp",
+                        "media/new-nature/about-2.webp"
+                ],
+                thumbnailPathMobile: "media/new-nature/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-new-nature.png",
+                pagePath: "/new-nature",
+                artists: ["Mark Dorf", "Sara Ludy"],
+                artworks: [],
+                quote: "There isn’t a line, there’s a field."
         }
 ];

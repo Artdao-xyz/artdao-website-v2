@@ -119,5 +119,11 @@ export const projectsV2: ProjectV2[] = [
         artists: ["Estelle Flores", "Cydr"],
         thumbnailPath: "media/home/thumbnails-v2/07-chaosagents-02-4x.webp",
         route: "/online-femininity"
+    },
+    {
+        title: "New Nature",
+        artists: ["Mark Dorf", "Sara Ludy"],
+        thumbnailPath: "media/new-nature/main-cover.webp",
+        route: "/new-nature"
     }
 ];

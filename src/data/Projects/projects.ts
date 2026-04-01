@@ -51,7 +51,8 @@ import {
 	VIRALITY_OVERNIGHT,
 	ONLINE_FEMININITY,
 	DIGITAL_HOMESTEADING,
-	CARE_BOTS_BROWSER_BEASTS
+	CARE_BOTS_BROWSER_BEASTS,
+	NEW_NATURE
 } from '../../constants/routes';
 
 export interface IProject {
@@ -167,6 +168,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.CARE_BOTS_BROWSER_BEASTS,
 		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.ONLINE_FEMININITY, EProjects.QUEERING_THE_WEB3]
+	},
+	{
+		name: EProjects.NEW_NATURE,
+		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.PET, EProjects.DIGITAL_MATTER]
 	}
 ];
 
@@ -386,5 +391,13 @@ export const projectsDetails = [
 		hover: '/media/care-bots-browser-beasts/main-cover.webp',
 		url: CARE_BOTS_BROWSER_BEASTS,
 		mobileImage: '/media/care-bots-browser-beasts/main-cover.webp'
+	},
+	{
+		name: EProjects.NEW_NATURE,
+		nameToShow: 'new nature',
+		image: '/media/new-nature/main-cover.webp',
+		hover: '/media/new-nature/main-cover.webp',
+		url: NEW_NATURE,
+		mobileImage: '/media/new-nature/main-cover.webp'
 	}
 ];
