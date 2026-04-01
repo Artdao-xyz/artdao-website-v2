@@ -319,6 +319,6 @@ export const projects: Project[] = [
                 pagePath: "/new-nature",
                 artists: ["Mark Dorf", "Sara Ludy"],
                 artworks: [],
-                quote: "There isn’t a line, there’s a field."
+                quote: "What really counts as nature within a cultural paradigm that prioritizes technological acceleration?"
         }
 ];

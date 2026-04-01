@@ -162,6 +162,9 @@
 	box-sizing: border-box;
 	scroll-behavior: smooth;
 
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
 	/* Scrollbar width */
 	::-webkit-scrollbar {
 		width: 0.1rem !important;
