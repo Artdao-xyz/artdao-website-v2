@@ -3,6 +3,7 @@ import HomeDropMenu from './components/HomeDropMenu/HomeDropMenu.svelte';
 import HomeImgLayout from './components/HomeImgLayout/HomeImgLayout.svelte';
 
 import ProjectAbout from './components/ProjectAbout/ProjectAbout.svelte';
+import QuoteComponent from './components/QuoteComponent/QuoteComponent.svelte';
 import ProjectAboutDropdown from './components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
 import ProjectArtworkGrid from './components/ProjectArtworkGrid/ProjectArtworkGrid.svelte';
 import ProjectInterview from './components/ProjectInterview/ProjectInterview.svelte';
@@ -55,6 +56,7 @@ export {
 	Polaroids,
 	ProjectAbout,
 	ProjectAboutDropdown,
+	QuoteComponent,
 	ProjectArtworkGrid,
 	ProjectInterview,
 	ProjectIntro,

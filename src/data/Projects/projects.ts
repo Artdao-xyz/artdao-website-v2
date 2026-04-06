@@ -52,7 +52,8 @@ import {
 	ONLINE_FEMININITY,
 	DIGITAL_HOMESTEADING,
 	CARE_BOTS_BROWSER_BEASTS,
-	NEW_NATURE
+	NEW_NATURE,
+	WE_LIKE_BEING_DATA
 } from '../../constants/routes';
 
 export interface IProject {
@@ -172,6 +173,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.NEW_NATURE,
 		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.PET, EProjects.DIGITAL_MATTER]
+	},
+	{
+		name: EProjects.WE_LIKE_BEING_DATA,
+		refs: [EProjects.CARE_BOTS_BROWSER_BEASTS, EProjects.DIGITAL_HOMESTEADING, EProjects.SUBCONSCIOUS_MEDIA]
 	}
 ];
 
@@ -267,18 +272,18 @@ export const projectsDetails = [
 	{
 		name: EProjects.QUEERING_THE_WEB3,
 		nameToShow: 'queering the web3',
-		image: artifice, // Using placeholder image for now
-		hover: artificeHover, // Using placeholder image for now
+		image: '/media/queering-the-web3/main-cover.webp',
+		hover: '/media/queering-the-web3/artwork-grid/artwork-grid-1.webp',
 		url: QUEERING_THE_WEB3,
-		mobileImage: artificeMobile // Using placeholder image for now
+		mobileImage: '/media/queering-the-web3/main-cover.webp'
 	},
 	{
 		name: EProjects.BODY_FRONTIER,
 		nameToShow: 'body frontier',
-		image: 'media/home/thumbnails/10-home-body-frontier.webp',
-		hover: 'media/home/thumbnails/10-home-body-frontier.webp',
+		image: '/media/home/thumbnails/10-home-body-frontier.webp',
+		hover: '/media/home/thumbnails/10-home-body-frontier.webp',
 		url: '/body-frontier',
-		mobileImage: 'media/home/thumbnails/10-home-body-frontier.webp'
+		mobileImage: '/media/home/thumbnails/10-home-body-frontier.webp'
 	},
 	{
 		name: EProjects.SUBCONSCIOUS_MEDIA,
@@ -299,18 +304,18 @@ export const projectsDetails = [
 	{
 		name: EProjects.WHATS_ON_YOUR_MIND,
 		nameToShow: "what's on your mind",
-		image: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp',
-		hover: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp',
+		image: '/media/whats-on-your-mind/carusel-1/daniel-gallery-2-1x.webp',
+		hover: '/media/whats-on-your-mind/carusel-2/h4wnee-gallery-1x.webp',
 		url: WHATS_ON_YOUR_MIND,
-		mobileImage: '/media/home/thumbnails-v2/02-whatsonyourmind-4x.webp'
+		mobileImage: '/media/home/thumbnails-v2-mobile/whats-on-your-mind.webp'
 	},
 	{
 		name: EProjects.CHAOS_AGENTS,
 		nameToShow: 'chaos agents',
-		image: artifice, // Using placeholder image for now
-		hover: artificeHover, // Using placeholder image for now
+		image: '/media/chaos-agents/main-cover.webp',
+		hover: '/media/chaos-agents/about-1/about-1.webp',
 		url: CHAOS_AGENTS,
-		mobileImage: artificeMobile // Using placeholder image for now
+		mobileImage: '/media/chaos-agents/main-cover.webp'
 	},
 	{
 		name: EProjects.POST_CATASTROPHE_IMAGINATION,
@@ -334,7 +339,7 @@ export const projectsDetails = [
 		image: '/media/virality-overnight/about-1/about-1.webp',
 		hover: '/media/virality-overnight/about-1/about-1.webp',
 		url: VIRALITY_OVERNIGHT,
-		mobileImage: '/media/home/thumbnails-v2-mobile/virality-overnight.webp'
+		mobileImage: '/media/virality-overnight/main-cover.webp'
 	},
 	{
 		name: EProjects.EVERY_CREATION_IS_LOSS,
@@ -353,14 +358,6 @@ export const projectsDetails = [
 		mobileImage: '/media/one-body-a-thousand-worlds/main-cover.webp'
 	},
 	{
-		name: EProjects.POST_CATASTROPHE_IMAGINATION,
-		nameToShow: 'post catastrophe imagination',
-		image: '/media/post-catastrophe-imagination/about-1/about-1.webp',
-		hover: '/media/post-catastrophe-imagination/about-1/about-1.webp',
-		url: POST_CATASTROPHE_IMAGINATION,
-		mobileImage: '/media/post-catastrophe-imagination/main-cover.webp'
-	},
-	{
 		name: EProjects.THE_END_OF_THE_MUSE,
 		nameToShow: 'the end of the muse',
 		image: '/media/the-end-of-the-muse/artworks-grid/artworks-grid-1.webp',
@@ -371,10 +368,10 @@ export const projectsDetails = [
 	{
 		name: EProjects.ONLINE_FEMININITY,
 		nameToShow: 'online femininity',
-		image: '/media/home/thumbnails-v2/07-chaosagents-02-4x.webp',
-		hover: '/media/home/thumbnails-v2/07-chaosagents-02-4x.webp',
+		image: '/media/online-femininity/about-1.webp',
+		hover: '/media/online-femininity/about-2.webp',
 		url: ONLINE_FEMININITY,
-		mobileImage: '/media/home/thumbnails-v2/07-chaosagents-02-4x.webp'
+		mobileImage: '/media/online-femininity/main-cover.webp'
 	},
 	{
 		name: EProjects.DIGITAL_HOMESTEADING,
@@ -399,5 +396,13 @@ export const projectsDetails = [
 		hover: '/media/new-nature/main-cover.webp',
 		url: NEW_NATURE,
 		mobileImage: '/media/new-nature/main-cover.webp'
+	},
+	{
+		name: EProjects.WE_LIKE_BEING_DATA,
+		nameToShow: 'we like being data',
+		image: '/media/we-like-being-data/main-cover.webp',
+		hover: '/media/we-like-being-data/main-cover.webp',
+		url: WE_LIKE_BEING_DATA,
+		mobileImage: '/media/we-like-being-data/main-cover.webp'
 	}
 ];

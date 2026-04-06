@@ -185,7 +185,7 @@ export const projects: Project[] = [
                 subtitle: "Riniifish & Woc",
                 description: "In the web3 ecosystem, digital artists navigate a fundamental paradox between permanence and vitality. With one hand, they engage a blockchain that derives its authority from immutable, decentralized records; with the other, they respond to an attention economy driven by novelty and hype.",
                 thumbnailPath: ["media/virality-overnight/about-3/about-1.webp", "media/virality-overnight/about-1/about-1.webp", "media/virality-overnight/about-2/about-1.webp"],
-                thumbnailPathMobile: "media/home/thumbnails-v2-mobile/virality-overnight.webp",
+                thumbnailPathMobile: "media/virality-overnight/main-cover.webp",
                 buttonPath: "media/home/buttons/16-button-virality-overnight.png",
                 pagePath: "/virality-overnight",
                 artists: ["Riniifish", "Woc"],
@@ -201,7 +201,7 @@ export const projects: Project[] = [
                         "media/every-creation-is-loss/artwork-grid-1/artwork-grid-2.webp",
                         "media/every-creation-is-loss/artwork-grid-1/artwork-grid-3.webp"
                 ],
-                thumbnailPathMobile: "media/home/thumbnails-v2-mobile/every-creation-is-loss.webp",
+                thumbnailPathMobile: "media/every-creation-is-loss/main-cover.webp",
                 buttonPath: "media/home/buttons/17-button-every-creation-is-loss.png",
                 pagePath: "/every-creation-is-loss",
                 artists: ["Chepertom", "Asdrúbal Gomez"],
@@ -354,5 +354,21 @@ export const projects: Project[] = [
                 artists: ["Mark Dorf", "Sara Ludy"],
                 artworks: [],
                 quote: "What really counts as nature within a cultural paradigm that prioritizes technological acceleration?"
+        },
+        {
+                title: "We like being data",
+                subtitle: "Mitchell F. Chan",
+                description: "Doing a studio visit with Mitchell F. Chan is like entering a game. You jump between interactive conceptual environments, acutely aware of yourself as a character being observed.",
+                thumbnailPath: [
+                        "media/we-like-being-data/about-3.webp",
+                        "media/we-like-being-data/about-2.webp",
+                        "media/we-like-being-data/about-1.webp"
+                ],
+                thumbnailPathMobile: "media/we-like-being-data/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-we-like-being-data.png",
+                pagePath: "/we-like-being-data",
+                artists: ["Mitchell F. Chan"],
+                artworks: [],
+                quote: "Games can do something no other art form can. It's a medium of agency. It absorbs and reorganizes every other medium inside its structure."
         }
 ];

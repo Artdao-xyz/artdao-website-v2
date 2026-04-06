@@ -125,5 +125,11 @@ export const projectsV2: ProjectV2[] = [
         artists: ["Mark Dorf", "Sara Ludy"],
         thumbnailPath: "media/new-nature/main-cover.webp",
         route: "/new-nature"
+    },
+    {
+        title: "We like being data",
+        artists: ["Mitchell F. Chan"],
+        thumbnailPath: "media/we-like-being-data/main-cover.webp",
+        route: "/we-like-being-data"
     }
 ];
