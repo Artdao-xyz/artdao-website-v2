@@ -185,7 +185,7 @@ export const projects: Project[] = [
                 subtitle: "Riniifish & Woc",
                 description: "In the web3 ecosystem, digital artists navigate a fundamental paradox between permanence and vitality. With one hand, they engage a blockchain that derives its authority from immutable, decentralized records; with the other, they respond to an attention economy driven by novelty and hype.",
                 thumbnailPath: ["media/virality-overnight/about-3/about-1.webp", "media/virality-overnight/about-1/about-1.webp", "media/virality-overnight/about-2/about-1.webp"],
-                thumbnailPathMobile: "media/home/thumbnails-v2-mobile/virality-overnight.webp",
+                thumbnailPathMobile: "media/virality-overnight/main-cover.webp",
                 buttonPath: "media/home/buttons/16-button-virality-overnight.png",
                 pagePath: "/virality-overnight",
                 artists: ["Riniifish", "Woc"],
@@ -201,7 +201,7 @@ export const projects: Project[] = [
                         "media/every-creation-is-loss/artwork-grid-1/artwork-grid-2.webp",
                         "media/every-creation-is-loss/artwork-grid-1/artwork-grid-3.webp"
                 ],
-                thumbnailPathMobile: "media/home/thumbnails-v2-mobile/every-creation-is-loss.webp",
+                thumbnailPathMobile: "media/every-creation-is-loss/main-cover.webp",
                 buttonPath: "media/home/buttons/17-button-every-creation-is-loss.png",
                 pagePath: "/every-creation-is-loss",
                 artists: ["Chepertom", "Asdrúbal Gomez"],
@@ -226,9 +226,9 @@ export const projects: Project[] = [
         },
         {
                 title: "Corrupted Flesh",
-                subtitle: "Veronika Peshekhonova, Tim Høibjerg & matheus carvalho",
+                subtitle: "Veronika Peshekhonova, Tim Høibjerg & Matheus Carvalho",
                 description:
-                        "Technical systems assume seamless operation and infinite adaptability. As bodies are absorbed into these systems, they glitch, mutate, and deteriorate rather than harmonize. The artists here use corruption and transformation as resistance, positioning the fractured body as a site that confronts the costs of technological smoothness.",
+                        "Technical systems assume seamless operation and infinite adaptability; as bodies are absorbed into them, strain replaces harmony. The artists here use corruption and transformation as resistance, positioning the fractured body as a site that confronts the costs of technological smoothness.",
                 thumbnailPath: [
                         "media/corrupted-flesh/artworks-grid/artworks-grid-1.webp",
                         "media/corrupted-flesh/artworks-grid/artworks-grid-2.webp",
@@ -237,15 +237,15 @@ export const projects: Project[] = [
                 thumbnailPathMobile: "media/corrupted-flesh/main-cover.webp",
                 buttonPath: "media/home/buttons/XX-button-corrupted-flesh.png",
                 pagePath: "/corrupted-flesh",
-                artists: ["Veronika Peshekhonova", "Tim Høibjerg", "matheus carvalho"],
+                artists: ["Veronika Peshekhonova", "Tim Høibjerg", "Matheus Carvalho"],
                 artworks: [],
-                quote: "By staging damage and incompleteness, the works reveal how seamless systems obscure the body’s materiality and its capacity to resist."
+                quote: "By staging damage and incompleteness, the works reveal how seamless systems obscure the body's materiality and its capacity to resist."
         },
         {
                 title: "Post-Catastrophe Imagination",
                 subtitle: "Alfacenttauri & Linus Åberg",
                 description:
-                        "Contemporary artists are using virtual environments to reimagine how worlds can exist and function—landscapes that breathe, creatures that morph, and rules that break away from progress and competition. This is not escapism: it asks whether virtual imagination can generate alternative ways of being.",
+                        "Contemporary artists use virtual environments and game engines to reimagine how worlds can exist—immersive spaces where landscapes breathe, creatures morph, and the usual rules of progress break down. This is a critical practice that asks whether digital experimentation can reveal new social, ecological, and perceptual possibilities.",
                 thumbnailPath: [
                         "media/post-catastrophe-imagination/about-1/about-1.webp",
                         "media/post-catastrophe-imagination/about-2/about-1.webp",
@@ -256,7 +256,7 @@ export const projects: Project[] = [
                 pagePath: "/post-catastrophe-imagination",
                 artists: ["Alfacenttauri", "Linus Åberg"],
                 artworks: [],
-                quote: "Can virtual imagination generate alternative ways of being? It is a critical practice that explores how digital experimentation can reveal new social, ecological, and perceptual possibilities."
+                quote: "Can virtual imagination generate alternative ways of being? It is not escapism—it explores how digital experimentation can reveal new possibilities."
         },
         {
                 title: "The End of the Muse",
