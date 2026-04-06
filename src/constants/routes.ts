@@ -28,5 +28,5 @@ export const THE_FASHION_PARADOX = '/the-fashion-paradox';
 export const ONLINE_FEMININITY = '/online-femininity';
 export const DIGITAL_HOMESTEADING = '/digital-homesteading';
 export const CARE_BOTS_BROWSER_BEASTS = '/care-bots-browser-beasts';
-export const NEW_NATURE = '/new-nature';
 export const WE_LIKE_BEING_DATA = '/we-like-being-data';
+export const NEW_NATURE = '/new-nature';

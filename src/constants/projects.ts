@@ -339,6 +339,22 @@ export const projects: Project[] = [
                 quote: "Browser pets and AI companions that populate our screens promise emotional connection while harvesting the very attention they claim to nurture."
         },
         {
+                title: "We like being data",
+                subtitle: "Mitchell F. Chan",
+                description: "Doing a studio visit with Mitchell F. Chan is like entering a game. You jump between interactive conceptual environments, acutely aware of yourself as a character being observed.",
+                thumbnailPath: [
+                        "media/we-like-being-data/about-3.webp",
+                        "media/we-like-being-data/about-2.webp",
+                        "media/we-like-being-data/about-1.webp"
+                ],
+                thumbnailPathMobile: "media/we-like-being-data/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-we-like-being-data.png",
+                pagePath: "/we-like-being-data",
+                artists: ["Mitchell F. Chan"],
+                artworks: [],
+                quote: "Games can do something no other art form can. It's a medium of agency. It absorbs and reorganizes every other medium inside its structure."
+        },
+        {
                 title: "New Nature",
                 subtitle: "Mark Dorf & Sara Ludy",
                 description:
@@ -354,21 +370,5 @@ export const projects: Project[] = [
                 artists: ["Mark Dorf", "Sara Ludy"],
                 artworks: [],
                 quote: "What really counts as nature within a cultural paradigm that prioritizes technological acceleration?"
-        },
-        {
-                title: "We like being data",
-                subtitle: "Mitchell F. Chan",
-                description: "Doing a studio visit with Mitchell F. Chan is like entering a game. You jump between interactive conceptual environments, acutely aware of yourself as a character being observed.",
-                thumbnailPath: [
-                        "media/we-like-being-data/about-3.webp",
-                        "media/we-like-being-data/about-2.webp",
-                        "media/we-like-being-data/about-1.webp"
-                ],
-                thumbnailPathMobile: "media/we-like-being-data/main-cover.webp",
-                buttonPath: "media/home/buttons/XX-button-we-like-being-data.png",
-                pagePath: "/we-like-being-data",
-                artists: ["Mitchell F. Chan"],
-                artworks: [],
-                quote: "Games can do something no other art form can. It's a medium of agency. It absorbs and reorganizes every other medium inside its structure."
         }
 ];

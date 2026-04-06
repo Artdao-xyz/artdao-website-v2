@@ -52,8 +52,8 @@ import {
 	ONLINE_FEMININITY,
 	DIGITAL_HOMESTEADING,
 	CARE_BOTS_BROWSER_BEASTS,
-	NEW_NATURE,
-	WE_LIKE_BEING_DATA
+	WE_LIKE_BEING_DATA,
+	NEW_NATURE
 } from '../../constants/routes';
 
 export interface IProject {
@@ -171,12 +171,12 @@ export const projects: IProject[] = [
 		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.ONLINE_FEMININITY, EProjects.QUEERING_THE_WEB3]
 	},
 	{
-		name: EProjects.NEW_NATURE,
-		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.PET, EProjects.DIGITAL_MATTER]
-	},
-	{
 		name: EProjects.WE_LIKE_BEING_DATA,
 		refs: [EProjects.CARE_BOTS_BROWSER_BEASTS, EProjects.DIGITAL_HOMESTEADING, EProjects.SUBCONSCIOUS_MEDIA]
+	},
+	{
+		name: EProjects.NEW_NATURE,
+		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.PET, EProjects.DIGITAL_MATTER]
 	}
 ];
 
@@ -390,19 +390,19 @@ export const projectsDetails = [
 		mobileImage: '/media/care-bots-browser-beasts/main-cover.webp'
 	},
 	{
-		name: EProjects.NEW_NATURE,
-		nameToShow: 'new nature',
-		image: '/media/new-nature/main-cover.webp',
-		hover: '/media/new-nature/main-cover.webp',
-		url: NEW_NATURE,
-		mobileImage: '/media/new-nature/main-cover.webp'
-	},
-	{
 		name: EProjects.WE_LIKE_BEING_DATA,
 		nameToShow: 'we like being data',
 		image: '/media/we-like-being-data/main-cover.webp',
 		hover: '/media/we-like-being-data/main-cover.webp',
 		url: WE_LIKE_BEING_DATA,
 		mobileImage: '/media/we-like-being-data/main-cover.webp'
+	},
+	{
+		name: EProjects.NEW_NATURE,
+		nameToShow: 'new nature',
+		image: '/media/new-nature/main-cover.webp',
+		hover: '/media/new-nature/main-cover.webp',
+		url: NEW_NATURE,
+		mobileImage: '/media/new-nature/main-cover.webp'
 	}
 ];
