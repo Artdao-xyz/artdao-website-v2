@@ -43,6 +43,7 @@ export enum EProjects {
 	THE_FASHION_PARADOX = 'TheFashionParadox',
 	ONLINE_FEMININITY = 'OnlineFemininity',
 	DIGITAL_HOMESTEADING = 'DigitalHomesteading',
-	CARE_BOTS_BROWSER_BEASTS = 'CareBotsBrowserBeasts'
+	CARE_BOTS_BROWSER_BEASTS = 'CareBotsBrowserBeasts',
+	WE_LIKE_BEING_DATA = 'WeLikeBeingData'
 }
 

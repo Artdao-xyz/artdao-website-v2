@@ -119,5 +119,11 @@ export const projectsV2: ProjectV2[] = [
         artists: ["Estelle Flores", "Cydr"],
         thumbnailPath: "media/home/thumbnails-v2/07-chaosagents-02-4x.webp",
         route: "/online-femininity"
+    },
+    {
+        title: "We like being data",
+        artists: ["Mitchell F. Chan"],
+        thumbnailPath: "media/we-like-being-data/main-cover.webp",
+        route: "/we-like-being-data"
     }
 ];

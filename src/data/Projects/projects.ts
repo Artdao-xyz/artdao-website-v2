@@ -51,7 +51,8 @@ import {
 	VIRALITY_OVERNIGHT,
 	ONLINE_FEMININITY,
 	DIGITAL_HOMESTEADING,
-	CARE_BOTS_BROWSER_BEASTS
+	CARE_BOTS_BROWSER_BEASTS,
+	WE_LIKE_BEING_DATA
 } from '../../constants/routes';
 
 export interface IProject {
@@ -167,6 +168,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.CARE_BOTS_BROWSER_BEASTS,
 		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.ONLINE_FEMININITY, EProjects.QUEERING_THE_WEB3]
+	},
+	{
+		name: EProjects.WE_LIKE_BEING_DATA,
+		refs: [EProjects.CARE_BOTS_BROWSER_BEASTS, EProjects.DIGITAL_HOMESTEADING, EProjects.SUBCONSCIOUS_MEDIA]
 	}
 ];
 
@@ -378,5 +383,13 @@ export const projectsDetails = [
 		hover: '/media/care-bots-browser-beasts/main-cover.webp',
 		url: CARE_BOTS_BROWSER_BEASTS,
 		mobileImage: '/media/care-bots-browser-beasts/main-cover.webp'
+	},
+	{
+		name: EProjects.WE_LIKE_BEING_DATA,
+		nameToShow: 'we like being data',
+		image: '/media/we-like-being-data/main-cover.webp',
+		hover: '/media/we-like-being-data/main-cover.webp',
+		url: WE_LIKE_BEING_DATA,
+		mobileImage: '/media/we-like-being-data/main-cover.webp'
 	}
 ];
