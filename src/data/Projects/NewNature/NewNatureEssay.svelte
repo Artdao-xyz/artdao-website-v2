@@ -1,8 +1,8 @@
 <div class="flex flex-col gap-5">
 	<p>
-		The first wave of environmental media treated nature as a distant spectacle, a wilderness we could observe without disturbing. Early filmmakers combined scientific observation with cinematic storytelling to craft a seemingly pure connection between viewer and environment.
+		Dorf created <em>A New Nature</em> during a decade-long residency at the Rocky Mountain Biological Laboratory. In the mountains of Colorado, Dorf was not simply a documentarian. He acted as a creative counterpart to their research. Scientists and artists alike held equal claim to curiosity, and from that symmetry, a shared language slowly crystallized.
 	</p>
 	<p>
-		Today digital tools do more than document ecosystems. They shape how we see, value, and interact with nature. In a postdigital world, media technologies are inseparable from daily life. Nature is mediated by the same structures that organize attention, data, and cultural imaginaries. In what we might call "New Nature," the boundaries between the natural and the technological have dissolved. Technology does not reveal or conceal; it shapes what counts as nature and exposes the human biases embedded in the systems we use to make sense of the natural world.
+		At first their collaborations were not tied to specific outcomes, but slowly their divergent professional vantage points converged into a paradoxical research methodology. Dorf treats his photographic archive as an ecologist treats his field observations. He collects, sorts, analyzes data before repackaging it to tell a new story. Pixel values become proxies for ecological measurement, color saturation hierarchies stand in for species distribution maps, and a mountain assembled from over a hundred overlapping exposures rises into something recognizable but ultimately speculative. "It feels like a mountain. It cannot be one." This gap, Dorf argues, is precisely where data visualization thrives—forever cruising truth, but never truly arriving at the territory it describes.
 	</p>
 </div>

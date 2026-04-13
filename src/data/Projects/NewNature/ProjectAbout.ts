@@ -12,7 +12,7 @@ export const newNatureMarkDorfAbout = {
 export const newNatureMarkDorfAboutImage = '/media/new-nature/about-1.webp';
 
 export const newNatureEssayAbout = {
-	title: 'a new nature',
+	title: 'A new nature',
 	subtitle: '',
 	text: NewNatureEssay
 };

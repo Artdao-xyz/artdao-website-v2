@@ -12,20 +12,9 @@ export const newNatureNavItems: INavBarItem[] = [
 		selected: false
 	},
 	{
-		text: 'a new nature',
-		route: 'new-nature',
-		selected: false
-	},
-	{
 		text: 'Sara Ludy',
 		route: 'sara-ludy',
 		selected: false
-	},
-	{
-		text: 'Conversation',
-		route: 'chat-interview',
-		selected: false,
-		shortText: 'Chat'
 	},
 	{
 		text: 'natural technologies',
