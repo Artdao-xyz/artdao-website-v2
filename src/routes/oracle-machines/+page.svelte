@@ -50,13 +50,8 @@
 
 	let introIsInView: boolean;
 	let spiritualIsInView: boolean;
-	let conversationIsInView: boolean;
-	let edgarAboutIsInView: boolean;
-	let worksOneIsInView: boolean;
-	let edgarVideoIsInView: boolean;
-	let noraAboutIsInView: boolean;
-	let worksTwoIsInView: boolean;
-	let noraVideoIsInView: boolean;
+	let edgarSectionIsInView: boolean;
+	let noraSectionIsInView: boolean;
 	let sacredIsInView: boolean;
 
 	let containerRef: HTMLElement;
@@ -64,36 +59,21 @@
 	const handleOnScroll = () => {
 		getMetaballProgress(containerRef);
 
-		/* Later branches win when multiple sections overlap in view. */
-		if (sacredIsInView) {
-			updateNavBar(oracleMachinesNavStoreItems, oracleMachinesNavItems, oracleMachinesNavItems[9].route);
-		}
-		if (noraVideoIsInView) {
-			updateNavBar(oracleMachinesNavStoreItems, oracleMachinesNavItems, oracleMachinesNavItems[8].route);
-		}
-		if (worksTwoIsInView) {
-			updateNavBar(oracleMachinesNavStoreItems, oracleMachinesNavItems, oracleMachinesNavItems[7].route);
-		}
-		if (noraAboutIsInView) {
-			updateNavBar(oracleMachinesNavStoreItems, oracleMachinesNavItems, oracleMachinesNavItems[6].route);
-		}
-		if (edgarVideoIsInView) {
-			updateNavBar(oracleMachinesNavStoreItems, oracleMachinesNavItems, oracleMachinesNavItems[5].route);
-		}
-		if (worksOneIsInView) {
-			updateNavBar(oracleMachinesNavStoreItems, oracleMachinesNavItems, oracleMachinesNavItems[4].route);
-		}
-		if (edgarAboutIsInView) {
-			updateNavBar(oracleMachinesNavStoreItems, oracleMachinesNavItems, oracleMachinesNavItems[3].route);
-		}
-		if (conversationIsInView) {
-			updateNavBar(oracleMachinesNavStoreItems, oracleMachinesNavItems, oracleMachinesNavItems[2].route);
+		/* Later branches win when multiple sections overlap in view (deeper content overrides intro). */
+		if (introIsInView) {
+			updateNavBar(oracleMachinesNavStoreItems, oracleMachinesNavItems, 'intro');
 		}
 		if (spiritualIsInView) {
+			updateNavBar(oracleMachinesNavStoreItems, oracleMachinesNavItems, oracleMachinesNavItems[0].route);
+		}
+		if (edgarSectionIsInView) {
 			updateNavBar(oracleMachinesNavStoreItems, oracleMachinesNavItems, oracleMachinesNavItems[1].route);
 		}
-		if (introIsInView) {
-			updateNavBar(oracleMachinesNavStoreItems, oracleMachinesNavItems, oracleMachinesNavItems[0].route);
+		if (noraSectionIsInView) {
+			updateNavBar(oracleMachinesNavStoreItems, oracleMachinesNavItems, oracleMachinesNavItems[2].route);
+		}
+		if (sacredIsInView) {
+			updateNavBar(oracleMachinesNavStoreItems, oracleMachinesNavItems, oracleMachinesNavItems[3].route);
 		}
 	};
 
@@ -164,22 +144,13 @@
 		</div>
 
 		<div
-			id="conversation"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				conversationIsInView = event.detail.inView;
-			}}
-		>
-			<ChatInterview data={chatInterviewData} />
-		</div>
-
-		<div
 			id="edgar-frias"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
-				edgarAboutIsInView = event.detail.inView;
+				edgarSectionIsInView = event.detail.inView;
 			}}
 		>
+			<ChatInterview data={chatInterviewData} />
 			<ProjectAbout
 				aboutItem={oracleMachinesEdgarFriasAbout}
 				aboutImage={$preloadedImagesStore[3][0]}
@@ -187,30 +158,12 @@
 				colorVariant={EColorVariant.BLACK}
 				isImageLeft={false}
 			/>
-		</div>
-
-		<div
-			id="works-one"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				worksOneIsInView = event.detail.inView;
-			}}
-		>
 			<ProjectAboutDropdown
 				aboutDropdownItems={undefined}
 				images={$preloadedImagesStore[4]}
 				route="oracle-works-one"
 				colorVariant={EColorVariant.BLACK}
 			/>
-		</div>
-
-		<div
-			id="edgar-video"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				edgarVideoIsInView = event.detail.inView;
-			}}
-		>
 			<ProjectVideo videoProjects={oracleMachinesFriasVideos} route="edgar-frias-video" />
 		</div>
 
@@ -218,7 +171,7 @@
 			id="nora-berman"
 			use:inview={INVIEW_OPTIONS}
 			on:inview_change={(event) => {
-				noraAboutIsInView = event.detail.inView;
+				noraSectionIsInView = event.detail.inView;
 			}}
 		>
 			<ProjectAbout
@@ -227,30 +180,12 @@
 				route="nora-berman-inner"
 				colorVariant={EColorVariant.BLACK}
 			/>
-		</div>
-
-		<div
-			id="works-two"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				worksTwoIsInView = event.detail.inView;
-			}}
-		>
 			<ProjectAboutDropdown
 				aboutDropdownItems={undefined}
 				images={$preloadedImagesStore[6]}
 				route="oracle-works-two"
 				colorVariant={EColorVariant.BLACK}
 			/>
-		</div>
-
-		<div
-			id="nora-video"
-			use:inview={INVIEW_OPTIONS}
-			on:inview_change={(event) => {
-				noraVideoIsInView = event.detail.inView;
-			}}
-		>
 			<ProjectVideo videoProjects={oracleMachinesBermanVideos} route="nora-berman-video" />
 		</div>
 
