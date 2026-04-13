@@ -53,7 +53,8 @@ import {
 	DIGITAL_HOMESTEADING,
 	CARE_BOTS_BROWSER_BEASTS,
 	WE_LIKE_BEING_DATA,
-	NEW_NATURE
+	NEW_NATURE,
+	ORACLE_MACHINES
 } from '../../constants/routes';
 
 export interface IProject {
@@ -177,6 +178,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.NEW_NATURE,
 		refs: [EProjects.SUBCONSCIOUS_MEDIA, EProjects.PET, EProjects.DIGITAL_MATTER]
+	},
+	{
+		name: EProjects.ORACLE_MACHINES,
+		refs: [EProjects.NEW_NATURE, EProjects.WE_LIKE_BEING_DATA, EProjects.SUBCONSCIOUS_MEDIA]
 	}
 ];
 
@@ -404,5 +409,13 @@ export const projectsDetails = [
 		hover: '/media/new-nature/main-cover.webp',
 		url: NEW_NATURE,
 		mobileImage: '/media/new-nature/main-cover.webp'
+	},
+	{
+		name: EProjects.ORACLE_MACHINES,
+		nameToShow: 'oracle machines',
+		image: '/media/oracle-machines/main-cover.webp',
+		hover: '/media/oracle-machines/about-1.webp',
+		url: ORACLE_MACHINES,
+		mobileImage: '/media/oracle-machines/main-cover.webp'
 	}
 ];

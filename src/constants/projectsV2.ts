@@ -131,5 +131,11 @@ export const projectsV2: ProjectV2[] = [
         artists: ["Mark Dorf", "Sara Ludy"],
         thumbnailPath: "media/new-nature/main-cover.webp",
         route: "/new-nature"
+    },
+    {
+        title: "Oracle Machines",
+        artists: ["Edgar Fabián Frías", "Nora Berman"],
+        thumbnailPath: "media/oracle-machines/main-cover.webp",
+        route: "/oracle-machines"
     }
 ];

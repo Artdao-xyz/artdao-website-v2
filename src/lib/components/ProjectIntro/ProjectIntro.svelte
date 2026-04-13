@@ -4,6 +4,8 @@
 	export let project: IProject;
 	export let textColor: 'black' | 'white' = 'black';
 	export let isContain = false;
+	/** When true, hero background uses cover only (no bg-fit). Use for exhibitions where the cover must fill the frame. */
+	export let forceHeroBackgroundCover = false;
 	export let isCenterImage = false;
 	export let isWiderTitle = false;
 	export let bgImage: string = '';
@@ -24,7 +26,9 @@
 <SectionContainer hasPadding={false} isOverflow={true} bgImage={bgImage}>
 	<div
 		class="w-full min-h-dvh lg:h-screen flex flex-row pt-[4.5rem] gap-28 {bgImage
-			? `${isContain && width > 1100 ? 'sm:bg-cover' : 'bg-cover'} bg-fit bg-no-repeat bg-color-black`
+			? forceHeroBackgroundCover
+				? 'bg-cover bg-no-repeat bg-color-black'
+				: `${isContain && width > 1100 ? 'sm:bg-cover' : 'bg-cover'} bg-fit bg-no-repeat bg-color-black`
 			: ''} {textColor === 'black'
 			? 'bg-color-white'
 			: 'bg-color-black'} pr-global-padding {backgroundPositionClass}"

@@ -370,5 +370,22 @@ export const projects: Project[] = [
                 artists: ["Mark Dorf", "Sara Ludy"],
                 artworks: [],
                 quote: "What really counts as nature within a cultural paradigm that prioritizes technological acceleration?"
+        },
+        {
+                title: "Oracle Machines",
+                subtitle: "Edgar Fabián Frías & Nora Berman",
+                description:
+                        "The confluence of technocapitalism, new-age spirituality, and the wellness industry has produced digital platforms that claim spiritual connection—often as aesthetic extraction dressed as mysticism. Artists in this exhibition probe spiritual technology that resists commodification and refuse extractive logics embedded in digital architecture.",
+                thumbnailPath: [
+                        "media/oracle-machines/about-1.webp",
+                        "media/oracle-machines/about-2.webp",
+                        "media/oracle-machines/about-3.webp"
+                ],
+                thumbnailPathMobile: "media/oracle-machines/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-oracle-machines.png",
+                pagePath: "/oracle-machines",
+                artists: ["Edgar Fabián Frías", "Nora Berman"],
+                artworks: [],
+                quote: "For these artists, the question is not whether technology can access the sacred, but whether spiritual practice can refuse the extractive logics embedded in digital architecture."
         }
 ];
