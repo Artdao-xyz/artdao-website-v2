@@ -51,6 +51,7 @@
 	const handleOnScroll = () => {
 		getMetaballProgress(containerRef);
 
+		/* `newNatureNavItems` has 4 entries (0 intro … 3 natural-technologies). Later branches win on overlap. */
 		if (introIsInView) {
 			updateNavBar(newNatureNavStoreItems, newNatureNavItems, newNatureNavItems[0].route);
 		}
@@ -58,10 +59,10 @@
 			updateNavBar(newNatureNavStoreItems, newNatureNavItems, newNatureNavItems[1].route);
 		}
 		if (saraLudyIsInView) {
-			updateNavBar(newNatureNavStoreItems, newNatureNavItems, newNatureNavItems[3].route);
+			updateNavBar(newNatureNavStoreItems, newNatureNavItems, newNatureNavItems[2].route);
 		}
 		if (naturalTechnologiesIsInView) {
-			updateNavBar(newNatureNavStoreItems, newNatureNavItems, newNatureNavItems[5].route);
+			updateNavBar(newNatureNavStoreItems, newNatureNavItems, newNatureNavItems[3].route);
 		}
 	};
 
