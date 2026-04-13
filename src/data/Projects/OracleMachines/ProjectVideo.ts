@@ -2,8 +2,8 @@ import type { IVideoProject } from '$lib/elements/VideoCard/interfaces';
 
 export const oracleMachinesFriasVideos: IVideoProject[] = [
 	{
-		name: 'Video 1',
-		artist: 'Edgar Fabián Frías',
+		name: '',
+		artist: '',
 		year: '',
 		videoUrl: 'https://storage.googleapis.com/videoszine/Oracle%20Machines/Video%201.mp4',
 		size: 'vertical'
