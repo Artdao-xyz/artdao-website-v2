@@ -353,5 +353,22 @@ export const projects: Project[] = [
                 artists: ["Mitchell F. Chan"],
                 artworks: [],
                 quote: "Games can do something no other art form can. It's a medium of agency. It absorbs and reorganizes every other medium inside its structure."
+        },
+        {
+                title: "New Nature",
+                subtitle: "Mark Dorf & Sara Ludy",
+                description:
+                        "New Nature examines how technology is rewriting our relationships to nature—from AI ecosystem mapping and climate simulations to nature cams and bio-hacked organisms—where the natural and the technological dissolve into one another.",
+                thumbnailPath: [
+                        "media/new-nature/artwork-grid/1.webp",
+                        "media/new-nature/artwork-grid-2/1.webp",
+                        "media/new-nature/about-2.webp"
+                ],
+                thumbnailPathMobile: "media/new-nature/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-new-nature.png",
+                pagePath: "/new-nature",
+                artists: ["Mark Dorf", "Sara Ludy"],
+                artworks: [],
+                quote: "What really counts as nature within a cultural paradigm that prioritizes technological acceleration?"
         }
 ];
