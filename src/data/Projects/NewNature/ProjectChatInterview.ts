@@ -51,7 +51,7 @@ export const newNatureChatInterview: ChatInterviewData = {
 		{
 			characterId: 'mark-dorf',
 			content:
-				'“Is it being in this place? Is it the image of this place? Is it the image as represented on a screen? What’s going on here, and does it matter?”'
+				'I think this boundary is increasingly blurry while also retaining a significant set of differences. Is "the real" being in a place? Is "the virtual" the image of a place? What does it mean to observe an image on a screen? One core of my practice is the exploration of perception and how what we often refer to as "virtual spaces" and "image culture" shape the lived experience.'
 		},
 		{
 			characterId: 'tomas-jones',
@@ -65,7 +65,7 @@ export const newNatureChatInterview: ChatInterviewData = {
 		{
 			characterId: 'mark-dorf',
 			content:
-				'“I actually don’t use scientific data. Instead, I wanted to try to embody the process of the field ecologist... I try to work in a way that gestures poetically with the processes of data analysis and the collection of data.”'
+				"I actually don't use scientific data in my work. I often try to embody the perspective of a field ecologist… I try to work in a way that gestures poetically to and with the processes of observation, data collection, and analysis."
 		},
 		{
 			characterId: 'tomas-jones',
@@ -79,7 +79,7 @@ export const newNatureChatInterview: ChatInterviewData = {
 		{
 			characterId: 'mark-dorf',
 			content:
-				'“We use these different tools as different ways of sensing and absorbing... you have to kind of understand the spectrum.”'
+				'I use different tools and materials as needed in order to fit within different concepts that I am exploring at the time. Each medium or material has its own history and set of connotations.'
 		},
 		{
 			characterId: 'tomas-jones',
@@ -93,7 +93,7 @@ export const newNatureChatInterview: ChatInterviewData = {
 		{
 			characterId: 'mark-dorf',
 			content:
-				'“Nature is the sort of fiction, this bloated fiction... A marker on the horizon while you’re sailing over the ocean. Where the horizon moves away from you at the very same speed that you approach it. Can never quite reach it.”'
+				'Nature is a sort of bloated fiction based off of a history of images that are fictions unto themselves, these images are never without bias. Nature to me is something that is never quite grasped because the moment that you believe yourself to be present within it, is the moment that it changes entirely. I see it as marker on the horizon while you’re sailing over the ocean; the horizon moves away from you at the very same speed that you approach it. Can never quite reach it.'
 		},
 		{
 			characterId: 'tomas-jones',
@@ -107,7 +107,7 @@ export const newNatureChatInterview: ChatInterviewData = {
 		{
 			characterId: 'mark-dorf',
 			content:
-				'“The films and images and objects that I make, I see them more as like a symptom of a lived life than like a discrete goal... I’m interested in creating conversation and dialogue.”'
+				'The films and images and objects that I make, I see them more as symptoms of a lived life than a discrete goal... They often begin quite intuitively and gesturally. Once I identify the beginnings of a language or methodology that has developed, I hone that in and try to navigate that language with an increasing sense of intention.'
 		}
 	],
 	images: [],
