@@ -45,6 +45,7 @@ export enum EProjects {
 	DIGITAL_HOMESTEADING = 'DigitalHomesteading',
 	CARE_BOTS_BROWSER_BEASTS = 'CareBotsBrowserBeasts',
 	WE_LIKE_BEING_DATA = 'WeLikeBeingData',
-	NEW_NATURE = 'NewNature'
+	NEW_NATURE = 'NewNature',
+	ORACLE_MACHINES = 'OracleMachines'
 }
 
