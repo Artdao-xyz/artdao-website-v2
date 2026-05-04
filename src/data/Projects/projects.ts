@@ -54,7 +54,8 @@ import {
 	CARE_BOTS_BROWSER_BEASTS,
 	WE_LIKE_BEING_DATA,
 	NEW_NATURE,
-	ORACLE_MACHINES
+	ORACLE_MACHINES,
+	CONTACT_ZONES
 } from '../../constants/routes';
 
 export interface IProject {
@@ -182,6 +183,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.ORACLE_MACHINES,
 		refs: [EProjects.NEW_NATURE, EProjects.WE_LIKE_BEING_DATA, EProjects.SUBCONSCIOUS_MEDIA]
+	},
+	{
+		name: EProjects.CONTACT_ZONES,
+		refs: [EProjects.ORACLE_MACHINES, EProjects.NEW_NATURE, EProjects.WE_LIKE_BEING_DATA]
 	}
 ];
 
@@ -417,5 +422,13 @@ export const projectsDetails = [
 		hover: '/media/oracle-machines/about-1.webp',
 		url: ORACLE_MACHINES,
 		mobileImage: '/media/oracle-machines/main-cover.webp'
+	},
+	{
+		name: EProjects.CONTACT_ZONES,
+		nameToShow: 'contact zones',
+		image: '/media/contact-zones/main-cover.webp',
+		hover: '/media/contact-zones/image%203.webp',
+		url: CONTACT_ZONES,
+		mobileImage: '/media/contact-zones/main-cover.webp'
 	}
 ];

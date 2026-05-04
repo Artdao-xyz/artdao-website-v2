@@ -137,5 +137,11 @@ export const projectsV2: ProjectV2[] = [
         artists: ["Edgar Fabián Frías", "Nora Berman"],
         thumbnailPath: "media/oracle-machines/main-cover.webp",
         route: "/oracle-machines"
+    },
+    {
+        title: "Contact Zones",
+        artists: ["Danielle Brathwaite-Shirley", "Antigoni Tsagkaropoulou", "Theo Triantafyllidis"],
+        thumbnailPath: "media/contact-zones/main-cover.webp",
+        route: "/contact-zones"
     }
 ];
