@@ -387,5 +387,22 @@ export const projects: Project[] = [
                 artists: ["Edgar Fabián Frías", "Nora Berman"],
                 artworks: [],
                 quote: "For these artists, the question is not whether technology can access the sacred, but whether spiritual practice can refuse the extractive logics embedded in digital architecture."
+        },
+        {
+                title: "Contact Zones",
+                subtitle: "Danielle Brathwaite-Shirley, Antigoni Tsagkaropoulou & Theo Triantafyllidis",
+                description:
+                        "What happens when game logic seeps into galleries and wearables? Artists in this series use touch, proximity, and participation to create uncanny contact zones where digital and physical realities share a nervous system—refusing smooth consumption in favor of friction, awkwardness, and embodied choice.",
+                thumbnailPath: [
+                        "media/contact-zones/image.webp",
+                        "media/contact-zones/image%201.webp",
+                        "media/contact-zones/image%202.webp"
+                ],
+                thumbnailPathMobile: "media/contact-zones/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-contact-zones.png",
+                pagePath: "/contact-zones",
+                artists: ["Danielle Brathwaite-Shirley", "Antigoni Tsagkaropoulou", "Theo Triantafyllidis"],
+                artworks: [],
+                quote: "When a gallery becomes half-field, half-videogame, you feel that negotiation rather than thinking about it abstractly."
         }
 ];
