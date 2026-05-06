@@ -34,4 +34,4 @@ export const contactZonesTheoAbout = {
 };
 
 export const contactZonesTheoAboutImage =
-	'/media/contact-zones/FeralMetaverse_TheoTriantafyllidis_InGameScreenshot_(8).webp';
+	'/media/contact-zones/Pastoral_still_2.webp';

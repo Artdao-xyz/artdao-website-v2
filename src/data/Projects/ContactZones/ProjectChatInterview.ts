@@ -26,7 +26,7 @@ export const contactZonesChatInterview: ChatInterviewData = {
 		{
 			id: 'theo',
 			name: 'Theo Triantafyllidis',
-			avatar: '/media/contact-zones/image%201.webp',
+			avatar: '/media/contact-zones/pfp.png',
 			type: 'answer'
 		}
 	],
@@ -43,7 +43,7 @@ export const contactZonesChatInterview: ChatInterviewData = {
 		{
 			characterId: 'antigoni',
 			content:
-				'I try to avoid a binary representation of the “physical” versus the “digital” world, as our realities and understanding of subjectivity are constantly shaped by the technologies we create and interact with. Everything I make inhabits a realm for a very intentional reason, and it can playfully leak into another to speculate new possibilities.'
+				'Much of my work is designed to be shared through relational encounters. Experiencing my installations with others activates their purpose as portals for collective imagination. I stage these encounters through sculptural environments and sensorial moving-image works, allowing touch and affect to circulate as modes of relation. This shared presence creates a space for collective warmth and transformation, where bodies can relate through vulnerability rather than isolation. I aim for a balance of comfort and unease, playfulness and tenderness. If the work provokes strong feelings, I consider that a success.'
 		},
 		{
 			characterId: 'theo',
@@ -63,7 +63,7 @@ export const contactZonesChatInterview: ChatInterviewData = {
 		{
 			characterId: 'antigoni',
 			content:
-				'Bodies are hybrid, soft, leaky, rebellious, in-between. They are becoming-with the work. Bodies are material and immaterial simultaneously. They are collective, non-human, elemental, technological, and full of potentiality.'
+				'A physical object makes you feel present, embodied, material. It carries responsibility: weight, temperature, traces over time. Virtual objects let you reimagine that body and materiality—glitch, duplicate, dissolve, move between human and non-human perspectives. These two states leak unpredictably into each other, as reality itself does. By blurring the boundaries between the real and the fantastical, or the digital and the material—I hope visitors experience a space of sensory disruption and speculative potential. I offer these alternative space-times as sanctuaries to inhabit, or as invitations to exist otherwise. How can we engage in a poetic refusal of the pace of systemic optimization? How can we find new modes of relation that are grounded in collective joy, vulnerability, and transformation rather than the demands of legibility and control?'
 		},
 		{
 			characterId: 'theo',
