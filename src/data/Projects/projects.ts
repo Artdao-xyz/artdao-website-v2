@@ -55,7 +55,8 @@ import {
 	WE_LIKE_BEING_DATA,
 	NEW_NATURE,
 	ORACLE_MACHINES,
-	CONTACT_ZONES
+	CONTACT_ZONES,
+	ACCESS_FRICTION
 } from '../../constants/routes';
 
 export interface IProject {
@@ -187,6 +188,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.CONTACT_ZONES,
 		refs: [EProjects.ORACLE_MACHINES, EProjects.NEW_NATURE, EProjects.WE_LIKE_BEING_DATA]
+	},
+	{
+		name: EProjects.ACCESS_FRICTION,
+		refs: [EProjects.CONTACT_ZONES, EProjects.SUBCONSCIOUS_MEDIA, EProjects.BODY_FRONTIER]
 	}
 ];
 
@@ -430,5 +435,13 @@ export const projectsDetails = [
 		hover: '/media/contact-zones/image%203.webp',
 		url: CONTACT_ZONES,
 		mobileImage: '/media/contact-zones/main-cover.webp'
+	},
+	{
+		name: EProjects.ACCESS_FRICTION,
+		nameToShow: 'access friction',
+		image: '/media/access-friction/csfigure5.webp',
+		hover: '/media/access-friction/Screenshot-2025-04-03-at-4-54-26-PM.webp',
+		url: ACCESS_FRICTION,
+		mobileImage: '/media/access-friction/csfigure5.webp'
 	}
 ];

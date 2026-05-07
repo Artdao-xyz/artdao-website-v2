@@ -404,5 +404,22 @@ export const projects: Project[] = [
                 artists: ["Danielle Brathwaite-Shirley", "Antigoni Tsagkaropoulou", "Theo Triantafyllidis"],
                 artworks: [],
                 quote: "When a gallery becomes half-field, half-videogame, you feel that negotiation rather than thinking about it abstractly."
+        },
+        {
+                title: "Access Friction",
+                subtitle: "Cielo G. Saucedo & Natalee Decker",
+                description:
+                        "When VR and motion capture meet resistant bodies, glitches become evidence and friction exposes power. Through Cripping CG, artists refuse to smooth disability data into compliance—keeping movement messy, consent-driven, and politically legible.",
+                thumbnailPath: [
+                        "media/access-friction/csfigure5.webp",
+                        "media/access-friction/Screenshot-2025-04-03-at-4-54-26-PM.webp",
+                        "media/access-friction/about1.webp"
+                ],
+                thumbnailPathMobile: "media/access-friction/csfigure5.webp",
+                buttonPath: "media/home/buttons/XX-button-access-friction.png",
+                pagePath: "/access-friction",
+                artists: ["Cielo G. Saucedo", "Natalee Decker"],
+                artworks: [],
+                quote: "When virtual platforms meet resistant bodies, glitches become evidence, friction exposes power, and virtuality is rewritten on disabled terms."
         }
 ];

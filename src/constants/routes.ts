@@ -32,3 +32,4 @@ export const WE_LIKE_BEING_DATA = '/we-like-being-data';
 export const NEW_NATURE = '/new-nature';
 export const ORACLE_MACHINES = '/oracle-machines';
 export const CONTACT_ZONES = '/contact-zones';
+export const ACCESS_FRICTION = '/access-friction';

@@ -47,6 +47,7 @@ export enum EProjects {
 	WE_LIKE_BEING_DATA = 'WeLikeBeingData',
 	NEW_NATURE = 'NewNature',
 	ORACLE_MACHINES = 'OracleMachines',
-	CONTACT_ZONES = 'ContactZones'
+	CONTACT_ZONES = 'ContactZones',
+	ACCESS_FRICTION = 'AccessFriction'
 }
 
