@@ -55,7 +55,8 @@ import {
 	WE_LIKE_BEING_DATA,
 	NEW_NATURE,
 	ORACLE_MACHINES,
-	CONTACT_ZONES
+	CONTACT_ZONES,
+	MOTHERBOARD
 } from '../../constants/routes';
 
 export interface IProject {
@@ -187,6 +188,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.CONTACT_ZONES,
 		refs: [EProjects.ORACLE_MACHINES, EProjects.NEW_NATURE, EProjects.WE_LIKE_BEING_DATA]
+	},
+	{
+		name: EProjects.MOTHERBOARD,
+		refs: [EProjects.CONTACT_ZONES, EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA]
 	}
 ];
 
@@ -430,5 +435,13 @@ export const projectsDetails = [
 		hover: '/media/contact-zones/image%203.webp',
 		url: CONTACT_ZONES,
 		mobileImage: '/media/contact-zones/main-cover.webp'
+	},
+	{
+		name: EProjects.MOTHERBOARD,
+		nameToShow: 'motherboard',
+		image: '/media/motherboard/download-12.webp',
+		hover: '/media/motherboard/aw_optomizationofparenthood_hr.webp',
+		url: MOTHERBOARD,
+		mobileImage: '/media/motherboard/download-12.webp'
 	}
 ];

@@ -404,5 +404,22 @@ export const projects: Project[] = [
                 artists: ["Danielle Brathwaite-Shirley", "Antigoni Tsagkaropoulou", "Theo Triantafyllidis"],
                 artworks: [],
                 quote: "When a gallery becomes half-field, half-videogame, you feel that negotiation rather than thinking about it abstractly."
+        },
+        {
+                title: "MOTHERBOARD",
+                subtitle: "Wednesday Kim & Addie Wagenknecht",
+                description:
+                        "Care and maintenance circulate in algorithms and interfaces that borrow the rhythms of parenting. MOTHERBOARD follows artists who make maternal labor legible in digital space—not optimizing care away, but holding repetition, failure, and presence in view.",
+                thumbnailPath: [
+                        "media/motherboard/download-12.webp",
+                        "media/motherboard/c-PersonalWednesdayKim__ScreenShot20240419at1.57.21PM_1713560265804.webp",
+                        "media/motherboard/jeremy-bailey-addie-wagenknecht.webp"
+                ],
+                thumbnailPathMobile: "media/motherboard/download-12.webp",
+                buttonPath: "media/home/buttons/XX-button-motherboard.png",
+                pagePath: "/motherboard",
+                artists: ["Wednesday Kim", "Addie Wagenknecht"],
+                artworks: [],
+                quote: "They aren’t optimizing care. They are making it visible, on their own terms."
         }
 ];
