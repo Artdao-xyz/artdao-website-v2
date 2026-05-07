@@ -83,6 +83,5 @@ export const syntheticSensesChatInterview: ChatInterviewData = {
 		}
 	],
 	images: [],
-	background: syntheticSensesChatInterviewBackground,
-	interviewerText: 'Tomas Jones, answers by Parag Mital and Aurora Mititelu'
+	background: syntheticSensesChatInterviewBackground
 };
