@@ -55,7 +55,8 @@ import {
 	WE_LIKE_BEING_DATA,
 	NEW_NATURE,
 	ORACLE_MACHINES,
-	CONTACT_ZONES
+	CONTACT_ZONES,
+	SYNTHETIC_SENSES
 } from '../../constants/routes';
 
 export interface IProject {
@@ -187,6 +188,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.CONTACT_ZONES,
 		refs: [EProjects.ORACLE_MACHINES, EProjects.NEW_NATURE, EProjects.WE_LIKE_BEING_DATA]
+	},
+	{
+		name: EProjects.SYNTHETIC_SENSES,
+		refs: [EProjects.CONTACT_ZONES, EProjects.ORACLE_MACHINES, EProjects.NEW_NATURE]
 	}
 ];
 
@@ -430,5 +435,13 @@ export const projectsDetails = [
 		hover: '/media/contact-zones/image%203.webp',
 		url: CONTACT_ZONES,
 		mobileImage: '/media/contact-zones/main-cover.webp'
+	},
+	{
+		name: EProjects.SYNTHETIC_SENSES,
+		nameToShow: 'synthetic senses',
+		image: '/media/synthetic-senses/main-cover.webp',
+		hover: '/media/synthetic-senses/DSC08823-Edit.webp',
+		url: SYNTHETIC_SENSES,
+		mobileImage: '/media/synthetic-senses/main-cover.webp'
 	}
 ];
