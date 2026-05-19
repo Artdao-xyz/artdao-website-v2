@@ -20,6 +20,7 @@
 	} from '../../data/Projects/SyntheticSenses/ProjectAbout';
 	import {
 		syntheticSensesAuroraGridImages,
+		syntheticSensesParagDropdownItems,
 		syntheticSensesParagGridImages
 	} from '../../data/Projects/SyntheticSenses/ProjectAboutDropdown';
 	import {
@@ -173,7 +174,7 @@
 				isImageLeft={false}
 			/>
 			<ProjectAboutDropdown
-				aboutDropdownItems={undefined}
+				aboutDropdownItems={syntheticSensesParagDropdownItems}
 				images={$preloadedImagesStore[3]}
 				route="parag-mital-works"
 				colorVariant={EColorVariant.BLACK}

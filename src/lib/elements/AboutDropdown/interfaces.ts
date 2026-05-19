@@ -7,6 +7,7 @@ export interface IAboutDropdown {
 	about?: string;
 	image: string;
 	aboutArray?: string[];
+	normalCase?: boolean;
 }
 
 export enum EAboutDropdownVariant {

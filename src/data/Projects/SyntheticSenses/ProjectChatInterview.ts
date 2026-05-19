@@ -79,7 +79,7 @@ export const syntheticSensesChatInterview: ChatInterviewData = {
 		{
 			characterId: 'aurora',
 			content:
-				"I don't think machines feel things. I don't believe algorithms have consciousness or emotions. But I do believe people project feelings onto them. Even though I don't think Able feels anything, interacting with him can feel emotionally real. And that's important. Connection often matters more than whether something is 'real.'"
+				"I don't think machines feel things. I don't believe algorithms have consciousness or emotions. But I do believe people project feelings onto them. Even though I don't think Abel feels anything, interacting with him can feel emotionally real. And that's important. Connection often matters more than whether something is 'real.'"
 		}
 	],
 	images: [],

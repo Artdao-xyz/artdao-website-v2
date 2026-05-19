@@ -1,3 +1,7 @@
+import type { IAboutDropdown } from '$lib/elements/AboutDropdown/interfaces';
+
+const REFIK_ANADOL_IMAGE_CREDIT = 'Images Courtesy of Refik Anadol Studio';
+
 export const syntheticSensesParagGridImages = [
 	'/media/synthetic-senses/WDCHDreams-Keyword_select.width-1600.format-webp.webp',
 	'/media/synthetic-senses/STILL_27-2048x1353.webp',
@@ -6,6 +10,13 @@ export const syntheticSensesParagGridImages = [
 	'/media/synthetic-senses/crop2-1.webp',
 	'/media/synthetic-senses/STILL_27-scaled.webp'
 ];
+
+export const syntheticSensesParagDropdownItems: IAboutDropdown[] =
+	syntheticSensesParagGridImages.map((image, index) => ({
+		name: index < 2 ? REFIK_ANADOL_IMAGE_CREDIT : '',
+		image,
+		normalCase: index < 2
+	}));
 
 export const syntheticSensesAuroraGridImages = [
 	'/media/synthetic-senses/MetaMahala-AuroraMititelu_001.webp',
