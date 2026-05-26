@@ -48,6 +48,7 @@ export enum EProjects {
 	NEW_NATURE = 'NewNature',
 	ORACLE_MACHINES = 'OracleMachines',
 	CONTACT_ZONES = 'ContactZones',
+	SYNTHETIC_SENSES = 'SyntheticSenses',
 	ACCESS_FRICTION = 'AccessFriction'
 }
 

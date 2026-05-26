@@ -406,6 +406,23 @@ export const projects: Project[] = [
                 quote: "When a gallery becomes half-field, half-videogame, you feel that negotiation rather than thinking about it abstractly."
         },
         {
+                title: "Synthetic Senses",
+                subtitle: "Parag Mital & Aurora Mititelu",
+                description:
+                        "What new sensations emerge when perception is no longer bound by biology, but coded, sculpted, and released into a digital system? Artists use machine learning, haptic sensors, and generative audio to scramble perception—building semi-autonomous systems that reclaim the glitch and the overflow.",
+                thumbnailPath: [
+                        "media/synthetic-senses/DSC08823-Edit.webp",
+                        "media/synthetic-senses/crop1-1-1600x756.webp",
+                        "media/synthetic-senses/N02-Genesis_02.webp"
+                ],
+                thumbnailPathMobile: "media/synthetic-senses/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-synthetic-senses.png",
+                pagePath: "/synthetic-senses",
+                artists: ["Parag Mital", "Aurora Mititelu"],
+                artworks: [],
+                quote: "Synthetic senses matter less for accuracy than for the forms of attention they demand."
+        },
+        {
                 title: "Access Friction",
                 subtitle: "Cielo G. Saucedo & Natalee Decker",
                 description:

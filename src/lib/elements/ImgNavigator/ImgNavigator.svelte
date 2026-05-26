@@ -32,7 +32,7 @@
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
 <div class="{navigatorWidth} {height > 660 && height < 1000 ? '' : 'mb-[10rem]'} h-full {width < 500 ? 'flex flex-col' : ''} relative">
 	<!-- Mobile: Info arriba -->
-	{#if width < 500 && aboutDropdownItems}
+	{#if width < 500 && aboutDropdownItems?.[index]?.name}
 		<div class="mb-4 w-full">
 			<div class="flex flex-col gap-2.5 w-full rounded-20 {!isImageWhiteBg ? 'gray-gradient' : 'gray-gradient-2'} p-5">
 				{#if aboutDropdownItems[index].artist}
@@ -45,7 +45,12 @@
 						</h1>
 					</div>
 				{:else}
-					<h1 class="font-clash text-[0.875rem] leading-[0.875rem] tracking-[1.6px] capitalize self-start text-color-white">
+					<h1
+						class="font-clash text-[0.875rem] leading-[0.875rem] tracking-[1.6px] {aboutDropdownItems[index]
+							.normalCase
+							? 'normal-case'
+							: 'capitalize'} self-start text-color-white"
+					>
 						{aboutDropdownItems[index].name}
 					</h1>
 				{/if}
@@ -105,7 +110,7 @@
 		</div>
 
 		<!-- Desktop: Info en posición absoluta -->
-		{#if aboutDropdownItems}
+		{#if aboutDropdownItems?.[index]?.name}
 			<AboutDropdown aboutDropdown={aboutDropdownItems[index]} isWhite={isImageWhiteBg} />
 		{/if}
 	{/if}
