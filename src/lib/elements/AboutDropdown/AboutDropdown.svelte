@@ -64,7 +64,9 @@
 		{:else}
 			<div class="flex flex-row justify-between w-full">
 				<h1
-					class="font-clash text-[0.875rem] leading-[0.875rem] tracking-[1.6px] capitalize self-start"
+					class="font-clash text-[0.875rem] leading-[0.875rem] tracking-[1.6px] {aboutDropdown.normalCase
+						? 'normal-case'
+						: 'capitalize'} self-start"
 				>
 					{aboutDropdown.name}
 				</h1>

@@ -37,7 +37,7 @@ export const motherboardChatInterview: ChatInterviewData = {
 		{
 			characterId: 'wednesday',
 			content:
-				'For me, the third edition of The Rise of the Care Machines happened in my department gallery, where I built everything myself with no assistance. That process—assembling, installing, managing—was itself invisible labor.'
+				'Invisible labor in this practice exists in the processes of assembling, installing, and managing—work that happens before an exhibition opens, unseen. During installation, a child was present throughout, situating this labor within the conditions of everyday caregiving.'
 		},
 		{
 			characterId: 'tomas',

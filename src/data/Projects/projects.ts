@@ -56,6 +56,7 @@ import {
 	NEW_NATURE,
 	ORACLE_MACHINES,
 	CONTACT_ZONES,
+	SYNTHETIC_SENSES,
 	MOTHERBOARD
 } from '../../constants/routes';
 
@@ -190,8 +191,12 @@ export const projects: IProject[] = [
 		refs: [EProjects.ORACLE_MACHINES, EProjects.NEW_NATURE, EProjects.WE_LIKE_BEING_DATA]
 	},
 	{
+		name: EProjects.SYNTHETIC_SENSES,
+		refs: [EProjects.CONTACT_ZONES, EProjects.ORACLE_MACHINES, EProjects.NEW_NATURE]
+	},
+	{
 		name: EProjects.MOTHERBOARD,
-		refs: [EProjects.CONTACT_ZONES, EProjects.PET, EProjects.SUBCONSCIOUS_MEDIA]
+		refs: [EProjects.SYNTHETIC_SENSES, EProjects.CONTACT_ZONES, EProjects.PET]
 	}
 ];
 
@@ -435,6 +440,14 @@ export const projectsDetails = [
 		hover: '/media/contact-zones/image%203.webp',
 		url: CONTACT_ZONES,
 		mobileImage: '/media/contact-zones/main-cover.webp'
+	},
+	{
+		name: EProjects.SYNTHETIC_SENSES,
+		nameToShow: 'synthetic senses',
+		image: '/media/synthetic-senses/main-cover.webp',
+		hover: '/media/synthetic-senses/DSC08823-Edit.webp',
+		url: SYNTHETIC_SENSES,
+		mobileImage: '/media/synthetic-senses/main-cover.webp'
 	},
 	{
 		name: EProjects.MOTHERBOARD,
