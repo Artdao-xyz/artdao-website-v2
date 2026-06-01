@@ -56,7 +56,8 @@ import {
 	NEW_NATURE,
 	ORACLE_MACHINES,
 	CONTACT_ZONES,
-	SYNTHETIC_SENSES
+	SYNTHETIC_SENSES,
+	MOTHERBOARD
 } from '../../constants/routes';
 
 export interface IProject {
@@ -192,6 +193,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.SYNTHETIC_SENSES,
 		refs: [EProjects.CONTACT_ZONES, EProjects.ORACLE_MACHINES, EProjects.NEW_NATURE]
+	},
+	{
+		name: EProjects.MOTHERBOARD,
+		refs: [EProjects.SYNTHETIC_SENSES, EProjects.CONTACT_ZONES, EProjects.PET]
 	}
 ];
 
@@ -443,5 +448,13 @@ export const projectsDetails = [
 		hover: '/media/synthetic-senses/DSC08823-Edit.webp',
 		url: SYNTHETIC_SENSES,
 		mobileImage: '/media/synthetic-senses/main-cover.webp'
+	},
+	{
+		name: EProjects.MOTHERBOARD,
+		nameToShow: 'motherboard',
+		image: '/media/motherboard/download-12.webp',
+		hover: '/media/motherboard/aw_optomizationofparenthood_hr.webp',
+		url: MOTHERBOARD,
+		mobileImage: '/media/motherboard/download-12.webp'
 	}
 ];
