@@ -34,3 +34,4 @@ export const ORACLE_MACHINES = '/oracle-machines';
 export const CONTACT_ZONES = '/contact-zones';
 export const SYNTHETIC_SENSES = '/synthetic-senses';
 export const MOTHERBOARD = '/motherboard';
+export const PORTAL_HIGHWAY = '/portal-highway';

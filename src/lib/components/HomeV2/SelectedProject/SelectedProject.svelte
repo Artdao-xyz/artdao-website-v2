@@ -27,7 +27,7 @@
                 <div class="flex flex-col">
                     <!-- Título del proyecto -->
                     <button
-                        class="text-black text-xs font-robotoMono leading-none tracking-tight hover:text-[#949391] cursor-pointer transition-all"
+                        class="text-black text-xs font-robotoMono leading-none tracking-tight hover:text-black cursor-pointer transition-all"
                         on:click={() => selectedProjectIndex !== null && onProjectClick(selectedProjectIndex)}
                     >
                         {projects[selectedProjectIndex].title}
@@ -38,7 +38,7 @@
                 <div class="flex flex-col items-end gap-1.5">
                     {#each projects[selectedProjectIndex].artists as artist}
                         <button
-                            class="rounded-[100px] inline-flex justify-center items-center leading-none tracking-tight text-xs font-robotoMono font-normal w-fit transition-all text-black hover:text-[#949391] cursor-pointer"
+                            class="rounded-[100px] inline-flex justify-center items-center leading-none tracking-tight text-xs font-robotoMono font-normal w-fit transition-all text-black hover:text-black cursor-pointer"
                             on:click={() => onArtistClick(artist)}
                         >
                             {artist}

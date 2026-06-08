@@ -49,6 +49,7 @@ export enum EProjects {
 	ORACLE_MACHINES = 'OracleMachines',
 	CONTACT_ZONES = 'ContactZones',
 	SYNTHETIC_SENSES = 'SyntheticSenses',
-	MOTHERBOARD = 'Motherboard'
+	MOTHERBOARD = 'Motherboard',
+	PORTAL_HIGHWAY = 'PortalHighway'
 }
 
