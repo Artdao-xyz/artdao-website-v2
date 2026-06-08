@@ -3,6 +3,7 @@
 	import ProjectIntro from '$lib/components/ProjectIntro/ProjectIntro.svelte';
 	import ProjectAbout from '$lib/components/ProjectAbout/ProjectAbout.svelte';
 	import ProjectAboutDropdown from '$lib/components/ProjectAboutDropdown/ProjectAboutDropdown.svelte';
+	import ProjectVideo from '$lib/components/ProjectVideo/ProjectVideo.svelte';
 	import ChatInterview from '$lib/elements/ChatInterview/ChatInterview.svelte';
 	import Footer from '$lib/elements/Footer/Footer.svelte';
 	import HomeIcon from '$lib/elements/HomeIcon/HomeIcon.svelte';
@@ -13,12 +14,14 @@
 	import { portalHighwayNavItems } from '../../data/Projects/PortalHighway/NavItems';
 	import {
 		portalHighwayClaudiaHartAbout,
+		portalHighwayClaudiaHartAboutImage,
 		portalHighwayCollectivePassageAbout,
 		portalHighwayCollectivePassageImage,
 		portalHighwaySpacePopularAbout,
 		portalHighwaySpacePopularAboutImage
 	} from '../../data/Projects/PortalHighway/ProjectAbout';
 	import { portalHighwaySpacePopularGridImages } from '../../data/Projects/PortalHighway/ProjectAboutDropdown';
+	import { portalHighwayClaudiaHartVideos } from '../../data/Projects/PortalHighway/ProjectVideo';
 	import { portalHighwayChatInterview } from '../../data/Projects/PortalHighway/ProjectChatInterview';
 	import { portalHighwayIntro } from '../../data/Projects/PortalHighway/ProjectIntro';
 	import { usePageMetadata } from '$lib/utils/metadata';
@@ -91,6 +94,7 @@
 					[portalHighwayCollectivePassageImage],
 					[portalHighwaySpacePopularAboutImage],
 					portalHighwaySpacePopularGridImages,
+					[portalHighwayClaudiaHartAboutImage],
 					[portalHighwayChatInterview.background]
 				]);
 
@@ -111,7 +115,7 @@
 
 	$: chatInterviewData = {
 		...portalHighwayChatInterview,
-		background: $preloadedImagesStore?.[4]?.[0] ?? portalHighwayChatInterview.background
+		background: $preloadedImagesStore?.[5]?.[0] ?? portalHighwayChatInterview.background
 	};
 </script>
 
@@ -132,8 +136,7 @@
 		>
 			<ProjectIntro
 				project={portalHighwayIntro}
-				textColor="white"
-				textHoverBlack={true}
+				textColor="black"
 				forceHeroBackgroundCover={true}
 				bgImage={$preloadedImagesStore[0][0]}
 				bgImageMobile={$preloadedImagesStore[0][1]}
@@ -187,9 +190,11 @@
 		>
 			<ProjectAbout
 				aboutItem={portalHighwayClaudiaHartAbout}
+				aboutImage={$preloadedImagesStore[4][0]}
 				route="claudia-hart-inner"
 				colorVariant={EColorVariant.BLACK}
 			/>
+			<ProjectVideo videoProjects={portalHighwayClaudiaHartVideos} route="claudia-hart-video" />
 		</div>
 
 		<div

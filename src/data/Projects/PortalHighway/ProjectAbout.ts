@@ -23,3 +23,5 @@ export const portalHighwayClaudiaHartAbout = {
 	subtitle: '',
 	text: ClaudiaHartAbout
 };
+
+export const portalHighwayClaudiaHartAboutImage = '/media/portal-highway/image-about-3.webp';
