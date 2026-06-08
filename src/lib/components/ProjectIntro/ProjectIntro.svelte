@@ -3,6 +3,7 @@
 	import type { IProject } from './interfaces';
 	export let project: IProject;
 	export let textColor: 'black' | 'white' = 'black';
+	export let textHoverBlack = false;
 	export let isContain = false;
 	/** When true, hero background uses cover only (no bg-fit). Use for exhibitions where the cover must fill the frame. */
 	export let forceHeroBackgroundCover = false;
@@ -31,7 +32,7 @@
 				: `${isContain && width > 1100 ? 'sm:bg-cover' : 'bg-cover'} bg-fit bg-no-repeat bg-color-black`
 			: ''} {textColor === 'black'
 			? 'bg-color-white'
-			: 'bg-color-black'} pr-global-padding {backgroundPositionClass}"
+			: 'bg-color-black'} {textHoverBlack ? 'group' : ''} pr-global-padding {backgroundPositionClass}"
 		id="intro"
 		style={width > 1100
 			? `background-image: url(${bgImage || ''}); ${backgroundPositionStyle}`
@@ -43,7 +44,9 @@
 			: 'text-color-white'} pl-global-padding gap-5 bigScreen:gap-10 p-4"
 	>
 		<h1
-			class="font-neue text-[2.5rem] sm:text-[4.375rem] macBook:text-[6.25rem] xlScreen:text-[10rem] xlScreen:leading-[10rem] font-semibold leading-[3rem] sm:leading-[5rem] laptopM:leading-[6.5625rem] tracking-[0.0975rem] uppercase"
+			class="font-neue text-[2.5rem] sm:text-[4.375rem] macBook:text-[6.25rem] xlScreen:text-[10rem] xlScreen:leading-[10rem] font-semibold leading-[3rem] sm:leading-[5rem] laptopM:leading-[6.5625rem] tracking-[0.0975rem] uppercase {textHoverBlack
+				? 'transition-colors group-hover:text-color-black'
+				: ''}"
 		>
 			{@html name}
 		</h1>
@@ -51,7 +54,7 @@
 				class="w-full sm:w-[36.25rem] flex flex-col gap-5 font-clash text-base macBook:text-base laptopL:text-sm bigScreen:text-base xlScreen:text-2xl leading-[1.5625rem]"
 			>
 				{#each description as text}
-					<p>{text}</p>
+					<p class={textHoverBlack ? 'transition-colors group-hover:text-color-black' : ''}>{text}</p>
 				{/each}
 			</div>
 		</div>

@@ -133,6 +133,7 @@
 			<ProjectIntro
 				project={portalHighwayIntro}
 				textColor="white"
+				textHoverBlack={true}
 				forceHeroBackgroundCover={true}
 				bgImage={$preloadedImagesStore[0][0]}
 				bgImageMobile={$preloadedImagesStore[0][1]}

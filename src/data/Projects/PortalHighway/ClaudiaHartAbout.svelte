@@ -34,22 +34,22 @@
 	<div class="flex flex-col gap-1.5 pt-1 font-clash text-sm">
 		<a
 			href="https://vimeo.com/330894393"
-			class="underline transition-colors hover:bg-color-gray hover:text-color-black"
+			class="underline hover:opacity-80"
 			target="_blank"
 			rel="noopener noreferrer">Alice: A Machine For Thinking</a>
 		<a
 			href="https://vimeo.com/1064736482"
-			class="underline transition-colors hover:bg-color-gray hover:text-color-black"
+			class="underline hover:opacity-80"
 			target="_blank"
 			rel="noopener noreferrer">Memory Theater</a>
 		<a
 			href="https://vimeo.com/931649349"
-			class="underline transition-colors hover:bg-color-gray hover:text-color-black"
+			class="underline hover:opacity-80"
 			target="_blank"
 			rel="noopener noreferrer">Kiki.Obj: A Feminist Manifesta of the Blockchain</a>
 		<a
 			href="https://vimeo.com/503693219"
-			class="underline transition-colors hover:bg-color-gray hover:text-color-black"
+			class="underline hover:opacity-80"
 			target="_blank"
 			rel="noopener noreferrer">Welcome to the Doll's House</a>
 	</div>
