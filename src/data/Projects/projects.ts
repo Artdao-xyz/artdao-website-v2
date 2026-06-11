@@ -57,7 +57,8 @@ import {
 	ORACLE_MACHINES,
 	CONTACT_ZONES,
 	SYNTHETIC_SENSES,
-	MOTHERBOARD
+	MOTHERBOARD,
+	PORTAL_HIGHWAY
 } from '../../constants/routes';
 
 export interface IProject {
@@ -197,6 +198,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.MOTHERBOARD,
 		refs: [EProjects.SYNTHETIC_SENSES, EProjects.CONTACT_ZONES, EProjects.PET]
+	},
+	{
+		name: EProjects.PORTAL_HIGHWAY,
+		refs: [EProjects.MOTHERBOARD, EProjects.SYNTHETIC_SENSES, EProjects.ORACLE_MACHINES]
 	}
 ];
 
@@ -456,5 +461,13 @@ export const projectsDetails = [
 		hover: '/media/motherboard/aw_optomizationofparenthood_hr.webp',
 		url: MOTHERBOARD,
 		mobileImage: '/media/motherboard/download-12.webp'
+	},
+	{
+		name: EProjects.PORTAL_HIGHWAY,
+		nameToShow: 'portal highway',
+		image: '/media/portal-highway/cover-main.webp',
+		hover: '/media/portal-highway/SpacePopular_2021_The_Fabric_of_Civic_Teleportation_04.webp',
+		url: PORTAL_HIGHWAY,
+		mobileImage: '/media/portal-highway/cover-main.webp'
 	}
 ];

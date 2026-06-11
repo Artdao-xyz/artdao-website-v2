@@ -438,5 +438,22 @@ export const projects: Project[] = [
                 artists: ["Wednesday Kim", "Addie Wagenknecht"],
                 artworks: [],
                 quote: "They aren’t optimizing care. They are making it visible, on their own terms."
+        },
+        {
+                title: "Portal Highway",
+                subtitle: "Space Popular & Claudia Hart",
+                description:
+                        "Portals are magical infrastructure that determine what moves smoothly and where we end up. Artists in this terrain refuse frictionless crossings—building systems where entering requires choice, passage takes time, and you can still turn back.",
+                thumbnailPath: [
+                        "media/portal-highway/cover-main.webp",
+                        "media/portal-highway/about-2.webp",
+                        "media/portal-highway/SpacePopular_2023_PortalGalleries_MAK_Stills_VRfilm2D_001.webp"
+                ],
+                thumbnailPathMobile: "media/portal-highway/cover-main.webp",
+                buttonPath: "media/home/buttons/XX-button-portal-highway.png",
+                pagePath: "/portal-highway",
+                artists: ["Space Popular", "Claudia Hart"],
+                artworks: [],
+                quote: "The portal becomes a new form of manifesto—protocols for crossing that resist exclusion and embrace the thickness of transition itself."
         }
 ];
