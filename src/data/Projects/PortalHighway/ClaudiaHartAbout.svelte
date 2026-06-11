@@ -31,26 +31,31 @@
 		between consciousness and its digital mirror, between a body that goes outside blinking and a
 		world it built that never asks it to leave.
 	</p>
-	<div class="flex flex-col gap-1.5 pt-1 font-clash text-sm">
-		<a
-			href="https://vimeo.com/330894393"
-			class="underline hover:opacity-80"
-			target="_blank"
-			rel="noopener noreferrer">Alice: A Machine For Thinking</a>
-		<a
-			href="https://vimeo.com/1064736482"
-			class="underline hover:opacity-80"
-			target="_blank"
-			rel="noopener noreferrer">Memory Theater</a>
-		<a
-			href="https://vimeo.com/931649349"
-			class="underline hover:opacity-80"
-			target="_blank"
-			rel="noopener noreferrer">Kiki.Obj: A Feminist Manifesta of the Blockchain</a>
-		<a
-			href="https://vimeo.com/503693219"
-			class="underline hover:opacity-80"
-			target="_blank"
-			rel="noopener noreferrer">Welcome to the Doll's House</a>
-	</div>
+	<p class="font-semibold uppercase tracking-[0.065rem]">
+		The Memory Theaters of Claudia Hart (2022-23)
+	</p>
+	<p>
+		Claudia Hart mixes a recorded sound collage featuring samples from Campion’s audio compositions
+		produced and recorded for their collaborative performances with a Bach piece used as rehearsal music
+		by Kristina Isabelle, whose motion-captured "stilt" dancing is embodied by Hart's Bauhaus-inspired
+		avatars.
+	</p>
+	<p>
+		The background video in the scene shows the initial live motion-capture session. In this version of
+		the piece, Hart removed her normal voice-over so that the avatar dance can fully embody her
+		narrative.
+	</p>
+	<p class="font-semibold uppercase tracking-[0.065rem]">
+		Welcome to the Doll's House
+	</p>
+	<p>
+		"Welcome to the Doll's House" is a live-streamed performance in Mozilla Hubs social VR curated by
+		Asher Remy Toledo as part of the Rome
+	</p>
+	<p>
+		Music by Matthew Gantt performed in real-time in dialog with an original sound track by Kurt
+		Hentschlager. Music was created for "The Doll's House," a media ballet for five dancers,
+		commissioned by the School of the Art Institute of Chicago in 2015. The performance video was
+		produced by Edison Routh.
+	</p>
 </div>
