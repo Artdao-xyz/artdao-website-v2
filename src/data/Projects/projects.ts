@@ -58,7 +58,8 @@ import {
 	CONTACT_ZONES,
 	SYNTHETIC_SENSES,
 	MOTHERBOARD,
-	PORTAL_HIGHWAY
+	PORTAL_HIGHWAY,
+	HUMAN_CAUSED_ERROR
 } from '../../constants/routes';
 
 export interface IProject {
@@ -202,6 +203,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.PORTAL_HIGHWAY,
 		refs: [EProjects.MOTHERBOARD, EProjects.SYNTHETIC_SENSES, EProjects.ORACLE_MACHINES]
+	},
+	{
+		name: EProjects.HUMAN_CAUSED_ERROR,
+		refs: [EProjects.PORTAL_HIGHWAY, EProjects.SYNTHETIC_SENSES, EProjects.CONTACT_ZONES]
 	}
 ];
 
@@ -469,5 +474,13 @@ export const projectsDetails = [
 		hover: '/media/portal-highway/SpacePopular_2021_The_Fabric_of_Civic_Teleportation_04.webp',
 		url: PORTAL_HIGHWAY,
 		mobileImage: '/media/portal-highway/cover-main.webp'
+	},
+	{
+		name: EProjects.HUMAN_CAUSED_ERROR,
+		nameToShow: 'human caused error',
+		image: '/media/human-caused-error/output/VISIONARIAS_EXPOSICIoN-INAGURACION_ETOPIA_JULIAN-FALLAS-555.webp',
+		hover: '/media/human-caused-error/output/Marco-Donnarumma_9_photo-eunice-maurice-CTM-Festival-jpg.webp',
+		url: HUMAN_CAUSED_ERROR,
+		mobileImage: '/media/human-caused-error/output/VISIONARIAS_EXPOSICIoN-INAGURACION_ETOPIA_JULIAN-FALLAS-555.webp'
 	}
 ];
