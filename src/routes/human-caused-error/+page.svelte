@@ -135,7 +135,7 @@
 		>
 			<ProjectIntro
 				project={humanCausedErrorIntro}
-				textColor="black"
+				textColor="white"
 				forceHeroBackgroundCover={true}
 				bgImage={$preloadedImagesStore[0][0]}
 				bgImageMobile={$preloadedImagesStore[0][1]}
@@ -171,6 +171,7 @@
 				route="marco-donnarumma-inner"
 				colorVariant={EColorVariant.BLACK}
 				isImageLeft={false}
+				isImageTop={true}
 			/>
 			<ProjectAboutDropdown
 				aboutDropdownItems={undefined}

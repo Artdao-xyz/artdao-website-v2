@@ -478,9 +478,9 @@ export const projectsDetails = [
 	{
 		name: EProjects.HUMAN_CAUSED_ERROR,
 		nameToShow: 'human caused error',
-		image: '/media/human-caused-error/output/VISIONARIAS_EXPOSICIoN-INAGURACION_ETOPIA_JULIAN-FALLAS-555.webp',
-		hover: '/media/human-caused-error/output/Marco-Donnarumma_9_photo-eunice-maurice-CTM-Festival-jpg.webp',
+		image: '/media/human-caused-error/Marco-Donnarumma-1-1280x853.webp',
+		hover: '/media/human-caused-error/Marco-Donnarumma_9_photo-eunice-maurice-CTM-Festival-jpg.webp',
 		url: HUMAN_CAUSED_ERROR,
-		mobileImage: '/media/human-caused-error/output/VISIONARIAS_EXPOSICIoN-INAGURACION_ETOPIA_JULIAN-FALLAS-555.webp'
+		mobileImage: '/media/human-caused-error/Marco-Donnarumma-1-1280x853.webp'
 	}
 ];

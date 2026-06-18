@@ -9,7 +9,7 @@ export const humanCausedErrorFrictionAbout = {
 };
 
 export const humanCausedErrorFrictionImage =
-	'/media/human-caused-error/output/Marco-Donnarumma_9_photo-eunice-maurice-CTM-Festival-jpg.webp';
+	'/media/human-caused-error/Marco-Donnarumma_9_photo-eunice-maurice-CTM-Festival-jpg.webp';
 
 export const humanCausedErrorMarcoDonnarummaAbout = {
 	title: 'Marco Donnarumma',
@@ -18,7 +18,7 @@ export const humanCausedErrorMarcoDonnarummaAbout = {
 };
 
 export const humanCausedErrorMarcoDonnarummaAboutImage =
-	'/media/human-caused-error/output/marco-donnarumma_by-dario-lagana_2_ed.webp';
+	'/media/human-caused-error/marco-donnarumma_by-dario-lagana_2_ed.webp';
 
 export const humanCausedErrorMonicaRikicAbout = {
 	title: 'Mónica Rikić',
@@ -27,4 +27,4 @@ export const humanCausedErrorMonicaRikicAbout = {
 };
 
 export const humanCausedErrorMonicaRikicAboutImage =
-	'/media/human-caused-error/output/somoure2.webp';
+	'/media/human-caused-error/image.webp';

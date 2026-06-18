@@ -1,7 +1,7 @@
 import type { ChatInterviewData } from '../Orb/ProjectChatInterview';
 
 export const humanCausedErrorChatInterviewBackground =
-	'/media/human-caused-error/output/image2-1198x1200%201.webp';
+	'/media/human-caused-error/image2-1198x1200%201.webp';
 
 export const humanCausedErrorChatInterview: ChatInterviewData = {
 	characters: [
@@ -14,13 +14,13 @@ export const humanCausedErrorChatInterview: ChatInterviewData = {
 		{
 			id: 'marco',
 			name: 'Marco Donnarumma',
-			avatar: '/media/human-caused-error/output/marco-donnarumma_by-dario-lagana_2_ed.webp',
+			avatar: '/media/human-caused-error/marco-donnarumma_by-dario-lagana_2_ed.webp',
 			type: 'answer'
 		},
 		{
 			id: 'monica',
 			name: 'Mónica Rikić',
-			avatar: '/media/human-caused-error/output/somoure2.webp',
+			avatar: '/media/human-caused-error/image.webp',
 			type: 'answer'
 		}
 	],

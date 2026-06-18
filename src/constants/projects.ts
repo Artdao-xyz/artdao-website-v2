@@ -462,11 +462,11 @@ export const projects: Project[] = [
                 description:
                         "Artists who claim misalignment, breakdown, and error as productive sites for inquiry—where friction between human bodies and machines exposes technological assumptions and new forms of embodiment begin to emerge.",
                 thumbnailPath: [
-                        "media/human-caused-error/output/VISIONARIAS_EXPOSICIoN-INAGURACION_ETOPIA_JULIAN-FALLAS-555.webp",
-                        "media/human-caused-error/output/Marco-Donnarumma_9_photo-eunice-maurice-CTM-Festival-jpg.webp",
-                        "media/human-caused-error/output/somoure2.webp"
+                        "media/human-caused-error/Marco-Donnarumma-1-1280x853.webp",
+                        "media/human-caused-error/Marco-Donnarumma_9_photo-eunice-maurice-CTM-Festival-jpg.webp",
+                        "media/human-caused-error/image.webp"
                 ],
-                thumbnailPathMobile: "media/human-caused-error/output/VISIONARIAS_EXPOSICIoN-INAGURACION_ETOPIA_JULIAN-FALLAS-555.webp",
+                thumbnailPathMobile: "media/human-caused-error/Marco-Donnarumma-1-1280x853.webp",
                 buttonPath: "media/home/buttons/XX-button-human-caused-error.png",
                 pagePath: "/human-caused-error",
                 artists: ["Marco Donnarumma", "Mónica Rikić"],
