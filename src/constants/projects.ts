@@ -455,5 +455,22 @@ export const projects: Project[] = [
                 artists: ["Space Popular", "Claudia Hart"],
                 artworks: [],
                 quote: "The portal becomes a new form of manifesto—protocols for crossing that resist exclusion and embrace the thickness of transition itself."
+        },
+        {
+                title: "Human Caused Error",
+                subtitle: "Marco Donnarumma & Mónica Rikić",
+                description:
+                        "Artists who claim misalignment, breakdown, and error as productive sites for inquiry—where friction between human bodies and machines exposes technological assumptions and new forms of embodiment begin to emerge.",
+                thumbnailPath: [
+                        "media/human-caused-error/Marco-Donnarumma-1-1280x853.webp",
+                        "media/human-caused-error/Marco-Donnarumma_9_photo-eunice-maurice-CTM-Festival-jpg.webp",
+                        "media/human-caused-error/image.webp"
+                ],
+                thumbnailPathMobile: "media/human-caused-error/Marco-Donnarumma-1-1280x853.webp",
+                buttonPath: "media/home/buttons/XX-button-human-caused-error.png",
+                pagePath: "/human-caused-error",
+                artists: ["Marco Donnarumma", "Mónica Rikić"],
+                artworks: [],
+                quote: "Friction is not failure, it is where the system reveals itself."
         }
 ];

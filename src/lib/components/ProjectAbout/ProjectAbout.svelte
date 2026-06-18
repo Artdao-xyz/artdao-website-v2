@@ -12,6 +12,7 @@
 	export let isImageLeft = true;
 	export let colorVariant: EColorVariant | string = EColorVariant.BLACK;
 	export let isImageContain = false;
+	export let isImageTop = false;
 </script>
 
 <div class="hidden sm:block">
@@ -26,7 +27,7 @@
 				</div>
 			{/if}
 			{#if aboutImage}
-				<img src={aboutImage} alt="About Section" class="w-full sm:w-1/2 h-100dvh {isImageContain ? 'object-contain' : 'object-cover'}" />
+				<img src={aboutImage} alt="About Section" class="w-full sm:w-1/2 h-100dvh {isImageContain ? 'object-contain' : 'object-cover'} {isImageTop ? 'object-top' : ''}" />
 			{/if}
 			{#if aboutImages}
 				<ImgNavigator images={aboutImages} variant={ESizeVariant.SMALL} />
@@ -48,7 +49,7 @@
 	<SectionContainer {colorVariant} hasPadding={false}>
 		{#if aboutImage}
 			<div class="w-full min-h-dvh flex items-center justify-center p-4">
-				<img src={aboutImage} alt="About Section" class="w-full sm:w-1/2 {isImageContain ? 'object-contain' : 'object-cover'}" />
+				<img src={aboutImage} alt="About Section" class="w-full sm:w-1/2 {isImageContain ? 'object-contain' : 'object-cover'} {isImageTop ? 'object-top' : ''}" />
 			</div>
 		{/if}
 		{#if aboutImages}

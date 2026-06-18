@@ -50,6 +50,7 @@ export enum EProjects {
 	CONTACT_ZONES = 'ContactZones',
 	SYNTHETIC_SENSES = 'SyntheticSenses',
 	MOTHERBOARD = 'Motherboard',
-	PORTAL_HIGHWAY = 'PortalHighway'
+	PORTAL_HIGHWAY = 'PortalHighway',
+	HUMAN_CAUSED_ERROR = 'HumanCausedError'
 }
 
