@@ -19,6 +19,7 @@
 		humanCausedErrorMonicaRikicAboutImage
 	} from '../../data/Projects/HumanCausedError/ProjectAbout';
 	import {
+		humanCausedErrorMarcoDropdownItems,
 		humanCausedErrorMarcoGridImages,
 		humanCausedErrorMonicaGridImages
 	} from '../../data/Projects/HumanCausedError/ProjectAboutDropdown';
@@ -174,7 +175,7 @@
 				isImageTop={true}
 			/>
 			<ProjectAboutDropdown
-				aboutDropdownItems={undefined}
+				aboutDropdownItems={humanCausedErrorMarcoDropdownItems}
 				images={$preloadedImagesStore[3]}
 				route="marco-donnarumma-works"
 				colorVariant={EColorVariant.BLACK}
