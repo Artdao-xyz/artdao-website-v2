@@ -59,7 +59,8 @@ import {
 	SYNTHETIC_SENSES,
 	MOTHERBOARD,
 	PORTAL_HIGHWAY,
-	HUMAN_CAUSED_ERROR
+	HUMAN_CAUSED_ERROR,
+	OFF_PLATFORMS
 } from '../../constants/routes';
 
 export interface IProject {
@@ -207,6 +208,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.HUMAN_CAUSED_ERROR,
 		refs: [EProjects.PORTAL_HIGHWAY, EProjects.SYNTHETIC_SENSES, EProjects.CONTACT_ZONES]
+	},
+	{
+		name: EProjects.OFF_PLATFORMS,
+		refs: [EProjects.HUMAN_CAUSED_ERROR, EProjects.CAFE_EXE, EProjects.NEW_NATURE]
 	}
 ];
 
@@ -482,5 +487,13 @@ export const projectsDetails = [
 		hover: '/media/human-caused-error/Marco-Donnarumma_9_photo-eunice-maurice-CTM-Festival-jpg.webp',
 		url: HUMAN_CAUSED_ERROR,
 		mobileImage: '/media/human-caused-error/Marco-Donnarumma-1-1280x853.webp'
+	},
+	{
+		name: EProjects.OFF_PLATFORMS,
+		nameToShow: 'off-platforms',
+		image: '/media/off-platforms/image.webp',
+		hover: '/media/off-platforms/image%201.webp',
+		url: OFF_PLATFORMS,
+		mobileImage: '/media/off-platforms/image.webp'
 	}
 ];

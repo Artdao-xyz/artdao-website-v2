@@ -51,6 +51,7 @@ export enum EProjects {
 	SYNTHETIC_SENSES = 'SyntheticSenses',
 	MOTHERBOARD = 'Motherboard',
 	PORTAL_HIGHWAY = 'PortalHighway',
-	HUMAN_CAUSED_ERROR = 'HumanCausedError'
+	HUMAN_CAUSED_ERROR = 'HumanCausedError',
+	OFF_PLATFORMS = 'OffPlatforms'
 }
 

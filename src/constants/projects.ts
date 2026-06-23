@@ -472,5 +472,22 @@ export const projects: Project[] = [
                 artists: ["Marco Donnarumma", "Mónica Rikić"],
                 artworks: [],
                 quote: "Friction is not failure, it is where the system reveals itself."
+        },
+        {
+                title: "Off-Platforms",
+                subtitle: "Lou Fauroux & Alice Bucknell",
+                description:
+                        "Lou Fauroux and Alice Bucknell on what it feels like to live inside god-mode infrastructures at the moment their promises start to unravel.",
+                thumbnailPath: [
+                        "media/off-platforms/image.webp",
+                        "media/off-platforms/image 1.webp",
+                        "media/off-platforms/image 2.webp"
+                ],
+                thumbnailPathMobile: "media/off-platforms/image.webp",
+                buttonPath: "media/home/buttons/XX-button-off-platforms.png",
+                pagePath: "/off-platforms",
+                artists: ["Lou Fauroux", "Alice Bucknell"],
+                artworks: [],
+                quote: "The most honest response to planetary-scale infrastructure might be learning to read the ground beneath your feet before the data does it for you."
         }
 ];
