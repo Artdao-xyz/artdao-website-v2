@@ -28,4 +28,38 @@
 		fragile system of dependencies. Technology does not stabilize the body. It amplifies its
 		unpredictability.
 	</p>
+	<p>
+		<strong>Photo #1:</strong><br />
+		Marco Donnarumma in Eingeweide, photo by Manuel Vason.
+	</p>
+	<div class="flex flex-col gap-2">
+		<p>Credits for:</p>
+		<p>
+			Rei - Robot created for the performance Eingeweide by Marco Donnarumma and Margherita Pevere
+		</p>
+		<p>
+			Performance concept, robotic behaviour, engineering, manufacturing, AI programming: Marco
+			Donnarumma
+		</p>
+		<p>Design, design concept and fabrication of the robotic prosthesis: Ana Rajcevic</p>
+		<p>Biofilm skin: Margherita Pevere</p>
+		<p>3D modelling, 3D printing, engineering support: Christian Schmidts</p>
+		<p>
+			Neurorobotics scientific advice, behavioural design framework: Prof. Manfred Hild
+		</p>
+		<p>Scientific support: Neurorobotics Research Lab, Beuth Hochschule, Berlin</p>
+		<p>Mentoring: Alberto de Campo</p>
+		<p>
+			Realised as part of Donnarumma's Fellowship at the Graduiertenschule, Berlin University of the
+			Arts funded by Einstein Stiftung.
+		</p>
+	</div>
+	<p>
+		<strong>Photo #2</strong><br />
+		Marco Donnarumma in Ex Silens, photo by Eunice Maurice for CTM Festival.
+	</p>
+	<p>
+		<strong>Photo #3</strong><br />
+		Artist portrait by Dario J Lagana'.
+	</p>
 </div>
