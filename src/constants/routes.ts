@@ -37,3 +37,4 @@ export const MOTHERBOARD = '/motherboard';
 export const PORTAL_HIGHWAY = '/portal-highway';
 export const HUMAN_CAUSED_ERROR = '/human-caused-error';
 export const OFF_PLATFORMS = '/off-platforms';
+export const ALIEN_ALPHABETS = '/alien-alphabets';

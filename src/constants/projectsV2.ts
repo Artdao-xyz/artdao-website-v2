@@ -143,5 +143,11 @@ export const projectsV2: ProjectV2[] = [
         artists: ["Danielle Brathwaite-Shirley", "Antigoni Tsagkaropoulou", "Theo Triantafyllidis"],
         thumbnailPath: "media/contact-zones/main-cover.webp",
         route: "/contact-zones"
+    },
+    {
+        title: "Alien Alphabets",
+        artists: ["Alice Bucknell", "Kyle McDonald"],
+        thumbnailPath: "media/alien-alphabets/main-cover.webp",
+        route: "/alien-alphabets"
     }
 ];
