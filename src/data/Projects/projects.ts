@@ -62,7 +62,8 @@ import {
 	HUMAN_CAUSED_ERROR,
 	OFF_PLATFORMS,
 	ALIEN_ALPHABETS,
-	CAFE_EXE
+	CAFE_EXE,
+	NONE_OF_THESE_GIRLS_EXIST
 } from '../../constants/routes';
 
 export interface IProject {
@@ -218,6 +219,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.ALIEN_ALPHABETS,
 		refs: [EProjects.OFF_PLATFORMS, EProjects.NEW_NATURE, EProjects.CAFE_EXE]
+	},
+	{
+		name: EProjects.NONE_OF_THESE_GIRLS_EXIST,
+		refs: [EProjects.WE_LIKE_BEING_DATA, EProjects.ONLINE_FEMININITY, EProjects.ALIEN_ALPHABETS]
 	}
 ];
 
@@ -517,5 +522,13 @@ export const projectsDetails = [
 		hover: '/media/alien-alphabets/image_14.webp',
 		url: ALIEN_ALPHABETS,
 		mobileImage: '/media/alien-alphabets/main-cover.webp'
+	},
+	{
+		name: EProjects.NONE_OF_THESE_GIRLS_EXIST,
+		nameToShow: 'none of these girls exist',
+		image: '/media/none-of-these-girls-exist/main-cover.webp',
+		hover: '/media/none-of-these-girls-exist/StarQuest-LA-8.webp',
+		url: NONE_OF_THESE_GIRLS_EXIST,
+		mobileImage: '/media/none-of-these-girls-exist/main-cover.webp'
 	}
 ];

@@ -506,5 +506,22 @@ export const projects: Project[] = [
                 artists: ["Alice Bucknell", "Kyle McDonald"],
                 artworks: [],
                 quote: "What if language's most interesting capacity is to disorient us into new paradigms of knowing—to leak, to sprawl, to speak for itself and to itself?"
+        },
+        {
+                title: "None of These Girls Exist",
+                subtitle: "Maya Man",
+                description:
+                        "What does a dance coach from a reality TV show have to do with the algorithm? For Maya Man, everything. Her Star Quest video work proposes that the logic of platforms like TikTok and the logic of Abby Lee Miller are the same logic.",
+                thumbnailPath: [
+                        "media/none-of-these-girls-exist/main-cover.webp",
+                        "media/none-of-these-girls-exist/StarQuest-LA-8.webp",
+                        "media/none-of-these-girls-exist/StarQuest-LA-3.webp"
+                ],
+                thumbnailPathMobile: "media/none-of-these-girls-exist/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-none-of-these-girls-exist.png",
+                pagePath: "/none-of-these-girls-exist",
+                artists: ["Maya Man"],
+                artworks: ["Star Quest"],
+                quote: "There's a tension between loving it and feeling so critical of it at the same time."
         }
 ];

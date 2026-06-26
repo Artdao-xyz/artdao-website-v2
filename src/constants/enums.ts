@@ -53,6 +53,7 @@ export enum EProjects {
 	PORTAL_HIGHWAY = 'PortalHighway',
 	HUMAN_CAUSED_ERROR = 'HumanCausedError',
 	OFF_PLATFORMS = 'OffPlatforms',
-	ALIEN_ALPHABETS = 'AlienAlphabets'
+	ALIEN_ALPHABETS = 'AlienAlphabets',
+	NONE_OF_THESE_GIRLS_EXIST = 'NoneOfTheseGirlsExist'
 }
 
