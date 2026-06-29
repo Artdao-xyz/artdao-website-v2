@@ -107,8 +107,8 @@
 		>
 			<ProjectIntro
 				project={offPlatformsIntro}
-				textColor="black"
-				isCenterImage
+				textColor="white"
+				backgroundPosition="top"
 				bgImage={$preloadedImagesStore[0][0]}
 				bgImageMobile={$preloadedImagesStore[0][1]}
 			/>

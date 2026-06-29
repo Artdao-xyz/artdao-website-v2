@@ -163,7 +163,7 @@ export const offPlatformsQuoteSections: OffPlatformsQuoteSection[] = [
 		}
 	},
 	{
-		image: '/media/off-platforms/image%206.webp',
+		image: '/media/off-platforms/image.webp',
 		quoteItem: {
 			title: '',
 			subtitle: '',
@@ -193,7 +193,7 @@ export const offPlatformsQuoteImages = offPlatformsQuoteSections
 	.filter((image): image is string => Boolean(image));
 
 export const offPlatformsConclusionAbout = {
-	title: 'In Conclusion',
+	title: 'Read Between The Lines:',
 	subtitle: '',
 	text: ConclusionAbout
 };
