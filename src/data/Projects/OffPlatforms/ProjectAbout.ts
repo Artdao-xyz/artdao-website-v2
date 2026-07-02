@@ -21,7 +21,7 @@ export const offPlatformsQuoteSections: OffPlatformsQuoteSection[] = [
 			segments: [
 				{
 					type: 'content',
-					text: 'Lou, your film WhatRemains imagines a near future where a tech company develops a digital immortality program for an elite few, and the source code is leaked to the public. You started the project five years ago. Do you still believe in the ideas behind the film?'
+					text: 'Lou, your film What Remains imagines a near future where a tech company develops a digital immortality program for an elite few, and the source code is leaked to the public. You started the project five years ago. Do you still believe in the ideas behind the film?'
 				},
 				{
 					type: 'quote',
