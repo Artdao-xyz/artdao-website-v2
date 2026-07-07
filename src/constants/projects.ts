@@ -489,5 +489,22 @@ export const projects: Project[] = [
                 artists: ["Lou Fauroux", "Alice Bucknell"],
                 artworks: [],
                 quote: "The most honest response to planetary-scale infrastructure might be learning to read the ground beneath your feet before the data does it for you."
+        },
+        {
+                title: "Alien Alphabets",
+                subtitle: "Alice Bucknell & Kyle McDonald",
+                description:
+                        "Artificial intelligence has made human knowledge more legible than ever. Yet many artists are moving away from this abundance, drawn instead to the slippery languages of more-than-human forces—communication systems built for beings that don't exist yet, grammars that resist translation by design.",
+                thumbnailPath: [
+                        "media/alien-alphabets/main-cover.webp",
+                        "media/alien-alphabets/image_14.webp",
+                        "media/alien-alphabets/AliceBucknell_1.webp"
+                ],
+                thumbnailPathMobile: "media/alien-alphabets/main-cover.webp",
+                buttonPath: "media/home/buttons/XX-button-alien-alphabets.png",
+                pagePath: "/alien-alphabets",
+                artists: ["Alice Bucknell", "Kyle McDonald"],
+                artworks: [],
+                quote: "What if language's most interesting capacity is to disorient us into new paradigms of knowing—to leak, to sprawl, to speak for itself and to itself?"
         }
 ];

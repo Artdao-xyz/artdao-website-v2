@@ -60,7 +60,9 @@ import {
 	MOTHERBOARD,
 	PORTAL_HIGHWAY,
 	HUMAN_CAUSED_ERROR,
-	OFF_PLATFORMS
+	OFF_PLATFORMS,
+	ALIEN_ALPHABETS,
+	CAFE_EXE
 } from '../../constants/routes';
 
 export interface IProject {
@@ -212,6 +214,10 @@ export const projects: IProject[] = [
 	{
 		name: EProjects.OFF_PLATFORMS,
 		refs: [EProjects.HUMAN_CAUSED_ERROR, EProjects.CAFE_EXE, EProjects.NEW_NATURE]
+	},
+	{
+		name: EProjects.ALIEN_ALPHABETS,
+		refs: [EProjects.OFF_PLATFORMS, EProjects.NEW_NATURE, EProjects.CAFE_EXE]
 	}
 ];
 
@@ -495,5 +501,21 @@ export const projectsDetails = [
 		hover: '/media/off-platforms/image%201.webp',
 		url: OFF_PLATFORMS,
 		mobileImage: '/media/off-platforms/image.webp'
+	},
+	{
+		name: EProjects.CAFE_EXE,
+		nameToShow: 'cafe.exe',
+		image: '/media/cafe-exe/image-intro.webp',
+		hover: '/media/cafe-exe/cafe-exe-carusel/carusel-1.webp',
+		url: CAFE_EXE,
+		mobileImage: '/media/cafe-exe/image-intro.webp'
+	},
+	{
+		name: EProjects.ALIEN_ALPHABETS,
+		nameToShow: 'alien alphabets',
+		image: '/media/alien-alphabets/main-cover.webp',
+		hover: '/media/alien-alphabets/image_14.webp',
+		url: ALIEN_ALPHABETS,
+		mobileImage: '/media/alien-alphabets/main-cover.webp'
 	}
 ];
