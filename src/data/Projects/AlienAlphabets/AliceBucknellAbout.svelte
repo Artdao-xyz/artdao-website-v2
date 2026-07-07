@@ -17,4 +17,5 @@
 	<p>
 		Bucknell is working against the demystifying impulse that runs through most AI language work. The assumption that if we build the right model, we'll finally crack the code of whatever we don't understand yet. They want remystification instead. The same technologies used to render the world legible turned toward making something that resists legibility on purpose.
 	</p>
+	<p>Portrait by Zein Majali, courtesy the artist.</p>
 </div>
