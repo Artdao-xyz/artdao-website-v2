@@ -149,5 +149,11 @@ export const projectsV2: ProjectV2[] = [
         artists: ["Alice Bucknell", "Kyle McDonald"],
         thumbnailPath: "media/alien-alphabets/main-cover.webp",
         route: "/alien-alphabets"
+    },
+    {
+        title: "None of These Girls Exist",
+        artists: ["Maya Man"],
+        thumbnailPath: "media/none-of-these-girls-exist/main-cover.webp",
+        route: "/none-of-these-girls-exist"
     }
 ];
